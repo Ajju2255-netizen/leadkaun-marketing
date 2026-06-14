@@ -12,7 +12,6 @@ import {
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
@@ -23,7 +22,6 @@ import { GradeDistribution } from "@/app/components/viz/grade-distribution"
 import { RupeeMeter } from "@/app/components/viz/rupee-meter"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FeatureCard } from "@/app/components/feature-card"
-import { MetricStrip } from "@/app/components/metric-strip"
 import { CompareTable } from "@/app/components/compare-table"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
 import { IndustryTile } from "@/app/components/industry-tile"
@@ -43,7 +41,6 @@ export default function HomePage() {
 
       <Hero />
       <TrustBar />
-      <Stats />
       <Problem />
       <HowItWorks />
       <Modules />
@@ -55,7 +52,6 @@ export default function HomePage() {
 
       <CTABanner tag={{ number: "09", label: "Ready when you are" }} />
 
-      <InternalLinksGrid />
       <Footer />
     </main>
   )
@@ -203,9 +199,9 @@ function Hero() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const TRUST_STATS = [
-  { value: "50+",      label: "Indian B2B teams" },
-  { value: "12",       label: "verticals live" },
-  { value: "8",        label: "cities shipping" },
+  { value: "₹18L",     label: "avg recovered · 30 days" },
+  { value: "3.4×",     label: "follow-up rate · week 1" },
+  { value: "60 min",   label: "to first graded lead" },
   { value: "₹4.2 Cr",  label: "recovered / quarter" },
 ]
 
@@ -215,7 +211,7 @@ function TrustBar() {
       <Container>
         <div className="rounded-3xl glass-2 elevate-2 gloss-edge px-6 py-7 md:px-10">
           <p className="text-center font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-            Running with Indian B2B sales teams
+            50+ Indian B2B teams · 12 verticals · 8 cities
           </p>
           <dl className="mt-6 grid grid-cols-2 gap-y-5 md:grid-cols-4 md:gap-y-0">
             {TRUST_STATS.map((s, i) => (
@@ -238,27 +234,6 @@ function TrustBar() {
         </div>
       </Container>
     </div>
-  )
-}
-
-/* ───────────────────────────────────────────────────────────────────────
-   STATS — peach-tinted floating tiles on cream
-─────────────────────────────────────────────────────────────────────── */
-
-function Stats() {
-  return (
-    <SectionGround variant="cream" size="md">
-      <Container>
-        <Reveal><MetricStrip
-          items={[
-            { value: "₹18 L",  label: "Avg recovered",        hint: "in the first 30 days" },
-            { value: "3.4×",   label: "Follow-up rate",       hint: "lift by end of week 1" },
-            { value: "60 min", label: "To first graded lead", hint: "from signup" },
-            { value: "50+",    label: "Indian B2B teams",     hint: "running Leadkaun today" },
-          ]}
-        /></Reveal>
-      </Container>
-    </SectionGround>
   )
 }
 
@@ -574,25 +549,40 @@ function Testimonials() {
   return (
     <SectionGround variant="cream" size="lg">
       <Container>
-        <Reveal className="mb-10">
-          <NumberedTag number="06" label="What sales leaders say" tone="warm" />
+        <Reveal className="mb-12 md:mb-14 max-w-3xl">
+          <NumberedTag number="06" label="Proof" tone="warm" />
+          <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+            Results, in their words.
+          </h2>
+          <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+            Real Indian B2B teams — real numbers, within weeks of switching.
+          </p>
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
           <TestimonialCard
-            quote="We were getting 200+ enquiries a month and converting 3–4%. After Leadkaun, our reps called Grade A leads within the hour. Conversion hit 8% in six weeks. That's ₹38L in additional revenue."
+            stat="+₹38L"
+            statLabel="added in 6 weeks"
+            accent="mint"
+            quote="200+ enquiries a month, converting 3–4%. After Leadkaun, reps called Grade A leads within the hour — conversion hit 8% in six weeks."
             name="Priya S."
             role="Co-Founder, Real Estate Agency"
             city="Pune"
           />
           <TestimonialCard
-            quote="Agent-attribution disputes dropped 80% in two months. Our audit review used to take three days pulling records — now it's three hours. One export from Leadkaun."
+            stat="−80%"
+            statLabel="attribution disputes"
+            accent="sky"
+            quote="Audit review used to take three days pulling records — now it's three hours, one export. Agent-attribution disputes dropped 80% in two months."
             name="Vikram N."
             role="Insurance Branch Manager"
             city="Mumbai"
           />
           <TestimonialCard
-            quote="Counsellor morning triage went from 30 minutes to 2. We closed 12 more admissions in April because every counsellor knew which Grade A parent to call at 9 AM."
+            stat="+12"
+            statLabel="admissions in April"
+            accent="peach"
+            quote="Counsellor morning triage went from 30 minutes to 2. Every counsellor knew which Grade A parent to call at 9 AM — and we closed 12 more admissions."
             name="Rajesh M."
             role="EdTech Sales Head"
             city="Bengaluru"

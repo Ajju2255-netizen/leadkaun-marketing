@@ -3,7 +3,6 @@ import { Check, X, Minus } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -264,7 +263,6 @@ export function ComparePageLayout(p: CompareProps) {
           sub="Import a CSV. Run both in parallel. Measure ₹ recovered. Decide at day 60."
         />
 
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

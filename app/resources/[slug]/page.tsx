@@ -6,7 +6,6 @@ import { Check } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -230,7 +229,6 @@ export default async function ResourcePage({ params }: Params) {
           headline="Skip the manual version."
           sub="Everything this resource teaches, Leadkaun automates in 60 minutes — scoring, Priority Queue, Morning Brief, ₹ at risk. No spreadsheet to maintain."
         />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

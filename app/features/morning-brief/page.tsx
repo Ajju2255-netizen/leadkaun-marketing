@@ -4,7 +4,6 @@ import { Mail, Gauge, ListOrdered, AlertTriangle } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -203,7 +202,6 @@ export default function MorningBriefPage() {
           sub="Sign up today. Import your leads. Your team gets its first Brief before stand-up."
         />
 
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

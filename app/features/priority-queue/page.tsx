@@ -4,7 +4,6 @@ import { ListOrdered, Gauge, AlertTriangle, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -150,7 +149,6 @@ export default function PriorityQueuePage() {
           sub="Import your leads. Leadkaun grades and ranks them. First queue built within the hour."
         />
 
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

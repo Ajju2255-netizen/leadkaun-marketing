@@ -4,7 +4,6 @@ import { Users, Gauge, AlertTriangle, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -156,7 +155,6 @@ export default function SalesRepTrackingPage() {
           sub="Import your leads today. By Monday's Brief, every rep has a scorecard. Coaching becomes specific."
         />
 
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

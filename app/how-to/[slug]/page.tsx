@@ -6,7 +6,6 @@ import { Check, X } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -225,7 +224,6 @@ export default async function HowToPage({ params }: Params) {
           headline="Want this running automatically?"
           sub="Leadkaun automates the workflow above in 60 minutes — no spreadsheet maintenance, no manual updates, no ops overhead."
         />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

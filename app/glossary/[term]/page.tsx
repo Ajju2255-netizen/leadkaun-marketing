@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -177,7 +176,6 @@ export default async function GlossaryTermPage({ params }: Params) {
           headline="Stop defining. Start scoring."
           sub="Leadkaun puts these concepts into practice — A–F grading, Priority Queue, Missed ₹. Setup in 60 minutes."
         />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

@@ -6,7 +6,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -247,7 +246,6 @@ export default async function IntegrationPage({ params }: Params) {
           headline={`Ship Leadkaun with ${entry.name}.`}
           sub="Setup takes 60 minutes. 14-day trial. No credit card. Connect your stack and watch behaviour show up by Friday."
         />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

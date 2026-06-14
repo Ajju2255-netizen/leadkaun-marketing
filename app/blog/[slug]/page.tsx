@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -159,7 +158,6 @@ export default async function BlogPostPage({ params }: Params) {
           headline="See how Leadkaun solves this."
           sub="A–F lead scoring in under 500ms, a Priority Queue your reps actually use, and ₹ at risk surfaced before deals rot. Setup in 60 minutes."
         />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

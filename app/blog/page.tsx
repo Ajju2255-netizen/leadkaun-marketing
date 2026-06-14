@@ -5,7 +5,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -187,7 +186,6 @@ export default function BlogPage() {
         headline="Stop reading. Start scoring."
         sub="Leadkaun grades every lead A–F, ranks the queue, and surfaces missed ₹ — so Monday actually feels like progress."
       />
-      <InternalLinksGrid />
       <Footer />
     </main>
   )

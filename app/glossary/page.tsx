@@ -4,7 +4,6 @@ import Link from "next/link"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import InternalLinksGrid from "@/app/components/internal-links-grid"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -111,7 +110,6 @@ export default async function GlossaryIndexPage() {
         </SectionGround>
 
         <CTABanner />
-        <InternalLinksGrid />
         <Footer />
       </main>
     </>

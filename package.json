@@ -13,9 +13,9 @@
     "submit-urls": "node scripts/submit-urls.js",
     "submit-all": "node scripts/submit-urls.js --all",
     "submit-google": "node scripts/submit-urls.js --protocol=google",
-    "cf:build": "next build && opennextjs-cloudflare build",
-    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf:build": "export NEXT_PUBLIC_SITE_URL=https://leadkaun.com NEXT_PUBLIC_APP_URL=https://app.leadkaun.com NEXT_PUBLIC_APP_LOGIN_URL=https://app.leadkaun.com/login NEXT_PUBLIC_APP_REGISTER_URL=https://app.leadkaun.com/register && opennextjs-cloudflare build",
+    "cf:preview": "npm run cf:build && opennextjs-cloudflare preview",
+    "cf:deploy": "npm run cf:build && opennextjs-cloudflare deploy",
     "cf:upload-data": "node scripts/upload-data-to-r2.js",
     "cf:typegen": "wrangler types"
   },

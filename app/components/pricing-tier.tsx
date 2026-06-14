@@ -9,6 +9,8 @@ type Props = {
   priceUnit?: string
   description: string
   features: string[]
+  /** annual-billing hint shown under the price, e.g. "₹10,790/rep billed yearly · save 10%" */
+  annualNote?: string
   ctaLabel: string
   ctaHref: string
   ctaVariant?: "default" | "outline"
@@ -23,6 +25,7 @@ export function PricingTier({
   priceUnit = "/rep/month",
   description,
   features,
+  annualNote,
   ctaLabel,
   ctaHref,
   ctaVariant = "outline",
@@ -35,7 +38,7 @@ export function PricingTier({
       className={cn(
         "relative flex flex-col rounded-3xl p-8 lift",
         highlighted
-          ? "glass-3 elevate-3 gloss-edge"
+          ? "glass-3 elevate-3 gloss-edge md:-translate-y-3 md:scale-[1.015]"
           : "glass-2 elevate-2 gloss-edge aura-sky-hover",
         className
       )}
@@ -68,12 +71,15 @@ export function PricingTier({
         <p className="mt-1.5 text-[14px] text-ink-soft leading-snug">{description}</p>
       </div>
 
-      <div className="mb-6 flex items-baseline gap-2">
+      <div className="mb-1 flex items-baseline gap-2">
         <span className="font-mono text-[44px] font-medium tracking-[-0.03em] text-ink tabular">
           {price}
         </span>
         <span className="text-[13px] text-ink-muted">{priceUnit}</span>
       </div>
+      <p className="mb-6 h-4 text-[12px] font-medium text-mint-600">
+        {annualNote}
+      </p>
 
       <ul className="mb-8 flex flex-1 flex-col gap-3">
         {features.map((f) => (

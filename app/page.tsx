@@ -7,6 +7,14 @@ import {
   MessageSquare,
   Users,
   ArrowRight,
+  Building2,
+  GraduationCap,
+  ShieldCheck,
+  Cloud,
+  Factory,
+  Briefcase,
+  HeartPulse,
+  Check,
 } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
@@ -410,12 +418,12 @@ function HowItWorks() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const MODULES = [
-  { icon: BarChart3,    title: "Lead Scoring Engine",       description: "Grade A–F in under 500 ms. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
-  { icon: ListOrdered,  title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
-  { icon: AlertTriangle, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
-  { icon: Mail,          title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
-  { icon: MessageSquare, title: "WhatsApp Tracking",         description: "70% of Indian B2B first-contact is on WhatsApp. 3-tap logging feeds the Intent Score.",         href: "/features/whatsapp-tracking" },
-  { icon: Users,         title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, follow-up completion — without micromanagement.",   href: "/features/sales-rep-tracking" },
+  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in under 500 ms. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
+  { icon: ListOrdered,   tag: "Queue",   accent: "sky"   as const, title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
+  { icon: AlertTriangle, tag: "Revenue", accent: "peach" as const, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
+  { icon: Mail,          tag: "Digest",  accent: "cyan"  as const, title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
+  { icon: MessageSquare, tag: "Signal",  accent: "mint"  as const, title: "WhatsApp Tracking",         description: "70% of Indian B2B first-contact is on WhatsApp. 3-tap logging feeds the Intent Score.",         href: "/features/whatsapp-tracking" },
+  { icon: Users,         tag: "Team",    accent: "sky"   as const, title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, follow-up completion — without micromanagement.",   href: "/features/sales-rep-tracking" },
 ]
 
 function Modules() {
@@ -433,14 +441,15 @@ function Modules() {
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {MODULES.map((m, i) => (
+          {MODULES.map((m) => (
             <FeatureCard
               key={m.href}
               icon={m.icon}
+              tag={m.tag}
+              accent={m.accent}
               title={m.title}
               description={m.description}
               href={m.href}
-              variant={i % 2 === 1 ? "soft" : "default"}
             />
           ))}
         </Reveal>
@@ -497,14 +506,14 @@ function NotACRM() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const INDUSTRIES = [
-  { href: "/use-cases/real-estate",   label: "Real Estate",         meta: "₹5–50L GCV" },
-  { href: "/use-cases/edtech",        label: "EdTech",              meta: "Admissions cycles" },
-  { href: "/use-cases/bfsi",          label: "BFSI & Insurance",    meta: "Audit-ready" },
-  { href: "/use-cases/saas",          label: "SaaS",                meta: "Trial to paid" },
-  { href: "/use-cases/manufacturing", label: "Manufacturing",       meta: "90-day cycles" },
-  { href: "/use-cases/agencies",      label: "Agencies",            meta: "Multi-client" },
-  { href: "/use-cases/healthcare",    label: "Healthcare",          meta: "DND-compliant" },
-  { href: "/use-cases",               label: "See all industries",  meta: "12 verticals" },
+  { href: "/use-cases/real-estate",   label: "Real Estate",         meta: "₹5–50L GCV",        icon: Building2 },
+  { href: "/use-cases/edtech",        label: "EdTech",              meta: "Admissions cycles", icon: GraduationCap },
+  { href: "/use-cases/bfsi",          label: "BFSI & Insurance",    meta: "Audit-ready",       icon: ShieldCheck },
+  { href: "/use-cases/saas",          label: "SaaS",                meta: "Trial to paid",     icon: Cloud },
+  { href: "/use-cases/manufacturing", label: "Manufacturing",       meta: "90-day cycles",     icon: Factory },
+  { href: "/use-cases/agencies",      label: "Agencies",            meta: "Multi-client",      icon: Briefcase },
+  { href: "/use-cases/healthcare",    label: "Healthcare",          meta: "DND-compliant",     icon: HeartPulse },
+  { href: "/use-cases",               label: "See all industries",  meta: "12 verticals →",    cta: true },
 ]
 
 function Industries() {
@@ -607,6 +616,7 @@ function Pricing() {
             name="Starter"
             description="Small teams getting scoring + queue live for the first time."
             price="₹999"
+            annualNote="₹10,790/rep billed yearly"
             features={[
               "Up to 10 reps",
               "All 12 core modules",
@@ -621,6 +631,7 @@ function Pricing() {
             name="Growth"
             description="Most Indian SMBs (10–30 reps). Custom ICP, all behaviour features."
             price="₹1,999"
+            annualNote="₹21,590/rep billed yearly · save 10%"
             features={[
               "Up to 30 reps",
               "Everything in Starter",
@@ -637,6 +648,7 @@ function Pricing() {
             name="Scale"
             description="Scaling teams (30–50 reps) wanting full admin + audit."
             price="₹2,999"
+            annualNote="₹32,390/rep billed yearly"
             features={[
               "Up to 50 reps",
               "Everything in Growth",
@@ -650,7 +662,20 @@ function Pricing() {
           />
         </Reveal>
 
-        <div className="mt-10 flex justify-start">
+        <Reveal delay={0.12} className="mt-10 flex flex-col items-center gap-5 text-center">
+          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
+            {["14-day free trial", "No credit card", "Cancel anytime", "All 12 modules, every tier"].map((t) => (
+              <li key={t} className="inline-flex items-center gap-2 text-[13.5px] font-medium text-ink-soft">
+                <span
+                  className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)" }}
+                >
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
           <Link
             href="/pricing"
             className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500"
@@ -658,7 +683,7 @@ function Pricing() {
             See full pricing &amp; comparison
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
-        </div>
+        </Reveal>
       </Container>
     </SectionGround>
   )

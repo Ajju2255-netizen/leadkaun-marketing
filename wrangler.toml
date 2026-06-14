@@ -11,6 +11,16 @@ compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 account_id = "19650c4ca8e6e4ed2699a0b288206b03"
 
 # ─────────────────────────────────────────────────────────────────────────
+# Custom domains — apex + www serve the marketing site.
+# NOTE: the conflicting Cloudflare DNS records must be removed first
+# (apex A → Vercel, www CNAME → Vercel); the app now lives at app.leadkaun.com.
+# ─────────────────────────────────────────────────────────────────────────
+routes = [
+  { pattern = "leadkaun.com", custom_domain = true },
+  { pattern = "www.leadkaun.com", custom_domain = true },
+]
+
+# ─────────────────────────────────────────────────────────────────────────
 # Static assets (CSS, JS, images bundled by Next/OpenNext)
 # ─────────────────────────────────────────────────────────────────────────
 [assets]

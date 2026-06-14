@@ -44,11 +44,13 @@ export function CompareTable({
           {leftHeader}
         </div>
         <div
-          className="px-6 py-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600 md:px-8"
+          className="relative flex items-center gap-2 px-6 py-5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-sky-700 md:px-8"
           style={{
-            background: "linear-gradient(180deg, rgba(186,230,253,0.30) 0%, transparent 100%)",
+            background: "linear-gradient(180deg, rgba(56,189,248,0.22) 0%, rgba(186,230,253,0.10) 100%)",
+            boxShadow: "inset 0 2px 0 #0EA5E9",
           }}
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
           {rightHeader}
         </div>
       </div>
@@ -69,7 +71,7 @@ export function CompareTable({
               >
                 <X className="h-3 w-3 text-ink-muted" strokeWidth={2.5} />
               </span>
-              <span className="text-[14px] md:text-[15px] leading-[1.55] text-ink-muted">
+              <span className="text-[14px] md:text-[15px] leading-[1.55] text-ink-soft line-through decoration-ink-faint/60 decoration-1">
                 {r.left}
               </span>
             </div>
@@ -78,7 +80,8 @@ export function CompareTable({
               className="relative flex items-start gap-3 px-6 py-5 md:px-8"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(186,230,253,0.18) 0%, rgba(186,230,253,0.04) 100%)",
+                  "linear-gradient(90deg, rgba(56,189,248,0.14) 0%, rgba(186,230,253,0.05) 100%)",
+                boxShadow: "inset 2px 0 0 rgba(14,165,233,0.35)",
               }}
             >
               <span

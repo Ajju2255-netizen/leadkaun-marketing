@@ -53,7 +53,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        // !fixed: the scrolled state adds `gloss-edge`, whose `position: relative`
+        // would otherwise override `fixed` and drop the navbar into flow (causing a
+        // 66px jump + flicker on scroll). Force fixed to win.
+        "!fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "glass-2 gloss-edge shadow-[0_8px_24px_-12px_rgba(15,23,42,0.10)]"
           : "glass-1"

@@ -19,6 +19,8 @@ import { GradientBlob } from "@/app/components/gradient-blob"
 import { GlossLink, GlossNavLink } from "@/app/components/gloss-button"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
+import { GradeDistribution } from "@/app/components/viz/grade-distribution"
+import { RupeeMeter } from "@/app/components/viz/rupee-meter"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FeatureCard } from "@/app/components/feature-card"
 import { MetricStrip } from "@/app/components/metric-strip"
@@ -60,8 +62,21 @@ export default function HomePage() {
 }
 
 /* ───────────────────────────────────────────────────────────────────────
-   HERO — layered mesh + floating glass plate + decorative chips
+   HERO — asymmetric: copy + live Priority-Queue product preview
 ─────────────────────────────────────────────────────────────────────── */
+
+const GRADE_BG: Record<string, string> = {
+  A: "linear-gradient(180deg,#6EE7B7,#10B981)",
+  B: "linear-gradient(180deg,#38BDF8,#0EA5E9)",
+  C: "linear-gradient(180deg,#FDBA74,#FB923C)",
+}
+
+const HERO_QUEUE = [
+  { grade: "A", name: "Priya Sharma", company: "Sunrise Realty",  value: "42L", ago: "now" },
+  { grade: "A", name: "Rahul Mehta",  company: "Apex Capital",    value: "28L", ago: "4m ago" },
+  { grade: "B", name: "Anjali Rao",   company: "BrightEdu",       value: "9L",  ago: "1h ago" },
+  { grade: "C", name: "Imran Khan",   company: "Metro Logistics", value: "3L",  ago: "3h ago" },
+]
 
 function Hero() {
   return (
@@ -72,101 +87,111 @@ function Hero() {
       <GradientBlob color="peach" size="xl" position="-bottom-40 -right-20" intensity={0.65} delay={2} />
 
       <Container className="relative">
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-          {/* Brand chip */}
-          <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 glass-1 gloss-edge">
-            <LeadkaunMark size={14} />
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">
-              India&apos;s Sales Behaviour OS
-            </span>
-          </div>
+        <div className="grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14">
 
-          <h1 className="mt-8 text-[44px] font-semibold leading-[1.04] tracking-[-0.04em] text-ink md:text-[80px]">
-            The sales software that
-            <br className="hidden md:block" />{" "}
-            tells your team{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 45%, #FB923C 100%)",
-              }}
-            >
-              exactly what to do next.
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-[17px] leading-[1.55] text-ink-soft md:text-[20px] md:leading-[1.5]">
-            Leadkaun grades every lead A–F, builds each rep&apos;s Priority Queue,
-            and surfaces missed revenue in rupees — so your team closes more and wastes less.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <GlossLink
-              variant="primary"
-              size="lg"
-              href={APP_URLS.register}
-            >
-              Start free trial
-              <span className="font-mono opacity-80">→</span>
-            </GlossLink>
-            <GlossNavLink variant="glass" size="lg" href="/demo">
-              Book a 15-min demo
-            </GlossNavLink>
-          </div>
-
-          <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-            50+ Indian B2B teams · 60-min setup · No credit card
-          </p>
-        </div>
-
-        {/* Decorative floating glass chips — visual depth only */}
-        <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
-          {/* Top-right: Grade A card */}
-          <div className="absolute right-[6%] top-[8%] rotate-[6deg]">
-            <div className="flex items-center gap-3 rounded-2xl px-4 py-3 glass-2 elevate-2 gloss-edge">
-              <span
-                className="flex h-9 w-9 items-center justify-center rounded-full font-mono text-[14px] font-bold text-white"
-                style={{
-                  background: "linear-gradient(180deg, #6EE7B7 0%, #10B981 100%)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 4px 10px rgba(16,185,129,0.32)",
-                }}
-              >
-                A
+          {/* ── LEFT: copy ───────────────────────────────────────────── */}
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 glass-1 gloss-edge">
+              <LeadkaunMark size={14} />
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">
+                India&apos;s Sales Behaviour OS
               </span>
-              <div className="text-left">
-                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">Grade A</div>
-                <div className="font-mono text-[14px] font-semibold text-ink tabular">₹4.2L · ready</div>
+            </div>
+
+            <h1 className="mt-7 text-[40px] font-semibold leading-[1.02] tracking-[-0.04em] text-ink md:text-[62px]">
+              Tell every rep{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 45%, #FB923C 100%)" }}
+              >
+                exactly who to call next.
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-ink-soft md:text-[19px]">
+              Leadkaun grades every lead A–F, builds each rep&apos;s Priority Queue, and surfaces
+              missed revenue in ₹ — so your team closes more and wastes less.
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <GlossLink variant="primary" size="lg" href={APP_URLS.register}>
+                Start free trial
+                <span className="font-mono opacity-80">→</span>
+              </GlossLink>
+              <GlossNavLink variant="glass" size="lg" href="/demo">
+                Book a 15-min demo
+              </GlossNavLink>
+            </div>
+
+            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+              50+ Indian B2B teams · 60-min setup · No credit card
+            </p>
+          </div>
+
+          {/* ── RIGHT: live product preview (Priority Queue) ─────────── */}
+          <div className="relative">
+            {/* floating accent chips for depth */}
+            <div className="pointer-events-none absolute -left-4 -top-4 z-20 hidden -rotate-[5deg] md:block">
+              <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-2 glass-peach gloss-edge elevate-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full" style={{ background: "linear-gradient(180deg,#FDBA74,#FB923C)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5)" }}>
+                  <ArrowRight className="h-3 w-3 -rotate-45 text-white" strokeWidth={3} />
+                </span>
+                <span className="font-mono text-[12px] font-semibold text-orange-500 tabular">+3.4× follow-ups</span>
+              </div>
+            </div>
+            <div className="pointer-events-none absolute -right-4 bottom-6 z-20 hidden rotate-[4deg] md:block">
+              <div className="rounded-2xl px-4 py-2.5 glass-sky gloss-edge elevate-2">
+                <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-sky-600">Recovered · week 1</div>
+                <div className="font-mono text-[18px] font-semibold tabular text-ink">₹18.4L</div>
+              </div>
+            </div>
+
+            {/* main panel */}
+            <div className="relative rounded-[28px] glass-3 gloss-edge elevate-3 p-5 md:p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Priority Queue · Today</p>
+                  <h3 className="mt-1.5 text-[18px] font-semibold tracking-[-0.02em] text-ink">Who to call next</h3>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-full glass-1 gloss-edge px-2.5 py-1">
+                  <span className="relative flex h-1.5 w-1.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint-400 opacity-75" /><span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mint-500" /></span>
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-soft">8 hot</span>
+                </span>
+              </div>
+
+              {/* ₹ at risk strip */}
+              <div className="mt-4 flex items-center justify-between rounded-2xl glass-peach gloss-edge px-4 py-3">
+                <span className="text-[12.5px] font-medium text-ink-soft">₹ at risk today</span>
+                <span className="font-mono text-[19px] font-semibold tabular text-orange-500">₹4.2L</span>
+              </div>
+
+              {/* lead rows */}
+              <div className="mt-3.5 space-y-2.5">
+                {HERO_QUEUE.map((l, i) => (
+                  <div key={l.name} className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white/65 gloss-edge px-3.5 py-2.5">
+                    <span
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl font-mono text-[13px] font-bold text-white"
+                      style={{ background: GRADE_BG[l.grade], boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 3px 8px rgba(15,23,42,0.16)" }}
+                    >
+                      {l.grade}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-[13.5px] font-semibold leading-tight text-ink">{l.name}</p>
+                      <p className="truncate font-mono text-[11px] text-ink-muted">{l.company} · ₹{l.value}</p>
+                    </div>
+                    {i === 0 ? (
+                      <span className="shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold text-white" style={{ background: "linear-gradient(180deg,#38BDF8,#0EA5E9)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 3px 10px rgba(14,165,233,0.32)" }}>
+                        Call now
+                      </span>
+                    ) : (
+                      <span className="shrink-0 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-faint">{l.ago}</span>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Bottom-left: follow-up lift chip */}
-          <div className="absolute left-[5%] bottom-[10%] -rotate-[5deg]">
-            <div className="flex items-center gap-2 rounded-full px-4 py-2.5 glass-peach gloss-edge">
-              <span
-                className="flex h-6 w-6 items-center justify-center rounded-full"
-                style={{
-                  background: "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5)",
-                }}
-              >
-                <ArrowRight className="h-3 w-3 text-white -rotate-45" strokeWidth={3} />
-              </span>
-              <span className="font-mono text-[12px] font-semibold text-orange-500 tabular">+3.4× follow-ups</span>
-            </div>
-          </div>
-
-          {/* Mid-right: priority queue dot */}
-          <div className="absolute right-[10%] bottom-[18%] rotate-[3deg]">
-            <div className="rounded-2xl px-4 py-3 glass-sky gloss-edge">
-              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-sky-600">Queue</div>
-              <div className="mt-1 flex items-center gap-1.5">
-                <span className="h-1.5 w-8 rounded-full bg-sky-500" />
-                <span className="h-1.5 w-5 rounded-full bg-sky-300" />
-                <span className="h-1.5 w-3 rounded-full bg-sky-200" />
-              </div>
-            </div>
-          </div>
         </div>
       </Container>
     </SectionGround>
@@ -310,23 +335,29 @@ const STEPS = [
     n: "01",
     tag: "GRADE",
     h: "Every lead scored A–F in 500 ms.",
-    b: "Three independent scores — Fit (ICP match), Intent (engagement), Quality (data reliability). Transparent weights. No black box.",
-    meta: "Runs on every Google Sheet / CSV / form submission.",
+    b: "Fit + Intent + Quality — transparent weights, no black box. Runs on every Sheet, CSV, and form.",
+    meta: "Transparent scoring, auditable weights.",
   },
   {
     n: "02",
     tag: "PRIORITISE",
-    h: "Queue re-ranks in real time.",
-    b: "As WhatsApp replies arrive and intent decays overnight, each rep's queue updates itself. Reps work top-down. Decision made.",
+    h: "The queue re-ranks itself, live.",
+    b: "As WhatsApp replies land and intent decays overnight, each rep's list re-orders. They just work top-down.",
     meta: "No 90-minute morning triage. Ever.",
   },
   {
     n: "03",
     tag: "RECOVER",
-    h: "Missed Opportunity surfaces ₹ at risk.",
-    b: "Every stale lead gets a rupee value. Monday review opens with ₹4.2L at risk, broken down per rep and per source.",
-    meta: "Accountability in money, not activity counts.",
+    h: "Missed revenue surfaced in ₹.",
+    b: "Every stale lead gets a rupee value. Monday review opens with the exact ₹ at risk, per rep and source.",
+    meta: "Accountability in money, not activity.",
   },
+]
+
+const MINI_QUEUE = [
+  { grade: "A", name: "Priya S.", w: "92%" },
+  { grade: "A", name: "Rahul M.", w: "78%" },
+  { grade: "B", name: "Anjali R.", w: "54%" },
 ]
 
 function HowItWorks() {
@@ -370,9 +401,33 @@ function HowItWorks() {
               <h3 className="mt-7 text-[20px] font-semibold leading-[1.25] tracking-[-0.01em] text-ink">
                 {s.h}
               </h3>
-              <p className="mt-3 flex-1 text-[15px] leading-[1.6] text-ink-soft">{s.b}</p>
+              <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">{s.b}</p>
+
+              {/* live visual — the product, shown */}
+              <div className="mt-6 rounded-2xl border border-white/70 bg-white/55 gloss-edge p-4 md:p-5">
+                {s.n === "01" && <GradeDistribution />}
+                {s.n === "02" && (
+                  <div>
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Today&apos;s queue</p>
+                    <div className="mt-3 space-y-2">
+                      {MINI_QUEUE.map((q) => (
+                        <div key={q.name} className="flex items-center gap-2.5">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg font-mono text-[11px] font-bold text-white" style={{ background: GRADE_BG[q.grade] }}>{q.grade}</span>
+                          <span className="w-16 shrink-0 truncate text-[12px] font-medium text-ink">{q.name}</span>
+                          <span className="h-2 flex-1 overflow-hidden rounded-full bg-sky-100">
+                            <span className="block h-full rounded-full" style={{ width: q.w, background: "linear-gradient(90deg,#7DD3FC,#0EA5E9)" }} />
+                          </span>
+                          <span className="w-9 shrink-0 text-right font-mono text-[11px] tabular-nums text-ink-muted">{q.w}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {s.n === "03" && <RupeeMeter />}
+              </div>
+
               <p
-                className="mt-6 pt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted"
+                className="mt-auto pt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted"
                 style={{ borderTop: "1px solid var(--hairline)" }}
               >
                 {s.meta}

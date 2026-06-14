@@ -216,7 +216,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
+  /* No global smooth-scroll: it makes Next's route-change scroll-to-top
+     animate/land mid-page. Navigation must start at the top instantly. */
   -webkit-text-size-adjust: 100%;
 }
 

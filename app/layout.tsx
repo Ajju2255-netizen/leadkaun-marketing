@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { rootSchemas, jsonLdScript } from "@/lib/seo"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import ScrollToTop from "@/app/components/scroll-to-top"
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased bg-bg-pure text-ink-soft">
+        <ScrollToTop />
         <TooltipProvider delayDuration={120}>
           {children}
         </TooltipProvider>

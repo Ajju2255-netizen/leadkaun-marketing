@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ModulesGrid, PricingCTA } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -163,6 +164,9 @@ export default function AboutPage() {
           </FloatingCard></Reveal>
         </Container>
       </SectionGround>
+
+      <ModulesGrid number="03" ground="cream" eyebrow="What we built" />
+      <PricingCTA number="04" ground="sky" />
 
       <CTABanner />
       <Footer />

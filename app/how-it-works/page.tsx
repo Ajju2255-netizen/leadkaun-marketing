@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -148,6 +149,12 @@ export default function HowItWorksPage() {
           </div>
         </Container>
       </SectionGround>
+
+      <ProductBlock
+        ground="sky"
+        title={<>See the system behind the six steps.</>}
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the working screen your team opens every morning."
+      />
 
       <CTABanner />
       <Footer />

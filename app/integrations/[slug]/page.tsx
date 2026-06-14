@@ -6,6 +6,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -240,6 +241,8 @@ export default async function IntegrationPage({ params }: Params) {
             </Container>
           </SectionGround>
         )}
+
+        <ProductBlock />
 
         <CTABanner
           tag={{ number: "→", label: "Plug it in" }}

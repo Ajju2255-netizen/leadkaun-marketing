@@ -4,6 +4,7 @@ import { Check, Minus } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProductShowcase } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -150,6 +151,13 @@ export default function PricingPage() {
         sub="All 12 core modules on every tier. 14-day free trial, no credit card. Annual billing saves 10%."
         primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
         secondary={{ kind: "text", label: "How it works", href: "/how-it-works" }}
+      />
+
+      <ProductShowcase
+        number="01"
+        ground="sky"
+        title={<>Here&apos;s what you&apos;re paying for.</>}
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk in real rupees — the working system, included on every tier."
       />
 
       {/* TIERS */}

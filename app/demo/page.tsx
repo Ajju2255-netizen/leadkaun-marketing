@@ -5,6 +5,7 @@ import { CheckCircle, Clock, Users, Video, Check } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductShowcase } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -195,6 +196,14 @@ export default function DemoPage() {
           </div>
         </Container>
       </SectionGround>
+
+      <ProductShowcase
+        number="03"
+        ground="sky"
+        title={<>What you&apos;ll see on the call.</>}
+        sub="We import a sample of your leads and grade them A–F live, then walk the Priority Queue and the ₹ at risk — on your real data, not a canned demo account."
+      />
+      <ProofBand />
 
       <CTABanner
         tag={{ number: "→", label: "Or skip the call" }}

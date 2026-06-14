@@ -12,6 +12,7 @@ import { GlossLink } from "@/app/components/gloss-button"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { IndustryTile } from "@/app/components/industry-tile"
 import { Reveal } from "@/app/components/reveal"
+import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
 
 import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
@@ -100,6 +101,8 @@ export default async function CityPage({ params }: Params) {
           }
         />
 
+        <ProofBand />
+
         {/* ── Local-context fingerprint — real data, so no two city hubs read alike ── */}
         <SectionGround variant="pure" size="lg">
           <Container>
@@ -171,11 +174,18 @@ export default async function CityPage({ params }: Params) {
           </SectionGround>
         )}
 
+        <SellSpine
+          start={4}
+          showcaseEyebrow="See it work"
+          showcaseTitle={<>See Leadkaun work for {cityRec.name} sales teams.</>}
+          showcaseSub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen ${cityRec.name} B2B teams open every morning.`}
+        />
+
         {related.length > 0 && (
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="04" label="Related" />
+                <NumberedTag number="08" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More pages for {cityRec.name}.
                 </h2>

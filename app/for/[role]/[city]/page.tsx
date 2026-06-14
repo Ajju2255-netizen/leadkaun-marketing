@@ -10,8 +10,8 @@ import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
 import { NumberedTag } from "@/app/components/numbered-tag"
-import { IndustryTile } from "@/app/components/industry-tile"
 import { Reveal } from "@/app/components/reveal"
+import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
 
 import { getCities, getCity, getRole, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
@@ -77,6 +77,8 @@ export default async function RoleCityPage({ params }: Params) {
           }
         />
 
+        <ProofBand />
+
         {/* HOW IT CHANGES THE DAY */}
         <SectionGround variant="cream" size="lg">
           <Container>
@@ -90,30 +92,18 @@ export default async function RoleCityPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* FEATURES USED MOST */}
-        <SectionGround variant="sky" size="lg">
-          <Container>
-            <Reveal className="mb-10">
-              <NumberedTag number="02" label={`Features ${r.title.toLowerCase()}s use most`} />
-              <h2 className="mt-5 max-w-3xl text-[26px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[32px]">
-                What to click first.
-              </h2>
-            </Reveal>
-
-            <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-              {r.featuresUsedMost.map((fSlug) => {
-                const pretty = fSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
-                return <IndustryTile key={fSlug} href={`/features/${fSlug}`} label={pretty} meta="Feature" />
-              })}
-            </Reveal>
-          </Container>
-        </SectionGround>
+        <SellSpine
+          start={2}
+          showcaseEyebrow={`How a ${r.title.toLowerCase()} works the queue`}
+          showcaseTitle={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
+          showcaseSub={`No dashboards to read. Leadkaun grades every lead A–F, ranks each rep's Priority Queue, and shows the ₹ at risk today — so a ${r.title.toLowerCase()} in ${cityRec.name} knows exactly who to call next.`}
+        />
 
         {/* RELATED */}
-        <SectionGround variant="cream" size="md">
+        <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mb-8">
-              <NumberedTag number="03" tone="warm" label="Same role, other cities" />
+              <NumberedTag number="06" tone="warm" label="Same role, other cities" />
               <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                 {r.title}s elsewhere in India.
               </h2>

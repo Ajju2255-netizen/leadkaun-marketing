@@ -13,6 +13,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { SellSpine } from "@/app/components/sell/blocks"
 
 import { getIndustry, getCity, getKeyword, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
@@ -137,37 +138,18 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* FEATURE BRIDGE */}
-        <SectionGround variant="cream" size="lg">
-          <Container>
-            <Reveal className="mb-10 max-w-3xl">
-              <NumberedTag number="02" tone="warm" label="Why Leadkaun's approach is different" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
-                The features that power it.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
-              {ind.relatedFeatures.slice(0, 3).map((fSlug, i) => {
-                const pretty = fSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
-                return (
-                  <Link key={fSlug} href={`/features/${fSlug}`} className="block group">
-                    <FloatingCard tier="2" depth="2" gloss interactive aura={i === 1 ? "peach" : "sky"} className="p-6 h-full">
-                      <p className={`font-mono text-[10px] font-semibold uppercase tracking-[0.16em] ${i === 1 ? "text-orange-500" : "text-sky-600"}`}>Feature</p>
-                      <p className="mt-3 text-[16px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{pretty}</p>
-                      <p className="mt-1 text-[13px] text-ink-soft">See how it works →</p>
-                    </FloatingCard>
-                  </Link>
-                )
-              })}
-            </Reveal>
-          </Container>
-        </SectionGround>
+        <SellSpine
+          start={2}
+          showcaseEyebrow="See it work"
+          showcaseTitle={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
+          showcaseSub={`This is the screen ${cityRec.name} ${ind.name.toLowerCase()} teams work from: every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees.`}
+        />
 
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="03" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="06" label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions teams ask.
               </h2>
@@ -181,7 +163,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="04" tone="warm" label="Related" />
+                <NumberedTag number="07" tone="warm" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More {ind.name.toLowerCase()} × {kw.label.toLowerCase()} pages.
                 </h2>

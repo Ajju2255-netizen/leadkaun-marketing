@@ -28,7 +28,7 @@ function formatDate(d: string) {
 export default function BlogPage() {
   const posts = getAllPosts()
   const [featured, ...rest] = posts
-  const recent = rest.slice(0, 6)
+  const recent = rest
 
   return (
     <main className="min-h-screen bg-bg-pure">
@@ -91,14 +91,14 @@ export default function BlogPage() {
           <Container>
             <Reveal className="mb-10 flex items-end justify-between gap-6">
               <div>
-                <NumberedTag number="02" label="Recent articles" />
+                <NumberedTag number="02" label={`All articles · ${posts.length}`} />
                 <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
-                  Fresh from the journal.
+                  Every article in the journal.
                 </h2>
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6">
+            <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
               {recent.map((p, i) => {
                 const cat = CATEGORIES.find((c) => c.slug === p.category)
                 return (
@@ -143,10 +143,10 @@ export default function BlogPage() {
           <Reveal className="mb-10">
             <NumberedTag number="03" tone="warm" label="Browse by pillar" />
             <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
-              Five editorial pillars.
+              Ten editorial pillars.
             </h2>
             <p className="mt-4 max-w-2xl text-[16px] leading-[1.65] text-ink-soft">
-              Every article fits inside one of five topical pillars — pick the one that matches the problem you&apos;re trying to solve this quarter.
+              Every article fits inside one of ten topical pillars — pick the one that matches the problem you&apos;re trying to solve this quarter.
             </p>
           </Reveal>
 

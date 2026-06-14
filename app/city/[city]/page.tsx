@@ -13,7 +13,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { IndustryTile } from "@/app/components/industry-tile"
 import { Reveal } from "@/app/components/reveal"
 
-import { getCity, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
+import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
 import { relatedForCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, placeSchema, jsonLdScript, canonical } from "@/lib/seo"
@@ -59,7 +59,7 @@ export default async function CityPage({ params }: Params) {
   const cityRec = await getCity(city)
   if (!cityRec) notFound()
 
-  const [served, related] = await Promise.all([industriesServedInCity(cityRec.slug), relatedForCity(cityRec.slug)])
+  const [served, related, roles] = await Promise.all([industriesServedInCity(cityRec.slug), relatedForCity(cityRec.slug), getRoles()])
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Cities", url: "/city" }, { name: cityRec.name }]),
@@ -148,11 +148,34 @@ export default async function CityPage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {roles.length > 0 && (
+          <SectionGround variant="pure" size="lg">
+            <Container>
+              <Reveal className="mb-8">
+                <NumberedTag number="03" label="By role" />
+                <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[34px]">
+                  For sales roles in {cityRec.name}.
+                </h2>
+              </Reveal>
+              <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {roles.map((r) => (
+                  <IndustryTile
+                    key={r.slug}
+                    href={`/for/${r.slug}/${cityRec.slug}`}
+                    label={`For ${r.title}s`}
+                    meta={`in ${cityRec.name}`}
+                  />
+                ))}
+              </Reveal>
+            </Container>
+          </SectionGround>
+        )}
+
         {related.length > 0 && (
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="03" label="Related" />
+                <NumberedTag number="04" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More pages for {cityRec.name}.
                 </h2>

@@ -1,0 +1,413 @@
+[
+  {
+    "slug": "real-estate",
+    "name": "Real Estate",
+    "painH1": "Stop Losing Property Enquiries.",
+    "heroSub": "Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that in 60 minutes.",
+    "painPoints": [
+      { "title": "Property enquiries have a 47-minute window", "body": "Leads contacted within 47 minutes of enquiry are 5× more likely to convert. Most teams call back in 4+ hours — or not at all.", "color": "#EF4444", "icon": "Clock" },
+      { "title": "One missed site visit = ₹5–₹50L lost", "body": "Property deals are high-value and emotion-driven. A cold lead doesn't just not convert — they go to a competitor who called first.", "color": "#F59E0B", "icon": "IndianRupee" },
+      { "title": "Reps call the new enquiries. Forget the warm ones.", "body": "Without a queue, reps call the freshest lead. But a Grade B lead that replied to a WhatsApp 2 days ago is far more likely to close than a cold new enquiry.", "color": "#6366F1", "icon": "Phone" }
+    ],
+    "howItHelps": [
+      "Every property enquiry gets Grade A–F based on project fit, location match, and engagement",
+      "Priority Queue surfaces the leads most likely to convert TODAY — not just the newest ones",
+      "3-tap logging: rep marks call outcome, WhatsApp stage, and site visit booking in under 10 seconds",
+      "Missed Opportunity Engine shows every stale enquiry with ₹ value — manager sees per-rep accountability",
+      "Morning Brief: '4 Grade A enquiries need callback. ₹12L in site visits at risk today'"
+    ],
+    "buyerRoles": ["founder", "sales-head", "sales-manager", "broker"],
+    "ticketBand": "₹5L–₹5Cr GCV",
+    "salesCycle": "2 days to 4 months (enquiry → registration)",
+    "channels": ["99acres", "MagicBricks", "Housing.com", "Facebook Ads", "broker referrals", "walk-ins"],
+    "proofQuote": { "text": "200+ enquiries/month, converting 3–4%. After Leadkaun: 8% in 6 weeks. ₹38L additional revenue.", "name": "Priya S.", "role": "Co-Founder", "city": "Pune" },
+    "proofStat": "5× conversion uplift when Grade A enquiries are contacted within 47 minutes",
+    "faqs": [
+      { "q": "Does Leadkaun integrate with 99acres / MagicBricks?", "a": "Not natively in Phase 1 — export their leads to a Google Sheet, Leadkaun pulls from the sheet every 5 minutes." },
+      { "q": "Can multiple agents share one enquiry?", "a": "Yes — assignment rules handle round-robin or manual handoffs; broker splits are logged." },
+      { "q": "Can we set different ICPs per project?", "a": "Yes, on Growth tier. Luxury vs affordable projects can have independent weights." },
+      { "q": "Does it track site visit outcomes?", "a": "Yes — site visit is a stage in the built-in CRM with booked/no-show/follow-up outcomes." },
+      { "q": "What if a broker closes the deal outside Leadkaun?", "a": "Log it as 'closed-external' with commission tagged; the engine still attributes the originating enquiry." }
+    ],
+    "keywords": ["lead management software for real estate india", "property enquiry follow-up software", "real estate sales tracking software india", "real estate crm india"],
+    "relatedFeatures": ["priority-queue", "missed-opportunity-engine", "whatsapp-tracking"],
+    "relatedCompetitor": "leadkaun-vs-zoho-crm",
+    "blogPillar": 4
+  },
+  {
+    "slug": "edtech",
+    "name": "EdTech",
+    "painH1": "Score and Prioritise Student Enquiries Before They Go Cold.",
+    "heroSub": "EdTech admissions teams across India run on WhatsApp, long parent threads, and seasonal cycles. Leadkaun grades every enquiry, tracks every reply, and tells your counsellor which 8 parents to call first.",
+    "painPoints": [
+      { "title": "400 enquiries, one counsellor", "body": "Admissions counsellors carry 200–500 leads each. With no triage, 30 minutes every morning goes to deciding who to call first — instead of calling.", "color": "#EF4444", "icon": "Users" },
+      { "title": "Parent threads drop mid-conversation", "body": "Parent says 'discuss with my spouse', disappears, and nobody follows up at the right moment. 80% of qualified conversations move to WhatsApp — most CRMs don't see any of it.", "color": "#25D366", "icon": "MessageCircle" },
+      { "title": "Admissions cycles are ₹-sensitive", "body": "A Grade A lead in April is worthless in September. Counsellors who miss the 5-day follow-up window lose a full year's fee (₹50k–₹5L) per missed enrolment.", "color": "#F59E0B", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Every enquiry is graded A–F based on course fit, programme match, and engagement signals from both student and parent",
+      "3-tap WhatsApp logging captures every parent reply — stage, intent, outcome — feeding the Intent Score in real time",
+      "Priority Queue surfaces the Grade A parents who replied overnight, so the first call by 11 AM hits the hot leads",
+      "Intent decay respects admissions cycles: a silent Grade A drops to Grade B over a week, so the queue stays fresh",
+      "Morning Brief: '8 Grade A enquiries replied overnight. ₹6L in admissions at risk if not called by 11 AM'"
+    ],
+    "buyerRoles": ["founder", "admissions-counselor", "branch-manager", "sales-head"],
+    "ticketBand": "₹15k–₹15L annual fee",
+    "salesCycle": "3 days to 120 days (admissions cycle-bound)",
+    "channels": ["Facebook Ads", "Google Ads", "referrals", "WhatsApp outreach", "inbound forms"],
+    "proofQuote": { "text": "Counsellor morning triage dropped from 30 min to 2. We closed 12 more admissions in April because every counsellor knew exactly which Grade A parent to call at 9 AM.", "name": "Rajesh M.", "role": "EdTech Sales Head", "city": "Bengaluru" },
+    "proofStat": "Counsellor productivity improves 2–3× when leads are pre-ranked vs triaged manually",
+    "faqs": [
+      { "q": "Does it handle parent + student dual thread?", "a": "Yes — the lead record has primary + secondary contacts, and WhatsApp tracking logs who replied when." },
+      { "q": "Can we set different scoring per course?", "a": "Yes, on Growth tier. Course-level ICP weights let you tune for engineering vs arts vs PG." },
+      { "q": "Does it integrate with our LMS / SIS?", "a": "Not in Phase 1. Export leads to CSV for the SIS; Leadkaun owns the enquiry-to-enrolment funnel only." },
+      { "q": "What about offline / walk-in admissions?", "a": "Manual entry form takes 15 seconds; the lead enters the queue immediately." },
+      { "q": "How does it handle seasonality?", "a": "Intent decay rates are configurable per admissions cycle; default India EdTech cycle supported." }
+    ],
+    "keywords": ["crm for edtech sales india", "admissions lead management software", "student enquiry tracking india", "edtech counsellor software"],
+    "relatedFeatures": ["whatsapp-tracking", "morning-brief", "priority-queue"],
+    "relatedCompetitor": "leadkaun-vs-leadsquared",
+    "blogPillar": 5
+  },
+  {
+    "slug": "bfsi",
+    "name": "BFSI",
+    "painH1": "BFSI Sales, in ₹ — Audit Trail, Assignment, Accountability.",
+    "heroSub": "Insurance branch managers, NBFC sales heads, and wealth RMs across India run regulated sales with compliance pressure and agent-network complexity. Leadkaun gives you grading, assignment, audit trail, and ₹-at-risk — in 60 minutes.",
+    "painPoints": [
+      { "title": "Compliance trail gaps at audit", "body": "A rep's 'I called them last week' doesn't show up in the system — and at renewal or claim time, that gap becomes a regulator-visible audit risk.", "color": "#EF4444", "icon": "ClipboardList" },
+      { "title": "Same lead, two agents, one dispute", "body": "Aggregator-sourced insurance leads often get assigned twice across product lines. Commission conflicts eat 10–15% of an agent's month.", "color": "#F59E0B", "icon": "Users" },
+      { "title": "Renewals slip unnoticed", "body": "Existing policyholders due for renewal or cross-sell aren't flagged until after they lapse. Every lapsed policy is ₹8k–₹1L of premium walking out.", "color": "#6366F1", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Per-product ICP templates — term, health, motor, loans — score each lead by the right criteria for its product line",
+      "Assignment rules by product × geography keep health leads out of a motor agent's queue, eliminating attribution disputes",
+      "Every call, WhatsApp, and email is logged with a timestamp and exported on demand for IRDAI / RBI audit preparation",
+      "Renewal and cross-sell dates live on the lead record — the Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse",
+      "Branch Manager Morning Brief: '12 Grade A leads unassigned. ₹4L premium at risk today'"
+    ],
+    "buyerRoles": ["branch-manager", "sales-head", "relationship-manager"],
+    "ticketBand": "₹8k–₹2L annual premium / ₹1L–₹25L disbursement",
+    "salesCycle": "1 day to 60 days (product-dependent)",
+    "channels": ["PolicyBazaar", "BankBazaar", "Paisabazaar", "Google Ads", "Facebook Ads", "branch walk-ins", "DSA network"],
+    "proofQuote": { "text": "Agent-attribution disputes dropped 80% in two months. Our audit review used to take three days pulling records. Now it's three hours — one export from Leadkaun.", "name": "Vikram N.", "role": "Insurance Branch Manager", "city": "Mumbai" },
+    "proofStat": "30–40% of insurance leads are never contacted within SLA; Leadkaun's SLA alerting closes this gap",
+    "faqs": [
+      { "q": "Is the data compliant with IRDAI / RBI audit requirements?", "a": "Row-Level Security at DB level; full audit trail per lead; one-click export. Talk to us for specific regulator checklists." },
+      { "q": "Can we track renewals + upsell, not just new business?", "a": "Lead records carry renewal dates; the Missed Opportunity Engine surfaces upcoming renewals as opportunities." },
+      { "q": "How is attribution handled across agents?", "a": "First-contact attribution with a configurable 'assisted' credit model." },
+      { "q": "Does it work with aggregator-sourced leads?", "a": "Yes — CSV / Google Sheet ingestion from PolicyBazaar/BankBazaar exports." },
+      { "q": "Does it support bancassurance cross-sell?", "a": "Yes — same lead can appear in multiple product queues with clear ownership." }
+    ],
+    "keywords": ["insurance lead management software india", "nbfc sales crm india", "wealth management lead tracker india", "branch manager software insurance"],
+    "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief"],
+    "relatedCompetitor": "leadkaun-vs-leadsquared",
+    "blogPillar": 6
+  },
+  {
+    "slug": "manufacturing",
+    "name": "Manufacturing",
+    "painH1": "Industrial Sales, Without Losing Quotes in the 90-Day Cycle.",
+    "heroSub": "Manufacturing B2B teams live with long cycles, multi-stakeholder threads, field-rep travel, and quote-revision loops. Leadkaun scores every lead, holds the thread across 180 days, and surfaces stalled quotes in ₹ before they go to a competitor.",
+    "painPoints": [
+      { "title": "Quote sent. Silence. Deal lost.", "body": "40% of B2B industrial quotes never receive a follow-up within the buyer's SLA. The vendor who follows up within 24 hours wins 60% of the time.", "color": "#EF4444", "icon": "FileText" },
+      { "title": "Multi-stakeholder thread loss", "body": "Procurement asked for a quote. Finance is evaluating. Engineering wants a sample. Three conversations, one deal — and nobody on the sales side sees the full thread.", "color": "#F59E0B", "icon": "Users2" },
+      { "title": "90-day cycles, 30-day memory", "body": "An engineered goods cycle runs 90+ days. The buying signal from day 15 is forgotten by day 45. Field reps come back with notes in their head that never get logged.", "color": "#6366F1", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Intent Score tracks signals across a 90–180 day cycle with slow decay — a quote sent on day 15 still influences the lead's grade on day 60",
+      "Follow-up cadence defaults are long-B2B-aware: Grade A gets weekly touches, not daily spam",
+      "Mobile-optimised 3-tap logging works on patchy 3G — field reps log a 30-minute factory meeting in 10 seconds",
+      "Quote objects on the lead record carry value, validity, and next-touch date — Missed Opportunity Engine surfaces ₹ at risk per open quote",
+      "Distributor attribution with commission splits — no more credit disputes when a dealer closes an inside-sales-sourced deal"
+    ],
+    "buyerRoles": ["founder", "sales-head", "business-development"],
+    "ticketBand": "₹50k–₹50L per order",
+    "salesCycle": "30–180 days (engineered goods: 90 days typical)",
+    "channels": ["IndiaMART", "TradeIndia", "distributor network", "outbound SDR", "trade shows"],
+    "proofQuote": { "text": "Our sales cycle dropped from 95 days to 62 because reps stopped losing the thread between quote and close. ₹1.4Cr of pipeline that would have stalled actually closed.", "name": "Suresh K.", "role": "Sales Director, Manufacturing", "city": "Pune" },
+    "proofStat": "40% of industrial B2B quotes never receive a follow-up within SLA; first to re-engage wins ~60% of the time",
+    "faqs": [
+      { "q": "Does it handle quote tracking?", "a": "Lead record has a quote object with value, status, and follow-up schedule." },
+      { "q": "How does it work with field reps on patchy mobile data?", "a": "Mobile-optimised logging works offline; syncs when connectivity returns." },
+      { "q": "Can we attribute to distributors?", "a": "Yes, with configurable commission splits." },
+      { "q": "Does it integrate with our ERP (SAP, Tally, Zoho Books)?", "a": "Not in Phase 1. Export leads to CSV; ERP integration on roadmap." },
+      { "q": "Can multiple team members collaborate on one lead?", "a": "Yes — lead notes, activity timeline, and assignment support multi-rep collaboration." }
+    ],
+    "keywords": ["b2b lead management software india manufacturing", "industrial sales crm india", "manufacturing sales tracking software", "quote follow-up software india"],
+    "relatedFeatures": ["missed-opportunity-engine", "priority-queue", "sales-rep-tracking"],
+    "relatedCompetitor": "leadkaun-vs-zoho-crm",
+    "blogPillar": 3
+  },
+  {
+    "slug": "healthcare",
+    "name": "Healthcare",
+    "painH1": "Healthcare Sales, Without Losing Patients Between Visits.",
+    "heroSub": "Diagnostic chains, clinic groups, health-package sales teams, and pharma field reps run on relationships and repeat visits. Leadkaun grades, tracks, and surfaces missed revenue — with the compliance trail and DND handling Indian healthcare requires.",
+    "painPoints": [
+      { "title": "Corporate tie-up leads get lost", "body": "HR sends 200 employee numbers for a health check. Reps can't triage who's a Grade A vs. just HR paperwork. 40% go cold without a callback in 48 hours.", "color": "#EF4444", "icon": "Stethoscope" },
+      { "title": "Return patients vanish between visits", "body": "A patient bought a basic panel last month and is ready for an advanced one. Nobody remembers. ₹3k–₹30k of LTV walks out to another diagnostic chain.", "color": "#F59E0B", "icon": "CalendarCheck" },
+      { "title": "Doctor referral attribution is guesswork", "body": "Referring doctors expect a monthly report showing how their referrals converted. Extracting that from 3 tools + WhatsApp threads takes a full day per month.", "color": "#6366F1", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Patient records double as lead records — repeat-visit continuity with LTV tracking and upsell readiness signals",
+      "Referring-doctor source attribution is baked in — every referred patient is tagged, and monthly doctor reports auto-generate",
+      "Corporate HR tie-ups supported as a business_type — bulk leads triaged by appointment urgency and package value",
+      "WhatsApp tracking logs appointment confirmations, report-delivery replies, and follow-up requests",
+      "Compliance-ready: every signal is timestamped, every contact is audit-exportable — DND flags respected"
+    ],
+    "buyerRoles": ["founder", "branch-manager", "sales-head"],
+    "ticketBand": "₹500–₹5L per appointment/package",
+    "salesCycle": "Same day to 90 days (corporate tie-ups)",
+    "channels": ["Google Ads", "Facebook Ads", "doctor referrals", "corporate tie-ups", "walk-ins", "Practo"],
+    "proofQuote": { "text": "Corporate tie-up revenue jumped ₹6L in the first month. Every HR referral now gets called within 24 hours, not 4 days later. Our referring doctors finally get a real monthly report.", "name": "Dr. Meera T.", "role": "Head of Sales, Diagnostic Chain", "city": "Chennai" },
+    "proofStat": "40% of health-package leads never get a follow-up call within 24 hours",
+    "faqs": [
+      { "q": "Is health data stored securely?", "a": "Supabase Singapore region; RLS policies; encryption in transit and at rest; full audit log." },
+      { "q": "Does it support DND compliance for tele-callers?", "a": "DND flag on lead record; callers don't see DND leads in queue." },
+      { "q": "Can we track doctor-to-patient referral commissions?", "a": "Yes, via source-attribution fields." },
+      { "q": "Does it integrate with our HIS (Hospital Info System)?", "a": "Not natively in Phase 1. Export leads via CSV." },
+      { "q": "Can we run appointment reminders?", "a": "Yes — follow-up engine includes appointment-due reminder type." }
+    ],
+    "keywords": ["patient lead management software india", "healthcare crm india", "diagnostic chain lead tracking", "doctor referral tracking software"],
+    "relatedFeatures": ["whatsapp-tracking", "missed-opportunity-engine", "morning-brief"],
+    "relatedCompetitor": "leadkaun-vs-zoho-crm",
+    "blogPillar": 3
+  },
+  {
+    "slug": "saas",
+    "name": "SaaS",
+    "painH1": "Stop Losing Trials to Silence.",
+    "heroSub": "Indian B2B SaaS teams run trial-to-paid, PLG-to-sales handoff, and expansion motions — usually on three different tools. Leadkaun unifies the grade, the queue, and the ₹ at risk across every motion.",
+    "painPoints": [
+      { "title": "Trials expire before anyone calls", "body": "User signs up, tries for 2 days, goes silent. No one from sales reaches out. Trial expires. Churn happens before the sales cycle begins. 60% of self-serve trials follow this shape.", "color": "#EF4444", "icon": "Rocket" },
+      { "title": "Expansion signals rot in product data", "body": "An existing customer just added 5 seats, hit an API limit, and invited a new department. All expansion-ready signals. Nobody on the sales team sees any of it.", "color": "#F59E0B", "icon": "TrendingUp" },
+      { "title": "Content-spike chaos", "body": "A viral LinkedIn post drops 400 trial signups in a day. Sales has no triage. 350 go cold over the next week. Six figures of ARR walks away.", "color": "#6366F1", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Trial signups ingested via webhook, CSV, or Google Sheet — graded A–F by company size, stack signals, and role the moment they arrive",
+      "Intent decay tuned for SaaS: a trial user silent for 10 days is a strong negative signal; someone who invited 3 teammates is a Grade A spike",
+      "Expansion-opportunity detection flags existing customers with usage, role-add, or seat-limit signals as separate lead type",
+      "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4'",
+      "Multi-seat deal threading: an SDR's initial contact flows to an AE's closing thread without losing context"
+    ],
+    "buyerRoles": ["founder", "sales-head", "account-manager"],
+    "ticketBand": "₹10k–₹20L ARR",
+    "salesCycle": "1–60 days (self-serve to mid-market)",
+    "channels": ["inbound website", "demo requests", "trial signups", "content marketing", "Google Ads", "LinkedIn"],
+    "proofQuote": { "text": "We stopped losing trials to forgotten follow-ups. Trial-to-paid went from 22% to 34% in 60 days — Leadkaun surfaces the Grade A trials on day 1, not day 10.", "name": "Karthik P.", "role": "Head of Sales, B2B SaaS", "city": "Bengaluru" },
+    "proofStat": "B2B SaaS self-serve trials convert 4× better when contacted by human within 72 hours vs. left silent",
+    "faqs": [
+      { "q": "Does it integrate with our trial signup flow?", "a": "Webhook or CSV; we'll publish a SaaS-specific onboarding guide." },
+      { "q": "How does it handle PLG self-upgrade events?", "a": "Trigger a 'self-upgrade' signal manually or via API; scoring surfaces the user for expansion conversations." },
+      { "q": "Can we track account-level vs. user-level?", "a": "Lead record supports primary + associated contacts; account-level roll-ups available." },
+      { "q": "Does it work for multi-product cross-sell?", "a": "Product-level ICP and pipeline per product." },
+      { "q": "Can we export to our analytics stack (Segment, Mixpanel)?", "a": "Not in Phase 1; CSV export available." }
+    ],
+    "keywords": ["saas lead management india", "trial to paid conversion software", "b2b saas sales tracking india", "plg sales handoff india"],
+    "relatedFeatures": ["lead-scoring", "priority-queue", "morning-brief"],
+    "relatedCompetitor": "leadkaun-vs-hubspot",
+    "blogPillar": 10
+  },
+  {
+    "slug": "agencies",
+    "name": "Agencies",
+    "painH1": "Run 8 Client Pipelines Without 8 Spreadsheets.",
+    "heroSub": "B2B agencies — performance marketing, BD-as-a-service, SEO, SaaS-for-agency — juggle client pipelines and new business simultaneously. Leadkaun gives you per-client ICP, protected new-business queues, and one-click white-label reports.",
+    "painPoints": [
+      { "title": "8 clients, 8 spreadsheets", "body": "Every client has a different ICP. Spreadsheets multiply. Context-switching costs half a day per week.", "color": "#6366F1", "icon": "Layers" },
+      { "title": "New business collapses when delivery gets loud", "body": "Existing clients escalate, BD pipeline goes untouched for a week. Three pitches time out.", "color": "#EF4444", "icon": "Briefcase" },
+      { "title": "White-label reporting eats your Fridays", "body": "Every client expects a branded monthly report. 4 hours per client, every month. Ten clients is a week of ops cost.", "color": "#F59E0B", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "Per-client pipelines, each with its own ICP weights",
+      "New-business pipeline runs as a separate, protected queue",
+      "Account directors see only their clients; founder sees everything via role-based access",
+      "CSV export per client is white-label-ready — branded report in 10 minutes",
+      "Morning Brief per pipeline — BD head sees new-business; each account director sees their client's at-risk ₹"
+    ],
+    "buyerRoles": ["founder", "account-manager", "business-development"],
+    "ticketBand": "₹50k–₹25L retainer / project",
+    "salesCycle": "7–180 days (retainer vs project)",
+    "channels": ["referrals", "LinkedIn outreach", "content/inbound", "Google/LinkedIn Ads", "events"],
+    "proofQuote": { "text": "We stopped dropping the new-business pipeline every time a client got loud. BD conversion doubled in a quarter. Monthly reporting went from 4 hours to 10 minutes per client.", "name": "Anjali R.", "role": "Agency Founder", "city": "Bengaluru" },
+    "proofStat": "Multi-client agencies lose 20–30% of their new-business pipeline to attention conflicts each quarter",
+    "faqs": [
+      { "q": "Can each client have its own ICP?", "a": "Yes — define per-pipeline ICP weights." },
+      { "q": "Is there a client-portal view?", "a": "Not in Phase 1. Export per-client CSV for white-label reporting." },
+      { "q": "Can I manage both new-business and client delivery?", "a": "Yes — set up two pipelines (new-business, per-client-delivery)." },
+      { "q": "Does it track retainer renewal dates?", "a": "Yes, via follow-up engine renewal cadence." },
+      { "q": "Can team members see across clients?", "a": "Role-based — account directors see their clients only; agency head sees all." }
+    ],
+    "keywords": ["agency sales software india", "multi-client crm agency", "b2b agency lead tracking", "agency bd pipeline india"],
+    "relatedFeatures": ["priority-queue", "sales-rep-tracking", "missed-opportunity-engine"],
+    "relatedCompetitor": "leadkaun-vs-hubspot",
+    "blogPillar": 10
+  },
+  {
+    "slug": "retail",
+    "name": "Retail",
+    "painH1": "Track Repeat Orders and Dealer Relationships in One Place.",
+    "heroSub": "B2B retail — wholesalers, franchise brands, dealer networks — depend on repeat-order behaviour and territory management. Leadkaun scores every enquiry and surfaces dealers who haven't ordered in 45 days.",
+    "painPoints": [
+      { "title": "Repeat-order blindness", "body": "Existing retailer hasn't ordered in 45 days — nobody notices until revenue dips.", "color": "#EF4444", "icon": "TrendingDown" },
+      { "title": "Franchise enquiry quality gap", "body": "Aspirant investors take 6 months; reps get impatient and follow up sporadically.", "color": "#F59E0B", "icon": "Users" },
+      { "title": "Territory conflict", "body": "Same lead claimed by two sales reps in adjacent territories.", "color": "#6366F1", "icon": "MapPin" }
+    ],
+    "howItHelps": [
+      "Repeat-order cadence tracking on every account — missed cadence triggers missed-opportunity",
+      "Territory-aware assignment rules prevent rep conflict",
+      "Field-rep 3-tap logging + mobile-optimised interface",
+      "Per-rep ₹ at risk highlights dealer churn risk early",
+      "Franchise enquiry lifecycle tracking across multi-step workflow"
+    ],
+    "buyerRoles": ["founder", "sales-head", "branch-manager"],
+    "ticketBand": "₹25k–₹50L per order / franchise fee",
+    "salesCycle": "7 days to 180 days",
+    "channels": ["exhibitions", "IndiaMART", "field rep territory", "inbound website", "referrals"],
+    "proofStat": "Wholesale B2B repeat-order decay of 30+ days predicts 40% churn if unaddressed",
+    "faqs": [
+      { "q": "Can I track existing-account order cadence?", "a": "Yes — account level cadence rules; missed cadence → missed-opportunity alert." },
+      { "q": "How is territory handled?", "a": "Assignment rules support territory-based routing." },
+      { "q": "Does it work offline for field reps?", "a": "Mobile UI is offline-tolerant; logs sync on reconnection." },
+      { "q": "Franchise multi-step workflow?", "a": "Lead record supports multi-stage workflow (enquiry → evaluation → investment → onboarding)." }
+    ],
+    "keywords": ["b2b wholesale lead management india", "franchise enquiry crm", "dealer tracking software india", "territory sales software"],
+    "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking"],
+    "relatedCompetitor": "leadkaun-vs-zoho-crm",
+    "blogPillar": 2
+  },
+  {
+    "slug": "logistics",
+    "name": "Logistics",
+    "painH1": "Win RFP Contracts by Following Up First.",
+    "heroSub": "3PL, freight forwarding, and fleet leasing sales teams operate on long RFP cycles with multiple stakeholders. Leadkaun holds the RFP thread, enforces follow-up cadence, and surfaces ₹ at risk in stalled bids.",
+    "painPoints": [
+      { "title": "RFP-response black hole", "body": "Submitted an RFP; nobody remembers the follow-up cadence; buyer awards to whoever followed up last.", "color": "#EF4444", "icon": "FileText" },
+      { "title": "Multi-location complexity", "body": "Buyer has 5 warehouses in 5 cities; each needs a localised response.", "color": "#F59E0B", "icon": "MapPin" },
+      { "title": "Account manager handoff gap", "body": "Sales closes; AM takes over; customer feels the handoff as a drop in responsiveness.", "color": "#6366F1", "icon": "Users" }
+    ],
+    "howItHelps": [
+      "Long-cycle Intent tracking with slow decay",
+      "RFP-follow-up cadence enforced via follow-up engine",
+      "Per-account revenue-at-risk for retention management",
+      "Morning Brief highlights pending RFP responses with deadline urgency",
+      "Shared lead record with stage-based sales-to-AM ownership transfer"
+    ],
+    "buyerRoles": ["founder", "sales-head", "business-development"],
+    "ticketBand": "₹1L–₹1Cr/month recurring",
+    "salesCycle": "30–240 days",
+    "channels": ["outbound SDR", "LinkedIn", "referrals", "RFP platforms", "inbound website"],
+    "proofStat": "Winning logistics bidder is 40% more likely to be the one with fastest RFP-revision response",
+    "faqs": [
+      { "q": "Does it handle RFP documents?", "a": "Lead record has attachments; RFP workflow via follow-up stages." },
+      { "q": "Can we see per-account revenue at risk?", "a": "Yes, via Missed Opportunity Engine." },
+      { "q": "Does it support multi-location pricing?", "a": "Custom fields on lead record; pricing is outside scope." },
+      { "q": "Can sales + AM collaborate on the same account?", "a": "Yes — shared lead record with stage-based ownership transfer." }
+    ],
+    "keywords": ["logistics sales crm india", "3pl lead management", "freight forwarding sales software", "fleet leasing sales tracker"],
+    "relatedFeatures": ["missed-opportunity-engine", "priority-queue"],
+    "relatedCompetitor": "leadkaun-vs-salesforce",
+    "blogPillar": 3
+  },
+  {
+    "slug": "education",
+    "name": "Education",
+    "painH1": "Coaching & K-12 Admissions, With WhatsApp as First-Class.",
+    "heroSub": "Offline coaching chains, tutoring franchises, and K-12 admissions teams run on parent WhatsApp threads and seasonal cycles. Leadkaun grades, tracks, and surfaces Grade A enquiries every morning.",
+    "painPoints": [
+      { "title": "Parent-follow-up chaos", "body": "Parent enquires, says 'call next week', counsellor calls wrong day, loses lead.", "color": "#EF4444", "icon": "MessageCircle" },
+      { "title": "Branch performance opacity", "body": "Head office can't tell which branch has best conversion.", "color": "#F59E0B", "icon": "BarChart3" },
+      { "title": "Counsellor turnover", "body": "Counsellor quits; their 200 WhatsApp threads go with them.", "color": "#6366F1", "icon": "Users" }
+    ],
+    "howItHelps": [
+      "Parent-as-primary-contact supported; student as secondary",
+      "Admissions-cycle-aware decay rates",
+      "Branch-level Priority Queues with head-office visibility",
+      "Counsellor handover templates: exported lead record + thread history",
+      "Morning Brief per branch"
+    ],
+    "buyerRoles": ["founder", "branch-manager", "admissions-counselor"],
+    "ticketBand": "₹15k–₹5L annual fees",
+    "salesCycle": "3 days to 120 days",
+    "channels": ["Facebook Ads", "Instagram Ads", "referrals", "Google search", "branch walk-ins"],
+    "proofStat": "60% of admission enquiries are lost because the follow-up window (5 days) is missed",
+    "faqs": [
+      { "q": "Can we track per-branch performance?", "a": "Yes — branch-level roll-ups, head-office dashboard." },
+      { "q": "What happens if a counsellor leaves?", "a": "One-click handover: lead record, history, WhatsApp thread all transfer." },
+      { "q": "Does it handle multiple courses per enquiry?", "a": "Yes — lead record supports multiple product-interests." },
+      { "q": "Does it work for K–12 vs coaching differently?", "a": "Same core engine; ICP and cadence defaults differ per sub-vertical." }
+    ],
+    "keywords": ["coaching centre crm india", "admission enquiry software india", "test prep lead management", "tutoring franchise sales software"],
+    "relatedFeatures": ["whatsapp-tracking", "morning-brief", "priority-queue"],
+    "relatedCompetitor": "leadkaun-vs-leadsquared",
+    "blogPillar": 5
+  },
+  {
+    "slug": "fintech",
+    "name": "Fintech",
+    "painH1": "NBFC, Wealth & Payment Sales — With Compliance Baked In.",
+    "heroSub": "Fintech sales — NBFC lending, wealth distribution, payment gateways — operates under compliance pressure and agent-channel complexity. Leadkaun delivers per-agent performance, cross-sell detection, and KYC-stage tracking.",
+    "painPoints": [
+      { "title": "Document-collection drop-off", "body": "Application started, KYC documents pending, applicant goes silent. ₹ lost in 14 days.", "color": "#EF4444", "icon": "FileText" },
+      { "title": "Agent-channel blind spots", "body": "DSA network sends leads; agency performance not visible centrally.", "color": "#F59E0B", "icon": "Users" },
+      { "title": "Cross-sell misses", "body": "Personal loan applicant is a mutual-fund prospect; nobody connects the dots.", "color": "#6366F1", "icon": "IndianRupee" }
+    ],
+    "howItHelps": [
+      "KYC/document-stage tracking inside lead record",
+      "Agent-performance rollups per DSA",
+      "Cross-product flag (loan applicant → wealth prospect)",
+      "Credit-score-aware assignment (high score → prime; low → sub-prime team)",
+      "Compliance audit export"
+    ],
+    "buyerRoles": ["founder", "sales-head", "branch-manager", "relationship-manager"],
+    "ticketBand": "₹50k–₹5Cr disbursement / ₹5L–₹5Cr AUM",
+    "salesCycle": "3 days to 120 days",
+    "channels": ["aggregators", "Google Ads", "Facebook Ads", "DSA network", "inbound website"],
+    "proofStat": "35% of lending leads never complete KYC; each represents ₹5–25L in pre-approved disbursement",
+    "faqs": [
+      { "q": "Does it integrate with our LOS (Loan Origination System)?", "a": "Not in Phase 1. Export and import via CSV." },
+      { "q": "Can we route leads by credit bureau score?", "a": "Yes — custom field on lead record; assignment rules support it." },
+      { "q": "How is DSA/agent performance tracked?", "a": "Source-attribution with agent ID; per-agent rollups on analytics." },
+      { "q": "Compliance audit export?", "a": "Full per-lead audit trail exportable on demand." }
+    ],
+    "keywords": ["nbfc sales crm india", "wealth management lead software", "loan application tracking india", "fintech sales software india"],
+    "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief"],
+    "relatedCompetitor": "leadkaun-vs-leadsquared",
+    "blogPillar": 6
+  },
+  {
+    "slug": "hospitality",
+    "name": "Hospitality",
+    "painH1": "MICE, Weddings & Corporate Bookings — Won by Fastest Follow-up.",
+    "heroSub": "Hotels, banquet venues, MICE sales teams, and wedding planners run on custom quotes and tight event dates. Leadkaun holds the quote thread, tracks deadlines, and surfaces time-sensitive bookings in the Morning Brief.",
+    "painPoints": [
+      { "title": "Season-driven volume swing", "body": "Wedding season (Nov–Feb) = 5× normal volume. Reps drown.", "color": "#EF4444", "icon": "Calendar" },
+      { "title": "Custom-quote complexity", "body": "Every corporate RFQ is bespoke; reps spend hours on quotations, sometimes forget to follow up.", "color": "#F59E0B", "icon": "FileText" },
+      { "title": "Channel-manager leakage", "body": "Lead arrives from aggregator + website + direct enquiry — same prospect, 3 records.", "color": "#6366F1", "icon": "Merge" }
+    ],
+    "howItHelps": [
+      "Event-date-aware cadence (closer to event = higher touch)",
+      "Quote-status tracking inside lead record",
+      "Channel attribution with planner commission",
+      "Seasonal ICP weight adjustment (wedding season vs off-season)",
+      "Morning Brief highlights time-sensitive bookings"
+    ],
+    "buyerRoles": ["founder", "sales-head", "sales-manager"],
+    "ticketBand": "₹50k–₹2Cr per event",
+    "salesCycle": "7–180 days",
+    "channels": ["inbound website", "aggregators", "wedding planners", "corporate travel desks", "referrals"],
+    "proofStat": "45% of corporate booking enquiries go to whoever quotes and follows up within 24 hours",
+    "faqs": [
+      { "q": "Does it handle custom quotes?", "a": "Yes — quote value, items, validity on lead record." },
+      { "q": "Multi-venue / multi-property chains?", "a": "Yes — per-venue pipelines under one account." },
+      { "q": "Channel / planner attribution?", "a": "Source attribution with commission tagging." },
+      { "q": "Does it integrate with our PMS (Hotel Property Management)?", "a": "Not in Phase 1." },
+      { "q": "Can we track off-season prospects for next cycle?", "a": "Long-term nurture cadence with seasonal re-engagement triggers." }
+    ],
+    "keywords": ["hotel sales crm india", "mice sales software india", "wedding venue lead management", "banquet enquiry tracking"],
+    "relatedFeatures": ["morning-brief", "priority-queue", "missed-opportunity-engine"],
+    "relatedCompetitor": "leadkaun-vs-zoho-crm",
+    "blogPillar": 2
+  }
+]

@@ -1,0 +1,7 @@
+# Local development secrets — copy to `.dev.vars` (gitignored).
+# Public vars (NEXT_PUBLIC_*) live in wrangler.toml [vars] and are committed.
+# Server-only secrets go here for local dev, and `wrangler secret put NAME` for production.
+
+# Example secret slots — uncomment when needed:
+# REVALIDATE_TOKEN=replace-with-strong-random-string
+# INDEXNOW_KEY=replace-with-indexnow-key

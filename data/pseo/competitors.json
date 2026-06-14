@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "zoho-crm",
+    "name": "Zoho CRM",
+    "comparisonUrl": "/compare/leadkaun-vs-zoho-crm",
+    "positioning": "Default Indian SMB CRM; recognised brand; huge feature surface; breaks at rep adoption and behaviour-level tracking.",
+    "strengths": [
+      "Recognised brand; easy internal sell",
+      "60+ Zoho Suite integrations (Books, Desk, Projects, Campaigns)",
+      "Deep customisation via Deluge + custom modules",
+      "Reasonable pricing at base tier"
+    ],
+    "weaknesses": [
+      "Rep adoption collapses at UI layer (logging = 4–6 clicks)",
+      "WhatsApp treated as integration, not native channel",
+      "Basic rule-based scoring, no decay, no three-dimensional breakdown",
+      "No Priority Queue equivalent",
+      "No Missed Opportunity Engine (₹-at-risk)"
+    ],
+    "switchingNarrative": "Run Leadkaun alongside Zoho for 60 days — Leadkaun for grading/queue/₹-at-risk; Zoho for long-tail customisation. Consolidate once ROI is proven.",
+    "logoHint": "Zoho red"
+  },
+  {
+    "slug": "leadsquared",
+    "name": "LeadSquared",
+    "comparisonUrl": "/compare/leadkaun-vs-leadsquared",
+    "positioning": "India-built CRM strong in EdTech + BFSI + healthcare; still activity-focused, not behaviour-focused.",
+    "strengths": [
+      "Born in India; knows the market",
+      "Strong vertical coverage (EdTech, BFSI, healthcare)",
+      "Mobile-first for field reps",
+      "Workflow automation"
+    ],
+    "weaknesses": [
+      "Activity tracking ≠ behaviour tracking",
+      "No rupee-first metrics (counts, not ₹ at risk)",
+      "No auto-ranked Priority Queue",
+      "Heavy to configure (2–8 weeks deploy)",
+      "No Morning Brief equivalent",
+      "Pricing opacity (quote-based)"
+    ],
+    "switchingNarrative": "Keep LeadSquared for workflow customisation + mobile field app. Add Leadkaun for the behaviour layer LeadSquared was never designed for.",
+    "logoHint": "LeadSquared green"
+  },
+  {
+    "slug": "hubspot",
+    "name": "HubSpot",
+    "comparisonUrl": "/compare/leadkaun-vs-hubspot",
+    "positioning": "Freemium marketing-funnel champion; USD-billed; marketing-first bias; overbuilt for Indian SMB sales.",
+    "strengths": [
+      "Best-in-class marketing automation",
+      "Smooth product-led freemium onboarding",
+      "Vast integrations marketplace",
+      "Strong content + blog + landing page builder",
+      "Clean reporting UX"
+    ],
+    "weaknesses": [
+      "USD pricing — Professional tier is 2× Leadkaun Growth for Indian teams",
+      "Marketing-first bias; sales-behaviour features weaker",
+      "No lakhs/crores UI; no native WhatsApp tracking",
+      "Complex at Professional/Enterprise tiers (2–6 weeks onboarding)",
+      "Per-contact pricing scales badly with 50k+ cold leads"
+    ],
+    "switchingNarrative": "HubSpot for marketing automation (even Free tier is useful). Leadkaun for the sales-behaviour layer. Combined cost often under HubSpot Professional alone.",
+    "logoHint": "HubSpot orange"
+  },
+  {
+    "slug": "salesforce",
+    "name": "Salesforce",
+    "comparisonUrl": "/compare/leadkaun-vs-salesforce",
+    "positioning": "Enterprise-grade CRM standard; rational at 200+ reps; overkill for Indian B2B SMBs.",
+    "strengths": [
+      "AppExchange ecosystem (7,000+ apps)",
+      "Unlimited customisation via Apex/Flow/Lightning",
+      "Scales to 10,000+ reps",
+      "Enterprise security + SOC2 + HIPAA",
+      "Deep reporting at scale"
+    ],
+    "weaknesses": [
+      "Price: ₹7,500+/rep/month base — 2–7× alternatives",
+      "3–12 months consultant-led implementation",
+      "Requires dedicated Salesforce admin (₹1–2L/month)",
+      "India localisation partial — US-first product feel",
+      "Notoriously low rep adoption in mid-market India"
+    ],
+    "switchingNarrative": "Salesforce earns its keep at 200+ reps. Below that, Leadkaun (or Zoho/LeadSquared for workflow CRM) is the pragmatic path. Migration is 2–4 weeks for SMBs.",
+    "logoHint": "Salesforce cloud blue"
+  },
+  {
+    "slug": "freshsales",
+    "name": "Freshsales",
+    "comparisonUrl": "/compare/leadkaun-vs-freshsales",
+    "positioning": "Freshworks' sales CRM; clean UI; 'Freddy AI' scoring is a black box; India-origin brand but globally calibrated.",
+    "strengths": [
+      "Clean, modern UI (best in class for CRM UX)",
+      "Unified Freshworks suite (Freshdesk, Freshchat)",
+      "Built-in email + phone",
+      "Reasonable pricing vs global peers"
+    ],
+    "weaknesses": [
+      "Freddy AI scoring is opaque — no three-dimensional breakdown",
+      "Not India-calibrated (generic B2B defaults)",
+      "No Missed Opportunity Engine (₹-at-risk)",
+      "WhatsApp via Freshchat add-on, not native",
+      "No Morning Brief equivalent"
+    ],
+    "switchingNarrative": "Keep Freshchat/Freshdesk for support if you use them. Add Leadkaun for the behaviour layer Freshsales leaves out.",
+    "logoHint": "Freshworks orange"
+  }
+]

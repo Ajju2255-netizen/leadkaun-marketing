@@ -1,0 +1,60 @@
+# Cloudflare Workers config for Leadkaun marketing site
+# Powered by @opennextjs/cloudflare — full Next.js ISR on Workers + R2 + KV.
+# See vault: 08 - Website/Architecture/Cloudflare-R2-ISR-Migration.md
+
+name = "leadkaun-marketing"
+main = ".open-next/worker.js"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+# Account scoping (also via CF_ACCOUNT_ID env at deploy time)
+account_id = "19650c4ca8e6e4ed2699a0b288206b03"
+
+# ─────────────────────────────────────────────────────────────────────────
+# Static assets (CSS, JS, images bundled by Next/OpenNext)
+# ─────────────────────────────────────────────────────────────────────────
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+# ─────────────────────────────────────────────────────────────────────────
+# R2 — OpenNext incremental cache (page bodies + fetch responses)
+# Bucket created with: wrangler r2 bucket create leadkaun-isr-cache
+# ─────────────────────────────────────────────────────────────────────────
+[[r2_buckets]]
+binding = "NEXT_INC_CACHE_R2_BUCKET"
+bucket_name = "leadkaun-isr-cache"
+
+# ─────────────────────────────────────────────────────────────────────────
+# R2 — PSEO data layer (10 JSON files)
+# Bucket created with: wrangler r2 bucket create leadkaun-pseo
+# Read at runtime by lib/pseo/lookup.ts via env.PSEO_DATA
+# ─────────────────────────────────────────────────────────────────────────
+[[r2_buckets]]
+binding = "PSEO_DATA"
+bucket_name = "leadkaun-pseo"
+
+# ─────────────────────────────────────────────────────────────────────────
+# KV — OpenNext tag cache (revalidateTag / revalidatePath index)
+# Namespace created with: wrangler kv namespace create LEADKAUN_KV
+# ─────────────────────────────────────────────────────────────────────────
+[[kv_namespaces]]
+binding = "NEXT_TAG_CACHE_KV"
+id = "7d3a4efaff294f799b2c94c3765a1d0f"
+
+# ─────────────────────────────────────────────────────────────────────────
+# Public env (exposed to the browser bundle via NEXT_PUBLIC_*)
+# Server-only secrets go in `.dev.vars` (local) and `wrangler secret put` (prod).
+# ─────────────────────────────────────────────────────────────────────────
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://leadkaun.com"
+NEXT_PUBLIC_APP_LOGIN_URL = "https://app.leadkaun.com/login"
+NEXT_PUBLIC_APP_REGISTER_URL = "https://app.leadkaun.com/register"
+NEXT_PUBLIC_APP_URL = "https://app.leadkaun.com"
+
+# ─────────────────────────────────────────────────────────────────────────
+# Observability — request logs + tail in `wrangler tail`
+# ─────────────────────────────────────────────────────────────────────────
+[observability]
+enabled = true
+head_sampling_rate = 1

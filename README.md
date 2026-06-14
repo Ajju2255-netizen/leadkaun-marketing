@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Leadkaun Marketing Site
 
-## Getting Started
+The public website for **Leadkaun** — India's Sales Behaviour Operating System for B2B SMBs — served at [leadkaun.com](https://leadkaun.com).
 
-First, run the development server:
+Built on Next.js 16 (App Router) with ISR on Cloudflare Pages. Dark-first design with Tailwind CSS v4. Product is live; this repo is the marketing surface only.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # localhost:3001
+npm run build    # builds + runs post-build sitemap generator
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key URLs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Marketing: `leadkaun.com` (this repo)
+- App: `app.leadkaun.com` (separate repo)
+- Dev marketing: `localhost:3001`
+- Dev app: `localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment
 
-## Learn More
+Set in `wrangler.toml` (production) and `.env.local` (dev):
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_APP_LOGIN_URL`
+- `NEXT_PUBLIC_APP_REGISTER_URL`
+- `NEXT_PUBLIC_APP_URL`
 
-To learn more about Next.js, take a look at the following resources:
+## Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** Next.js 16 App Router, React 19, TypeScript
+- **Styling:** Tailwind CSS v4 + custom design tokens (`app/globals.css`)
+- **Fonts:** Plus Jakarta Sans (headings), Inter (body), Geist Mono (numbers/grades)
+- **Deploy:** Cloudflare Pages via `@cloudflare/next-on-pages` (ISR-enabled)
+- **Sitemap:** Post-build generator at `scripts/generate-xml-sitemap.js`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Folder map
 
-## Deploy on Vercel
+```
+app/                              Next.js App Router
+├── (routes)/                     38 hand-coded routes (core, features, use-cases, comparisons)
+├── components/                   Shared UI (navbar, footer, hero-widget, cta-banner, etc.)
+└── layout.tsx                    Root metadata + fonts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+data/pseo/                        JSON data files driving PSEO routes (seeded in W4)
+content/blog/                     MDX blog posts (pipeline ships in W3)
+lib/                              Helpers (urls, seo, pseo, blog)
+public/                           Static assets (screenshots, og, llms.txt)
+scripts/                          Build-time scripts (sitemap generator, Indexing API submit)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content source
+
+All marketing copy derives from the Obsidian vault at `~/Documents/My projects - CONF/Ajsal's vault 01/`:
+
+- `07 - Brand Brain/` — product, audience, brand, visual, industries, competitors, SEO foundations. **Single source of truth for every word on this site.**
+- `08 - Website/` — architecture, SEO strategy, page templates, content plans, data specs.
+- `00 - Dashboard/*Tracker.md` — live status for website, PSEO, blog, and SEO/AIO.
+
+Any copy change here should trace to a brain file. If a fact isn't in the brain, add it there first.
+
+## Deploy
+
+Push to main → Cloudflare Pages auto-deploys. Staging previews on feature branches. Full sitemap regenerates post-build. Production URLs revalidate per template (6h / 24h / 7d) via ISR.
+
+## Roadmap
+
+Tracked phase-by-phase in `00 - Dashboard/Website Progress Tracker.md`. Current milestones: SEO/AIO primitives (W2), blog engine + 10 seed posts (W3), PSEO data layer (W4), 9 dynamic route templates (W5), sitemap split + Indexing API (W6), scale to 100k pages (W7), production launch + monitoring (W8).
+
+## Product
+
+Leadkaun grades every lead A–F in under 500ms, builds per-rep Priority Queues, and surfaces missed revenue in rupees — so Indian B2B sales teams stop losing deals to stale leads. 50+ teams run on it today. 60-minute setup. Pricing in ₹999–₹2,999 per rep per month.

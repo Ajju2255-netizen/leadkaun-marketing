@@ -1,0 +1,410 @@
+[
+  {
+    "slug": "how-to-build-a-lead-priority-queue",
+    "title": "How to Build a Lead Priority Queue in 60 Minutes",
+    "tldr": "Grade every open lead A–F by Fit/Intent/Quality, rank by composite score (grade + overdue + recency), work top-down every morning. Start manual in Google Sheets; automate when you pass 200 leads.",
+    "why": "Without a Priority Queue, your reps burn 30–90 minutes every morning deciding which lead to call first. That's ₹2–5 lakh per month in rep-hours wasted on triage, and 40–70% of Grade A leads going cold because they weren't called in the window. A priority system is the single highest-leverage behaviour change for most Indian B2B SMBs.",
+    "prerequisites": [
+      "Access to your current lead list (CRM, Google Sheet, or CSV)",
+      "A rough ICP definition — even 3 attributes is enough (industry, geography, company size)",
+      "15 minutes of rep-shadow time to confirm current workflow"
+    ],
+    "steps": [
+      { "heading": "Export your open leads", "body": "Pull every open lead from your existing system into a Google Sheet. Columns: name, phone, email, source, date added, last touch, stage." },
+      { "heading": "Score each lead", "body": "Add three columns: Fit (0–100), Intent (0–100), Quality (0–100). Score each lead by hand. Fit: ICP match. Intent: engagement recency. Quality: data completeness. 50 leads takes ~90 minutes the first time." },
+      { "heading": "Assign grades", "body": "Grade A: F≥65 + I≥60 + Q≥60. Grade B: F≥55 + I≥40 + Q≥50. Grade C: F≥40 + I≥25 + Q≥35. Grade F: Q<20. Add a Grade column." },
+      { "heading": "Add rank score", "body": "Formula: grade_points + overdue_bonus + recency_bonus. Grade weights: A=4000, B=3000, C=2000, D=500, F=-1. Overdue bonus: 800 if past SLA. Recency: up to 500." },
+      { "heading": "Sort and distribute", "body": "Sort by rank score descending. Top 30 per rep is the day's work. Share the sheet with reps Monday morning." },
+      { "heading": "Measure for 2 weeks", "body": "Track: % of Grade A contacted within SLA, ₹ recovered from previously-stale leads, Grade A conversion rate. Most teams recover ₹1–3 lakh in the first two weeks." },
+      { "heading": "Automate when manual breaks", "body": "Past 200 leads, nobody updates the rank column religiously. Leadkaun automates this in 60 minutes of onboarding — same formula, no spreadsheet maintenance." }
+    ],
+    "commonMistakes": [
+      "Sorting by recency instead of grade — defeats the whole point",
+      "Not decaying Intent over time — queue fills with stale Grade A leads",
+      "Working Grade F (junk) because they're 'easier to call' — burns time"
+    ],
+    "faqs": [
+      { "q": "How long before I see impact?", "a": "2 weeks for measurable ₹ recovered; 60 days for cultural shift to 'queue-first' mornings." },
+      { "q": "What if my reps resist?", "a": "Don't mandate on day 1. Show the top rep's queue vs their gut-choices for a week. Data wins the argument." },
+      { "q": "Do I need a new CRM?", "a": "No. Start in Google Sheets. Automate only when manual breaks (usually around 200 leads or 3+ reps)." }
+    ],
+    "category": "lead-management-setup",
+    "relatedFeatures": ["priority-queue", "lead-scoring"],
+    "relatedBlog": "lead-prioritization-system-india",
+    "timeRequired": "PT90M"
+  },
+  {
+    "slug": "how-to-set-up-lead-scoring",
+    "title": "How to Set Up Lead Scoring for Your Sales Team",
+    "tldr": "Define three scores (Fit, Intent, Quality), each 0–100, with transparent weights. Assign grades A–F using a fixed matrix. Start with Leadkaun defaults; customise per ICP only after 30 days of data.",
+    "why": "Lead scoring is the decision layer on top of your pipeline — it tells your rep who to call first. Done right, it converts Grade A leads 3–5× better than ungraded pipelines. Done wrong (single-number black-box AI scores), reps don't trust the output and revert to gut feel.",
+    "prerequisites": [
+      "A rough ICP — at minimum: target industry, geography, company size",
+      "30 days of historical closed-won deal data (or industry benchmarks if new)",
+      "Rep consensus on 3–5 intent signals that matter in your workflow"
+    ],
+    "steps": [
+      { "heading": "Define Fit weights", "body": "Total 100 points across: industry (30), geography (20), business type (20), role (15), budget (15). Adjust within your team — a real estate team might weight geography higher." },
+      { "heading": "Define Intent signals + weights", "body": "Source baseline (referral 60, organic 50, paid ad 30). Call signal +15. WhatsApp reply +10. Meeting booked +25. Intent decay −3/day after threshold." },
+      { "heading": "Define Quality gate", "body": "Valid phone (30), email (15), company name (15), inquiry clarity (20), source reliability (10), junk penalty (up to −10). Quality < 20 = auto-Grade F." },
+      { "heading": "Define grade matrix", "body": "Grade A: F≥65 + I≥60 + Q≥60. Grade B: F≥55 + I≥40 + Q≥50. Grade C: F≥40 + I≥25 + Q≥35. Grade D: F≥20 + I≥10 + Q≥20. Grade F: Q<20." },
+      { "heading": "Apply to existing leads", "body": "Score every open lead by hand initially. Verify distribution: ~15% A, ~25% B, ~35% C, ~15% D, ~10% F is a healthy shape. If you're 50% A, your Fit weights are too lenient." },
+      { "heading": "Communicate grades to reps", "body": "Every rep should know what Grade A means and the SLA (24 hours). Post the grade matrix in the sales room." },
+      { "heading": "Refine after 30 days", "body": "Pull conversion data by grade. If Grade A converts <15%, weights need tightening. If Grade C converts >8%, weights are too strict." }
+    ],
+    "commonMistakes": [
+      "Using a single black-box AI score — reps don't trust what they can't explain",
+      "Setting Intent without decay — queue fills with permanently-stale Grade A leads",
+      "Tuning weights before seeing 30 days of data"
+    ],
+    "faqs": [
+      { "q": "Can I skip this and use Leadkaun's defaults?", "a": "Yes. Defaults are calibrated for Indian B2B SMBs and work for ~80% of teams on day one." },
+      { "q": "How often should I tune weights?", "a": "Every 90 days, based on conversion data per grade. Don't tune more often — you'll chase noise." },
+      { "q": "Different weights per product line?", "a": "Yes on the Growth tier. Multi-product teams typically have 2–4 ICP profiles." }
+    ],
+    "category": "lead-management-setup",
+    "relatedFeatures": ["lead-scoring", "priority-queue"],
+    "relatedBlog": "what-is-lead-scoring-india-b2b",
+    "timeRequired": "PT2H"
+  },
+  {
+    "slug": "how-to-run-a-morning-brief",
+    "title": "How to Run a Daily Morning Brief for Your Sales Team",
+    "tldr": "Send each rep and manager a daily 8:30 AM IST email listing top Grade A leads, ₹ at risk today, and overdue follow-ups. Set the day before stand-up. Teams that adopt the ritual move 2–5× faster on Grade A leads.",
+    "why": "Morning Brief is the ritual that turns lead scoring and priority queues into a daily habit. A rep who opens their inbox to '₹1.8L to recover today — Priya, Rajesh, Mohan' has their day planned before coffee. A manager who opens their inbox to a per-rep rollup has the 1:1 already written. No dashboards opened, no stand-up debates — just action by 10 AM.",
+    "prerequisites": [
+      "A graded lead system (hand-graded or via Leadkaun)",
+      "Each rep has an assigned lead pool",
+      "Email delivery infrastructure (Resend, SendGrid, or your CRM's email)"
+    ],
+    "steps": [
+      { "heading": "Define the rep brief structure", "body": "Four sections: (1) Top 5 Grade A leads needing callback today, (2) ₹ at risk today, (3) Overdue follow-ups, (4) One-line reminder of the SLA." },
+      { "heading": "Define the manager brief structure", "body": "Per-rep rollup: ₹ at risk per rep, Grade A count per rep, overdue count per rep. One team total line at the top." },
+      { "heading": "Compute ₹ at risk per lead", "body": "Formula: avg deal value for grade × grade conversion rate. For a Grade A real-estate lead: ₹45L × 10% = ₹4.5L." },
+      { "heading": "Schedule delivery at 8:30 AM IST", "body": "Crontab: 0 3 * * 1-6 (UTC 3 AM = IST 8:30 AM, Monday–Saturday). Use Inngest or equivalent background job scheduler." },
+      { "heading": "Frame copy as opportunity, not blame", "body": "Rep version: '₹1.8L to recover today' not 'You missed ₹1.8L'. Manager version: per-rep numbers without commentary." },
+      { "heading": "Include one-tap action links", "body": "Every lead row has a 'Call now' link that opens the lead record. Reduces friction to zero." },
+      { "heading": "Measure adoption for 2 weeks", "body": "Track: email open rate (target 80%+), click-through rate to lead records (target 60%+), Grade A contact time shift (should drop 30–50%)." }
+    ],
+    "commonMistakes": [
+      "Sending at 9 AM or later — misses the pre-standup window",
+      "Including too much data (more than 5 leads) — reps skim and miss signals",
+      "Using blame language in rep copy — reps tune out"
+    ],
+    "faqs": [
+      { "q": "Does Leadkaun send this automatically?", "a": "Yes. Morning Brief is a core feature — 8:30 AM IST, Monday–Saturday, every tier." },
+      { "q": "What if a rep is on leave?", "a": "Toggle 'out of office' in settings; Brief pauses for them." },
+      { "q": "Can I customise what managers see?", "a": "Yes — pick which per-rep metrics appear (₹ at risk, Grade A count, follow-up score, etc.)." }
+    ],
+    "category": "team-adoption",
+    "relatedFeatures": ["morning-brief", "missed-opportunity-engine"],
+    "relatedBlog": null,
+    "timeRequired": "PT45M"
+  },
+  {
+    "slug": "how-to-import-leads-from-csv",
+    "title": "How to Import 10,000 Leads from CSV Cleanly",
+    "tldr": "Clean the CSV first (phone normalisation, duplicate detection, quality checks), then upload. Leadkaun handles 10,000 rows in under 60 seconds. Expect 20–40% of historical CSV data to be junk — that's normal.",
+    "why": "CSV imports are where most 'CRM migrations' fail. Teams upload raw files, skip cleaning, then blame the tool when grading looks wrong. A 30-minute pre-upload audit doubles the quality of everything downstream — Fit scores, grade distributions, rep time spent.",
+    "prerequisites": [
+      "Source CSV with at least: name, phone, email, source, date added",
+      "30 minutes for cleaning and validation",
+      "Access to your Leadkaun or target system"
+    ],
+    "steps": [
+      { "heading": "Dedupe on phone + name", "body": "Indian phone formats vary (+91, leading 0, with spaces). Normalise to E.164 before dedup. Expect to drop 5–15% of rows." },
+      { "heading": "Validate phone format", "body": "Any row without a 10-digit Indian number (after normalisation) goes to a 'quarantine' sheet for manual review — usually junk or international." },
+      { "heading": "Check company name sanity", "body": "Filter for test strings ('asdf', 'test', 'xxx'). Flag rows without company name for manual ICP tagging." },
+      { "heading": "Audit source reliability", "body": "If 40%+ of a source's leads are junk, that source will bring down overall data quality. Consider excluding it from the import until source is fixed." },
+      { "heading": "Upload via Leadkaun CSV import", "body": "Drag-drop into the import UI. Leadkaun streams via Supabase Storage + Inngest batch worker (BATCH_SIZE=500). 10k rows finish in under 60 seconds." },
+      { "heading": "Review Import Insight Screen", "body": "Shows distribution by grade, source, and quality. If 60% are Grade F, the source data has a quality problem — don't blame the tool." },
+      { "heading": "Run first Morning Brief on day 2", "body": "Day 1 scoring is stabilising. Day 2 Morning Brief is the first real signal — check with reps whether the Grade A list looks right." }
+    ],
+    "commonMistakes": [
+      "Skipping the phone normalisation step — 15–25% of leads become duplicates",
+      "Uploading without sanity-checking source reliability",
+      "Panicking when grade distribution looks unexpected — often reflects real data quality, not tool error"
+    ],
+    "faqs": [
+      { "q": "Can I undo an import?", "a": "Yes. Bulk-delete from the lead list with a date-added filter." },
+      { "q": "Does import overwrite existing data?", "a": "Dedup on phone — existing records get merged with new source tag logged." },
+      { "q": "Large imports hang Google Sheets?", "a": "For 50k+ row files, split into 10k-row chunks or use CSV directly." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["lead-ingestion", "lead-quality"],
+    "relatedBlog": null,
+    "timeRequired": "PT30M"
+  },
+  {
+    "slug": "how-to-migrate-from-zoho-crm",
+    "title": "How to Migrate from Zoho CRM to Leadkaun (in 2–4 Weeks)",
+    "tldr": "Export from Zoho as CSV, audit (keep only live leads), onboard Leadkaun (60 min), run parallel for 30 days, cut over, maintain Zoho read-only as archive. Total: 2–4 weeks for an SMB.",
+    "why": "Most Indian SMBs leave Zoho because of rep-adoption failure, complexity, or the realisation that 'workflow CRM' isn't what they need — they need a Sales Behaviour OS. The migration itself is not the hard part; psychology is. Most teams think 'downgrading' when they should think 'rightsizing'.",
+    "prerequisites": [
+      "Zoho admin access (export permission)",
+      "Clear business case: what ROI do you expect from Leadkaun",
+      "2–4 weeks of parallel-running bandwidth"
+    ],
+    "steps": [
+      { "heading": "Week 1: Export Zoho data", "body": "Export Leads, Contacts, Accounts, Deals, Activity History as CSVs. Activity History is the big one — it carries every call, email, note." },
+      { "heading": "Week 1: Audit", "body": "Separate live leads (last 90 days activity) from archive. Most SMBs find 40–60% of Zoho data is stale. Migrate only live data." },
+      { "heading": "Week 2: Onboard Leadkaun", "body": "60-minute wizard. Pick industry (pre-configured ICP templates), import live leads via CSV, configure sales stages, create rep accounts." },
+      { "heading": "Week 2: Parallel-run", "body": "Keep Zoho running in read-only mode for safety. Reps use Leadkaun primarily; critical escalations can reference Zoho." },
+      { "heading": "Week 3: Rep training + measurement", "body": "2-hour session per team. Show 3-tap logging, Priority Queue, Morning Brief. Baseline metrics: rep adoption rate, response time, ₹ recovered." },
+      { "heading": "Week 4: Cutover", "body": "Switch primary system. Maintain Zoho read-only for 90 days as fallback archive." },
+      { "heading": "Day 90: Cancel Zoho", "body": "If the 30-day parallel-run numbers hold (rep adoption >60%, response time halved, ₹ recovered > licence cost), cancel Zoho. Archive CSV export handles historical lookups." }
+    ],
+    "commonMistakes": [
+      "Migrating ALL historical data including 3-year-old stale leads — pollutes grade distribution",
+      "Cancelling Zoho before day 90 — no fallback if something breaks",
+      "Treating migration as a consulting engagement — SMBs don't need one"
+    ],
+    "faqs": [
+      { "q": "Can we migrate custom fields?", "a": "Yes. Zoho custom fields export cleanly; Leadkaun supports custom fields in lead records." },
+      { "q": "What happens to Zoho workflows?", "a": "Workflows don't migrate directly. Map each workflow to Leadkaun's equivalent (Priority Queue, Missed Opportunity, Follow-up Engine) — most are covered natively." },
+      { "q": "What about Zoho Books / Desk integration?", "a": "Keep Zoho Books / Desk if you use them. Leadkaun focuses on sales behaviour; Books / Desk are separate concerns." }
+    ],
+    "category": "migration",
+    "relatedFeatures": [],
+    "relatedBlog": "zoho-crm-problems-india-smb",
+    "timeRequired": "P21D"
+  },
+  {
+    "slug": "how-to-calculate-rupee-at-risk",
+    "title": "How to Calculate ₹ at Risk for Your Sales Pipeline",
+    "tldr": "Formula: (avg deal value × grade conversion rate) summed over overdue leads. For 10-rep Indian B2B SMB: typically ₹2–5 lakh weekly baseline. Compute manually for 2 weeks; automate with Leadkaun past that.",
+    "why": "₹ at risk is the single metric that turns sales reviews from activity debates into money conversations. It makes abstract 'overdue follow-up' concrete. Reps work differently when they see their own number. Managers coach differently. Reviews become conversations about recovery.",
+    "prerequisites": [
+      "90 days of closed-won deal data",
+      "Grade system in place (even manual)",
+      "Defined staleness SLA per grade"
+    ],
+    "steps": [
+      { "heading": "Compute avg deal value per industry", "body": "Pull last 90 days of closed-won. Sum deal values ÷ count. Example: real estate team sees avg GCV ₹45 lakh." },
+      { "heading": "Compute conversion rate per grade", "body": "For each grade, count leads that closed ÷ total leads at that grade over same 90 days. Example: Grade A = 10%, Grade B = 5%, Grade C = 2%." },
+      { "heading": "Compute ₹ per stale lead by grade", "body": "Multiply avg deal value × conversion rate. Grade A real estate: ₹45L × 10% = ₹4.5L per stale lead." },
+      { "heading": "Count stale leads by grade (per rep)", "body": "Past SLA: Grade A 24h, Grade B 48h, Grade C 7d. Count per rep." },
+      { "heading": "Sum: ₹ at risk = Σ(count × ₹ per grade)", "body": "Example: 4 Grade A stale × ₹4.5L = ₹18L. Plus 8 Grade B × ₹2.3L = ₹18.4L. Total rep: ₹36.4L." },
+      { "heading": "Surface in Monday manager review", "body": "Open stand-up: 'Team: ₹4.2L at risk. Priya: ₹1.8L, Rajesh: ₹1.2L, Mohan: ₹1.2L.' Discuss recovery plans per rep." },
+      { "heading": "Surface in rep Morning Brief", "body": "Rep version: '₹1.8L to recover today — top 3: [lead names]'. Frame as opportunity, not blame." }
+    ],
+    "commonMistakes": [
+      "Using best-case deal values instead of medians — inflates the number, reps tune out",
+      "Shaming reps publicly with the number — destroys adoption",
+      "Tracking only ₹ at risk without pairing with ₹ recovered"
+    ],
+    "faqs": [
+      { "q": "What's a healthy ₹ at risk number?", "a": "₹2–5 lakh/week for a 10-rep Indian B2B SMB is healthy steady-state. First week often shows ₹8–15 lakh because backlog accumulated." },
+      { "q": "Does Leadkaun automate this?", "a": "Yes. Missed Opportunity Engine runs continuously; Morning Brief surfaces the number daily." },
+      { "q": "What if deal values vary wildly?", "a": "Use median, not mean. If still too variable, segment by product line and compute per segment." }
+    ],
+    "category": "metrics",
+    "relatedFeatures": ["missed-opportunity-engine", "morning-brief"],
+    "relatedBlog": "cost-of-a-missed-lead-india",
+    "timeRequired": "PT1H"
+  },
+  {
+    "slug": "how-to-log-whatsapp-for-sales-tracking",
+    "title": "How to Log WhatsApp Conversations for Sales Tracking",
+    "tldr": "Use 3-tap logging after each meaningful WhatsApp exchange: tap stage (first-reply / asking-questions / objection / meeting-booked / ghosted), tap intent (high / medium / low / negative), tap outcome (progressed / stuck / closed). Takes 10 seconds, feeds Intent Score.",
+    "why": "70% of Indian B2B first-contact happens on WhatsApp. If you're not logging those exchanges as signals, your scoring model is missing half the data — and Grade A leads are being under-weighted. 3-tap logging is the minimum-viable capture that keeps reps in flow.",
+    "prerequisites": [
+      "Lead exists in your system (imported or manually added)",
+      "WhatsApp conversation has substantive content (not just 'hi')",
+      "Rep has Leadkaun mobile web or app access"
+    ],
+    "steps": [
+      { "heading": "Identify the lead in Leadkaun", "body": "Open the lead record (search by phone number — Leadkaun matches Indian formats automatically)." },
+      { "heading": "Tap 'Log WhatsApp'", "body": "Opens the 3-tap UI. No typing required." },
+      { "heading": "Tap stage", "body": "Options: First reply, Asking questions, Negotiating, Objection, Meeting booked, Ghosted. Pick the current state of the conversation." },
+      { "heading": "Tap intent", "body": "Options: High (green), Medium (amber), Low (grey), Negative (red). Your read of where the conversation is heading." },
+      { "heading": "Tap outcome", "body": "Options: Progressed, Stuck, Closed. What happened in this specific exchange." },
+      { "heading": "Optional: attach screenshot", "body": "For important objections or quotes, attach a screenshot. Skip for routine logging." },
+      { "heading": "Confirm", "body": "Taps flow into Intent Score: High = +10, Medium = +5, Low = 0, Negative = −10. Priority Queue re-ranks if the lead crosses a grade threshold." }
+    ],
+    "commonMistakes": [
+      "Logging every WhatsApp 'hello' — only log meaningful exchanges",
+      "Using 'High' intent for everything — calibrate to actual conversation quality",
+      "Forgetting to log 'ghosted' — without it, the lead's grade won't decay correctly"
+    ],
+    "faqs": [
+      { "q": "Do I need WhatsApp Business API?", "a": "No. 3-tap logging works with regular WhatsApp — rep types in WhatsApp, logs in Leadkaun." },
+      { "q": "Does Leadkaun auto-detect WhatsApp replies?", "a": "Not for regular WhatsApp. With WhatsApp Business API + a BSP (Gupshup, AiSensy), auto-detection is on roadmap." },
+      { "q": "Should a manager see the logs?", "a": "Yes — per-rep WhatsApp activity shows on the Rep Performance card. Aggregate view only; no access to screenshots without permission." }
+    ],
+    "category": "workflow",
+    "relatedFeatures": ["whatsapp-tracking"],
+    "relatedBlog": null,
+    "timeRequired": "PT10S"
+  },
+  {
+    "slug": "how-to-connect-google-sheets-to-leadkaun",
+    "title": "How to Connect Google Sheets to Leadkaun (5-Min Sync)",
+    "tldr": "Share your Google Sheet with the Leadkaun service account, paste the sheet URL into Leadkaun's connector, map columns (name, phone, email, source), set 5-minute polling. New rows flow into Leadkaun automatically.",
+    "why": "Most Indian SMBs live in Google Sheets. Ad agencies dump lead data there weekly. WhatsApp enquiries get logged there manually. Instead of migrating, Leadkaun meets teams where they already work — the sheet becomes the live source, and Leadkaun polls every 5 minutes for new rows.",
+    "prerequisites": [
+      "A Google Sheet with at least columns: name, phone, source",
+      "Permission to share the sheet",
+      "Leadkaun account with connector access"
+    ],
+    "steps": [
+      { "heading": "Prepare your sheet", "body": "Row 1 = headers. Required columns: name, phone. Recommended: email, source, date-added, initial-enquiry, company." },
+      { "heading": "Share with Leadkaun service account", "body": "Leadkaun provides an email like imports@leadkaun.iam.gserviceaccount.com. Share the sheet with that address, Viewer permission." },
+      { "heading": "Paste URL in Leadkaun connector", "body": "In Leadkaun → Settings → Integrations → Google Sheets → Add sheet. Paste URL. Connector auto-detects headers." },
+      { "heading": "Map columns", "body": "Drag each sheet column to its Leadkaun field. Leadkaun pre-fills obvious matches (name, phone, email)." },
+      { "heading": "Set polling interval", "body": "Default: 5 minutes. Faster polling costs API quota; 5 minutes is the sweet spot for most teams." },
+      { "heading": "Test sync", "body": "Add a test row to the sheet. Within 5 minutes it should appear as a new lead in Leadkaun, graded A–F automatically." },
+      { "heading": "Monitor", "body": "First week: check daily for duplicate leads (phone dedup should catch them) or mapping errors. After that, set-and-forget." }
+    ],
+    "commonMistakes": [
+      "Sharing sheet with Edit permission instead of Viewer — Leadkaun only needs read",
+      "Not including a unique identifier column (phone) — duplicates accumulate",
+      "Trying to sync >100k rows in one sheet — split into monthly sheets instead"
+    ],
+    "faqs": [
+      { "q": "Can I sync multiple sheets?", "a": "Yes — connect as many as you need. Each maps to a different source tag." },
+      { "q": "Does it delete rows?", "a": "No. Leadkaun reads only; deleting rows from the sheet doesn't remove leads from Leadkaun." },
+      { "q": "What if the sheet owner leaves?", "a": "Re-share with the Leadkaun service account from a new owner account. Existing data stays." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["lead-ingestion"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-train-reps-on-a-new-sales-tool",
+    "title": "How to Train Reps on a New Sales Tool (Without Losing a Week)",
+    "tldr": "2-hour hands-on session per team, not a half-day slideshow. Reps log 5 real leads during the session. Follow up with a daily 5-minute check-in for the first week, then weekly.",
+    "why": "Most 'sales tool rollouts' fail at week 2 because training was a PowerPoint, not a practice session. Reps leave knowing the features but not the workflow. Two weeks later, 30% have reverted to their old tool. Practice-based training closes the reversion gap.",
+    "prerequisites": [
+      "Tool onboarding done (Leadkaun onboarded, leads imported)",
+      "One manager + one power-user rep as champions",
+      "Team available for 2 uninterrupted hours"
+    ],
+    "steps": [
+      { "heading": "Pre-session: import each rep's 10 real leads", "body": "Training works on real data, not demo data. Each rep has 10 of their own leads loaded in Leadkaun." },
+      { "heading": "Session 1 (30 min): tour the UI", "body": "Manager walks through: Priority Queue, lead record, 3-tap logging, Morning Brief preview. No slides." },
+      { "heading": "Session 2 (60 min): practice logging", "body": "Each rep logs 5 real interactions (call, WhatsApp, meeting) live, using their own leads. Manager spot-checks the logs." },
+      { "heading": "Session 3 (30 min): Q&A + manager coaching demo", "body": "Show a sample Monday review: ₹ at risk per rep, recovery plans. Reps see what 'performance' looks like in the new tool." },
+      { "heading": "Day 1 after: first Morning Brief", "body": "8:30 AM IST, every rep gets their Brief. Manager sends a WhatsApp message: 'You're on the queue. Work top-down. I'll check in at 11.'" },
+      { "heading": "Week 1: daily 5-min check-ins", "body": "Every morning at 10 AM, manager asks each rep one question: 'Top of queue today?'. Keeps workflow front-of-mind." },
+      { "heading": "Week 2 onwards: weekly review", "body": "Monday stand-up uses ₹ at risk as the opening metric. 1:1s reference queue adoption rate." }
+    ],
+    "commonMistakes": [
+      "Long slide-deck training — retention is under 10% after 2 days",
+      "Using demo data — reps don't see how it applies to their own work",
+      "No manager follow-up in week 1 — adoption collapses"
+    ],
+    "faqs": [
+      { "q": "What if a senior rep pushes back?", "a": "Don't fight. Let them run their own order for a week. Measure. Data wins if the tool works." },
+      { "q": "How long until it feels natural?", "a": "Two weeks of daily use. Don't measure adoption before that — it's still the learning curve." },
+      { "q": "What if a rep never adopts?", "a": "After 60 days of support and coaching, it's a discipline problem, not a tool problem. Performance review territory." }
+    ],
+    "category": "team-adoption",
+    "relatedFeatures": ["priority-queue", "morning-brief", "sales-rep-tracking"],
+    "relatedBlog": null,
+    "timeRequired": "PT2H"
+  },
+  {
+    "slug": "how-to-track-property-enquiries",
+    "title": "How to Track Property Enquiries for Indian Real Estate Teams",
+    "tldr": "Grade every enquiry A–F within 5 minutes of arrival, surface Grade A in the Priority Queue for immediate callback, target 47-minute response window. Log WhatsApp + call outcomes in 3 taps. Track site visit conversion per source.",
+    "why": "Real estate is the most response-time-sensitive vertical in Indian B2B — Grade A enquiries contacted within 47 minutes convert 5× better than 4-hour callbacks. A single missed site visit is ₹5–50 lakh in lost GCV. The workflow is simple; the discipline is what wins.",
+    "prerequisites": [
+      "Active lead sources (99acres, MagicBricks, Housing.com, Facebook Ads, walk-ins)",
+      "Per-project ICP (luxury vs affordable, 2BHK vs 3BHK segments)",
+      "Team of 3+ reps assigned to enquiries"
+    ],
+    "steps": [
+      { "heading": "Ingest from every source", "body": "99acres + MagicBricks → export to Google Sheet → Leadkaun polls every 5 min. FB Ads → CSV upload. Walk-ins → manual entry (15 seconds)." },
+      { "heading": "Auto-grade on arrival", "body": "Score on Fit (project match + location match + budget fit) + Intent (source baseline) + Quality (phone/email/inquiry). Grade A if all three strong." },
+      { "heading": "Surface Grade A for 47-minute callback", "body": "Priority Queue + instant alert to assigned rep. Rep aims to make first contact within 47 minutes of enquiry." },
+      { "heading": "Log every interaction in 3 taps", "body": "Call outcome (interested / site visit booked / cold / wrong number). WhatsApp stage if engaged there. Site visit confirmation in one tap." },
+      { "heading": "Follow-up cadence", "body": "Grade A: 3 touches in day 1 (call, WA, call). Grade B: call + WA week 1. Grade C: weekly WA nurture." },
+      { "heading": "Track conversion by source", "body": "Source Truth card shows ₹ closed per source over last 90 days. Kill bad sources fast; double down on good ones." },
+      { "heading": "Manager Monday review", "body": "₹ at risk per rep. Site visit conversion by source. Recovery plans for Grade A leads past SLA." }
+    ],
+    "commonMistakes": [
+      "Not normalising phone numbers — 20% duplicate leads from same enquirer",
+      "Calling freshest lead first instead of Grade A first",
+      "Losing WhatsApp thread when the rep changes shifts — always log the stage"
+    ],
+    "faqs": [
+      { "q": "What's the ideal response time?", "a": "47 minutes for Grade A enquiries. 4–6 hours for Grade B. Data from Indian real estate teams shows 5× conversion when hit in window." },
+      { "q": "Can broker splits be tracked?", "a": "Yes — source attribution with commission splits configurable." },
+      { "q": "Does it integrate with 99acres directly?", "a": "Not natively in Phase 1 — Google Sheets export is the bridge. Native 99acres API on roadmap." }
+    ],
+    "category": "industry-specific",
+    "relatedFeatures": ["priority-queue", "whatsapp-tracking", "missed-opportunity-engine"],
+    "relatedBlog": null,
+    "timeRequired": "PT45M"
+  },
+  {
+    "slug": "how-to-score-student-leads-edtech",
+    "title": "How to Score Student Enquiries for EdTech Admissions",
+    "tldr": "Weight Fit heavily on course-match + programme-match. Intent decays faster during admissions season. Log WhatsApp parent replies in 3 taps — 80% of admissions conversations happen there. Target 2-hour response window for Grade A.",
+    "why": "EdTech admissions is seasonal, WhatsApp-heavy, and parent-decision-driven. Counsellors carry 200–500 leads each — without a scoring system, 30 minutes of morning triage is burned before any calls happen. The right scoring model is the difference between 12 more admissions or 0 more admissions in a given cycle.",
+    "prerequisites": [
+      "Course catalogue mapped (programme, fees, cohort start dates)",
+      "Admissions cycle calendar defined",
+      "Parent + student as primary + secondary contacts on lead records"
+    ],
+    "steps": [
+      { "heading": "Define course-specific ICP", "body": "For each programme, weight Fit: course match (40), programme match (20), geography (15), parent engagement (15), budget signal (10)." },
+      { "heading": "Set admissions-cycle-aware Intent decay", "body": "In-season (March–June): −2/day decay. Off-season: −0.5/day decay. Different cadence for different programmes." },
+      { "heading": "Capture parent + student separately", "body": "Lead record has primary contact (parent) and secondary (student). Either can engage on WhatsApp; both feed Intent." },
+      { "heading": "Instant Grade A alert to counsellor", "body": "New Grade A enquiry → push notification to assigned counsellor within 60 seconds. 2-hour SLA for first call." },
+      { "heading": "3-tap WhatsApp logging", "body": "Parent replies: tap stage + intent + outcome. Feeds Intent Score. Threaded history visible to counsellor." },
+      { "heading": "Course-completion follow-up cadence", "body": "Grade A: counsellor call day 1, WhatsApp day 2, parent call day 4. Grade B: weekly nurture with course content." },
+      { "heading": "Morning Brief per counsellor", "body": "8:30 AM IST email: '8 Grade A enquiries replied overnight. ₹6L in admissions at risk if not called by 11 AM.'" }
+    ],
+    "commonMistakes": [
+      "Same scoring across programmes — a ₹5L MBA is not a ₹30k test prep",
+      "Not decaying Intent during cycle changes — June's Grade A is worthless in August",
+      "Counsellor cherry-picking instead of working queue top-down"
+    ],
+    "faqs": [
+      { "q": "Can we set different ICP per programme?", "a": "Yes on Growth tier. Engineering admissions, arts programmes, and PG programmes each get their own weights." },
+      { "q": "What about multi-course enquiries?", "a": "Lead record supports multiple product-interests. Primary interest drives the main grade." },
+      { "q": "What if a counsellor leaves mid-cycle?", "a": "One-click handover: lead record, history, WhatsApp thread, all transfer to new counsellor." }
+    ],
+    "category": "industry-specific",
+    "relatedFeatures": ["lead-scoring", "whatsapp-tracking", "morning-brief"],
+    "relatedBlog": null,
+    "timeRequired": "PT1H30M"
+  },
+  {
+    "slug": "how-to-run-a-weekly-sales-review",
+    "title": "How to Run a Weekly Sales Review That Drives Recovery",
+    "tldr": "30-minute Monday review anchored on ₹ at risk and ₹ recovered — not calls made or meetings booked. Per-rep rollup opens the discussion. Each rep walks out with a specific ₹ recovery target for the week.",
+    "why": "Most sales reviews are activity theatre — 'how many calls did you make?' — which doesn't move revenue. A review that starts with ₹ at risk per rep and ends with specific recovery plans shifts the entire team's incentives. Reps start owning outcomes, not just activity.",
+    "prerequisites": [
+      "₹ at risk metric running (manual or via Leadkaun Missed Opportunity Engine)",
+      "Grade system in place",
+      "30-minute Monday block with all reps + manager"
+    ],
+    "steps": [
+      { "heading": "Open with team ₹ at risk", "body": "First line: 'Team ₹ at risk this week: ₹4.2 lakh. Last week: ₹3.1 lakh. Up or down — why?'" },
+      { "heading": "Per-rep rollup (3 min each)", "body": "Each rep: their ₹ at risk, their ₹ recovered last week, top 3 stale leads they're targeting this week." },
+      { "heading": "Identify stuck leads", "body": "Any lead past Grade A SLA and uncontacted 3+ times goes into 'escalation' — manager takes over or reassigns." },
+      { "heading": "Source-level pattern check (3 min)", "body": "Any source with >30% junk or >50% stale? Flag for sales-marketing conversation." },
+      { "heading": "Individual coaching moment (5 min)", "body": "Pick one rep whose numbers shifted most (up or down). 5-minute public-facing coaching conversation." },
+      { "heading": "Commitment round (5 min)", "body": "Each rep states: '₹X I'll recover this week from [specific leads].' Write it down. Reference next Monday." },
+      { "heading": "Close with Morning Brief reminder", "body": "'Your Brief hits at 8:30 tomorrow. Top of queue by 10 AM. See you Friday.'" }
+    ],
+    "commonMistakes": [
+      "Opening with call volume — sets wrong frame for the whole meeting",
+      "Running over 30 minutes — reps tune out, lose the ritual",
+      "No public commitment round — nothing to follow up on next week"
+    ],
+    "faqs": [
+      { "q": "Monday or Friday?", "a": "Monday. Sets the week; doesn't just recap it." },
+      { "q": "What if a rep's ₹ at risk is high every week?", "a": "Diagnose: discipline issue (skip-queue), source issue (bad lead quality), or capacity issue (too many leads per rep)? Different fixes." },
+      { "q": "How long until culture shifts?", "a": "8–12 weeks of consistent rhythm. Slower if reps resist; faster if leadership is visible in the ritual." }
+    ],
+    "category": "team-adoption",
+    "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief"],
+    "relatedBlog": null,
+    "timeRequired": "PT30M"
+  }
+]

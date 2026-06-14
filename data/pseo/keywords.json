@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "crm-software",
+    "label": "CRM Software",
+    "intent": "C",
+    "queryPattern": "{industry} CRM software in {city}",
+    "benefitH2": "What a modern CRM does for {industry} teams in {city}",
+    "benefitBullets": [
+      "Centralises every enquiry from Google Sheets, CSV, ads, and manual walk-ins into one queue",
+      "Grades every lead A–F in under 500ms based on Fit, Intent, and Quality",
+      "Re-ranks the Priority Queue continuously as WhatsApp replies, calls, and signals arrive",
+      "Surfaces ₹ at risk per rep every Monday morning — coaching becomes a rupees conversation"
+    ],
+    "featureLink": "/product",
+    "glossaryLink": "/glossary/crm"
+  },
+  {
+    "slug": "lead-management",
+    "label": "Lead Management",
+    "intent": "C",
+    "queryPattern": "{industry} lead management in {city}",
+    "benefitH2": "How Leadkaun handles {industry} lead management in {city}",
+    "benefitBullets": [
+      "Indian phone normalisation across +91 / 0-prefixed / spaced formats — no duplicate leads",
+      "Quality Score catches junk leads before reps waste time on them",
+      "Missed Opportunity Engine attaches ₹ value to every stale {industry} lead",
+      "Every call, WhatsApp, and email logged with timestamp — compliance-ready audit trail"
+    ],
+    "featureLink": "/features/lead-scoring",
+    "glossaryLink": "/glossary/lead-management"
+  },
+  {
+    "slug": "lead-scoring",
+    "label": "Lead Scoring",
+    "intent": "C",
+    "queryPattern": "{industry} lead scoring in {city}",
+    "benefitH2": "Lead scoring that works for {industry} teams in {city}",
+    "benefitBullets": [
+      "Three-dimensional scoring: Fit (ICP), Intent (engagement), Quality (data reliability)",
+      "Transparent weights — every rep can see why a lead is Grade A, not a black-box AI score",
+      "Intent decays automatically at −3 points/day when leads go silent — stale grades drop without manager intervention",
+      "{industry}-specific ICP templates built for Indian market defaults"
+    ],
+    "featureLink": "/features/lead-scoring",
+    "glossaryLink": "/glossary/lead-scoring"
+  },
+  {
+    "slug": "lead-tracking",
+    "label": "Lead Tracking",
+    "intent": "C",
+    "queryPattern": "{industry} lead tracking in {city}",
+    "benefitH2": "Lead tracking built for the Indian {industry} workflow in {city}",
+    "benefitBullets": [
+      "Priority Queue per rep — re-ranks in real time as new signals arrive",
+      "3-tap logging for calls and WhatsApp replies — rep flow doesn't break",
+      "Morning Brief at 8:30 AM IST sets the day before stand-up",
+      "Every interaction timestamped and exportable for compliance or audit"
+    ],
+    "featureLink": "/features/priority-queue",
+    "glossaryLink": "/glossary/priority-queue"
+  },
+  {
+    "slug": "sales-software",
+    "label": "Sales Software",
+    "intent": "C",
+    "queryPattern": "{industry} sales software in {city}",
+    "benefitH2": "Sales software designed for Indian {industry} teams",
+    "benefitBullets": [
+      "Not a CRM — a Sales Behaviour Operating System that reshapes what reps do next",
+      "60-minute setup with Indian B2B SMB defaults; first scored lead in the first hour",
+      "Pricing in ₹999–₹2,999/rep/month. No USD bills. No enterprise tax.",
+      "Built around WhatsApp as a first-class signal — not an after-thought integration"
+    ],
+    "featureLink": "/product",
+    "glossaryLink": "/glossary/sales-behaviour-os"
+  },
+  {
+    "slug": "sales-automation",
+    "label": "Sales Automation",
+    "intent": "C",
+    "queryPattern": "{industry} sales automation in {city}",
+    "benefitH2": "What 'sales automation' should actually mean for {industry} in {city}",
+    "benefitBullets": [
+      "Grade every lead automatically the moment it lands — no rep decision needed",
+      "Priority Queue builds itself every morning; re-ranks through the day",
+      "Follow-up cadence auto-generated per grade (Grade A: 3 touches in week 1; Grade B: weekly)",
+      "Missed Opportunity alerts auto-fire with ₹ value and one-tap recovery"
+    ],
+    "featureLink": "/features/priority-queue",
+    "glossaryLink": "/glossary/sales-automation"
+  },
+  {
+    "slug": "sales-crm",
+    "label": "Sales CRM",
+    "intent": "C",
+    "queryPattern": "{industry} sales CRM in {city}",
+    "benefitH2": "A sales CRM calibrated for {industry} reality in {city}",
+    "benefitBullets": [
+      "{industry}-specific ICP templates — not generic US B2B defaults",
+      "WhatsApp tracking native (3-tap) — not a paid add-on",
+      "Indian deal values in lakhs and crores throughout the UI",
+      "Row-Level Security at DB level — reps see only assigned leads, managers see all"
+    ],
+    "featureLink": "/product",
+    "glossaryLink": "/glossary/crm"
+  },
+  {
+    "slug": "lead-management-software",
+    "label": "Lead Management Software",
+    "intent": "C",
+    "queryPattern": "{industry} lead management software in {city}",
+    "benefitH2": "Lead management software for {industry} teams in {city}",
+    "benefitBullets": [
+      "Import leads via Google Sheets (5-min polling), CSV upload (10k rows in under 60s), or manual entry",
+      "Grade A–F scoring with transparent three-dimensional breakdown",
+      "Priority Queue tells each rep who to call next — decision made, rep just works",
+      "Morning Brief email to every rep and manager at 8:30 AM IST with ₹ at risk"
+    ],
+    "featureLink": "/features/lead-scoring",
+    "glossaryLink": "/glossary/lead-management"
+  }
+]

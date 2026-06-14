@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "sales-manager",
+    "title": "Sales Manager",
+    "seniority": "mid",
+    "industryTags": ["real-estate", "edtech", "bfsi", "manufacturing", "healthcare", "saas", "agencies", "retail", "logistics", "education", "fintech", "hospitality"],
+    "dailyStruggle": "You run a 5–25 rep team. Your Mondays start with 1:1s that turn into activity audits. Your Fridays close with a pipeline review where nobody can tell you where the ₹ is leaking. Your reps log calls in one tool, sell on WhatsApp in another, and report in a spreadsheet you built three years ago.",
+    "leadkaunAngle": "Every Monday, you walk in with ₹ at risk and per-rep accountability. Morning Brief at 8:30 AM IST shows your team's ₹ to recover today. 1:1s shift from 'how many calls?' to 'which ₹1.2L did you bring back?'. No more activity theatre.",
+    "featuresUsedMost": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief", "priority-queue"],
+    "personaSource": "Audience/Personas.md §1"
+  },
+  {
+    "slug": "founder",
+    "title": "Founder",
+    "seniority": "senior",
+    "industryTags": ["real-estate", "edtech", "bfsi", "manufacturing", "healthcare", "saas", "agencies", "retail", "fintech", "hospitality"],
+    "dailyStruggle": "You run the company. Sales is a black box. You pay ₹X lakh/month in reps and don't know what's happening. The numbers in Zoho look okay, but your revenue is flat. You're about to hire rep #10 and have no data to justify it — or reject it.",
+    "leadkaunAngle": "₹18L recovered on average in the first 30 days on Leadkaun. Rep-level ₹ accountability. Pipeline visible in one page. You don't need to hire a VP Sales to understand sales anymore.",
+    "featuresUsedMost": ["missed-opportunity-engine", "morning-brief", "sales-rep-tracking"],
+    "personaSource": "Audience/Personas.md §2"
+  },
+  {
+    "slug": "sales-rep",
+    "title": "Sales Rep",
+    "seniority": "junior",
+    "industryTags": ["real-estate", "edtech", "bfsi", "manufacturing", "healthcare", "saas", "retail", "education", "hospitality"],
+    "dailyStruggle": "You carry a phone all day. You juggle 200 open leads. Your CRM takes 6 clicks to log a call. WhatsApp is where half your conversations happen, but nothing gets tracked. By Friday, you don't remember which Grade A lead you forgot on Tuesday.",
+    "leadkaunAngle": "Your Priority Queue tells you who to call next — decision made. 3-tap logging works on any phone. WhatsApp replies log in 10 seconds. The queue re-ranks when signals change. You stop guessing and start closing.",
+    "featuresUsedMost": ["priority-queue", "whatsapp-tracking", "lead-scoring"],
+    "personaSource": "Audience/Personas.md §3"
+  },
+  {
+    "slug": "sales-head",
+    "title": "Head of Sales",
+    "seniority": "senior",
+    "industryTags": ["real-estate", "edtech", "bfsi", "manufacturing", "healthcare", "saas", "agencies", "logistics", "fintech", "hospitality"],
+    "dailyStruggle": "You own the number. Your VP and founder both want updates. Your CRM dashboards lag reality by a week. Rep adoption is inconsistent. You spend 40% of your week assembling slides from 4 tools to answer 'how are we doing?'.",
+    "leadkaunAngle": "One number: ₹ at risk this week, broken down by rep. Morning Brief at 8:30 AM answers 90% of status questions before the all-hands. Adoption-by-design (3-tap logging) means the data is complete.",
+    "featuresUsedMost": ["missed-opportunity-engine", "morning-brief", "sales-rep-tracking", "priority-queue"],
+    "personaSource": "Audience/Personas.md §1 senior variant"
+  },
+  {
+    "slug": "business-development",
+    "title": "Business Development Executive",
+    "seniority": "mid",
+    "industryTags": ["agencies", "saas", "manufacturing", "logistics", "bfsi", "fintech"],
+    "dailyStruggle": "You run the top-of-funnel. LinkedIn, email, WhatsApp outreach. Your pipeline lives in a Google Sheet that nobody else respects. Every time a delivery client flares up, your BD pipeline goes untouched for a week.",
+    "leadkaunAngle": "A protected new-business queue that doesn't collapse when account work gets loud. Intent Score tracks engagement across long cycles. Morning Brief for BD alone — separate from account-delivery chaos.",
+    "featuresUsedMost": ["priority-queue", "missed-opportunity-engine", "whatsapp-tracking"],
+    "personaSource": "Audience/Personas.md §7"
+  },
+  {
+    "slug": "admissions-counselor",
+    "title": "Admissions Counsellor",
+    "seniority": "junior",
+    "industryTags": ["edtech", "education"],
+    "dailyStruggle": "You handle 200–500 student leads a month. Parent WhatsApps at 9 PM; you forget by Monday. Your branch manager asks for a cohort update; you spend an hour pulling reports. Every admission cycle, 30% of hot leads cool before you get to them.",
+    "leadkaunAngle": "Priority Queue surfaces the 8 parents who replied overnight. 3-tap WhatsApp logging (stage + intent + outcome). Morning Brief lists ₹ at risk if Grade A leads aren't called by 11 AM. Counsellor handover in one click if you switch jobs.",
+    "featuresUsedMost": ["priority-queue", "whatsapp-tracking", "morning-brief"],
+    "personaSource": "Audience/Personas.md §4"
+  },
+  {
+    "slug": "broker",
+    "title": "Broker",
+    "seniority": "mid",
+    "industryTags": ["real-estate", "bfsi", "fintech"],
+    "dailyStruggle": "You work on commission. You represent a builder / insurance brand / loan aggregator. Your enquiries come from portals and paid ads. You lose leads because the first call didn't happen within the SLA window. Every missed site visit is ₹5–50L in lost commission.",
+    "leadkaunAngle": "Grade A enquiries need callback in 47 minutes — you see them first, you call first, you close first. Missed Opportunity Engine shows ₹ you can still recover from stale enquiries. Attribution clear — no commission disputes.",
+    "featuresUsedMost": ["priority-queue", "missed-opportunity-engine", "whatsapp-tracking"],
+    "personaSource": "Audience/Personas.md §5"
+  },
+  {
+    "slug": "relationship-manager",
+    "title": "Relationship Manager",
+    "seniority": "mid",
+    "industryTags": ["bfsi", "fintech"],
+    "dailyStruggle": "You run a book of 100–300 clients. Each has a different product mix — term, health, mutual funds, loans. Cross-sell opportunities slip because you don't see the signal. Renewals lapse because the reminder comes too late. Audit prep takes a week per quarter.",
+    "leadkaunAngle": "Cross-product flagging — loan applicant surfaces as wealth prospect. Renewal dates on every record with Missed Opportunity alerts 30 days before lapse. Every contact timestamped and audit-exportable.",
+    "featuresUsedMost": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief"],
+    "personaSource": "Audience/Personas.md §6"
+  },
+  {
+    "slug": "account-manager",
+    "title": "Account Manager",
+    "seniority": "mid",
+    "industryTags": ["agencies", "saas", "logistics"],
+    "dailyStruggle": "You own 5–15 client accounts. Each wants a monthly branded report. Each has a different scope. Expansion opportunities rot because you don't see them until QBRs. Your clients feel the handoff from sales as a drop in service.",
+    "leadkaunAngle": "Per-client pipelines with independent ICP weights. Expansion-opportunity detection surfaces signals (seat adds, renewal approaches, usage spikes). White-label CSV export for monthly reports.",
+    "featuresUsedMost": ["priority-queue", "missed-opportunity-engine", "sales-rep-tracking"],
+    "personaSource": "Audience/Personas.md §7 (account variant)"
+  },
+  {
+    "slug": "branch-manager",
+    "title": "Branch Manager",
+    "seniority": "senior",
+    "industryTags": ["bfsi", "fintech", "retail", "education", "healthcare"],
+    "dailyStruggle": "You run 10–40 agents/counsellors at a single branch. Head office wants numbers; agents want autonomy. Activity doesn't match outcomes. The monthly regulator submission is a 3-day exercise. You can't tell which agent is actually driving ₹.",
+    "leadkaunAngle": "Per-agent ₹-at-risk rollup. Assignment rules by product × geography. Full audit export in one click. Morning Brief that makes per-agent performance a rupees conversation, not an activity debate.",
+    "featuresUsedMost": ["sales-rep-tracking", "missed-opportunity-engine", "morning-brief"],
+    "personaSource": "Audience/Personas.md §6 (BFSI branch) + §4 (education branch)"
+  }
+]

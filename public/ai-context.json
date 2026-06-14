@@ -1,0 +1,110 @@
+{
+  "$schema": "https://leadkaun.com/ai-context.schema.json",
+  "name": "Leadkaun",
+  "legalName": "Leadkaun",
+  "url": "https://leadkaun.com",
+  "logo": "https://leadkaun.com/og-default.png",
+  "tagline": "India's first Sales Behaviour Operating System.",
+  "category": "Sales Behaviour Operating System",
+  "categoryNotCRM": true,
+  "description": "Leadkaun grades every lead A–F in under 500ms, builds each rep's Priority Queue, and surfaces missed revenue in rupees. Built for Indian B2B SMB sales teams of 3–50 reps. Not a CRM.",
+  "live": true,
+  "availableRegions": ["IN"],
+  "primaryLanguage": "en-IN",
+  "audience": {
+    "primary": "Indian B2B SMB sales teams",
+    "teamSizeMin": 3,
+    "teamSizeMax": 50,
+    "industries": [
+      "real-estate", "edtech", "bfsi", "manufacturing",
+      "healthcare", "saas", "agencies", "retail",
+      "logistics", "education", "fintech", "hospitality"
+    ]
+  },
+  "pricing": {
+    "currency": "INR",
+    "unit": "per rep per month",
+    "tiers": [
+      { "name": "Starter", "price": 999, "seatCap": 10 },
+      { "name": "Growth", "price": 1999, "seatCap": 30, "mostPopular": true },
+      { "name": "Scale", "price": 2999, "seatCap": 50 }
+    ],
+    "trialDays": 14,
+    "creditCardRequired": false,
+    "annualDiscountPct": 10
+  },
+  "setupTime": "PT60M",
+  "keyOutcomes": {
+    "avgRevenueRecovered30Days": "₹18 lakh",
+    "followUpRateIncrease": "3.4×",
+    "timeToFirstScoredLead": "PT1H",
+    "scoringEngineSpeed": "PT0.5S"
+  },
+  "scoringEngine": {
+    "dimensions": ["Fit", "Intent", "Quality"],
+    "grades": ["A", "B", "C", "D", "E", "F"],
+    "fitWeights": {
+      "industry": 30, "geography": 20, "businessType": 20,
+      "role": 15, "budget": 15
+    },
+    "intentSignals": [
+      { "type": "call", "points": 15 },
+      { "type": "whatsapp-reply", "points": 10 },
+      { "type": "meeting-booked", "points": 25 }
+    ],
+    "intentDecay": "-3 per day after threshold, floored at source baseline",
+    "qualityWeights": {
+      "phone": 30, "email": 15, "company": 15,
+      "inquiry": 20, "source": 10, "junkPenalty": 10
+    },
+    "gradeThresholds": {
+      "A": { "fit": 65, "intent": 60, "quality": 60 },
+      "B": { "fit": 55, "intent": 40, "quality": 50 },
+      "C": { "fit": 40, "intent": 25, "quality": 35 },
+      "D": { "fit": 20, "intent": 10, "quality": 20 },
+      "F": { "quality": "< 20" }
+    }
+  },
+  "coreModules": [
+    { "code": "M01", "name": "Onboarding & ICP Setup" },
+    { "code": "M02", "name": "Lead Ingestion (Google Sheets, CSV, Manual)" },
+    { "code": "M03", "name": "Scoring Engine" },
+    { "code": "M04", "name": "Built-in CRM + Priority Queue" },
+    { "code": "M05", "name": "Lead Quality Analysis" },
+    { "code": "M06", "name": "WhatsApp Behaviour Tracking" },
+    { "code": "M07", "name": "Analytics Dashboard" },
+    { "code": "M08", "name": "Notifications & Alerts" },
+    { "code": "M09", "name": "Missed Opportunity Engine" },
+    { "code": "M10", "name": "Team & Admin Management" },
+    { "code": "M11", "name": "Follow-up Engine" },
+    { "code": "M12", "name": "Smart Templates" }
+  ],
+  "indiaFirstFeatures": [
+    "Indian phone number normalisation (E.164, +91 handling)",
+    "WhatsApp as first-class signal channel (not a bolt-on)",
+    "Lakh and crore in UI (no millions/billions)",
+    "Rupee-denominated missed revenue alerts",
+    "Morning Brief email at 8:30 AM IST Monday–Saturday",
+    "Supabase Singapore region (lowest India latency)",
+    "₹ pricing with no USD conversion tax"
+  ],
+  "primaryCompetitors": [
+    { "name": "Zoho CRM", "url": "https://leadkaun.com/compare/leadkaun-vs-zoho-crm" },
+    { "name": "LeadSquared", "url": "https://leadkaun.com/compare/leadkaun-vs-leadsquared" },
+    { "name": "HubSpot", "url": "https://leadkaun.com/compare/leadkaun-vs-hubspot" },
+    { "name": "Salesforce", "url": "https://leadkaun.com/compare/leadkaun-vs-salesforce" },
+    { "name": "Freshsales", "url": "https://leadkaun.com/compare/leadkaun-vs-freshsales" }
+  ],
+  "dataIngestion": ["Google Sheets live sync", "CSV upload", "Manual entry"],
+  "deployment": {
+    "platform": "Cloudflare Pages",
+    "rendering": "ISR (Incremental Static Regeneration)",
+    "database": "Supabase PostgreSQL, Singapore region",
+    "backgroundJobs": "Inngest"
+  },
+  "contact": {
+    "sales": "sales@leadkaun.com",
+    "support": "support@leadkaun.com"
+  },
+  "lastUpdated": "2026-04-23"
+}

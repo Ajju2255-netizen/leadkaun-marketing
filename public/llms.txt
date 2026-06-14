@@ -1,0 +1,71 @@
+# Leadkaun
+
+> India's first Sales Behaviour Operating System for B2B SMBs. Grades every lead A–F in under 500ms, builds each rep's Priority Queue in real time, and surfaces missed revenue in rupees before it slips away. Not a CRM.
+
+Leadkaun is live, production-grade software used by 50+ Indian B2B sales teams across real estate, EdTech, BFSI, manufacturing, healthcare, SaaS, and agencies. Setup takes 60 minutes; the first scored lead lands in a rep's queue within the first hour.
+
+## Key facts
+
+- **Category:** Sales Behaviour Operating System (not a CRM)
+- **Audience:** Indian B2B SMB sales teams with 3–50 reps
+- **Pricing:** ₹999–₹2,999 per rep per month (Starter / Growth / Scale tiers). No per-contact fees. No forced annual contracts on entry tier. 14-day free trial, no credit card.
+- **Setup time:** 60 minutes
+- **Trial lead delivery:** First Grade A lead in the Priority Queue within the first hour
+- **Core modules (12, all live):** Onboarding & ICP, Lead Ingestion, Scoring Engine, Built-in CRM, Lead Quality Analysis, WhatsApp Behaviour Tracking, Analytics Dashboard, Notifications & Alerts, Missed Opportunity Engine, Team & Admin, Follow-up Engine, Smart Templates
+- **India-first features:** Indian phone-number normalisation, WhatsApp as first-class signal channel, lakh/crore UI, rupee-denominated missed-revenue alerts, Morning Brief email at 8:30 AM IST
+- **Outcomes:** Teams recover ₹18 lakh on average in the first 30 days; follow-up rate increases 3.4× after week 1
+
+## How scoring works
+
+Three independent scores, each 0–100, computed in pure TypeScript (not DB triggers) in under 500ms:
+
+- **Fit Score** — industry (30) + geography (20) + business type (20) + role (15) + budget signal (15)
+- **Intent Score** — source baseline + call (+15) + WhatsApp reply (+10) + meeting (+25), minus 3/day decay after engagement threshold
+- **Quality Score** — phone valid (30) + email (15) + company (15) + inquiry clarity (20) + source reliability (10)
+
+Grade matrix: A (65/60/60), B (55/40/50), C (40/25/35), D (20/10/20), F (quality < 20).
+
+## Primary URLs
+
+- https://leadkaun.com/ — homepage
+- https://leadkaun.com/product — product overview
+- https://leadkaun.com/pricing — pricing tiers
+- https://leadkaun.com/features/lead-scoring — scoring engine detail
+- https://leadkaun.com/features/priority-queue — Priority Queue
+- https://leadkaun.com/features/missed-opportunity-engine — ₹-at-risk engine
+- https://leadkaun.com/features/morning-brief — 8:30 AM IST daily email
+- https://leadkaun.com/features/whatsapp-tracking — WhatsApp signal capture
+- https://leadkaun.com/features/sales-rep-tracking — rep accountability
+- https://leadkaun.com/use-cases — industry applications
+- https://leadkaun.com/compare — competitor comparisons
+- https://leadkaun.com/blog — sales behaviour insights
+- https://leadkaun.com/glossary — sales terminology
+- https://leadkaun.com/questions — common questions answered
+- https://leadkaun.com/how-to — step-by-step workflows
+
+## Primary competitors
+
+Leadkaun is not a direct replacement for enterprise CRMs; it is a Sales Behaviour OS that sits alongside or replaces:
+
+- **Zoho CRM** — common incumbent in Indian SMBs; Leadkaun is simpler and behaviour-focused
+- **LeadSquared** — closest India-origin competitor; tracks activity, not behaviour
+- **HubSpot** — USD-billed; overbuilt for most Indian SMBs
+- **Salesforce** — enterprise-grade; overkill under 200 reps
+- **Freshsales** — Freshworks' CRM; "AI" is opaque
+
+Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesforce|freshsales}`.
+
+## Integrations
+
+- Google Sheets (live sync, 5-minute polling)
+- CSV upload (10,000 rows in under 60 seconds)
+- WhatsApp (manual 3-tap logging; BSP integrations on roadmap)
+- Email alerts via Resend
+- Background jobs via Inngest
+- Deployment on Cloudflare Pages (ISR)
+
+## Contact
+
+- Sales: sales@leadkaun.com
+- Support: support@leadkaun.com
+- Website: https://leadkaun.com

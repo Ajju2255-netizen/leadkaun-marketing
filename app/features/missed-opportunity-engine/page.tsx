@@ -4,6 +4,7 @@ import { AlertTriangle, Gauge, ListOrdered, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -156,6 +157,13 @@ export default function MissedOpportunityPage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See the ₹ at risk, surfaced daily.</>}
+          sub="Every lead graded A–F, ranked in a live Priority Queue, with stale revenue surfaced as a rupee figure your managers act on every morning."
+        />
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

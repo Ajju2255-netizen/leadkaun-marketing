@@ -4,6 +4,7 @@ import { Mail, Gauge, ListOrdered, AlertTriangle } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -195,6 +196,13 @@ export default function MorningBriefPage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See the system the Brief reports on.</>}
+          sub="The Brief is the 8:30 AM summary of a live system — every lead graded A–F, a Priority Queue per rep, and the ₹ at risk in real rupees."
+        />
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

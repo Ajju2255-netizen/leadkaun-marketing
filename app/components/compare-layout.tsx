@@ -10,6 +10,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
+import { ProofBand, ProductShowcase } from "@/app/components/sell/blocks"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -92,6 +93,8 @@ export function ComparePageLayout(p: CompareProps) {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See all comparisons", href: "/compare" }}
         />
+
+        <ProofBand />
 
         {/* TL;DR + POSITIONING */}
         <SectionGround variant="cream" size="md">
@@ -189,11 +192,20 @@ export function ComparePageLayout(p: CompareProps) {
           </Container>
         </SectionGround>
 
+        {/* PRODUCT — show the live system the competitor lacks */}
+        <ProductShowcase
+          number="02"
+          ground="pure"
+          eyebrow="See it work"
+          title={<>See what {short} can&apos;t show you.</>}
+          sub={`Leadkaun grades every lead A–F, ranks each rep's Priority Queue live, and surfaces ₹ at risk in real rupees — the daily working screen ${short} doesn't have.`}
+        />
+
         {/* PRICING */}
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="02" tone="warm" label="Pricing comparison" />
+              <NumberedTag number="03" tone="warm" label="Pricing comparison" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Real numbers, not teaser rates.
               </h2>
@@ -218,7 +230,7 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="03" label="Switching guide" />
+              <NumberedTag number="04" label="Switching guide" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 How teams switch cleanly.
               </h2>
@@ -248,7 +260,7 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="04" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="05" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Switching from {short}.
               </h2>
@@ -258,7 +270,7 @@ export function ComparePageLayout(p: CompareProps) {
         </SectionGround>
 
         <CTABanner
-          tag={{ number: "05", label: "Ready when you are" }}
+          tag={{ number: "06", label: "Ready when you are" }}
           headline={`Try Leadkaun alongside ${short} for 14 days.`}
           sub="Import a CSV. Run both in parallel. Measure ₹ recovered. Decide at day 60."
         />

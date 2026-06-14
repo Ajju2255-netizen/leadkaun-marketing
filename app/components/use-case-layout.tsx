@@ -13,6 +13,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { Faq } from "@/app/components/faq"
+import { ProductShowcase, ModulesGrid, PricingCTA } from "@/app/components/sell/blocks"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -160,11 +161,21 @@ export function UseCaseLayout({
           </Container>
         </SectionGround>
 
+        {/* PRODUCT — show + sell the product, same bar as the landing page */}
+        <ProductShowcase
+          number="03"
+          ground="cream"
+          title={<>See Leadkaun work for {industryLabel.toLowerCase()} teams.</>}
+          sub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen your ${industryLabel.toLowerCase()} team opens every morning.`}
+        />
+        <ModulesGrid number="04" ground="sky" />
+        <PricingCTA number="05" ground="cream" />
+
         {/* FAQ */}
-        <SectionGround variant="cream" size="md">
+        <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="03" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="06" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Questions we hear most.
               </h2>
@@ -175,10 +186,10 @@ export function UseCaseLayout({
 
         {/* RELATED CITIES */}
         {relatedCities.length > 0 && (
-          <SectionGround variant="sky" size="md">
+          <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="04" label={`${industryLabel} by city`} />
+                <NumberedTag number="07" label={`${industryLabel} by city`} />
                 <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[32px]">
                   Localised pages for top markets.
                 </h2>

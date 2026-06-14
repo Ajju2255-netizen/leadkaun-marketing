@@ -4,6 +4,7 @@ import { Gauge, Zap, Filter, ListOrdered, AlertTriangle } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -227,6 +228,13 @@ export default function LeadScoringPage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See your leads graded A–F, live.</>}
+          sub="Scoring feeds a Priority Queue that ranks by grade and surfaces the ₹ at risk in real rupees — the working screen your reps open every morning."
+        />
 
         <CTABanner
           tag={{ number: "06", label: "Ready when you are" }}

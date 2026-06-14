@@ -4,6 +4,7 @@ import { MessageSquare, Gauge, ListOrdered, Users } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -145,6 +146,13 @@ export default function WhatsAppTrackingPage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See a WhatsApp reply become a ranked lead.</>}
+          sub="Three-tap logging feeds the score, the lead graded A–F lands in a live Priority Queue, and the ₹ at risk surfaces in real rupees."
+        />
 
         <CTABanner
           tag={{ number: "04", label: "Ready when you are" }}

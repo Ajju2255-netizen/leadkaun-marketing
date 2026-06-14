@@ -15,6 +15,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { MetricStrip } from "@/app/components/metric-strip"
 import { Reveal } from "@/app/components/reveal"
+import { ProductShowcase, WhyNotCRM, PricingCTA } from "@/app/components/sell/blocks"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
@@ -163,6 +164,16 @@ export default function ProductPage() {
           </Reveal>
         </Container>
       </SectionGround>
+
+      {/* PRODUCT — show the live system, then differentiate + price */}
+      <ProductShowcase
+        number="04"
+        ground="cream"
+        title={<>See the whole system in one screen.</>}
+        sub="Every lead graded A–F, a live Priority Queue per rep, and ₹ at risk surfaced in real rupees — the working surface your team opens every morning."
+      />
+      <WhyNotCRM number="05" ground="sky" />
+      <PricingCTA number="06" ground="cream" />
 
       <CTABanner />
       <Footer />

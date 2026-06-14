@@ -113,19 +113,29 @@ export function ProductShowcase({
   title,
   sub,
   ground = "sky",
-  number = "01",
+  number,
+  cta = false,
 }: {
   eyebrow?: string
   title: ReactNode
   sub: string
   ground?: Ground
+  /** when omitted, renders a label-only eyebrow chip (no clashing section number) */
   number?: string
+  /** append an inline trial CTA row under the showcase */
+  cta?: boolean
 }) {
   return (
     <SectionGround variant={ground} size="lg">
       <Container>
         <Reveal className="mb-10 md:mb-14 max-w-3xl">
-          <NumberedTag number={number} label={eyebrow} />
+          {number ? (
+            <NumberedTag number={number} label={eyebrow} />
+          ) : (
+            <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 glass-1 gloss-edge font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">
+              {eyebrow}
+            </span>
+          )}
           <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">{title}</h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft md:text-[18px]">{sub}</p>
         </Reveal>
@@ -141,9 +151,40 @@ export function ProductShowcase({
             </div>
           </div>
         </Reveal>
+
+        {cta && (
+          <Reveal delay={0.12} className="mt-9 flex flex-wrap items-center gap-3">
+            <GlossLink variant="primary" size="md" href={APP_URLS.register}>
+              Start free trial
+              <span className="font-mono opacity-80">→</span>
+            </GlossLink>
+            <Link href="/demo" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+              Book a 15-min demo →
+            </Link>
+          </Reveal>
+        )}
       </Container>
     </SectionGround>
   )
+}
+
+/**
+ * ProductBlock — the "tasteful" single product moment for content/informational
+ * pages: the live product showcase + an inline trial CTA, with a label-only
+ * eyebrow so it never clashes with a page's section numbering.
+ */
+export function ProductBlock({
+  eyebrow = "See it in Leadkaun",
+  title = <>This is the product behind the page.</>,
+  sub = "Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — set up in about 60 minutes.",
+  ground = "cream",
+}: {
+  eyebrow?: string
+  title?: ReactNode
+  sub?: string
+  ground?: Ground
+}) {
+  return <ProductShowcase eyebrow={eyebrow} title={title} sub={sub} ground={ground} cta />
 }
 
 /** ProofBand — the outcome-stats credibility band. */

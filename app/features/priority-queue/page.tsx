@@ -4,6 +4,7 @@ import { ListOrdered, Gauge, AlertTriangle, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -142,6 +143,13 @@ export default function PriorityQueuePage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See the Priority Queue rank itself.</>}
+          sub="Every lead graded A–F, re-ranked live as signals arrive, with the ₹ at risk surfaced in real rupees — so reps just work top-down."
+        />
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

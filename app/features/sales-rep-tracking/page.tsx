@@ -4,6 +4,7 @@ import { Users, Gauge, AlertTriangle, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -148,6 +149,13 @@ export default function SalesRepTrackingPage() {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <ProofBand />
+        <ProductBlock
+          eyebrow="See it in Leadkaun"
+          title={<>See behaviour and ₹ recovered per rep.</>}
+          sub="Behaviour tracking sits on a live system — every lead graded A–F, a Priority Queue per rep, and the ₹ at risk surfaced in real rupees."
+        />
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

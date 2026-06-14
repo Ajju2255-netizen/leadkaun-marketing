@@ -40,7 +40,6 @@ export default function HomePage() {
       <Navbar />
 
       <Hero />
-      <TrustBar />
       <Problem />
       <HowItWorks />
       <Modules />
@@ -76,7 +75,7 @@ const HERO_QUEUE = [
 
 function Hero() {
   return (
-    <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44">
+    <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44 pb-20 md:pb-28">
       {/* Coastal mesh blobs — drifting */}
       <GradientBlob color="sky"   size="xl" position="-top-32 -left-40" intensity={0.7} />
       <GradientBlob color="cyan"  size="lg" position="top-20 -right-32" intensity={0.5} delay={4} />
@@ -189,27 +188,9 @@ function Hero() {
           </div>
 
         </div>
-      </Container>
-    </SectionGround>
-  )
-}
 
-/* ───────────────────────────────────────────────────────────────────────
-   TRUST BAR — slim glass strip floating across the seam
-─────────────────────────────────────────────────────────────────────── */
-
-const TRUST_STATS = [
-  { value: "₹18L",     label: "avg recovered · 30 days" },
-  { value: "3.4×",     label: "follow-up rate · week 1" },
-  { value: "60 min",   label: "to first graded lead" },
-  { value: "₹4.2 Cr",  label: "recovered / quarter" },
-]
-
-function TrustBar() {
-  return (
-    <div className="relative -mt-8 mb-2">
-      <Container>
-        <div className="rounded-3xl glass-2 elevate-2 gloss-edge px-6 py-7 md:px-10">
+        {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}
+        <div className="mt-16 rounded-3xl glass-2 elevate-2 gloss-edge px-6 py-7 md:mt-20 md:px-10">
           <p className="text-center font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
             50+ Indian B2B teams · 12 verticals · 8 cities
           </p>
@@ -217,9 +198,7 @@ function TrustBar() {
             {TRUST_STATS.map((s, i) => (
               <div
                 key={s.label}
-                className={`flex flex-col items-center gap-1 px-4 ${
-                  i > 0 ? "md:border-l" : ""
-                }`}
+                className={`flex flex-col items-center gap-1 px-4 ${i > 0 ? "md:border-l" : ""}`}
                 style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
               >
                 <dt className="font-mono text-[26px] font-semibold leading-none tracking-[-0.025em] text-ink tabular md:text-[30px]">
@@ -233,9 +212,20 @@ function TrustBar() {
           </dl>
         </div>
       </Container>
-    </div>
+    </SectionGround>
   )
 }
+
+/* ───────────────────────────────────────────────────────────────────────
+   TRUST STATS — proof metrics rendered in the hero band
+─────────────────────────────────────────────────────────────────────── */
+
+const TRUST_STATS = [
+  { value: "₹18L",     label: "avg recovered · 30 days" },
+  { value: "3.4×",     label: "follow-up rate · week 1" },
+  { value: "60 min",   label: "to first graded lead" },
+  { value: "₹4.2 Cr",  label: "recovered / quarter" },
+]
 
 /* ───────────────────────────────────────────────────────────────────────
    PROBLEM — split editorial, glass cards, severity-tinted micro-glows

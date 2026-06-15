@@ -10,6 +10,30 @@ compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 # Account scoping (also via CF_ACCOUNT_ID env at deploy time)
 account_id = "19650c4ca8e6e4ed2699a0b288206b03"
 
+# NOTE: [limits] cpu_ms requires the Workers PAID plan — rejected on Free
+# (error 100328). The Free plan's ~10ms CPU cap is why cold on-demand SSR of
+# PSEO pages 503s ("Worker exceeded CPU time limit"). Re-add this once on Paid:
+#   [limits]
+#   cpu_ms = 300000
+
+# ─────────────────────────────────────────────────────────────────────────
+# ISR revalidation queue — SQLite-backed Durable Object (free-plan friendly).
+# Replaces OpenNext's throwing "Dummy queue". See open-next.config.ts (doQueue).
+# ─────────────────────────────────────────────────────────────────────────
+[[durable_objects.bindings]]
+name = "NEXT_CACHE_DO_QUEUE"
+class_name = "DOQueueHandler"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DOQueueHandler"]
+
+# Self service-binding: lets the queue DO call back into the worker to run
+# background revalidation of stale pages.
+[[services]]
+binding = "WORKER_SELF_REFERENCE"
+service = "leadkaun-marketing"
+
 # ─────────────────────────────────────────────────────────────────────────
 # Custom domains — apex + www serve the marketing site.
 # NOTE: the conflicting Cloudflare DNS records must be removed first

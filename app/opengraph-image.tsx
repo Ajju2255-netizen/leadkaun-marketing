@@ -4,7 +4,7 @@ export const alt = "Leadkaun — India's Sales Behaviour OS"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
-const PRIMARY = "#0066FF"
+const PRIMARY = "#3AA7FF"
 const FOREGROUND = "#0A0A0A"
 const FOREGROUND_SOFT = "#525866"
 const FOREGROUND_MUTED = "#868C98"
@@ -53,16 +53,20 @@ export default async function OGImage() {
 
         {/* Header — mark + wordmark */}
         <div style={{ display: "flex", alignItems: "center", gap: 18, zIndex: 1 }}>
-          <svg width="72" height="72" viewBox="0 0 40 40">
-            <rect x="0" y="0" width="40" height="40" rx="6" ry="6" fill={PRIMARY} />
-            <path
-              d="M12 31 L20 9 L28 31 M15.3 24 L24.7 24"
-              stroke="#FFFFFF"
-              strokeWidth="3.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
+          <svg width="76" height="76" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="lkBlue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#7ED3FF" />
+                <stop offset="100%" stopColor="#3AA7FF" />
+              </linearGradient>
+              <linearGradient id="lkOrange" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FFD7B5" />
+                <stop offset="100%" stopColor="#FF9A4D" />
+              </linearGradient>
+            </defs>
+            <path d="M36 18 L46 18 L28 86 L16 86 Z" fill="url(#lkBlue)" />
+            <path d="M54 18 L64 18 L84 86 L72 86 Z" fill="url(#lkOrange)" />
+            <circle cx="50" cy="66" r="6.5" fill="#3AA7FF" />
           </svg>
           <div
             style={{

@@ -10,29 +10,26 @@ compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 # Account scoping (also via CF_ACCOUNT_ID env at deploy time)
 account_id = "19650c4ca8e6e4ed2699a0b288206b03"
 
-# NOTE: [limits] cpu_ms requires the Workers PAID plan — rejected on Free
-# (error 100328). The Free plan's ~10ms CPU cap is why cold on-demand SSR of
-# PSEO pages 503s ("Worker exceeded CPU time limit"). Re-add this once on Paid:
+# Workers PAID plan: the per-request CPU ceiling rises to the Paid runtime
+# default (~30s) automatically — no [limits] block required to clear the Free
+# plan's old ~10ms cap that 503'd cold on-demand SSR of the ~74k PSEO URLs.
+#
+# NOTE: an explicit `[limits] cpu_ms` is omitted because the version-create API
+# still rejects it with "CPU limits are not supported for the Free plan
+# [code: 100328]" (a billing-entitlement propagation lag — persists across a
+# wrangler upgrade and a fresh `wrangler login`, while the dashboard shows Paid
+# as the current plan). That API check is separate from runtime enforcement, so
+# the Paid runtime ceiling applies regardless. Re-add once 100328 clears:
 #   [limits]
-#   cpu_ms = 300000
+#   cpu_ms = 30000
 
-# ─────────────────────────────────────────────────────────────────────────
-# ISR revalidation queue — SQLite-backed Durable Object (free-plan friendly).
-# Replaces OpenNext's throwing "Dummy queue". See open-next.config.ts (doQueue).
-# ─────────────────────────────────────────────────────────────────────────
-[[durable_objects.bindings]]
-name = "NEXT_CACHE_DO_QUEUE"
-class_name = "DOQueueHandler"
-
-[[migrations]]
-tag = "v1"
-new_sqlite_classes = ["DOQueueHandler"]
-
-# Self service-binding: lets the queue DO call back into the worker to run
-# background revalidation of stale pages.
-[[services]]
-binding = "WORKER_SELF_REFERENCE"
-service = "leadkaun-marketing"
+# NOTE: An earlier attempt added a SQLite-backed Durable Object revalidation
+# queue (NEXT_CACHE_DO_QUEUE / DOQueueHandler + WORKER_SELF_REFERENCE) to
+# replace OpenNext's throwing "Dummy queue". The DO class was not wired into
+# the worker at runtime, so stale-revalidation reads 503'd and took down core
+# pages. Reverted to the default queue (see open-next.config.ts). The v1
+# migration that created DOQueueHandler is already applied to the account; it
+# is harmless without a binding (no DO class is exported, none is invoked).
 
 # ─────────────────────────────────────────────────────────────────────────
 # Custom domains — apex + www serve the marketing site.

@@ -5,20 +5,29 @@ import { getCities, getIndustries, getKeywords, getRoles } from "./lookup"
  * Everything else runs ISR on Cloudflare Workers (first hit renders + caches in
  * R2 incremental-cache for 24h, served instantly thereafter).
  *
- * Sized so the build produces ≤ ~350 PSEO pages regardless of total catalogue
- * size — keeps build time bounded as we scale toward 100k URLs.
+ * Pre-rendered pages are written to the R2 incremental cache at deploy time, so
+ * they serve as warm static responses with NO cold SSR — immune to the
+ * per-request CPU limit. We therefore bake the whole high-value HEAD into the
+ * build: all Tier-1 + Tier-2 cities (49 — every metro + major city, where real
+ * search traffic lands) × 12 industries, plus a wide keyword + role slice. This
+ * yields ~1,900 pre-rendered PSEO pages. The long tail (Tier-3/4 cities, ~72k
+ * URLs) stays on-demand ISR — low traffic, and renders fine once the Workers
+ * Paid CPU ceiling is in force.
+ *
+ * Trade-off: a larger build + R2 cache-population step. Bounded well under the
+ * scale where build time becomes a problem.
  *
  * See vault: 08 - Website/Architecture/Cloudflare-R2-ISR-Migration.md
  */
 
-const TOP_CITIES        = 10   // every Tier-1 city (the lever the sales team cares about)
-const TOP_CITIES_FOR_KW = 5    // tighter — keyword pages multiply 12 × N × 3
-const TOP_KEYWORDS      = 3    // crm-software, lead-management, lead-scoring
-const TOP_ROLES         = 3    // sales-manager, sales-head, sdr
+const CITY_TIER_MAX     = 2    // pre-render Tier-1 + Tier-2 cities (49): metros + major cities
+const TOP_CITIES_FOR_KW = 15   // keyword pages multiply 12 industries × N cities × keywords — keep tighter
+const TOP_KEYWORDS      = 5    // crm-software, lead-management, lead-scoring, lead-tracking, sales-crm
+const TOP_ROLES         = 5    // sales-manager, sales-head, sdr, + next two
 
 export async function tier0Cities() {
   const cities = await getCities()
-  return cities.filter((c) => c.tier === 1).slice(0, TOP_CITIES)
+  return cities.filter((c) => c.tier <= CITY_TIER_MAX)
 }
 
 export async function tier0CitiesForKeyword() {

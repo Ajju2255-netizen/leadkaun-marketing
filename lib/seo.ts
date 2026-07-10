@@ -249,7 +249,9 @@ export function offerSchema(params: {
       "@type": "UnitPriceSpecification",
       price: params.priceInr,
       priceCurrency: "INR",
-      unitText: params.unit ?? "per rep per month",
+      // Flat per-account pricing — the tier's rep count is a seat limit, not a
+      // multiplier. This string reaches Google's rich results; keep it truthful.
+      unitText: params.unit ?? "per month",
     },
     availability: "https://schema.org/InStock",
   }

@@ -62,7 +62,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
     ]),
     localBusinessSchema({ name: `Leadkaun ${kw.label} for ${ind.name} in ${cityRec.name}`, city: cityRec.name, state: cityRec.state, industry: ind.name, url: `/${industry}/${cityRec.slug}/${keyword}`, description: `${kw.label} built for ${ind.name.toLowerCase()} sales teams in ${cityRec.name}.` }),
     placeSchema({ city: cityRec.name, state: cityRec.state, lat: cityRec.lat, lng: cityRec.lng }),
-    offerSchema({ name: `Leadkaun Growth — ${kw.label} for ${ind.name} teams`, priceInr: 1999, url: "/pricing" }),
+    offerSchema({ name: `Leadkaun Growth — ${kw.label} for ${ind.name} teams`, priceInr: 7500, url: "/pricing" }),
     faqPageSchema(faqs),
   ]
 

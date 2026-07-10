@@ -91,7 +91,7 @@ export const CATEGORIES: BlogCategory[] = [
       { label: "Lead Scoring (Grade A–F)", href: "/features/lead-scoring", note: "Every lead graded in under 500ms." },
       { label: "Priority Queue", href: "/features/priority-queue", note: "The list that tells reps who to call next." },
       { label: "Missed Opportunity Engine", href: "/features/missed-opportunity-engine", note: "See ₹ slipping before it's gone." },
-      { label: "See pricing", href: "/pricing", note: "Plans from ₹999/rep/month." },
+      { label: "See pricing", href: "/pricing", note: "Plans from ₹2,999/month." },
     ],
   },
   {
@@ -140,7 +140,7 @@ export const CATEGORIES: BlogCategory[] = [
     moneyLinks: [
       { label: "Missed Opportunity Engine", href: "/features/missed-opportunity-engine", note: "₹ at risk, surfaced every day." },
       { label: "Sales Rep Tracking", href: "/features/sales-rep-tracking", note: "₹ recovered, per rep." },
-      { label: "See pricing", href: "/pricing", note: "ROI in rupees, from ₹999/rep/month." },
+      { label: "See pricing", href: "/pricing", note: "ROI in rupees, from ₹2,999/month." },
       { label: "Book a demo", href: "/demo", note: "See your ₹-at-risk number live." },
     ],
   },
@@ -232,7 +232,7 @@ export const CATEGORIES: BlogCategory[] = [
       "Most Indian SMBs don't have a CRM problem — they have a fit problem. Salesforce is built for 200+ rep enterprises; HubSpot is USD-priced; Zoho and LeadSquared record activity but rarely change what reps do next. Pick by the job-to-be-done: Zoho or LeadSquared for workflow CRM, HubSpot for marketing-led pipelines, and Leadkaun when you need a Sales Behaviour OS that grades every lead A–F, builds each rep's priority queue, and surfaces ₹ at risk daily. Switching is a 2–4 week migration, not a 6-month consulting project — and usually cuts licence cost 50–80%.",
     featuredSlug: "why-indian-companies-leave-salesforce",
     faqs: [
-      { q: "What is the best CRM alternative for Indian SMBs in 2026?", a: "There is no single best — it depends on the job. For workflow CRM at SMB price, Zoho CRM or LeadSquared (₹1,200–₹3,000/rep/month). For marketing-led pipelines, HubSpot (strongest automation, but USD-priced). For changing how reps sell — grading leads A–F, a real-time priority queue, and ₹-at-risk visibility — Leadkaun (₹999–₹2,999/rep/month), which usually runs alongside an existing CRM for 60–90 days, then consolidates." },
+      { q: "What is the best CRM alternative for Indian SMBs in 2026?", a: "There is no single best — it depends on the job. For workflow CRM at SMB price, Zoho CRM or LeadSquared (₹1,200–₹3,000/rep/month). For marketing-led pipelines, HubSpot (strongest automation, but USD-priced). For changing how reps sell — grading leads A–F, a real-time priority queue, and ₹-at-risk visibility — Leadkaun (₹2,999–₹20,000/month flat, not per rep), which usually runs alongside an existing CRM for 60–90 days, then consolidates." },
       { q: "When should an Indian company leave Salesforce?", a: "Salesforce earns its cost at ~200+ reps, in regulated industries, or with a dedicated admin. Below that, most Indian SMBs run a tool built for enterprises at 20–40% rep adoption while paying ₹7,500+/rep/month. If your reps don't log calls and your manager can't answer 'what's ₹ at risk this week', you've outgrown the fit, not the size." },
       { q: "Is HubSpot too expensive for Indian teams?", a: "HubSpot's paid tiers are USD-priced and roughly 2× most Indian alternatives, and the free tier breaks once you need automation or more than a few seats. For marketing-heavy pipelines it can still be worth it; for sales-behaviour problems, a ₹-priced India-built tool plus HubSpot's free CRM is often the cheaper, higher-adoption combination." },
       { q: "How long does it take to switch CRMs?", a: "For most Indian SMBs, 2–4 weeks: week 1 export + audit (30–60% of CRM data is usually stale), week 2 set up the target and ingest live records, week 3 train reps, week 4 cut over and measure adoption, response time, and licence savings. Run the old and new systems side-by-side for 30 days so nothing breaks." },
@@ -268,7 +268,7 @@ export const CATEGORIES: BlogCategory[] = [
       { label: "Sales Rep Tracking", href: "/features/sales-rep-tracking", note: "Coach on outcomes, not activity." },
       { label: "Morning Brief", href: "/features/morning-brief", note: "A coaching ritual, not a surveillance tool." },
       { label: "Missed Opportunity Engine", href: "/features/missed-opportunity-engine", note: "One number: ₹ at risk this week." },
-      { label: "See pricing", href: "/pricing", note: "From ₹999/rep/month." },
+      { label: "See pricing", href: "/pricing", note: "From ₹2,999/month." },
     ],
   },
   {
@@ -316,7 +316,7 @@ export const CATEGORIES: BlogCategory[] = [
     ],
     moneyLinks: [
       { label: "The product", href: "/product", note: "The whole system in one view." },
-      { label: "See pricing", href: "/pricing", note: "Starter ₹999 → Scale ₹2,999/rep/month." },
+      { label: "See pricing", href: "/pricing", note: "Starter ₹2,999 → Scale ₹20,000/month." },
       { label: "Lead Scoring", href: "/features/lead-scoring", note: "Score leads from day one." },
       { label: "Book a demo", href: "/demo", note: "60-minute setup, walked through." },
     ],

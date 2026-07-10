@@ -41,7 +41,7 @@ export default function VsZoho() {
         { label: "Rep adoption (typical Indian SMB)",                   leadkaun: "80%+",          competitor: "30–40%" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",        price: "₹1,999 / rep / mo", note: "All 12 modules, 14-day free trial, no credit card" },
+        leadkaun:   { tier: "Growth",        price: "₹7,500 / mo", note: "All 12 modules, 14-day free trial, no credit card" },
         competitor: { tier: "Professional",  price: "₹2,400 / rep / mo", note: "Plus implementation + admin overhead (₹50k–₹1.5L/month)" },
       }}
       switching={[

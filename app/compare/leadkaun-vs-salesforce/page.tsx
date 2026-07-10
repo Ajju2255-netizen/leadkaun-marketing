@@ -41,7 +41,7 @@ export default function VsSalesforce() {
         { label: "Setup time (typical SMB)",                   leadkaun: "60 min",     competitor: "3–12 mo" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",       price: "₹1,999 / rep / mo", note: "All modules included. No admin overhead." },
+        leadkaun:   { tier: "Growth",       price: "₹7,500 / mo", note: "All modules included. No admin overhead." },
         competitor: { tier: "Sales Pro",    price: "₹7,500+ / rep / mo", note: "Plus admin (₹1–2L/mo) + implementation (₹5–50L one-time)" },
       }}
       switching={[

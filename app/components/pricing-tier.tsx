@@ -5,11 +5,11 @@ import { Check } from "lucide-react"
 type Props = {
   name: string
   price: string
-  /** unit label, e.g. "/rep/month" */
+  /** unit label, e.g. "/month" */
   priceUnit?: string
   description: string
   features: string[]
-  /** annual-billing hint shown under the price, e.g. "₹10,790/rep billed yearly · save 10%" */
+  /** annual-billing hint shown under the price, e.g. "₹81,000 billed yearly · save 10%" */
   annualNote?: string
   ctaLabel: string
   ctaHref: string
@@ -22,7 +22,9 @@ type Props = {
 export function PricingTier({
   name,
   price,
-  priceUnit = "/rep/month",
+  // Flat per-account pricing. The rep counts in each tier's feature list are
+  // seat limits, not multipliers — the bill does not scale with team size.
+  priceUnit = "/month",
   description,
   features,
   annualNote,

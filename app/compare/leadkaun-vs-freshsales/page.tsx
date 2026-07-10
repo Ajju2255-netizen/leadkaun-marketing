@@ -40,7 +40,7 @@ export default function VsFreshsales() {
         { label: "India-first scoring defaults",                leadkaun: true,            competitor: false },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",  price: "₹1,999 / rep / mo", note: "All 12 modules. 14-day trial. No credit card." },
+        leadkaun:   { tier: "Growth",  price: "₹7,500 / mo", note: "All 12 modules. 14-day trial. No credit card." },
         competitor: { tier: "Pro",     price: "₹3,500 / rep / mo", note: "Freddy AI Pro + WhatsApp (Freshchat) extra" },
       }}
       switching={[

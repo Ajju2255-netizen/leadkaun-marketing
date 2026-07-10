@@ -38,10 +38,10 @@ export default function VsHubSpot() {
         { label: "Marketing automation depth",                      leadkaun: false,        competitor: true },
         { label: "Content / landing-page builder",                  leadkaun: false,        competitor: true },
         { label: "INR pricing with GST",                            leadkaun: true,         competitor: false },
-        { label: "Per-rep pricing (no contact limits)",             leadkaun: true,         competitor: false },
+        { label: "Flat pricing (no per-seat or contact limits)",     leadkaun: true,         competitor: false },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",        price: "₹1,999 / rep / mo", note: "All modules, 14-day trial, no credit card" },
+        leadkaun:   { tier: "Growth",        price: "₹7,500 / mo", note: "All modules, 14-day trial, no credit card" },
         competitor: { tier: "Sales Pro",     price: "₹7,500+ / rep / mo", note: "Plus per-contact band; scales badly at 50k+ leads" },
       }}
       switching={[

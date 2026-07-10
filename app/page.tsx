@@ -604,7 +604,7 @@ function Pricing() {
         <Reveal className="mb-12 md:mb-16 max-w-3xl">
           <NumberedTag number="07" label="Pricing" />
           <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-            Per rep. In rupees. No contact fees.
+            Flat. In rupees. No contact fees.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
             All 12 modules on every tier. 14-day free trial, no credit card. Annual billing saves 10%.
@@ -615,8 +615,8 @@ function Pricing() {
           <PricingTier
             name="Starter"
             description="Small teams getting scoring + queue live for the first time."
-            price="₹999"
-            annualNote="₹10,790/rep billed yearly"
+            price="₹2,999"
+            annualNote="₹32,390 billed yearly"
             features={[
               "Up to 10 reps",
               "All 12 core modules",
@@ -630,8 +630,8 @@ function Pricing() {
           <PricingTier
             name="Growth"
             description="Most Indian SMBs (10–30 reps). Custom ICP, all behaviour features."
-            price="₹1,999"
-            annualNote="₹21,590/rep billed yearly · save 10%"
+            price="₹7,500"
+            annualNote="₹81,000 billed yearly · save 10%"
             features={[
               "Up to 30 reps",
               "Everything in Starter",
@@ -647,8 +647,8 @@ function Pricing() {
           <PricingTier
             name="Scale"
             description="Scaling teams (30–50 reps) wanting full admin + audit."
-            price="₹2,999"
-            annualNote="₹32,390/rep billed yearly"
+            price="₹20,000"
+            annualNote="₹2,16,000 billed yearly"
             features={[
               "Up to 50 reps",
               "Everything in Growth",
@@ -657,8 +657,8 @@ function Pricing() {
               "Compliance audit export",
               "Custom onboarding",
             ]}
-            ctaLabel="Contact sales"
-            ctaHref="/contact"
+            ctaLabel="Start free trial"
+            ctaHref={APP_URLS.register}
           />
         </Reveal>
 

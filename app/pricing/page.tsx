@@ -18,7 +18,7 @@ import { APP_URLS } from "@/lib/urls"
 export const metadata: Metadata = {
   title: "Pricing in ₹ — No CRM Tax",
   description:
-    "Leadkaun pricing in Indian Rupees. Per-rep pricing, no annual lock-in for starters, no USD bills. Plans for sales teams of all sizes.",
+    "Leadkaun pricing in Indian Rupees. Flat per-account pricing, no per-seat fees, no annual lock-in for starters, no USD bills. Plans for sales teams of all sizes.",
   alternates: { canonical: "/pricing" },
 }
 
@@ -26,7 +26,7 @@ const PLANS = [
   {
     name: "Starter",
     description: "Small teams getting lead scoring and Priority Queue live for the first time.",
-    price: "₹999",
+    price: "₹2,999",
     features: [
       "Up to 10 reps", "All 12 core modules", "Google Sheets + CSV ingestion",
       "Morning Brief email (8:30 AM IST)", "3-tap WhatsApp logging",
@@ -38,7 +38,7 @@ const PLANS = [
   {
     name: "Growth",
     description: "Most Indian SMBs (10–30 reps). Full behaviour system with custom ICPs.",
-    price: "₹1,999",
+    price: "₹7,500",
     features: [
       "Up to 30 reps", "Everything in Starter", "Missed Opportunity Engine (₹ at risk)",
       "Custom ICP weights per pipeline", "WhatsApp BSP integrations",
@@ -51,14 +51,14 @@ const PLANS = [
   {
     name: "Scale",
     description: "Scaling teams (30–50 reps) wanting admin, assignment rules, audit export.",
-    price: "₹2,999",
+    price: "₹20,000",
     features: [
       "Up to 50 reps", "Everything in Growth", "Role-based permissions",
       "Assignment rules + unassigned queue", "Compliance audit export",
       "API access", "Dedicated onboarding", "SLA-based support",
     ],
-    ctaLabel: "Contact sales",
-    ctaHref: "/contact",
+    ctaLabel: "Start free trial",
+    ctaHref: APP_URLS.register,
   },
 ]
 
@@ -139,7 +139,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         h1={
           <>
-            Per rep. In rupees.<br />
+            Flat. In rupees.<br />
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}

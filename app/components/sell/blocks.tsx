@@ -220,7 +220,7 @@ export function WhyNotCRM({
 
 /** PricingCTA — compact pricing nudge that converts. */
 export function PricingCTA({
-  lead = "From ₹999 per rep / month.",
+  lead = "From ₹2,999 per month.",
   ground = "cream",
   number = "04",
 }: {

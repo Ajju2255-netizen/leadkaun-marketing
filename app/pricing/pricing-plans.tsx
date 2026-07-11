@@ -30,7 +30,7 @@ const PAID: PaidTier[] = [
     description: "Small teams getting AI scoring and the Priority Queue live for the first time.",
     idealFor: "agencies, local businesses, and small sales teams.",
     features: [
-      "Up to 10 users · 5,000 leads/month",
+      "Up to 10 users · 5,000 active leads",
       "Everything in Free, uncapped",
       "AI lead scoring + Smart Priority Queue",
       "Unlimited pipeline & CSV imports",
@@ -47,7 +47,7 @@ const PAID: PaidTier[] = [
     description: "Built for growing sales teams that can't afford to let a hot lead go cold.",
     idealFor: "5–50 reps in D2C, education, real estate, healthcare, SaaS.",
     features: [
-      "Up to 30 users · 25,000 leads/month",
+      "Up to 30 users · 25,000 active leads",
       "Everything in Starter, plus:",
       "Missed Opportunity Engine (₹ at risk)",
       "AI Learning Engine",
@@ -153,7 +153,7 @@ export function PricingPlans() {
           description="The fastest way to see Leadkaun grade your own leads. No card."
           idealFor="trying Leadkaun before you roll it out."
           features={[
-            "1 user · 100 leads",
+            "1 user · 100 active leads",
             "AI lead scoring + Lead Queue",
             "Pipeline · CSV import",
             "WhatsApp logging",

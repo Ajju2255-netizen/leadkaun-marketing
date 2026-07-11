@@ -619,7 +619,7 @@ function Pricing() {
             price="₹2,999"
             annualNote="₹29,990 billed yearly · save 17%"
             features={[
-              "Up to 10 users · 5,000 leads/mo",
+              "Up to 10 users · 5,000 active leads",
               "AI scoring + Smart Priority Queue",
               "Unlimited pipeline & CSV imports",
               "Follow-up engine + team dashboard",
@@ -634,7 +634,7 @@ function Pricing() {
             price="₹7,999"
             annualNote="₹79,990 billed yearly · save 17%"
             features={[
-              "Up to 30 users · 25,000 leads/mo",
+              "Up to 30 users · 25,000 active leads",
               "Everything in Starter, plus:",
               "Missed Opportunity Engine (₹ at risk)",
               "AI Learning Engine + rep scorecards",

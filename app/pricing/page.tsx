@@ -18,7 +18,7 @@ import { PricingPlans } from "./pricing-plans"
 export const metadata: Metadata = {
   title: "Pricing in ₹ — Start Free, Scale to Enterprise",
   description:
-    "Leadkaun pricing in Indian Rupees. Start free (100 leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 — flat per account, priced by team size and lead volume. Save 17% on annual billing.",
+    "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 — flat per account, priced by team size and active-lead volume. Save 17% on annual billing.",
   alternates: { canonical: "/pricing" },
 }
 
@@ -40,7 +40,7 @@ const FEATURE_MATRIX: {
     category: "Limits",
     rows: [
       { label: "Users",       free: "1",   starter: "10",        growth: "30",        scale: "75" },
-      { label: "Leads/month", free: "100", starter: "5,000",     growth: "25,000",    scale: "Unlimited" },
+      { label: "Active leads",  free: "100", starter: "5,000",     growth: "25,000",    scale: "Unlimited" },
       { label: "CSV import",  free: true,  starter: "Unlimited", growth: "Unlimited", scale: "Unlimited" },
     ],
   },
@@ -81,8 +81,9 @@ const ADDONS: { name: string; price: string; note?: string }[] = [
 ]
 
 const FAQ = [
-  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 leads for 14 days — full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
-  { q: "How is Leadkaun priced?", a: "Flat per account, not per seat — priced by team size and monthly lead volume. Starter ₹2,999 (10 users, 5,000 leads), Growth ₹7,999 (30 users, 25,000 leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
+  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 active leads for 14 days — full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
+  { q: "How is Leadkaun priced?", a: "Flat per account, not per seat — priced by team size and active-lead volume. Starter ₹2,999 (10 users, 5,000 active leads), Growth ₹7,999 (30 users, 25,000 active leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
+  { q: "What counts as an 'active lead' — and what happens at the limit?", a: "An active lead is an open one you're still working. When you win, lose, or archive a deal it stops counting, so the limit tracks your live pipeline, not everything you've ever added. If you hit the cap, nothing locks: every existing lead stays fully usable — view, edit, call, close, export. Only adding new leads pauses until you close a few or upgrade. It rewards good CRM hygiene instead of punishing growth." },
   { q: "Do you charge in USD?", a: "No. All pricing is in Indian Rupees (INR). Invoices are GST-compliant." },
   { q: "Is there an annual discount?", a: "Yes — annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },
   { q: "Can I change plans later?", a: "Yes. Upgrade or downgrade anytime; billing adjusts pro-rata. Most teams start on Starter and move to Growth once they feel leads going cold and want the Missed Opportunity Engine + AI Learning." },

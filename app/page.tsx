@@ -604,60 +604,61 @@ function Pricing() {
         <Reveal className="mb-12 md:mb-16 max-w-3xl">
           <NumberedTag number="07" label="Pricing" />
           <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-            Flat. In rupees. No contact fees.
+            Start free. Grow into more sales.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            All 12 modules on every tier. 14-day free trial, no credit card. Annual billing saves 10%.
+            AI scoring, Priority Queue and pipeline free for 14 days — no credit card. Then priced flat
+            by team size and lead volume. Annual billing saves 17%.
           </p>
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-6 md:grid-cols-3">
           <PricingTier
             name="Starter"
-            description="Small teams getting scoring + queue live for the first time."
+            description="Small teams getting AI scoring + the queue live for the first time."
             price="₹2,999"
-            annualNote="₹32,390 billed yearly"
+            annualNote="₹29,990 billed yearly · save 17%"
             features={[
-              "Up to 10 reps",
-              "All 12 core modules",
-              "Google Sheets / CSV ingestion",
-              "Morning Brief email",
+              "Up to 10 users · 5,000 leads/mo",
+              "AI scoring + Smart Priority Queue",
+              "Unlimited pipeline & CSV imports",
+              "Follow-up engine + team dashboard",
               "Email support",
             ]}
-            ctaLabel="Start free trial"
+            ctaLabel="Start Starter"
             ctaHref={APP_URLS.register}
           />
           <PricingTier
             name="Growth"
-            description="Most Indian SMBs (10–30 reps). Custom ICP, all behaviour features."
-            price="₹7,500"
-            annualNote="₹81,000 billed yearly · save 10%"
+            description="Growing teams that can't afford to let a hot lead go cold."
+            price="₹7,999"
+            annualNote="₹79,990 billed yearly · save 17%"
             features={[
-              "Up to 30 reps",
-              "Everything in Starter",
-              "Custom ICP weights per pipeline",
-              "Missed Opportunity Engine (₹-at-risk)",
-              "WhatsApp BSP integrations",
+              "Up to 30 users · 25,000 leads/mo",
+              "Everything in Starter, plus:",
+              "Missed Opportunity Engine (₹ at risk)",
+              "AI Learning Engine + rep scorecards",
+              "Revenue dashboard + advanced analytics",
               "Priority support",
             ]}
-            ctaLabel="Start free trial"
+            ctaLabel="Upgrade to Growth"
             ctaHref={APP_URLS.register}
             highlighted
           />
           <PricingTier
             name="Scale"
-            description="Scaling teams (30–50 reps) wanting full admin + audit."
-            price="₹20,000"
-            annualNote="₹2,16,000 billed yearly"
+            description="High-growth companies needing workspaces, API and a CSM."
+            price="₹19,999"
+            annualNote="₹1,99,990 billed yearly · save 17%"
             features={[
-              "Up to 50 reps",
-              "Everything in Growth",
-              "Role-based permissions",
-              "Assignment rules + unassigned queue",
-              "Compliance audit export",
-              "Custom onboarding",
+              "Up to 75 users · unlimited leads",
+              "Everything in Growth, plus:",
+              "Multiple workspaces",
+              "API access + webhooks",
+              "Dedicated success manager + QBRs",
+              "Premium support + SLA",
             ]}
-            ctaLabel="Start free trial"
+            ctaLabel="Scale Faster"
             ctaHref={APP_URLS.register}
           />
         </Reveal>

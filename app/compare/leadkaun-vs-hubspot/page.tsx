@@ -41,7 +41,7 @@ export default function VsHubSpot() {
         { label: "Flat pricing (no per-seat or contact limits)",     leadkaun: true,         competitor: false },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",        price: "₹7,500 / mo", note: "All modules, 14-day trial, no credit card" },
+        leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All modules, 14-day trial, no credit card" },
         competitor: { tier: "Sales Pro",     price: "₹7,500+ / rep / mo", note: "Plus per-contact band; scales badly at 50k+ leads" },
       }}
       switching={[

@@ -9,111 +9,85 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
 import { NumberedTag } from "@/app/components/numbered-tag"
-import { PricingTier } from "@/app/components/pricing-tier"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { APP_URLS } from "@/lib/urls"
+import { PricingPlans } from "./pricing-plans"
 
 export const metadata: Metadata = {
-  title: "Pricing in ₹ — No CRM Tax",
+  title: "Pricing in ₹ — Start Free, Scale to Enterprise",
   description:
-    "Leadkaun pricing in Indian Rupees. Flat per-account pricing, no per-seat fees, no annual lock-in for starters, no USD bills. Plans for sales teams of all sizes.",
+    "Leadkaun pricing in Indian Rupees. Start free (100 leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 — flat per account, priced by team size and lead volume. Save 17% on annual billing.",
   alternates: { canonical: "/pricing" },
 }
 
-const PLANS = [
-  {
-    name: "Starter",
-    description: "Small teams getting lead scoring and Priority Queue live for the first time.",
-    price: "₹2,999",
-    features: [
-      "Up to 10 reps", "All 12 core modules", "Google Sheets + CSV ingestion",
-      "Morning Brief email (8:30 AM IST)", "3-tap WhatsApp logging",
-      "Basic analytics", "Email support",
-    ],
-    ctaLabel: "Start free trial",
-    ctaHref: APP_URLS.register,
-  },
-  {
-    name: "Growth",
-    description: "Most Indian SMBs (10–30 reps). Full behaviour system with custom ICPs.",
-    price: "₹7,500",
-    features: [
-      "Up to 30 reps", "Everything in Starter", "Missed Opportunity Engine (₹ at risk)",
-      "Custom ICP weights per pipeline", "WhatsApp BSP integrations",
-      "Advanced analytics + loss analysis", "Priority support",
-    ],
-    ctaLabel: "Start free trial",
-    ctaHref: APP_URLS.register,
-    highlighted: true,
-  },
-  {
-    name: "Scale",
-    description: "Scaling teams (30–50 reps) wanting admin, assignment rules, audit export.",
-    price: "₹20,000",
-    features: [
-      "Up to 50 reps", "Everything in Growth", "Role-based permissions",
-      "Assignment rules + unassigned queue", "Compliance audit export",
-      "API access", "Dedicated onboarding", "SLA-based support",
-    ],
-    ctaLabel: "Start free trial",
-    ctaHref: APP_URLS.register,
-  },
-]
-
+// Feature comparison — Free / Starter / Growth / Scale.
 const FEATURE_MATRIX: {
   category: string
-  rows: { label: string; starter: boolean | string; growth: boolean | string; scale: boolean | string }[]
+  rows: { label: string; free: boolean | string; starter: boolean | string; growth: boolean | string; scale: boolean | string }[]
 }[] = [
   {
     category: "Core behaviour layer",
     rows: [
-      { label: "Lead scoring (Grade A–F)",  starter: true,  growth: true, scale: true },
-      { label: "Priority Queue",            starter: true,  growth: true, scale: true },
-      { label: "3-tap WhatsApp logging",    starter: true,  growth: true, scale: true },
-      { label: "Morning Brief email",       starter: true,  growth: true, scale: true },
-      { label: "Missed Opportunity Engine", starter: false, growth: true, scale: true },
-      { label: "Custom ICP weights",        starter: false, growth: true, scale: true },
+      { label: "AI lead scoring (Grade A–F)", free: true, starter: true, growth: true, scale: true },
+      { label: "Priority Queue",              free: true, starter: true, growth: true, scale: true },
+      { label: "CRM + pipeline",              free: true, starter: true, growth: true, scale: true },
+      { label: "WhatsApp activity tracking",  free: true, starter: true, growth: true, scale: true },
     ],
   },
   {
-    category: "Team & admin",
+    category: "Limits",
     rows: [
-      { label: "Seat cap",                 starter: "10",  growth: "30",   scale: "50" },
-      { label: "Role-based permissions",   starter: false, growth: false,  scale: true },
-      { label: "Assignment rules",         starter: false, growth: true,   scale: true },
-      { label: "Compliance audit export",  starter: false, growth: false,  scale: true },
+      { label: "Users",       free: "1",   starter: "10",        growth: "30",        scale: "75" },
+      { label: "Leads/month", free: "100", starter: "5,000",     growth: "25,000",    scale: "Unlimited" },
+      { label: "CSV import",  free: true,  starter: "Unlimited", growth: "Unlimited", scale: "Unlimited" },
     ],
   },
   {
-    category: "Integrations",
+    category: "AI & intelligence",
     rows: [
-      { label: "Google Sheets sync",                 starter: true,  growth: true, scale: true },
-      { label: "CSV import (10k/min)",               starter: true,  growth: true, scale: true },
-      { label: "WhatsApp BSP (Gupshup/AiSensy)",     starter: false, growth: true, scale: true },
-      { label: "Calendar + Calendly",                starter: false, growth: true, scale: true },
-      { label: "API access",                         starter: false, growth: false, scale: true },
+      { label: "AI Learning Engine",        free: false, starter: false,   growth: true,       scale: true },
+      { label: "Missed Opportunity Engine", free: false, starter: false,   growth: true,       scale: true },
+      { label: "Rep tracking + scorecards", free: false, starter: false,   growth: true,       scale: true },
+      { label: "Revenue analytics",         free: false, starter: "Basic", growth: "Advanced", scale: "Advanced" },
+    ],
+  },
+  {
+    category: "Scale & integrations",
+    rows: [
+      { label: "Multiple workspaces", free: false, starter: false, growth: false, scale: true },
+      { label: "API access",          free: false, starter: false, growth: false, scale: true },
+      { label: "Webhooks",            free: false, starter: false, growth: false, scale: true },
     ],
   },
   {
     category: "Support",
     rows: [
-      { label: "Email support",        starter: true,  growth: true,  scale: true },
-      { label: "Priority support",     starter: false, growth: true,  scale: true },
-      { label: "Dedicated onboarding", starter: false, growth: false, scale: true },
-      { label: "SLA",                  starter: false, growth: false, scale: "99.9%" },
+      { label: "Support", free: false, starter: "Email", growth: "Priority", scale: "Dedicated" },
     ],
   },
 ]
 
+const ADDONS: { name: string; price: string; note?: string }[] = [
+  { name: "Additional user (Starter)", price: "₹250/mo" },
+  { name: "Additional user (Growth)",  price: "₹200/mo" },
+  { name: "Additional workspace",      price: "₹999/mo" },
+  { name: "White-label reports",       price: "₹1,999/mo" },
+  { name: "API access (before Scale)", price: "₹2,999/mo" },
+  { name: "Data migration",            price: "₹4,999",  note: "one-time" },
+  { name: "Premium onboarding",        price: "₹9,999",  note: "one-time" },
+  { name: "AI credits",                price: "Usage-based", note: "coming soon" },
+]
+
 const FAQ = [
-  { q: "Is there a free trial?", a: "Yes. 14 days, full Growth-tier feature access, no credit card required. Import your leads, grade them, work the queue. If it doesn't recover ₹ in 14 days, don't pay." },
+  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 leads for 14 days — full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
+  { q: "How is Leadkaun priced?", a: "Flat per account, not per seat — priced by team size and monthly lead volume. Starter ₹2,999 (10 users, 5,000 leads), Growth ₹7,999 (30 users, 25,000 leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
   { q: "Do you charge in USD?", a: "No. All pricing is in Indian Rupees (INR). Invoices are GST-compliant." },
-  { q: "Can I change plans later?", a: "Yes. Upgrade or downgrade at any time. Billing adjusts pro-rata." },
-  { q: "What counts as a 'rep'?", a: "Any user with the Sales Rep role — someone who gets assigned leads and logs outcomes. Admins and managers are not counted toward the seat cap." },
-  { q: "Is there an annual discount?", a: "Yes — 10% off on annual billing across all tiers. Contact sales for a formal quote." },
-  { q: "Can we self-host or run on-prem?", a: "Not today. Leadkaun is a hosted SaaS on Supabase (Singapore region). Enterprise on-prem is on roadmap for Scale tier with sufficient demand." },
+  { q: "Is there an annual discount?", a: "Yes — annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },
+  { q: "Can I change plans later?", a: "Yes. Upgrade or downgrade anytime; billing adjusts pro-rata. Most teams start on Starter and move to Growth once they feel leads going cold and want the Missed Opportunity Engine + AI Learning." },
+  { q: "What if I need more than 75 users?", a: "That's Enterprise — unlimited users, workspaces and leads on dedicated infrastructure, with custom AI models, private cloud, SSO and a dedicated success manager. Talk to sales for a quote." },
+  { q: "Can I add users or workspaces without upgrading?", a: "Yes. Extra seats are ₹250/mo (Starter) or ₹200/mo (Growth), extra workspaces ₹999/mo, and API access is available as a ₹2,999/mo add-on before Scale." },
 ]
 
 function MintCheck() {
@@ -139,17 +113,17 @@ export default function PricingPage() {
         eyebrow="Pricing"
         h1={
           <>
-            Flat. In rupees.<br />
+            Start free.<br />
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}
             >
-              No contact fees.
+              Grow into more sales.
             </span>
           </>
         }
-        sub="All 12 core modules on every tier. 14-day free trial, no credit card. Annual billing saves 10%."
-        primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
+        sub="You're not buying CRM software — you're buying faster follow-ups, fewer cold leads, and AI-driven execution. Start free, upgrade when you're leaving money on the table."
+        primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
         secondary={{ kind: "text", label: "How it works", href: "/how-it-works" }}
       />
 
@@ -157,16 +131,14 @@ export default function PricingPage() {
         number="01"
         ground="sky"
         title={<>Here&apos;s what you&apos;re paying for.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk in real rupees — the working system, included on every tier."
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk in real rupees — the working system, on every tier."
       />
 
-      {/* TIERS */}
+      {/* TIERS + toggle (client) */}
       <SectionGround variant="cream" size="md">
         <Container>
-          <Reveal className="grid gap-6 md:grid-cols-3">
-            {PLANS.map((p) => (
-              <PricingTier key={p.name} {...p} />
-            ))}
+          <Reveal>
+            <PricingPlans />
           </Reveal>
         </Container>
       </SectionGround>
@@ -181,70 +153,70 @@ export default function PricingPage() {
             </h2>
           </Reveal>
 
-          <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="overflow-hidden">
-            <div
-              className="grid grid-cols-[1.4fr_1fr_1fr_1fr]"
-              style={{ borderBottom: "1px solid var(--hairline-strong)" }}
-            >
-              <div className="px-6 py-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-                Feature
-              </div>
-              {["Starter", "Growth", "Scale"].map((p, i) => (
-                <div
-                  key={p}
-                  className={`px-6 py-5 text-center text-[13px] font-bold uppercase tracking-[0.14em] ${
-                    i === 1 ? "text-sky-600" : "text-ink"
-                  }`}
-                  style={i === 1 ? { background: "linear-gradient(180deg, rgba(186,230,253,0.30) 0%, transparent 100%)" } : undefined}
-                >
-                  {p}
+          <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="overflow-x-auto">
+            <div className="min-w-[720px]">
+              <div
+                className="grid grid-cols-[1.6fr_1fr_1fr_1fr_1fr]"
+                style={{ borderBottom: "1px solid var(--hairline-strong)" }}
+              >
+                <div className="px-6 py-5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                  Feature
                 </div>
-              ))}
-            </div>
-
-            {FEATURE_MATRIX.map((section) => (
-              <div key={section.category}>
-                <div
-                  className="grid grid-cols-[1.4fr_1fr_1fr_1fr]"
-                  style={{
-                    borderBottom: "1px solid var(--hairline)",
-                    background: "linear-gradient(180deg, rgba(186,230,253,0.18) 0%, rgba(186,230,253,0.04) 100%)",
-                  }}
-                >
-                  <div className="col-span-4 px-6 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">
-                    {section.category}
-                  </div>
-                </div>
-                {section.rows.map((row) => (
+                {["Free", "Starter", "Growth", "Scale"].map((p, i) => (
                   <div
-                    key={row.label}
-                    className="grid grid-cols-[1.4fr_1fr_1fr_1fr] hover:bg-sky-50/40 transition-colors"
-                    style={{ borderBottom: "1px solid var(--hairline)" }}
+                    key={p}
+                    className={`px-4 py-5 text-center text-[13px] font-bold uppercase tracking-[0.14em] ${
+                      i === 2 ? "text-sky-600" : "text-ink"
+                    }`}
+                    style={i === 2 ? { background: "linear-gradient(180deg, rgba(186,230,253,0.30) 0%, transparent 100%)" } : undefined}
                   >
-                    <div className="px-6 py-4 text-[14px] text-ink">
-                      {row.label}
-                    </div>
-                    {[row.starter, row.growth, row.scale].map((v, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center justify-center px-6 py-4"
-                        style={i === 1 ? { background: "linear-gradient(90deg, rgba(186,230,253,0.18) 0%, rgba(186,230,253,0.04) 100%)" } : undefined}
-                      >
-                        {v === true ? <MintCheck /> : v === false ? (
-                          <Minus className="h-4 w-4 text-ink-faint" strokeWidth={2} />
-                        ) : (
-                          <span className="font-mono text-[13px] font-semibold text-ink tabular">{v}</span>
-                        )}
-                      </div>
-                    ))}
+                    {p}
                   </div>
                 ))}
               </div>
-            ))}
+
+              {FEATURE_MATRIX.map((section) => (
+                <div key={section.category}>
+                  <div
+                    className="grid grid-cols-[1.6fr_1fr_1fr_1fr_1fr]"
+                    style={{
+                      borderBottom: "1px solid var(--hairline)",
+                      background: "linear-gradient(180deg, rgba(186,230,253,0.18) 0%, rgba(186,230,253,0.04) 100%)",
+                    }}
+                  >
+                    <div className="col-span-5 px-6 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">
+                      {section.category}
+                    </div>
+                  </div>
+                  {section.rows.map((row) => (
+                    <div
+                      key={row.label}
+                      className="grid grid-cols-[1.6fr_1fr_1fr_1fr_1fr] hover:bg-sky-50/40 transition-colors"
+                      style={{ borderBottom: "1px solid var(--hairline)" }}
+                    >
+                      <div className="px-6 py-4 text-[14px] text-ink">{row.label}</div>
+                      {[row.free, row.starter, row.growth, row.scale].map((v, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center justify-center px-4 py-4 text-center"
+                          style={i === 2 ? { background: "linear-gradient(90deg, rgba(186,230,253,0.18) 0%, rgba(186,230,253,0.04) 100%)" } : undefined}
+                        >
+                          {v === true ? <MintCheck /> : v === false ? (
+                            <Minus className="h-4 w-4 text-ink-faint" strokeWidth={2} />
+                          ) : (
+                            <span className="font-mono text-[12.5px] font-semibold text-ink tabular">{v}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </FloatingCard></Reveal>
 
           <p className="mt-6 text-center text-[13px] text-ink-muted">
-            Need something custom or more than 50 reps?{" "}
+            Need more than 75 users or something custom?{" "}
             <Link href="/contact" className="text-sky-600 underline-offset-4 hover:underline">
               Talk to sales
             </Link>
@@ -253,12 +225,47 @@ export default function PricingPage() {
         </Container>
       </SectionGround>
 
-      {/* FAQ */}
+      {/* ADD-ONS */}
       <SectionGround variant="cream" size="md">
+        <Container>
+          <Reveal className="mb-10">
+            <NumberedTag number="03" tone="warm" label="Add-ons" />
+            <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
+              Add only what you need.
+            </h2>
+            <p className="mt-3 max-w-2xl text-[15px] leading-[1.6] text-ink-soft">
+              You don&apos;t have to jump a whole tier for one thing. Bolt on seats, a workspace, or
+              API access to your current plan.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.08} className="grid gap-3 sm:grid-cols-2">
+            {ADDONS.map((a) => (
+              <div
+                key={a.name}
+                className="flex items-center justify-between gap-4 rounded-2xl px-5 py-4 glass-2 elevate-1 gloss-edge"
+              >
+                <span className="text-[14px] font-medium text-ink">{a.name}</span>
+                <span className="flex items-baseline gap-1.5 shrink-0">
+                  <span className="font-mono text-[15px] font-semibold text-ink tabular">{a.price}</span>
+                  {a.note && (
+                    <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">
+                      {a.note}
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </Reveal>
+        </Container>
+      </SectionGround>
+
+      {/* FAQ */}
+      <SectionGround variant="sky" size="md">
         <Container>
           <Reveal className="mx-auto mb-10 max-w-3xl text-center">
             <div className="flex justify-center">
-              <NumberedTag number="03" tone="warm" label="FAQ" />
+              <NumberedTag number="04" label="FAQ" />
             </div>
             <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
               Common pricing questions.
@@ -269,9 +276,9 @@ export default function PricingPage() {
       </SectionGround>
 
       <CTABanner
-        tag={{ number: "04", label: "Ready when you are" }}
-        headline="Try the Growth plan. Free for 14 days."
-        sub="Full feature access. No credit card. Setup in 60 minutes."
+        tag={{ number: "05", label: "Ready when you are" }}
+        headline="Start free. Upgrade when you're leaving money on the table."
+        sub="100 leads, full AI scoring, no credit card. Setup in 60 minutes."
       />
 
       <Footer />

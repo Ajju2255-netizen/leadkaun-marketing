@@ -9,13 +9,15 @@ type Props = {
   priceUnit?: string
   description: string
   features: string[]
-  /** annual-billing hint shown under the price, e.g. "₹81,000 billed yearly · save 10%" */
+  /** annual-billing hint shown under the price, e.g. "₹79,990 billed yearly · save 17%" */
   annualNote?: string
   ctaLabel: string
   ctaHref: string
   ctaVariant?: "default" | "outline"
   highlighted?: boolean
   highlightBadge?: string
+  /** small "Ideal for …" line shown above the CTA */
+  idealFor?: string
   className?: string
 }
 
@@ -33,6 +35,7 @@ export function PricingTier({
   ctaVariant = "outline",
   highlighted = false,
   highlightBadge = "Most popular",
+  idealFor,
   className,
 }: Props) {
   return (
@@ -102,6 +105,12 @@ export function PricingTier({
           </li>
         ))}
       </ul>
+
+      {idealFor && (
+        <p className="mb-4 text-[12px] leading-snug text-ink-muted">
+          <span className="font-semibold text-ink-soft">Ideal for</span> {idealFor}
+        </p>
+      )}
 
       <Link
         href={ctaHref}

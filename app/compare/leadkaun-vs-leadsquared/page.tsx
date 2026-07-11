@@ -41,7 +41,7 @@ export default function VsLeadSquared() {
         { label: "Transparent pricing",                             leadkaun: true,          competitor: false },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",       price: "₹7,500 / mo", note: "Published. 14-day trial. No credit card." },
+        leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "Published. 14-day trial. No credit card." },
         competitor: { tier: "Quote-based",  price: "₹2,500–5,000",       note: "Typical SMB after consulting + implementation" },
       }}
       switching={[

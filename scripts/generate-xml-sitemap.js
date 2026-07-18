@@ -110,10 +110,15 @@ const questions = questionsData.map((q) => ({ path: `/questions/${q.slug}`, prio
 const glossary = glossaryData.map((g) => ({ path: `/glossary/${g.slug}`, priority: "0.5", changefreq: "weekly" }))
 const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6", changefreq: "weekly" }))
 
+// Indexation gate — mirrors lib/pseo/indexable.ts. Only Tier ≤ 2 city leaves are
+// indexable today, so the sitemap must not advertise the noindexed long-tail.
+const INDEX_MAX_TIER = 2
+const indexableCities = citiesData.filter((c) => c.tier <= INDEX_MAX_TIER)
+
 const pseoCity = [
   ...citiesData.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
   ...rolesData.flatMap((r) =>
-    citiesData.map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
+    indexableCities.map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
   ),
 ]
 
@@ -128,10 +133,15 @@ function bucketByFirstLetter(cityObj) {
 const pseoDeepByBucket = { 1: [], 2: [], 3: [] }
 for (const city of citiesData) {
   const bucket = bucketByFirstLetter(city)
+  const cityIndexable = city.tier <= INDEX_MAX_TIER
   for (const ind of industriesData) {
+    // Industry×city hubs stay indexable (local-context module); keyword leaves
+    // are only indexable for Tier ≤ 2 cities until the quality gate promotes them.
     pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}`, priority: "0.6", changefreq: "monthly" })
-    for (const kw of keywordsData) {
-      pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}/${kw.slug}`, priority: "0.5", changefreq: "monthly" })
+    if (cityIndexable) {
+      for (const kw of keywordsData) {
+        pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}/${kw.slug}`, priority: "0.5", changefreq: "monthly" })
+      }
     }
   }
 }
@@ -140,7 +150,8 @@ for (const city of citiesData) {
 const integrations = [
   { path: "/integrations", priority: "0.6", changefreq: "monthly" },
   { path: "/resources", priority: "0.6", changefreq: "monthly" },
-  ...integrationsDataRaw.map((i) => ({ path: `/integrations/${i.slug}`, priority: "0.5", changefreq: "monthly" })),
+  // Only shipped integrations are indexable — roadmap/partner-driven are noindexed.
+  ...integrationsDataRaw.filter((i) => i.status === "live").map((i) => ({ path: `/integrations/${i.slug}`, priority: "0.5", changefreq: "monthly" })),
   ...resourcesDataRaw.map((r) => ({ path: `/resources/${r.slug}`, priority: "0.5", changefreq: "monthly" })),
 ]
 

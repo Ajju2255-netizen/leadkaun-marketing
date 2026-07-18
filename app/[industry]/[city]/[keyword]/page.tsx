@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { leafIndexable } from "@/lib/pseo/indexable"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -41,6 +42,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${kw.label} for ${ind.name} Teams in ${cityRec.name} | Leadkaun`,
     description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun's ${kw.label.toLowerCase()} to grade every lead A–F. Setup in 60 min. Priority Queue, ₹ at risk, Morning Brief.`,
     alternates: { canonical: `/${industry}/${canonicalCity}/${keyword}` },
+    // Quality-first: keyword leaves are noindexed for smaller cities until they
+    // clear the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
+    robots: { index: leafIndexable(cityRec.tier), follow: true },
   }
 }
 

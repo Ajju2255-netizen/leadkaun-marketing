@@ -143,10 +143,16 @@ export function articleSchema(params: {
   description: string
   datePublished: string
   dateModified?: string
-  author?: string
+  author?: string | { name: string; type?: "Person" | "Organization"; url?: string; jobTitle?: string }
   url: string
   image?: string
 }): JsonLd {
+  // Accept a plain name (→ Organization) or a full author object (→ Person for a
+  // real human, which Google's E-E-A-T rewards over an anonymous org byline).
+  const a =
+    typeof params.author === "object" && params.author
+      ? params.author
+      : { name: (params.author as string | undefined) ?? "Leadkaun", type: "Organization" as const }
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -155,8 +161,10 @@ export function articleSchema(params: {
     datePublished: params.datePublished,
     dateModified: params.dateModified ?? params.datePublished,
     author: {
-      "@type": "Organization",
-      name: params.author ?? "Leadkaun",
+      "@type": a.type ?? "Organization",
+      name: a.name,
+      ...(a.url ? { url: a.url } : {}),
+      ...(a.type === "Person" && "jobTitle" in a && a.jobTitle ? { jobTitle: a.jobTitle } : {}),
     },
     publisher: {
       "@type": "Organization",

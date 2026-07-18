@@ -17,6 +17,8 @@ import { Reveal } from "@/app/components/reveal"
 
 import { getAllPosts, getPostBySlug, getRelatedPosts, getCategory, estimateReadingTime } from "@/lib/blog"
 import { articleSchema, breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { resolveAuthor } from "@/lib/authors"
+import { AuthorCard } from "@/app/components/author-card"
 
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }))
@@ -53,12 +55,14 @@ export default async function BlogPostPage({ params }: Params) {
   const category = getCategory(post.category)
   const related = getRelatedPosts(post, 3)
   const readingTime = post.readingTime ?? estimateReadingTime(post.body)
+  const author = resolveAuthor(post.author)
 
   const schemas = [
     articleSchema({
       headline: post.title, description: post.description,
       datePublished: post.date, dateModified: post.updated ?? post.date,
-      author: post.author ?? "Leadkaun", url: `/blog/${post.slug}`,
+      author: { name: author.name, type: author.type, url: author.url, jobTitle: author.role },
+      url: `/blog/${post.slug}`,
       ...(post.cover ? { image: post.cover } : {}),
     }),
     breadcrumbListSchema([
@@ -86,7 +90,7 @@ export default async function BlogPostPage({ params }: Params) {
           sub={post.description}
           cta={
             <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-              {formatDate(post.date)} · {readingTime} · {post.author ?? "Leadkaun editorial"}
+              {formatDate(post.date)} · {readingTime} · {author.name}{post.updated ? ` · Updated ${formatDate(post.updated)}` : ""}
             </p>
           }
         />
@@ -99,6 +103,15 @@ export default async function BlogPostPage({ params }: Params) {
                 className="prose prose-leadkaun mx-auto max-w-3xl"
                 dangerouslySetInnerHTML={{ __html: post.html }}
               />
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* AUTHOR — E-E-A-T byline */}
+        <SectionGround variant="cream" size="sm">
+          <Container>
+            <Reveal className="mx-auto max-w-3xl">
+              <AuthorCard author={author} updated={post.updated ? formatDate(post.updated) : undefined} />
             </Reveal>
           </Container>
         </SectionGround>

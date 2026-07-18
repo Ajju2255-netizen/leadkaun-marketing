@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdScript(rootSchemas()) }}
         />
+        <link rel="alternate" type="application/rss+xml" title="Leadkaun Blog" href="/feed.xml" />
       </head>
       <body className="antialiased bg-bg-pure text-ink-soft">
         <ScrollToTop />

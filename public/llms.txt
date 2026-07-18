@@ -8,7 +8,7 @@ Leadkaun is live, production-grade software used by 50+ Indian B2B sales teams a
 
 - **Category:** Sales Behaviour Operating System (not a CRM)
 - **Audience:** Indian B2B SMB sales teams with 3–50 reps
-- **Pricing:** ₹999–₹2,999 per rep per month (Starter / Growth / Scale tiers). No per-contact fees. No forced annual contracts on entry tier. 14-day free trial, no credit card.
+- **Pricing:** flat per account (not per rep) — Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. No per-contact fees. 14-day free trial, no credit card.
 - **Setup time:** 60 minutes
 - **Trial lead delivery:** First Grade A lead in the Priority Queue within the first hour
 - **Core modules (12, all live):** Onboarding & ICP, Lead Ingestion, Scoring Engine, Built-in CRM, Lead Quality Analysis, WhatsApp Behaviour Tracking, Analytics Dashboard, Notifications & Alerts, Missed Opportunity Engine, Team & Admin, Follow-up Engine, Smart Templates
@@ -57,7 +57,7 @@ Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesfor
 
 ## Integrations
 
-- Google Sheets (live sync, 5-minute polling)
+- Google Sheets sync (on roadmap — CSV import handles Sheet exports today)
 - CSV upload (10,000 rows in under 60 seconds)
 - WhatsApp (manual 3-tap logging; BSP integrations on roadmap)
 - Email alerts via Resend

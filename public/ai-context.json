@@ -23,15 +23,17 @@
   },
   "pricing": {
     "currency": "INR",
-    "unit": "per rep per month",
+    "unit": "flat per account per month (not per rep)",
     "tiers": [
-      { "name": "Starter", "price": 999, "seatCap": 10 },
-      { "name": "Growth", "price": 1999, "seatCap": 30, "mostPopular": true },
-      { "name": "Scale", "price": 2999, "seatCap": 50 }
+      { "name": "Free", "price": 0, "seatCap": 1, "leadCap": 100 },
+      { "name": "Starter", "price": 2999, "seatCap": 10, "leadCap": 5000 },
+      { "name": "Growth", "price": 7999, "seatCap": 30, "leadCap": 25000, "mostPopular": true },
+      { "name": "Scale", "price": 19999, "seatCap": 75, "leadCap": null },
+      { "name": "Enterprise", "price": null, "seatCap": null, "note": "custom" }
     ],
     "trialDays": 14,
     "creditCardRequired": false,
-    "annualDiscountPct": 10
+    "annualDiscountPct": 17
   },
   "setupTime": "PT60M",
   "keyOutcomes": {
@@ -67,7 +69,7 @@
   },
   "coreModules": [
     { "code": "M01", "name": "Onboarding & ICP Setup" },
-    { "code": "M02", "name": "Lead Ingestion (Google Sheets, CSV, Manual)" },
+    { "code": "M02", "name": "Lead Ingestion (CSV, Manual; Google Sheets sync on roadmap)" },
     { "code": "M03", "name": "Scoring Engine" },
     { "code": "M04", "name": "Built-in CRM + Priority Queue" },
     { "code": "M05", "name": "Lead Quality Analysis" },
@@ -95,7 +97,7 @@
     { "name": "Salesforce", "url": "https://leadkaun.com/compare/leadkaun-vs-salesforce" },
     { "name": "Freshsales", "url": "https://leadkaun.com/compare/leadkaun-vs-freshsales" }
   ],
-  "dataIngestion": ["Google Sheets live sync", "CSV upload", "Manual entry"],
+  "dataIngestion": ["CSV upload", "Manual entry", "Google Sheets sync (roadmap)"],
   "deployment": {
     "platform": "Cloudflare Pages",
     "rendering": "ISR (Incremental Static Regeneration)",

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { leafIndexable } from "@/lib/pseo/indexable"
+import { stableHash, pickN, keywordIntro } from "@/lib/pseo/variation"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -54,8 +55,14 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
   if (!ind || !cityRec || !kw) notFound()
 
   const related = await relatedForIndustryCityKeyword(industry, cityRec.slug, keyword)
-  const faqStart = Math.abs(keyword.length) % Math.max(1, ind.faqs.length - 3)
-  const faqs = ind.faqs.slice(faqStart, faqStart + 3)
+  // Deterministic hash-seeded variation (Anti-AI Layer 2): same combo → same
+  // render (ISR-safe), but neighbours differ in intro framing + FAQ subset.
+  const seed = stableHash(`${industry}:${cityRec.slug}:${keyword}`)
+  const faqs = pickN(ind.faqs, Math.min(3, ind.faqs.length), seed)
+  const intro = keywordIntro(
+    { industryName: ind.name, industryLower: ind.name.toLowerCase(), cityName: cityRec.name, keywordLabel: kw.label, keywordLower: kw.label.toLowerCase() },
+    seed,
+  )
 
   const schemas = [
     breadcrumbListSchema([
@@ -86,6 +93,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           eyebrow={kw.label}
           h1={<>{kw.label} for {ind.name} Teams in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
           sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell — Indian phone handling, WhatsApp as a first-class signal, lakhs/crores throughout.`}
+          tldr={{ label: "In short", body: intro, tone: "sky" }}
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>

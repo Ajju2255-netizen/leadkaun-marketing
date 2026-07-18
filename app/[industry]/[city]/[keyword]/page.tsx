@@ -146,6 +146,11 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
                 In {cityRec.name}, {ind.name.toLowerCase()} teams typically work leads from <strong className="text-ink font-semibold">{ind.channels.slice(0, 3).join(", ")}</strong> — with deal sizes in the <strong className="text-ink font-semibold">{ind.ticketBand}</strong> range and sales cycles of <strong className="text-ink font-semibold">{ind.salesCycle}</strong>. Leadkaun&apos;s {kw.label.toLowerCase()} is calibrated for those realities, not a generic US B2B default.
               </p>
+              {cityRec.notes && (
+                <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                  <span className="text-ink font-semibold">{cityRec.name}</span> is a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? `, home to roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}. {cityRec.notes.replace(/\.$/, "")}. Leadkaun scores every lead here on fit, intent and quality, so reps work the highest-probability enquiries first.
+                </p>
+              )}
             </FloatingCard></Reveal>
           </Container>
         </SectionGround>

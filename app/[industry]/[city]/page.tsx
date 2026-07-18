@@ -175,7 +175,7 @@ export default async function IndustryCityPage({ params }: Params) {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{cityRec.name} context</p>
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
-                <span className="font-semibold text-ink">{cityRec.name}</span> is a Tier-{cityRec.tier} city in {cityRec.state} with an urban population of ~{(cityRec.population / 1000000).toFixed(1)}M. {cityRec.notes ? `${cityRec.notes}. ` : ""}{ind.name.toLowerCase()} teams here typically source leads from {ind.channels.slice(0, 3).join(", ")} — all of which flow into Leadkaun via Google Sheets sync, CSV upload, or manual entry in under 10 minutes.
+                <span className="font-semibold text-ink">{cityRec.name}</span> is a Tier-{cityRec.tier} city in {cityRec.state} with an urban population of ~{(cityRec.population / 1000000).toFixed(1)}M. {cityRec.notes ? `${cityRec.notes}. ` : ""}{ind.name.toLowerCase()} teams here typically source leads from {ind.channels.slice(0, 3).join(", ")} — all of which flow into Leadkaun via CSV upload or manual entry in minutes (a Google Sheets connector is on the roadmap).
               </p>
             </FloatingCard></Reveal>
           </Container>

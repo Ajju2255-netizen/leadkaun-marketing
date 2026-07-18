@@ -44,7 +44,7 @@ const SUPPORTING_MODULES = [
 ]
 
 const HOW_IT_WORKS = [
-  { n: "01", title: "Import your leads.",            body: "Google Sheets live sync (5-min polling), CSV upload (10k rows / 60s), or manual entry. Indian phones normalised. Duplicates deduped." },
+  { n: "01", title: "Import your leads.",            body: "CSV upload (10k rows / 60s) or manual entry — Indian phones normalised, duplicates deduped. A Google Sheets connector is on the roadmap." },
   { n: "02", title: "Leads grade in 500 ms.",        body: "Every new lead scored A–F across Fit, Intent, Quality. Weights are yours to audit. No black box." },
   { n: "03", title: "Reps work the Queue top-down.", body: "Re-ranks in real time as WhatsApp replies arrive and intent decays. Decision made. No triage." },
   { n: "04", title: "Managers see ₹ accountability.", body: "Morning Brief at 8:30 AM IST. Monday review opens with ₹ at risk per rep. Coaching becomes specific." },

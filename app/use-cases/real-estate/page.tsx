@@ -21,8 +21,8 @@ export default function RealEstatePage() {
       channels={["99acres", "MagicBricks", "Facebook Ads", "Google Ads", "Walk-ins"]}
       pains={[
         {
-          title: "Property enquiries have a 47-minute window",
-          body: "Studies show real estate leads contacted within 47 minutes of enquiry are 5× more likely to convert. Most teams call back in 4+ hours — or not at all.",
+          title: "Property enquiries go cold within the hour",
+          body: "In real estate, the first team to reach a fresh enquiry usually wins it — interest fades fast once a buyer starts calling around. Most teams call back in 4+ hours, or not at all. Leadkaun puts the freshest, highest-fit enquiries at the top of each rep's queue.",
         },
         {
           title: "One missed site visit = ₹5–₹50L lost",

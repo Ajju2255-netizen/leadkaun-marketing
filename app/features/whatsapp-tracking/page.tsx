@@ -19,7 +19,7 @@ import { APP_URLS } from "@/lib/urls"
 export const metadata: Metadata = {
   title: "WhatsApp Sales Tracking — 3 taps, any WhatsApp account",
   description:
-    "70% of Indian B2B first-contact happens on WhatsApp. Leadkaun tracks every exchange in 3 taps — stage, intent, outcome — and feeds the Intent Score directly.",
+    "Most Indian B2B first-contact happens on WhatsApp. Leadkaun tracks every exchange in 3 taps — stage, intent, outcome — and feeds the Intent Score directly.",
   alternates: { canonical: "/features/whatsapp-tracking" },
 }
 
@@ -54,7 +54,7 @@ export default function WhatsAppTrackingPage() {
         <PageHero
           eyebrow={<><MessageSquare className="h-3 w-3" strokeWidth={2} /> WhatsApp Tracking</>}
           h1={<>WhatsApp is where half<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>your conversations live.</span></>}
-          sub="70% of Indian B2B first-contact happens on WhatsApp. Most CRMs treat it as an integration. Leadkaun treats it as a first-class signal — three taps per exchange, works with any WhatsApp account."
+          sub="Most Indian B2B first-contact happens on WhatsApp. Most CRMs treat it as an integration. Leadkaun treats it as a first-class signal — three taps per exchange, works with any WhatsApp account."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
         />

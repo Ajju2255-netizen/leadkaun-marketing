@@ -58,7 +58,7 @@
       "Tuning weights before seeing 30 days of data"
     ],
     "faqs": [
-      { "q": "Can I skip this and use Leadkaun's defaults?", "a": "Yes. Defaults are calibrated for Indian B2B SMBs and work for ~80% of teams on day one." },
+      { "q": "Can I skip this and use Leadkaun's defaults?", "a": "Yes. Defaults are calibrated for Indian B2B SMBs and work for most teams on day one." },
       { "q": "How often should I tune weights?", "a": "Every 90 days, based on conversion data per grade. Don't tune more often — you'll chase noise." },
       { "q": "Different weights per product line?", "a": "Yes on the Growth tier. Multi-product teams typically have 2–4 ICP profiles." }
     ],
@@ -121,7 +121,7 @@
       { "heading": "Run first Morning Brief on day 2", "body": "Day 1 scoring is stabilising. Day 2 Morning Brief is the first real signal — check with reps whether the Grade A list looks right." }
     ],
     "commonMistakes": [
-      "Skipping the phone normalisation step — 15–25% of leads become duplicates",
+      "Skipping the phone normalisation step — a large share of leads slip through as duplicates",
       "Uploading without sanity-checking source reliability",
       "Panicking when grade distribution looks unexpected — often reflects real data quality, not tool error"
     ],
@@ -207,7 +207,7 @@
     "slug": "how-to-log-whatsapp-for-sales-tracking",
     "title": "How to Log WhatsApp Conversations for Sales Tracking",
     "tldr": "Use 3-tap logging after each meaningful WhatsApp exchange: tap stage (first-reply / asking-questions / objection / meeting-booked / ghosted), tap intent (high / medium / low / negative), tap outcome (progressed / stuck / closed). Takes 10 seconds, feeds Intent Score.",
-    "why": "70% of Indian B2B first-contact happens on WhatsApp. If you're not logging those exchanges as signals, your scoring model is missing half the data — and Grade A leads are being under-weighted. 3-tap logging is the minimum-viable capture that keeps reps in flow.",
+    "why": "Most Indian B2B first-contact happens on WhatsApp. If you're not logging those exchanges as signals, your scoring model is missing half the data — and Grade A leads are being under-weighted. 3-tap logging is the minimum-viable capture that keeps reps in flow.",
     "prerequisites": [
       "Lead exists in your system (imported or manually added)",
       "WhatsApp conversation has substantive content (not just 'hi')",
@@ -309,7 +309,7 @@
     "slug": "how-to-track-property-enquiries",
     "title": "How to Track Property Enquiries for Indian Real Estate Teams",
     "tldr": "Grade every enquiry A–F within 5 minutes of arrival, surface Grade A in the Priority Queue for immediate callback, target 47-minute response window. Log WhatsApp + call outcomes in 3 taps. Track site visit conversion per source.",
-    "why": "Real estate is the most response-time-sensitive vertical in Indian B2B — Grade A enquiries contacted within 47 minutes convert 5× better than 4-hour callbacks. A single missed site visit is ₹5–50 lakh in lost GCV. The workflow is simple; the discipline is what wins.",
+    "why": "Real estate is the most response-time-sensitive vertical in Indian B2B — in Leadkaun's framing, Grade A enquiries reached quickly convert far better than 4-hour callbacks. A single missed site visit is ₹5–50 lakh in lost GCV. The workflow is simple; the discipline is what wins.",
     "prerequisites": [
       "Active lead sources (99acres, MagicBricks, Housing.com, Facebook Ads, walk-ins)",
       "Per-project ICP (luxury vs affordable, 2BHK vs 3BHK segments)",
@@ -330,7 +330,7 @@
       "Losing WhatsApp thread when the rep changes shifts — always log the stage"
     ],
     "faqs": [
-      { "q": "What's the ideal response time?", "a": "47 minutes for Grade A enquiries. 4–6 hours for Grade B. Data from Indian real estate teams shows 5× conversion when hit in window." },
+      { "q": "What's the ideal response time?", "a": "Aim for under an hour on Grade A enquiries, 4–6 hours for Grade B. The faster a hot lead is reached, the better it tends to convert." },
       { "q": "Can broker splits be tracked?", "a": "Yes — source attribution with commission splits configurable." },
       { "q": "Does it integrate with 99acres directly?", "a": "Not natively in Phase 1 — Google Sheets export is the bridge. Native 99acres API on roadmap." }
     ],

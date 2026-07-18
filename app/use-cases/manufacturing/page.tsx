@@ -20,7 +20,7 @@ export default function ManufacturingPage() {
       salesCycle="30 to 180 days"
       channels={["IndiaMART", "TradeIndia", "Distributor network", "Outbound SDR", "Trade shows"]}
       pains={[
-        { title: "Quote sent. Silence. Deal lost.", body: "40% of B2B industrial quotes never receive a follow-up within the buyer's SLA. The vendor who follows up in 24 hours wins 60% of the time." },
+        { title: "Quote sent. Silence. Deal lost.", body: "A large share of B2B industrial quotes never get a follow-up within the buyer's SLA — and the vendor who follows up within 24 hours usually wins." },
         { title: "Multi-stakeholder thread loss.", body: "Procurement asked for a quote. Finance is evaluating. Engineering wants a sample. Three conversations, one deal — nobody sees the full thread." },
         { title: "90-day cycles, 30-day memory.", body: "Engineered goods cycles run 90+ days. The buying signal from day 15 is forgotten by day 45. Field rep notes never get logged." },
       ]}

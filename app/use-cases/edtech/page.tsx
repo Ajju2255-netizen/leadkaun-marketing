@@ -21,7 +21,7 @@ export default function EdTechPage() {
       channels={["Facebook Ads", "Google Ads", "WhatsApp outreach", "Inbound forms", "Referrals"]}
       pains={[
         { title: "400 enquiries, one counsellor.", body: "Counsellors carry 200–500 leads each. Without triage, 30 minutes every morning goes to deciding who to call — instead of calling." },
-        { title: "Parent threads drop mid-conversation.", body: "Parent says 'discuss with spouse', disappears, counsellor forgets. 80% of qualified conversations move to WhatsApp; most CRMs don't see it." },
+        { title: "Parent threads drop mid-conversation.", body: "Parent says 'discuss with spouse', disappears, counsellor forgets. Most qualified conversations move to WhatsApp; most CRMs don't see it." },
         { title: "Admissions cycles are ₹-sensitive.", body: "A Grade A lead in April is worthless in September. Missing the 5-day follow-up window loses ₹50k–₹5L per enrolment." },
       ]}
       helps={[

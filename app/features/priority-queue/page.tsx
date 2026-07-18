@@ -35,7 +35,7 @@ const RANK_WEIGHTS = [
 
 const FAQ = [
   { q: "How is the queue different from a to-do list?", a: "A to-do list is static — whatever the rep added yesterday. A Priority Queue is dynamic — it re-ranks every time a signal arrives. New Grade A enquiry at 11 AM? Top of queue by 11:01. A WhatsApp reply bumps a lead up. Intent decay drops stale leads. The queue always reflects now, not yesterday." },
-  { q: "What if my rep wants to work their own order?", a: "They can pin one lead to the top of the day, but auto-ranking resumes at midnight. Most reps override twice in week one, then stop — the data shows queue-order consistently out-closes gut-feel." },
+  { q: "What if my rep wants to work their own order?", a: "They can pin one lead to the top of the day, but auto-ranking resumes at midnight. Most reps override twice in week one, then stop — working the queue in order consistently beats re-sorting it by gut-feel." },
   { q: "How fast does the queue update?", a: "React Query polls every 30 seconds by default — fast enough that a new Grade A arrival or WhatsApp reply shows in the queue before the rep finishes their current call." },
   { q: "What is a 'fatigued' lead?", a: "A lead that has been contacted 6+ times with no positive signal. The queue drops them to rank score -1 (bottom) automatically so the rep doesn't keep burning time. You can manually un-fatigue a lead if circumstances change." },
   { q: "Does the queue work on mobile?", a: "Yes. Mobile-first layout, 3-tap logging, works on patchy 3G. Field reps in manufacturing / real estate use Leadkaun exclusively from phones." },

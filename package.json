@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "next lint",
+    "gate": "node scripts/content-gate.mjs",
+    "gate:warn": "node scripts/content-gate.mjs --warn",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "generate-xml-sitemap": "node scripts/generate-xml-sitemap.js",
     "postbuild": "node scripts/generate-xml-sitemap.js",

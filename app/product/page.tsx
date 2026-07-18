@@ -30,7 +30,7 @@ const CORE_MODULES = [
   { icon: ListOrdered,   href: "/features/priority-queue",            title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — rep works top-down." },
   { icon: AlertTriangle, href: "/features/missed-opportunity-engine", title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily." },
   { icon: Mail,          href: "/features/morning-brief",             title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today." },
-  { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "70% of Indian B2B first-contact is on WhatsApp. 3-tap logging feeds scoring." },
+  { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "Most Indian B2B first-contact happens on WhatsApp. 3-tap logging feeds scoring." },
   { icon: Users,         href: "/features/sales-rep-tracking",        title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, follow-up completion." },
 ]
 

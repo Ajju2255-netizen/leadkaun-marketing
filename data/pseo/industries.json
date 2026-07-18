@@ -6,8 +6,8 @@
     "heroSub": "Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that in 60 minutes.",
     "painPoints": [
       {
-        "title": "Property enquiries have a 47-minute window",
-        "body": "Leads contacted within 47 minutes of enquiry are 5× more likely to convert. Most teams call back in 4+ hours — or not at all.",
+        "title": "Property enquiries go cold within the hour",
+        "body": "In real estate, the first team to reach a fresh enquiry usually wins it — interest fades fast once a buyer starts calling around. Most teams call back in 4+ hours, or not at all.",
         "color": "#EF4444",
         "icon": "Clock"
       },
@@ -53,7 +53,7 @@
       "role": "Co-Founder",
       "city": "Pune"
     },
-    "proofStat": "5× conversion uplift when Grade A enquiries are contacted within 47 minutes",
+    "proofStat": "Grade A enquiries surface first, so reps reach them while buying intent is still high",
     "faqs": [
       {
         "q": "Does Leadkaun integrate with 99acres / MagicBricks?",
@@ -104,7 +104,7 @@
       },
       {
         "title": "Parent threads drop mid-conversation",
-        "body": "Parent says 'discuss with my spouse', disappears, and nobody follows up at the right moment. 80% of qualified conversations move to WhatsApp — most CRMs don't see any of it.",
+        "body": "Parent says 'discuss with my spouse', disappears, and nobody follows up at the right moment. Most qualified conversations move to WhatsApp — and most CRMs don't see any of it.",
         "color": "#25D366",
         "icon": "MessageCircle"
       },
@@ -279,7 +279,7 @@
     "painPoints": [
       {
         "title": "Quote sent. Silence. Deal lost.",
-        "body": "40% of B2B industrial quotes never receive a follow-up within the buyer's SLA. The vendor who follows up within 24 hours wins 60% of the time.",
+        "body": "A large share of B2B industrial quotes never get a follow-up within the buyer's SLA — and the vendor who follows up within 24 hours usually wins.",
         "color": "#EF4444",
         "icon": "FileText"
       },

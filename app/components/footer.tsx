@@ -48,6 +48,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "How-to",       href: "/how-to" },
       { label: "Integrations", href: "/integrations" },
       { label: "Templates",    href: "/resources" },
+      { label: "ROI calculator", href: "/tools/missed-revenue-calculator" },
     ],
   },
   {

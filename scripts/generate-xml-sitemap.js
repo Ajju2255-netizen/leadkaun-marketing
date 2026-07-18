@@ -96,6 +96,7 @@ const core = [
   { path: "/glossary", priority: "0.6", changefreq: "weekly" },
   { path: "/questions", priority: "0.6", changefreq: "weekly" },
   { path: "/how-to", priority: "0.6", changefreq: "weekly" },
+  { path: "/tools/missed-revenue-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/terms", priority: "0.3", changefreq: "yearly" },
 ]

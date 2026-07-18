@@ -88,18 +88,15 @@ export function softwareApplicationSchema(): JsonLd {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "INR",
-      lowPrice: "999",
-      highPrice: "2999",
+      // Flat per-account tiers: Starter ₹2,999 → Scale ₹19,999 (Free ₹0 and
+      // custom Enterprise excluded from the priced range).
+      lowPrice: "2999",
+      highPrice: "19999",
       offerCount: "3",
       availability: "https://schema.org/InStock",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "50",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // aggregateRating intentionally omitted: a hardcoded/unverifiable rating is a
+    // Google structured-data manual-action risk. Re-add only with real reviews.
     provider: {
       "@type": "Organization",
       name: "Leadkaun",

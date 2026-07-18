@@ -37,6 +37,24 @@ import { PricingTier } from "@/app/components/pricing-tier"
 import { Faq } from "@/app/components/faq"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { APP_URLS } from "@/lib/urls"
+import type { Metadata } from "next"
+
+// The homepage was the only page inheriting root defaults — give it its own
+// title/description/canonical/OG. `absolute` opts out of the "%s | Leadkaun"
+// template so the head term leads.
+export const metadata: Metadata = {
+  title: { absolute: "Leadkaun — India's Sales Behaviour OS for B2B Sales Teams" },
+  description:
+    "Leadkaun grades every lead A–F, builds each rep's Priority Queue, and surfaces missed revenue in ₹ — the India-first sales system that tells your team who to call next. Not a CRM. Start free.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Leadkaun — India's Sales Behaviour OS",
+    description:
+      "Grade every lead A–F, work a live Priority Queue, and recover missed revenue in ₹. The sales system that tells reps who to call next. Start free.",
+    url: "/",
+    type: "website",
+  },
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
    HOMEPAGE — Coastal Sunrise + Layered Glass (visionOS depth)

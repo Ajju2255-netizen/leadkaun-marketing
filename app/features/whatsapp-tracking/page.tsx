@@ -31,7 +31,7 @@ const TAPS = [
 
 const FAQ = [
   { q: "Do I need WhatsApp Business API?", a: "No. 3-tap manual logging works with any WhatsApp account — regular WhatsApp, WhatsApp Business, whatever your reps are already using. That's the point." },
-  { q: "Can it auto-log WhatsApp messages?", a: "Auto-logging requires a WhatsApp Business Service Provider (Gupshup, AiSensy, Interakt). If you use one, we integrate via webhook and log every inbound/outbound message as a signal. For most SMBs on regular WhatsApp, 3-tap manual logging is the right fit." },
+  { q: "Can it auto-log WhatsApp messages?", a: "Not yet — auto-logging via a WhatsApp Business Service Provider (Gupshup, AiSensy, Interakt) is on our roadmap. Today, 3-tap manual logging works with any WhatsApp account and takes about 10 seconds per conversation, and that's what feeds the Intent Score." },
   { q: "How long does logging take?", a: "About 10 seconds per exchange. Reps log after each meaningful reply — not every 'hi'. By the end of a morning of calls, logging is muscle memory." },
   { q: "Does the manager see the message content?", a: "No. Only the aggregated signals (stage + intent + outcome) show up on the manager view. Per-rep WhatsApp activity counts show on the Rep Performance card. No message content without explicit permission." },
   { q: "What feeds the scoring engine?", a: "Intent tap directly: High = +10 pts Intent, Medium = +5, Low = 0, Negative = −10. Stage transitions are logged for reporting. A high-intent reply can push a Grade C lead to Grade A within 500 ms." },

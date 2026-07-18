@@ -44,6 +44,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `Leadkaun + ${entry.name} Integration | Setup & Use Cases`,
     description: entry.tagline.slice(0, 155),
     alternates: { canonical: `/integrations/${entry.slug}` },
+    // Only shipped integrations are indexable. Roadmap / partner-driven pages
+    // describe planned functionality — keep them (badged "On roadmap") but don't
+    // index, so we never rank for a capability we don't ship yet.
+    robots: entry.status === "live" ? undefined : { index: false, follow: true },
   }
 }
 

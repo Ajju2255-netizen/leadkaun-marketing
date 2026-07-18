@@ -32,7 +32,10 @@ type Props = {
   ticketBand: string
   salesCycle: string
   channels: string[]
-  testimonial: Testimonial
+  testimonial?: Testimonial
+  /** A real, non-attributed industry stat/benchmark. Rendered in the social-proof
+   *  slot when there's no customer quote — so a hub never carries a fabricated one. */
+  insight?: string
   faqs: FaqItem[]
   relatedCities?: RelatedCity[]
   relatedFeature?: { label: string; href: string }
@@ -40,7 +43,7 @@ type Props = {
 
 export function UseCaseLayout({
   industryLabel, icon: Icon, h1, subhead, pains, helps, ticketBand, salesCycle, channels,
-  testimonial, faqs, relatedCities = [], relatedFeature,
+  testimonial, insight, faqs, relatedCities = [], relatedFeature,
 }: Props) {
   return (
     <>
@@ -152,14 +155,27 @@ export function UseCaseLayout({
           </Container>
         </SectionGround>
 
-        {/* TESTIMONIAL */}
-        <SectionGround variant="sky" size="md">
-          <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <TestimonialCard {...testimonial} />
-            </Reveal>
-          </Container>
-        </SectionGround>
+        {/* TESTIMONIAL (real quote) or INSIGHT (non-attributed benchmark) */}
+        {testimonial ? (
+          <SectionGround variant="sky" size="md">
+            <Container>
+              <Reveal className="mx-auto max-w-3xl">
+                <TestimonialCard {...testimonial} />
+              </Reveal>
+            </Container>
+          </SectionGround>
+        ) : insight ? (
+          <SectionGround variant="sky" size="md">
+            <Container>
+              <Reveal className="mx-auto max-w-3xl">
+                <FloatingCard tier="2" depth="2" gloss className="p-8 md:p-10" aura="sky">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Industry benchmark</p>
+                  <p className="mt-3 text-[20px] md:text-[24px] leading-[1.4] font-medium text-ink">{insight}</p>
+                </FloatingCard>
+              </Reveal>
+            </Container>
+          </SectionGround>
+        ) : null}
 
         {/* PRODUCT — show + sell the product, same bar as the landing page */}
         <ProductShowcase

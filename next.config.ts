@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
     return [
       { source: "/", has: hasWww, destination: "https://leadkaun.com/", permanent: true },
       { source: "/:path+", has: hasWww, destination: "https://leadkaun.com/:path+", permanent: true },
+      // Dedup: `education` overlapped `edtech`. Consolidated onto `edtech`; 301 any
+      // legacy /education/* + /use-cases/education so equity + indexed URLs move over.
+      { source: "/education/:path*", destination: "/edtech/:path*", permanent: true },
+      { source: "/use-cases/education", destination: "/use-cases/edtech", permanent: true },
     ]
   },
 };

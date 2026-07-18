@@ -54,7 +54,7 @@ export default function RealEstatePage() {
         },
         {
           q: "Do you integrate with 99acres, MagicBricks, and HousingMan?",
-          a: "Yes — webhooks, CSV bulk import, and Google Sheets sync. Most teams pipe portal leads in within an hour. WhatsApp BSPs (AiSensy, Gupshup, Interakt) plug straight in.",
+          a: "Yes — via CSV bulk import and webhooks, most teams pipe portal leads in within an hour. Google Sheets sync and WhatsApp BSP auto-logging (AiSensy, Gupshup, Interakt) are on our roadmap; until then, WhatsApp is tracked with fast 3-tap manual logging.",
         },
         {
           q: "What if a rep handles HNI buyers — different ICP from mass-market?",

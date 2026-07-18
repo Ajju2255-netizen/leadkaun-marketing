@@ -178,6 +178,7 @@ export async function relatedForRoleCity(roleSlug: string, citySlug: string): Pr
   if (!city) return []
 
   const out: RelatedLink[] = []
+  const roleLabel = roleSlug.replace(/-/g, " ")
 
   // Same role, 3 other cities
   const allCities = await getCities()
@@ -185,11 +186,25 @@ export async function relatedForRoleCity(roleSlug: string, citySlug: string): Pr
   for (const c of otherCities) {
     out.push({
       href: `/for/${roleSlug}/${c.slug}`,
-      label: `${roleSlug} in ${c.name}`,
+      label: `${roleLabel} in ${c.name}`,
       kind: "sibling-city",
     })
   }
 
-  // Use-case industries most relevant to role
+  // Industries active in this city — pulls the role page into the industry×city
+  // mesh (previously role pages only linked other role pages: near-orphaned).
+  const industries = (await industriesServedInCity(citySlug)).slice(0, 3)
+  for (const i of industries) {
+    out.push({
+      href: `/${i.slug}/${citySlug}`,
+      label: `${i.name} in ${city.name}`,
+      kind: "role-industry",
+    })
+  }
+
+  // City hub + the feature reps care about most.
+  out.push({ href: `/city/${citySlug}`, label: `Sales software in ${city.name}`, kind: "hub-city" })
+  out.push({ href: `/features/sales-rep-tracking`, label: "Sales rep tracking & accountability", kind: "feature" })
+
   return out
 }

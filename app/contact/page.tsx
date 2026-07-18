@@ -14,6 +14,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { GlossButton } from "@/app/components/gloss-button"
 import { Reveal } from "@/app/components/reveal"
 import { APP_URLS } from "@/lib/urls"
+import { ContactForm } from "@/app/components/contact-form"
 
 export const metadata: Metadata = {
   title: "Contact Leadkaun — Sales, Support & Partnerships",
@@ -61,51 +62,7 @@ export default function ContactPage() {
                 </h2>
               </Reveal>
 
-              <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mt-8 p-6 md:p-8" as="form">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className={labelCls}>Name</label>
-                    <input type="text" name="name" placeholder="Sunita Patel" className={inputCls} />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Work email</label>
-                    <input type="email" name="email" placeholder="sunita@edureach.in" className={inputCls} />
-                  </div>
-                </div>
-
-                <div className="mt-5">
-                  <label className={labelCls}>Topic</label>
-                  <select name="topic" className={inputCls + " text-ink-soft"} defaultValue="">
-                    <option value="" disabled>Select a topic…</option>
-                    <option value="sales">Sales / Pricing</option>
-                    <option value="support">Product Support</option>
-                    <option value="partnership">Partnership / Reseller</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="mt-5">
-                  <label className={labelCls}>Message</label>
-                  <textarea
-                    name="message"
-                    rows={5}
-                    placeholder="Tell us what you need. Include team size, current tool, and what you're trying to fix."
-                    className={"w-full resize-none rounded-xl glass-1 gloss-edge px-4 py-3 text-[14px] leading-[1.6] text-ink placeholder:text-ink-faint border border-white/70 transition-all focus:outline-none focus:border-sky-400 focus:[background:rgba(255,255,255,0.85)]"}
-                  />
-                </div>
-
-                <GlossButton variant="primary" size="md" type="submit" className="mt-6 w-full">
-                  Send message
-                  <span className="font-mono opacity-80">→</span>
-                </GlossButton>
-
-                <p className="mt-4 text-center text-[12px] text-ink-muted">
-                  Prefer a demo?{" "}
-                  <Link href="/demo" className="text-sky-600 underline-offset-4 hover:underline">
-                    Book a 15-min call →
-                  </Link>
-                </p>
-              </FloatingCard></Reveal>
+              <Reveal delay={0.08}><ContactForm /></Reveal>
             </div>
 
             {/* DIRECT CHANNELS */}

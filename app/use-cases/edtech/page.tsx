@@ -31,12 +31,6 @@ export default function EdTechPage() {
         "Intent decay respects admissions cycles: a silent Grade A drops to Grade B over a week automatically.",
         "Morning Brief: '8 Grade A enquiries replied overnight. ₹6 L in admissions at risk if not called by 11 AM.'",
       ]}
-      testimonial={{
-        quote: "Counsellor morning triage dropped from 30 minutes to 2. We closed 12 more admissions in April because every counsellor knew exactly which Grade A parent to call at 9 AM.",
-        name: "Rajesh M.",
-        role: "EdTech Sales Head",
-        city: "Bengaluru",
-      }}
       faqs={[
         { q: "Does it handle the parent + student dual thread?", a: "Yes. Lead record has primary + secondary contacts. WhatsApp tracking logs who replied when; Intent Score aggregates across both." },
         { q: "Can we set different scoring per course?", a: "Yes, on Growth tier. Course-level ICP weights let you tune for engineering vs arts vs PG programmes." },

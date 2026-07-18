@@ -31,12 +31,6 @@ export default function HealthcarePage() {
         "WhatsApp tracking logs appointment confirmations, report-delivery replies, and follow-up requests.",
         "Compliance-ready: every signal timestamped, every contact audit-exportable, DND flags respected.",
       ]}
-      testimonial={{
-        quote: "Corporate tie-up revenue jumped ₹6L in the first month. Every HR referral now gets called within 24 hours, not 4 days later. Our referring doctors finally get a real monthly report.",
-        name: "Dr. Meera T.",
-        role: "Head of Sales, Diagnostic Chain",
-        city: "Chennai",
-      }}
       faqs={[
         { q: "Is health data stored securely?", a: "Supabase Singapore region; RLS policies at DB level; encryption in transit and at rest; full audit log." },
         { q: "Does it support DND compliance for tele-callers?", a: "DND flag on lead record; callers don't see DND leads in the queue." },

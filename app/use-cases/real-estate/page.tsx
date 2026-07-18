@@ -40,13 +40,6 @@ export default function RealEstatePage() {
         "Missed Opportunity Engine shows every stale enquiry with ₹ value — manager sees per-rep accountability",
         "Morning Brief: '4 Grade A enquiries need callback. ₹12L in site visits at risk today'",
       ]}
-      testimonial={{
-        quote:
-          "We were getting 200+ enquiries a month and converting only 3–4%. After Leadkaun, our reps started calling Grade A leads within the hour. Conversion went to 8% in 6 weeks. That's ₹38L in additional revenue.",
-        name: "Priya S.",
-        role: "Co-Founder, Real Estate Agency",
-        city: "Pune",
-      }}
       faqs={[
         {
           q: "How long does it take to set up Leadkaun for a real-estate team?",

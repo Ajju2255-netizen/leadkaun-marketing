@@ -31,12 +31,6 @@ export default function AgenciesPage() {
         "CSV export per client is white-label-ready — branded report in 10 minutes, not 4 hours.",
         "Morning Brief per pipeline: BD head sees new-business; each account director sees their client's ₹ at risk.",
       ]}
-      testimonial={{
-        quote: "We stopped dropping the new-business pipeline every time a client got loud. BD conversion doubled in a quarter. Monthly reporting went from 4 hours to 10 minutes per client.",
-        name: "Anjali R.",
-        role: "Agency Founder",
-        city: "Bengaluru",
-      }}
       faqs={[
         { q: "Can each client have its own ICP?", a: "Yes — define per-pipeline ICP weights on Growth tier." },
         { q: "Is there a client-portal view?", a: "Not in Phase 1. Export per-client CSV for white-label reporting." },

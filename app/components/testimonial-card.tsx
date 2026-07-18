@@ -4,8 +4,10 @@ type Accent = "sky" | "mint" | "peach"
 
 type Props = {
   quote: string
-  name: string
-  role: string
+  // Attribution is optional. Without a name the card renders as an explicitly
+  // "Illustrative scenario" — so we never present a fabricated customer quote.
+  name?: string
+  role?: string
   city?: string
   /** Headline outcome, e.g. "₹38L" — leads the card for results-driven proof. */
   stat?: string
@@ -47,20 +49,26 @@ export function TestimonialCard({ quote, name, role, city, stat, statLabel, acce
         &ldquo;{quote}&rdquo;
       </blockquote>
 
-      <figcaption className="mt-6 flex items-center gap-3 pt-5" style={{ borderTop: "1px solid var(--hairline)" }}>
-        <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-[12px] font-semibold"
-          style={{ background: a.avatar, color: a.text, boxShadow: `inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 6px ${a.ring}` }}
-        >
-          {initials(name)}
-        </div>
-        <div className="min-w-0">
-          <p className="text-[14px] font-semibold leading-tight text-ink">{name}</p>
-          <p className="mt-0.5 text-[12px] leading-tight text-ink-muted">
-            {role}{city ? ` · ${city}` : ""}
-          </p>
-        </div>
-      </figcaption>
+      {name ? (
+        <figcaption className="mt-6 flex items-center gap-3 pt-5" style={{ borderTop: "1px solid var(--hairline)" }}>
+          <div
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-mono text-[12px] font-semibold"
+            style={{ background: a.avatar, color: a.text, boxShadow: `inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 6px ${a.ring}` }}
+          >
+            {initials(name)}
+          </div>
+          <div className="min-w-0">
+            <p className="text-[14px] font-semibold leading-tight text-ink">{name}</p>
+            <p className="mt-0.5 text-[12px] leading-tight text-ink-muted">
+              {role}{city ? ` · ${city}` : ""}
+            </p>
+          </div>
+        </figcaption>
+      ) : (
+        <figcaption className="mt-6 pt-5" style={{ borderTop: "1px solid var(--hairline)" }}>
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Illustrative scenario</p>
+        </figcaption>
+      )}
     </figure>
   )
 }

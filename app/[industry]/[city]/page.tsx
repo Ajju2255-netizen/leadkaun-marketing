@@ -186,7 +186,7 @@ export default async function IndustryCityPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mx-auto max-w-3xl">
-                <TestimonialCard quote={ind.proofQuote.text} name={ind.proofQuote.name} role={ind.proofQuote.role} city={ind.proofQuote.city} />
+                <TestimonialCard quote={ind.proofQuote.text} />
               </Reveal>
             </Container>
           </SectionGround>

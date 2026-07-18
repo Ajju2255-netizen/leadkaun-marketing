@@ -31,12 +31,6 @@ export default function SaaSPage() {
         "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4.'",
         "Multi-seat deal threading: SDR's initial contact flows to the AE's closing thread without losing context.",
       ]}
-      testimonial={{
-        quote: "We stopped losing trials to forgotten follow-ups. Trial-to-paid went from 22% to 34% in 60 days. Leadkaun surfaces the Grade A trials on day 1, not day 10 when they've already churned.",
-        name: "Karthik P.",
-        role: "Head of Sales, B2B SaaS",
-        city: "Bengaluru",
-      }}
       faqs={[
         { q: "Does it integrate with our trial signup flow?", a: "Webhook or CSV; we publish a SaaS-specific onboarding guide. Segment/Mixpanel on roadmap." },
         { q: "How does it handle PLG self-upgrade events?", a: "Trigger a 'self-upgrade' signal manually or via API; scoring surfaces the user for expansion conversations." },

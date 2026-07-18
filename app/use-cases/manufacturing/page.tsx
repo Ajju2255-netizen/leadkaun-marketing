@@ -31,12 +31,6 @@ export default function ManufacturingPage() {
         "Quote objects on the lead record carry value, validity, and next-touch date — the Missed Opportunity Engine surfaces ₹ at risk per open quote.",
         "Distributor attribution with commission splits — no more credit disputes when a dealer closes an inside-sales-sourced deal.",
       ]}
-      testimonial={{
-        quote: "Our sales cycle dropped from 95 days to 62 because reps stopped losing the thread between quote and close. ₹1.4Cr of pipeline that would have stalled last quarter actually closed.",
-        name: "Suresh K.",
-        role: "Sales Director, Industrial",
-        city: "Pune",
-      }}
       faqs={[
         { q: "Does it handle quote tracking?", a: "Lead record has a quote object with value, status, and follow-up schedule. Stale quotes surface with ₹ at risk." },
         { q: "How does it work with field reps on patchy mobile data?", a: "Mobile-optimised logging works offline; syncs when connectivity returns." },

@@ -567,42 +567,27 @@ function Testimonials() {
     <SectionGround variant="cream" size="lg">
       <Container>
         <Reveal className="mb-12 md:mb-14 max-w-3xl">
-          <NumberedTag number="06" label="Proof" tone="warm" />
+          <NumberedTag number="06" label="What it recovers" tone="warm" />
           <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-            Results, in their words.
+            The money that slips — and what a queue-first system claws back.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            Real Indian B2B teams — real numbers, within weeks of switching.
+            Illustrative scenarios (not customer quotes) — the ₹ at risk when follow-up lags in three common Indian B2B setups.
           </p>
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
           <TestimonialCard
-            stat="+₹38L"
-            statLabel="added in 6 weeks"
             accent="mint"
-            quote="200+ enquiries a month, converting 3–4%. After Leadkaun, reps called Grade A leads within the hour — conversion hit 8% in six weeks."
-            name="Priya S."
-            role="Co-Founder, Real Estate Agency"
-            city="Pune"
+            quote="Real estate — a 200-enquiry-a-month desk converting at 3–4%. Grade every enquiry A–F and call the A's inside the hour, and even a few points of lift compounds into lakhs: the ₹ Leadkaun surfaces as at-risk."
           />
           <TestimonialCard
-            stat="−80%"
-            statLabel="attribution disputes"
             accent="sky"
-            quote="Audit review used to take three days pulling records — now it's three hours, one export. Agent-attribution disputes dropped 80% in two months."
-            name="Vikram N."
-            role="Insurance Branch Manager"
-            city="Mumbai"
+            quote="Insurance / BFSI — a branch that spends days pulling records for an audit can cut it to one export when every call, WhatsApp and follow-up is logged and attributed to a rep, and attribution disputes largely disappear."
           />
           <TestimonialCard
-            stat="+12"
-            statLabel="admissions in April"
             accent="peach"
-            quote="Counsellor morning triage went from 30 minutes to 2. Every counsellor knew which Grade A parent to call at 9 AM — and we closed 12 more admissions."
-            name="Rajesh M."
-            role="EdTech Sales Head"
-            city="Bengaluru"
+            quote="EdTech admissions — when a counsellor's 30-minute morning triage becomes 2, with every Grade A parent surfaced at 9 AM in the Priority Queue, the recovered hours turn straight into more admissions closed."
           />
         </Reveal>
       </Container>

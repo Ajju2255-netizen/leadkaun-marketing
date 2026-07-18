@@ -31,12 +31,6 @@ export default function BFSIPage() {
         "Renewal dates live on the lead record — the Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse.",
         "Branch Manager Morning Brief: '12 Grade A leads unassigned. ₹4 L premium at risk today.'",
       ]}
-      testimonial={{
-        quote: "Agent-attribution disputes dropped 80% in two months. Our audit review used to take three days pulling records. Now it's three hours — one export from Leadkaun.",
-        name: "Vikram N.",
-        role: "Insurance Branch Manager",
-        city: "Mumbai",
-      }}
       faqs={[
         { q: "Is the data compliant with IRDAI / RBI audit requirements?", a: "Row-Level Security at the DB level; full audit trail per lead; one-click export. Talk to us for regulator-specific checklists." },
         { q: "Can we track renewals + upsell, not just new business?", a: "Lead records carry renewal dates. The Missed Opportunity Engine surfaces upcoming renewals as opportunities." },

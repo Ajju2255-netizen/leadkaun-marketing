@@ -24,6 +24,11 @@ const COMPARES = [
   { slug: "leadkaun-vs-hubspot",     name: "HubSpot",     tagline: "USD pricing. Marketing-first. Expensive at scale." },
   { slug: "leadkaun-vs-salesforce",  name: "Salesforce",  tagline: "Enterprise-grade. Overkill under 200 reps." },
   { slug: "leadkaun-vs-freshsales",  name: "Freshsales",  tagline: "Clean UI. 'AI' scoring is opaque." },
+  { slug: "leadkaun-vs-pipedrive",   name: "Pipedrive",   tagline: "Global pipeline CRM. Per-user USD, WhatsApp is an add-on." },
+  { slug: "leadkaun-vs-zoho-bigin",  name: "Zoho Bigin",  tagline: "Light and cheap — but no real scoring engine." },
+  { slug: "leadkaun-vs-kylas",       name: "Kylas",       tagline: "Flat, unlimited users. Pricey for small teams." },
+  { slug: "leadkaun-vs-telecrm",     name: "TeleCRM",     tagline: "Telecalling-first. Great dialer, no intent grading." },
+  { slug: "leadkaun-vs-bitrix24",    name: "Bitrix24",    tagline: "All-in-one suite. Broad, complex, USD-priced." },
 ]
 
 export default function CompareHub() {

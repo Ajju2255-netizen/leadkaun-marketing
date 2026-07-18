@@ -53,7 +53,9 @@ Leadkaun is not a direct replacement for enterprise CRMs; it is a Sales Behaviou
 - **Salesforce** — enterprise-grade; overkill under 200 reps
 - **Freshsales** — Freshworks' CRM; "AI" is opaque
 
-Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesforce|freshsales}`.
+Also compared: **Pipedrive** (global pipeline CRM, per-user USD), **Zoho Bigin** (lightweight, no real scoring engine), **Kylas** (India-first, flat unlimited-user pricing), **TeleCRM** (telecalling/WhatsApp-first, no intent grading), **Bitrix24** (all-in-one suite, complex, USD-priced).
+
+Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesforce|freshsales|pipedrive|zoho-bigin|kylas|telecrm|bitrix24}`.
 
 ## Integrations
 

@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup in 60 min.`,
     alternates: { canonical: `/city/${canonicalCity}` },
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
-    robots: { index: hubIndexable(cityRec.tier, !!cityRec.notes), follow: true },
+    robots: { index: hubIndexable(cityRec.tier, cityRec.population, !!cityRec.notes), follow: true },
   }
 }
 

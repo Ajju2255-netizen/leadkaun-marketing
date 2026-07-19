@@ -694,7 +694,7 @@
       "logistics",
       "healthcare"
     ],
-    "notes": "NCR industrial hub"
+    "notes": "NCR industrial hub — manufacturing & auto components"
   },
   {
     "slug": "vasai-virar",
@@ -1039,7 +1039,7 @@
       "education",
       "real-estate"
     ],
-    "notes": "Tata Steel city"
+    "notes": "Tata Steel company town"
   },
   {
     "slug": "hubli-dharwad",
@@ -1524,7 +1524,8 @@
       "education",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Gita Press publishing & Gorakhnath temple city"
   },
   {
     "slug": "cuttack",
@@ -1779,7 +1780,7 @@
       "retail",
       "education"
     ],
-    "notes": "Steel plant township"
+    "notes": "SAIL steel township"
   },
   {
     "slug": "kolhapur",
@@ -1818,7 +1819,7 @@
       "hospitality",
       "healthcare"
     ],
-    "notes": "Sikh pilgrimage city"
+    "notes": "Sikh pilgrimage — Takht Sachkhand Hazur Sahib"
   },
   {
     "slug": "ulhasnagar",
@@ -1952,7 +1953,8 @@
       "education",
       "retail",
       "healthcare"
-    ]
+    ],
+    "notes": "Bundelkhand gateway — railway junction & historic fort"
   },
   {
     "slug": "sangli",
@@ -1972,7 +1974,7 @@
       "education",
       "healthcare"
     ],
-    "notes": "Turmeric trade hub"
+    "notes": "Turmeric trading hub of Maharashtra"
   },
   {
     "slug": "akola",
@@ -2282,7 +2284,7 @@
       "education",
       "agencies"
     ],
-    "notes": "Silk weaving city"
+    "notes": "Tussar silk weaving city ('Silk City')"
   },
   {
     "slug": "agartala",
@@ -2301,7 +2303,7 @@
       "agencies",
       "bfsi"
     ],
-    "notes": "State capital"
+    "notes": "Tripura state capital — Bangladesh border trade"
   },
   {
     "slug": "kollam",
@@ -2492,7 +2494,7 @@
       "agencies",
       "bfsi"
     ],
-    "notes": "Berhampur, silk city"
+    "notes": "Silk City of Odisha — Berhampuri Patta weaving"
   },
   {
     "slug": "berhampur",
@@ -2587,7 +2589,8 @@
       "agencies",
       "retail",
       "education"
-    ]
+    ],
+    "notes": "Defence clothing factory & sugarcane-belt town, Rohilkhand"
   },
   {
     "slug": "kadapa",
@@ -2908,7 +2911,8 @@
       "healthcare",
       "retail",
       "agencies"
-    ]
+    ],
+    "notes": "Mithila region hub — makhana (foxnut) trade"
   },
   {
     "slug": "tumakuru",
@@ -3000,7 +3004,8 @@
       "manufacturing",
       "logistics",
       "retail"
-    ]
+    ],
+    "notes": "North Chennai industrial suburb"
   },
   {
     "slug": "pallavaram",
@@ -3018,7 +3023,8 @@
       "manufacturing",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Chennai suburb — leather tanning cluster"
   },
   {
     "slug": "dinapur-nizamat",
@@ -3056,7 +3062,7 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "Hooghly district HQ"
+    "notes": "Former Dutch settlement on the Hooghly"
   },
   {
     "slug": "mughalsarai",
@@ -3346,7 +3352,8 @@
       "retail",
       "agencies",
       "education"
-    ]
+    ],
+    "notes": "Former Nawabi state — Raza Library & Rampuri knives"
   },
   {
     "slug": "bardhaman",
@@ -3478,7 +3485,7 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "State capital"
+    "notes": "Mizoram state capital — hill administrative center"
   },
   {
     "slug": "panvel",
@@ -3609,7 +3616,8 @@
       "agencies",
       "retail",
       "education"
-    ]
+    ],
+    "notes": "Parsi heritage town — Tata birthplace & diamond cutting"
   },
   {
     "slug": "purnia",
@@ -3627,7 +3635,8 @@
       "retail",
       "logistics",
       "education"
-    ]
+    ],
+    "notes": "Seemanchal trade hub — Asia's largest maize mandi (Gulabbagh)"
   },
   {
     "slug": "maunath-bhanjan",
@@ -3644,7 +3653,8 @@
       "manufacturing",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Powerloom textile weaving town, eastern UP"
   },
   {
     "slug": "badlapur",
@@ -3756,7 +3766,7 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "State capital"
+    "notes": "Manipur state capital"
   },
   {
     "slug": "arrah",
@@ -3866,7 +3876,8 @@
       "manufacturing",
       "retail",
       "real-estate"
-    ]
+    ],
+    "notes": "Mumbai satellite — MIDC industry & ancient Shiva temple"
   },
   {
     "slug": "gandhidham",
@@ -3941,7 +3952,7 @@
       "agencies",
       "education"
     ],
-    "notes": "Major rail junction"
+    "notes": "Railway junction — jute-milling town, Seemanchal"
   },
   {
     "slug": "sikar",
@@ -4054,7 +4065,7 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "Gateway to Kumaon"
+    "notes": "Gateway to Kumaon — commercial hub"
   },
   {
     "slug": "pali",
@@ -4111,7 +4122,7 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Pilgrimage, BHEL"
+    "notes": "Pilgrimage city + BHEL/pharma (SIDCUL)"
   },
   {
     "slug": "vizianagaram",
@@ -4148,7 +4159,8 @@
       "retail",
       "education",
       "manufacturing"
-    ]
+    ],
+    "notes": "Charotar tobacco belt town; Sardar Patel's birthplace"
   },
   {
     "slug": "nagercoil",
@@ -4223,7 +4235,8 @@
       "retail",
       "agencies",
       "education"
-    ]
+    ],
+    "notes": "Bone & horn handicraft export hub; menthol"
   },
   {
     "slug": "singrauli",
@@ -4316,7 +4329,8 @@
       "retail",
       "education",
       "agencies"
-    ]
+    ],
+    "notes": "Arms & tobacco manufacturing"
   },
   {
     "slug": "nandyal",
@@ -4392,7 +4406,7 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Amul dairy capital"
+    "notes": "Amul / dairy cooperative hub"
   },
   {
     "slug": "ambala",
@@ -4468,7 +4482,7 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "Pilgrimage centre"
+    "notes": "Baidyanath temple pilgrimage economy"
   },
   {
     "slug": "chhapra",
@@ -4542,7 +4556,8 @@
       "logistics",
       "retail",
       "agencies"
-    ]
+    ],
+    "notes": "Nimar cotton belt & Mumbai–Delhi railway junction"
   },
   {
     "slug": "morena",
@@ -4578,7 +4593,8 @@
       "retail",
       "manufacturing",
       "education"
-    ]
+    ],
+    "notes": "Dholak (drum) making & mango town"
   },
   {
     "slug": "hardoi",
@@ -4727,7 +4743,7 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Rail coach factory"
+    "notes": "Modern Coach Factory (rail coaches); Gandhi political base"
   },
   {
     "slug": "rae-bareli",
@@ -4821,7 +4837,7 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Kutch district HQ"
+    "notes": "Kutch handicrafts, rebuilt post-2001 quake"
   },
   {
     "slug": "bhusawal",
@@ -4857,7 +4873,8 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Terai border town — Nepal trade & Syed Salar dargah"
   },
   {
     "slug": "raiganj",
@@ -4913,7 +4930,8 @@
       "agencies",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Gas-based fertilizer town — NFL Vijaipur plant"
   },
   {
     "slug": "jaunpur",
@@ -4987,7 +5005,8 @@
       "retail",
       "agencies",
       "education"
-    ]
+    ],
+    "notes": "Former Scindia summer capital; Madhav National Park"
   },
   {
     "slug": "surendranagar",
@@ -5006,7 +5025,7 @@
       "retail",
       "logistics"
     ],
-    "notes": "Cotton trade centre"
+    "notes": "Saurashtra cotton ginning & trading hub"
   },
   {
     "slug": "sitapur",
@@ -5044,7 +5063,7 @@
       "retail",
       "agencies"
     ],
-    "notes": "Leather tanneries"
+    "notes": "Leather tanning cluster near Kanpur"
   },
   {
     "slug": "chittoor",
@@ -5140,7 +5159,7 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "Barak Valley hub"
+    "notes": "Barak Valley commercial hub — tea & trade"
   },
   {
     "slug": "gadag",
@@ -5195,7 +5214,8 @@
       "agencies",
       "retail",
       "hospitality"
-    ]
+    ],
+    "notes": "South Gujarat — Alphonso mango & Atul chemical belt"
   },
   {
     "slug": "botad",
@@ -5212,7 +5232,8 @@
       "manufacturing",
       "agencies",
       "retail"
-    ]
+    ],
+    "notes": "Saurashtra cotton ginning & trading town"
   },
   {
     "slug": "machilipatnam",
@@ -5288,7 +5309,7 @@
       "agencies",
       "education"
     ],
-    "notes": "District HQ"
+    "notes": "Doaba town known for wood-inlay craft"
   },
   {
     "slug": "bharuch",
@@ -5363,7 +5384,7 @@
       "agencies",
       "education"
     ],
-    "notes": "Adjacent to Ayodhya"
+    "notes": "Ayodhya — Ram Janmabhoomi pilgrimage economy"
   },
   {
     "slug": "basti",
@@ -5456,7 +5477,8 @@
       "education",
       "agencies",
       "manufacturing"
-    ]
+    ],
+    "notes": "Former Nawabi town — Arabic-Persian manuscript archive"
   },
   {
     "slug": "hathras",
@@ -5549,7 +5571,8 @@
       "retail",
       "education",
       "agencies"
-    ]
+    ],
+    "notes": "Cotton-textile & agro-industrial town, Chhattisgarh"
   },
   {
     "slug": "proddatur",
@@ -5604,7 +5627,8 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Bundelkhand town known for Shajar-stone craft"
   },
   {
     "slug": "budaun",
@@ -5638,7 +5662,8 @@
       "logistics",
       "manufacturing",
       "retail"
-    ]
+    ],
+    "notes": "Tribal border district — railway locomotive plant"
   },
   {
     "slug": "pathankot",
@@ -5731,7 +5756,8 @@
       "retail",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Kosi region junction — makhana & maize trade"
   },
   {
     "slug": "vidisha",
@@ -5749,7 +5775,8 @@
       "retail",
       "education",
       "manufacturing"
-    ]
+    ],
+    "notes": "Soybean belt near the Sanchi stupas"
   },
   {
     "slug": "kurukshetra",
@@ -5919,7 +5946,8 @@
       "retail",
       "agencies",
       "logistics"
-    ]
+    ],
+    "notes": "Chota Nagpur plateau — coal-mining district"
   },
   {
     "slug": "krishnanagar",
@@ -5938,7 +5966,7 @@
       "education",
       "bfsi"
     ],
-    "notes": "Nadia district HQ"
+    "notes": "Clay-doll craft town (Ghurni), Nadia"
   },
   {
     "slug": "miryalaguda",
@@ -5975,7 +6003,8 @@
       "retail",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Terai sugarcane belt; Dudhwa park gateway"
   },
   {
     "slug": "hindupur",
@@ -6049,7 +6078,8 @@
       "retail",
       "manufacturing",
       "logistics"
-    ]
+    ],
+    "notes": "Canal-irrigated cotton & foodgrain belt"
   },
   {
     "slug": "raigarh",
@@ -6085,7 +6115,8 @@
       "agencies",
       "manufacturing",
       "retail"
-    ]
+    ],
+    "notes": "India's largest mentha (mint) farming belt"
   },
   {
     "slug": "bhadravati",

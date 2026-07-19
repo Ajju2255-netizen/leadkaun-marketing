@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup in 60 minutes.`,
     alternates: { canonical: `/${industry}/${canonicalCity}` },
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
-    robots: { index: hubIndexable(cityRec.tier, !!cityRec.notes), follow: true },
+    robots: { index: hubIndexable(cityRec.tier, cityRec.population, !!cityRec.notes), follow: true },
   }
 }
 

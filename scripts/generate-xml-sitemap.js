@@ -136,9 +136,12 @@ const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6"
 // Tier 3 with real local data. The sitemap must never advertise a noindexed URL.
 const INDEX_MAX_TIER = 2
 const HUB_INDEX_MAX_TIER = 3
+const HUB_MIN_POPULATION = 150000
 const indexableCities = citiesData.filter((c) => c.tier <= INDEX_MAX_TIER)
 const hubIndexable = (c) =>
-  c.tier <= INDEX_MAX_TIER || (c.tier <= HUB_INDEX_MAX_TIER && !!c.notes)
+  c.tier <= INDEX_MAX_TIER ||
+  (c.tier <= HUB_INDEX_MAX_TIER && !!c.notes) ||
+  (!!c.notes && c.population >= HUB_MIN_POPULATION)
 const hubCities = citiesData.filter(hubIndexable)
 
 const pseoCity = [

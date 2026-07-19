@@ -20,6 +20,11 @@ export const INDEX_MAX_TIER = 2
 /** Hub pages (industry×city, /city) may index a bit deeper than leaves. */
 export const HUB_INDEX_MAX_TIER = 3
 
+/** Any city at/above this population that carries real local data is indexable,
+ *  regardless of tier — significance beats an arbitrary tier cap. A 1.5-lakh city
+ *  with a verified distinctive economy (e.g. "Amul dairy hub") is real content. */
+export const HUB_MIN_POPULATION = 150_000
+
 /** A keyword-leaf / role page is indexable iff its city is Tier ≤ INDEX_MAX_TIER. */
 export function leafIndexable(tier: number): boolean {
   return tier <= INDEX_MAX_TIER
@@ -27,13 +32,16 @@ export function leafIndexable(tier: number): boolean {
 
 /**
  * An industry×city hub or /city page is indexable iff:
- *   • the city is Tier 1–2 (always), OR
- *   • the city is Tier 3 AND carries real local data (a `notes` string).
- * Tier-4 markets stay noindex until enriched — the quality gate, applied to the
- * two largest families the audit flagged as ungated.
+ *   • the city is Tier 1–2 (a major metro — always), OR
+ *   • the city is Tier 3 AND carries real local data (a `notes` string), OR
+ *   • the city carries real local data AND is genuinely substantial
+ *     (population ≥ HUB_MIN_POPULATION), whatever its tier.
+ * Smaller/undocumented markets stay noindex until enriched — the quality gate,
+ * keyed on real significance + real data rather than a hard tier number.
  */
-export function hubIndexable(tier: number, hasData: boolean): boolean {
+export function hubIndexable(tier: number, population: number, hasData: boolean): boolean {
   if (tier <= INDEX_MAX_TIER) return true
   if (tier <= HUB_INDEX_MAX_TIER && hasData) return true
+  if (hasData && population >= HUB_MIN_POPULATION) return true
   return false
 }

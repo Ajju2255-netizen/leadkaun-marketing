@@ -111,10 +111,10 @@ Goal: convert existing scattered content into **topic clusters**. Each topic = a
 Goal: scale the *right* axis — depth of entities, gated by quality.
 
 ### 3A. Grow entities (depth, not more cities)
-- ⬜ M — Keywords 8 → 25–30 (lead-management, follow-up-automation, sales-pipeline, whatsapp-crm, telecalling-crm, field-sales, inside-sales, lead-distribution, sales-analytics, lead-nurturing…)
+- ✅ M — Keyword set FIXED (not grown): consolidated 8 near-synonyms → 4 distinct intents (lead-management, lead-scoring, sales-crm, sales-automation); 301'd the 4 retired slugs; killed keyword cannibalisation + 2 trust bugs. *(Growing to new DISTINCT intents like whatsapp-crm/telecalling-crm/field-sales is still valuable later.)*
 - ⬜ M — Industries 11 → 18 (insurance, automotive, travel, staffing, D2C, coaching, interior/construction)
 - ⬜ M — Roles 10 → 25 · add Company-size, Pain-point, Sales-stage, Intent as entities
-- ✅ L — Fill empty city records with VERIFIED notes — 55 done (web-researched, real economic identities). **Hit honest diminishing returns**: only ~25 no-note cities would still promote to indexable, and 17 of those are the ones research flagged as having NO distinctive economic identity. Adding thin notes to game the gate would violate quality-first, so stopped. (Real remaining lever: lower `HUB_MIN_POPULATION` only if paired with genuinely richer per-city data — a data-sourcing project, not a quick win.)
+- ✅ L — City data moat: 55 verified economic notes + **50 cities now carry verified business-district + local-economy data** (BKC/Lower Parel, HITEC City, Adityapur…). Sibling-page overlap dropped ~92% → 74-80% (measured). **Engine built**: any city given `districts` auto-promotes its keyword+role leaves to indexable (leafIndexable). Turn-the-crank — each research batch of ~50 cities adds real data + promotes ~54 leaves/city. Next: districts for the Tier-3/4 batch to keep growing indexable count honestly.
 
 ### 3B. New programmatic combinations (each a distinct high-intent SERP)
 - ⬜ M — `feature × industry` (/lead-scoring/real-estate) · `feature × city`

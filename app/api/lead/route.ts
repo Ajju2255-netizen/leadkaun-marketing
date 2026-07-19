@@ -85,16 +85,17 @@ export async function POST(req: Request) {
     }
   }
 
-  // 2) Resend email (fallback).
-  const key = env.RESEND_API_KEY
-  const to = env.LEAD_NOTIFY_EMAIL
+  // 2) Resend email (fallback). Trim any stray whitespace/newline on secrets.
+  const key = env.RESEND_API_KEY?.trim()
+  const to = env.LEAD_NOTIFY_EMAIL?.trim()
+  const from = (env.LEAD_FROM_EMAIL ?? "leads@leadkaun.com").trim()
   if (key && to) {
     try {
       const r = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          from: env.LEAD_FROM_EMAIL ?? "leads@leadkaun.com",
+          from,
           to: [to],
           reply_to: payload.email,
           subject: `New lead (${payload.source}) — ${payload.name ?? payload.email}`,
@@ -104,13 +105,24 @@ export async function POST(req: Request) {
         }),
       })
       if (r.ok) return NextResponse.json({ ok: true })
-      console.error("[lead] resend non-2xx:", r.status)
+      const detail = await r.text().catch(() => "")
+      console.error("[lead] resend non-2xx:", r.status, detail)
+      return NextResponse.json({ ok: false, error: "delivery_failed", status: r.status, detail: detail.slice(0, 300) }, { status: 502 })
     } catch (e) {
       console.error("[lead] resend failed:", e)
+      return NextResponse.json({ ok: false, error: "delivery_error", detail: String(e).slice(0, 200) }, { status: 502 })
     }
   }
 
-  // 3) Not configured — never lose it silently.
+  // 3) Not configured — never lose it silently. `seen` reveals which env vars the
+  // Worker can actually see (booleans only, no secret values) for diagnosis.
+  const seen = {
+    webhook: !!env.LEAD_WEBHOOK_URL,
+    key: !!env.RESEND_API_KEY,
+    to: !!env.LEAD_NOTIFY_EMAIL,
+    from: !!env.LEAD_FROM_EMAIL,
+    runtime: typeof navigator !== "undefined" ? navigator.userAgent : "node",
+  }
   console.warn("[lead] no LEAD_WEBHOOK_URL / RESEND config; lead not delivered:", payload)
-  return NextResponse.json({ ok: false, error: "not_configured" }, { status: 503 })
+  return NextResponse.json({ ok: false, error: "not_configured", seen }, { status: 503 })
 }

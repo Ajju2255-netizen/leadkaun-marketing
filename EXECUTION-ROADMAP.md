@@ -57,7 +57,7 @@ Goal: stop the trust/EEAT bleed. Highest leverage, lowest risk.
 
 ### 1C. CRO (conversion) — *weakest area*
 - 🔒 M — Real `/demo` form + Cal.com/Calendly booking (today: links to register) **CRITICAL**
-- 🔒 S — Activate lead capture (`/api/lead` Resend/webhook secret) **CRITICAL** — *founder sets secret*
+- ✅ S — **Lead capture ACTIVE** — `/api/lead` now emails sales@leadkaun.com via Resend. Fixed two bugs: route now reads Worker secrets via `getCloudflareContext().env` (not `process.env`), and `LEAD_FROM_EMAIL` set to the verified sender `noreply@send.leadkaun.com` (root leadkaun.com isn't verified in Resend). Verified live with a test lead.
 - ⬜ M — Live chat + WhatsApp click-to-chat widget
 - ⬜ S — Newsletter capture + sticky CTA + exit-intent + comparison-page CTA
 - 🔒 M — Lead magnets: make `/resources` downloadable (PDFs) → email gate
@@ -188,8 +188,9 @@ Goal: Google/AI sees an **industry authority**, not software.
 |---|---|
 | Monthly Sales Behaviour Index · Lead Response Benchmark · Conversion Rate by Industry · WhatsApp Sales Report · AI Adoption · Sales Salary · CRM Usage · Follow-up / Call / Lead-Quality / Revenue-Leakage / Pipeline Benchmarks | Research page (Dataset schema) + PDF + blog summary + press release + infographic + LinkedIn carousel + X thread + YouTube + webinar + email campaign |
 
-- 🔒 L — Build the report template (`/research/[slug]` + Dataset schema + gated PDF)
-- 🔒 ♻️ — Ship 1 report/month minimum from real anonymized product data
+- ✅ L — Report template built (`/research/[slug]` + `/research` hub + Dataset/Article schema). First report LIVE: **"Indian B2B Sales & Lead Management Benchmarks 2026"** — 15 verified, web-sourced stats, each with a real outbound citation (HBR, MIT/InsideSales, Salesforce, Meta/Kantar, IBEF, Drift, Forbes). The site's first real outbound links (E-E-A-T). Excludes unverifiable "zombie stats".
+- ⬜ Add a gated PDF download to the report (lead magnet — now that capture works)
+- 🔒 ♻️ — Ship more reports; add FIRST-PARTY product data (needs founder's real anonymized metrics) alongside the public benchmarks
 
 ---
 
@@ -234,7 +235,7 @@ Goal: Google/AI sees an **industry authority**, not software.
 
 ## 🔒 BLOCKED ON FOUNDER (unblock these to accelerate everything)
 
-1. **Lead-capture secret** (`RESEND_API_KEY` or `LEAD_WEBHOOK_URL`) — funnel is dead without it.
+1. ✅ ~~Lead-capture secret~~ — DONE (reused the app's Resend key; sender `noreply@send.leadkaun.com`). Funnel is live.
 2. **Real EEAT data** — founders, team, photos, LinkedIn, real customers/case studies, `sameAs` profiles.
 3. **Real product data** — for the entire Data Moat / research engine (the #1 AI-citation unlock).
 4. **GA4 / GSC / Clarity access** — for instrumentation.

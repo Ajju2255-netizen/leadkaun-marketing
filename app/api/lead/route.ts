@@ -105,24 +105,16 @@ export async function POST(req: Request) {
         }),
       })
       if (r.ok) return NextResponse.json({ ok: true })
-      const detail = await r.text().catch(() => "")
-      console.error("[lead] resend non-2xx:", r.status, detail)
-      return NextResponse.json({ ok: false, error: "delivery_failed", status: r.status, detail: detail.slice(0, 300) }, { status: 502 })
+      // Log the provider detail server-side only; don't leak it to the client.
+      console.error("[lead] resend non-2xx:", r.status, await r.text().catch(() => ""))
+      return NextResponse.json({ ok: false, error: "delivery_failed" }, { status: 502 })
     } catch (e) {
       console.error("[lead] resend failed:", e)
-      return NextResponse.json({ ok: false, error: "delivery_error", detail: String(e).slice(0, 200) }, { status: 502 })
+      return NextResponse.json({ ok: false, error: "delivery_failed" }, { status: 502 })
     }
   }
 
-  // 3) Not configured — never lose it silently. `seen` reveals which env vars the
-  // Worker can actually see (booleans only, no secret values) for diagnosis.
-  const seen = {
-    webhook: !!env.LEAD_WEBHOOK_URL,
-    key: !!env.RESEND_API_KEY,
-    to: !!env.LEAD_NOTIFY_EMAIL,
-    from: !!env.LEAD_FROM_EMAIL,
-    runtime: typeof navigator !== "undefined" ? navigator.userAgent : "node",
-  }
+  // 3) Not configured — never lose it silently.
   console.warn("[lead] no LEAD_WEBHOOK_URL / RESEND config; lead not delivered:", payload)
-  return NextResponse.json({ ok: false, error: "not_configured", seen }, { status: 503 })
+  return NextResponse.json({ ok: false, error: "not_configured" }, { status: 503 })
 }

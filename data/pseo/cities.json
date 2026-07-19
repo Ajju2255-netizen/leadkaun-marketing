@@ -3437,7 +3437,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Rice export center"
+    "notes": "Rice export center",
+    "districts": "Industrial Area, Karnal Road, Dhand Road",
+    "localBiz": "basmati rice mills and grain-market exports"
   },
   {
     "slug": "basirhat",
@@ -3490,7 +3492,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Handloom textiles"
+    "notes": "Handloom textiles",
+    "districts": "handloom weaving quarter, Vetapalem, Perala",
+    "localBiz": "a cotton and silk handloom saree weaving cluster"
   },
   {
     "slug": "khargone",
@@ -6747,7 +6751,9 @@
       "manufacturing",
       "real-estate"
     ],
-    "notes": "IT and pharma hub near Chandigarh"
+    "notes": "IT and pharma hub near Chandigarh",
+    "districts": "Industrial Area Phase 8, IT City Sector 82, Phase 1",
+    "localBiz": "IT parks, pharma and industrial estates adjoining Chandigarh"
   },
   {
     "slug": "tiruvannamalai",
@@ -6766,7 +6772,9 @@
       "agencies",
       "education"
     ],
-    "notes": "Pilgrimage town around Arunachaleswarar"
+    "notes": "Pilgrimage town around Arunachaleswarar",
+    "districts": "Car Street, Chengam Road, Vengikkal",
+    "localBiz": "temple-pilgrimage tourism plus paddy, groundnut and sugarcane trade"
   },
   {
     "slug": "abohar",
@@ -6804,7 +6812,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Coalfield township"
+    "notes": "Coalfield township",
+    "districts": "Bermo, Dhori, Kargali",
+    "localBiz": "East Bokaro coalfield mining under CCL Dhori area"
   },
   {
     "slug": "medininagar",
@@ -6823,7 +6833,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Daltonganj district HQ"
+    "notes": "Daltonganj district HQ",
+    "districts": "Hanuman Mandir market, Redma, Shahpur",
+    "localBiz": "a district commercial hub trading minerals, paddy and sugarcane"
   },
   {
     "slug": "balasore",
@@ -6842,7 +6854,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "District HQ, missile test range"
+    "notes": "District HQ, missile test range",
+    "districts": "Balgopalpur Industrial Area, Somanathpur (Remuna), Motiganj, Nua Bazar",
+    "localBiz": "ferro-alloys, paper and tyre industries plus Motiganj wholesale market"
   },
   {
     "slug": "giridih",
@@ -6861,7 +6875,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Mica and coal mining"
+    "notes": "Mica and coal mining",
+    "districts": "Barganda, Pachamba, Argha",
+    "localBiz": "Giridih coalfield mining with a mica belt trade"
   },
   {
     "slug": "shillong",
@@ -6880,7 +6896,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "State capital, hill station"
+    "notes": "State capital, hill station",
+    "districts": "Police Bazar, Iewduh (Bara Bazar), Laitumkhrah",
+    "localBiz": "a regional trade, education and tourism hub of the northeast"
   },
   {
     "slug": "rewari",
@@ -6898,7 +6916,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Brass industry; near Manesar industrial belt"
+    "notes": "Brass industry; near Manesar industrial belt",
+    "districts": "Bawal Industrial Area, Dharuhera, Rewari city",
+    "localBiz": "auto-components manufacturing at Bawal-Dharuhera plus traditional brassware"
   },
   {
     "slug": "chhatarpur",
@@ -6916,7 +6936,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Gateway to Khajuraho temples"
+    "notes": "Gateway to Khajuraho temples",
+    "districts": "Civil Lines, Sagar Road, Mahoba Road",
+    "localBiz": "farm-produce trade with granite mining and furniture units"
   },
   {
     "slug": "bhimavaram",
@@ -6935,7 +6957,9 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Aquaculture and shrimp export hub"
+    "notes": "Aquaculture and shrimp export hub",
+    "districts": "Gunupudi, Juvvalapalem, Vidyanagar",
+    "localBiz": "a shrimp and fish aquaculture hub with agri trade"
   },
   {
     "slug": "mandsaur",
@@ -6973,7 +6997,9 @@
       "manufacturing",
       "bfsi"
     ],
-    "notes": "Banaskantha HQ; diamond merchants"
+    "notes": "Banaskantha HQ; diamond merchants",
+    "districts": "Gunj Bazaar, Station Road, Banas Dairy area",
+    "localBiz": "a Banas Dairy hub with a historic diamond-merchant community"
   },
   {
     "slug": "chitradurga",
@@ -7011,7 +7037,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Temple town and brassware center"
+    "notes": "Temple town and brassware center",
+    "districts": "Big Bazaar Street, Ayikulam Road, Sarangapani Sannathi",
+    "localBiz": "brass and bronze metalware plus temple and silk trade"
   },
   {
     "slug": "kolar",
@@ -7031,7 +7059,9 @@
       "healthcare",
       "manufacturing"
     ],
-    "notes": "Silk and gold-mining heritage region"
+    "notes": "Silk and gold-mining heritage region",
+    "districts": "APMC Yard, Narasapura Industrial Area, Tamaka",
+    "localBiz": "Asia's second-largest tomato APMC with silk and dairy"
   },
   {
     "slug": "ankleshwar",
@@ -7049,7 +7079,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Major chemical industrial estate"
+    "notes": "Major chemical industrial estate",
+    "districts": "GIDC Ankleshwar, Panoli Industrial Estate, Piraman",
+    "localBiz": "one of Asia's largest chemical and pharma GIDC estates"
   },
   {
     "slug": "kalol",
@@ -7085,7 +7117,9 @@
       "manufacturing",
       "education"
     ],
-    "notes": "Cotton trade district HQ"
+    "notes": "Cotton trade district HQ",
+    "districts": "MIDC Lohara, Cotton Market, Datta Chowk",
+    "localBiz": "the cotton growing and ginning belt of Vidarbha"
   },
   {
     "slug": "bongaigaon",
@@ -7103,7 +7137,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Refinery and petrochemical town"
+    "notes": "Refinery and petrochemical town",
+    "districts": "Dhaligaon refinery township, Chapaguri Road, New Bongaigaon",
+    "localBiz": "an IOCL oil refinery and petrochemical complex anchoring lower Assam"
   },
   {
     "slug": "ramgarh",
@@ -7140,7 +7176,9 @@
       "education",
       "hospitality"
     ],
-    "notes": "District HQ, terracotta crafts"
+    "notes": "District HQ, terracotta crafts",
+    "districts": "Machantala, Nutanganj, Lalbazar",
+    "localBiz": "farm trade with Bishnupur terracotta and Baluchari silk crafts"
   },
   {
     "slug": "mandya",
@@ -7324,7 +7362,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Rice mills and junction town"
+    "notes": "Rice mills and junction town",
+    "districts": "MIDC Gondia, Rice Mill area, Jaistambh Chowk",
+    "localBiz": "the rice milling hub of eastern Vidarbha"
   },
   {
     "slug": "palwal",
@@ -7380,7 +7420,9 @@
       "retail",
       "education"
     ],
-    "notes": "Rice bowl and gateway to Kerala"
+    "notes": "Rice bowl and gateway to Kerala",
+    "districts": "Kanjikode Industrial Area, Sultanpet, Stadium Bypass",
+    "localBiz": "the paddy rice bowl of Kerala with the Kanjikode industrial belt"
   },
   {
     "slug": "rajapalayam",
@@ -7399,7 +7441,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Cotton spinning mills town"
+    "notes": "Cotton spinning mills town",
+    "districts": "spinning-mill zone, Sivakasi Road, Palai Road",
+    "localBiz": "cotton spinning mills and surgical cotton manufacturing"
   },
   {
     "slug": "deoria",
@@ -7491,7 +7535,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "Major South Central Railway junction"
+    "notes": "Major South Central Railway junction",
+    "districts": "Railway Colony, Kasapuram Road, cotton market",
+    "localBiz": "a major railway junction town with cotton and grain trade"
   },
   {
     "slug": "dharmavaram",
@@ -7602,7 +7648,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Lignite mining and thermal power township"
+    "notes": "Lignite mining and thermal power township",
+    "districts": "NLC Township blocks, Neyveli mine, Thermal Nagar",
+    "localBiz": "lignite mining and thermal power under NLC India"
   },
   {
     "slug": "motihari",
@@ -7983,7 +8031,9 @@
       "manufacturing",
       "retail",
       "agencies"
-    ]
+    ],
+    "districts": "MIDC Barshi, Sarafa Market, Vyapari Peth",
+    "localBiz": "textile powerlooms and pulse (dal) processing market"
   },
   {
     "slug": "margao",
@@ -8096,7 +8146,9 @@
       "manufacturing",
       "education"
     ],
-    "notes": "Rice trading town in Krishna delta"
+    "notes": "Rice trading town in Krishna delta",
+    "districts": "Auto Nagar, Eluru Road, Koti Bomma Center",
+    "localBiz": "a rice milling and agro-processing hub in the Krishna delta"
   },
   {
     "slug": "phagwara",
@@ -8245,7 +8297,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Industrial town near Bengaluru border"
+    "notes": "Industrial town near Bengaluru border",
+    "districts": "SIPCOT Industrial Complex, Mookandapalli, Bagalur Road",
+    "localBiz": "automobile and electronics manufacturing at the SIPCOT hub"
   },
   {
     "slug": "amreli",
@@ -8392,7 +8446,9 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "districts": "MIDC Osmanabad, Tuljapur Road, Krishi Bazaar",
+    "localBiz": "a sugarcane belt with cooperative sugar factories"
   },
   {
     "slug": "azamgarh",
@@ -8849,7 +8905,9 @@
       "retail",
       "education"
     ],
-    "notes": "Chettinad heritage and banking town"
+    "notes": "Chettinad heritage and banking town",
+    "districts": "Sekkalai Road, Kallukatti, Muthupattinam",
+    "localBiz": "Chettinad merchant-banking heritage with Athangudi tile crafts"
   },
   {
     "slug": "kishanganj",
@@ -8885,7 +8943,9 @@
       "education",
       "retail",
       "manufacturing"
-    ]
+    ],
+    "districts": "MIDC Wardha, Cotton Market, Sevagram",
+    "localBiz": "cotton trade and ginning with Gandhian institutions"
   },
   {
     "slug": "suryapet",
@@ -9364,7 +9424,9 @@
       "retail",
       "healthcare",
       "agencies"
-    ]
+    ],
+    "districts": "Up-Hill, Down-Hill, Manjeri, Perinthalmanna",
+    "localBiz": "Gulf-remittance-driven retail trade with Manjeri and Perinthalmanna markets"
   },
   {
     "slug": "hinganghat",
@@ -9382,7 +9444,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Cotton ginning town"
+    "notes": "Cotton ginning town",
+    "districts": "Cotton Market, MIDC Hinganghat, Umred Road",
+    "localBiz": "one of the oldest cotton and ginning markets in Vidarbha"
   },
   {
     "slug": "thoubal",
@@ -9741,7 +9805,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Murugan temple pilgrimage town"
+    "notes": "Murugan temple pilgrimage town",
+    "districts": "Adivaram temple foothill, Bazaar Street, Giri Veedhi",
+    "localBiz": "temple-pilgrimage tourism with farm-produce trade"
   },
   {
     "slug": "vatakara",
@@ -10356,7 +10422,9 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "Coastal port and fishing town"
+    "notes": "Coastal port and fishing town",
+    "districts": "Ponnani Harbour, Edappal, Biyyam",
+    "localBiz": "a marine fishing harbour with Gulf-remittance retail trade"
   },
   {
     "slug": "pollachi",
@@ -10375,7 +10443,9 @@
       "logistics",
       "manufacturing"
     ],
-    "notes": "Coconut and jaggery trading market"
+    "notes": "Coconut and jaggery trading market",
+    "districts": "Market Road, Mahalingapuram, coconut market yard",
+    "localBiz": "one of Asia's largest coconut markets plus jaggery trade"
   },
   {
     "slug": "nirmal",
@@ -10794,7 +10864,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Railway junction town"
+    "notes": "Railway junction town",
+    "districts": "railway junction area, Thakkolam, Ekambara Nagar",
+    "localBiz": "a major railway junction with a naval air station and rail workshops"
   },
   {
     "slug": "sirsi",
@@ -10869,7 +10941,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Home textiles and bus body building"
+    "notes": "Home textiles and bus body building",
+    "districts": "Jerugumalai, Vangal, Karur bazaar",
+    "localBiz": "home-textile made-ups exports and bus-body building"
   },
   {
     "slug": "ratnagiri",
@@ -11065,7 +11139,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "Poultry and lorry transport center"
+    "notes": "Poultry and lorry transport center",
+    "districts": "Mohanur Road, Trichy Road poultry belt, Paramathi Road",
+    "localBiz": "poultry (egg) production and a truck-transport hub"
   },
   {
     "slug": "madhupur",
@@ -11121,7 +11197,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Fireworks, matches and printing hub"
+    "notes": "Fireworks, matches and printing hub",
+    "districts": "fireworks and match factory belt, Sivakasi town, Sattur Road",
+    "localBiz": "a fireworks, safety matches and offset-printing manufacturing hub"
   },
   {
     "slug": "krishnagiri",

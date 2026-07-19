@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -58,6 +59,16 @@ export default function WhatsAppTrackingPage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="How does Leadkaun track WhatsApp for sales?"
+              answer="Reps log each WhatsApp exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, no Business API needed. That logged signal feeds the Intent Score in real time, so a high-intent reply can push a Grade C lead to Grade A in under 500ms and move it up the Priority Queue."
+            />
+          </Container>
+        </SectionGround>
 
         {/* 3-TAP LOGGING */}
         <SectionGround variant="cream" size="lg">

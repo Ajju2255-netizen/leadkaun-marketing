@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -61,6 +62,16 @@ export default function SalesRepTrackingPage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="What does Leadkaun's sales rep tracking measure?"
+              answer="It measures behaviour, not vanity activity: per-rep ₹ recovered, Grade A response time, and follow-up completion. Because logging takes three taps, the data stays complete without micromanaging — so managers coach on specific, measurable signals like slow Grade A response instead of raw call counts."
+            />
+          </Container>
+        </SectionGround>
 
         {/* METRICS GRID */}
         <SectionGround variant="cream" size="lg">

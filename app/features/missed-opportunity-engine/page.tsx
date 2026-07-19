@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -59,6 +60,16 @@ export default function MissedOpportunityPage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Morning Brief", href: "/features/morning-brief" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="What is Leadkaun's Missed Opportunity Engine?"
+              answer="It puts a rupee value on every lead slipping through the cracks. Each stale or un-contacted high-grade lead is scored by deal size, close probability, and how far past its window it is, then rolled up into a daily ₹-at-risk figure per rep and per source — so managers act before the money is gone."
+            />
+          </Container>
+        </SectionGround>
 
         {/* FORMULA */}
         <SectionGround variant="cream" size="lg">

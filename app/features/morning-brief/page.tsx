@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -52,6 +53,16 @@ export default function MorningBriefPage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="What is the Leadkaun Morning Brief?"
+              answer="An email sent to each rep and manager at 8:30 AM IST. It leads with the ₹ at risk today, the top Grade A leads to call, and overdue follow-ups — ranked, not a data dump. It answers 'what do I do first?' in the first five lines, before the day's noise buries the hot leads."
+            />
+          </Container>
+        </SectionGround>
 
         {/* SAMPLE BRIEF */}
         <SectionGround variant="cream" size="lg">

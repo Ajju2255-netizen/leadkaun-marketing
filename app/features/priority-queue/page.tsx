@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -62,6 +63,16 @@ export default function PriorityQueuePage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="What is a sales Priority Queue and how does Leadkaun's work?"
+              answer="A Priority Queue is a single, live-ranked list of who each rep should contact next. Leadkaun re-ranks it in real time as signals arrive — a new Grade A lead, a WhatsApp reply, or intent decay — so the rep works top-down instead of guessing. No daily triage; the queue always reflects now, not yesterday."
+            />
+          </Container>
+        </SectionGround>
 
         {/* RANK FORMULA */}
         <SectionGround variant="cream" size="lg">

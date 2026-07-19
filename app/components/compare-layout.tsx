@@ -11,6 +11,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
 import { ProofBand, ProductShowcase } from "@/app/components/sell/blocks"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -95,6 +96,13 @@ export function ComparePageLayout(p: CompareProps) {
         />
 
         <ProofBand />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer question={`Leadkaun vs ${p.competitor}: which is better?`} answer={p.tldr} />
+          </Container>
+        </SectionGround>
 
         {/* TL;DR + POSITIONING */}
         <SectionGround variant="cream" size="md">

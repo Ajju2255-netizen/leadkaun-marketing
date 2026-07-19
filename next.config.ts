@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
       // legacy /education/* + /use-cases/education so equity + indexed URLs move over.
       { source: "/education/:path*", destination: "/edtech/:path*", permanent: true },
       { source: "/use-cases/education", destination: "/use-cases/edtech", permanent: true },
+      // Keyword consolidation: 6 near-synonym keyword slugs collapsed to 4 distinct
+      // intents to kill keyword cannibalisation. 301 the retired slugs to their
+      // canonical so any indexed URLs + link equity move over.
+      { source: "/:industry/:city/crm-software", destination: "/:industry/:city/sales-crm", permanent: true },
+      { source: "/:industry/:city/sales-software", destination: "/:industry/:city/sales-crm", permanent: true },
+      { source: "/:industry/:city/lead-tracking", destination: "/:industry/:city/lead-management", permanent: true },
+      { source: "/:industry/:city/lead-management-software", destination: "/:industry/:city/lead-management", permanent: true },
     ]
   },
 };

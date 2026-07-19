@@ -22,7 +22,7 @@ import { getCities, getIndustries, getKeywords, getRoles } from "./lookup"
 
 const CITY_TIER_MAX     = 2    // pre-render Tier-1 + Tier-2 cities (49): metros + major cities
 const TOP_CITIES_FOR_KW = 15   // keyword pages multiply 12 industries × N cities × keywords — keep tighter
-const TOP_KEYWORDS      = 5    // crm-software, lead-management, lead-scoring, lead-tracking, sales-crm
+const TOP_KEYWORDS      = 4    // all 4 consolidated keywords: lead-management, lead-scoring, sales-crm, sales-automation
 const TOP_ROLES         = 5    // sales-manager, sales-head, sdr, + next two
 
 export async function tier0Cities() {

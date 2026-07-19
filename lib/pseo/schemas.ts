@@ -12,9 +12,9 @@ export const INDUSTRY_SLUGS = [
 ] as const
 export type IndustrySlug = (typeof INDUSTRY_SLUGS)[number]
 
+// Consolidated to 4 distinct intents (was 8; 4 near-synonyms 301'd — see next.config).
 export const KEYWORD_SLUGS = [
-  "crm-software", "lead-management", "lead-scoring", "lead-tracking",
-  "sales-software", "sales-automation", "sales-crm", "lead-management-software",
+  "lead-management", "lead-scoring", "sales-crm", "sales-automation",
 ] as const
 export type KeywordSlug = (typeof KEYWORD_SLUGS)[number]
 

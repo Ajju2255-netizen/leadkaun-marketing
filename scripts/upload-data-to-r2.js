@@ -10,24 +10,14 @@
  */
 
 const { spawnSync, execSync } = require("node:child_process")
-const { readFileSync, statSync } = require("node:fs")
+const { readFileSync, statSync, readdirSync } = require("node:fs")
 const { createHash } = require("node:crypto")
 const { join } = require("node:path")
 
 const BUCKET = "leadkaun-pseo"
 const DATA_DIR = join(__dirname, "..", "data", "pseo")
-const KEYS = [
-  "cities.json",
-  "industries.json",
-  "keywords.json",
-  "roles.json",
-  "competitors.json",
-  "glossary.json",
-  "questions.json",
-  "how-to.json",
-  "integrations.json",
-  "resources.json",
-]
+// Directory-driven so new data files (e.g. best.json) auto-sync — no hardcoded list.
+const KEYS = readdirSync(DATA_DIR).filter((f) => f.endsWith(".json")).sort()
 
 const FORCE = process.argv.includes("--force")
 

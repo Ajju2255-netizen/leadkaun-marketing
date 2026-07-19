@@ -59,6 +59,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "About",          href: "/about" },
       { label: "Demo",           href: "/demo" },
       { label: "Contact",        href: "/contact" },
+      { label: "Security",       href: "/security" },
       { label: "Cities we serve", href: "/city" },
       { label: "Privacy",        href: "/privacy" },
       { label: "Terms",          href: "/terms" },

@@ -14,6 +14,7 @@ import { Reveal } from "@/app/components/reveal"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { Faq } from "@/app/components/faq"
 import { ProductShowcase, ModulesGrid, PricingCTA } from "@/app/components/sell/blocks"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -39,12 +40,19 @@ type Props = {
   faqs: FaqItem[]
   relatedCities?: RelatedCity[]
   relatedFeature?: { label: string; href: string }
+  /** AI/voice extractable answer. Falls back to a per-industry default. */
+  quickAnswer?: { question: string; answer: string }
 }
 
 export function UseCaseLayout({
   industryLabel, icon: Icon, h1, subhead, pains, helps, ticketBand, salesCycle, channels,
-  testimonial, insight, faqs, relatedCities = [], relatedFeature,
+  testimonial, insight, faqs, relatedCities = [], relatedFeature, quickAnswer,
 }: Props) {
+  const ind = industryLabel.toLowerCase()
+  const qa = quickAnswer ?? {
+    question: `How does Leadkaun help ${ind} sales teams in India?`,
+    answer: `Leadkaun is a Sales Behaviour OS for ${ind} teams — it grades every lead A–F across Fit, Intent, and Quality in under 500ms, builds a live Priority Queue so reps work the highest-value enquiries first, surfaces missed revenue in rupees, and treats WhatsApp as a first-class signal. Setup takes about 60 minutes, with flat INR pricing.`,
+  }
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(faqPageSchema(faqs)) }} />
@@ -64,6 +72,13 @@ export function UseCaseLayout({
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "Book a demo", href: "/demo" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer question={qa.question} answer={qa.answer} />
+          </Container>
+        </SectionGround>
 
         {/* CONTEXT — 3 stat tiles in glass */}
         <SectionGround variant="cream" size="sm">

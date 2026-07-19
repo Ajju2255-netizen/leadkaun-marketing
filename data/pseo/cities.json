@@ -21,7 +21,9 @@
       "manufacturing",
       "hospitality"
     ],
-    "notes": "Capital region — policy-adjacent + large-government buyer base"
+    "notes": "Capital region — policy-adjacent + large-government buyer base",
+    "districts": "Connaught Place, Nehru Place, Okhla, Bhikaji Cama Place",
+    "localBiz": "corporate HQs, IT and electronics markets, and Okhla manufacturing"
   },
   {
     "slug": "mumbai",
@@ -45,7 +47,9 @@
       "manufacturing",
       "hospitality"
     ],
-    "notes": "Financial capital — strongest BFSI + fintech concentration"
+    "notes": "Financial capital — strongest BFSI + fintech concentration",
+    "districts": "BKC, Lower Parel, Nariman Point, Andheri",
+    "localBiz": "financial services HQs, media, IT offices, and diamond trade"
   },
   {
     "slug": "kolkata",
@@ -68,7 +72,9 @@
       "healthcare",
       "logistics"
     ],
-    "notes": "Eastern India's commercial centre"
+    "notes": "Eastern India's commercial centre",
+    "districts": "Salt Lake Sector V, BBD Bagh, Park Street, New Town",
+    "localBiz": "the Sector V IT hub and BBD Bagh banking and trading houses"
   },
   {
     "slug": "bengaluru",
@@ -92,7 +98,9 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "India's Silicon Valley — densest B2B SaaS and EdTech market"
+    "notes": "India's Silicon Valley — densest B2B SaaS and EdTech market",
+    "districts": "Whitefield, Electronic City, Outer Ring Road, Manyata",
+    "localBiz": "IT parks and software exports across the Whitefield and ORR corridors"
   },
   {
     "slug": "chennai",
@@ -116,7 +124,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Manufacturing + auto hub; also strong IT services sector"
+    "notes": "Manufacturing + auto hub; also strong IT services sector",
+    "districts": "OMR IT Corridor, Guindy, Ambattur, Perungudi",
+    "localBiz": "OMR software exports and Ambattur auto-component and engineering units"
   },
   {
     "slug": "hyderabad",
@@ -138,7 +148,9 @@
       "fintech",
       "manufacturing"
     ],
-    "notes": "Fast-growing tech hub — HITEC City + pharma cluster"
+    "notes": "Fast-growing tech hub — HITEC City + pharma cluster",
+    "districts": "HITEC City, Gachibowli, Madhapur, Kondapur",
+    "localBiz": "the Cyberabad IT corridor with global tech and Fortune 500 offices"
   },
   {
     "slug": "ahmedabad",
@@ -159,7 +171,9 @@
       "edtech",
       "healthcare"
     ],
-    "notes": "Textiles + pharma + Vibrant Gujarat SME base"
+    "notes": "Textiles + pharma + Vibrant Gujarat SME base",
+    "districts": "SG Highway, CG Road, Prahlad Nagar, GIFT City",
+    "localBiz": "GIFT City finance, Sanand auto manufacturing, and textile trade"
   },
   {
     "slug": "pune",
@@ -183,7 +197,9 @@
       "agencies",
       "fintech"
     ],
-    "notes": "Industrial + education + IT"
+    "notes": "Industrial + education + IT",
+    "districts": "Hinjewadi, Kharadi, Magarpatta, MIDC Chakan",
+    "localBiz": "Rajiv Gandhi Infotech Park IT and MIDC auto-manufacturing belts"
   },
   {
     "slug": "gurugram",
@@ -206,7 +222,9 @@
       "real-estate",
       "edtech"
     ],
-    "notes": "Cyber City — large corporate HQ + startup concentration"
+    "notes": "Cyber City — large corporate HQ + startup concentration",
+    "districts": "DLF Cyber City, Udyog Vihar, Golf Course Road, Sohna Road",
+    "localBiz": "an IT/BPO corporate hub and manufacturing industrial estate"
   },
   {
     "slug": "noida",
@@ -227,7 +245,9 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "IT + BPO + strong EdTech concentration (Byju's, Unacademy, PW)"
+    "notes": "IT + BPO + strong EdTech concentration (Byju's, Unacademy, PW)",
+    "districts": "Sector 18, Sector 62, Sector 63, Sector 135",
+    "localBiz": "IT/ITES parks, electronics manufacturing, and export units"
   },
   {
     "slug": "surat",
@@ -247,7 +267,9 @@
       "bfsi",
       "healthcare"
     ],
-    "notes": "Diamond + textile SME cluster"
+    "notes": "Diamond + textile SME cluster",
+    "districts": "Ring Road textile market, Varachha diamond hub, Hazira, Udhana",
+    "localBiz": "the world's largest diamond-cutting hub and man-made textile trade"
   },
   {
     "slug": "lucknow",
@@ -267,7 +289,9 @@
       "retail",
       "bfsi"
     ],
-    "notes": "UP state capital — growing admissions + real estate market"
+    "notes": "UP state capital — growing admissions + real estate market",
+    "districts": "Hazratganj, Gomti Nagar, Aliganj, Amausi Industrial Area",
+    "localBiz": "the Hazratganj retail core and Gomti Nagar commercial and IT hub"
   },
   {
     "slug": "jaipur",
@@ -288,7 +312,9 @@
       "edtech",
       "bfsi"
     ],
-    "notes": "Tourism + education hub; Pink City"
+    "notes": "Tourism + education hub; Pink City",
+    "districts": "Sitapura Industrial Area, MI Road, Malviya Nagar, VKI Area",
+    "localBiz": "Sitapura gemstone processing, exports, and handicraft trade"
   },
   {
     "slug": "kanpur",
@@ -308,7 +334,9 @@
       "healthcare",
       "education"
     ],
-    "notes": "Leather + textile industrial base"
+    "notes": "Leather + textile industrial base",
+    "districts": "Jajmau, Panki Industrial Area, Dada Nagar, Kalpi Road",
+    "localBiz": "Jajmau leather tanneries and Panki heavy manufacturing units"
   },
   {
     "slug": "nagpur",
@@ -328,7 +356,9 @@
       "real-estate",
       "healthcare"
     ],
-    "notes": "Geographic centre of India; logistics hub"
+    "notes": "Geographic centre of India; logistics hub",
+    "districts": "Sitabuldi, MIHAN SEZ, Butibori, Itwari",
+    "localBiz": "MIHAN SEZ, Butibori industrial estate, and orange wholesale trade"
   },
   {
     "slug": "indore",
@@ -348,7 +378,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Cleanest Indian city; growing SME manufacturing"
+    "notes": "Cleanest Indian city; growing SME manufacturing",
+    "districts": "Vijay Nagar, AB Road, Pithampur, Sanwer Road",
+    "localBiz": "the Pithampur auto/pharma industrial hub and pulse/soybean trade"
   },
   {
     "slug": "coimbatore",
@@ -368,7 +400,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Manchester of South India — textile + SME manufacturing base"
+    "notes": "Manchester of South India — textile + SME manufacturing base",
+    "districts": "Peelamedu, Singanallur, Kurichi, Saravanampatti",
+    "localBiz": "pump and motor manufacturing, textiles, and engineering foundries"
   },
   {
     "slug": "kochi",
@@ -391,7 +425,9 @@
       "education",
       "logistics"
     ],
-    "notes": "IT + ports + strong diagnostics chains"
+    "notes": "IT + ports + strong diagnostics chains",
+    "districts": "InfoPark Kakkanad, MG Road, SmartCity, Cochin SEZ",
+    "localBiz": "the InfoPark/SmartCity IT hub, Cochin port, and spice export trade"
   },
   {
     "slug": "patna",
@@ -411,7 +447,9 @@
       "retail",
       "bfsi"
     ],
-    "notes": "State capital — rapidly growing education + healthcare market"
+    "notes": "State capital — rapidly growing education + healthcare market",
+    "districts": "Boring Road, Bailey Road, Patliputra Industrial Area, Fraser Road",
+    "localBiz": "the Patliputra industrial area, food/agro processing, and grain trade"
   },
   {
     "slug": "visakhapatnam",
@@ -433,7 +471,9 @@
       "education",
       "real-estate"
     ],
-    "notes": "Port city — strong logistics + steel cluster"
+    "notes": "Port city — strong logistics + steel cluster",
+    "districts": "Gajuwaka, Rushikonda, Duvvada, Pharma City",
+    "localBiz": "the port, VSEZ, and Rushikonda IT park plus pharma and steel industry"
   },
   {
     "slug": "kozhikode",
@@ -453,7 +493,9 @@
       "saas",
       "hospitality"
     ],
-    "notes": "Trade and commerce hub of north Kerala"
+    "notes": "Trade and commerce hub of north Kerala",
+    "districts": "SM Street, Kallai, Feroke, Nadakkavu",
+    "localBiz": "the Kallai timber trade and Feroke clay-tile factories"
   },
   {
     "slug": "bhopal",
@@ -473,7 +515,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "State capital + education + healthcare"
+    "notes": "State capital + education + healthcare",
+    "districts": "MP Nagar, Hoshangabad Road, Mandideep, Govindpura",
+    "localBiz": "the Mandideep industrial estate and MP Nagar commercial belt"
   },
   {
     "slug": "thane",
@@ -493,7 +537,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "Mumbai extended — dense real estate market"
+    "notes": "Mumbai extended — dense real estate market",
+    "districts": "Wagle Industrial Estate, Ghodbunder Road, Majiwada",
+    "localBiz": "the MIDC engineering-to-IT estate and a commercial business district"
   },
   {
     "slug": "vadodara",
@@ -515,7 +561,9 @@
       "healthcare",
       "education"
     ],
-    "notes": "Pharma + petrochem + SME manufacturing"
+    "notes": "Pharma + petrochem + SME manufacturing",
+    "districts": "Alkapuri, Makarpura GIDC, Gorwa, Padra Road",
+    "localBiz": "the Makarpura GIDC engineering estate plus chemicals, pharma, and petrochemicals"
   },
   {
     "slug": "ghaziabad",
@@ -535,7 +583,9 @@
       "healthcare",
       "education"
     ],
-    "notes": "NCR extension — residential + industrial"
+    "notes": "NCR extension — residential + industrial",
+    "districts": "Sahibabad Industrial Area, Site IV, Kavi Nagar Industrial Area, Meerut Road",
+    "localBiz": "the Sahibabad industrial estate, engineering goods, and auto-parts manufacturing"
   },
   {
     "slug": "ludhiana",
@@ -555,7 +605,9 @@
       "bfsi",
       "education"
     ],
-    "notes": "Manchester of India — hosiery + cycles + auto parts"
+    "notes": "Manchester of India — hosiery + cycles + auto parts",
+    "districts": "Industrial Area A & B, Focal Point, Gill Road",
+    "localBiz": "hosiery and woollen knitwear, bicycle parts, and an auto-component MSME cluster"
   },
   {
     "slug": "agra",
@@ -614,7 +666,9 @@
       "education",
       "healthcare"
     ],
-    "notes": "Wine capital + auto components"
+    "notes": "Wine capital + auto components",
+    "districts": "Satpur MIDC, Ambad MIDC, Sinnar MIDC",
+    "localBiz": "Satpur/Ambad MIDC engineering and auto-components plus the grape-wine industry"
   },
   {
     "slug": "vijayawada",
@@ -634,7 +688,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "AP capital region — real estate + education"
+    "notes": "AP capital region — real estate + education",
+    "districts": "Auto Nagar, Kondapalli Industrial Estate, One Town",
+    "localBiz": "the Auto Nagar automobile hub and wholesale trade and garment markets"
   },
   {
     "slug": "madurai",
@@ -654,7 +710,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Temple city — education + textile base"
+    "notes": "Temple city — education + textile base",
+    "districts": "Kappalur SIDCO Estate, K.Pudur, Urangaanpatti",
+    "localBiz": "textiles, auto-components, and agro/food-processing SIDCO estates"
   },
   {
     "slug": "meerut",
@@ -694,7 +752,9 @@
       "logistics",
       "healthcare"
     ],
-    "notes": "NCR industrial hub — manufacturing & auto components"
+    "notes": "NCR industrial hub — manufacturing & auto components",
+    "districts": "New Industrial Township, Ballabgarh, DLF Industrial Area, Sector 24-25",
+    "localBiz": "a large auto-component, engineering, and consumer-goods manufacturing belt"
   },
   {
     "slug": "vasai-virar",
@@ -733,7 +793,9 @@
       "bfsi",
       "education"
     ],
-    "notes": "SME manufacturing — engineering + auto"
+    "notes": "SME manufacturing — engineering + auto",
+    "districts": "Aji GIDC, Metoda GIDC, Shapar-Veraval, Bhaktinagar",
+    "localBiz": "engineering, auto-parts, bearings, and CNC machine-tool manufacturing clusters"
   },
   {
     "slug": "prayagraj",
@@ -795,7 +857,9 @@
       "education",
       "healthcare"
     ],
-    "notes": "Blue City — tourism + real estate"
+    "notes": "Blue City — tourism + real estate",
+    "districts": "Basni, Boranada, Mandore, Sangaria",
+    "localBiz": "handicraft and wooden-furniture exports and guar-gum processing"
   },
   {
     "slug": "raipur",
@@ -815,7 +879,9 @@
       "healthcare",
       "retail"
     ],
-    "notes": "State capital — steel + industry"
+    "notes": "State capital — steel + industry",
+    "districts": "Urla, Siltara, Bhanpuri, Pandri",
+    "localBiz": "one of India's largest steel and iron trading markets"
   },
   {
     "slug": "navi-mumbai",
@@ -835,7 +901,9 @@
       "manufacturing",
       "healthcare"
     ],
-    "notes": "Planned satellite city — IT parks + real estate"
+    "notes": "Planned satellite city — IT parks + real estate",
+    "districts": "CBD Belapur, Mahape, Turbhe, Vashi",
+    "localBiz": "the TTC MIDC pharma/IT belt and Millennium Business Park IT hub"
   },
   {
     "slug": "guwahati",
@@ -855,7 +923,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Gateway to Northeast — logistics + education"
+    "notes": "Gateway to Northeast — logistics + education",
+    "districts": "Fancy Bazar, Bamunimaidam, Kalapahar, Amingaon",
+    "localBiz": "the Guwahati Tea Auction Centre and Northeast India's main gateway trade"
   },
   {
     "slug": "mysuru",
@@ -877,7 +947,9 @@
       "real-estate",
       "manufacturing"
     ],
-    "notes": "Heritage + emerging IT + education"
+    "notes": "Heritage + emerging IT + education",
+    "districts": "Hebbal, Metagalli, Hootagalli, KRS Road",
+    "localBiz": "Hebbal Electronic City and Hootagalli IT and industrial estates"
   },
   {
     "slug": "tambaram",
@@ -916,7 +988,9 @@
       "bfsi",
       "retail"
     ],
-    "notes": "Tri-city with Mohali + Panchkula; planned city"
+    "notes": "Tri-city with Mohali + Panchkula; planned city",
+    "districts": "Sector 17, Industrial Area Phase 1, Industrial Area Phase 2, IT Park",
+    "localBiz": "the Sector 17 commercial core plus engineering units in the Industrial Area"
   },
   {
     "slug": "bareilly",
@@ -957,7 +1031,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Central TN industrial + education hub"
+    "notes": "Central TN industrial + education hub",
+    "districts": "Thiruverumbur, Golden Rock, Ariyamangalam",
+    "localBiz": "BHEL boiler manufacturing and a fabrication engineering hub"
   },
   {
     "slug": "thiruvananthapuram",
@@ -979,7 +1055,9 @@
       "real-estate",
       "bfsi"
     ],
-    "notes": "Tech Park — IT + healthcare"
+    "notes": "Tech Park — IT + healthcare",
+    "districts": "Technopark, MG Road, Chalai Bazaar, Kowdiar",
+    "localBiz": "Technopark, India's largest IT park by area"
   },
   {
     "slug": "bhubaneswar",
@@ -999,7 +1077,9 @@
       "real-estate",
       "manufacturing"
     ],
-    "notes": "Smart city — IT + education hub"
+    "notes": "Smart city — IT + education hub",
+    "districts": "Infocity Patia, Chandrasekharpur, Mancheswar, Jayadev Vihar",
+    "localBiz": "the Infocity IT hub and the Mancheswar industrial estate"
   },
   {
     "slug": "gandhinagar",
@@ -1039,7 +1119,9 @@
       "education",
       "real-estate"
     ],
-    "notes": "Tata Steel company town"
+    "notes": "Tata Steel company town",
+    "districts": "Adityapur Industrial Area, Bistupur, Sakchi, Jojobera",
+    "localBiz": "the Tata Steel and Tata Motors heavy-industry and ancillary vendor base"
   },
   {
     "slug": "hubli-dharwad",
@@ -1062,7 +1144,9 @@
       "real-estate",
       "retail"
     ],
-    "notes": "North Karnataka twin-city"
+    "notes": "North Karnataka twin-city",
+    "districts": "Gokul Road, Tarihal, Lakamanhalli, Amargol",
+    "localBiz": "a North Karnataka commercial hub with the Amargol APMC cotton and chilli market"
   },
   {
     "slug": "srinagar",
@@ -1122,7 +1206,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Jharkhand state capital"
+    "notes": "Jharkhand state capital",
+    "districts": "Lalpur, Upper Bazaar, Doranda, Namkum",
+    "localBiz": "the Namkum industrial area with engineering and mining-equipment industries"
   },
   {
     "slug": "howrah",
@@ -1161,7 +1247,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Defence manufacturing hub; ordnance factories"
+    "notes": "Defence manufacturing hub; ordnance factories",
+    "districts": "Wright Town, Napier Town, Sadar Bazaar, Adhartal",
+    "localBiz": "defence ordnance factories and wholesale grain trade"
   },
   {
     "slug": "gwalior",
@@ -1181,7 +1269,9 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Historic city with Gwalior Fort"
+    "notes": "Historic city with Gwalior Fort",
+    "districts": "Maharaj Bada, Morar, City Centre, Malanpur",
+    "localBiz": "the Malanpur industrial area and Maharaj Bada wholesale trade hub"
   },
   {
     "slug": "kota",
@@ -1220,7 +1310,9 @@
       "logistics",
       "healthcare"
     ],
-    "notes": "Famous for textile chaddars and terry towel manufacturing."
+    "notes": "Famous for textile chaddars and terry towel manufacturing.",
+    "districts": "Chincholi MIDC, Akkalkot Road, Hotgi Road",
+    "localBiz": "a powerloom textile hub for chaddars and terry towels, widely exported"
   },
   {
     "slug": "bhiwandi",
@@ -1334,7 +1426,9 @@
       "education",
       "real-estate"
     ],
-    "notes": "Steel + textile SME cluster"
+    "notes": "Steel + textile SME cluster",
+    "districts": "Suramangalam, SIDCO Industrial Estate, Jagirammapalayam",
+    "localBiz": "steel, textiles and handlooms, and sago-starch industries"
   },
   {
     "slug": "warangal",
@@ -1374,7 +1468,9 @@
       "healthcare",
       "retail"
     ],
-    "notes": "Education + hill station tourism"
+    "notes": "Education + hill station tourism",
+    "districts": "Sahastradhara Road, Selaqui, Rajpur Road, Patel Nagar",
+    "localBiz": "the IIE IT Park plus the Selaqui pharma and industrial estate"
   },
   {
     "slug": "bhavnagar",
@@ -1664,7 +1760,9 @@
       "real-estate",
       "manufacturing"
     ],
-    "notes": "Port + banking HQ origin region"
+    "notes": "Port + banking HQ origin region",
+    "districts": "Baikampady, Hampankatta, Kadri, Panambur",
+    "localBiz": "New Mangalore Port, the MRPL refinery, and banking-sector origins"
   },
   {
     "slug": "belagavi",
@@ -9227,7 +9325,9 @@
       "agencies",
       "retail",
       "logistics"
-    ]
+    ],
+    "districts": "Waluj MIDC, Shendra MIDC, Chikalthana MIDC",
+    "localBiz": "the Waluj and Shendra MIDC auto and pharma manufacturing belts"
   },
   {
     "slug": "chirkunda",

@@ -25,9 +25,15 @@ export const HUB_INDEX_MAX_TIER = 3
  *  with a verified distinctive economy (e.g. "Amul dairy hub") is real content. */
 export const HUB_MIN_POPULATION = 150_000
 
-/** A keyword-leaf / role page is indexable iff its city is Tier ≤ INDEX_MAX_TIER. */
-export function leafIndexable(tier: number): boolean {
-  return tier <= INDEX_MAX_TIER
+/**
+ * A keyword-leaf / role page is indexable iff its city is Tier ≤ INDEX_MAX_TIER,
+ * OR the city carries rich, verified local data (`hasRichData` = a `districts`
+ * string). Rich-data cities carry real, query-relevant local specifics (named
+ * business districts + local economy) that genuinely differentiate the leaf from
+ * its siblings — so those leaves earn indexing even below Tier 2.
+ */
+export function leafIndexable(tier: number, hasRichData = false): boolean {
+  return tier <= INDEX_MAX_TIER || hasRichData
 }
 
 /**

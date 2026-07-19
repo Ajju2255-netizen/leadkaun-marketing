@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     alternates: { canonical: `/for/${role}/${canonicalCity}` },
     // Quality-first: role pages for smaller cities are noindexed until they clear
     // the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
-    robots: { index: leafIndexable(cityRec.tier), follow: true },
+    robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },
   }
 }
 

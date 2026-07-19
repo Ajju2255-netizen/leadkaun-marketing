@@ -49,6 +49,9 @@ export const CitySchema = z.object({
   timezone: z.string().default("Asia/Kolkata"),
   industries: z.array(z.string()),
   notes: z.string().optional(),
+  // Real, verified local-market data (Layer-1 data moat) — differentiates pages.
+  districts: z.string().optional(), // named business/industrial areas, comma-separated
+  localBiz: z.string().optional(),  // what drives local B2B commerce
 })
 export type City = z.infer<typeof CitySchema>
 

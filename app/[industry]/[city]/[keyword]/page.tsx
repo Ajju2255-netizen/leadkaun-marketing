@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     alternates: { canonical: `/${industry}/${canonicalCity}/${keyword}` },
     // Quality-first: keyword leaves are noindexed for smaller cities until they
     // clear the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
-    robots: { index: leafIndexable(cityRec.tier), follow: true },
+    robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },
   }
 }
 
@@ -149,6 +149,11 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
               {cityRec.notes && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
                   <span className="text-ink font-semibold">{cityRec.name}</span> is a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? `, home to roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}. {cityRec.notes.replace(/\.$/, "")}. Leadkaun scores every lead here on fit, intent and quality, so reps work the highest-probability enquiries first.
+                </p>
+              )}
+              {cityRec.districts && (
+                <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                  Commercial activity clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null} — the areas a {cityRec.name} {ind.name.toLowerCase()} pipeline most often draws from. Leadkaun grades and queues those enquiries so the highest-intent ones surface first, wherever they land.
                 </p>
               )}
             </FloatingCard></Reveal>

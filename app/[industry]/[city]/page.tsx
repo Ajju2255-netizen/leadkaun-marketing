@@ -191,6 +191,11 @@ export default async function IndustryCityPage({ params }: Params) {
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
                 <span className="font-semibold text-ink">{cityRec.name}</span> is a Tier-{cityRec.tier} city in {cityRec.state} with an urban population of ~{(cityRec.population / 1000000).toFixed(1)}M. {cityRec.notes ? `${cityRec.notes}. ` : ""}{ind.name.toLowerCase()} teams here typically source leads from {ind.channels.slice(0, 3).join(", ")} — all of which flow into Leadkaun via CSV upload or manual entry in minutes (a Google Sheets connector is on the roadmap).
               </p>
+              {cityRec.districts && (
+                <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                  Commercial activity in {cityRec.name} clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null} — the areas a {ind.name.toLowerCase()} pipeline here most often draws from.
+                </p>
+              )}
             </FloatingCard></Reveal>
           </Container>
         </SectionGround>

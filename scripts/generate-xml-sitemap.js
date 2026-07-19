@@ -139,7 +139,10 @@ const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6"
 const INDEX_MAX_TIER = 2
 const HUB_INDEX_MAX_TIER = 3
 const HUB_MIN_POPULATION = 150000
-const indexableCities = citiesData.filter((c) => c.tier <= INDEX_MAX_TIER)
+// Leaf (keyword/role) gate: Tier ≤ 2, OR the city carries rich verified local
+// data (a `districts` string) that differentiates the leaf. Mirrors lib/pseo/indexable.ts.
+const leafIndexableCity = (c) => c.tier <= INDEX_MAX_TIER || !!c.districts
+const indexableCities = citiesData.filter(leafIndexableCity)
 const hubIndexable = (c) =>
   c.tier <= INDEX_MAX_TIER ||
   (c.tier <= HUB_INDEX_MAX_TIER && !!c.notes) ||
@@ -164,11 +167,11 @@ function bucketByFirstLetter(cityObj) {
 const pseoDeepByBucket = { 1: [], 2: [], 3: [] }
 for (const city of citiesData) {
   const bucket = bucketByFirstLetter(city)
-  const cityIndexable = city.tier <= INDEX_MAX_TIER
+  const cityIndexable = leafIndexableCity(city)
   const cityHubIndexable = hubIndexable(city)
   for (const ind of industriesData) {
-    // Industry×city hubs index for Tier ≤ 2, or Tier 3 with real local data;
-    // keyword leaves only for Tier ≤ 2 until the quality gate promotes them.
+    // Industry×city hubs index for Tier ≤ 2, or Tier 3+ with real local data;
+    // keyword leaves for Tier ≤ 2, or cities with rich verified district data.
     if (cityHubIndexable) {
       pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}`, priority: "0.6", changefreq: "monthly" })
     }

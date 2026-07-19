@@ -57,7 +57,9 @@ Leadkaun is not a direct replacement for enterprise CRMs; it is a Sales Behaviou
 
 Also compared: **Pipedrive** (global pipeline CRM, per-user USD), **Zoho Bigin** (lightweight, no real scoring engine), **Kylas** (India-first, flat unlimited-user pricing), **TeleCRM** (telecalling/WhatsApp-first, no intent grading), **Bitrix24** (all-in-one suite, complex, USD-priced).
 
-Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesforce|freshsales|pipedrive|zoho-bigin|kylas|telecrm|bitrix24}`.
+Also compared: **monday CRM** (no-code Work OS CRM, USD per-seat), **Close** (inside-sales CRM with native calling), **Sell.Do** (real-estate-specific India CRM). Note: **Apollo.io** (prospecting database) and **Clay** (data enrichment) are different categories — complementary to Leadkaun, not alternatives (Apollo/Clay source & enrich leads; Leadkaun grades & prioritises the leads you already have).
+
+Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesforce|freshsales|pipedrive|zoho-bigin|kylas|telecrm|bitrix24|monday|close|selldo|apollo|clay}`.
 
 ## Integrations
 

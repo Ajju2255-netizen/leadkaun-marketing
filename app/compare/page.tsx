@@ -29,6 +29,11 @@ const COMPARES = [
   { slug: "leadkaun-vs-kylas",       name: "Kylas",       tagline: "Flat, unlimited users. Pricey for small teams." },
   { slug: "leadkaun-vs-telecrm",     name: "TeleCRM",     tagline: "Telecalling-first. Great dialer, no intent grading." },
   { slug: "leadkaun-vs-bitrix24",    name: "Bitrix24",    tagline: "All-in-one suite. Broad, complex, USD-priced." },
+  { slug: "leadkaun-vs-monday",      name: "monday CRM",  tagline: "No-code Work OS CRM. USD per-seat, build-your-own scoring." },
+  { slug: "leadkaun-vs-close",       name: "Close",       tagline: "Inside-sales CRM with native calling. USD + usage." },
+  { slug: "leadkaun-vs-selldo",      name: "Sell.Do",     tagline: "Real-estate-specific CRM. Horizontal vs vertical." },
+  { slug: "leadkaun-vs-apollo",      name: "Apollo.io",   tagline: "Prospecting DB — different tool, used together." },
+  { slug: "leadkaun-vs-clay",        name: "Clay",        tagline: "Data enrichment, not a CRM — complementary." },
 ]
 
 export default function CompareHub() {

@@ -33,6 +33,11 @@ export type CompareProps = {
   }
   switching: { title: string; body: string }[]
   faqs: FaqItem[]
+  // Optional label overrides — for complementary tools (e.g. Apollo, Clay) that
+  // aren't replacements, so the "switching" section can read "work together".
+  switchingLabel?: string
+  switchingHeading?: string
+  faqHeading?: string
 }
 
 function MintCheck() {
@@ -238,9 +243,9 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="04" label="Switching guide" />
+              <NumberedTag number="04" label={p.switchingLabel ?? "Switching guide"} />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-                How teams switch cleanly.
+                {p.switchingHeading ?? "How teams switch cleanly."}
               </h2>
             </Reveal>
 
@@ -270,7 +275,7 @@ export function ComparePageLayout(p: CompareProps) {
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
               <div className="flex justify-center"><NumberedTag number="05" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
-                Switching from {short}.
+                {p.faqHeading ?? `Switching from ${short}.`}
               </h2>
             </Reveal>
             <Reveal delay={0.08}><Faq items={p.faqs} /></Reveal>

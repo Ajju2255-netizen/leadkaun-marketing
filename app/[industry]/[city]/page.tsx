@@ -17,6 +17,7 @@ import { Reveal } from "@/app/components/reveal"
 import { SellSpine } from "@/app/components/sell/blocks"
 
 import { hubIndexable } from "@/lib/pseo/indexable"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
 import { relatedForIndustryCity } from "@/lib/pseo/related"
@@ -91,6 +92,16 @@ export default async function IndustryCityPage({ params }: Params) {
             </>
           }
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question={`How does Leadkaun help ${ind.name.toLowerCase()} teams in ${cityRec.name} manage leads?`}
+              answer={`Leadkaun grades every ${ind.name.toLowerCase()} lead in ${cityRec.name} A–F across fit, intent, and quality in under 500ms, then builds each rep a live Priority Queue so the highest-intent enquiries get worked first. WhatsApp is a first-class 3-tap signal, and missed revenue surfaces in rupees. Setup takes about 60 minutes, at flat INR pricing.`}
+            />
+          </Container>
+        </SectionGround>
 
         {/* CONTEXT BAR */}
         <SectionGround variant="cream" size="md">

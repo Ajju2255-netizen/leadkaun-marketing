@@ -10,6 +10,7 @@ import "./globals.css"
 import { rootSchemas, jsonLdScript } from "@/lib/seo"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import ScrollToTop from "@/app/components/scroll-to-top"
+import { StickyCTA } from "@/app/components/sticky-cta"
 
 const geistSans = GeistSans
 const geistMono = GeistMono
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <TooltipProvider delayDuration={120}>
           {children}
         </TooltipProvider>
+        <StickyCTA />
       </body>
     </html>
   )

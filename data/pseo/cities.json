@@ -5059,7 +5059,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Known for boxing; textile mills"
+    "notes": "Known for boxing; textile mills",
+    "districts": "HSIIDC Industrial Area, Bhiwani Textile Mills, Hansi Gate market",
+    "localBiz": "textile mills led by Grasim Bhiwani Textile Mills anchoring local commerce"
   },
   {
     "slug": "bhind",
@@ -5096,7 +5098,9 @@
       "hospitality",
       "retail"
     ],
-    "notes": "Port; Gandhi birthplace"
+    "notes": "Port; Gandhi birthplace",
+    "districts": "Porbandar GIDC, Birlasagar-Chhaya, fishing harbour",
+    "localBiz": "soda ash and cement plants plus a fishing harbour and seafood processing"
   },
   {
     "slug": "berhampore",
@@ -5134,7 +5138,9 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "District HQ of Murshidabad; silk trade history"
+    "notes": "District HQ of Murshidabad; silk trade history",
+    "districts": "Khagra, Cossimbazar, Gorabazar",
+    "localBiz": "Murshidabad silk weaving plus Khagra bell-metal and brass utensil manufacturing"
   },
   {
     "slug": "fatehpur",
@@ -5209,7 +5215,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Dairy and oil-gas town"
+    "notes": "Dairy and oil-gas town",
+    "districts": "Mehsana-Dediyasan GIDC, Dudhsagar Dairy, ONGC oil fields",
+    "localBiz": "Asia's largest dairy (Dudhsagar), ONGC onshore oilfields and GIDC engineering units"
   },
   {
     "slug": "orai",
@@ -5246,7 +5254,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "District HQ in Palamuru region"
+    "notes": "District HQ in Palamuru region",
+    "districts": "Jadcherla Pharma SEZ, Mahbubnagar market yard, black granite belt",
+    "localBiz": "agri trade, black granite quarrying and the Jadcherla pharma SEZ"
   },
   {
     "slug": "bhuj",
@@ -5283,7 +5293,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "Major railway junction"
+    "notes": "Major railway junction",
+    "districts": "Deepnagar, Bhusawal railway yard, banana and grain market",
+    "localBiz": "a Central Railway junction, Deepnagar thermal power and banana trade"
   },
   {
     "slug": "bahraich",
@@ -5321,7 +5333,9 @@
       "education",
       "bfsi"
     ],
-    "notes": "Uttar Dinajpur district HQ"
+    "notes": "Uttar Dinajpur district HQ",
+    "districts": "Mohanbati market, Sudarshanpur industrial estate, rice mill belt",
+    "localBiz": "aromatic Tulaipanji rice, rice milling and jute trade"
   },
   {
     "slug": "sirsa",
@@ -5340,7 +5354,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Cotton and agriculture trade hub"
+    "notes": "Cotton and agriculture trade hub",
+    "districts": "New Grain Market, cotton mandi, Sirsa APMC yard",
+    "localBiz": "cotton and grain mandi trade plus kinnow horticulture"
   },
   {
     "slug": "guna",
@@ -5377,7 +5393,9 @@
       "retail",
       "education"
     ],
-    "notes": "Historic Sharqi dynasty monuments and imarti sweets"
+    "notes": "Historic Sharqi dynasty monuments and imarti sweets",
+    "districts": "Olandganj Line Bazar, perfume market, carpet weaving lanes",
+    "localBiz": "jasmine attar perfume, hand-knotted carpets and imarti sweet trade"
   },
   {
     "slug": "madanapalle",
@@ -5397,7 +5415,9 @@
       "healthcare",
       "logistics"
     ],
-    "notes": "Tomato-market hub of Rayalaseema"
+    "notes": "Tomato-market hub of Rayalaseema",
+    "districts": "Tomato Market Yard (Neerugattupalle), Kadiri Road, Angallu industrial area",
+    "localBiz": "Asia's biggest tomato market plus silk saree weaving"
   },
   {
     "slug": "deesa",
@@ -5415,7 +5435,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Major potato growing and trading centre."
+    "notes": "Major potato growing and trading centre.",
+    "districts": "GIDC Chandisar, Tharad Highway cold storages, Radhanpur Highway belt",
+    "localBiz": "India's potato belt with roughly 200 potato cold storages"
   },
   {
     "slug": "shivpuri",
@@ -5510,7 +5532,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Mango processing and dairy"
+    "notes": "Mango processing and dairy",
+    "districts": "Greamspet, Autonagar, APIIC Industrial Park",
+    "localBiz": "a mango pulp processing cluster and dairy product trade"
   },
   {
     "slug": "gadag-betageri",
@@ -5530,7 +5554,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Textile and handloom twin-town"
+    "notes": "Textile and handloom twin-town",
+    "districts": "Betageri weaving quarter, Gadag market, KIADB industrial area",
+    "localBiz": "cotton trading and handloom weaving of Ilkal and Gadag sarees"
   },
   {
     "slug": "alappuzha",
@@ -5549,7 +5575,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Backwaters tourism and coir industry"
+    "notes": "Backwaters tourism and coir industry",
+    "districts": "Mullackal, Cherthala, coir factory belt",
+    "localBiz": "a coir manufacturing hub plus rice, copra and spice wholesale trade"
   },
   {
     "slug": "cuddalore",
@@ -5568,7 +5596,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Port and chemical industry hub"
+    "notes": "Port and chemical industry hub",
+    "districts": "SIPCOT Cuddalore, Semmankuppam, Old Town port",
+    "localBiz": "the SIPCOT chemical and pharma estate plus minor port trade"
   },
   {
     "slug": "silchar",
@@ -5624,7 +5654,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Footwear and ceramics hub on Delhi border"
+    "notes": "Footwear and ceramics hub on Delhi border",
+    "districts": "Footwear Park Sector 17, HSIIDC Sector 4B, Sankhol",
+    "localBiz": "a footwear and ceramics manufacturing hub (Relaxo, Somany) near Delhi"
   },
   {
     "slug": "valsad",
@@ -5680,7 +5712,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Historic port, Kalamkari textiles, coastal"
+    "notes": "Historic port, Kalamkari textiles, coastal",
+    "districts": "Chilakalapudi, port area, Kalamkari quarter",
+    "localBiz": "imitation jewellery at Chilakalapudi plus Kalamkari textiles and a port"
   },
   {
     "slug": "shimla",
@@ -5699,7 +5733,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "State capital, hill station"
+    "notes": "State capital, hill station",
+    "districts": "Mall Road, The Ridge, Lower Bazaar",
+    "localBiz": "tourism-driven trade and apple horticulture marketing"
   },
   {
     "slug": "medinipur",
@@ -5756,7 +5792,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Chemicals and port town"
+    "notes": "Chemicals and port town",
+    "districts": "Ankleshwar GIDC, Panoli GIDC, Dahej industrial estate",
+    "localBiz": "one of India's largest chemical and pharma industrial clusters"
   },
   {
     "slug": "baramulla",
@@ -5774,7 +5812,9 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "North Kashmir district HQ"
+    "notes": "North Kashmir district HQ",
+    "districts": "Sopore fruit mandi, Baramulla old town market, Khanpora",
+    "localBiz": "Kashmir apple trade centred on Asia's second-largest Sopore fruit mandi"
   },
   {
     "slug": "jind",
@@ -5793,7 +5833,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "District HQ; grain market town"
+    "notes": "District HQ; grain market town",
+    "districts": "Jind Grain Market, Narwana HSIIDC estate, cotton belt",
+    "localBiz": "grain mandis, rice shellers and cotton ginning driving commerce"
   },
   {
     "slug": "faizabad",
@@ -5849,7 +5891,9 @@
       "manufacturing",
       "education"
     ],
-    "notes": "Former French colony on the Hooghly"
+    "notes": "Former French colony on the Hooghly",
+    "districts": "Barabazar, Gondalpara, Bagbazar",
+    "localBiz": "a decorative illumination lighting craft hub plus Hooghly jute mills"
   },
   {
     "slug": "adoni",
@@ -5868,7 +5912,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Cotton ginning and trading center"
+    "notes": "Cotton ginning and trading center",
+    "districts": "Adoni Cotton Market Yard, Market Yard Road, spinning mill belt",
+    "localBiz": "a major cotton market with ginning, pressing and spinning mills"
   },
   {
     "slug": "udupi",
@@ -5887,7 +5933,9 @@
       "healthcare",
       "retail"
     ],
-    "notes": "Temple town, banking origin, coastal"
+    "notes": "Temple town, banking origin, coastal",
+    "districts": "Malpe, Manipal, Udupi city market",
+    "localBiz": "the Malpe fishing harbour, the Manipal education hub and hotel trade"
   },
   {
     "slug": "tonk",
@@ -5924,7 +5972,9 @@
       "agencies",
       "retail"
     ],
-    "notes": "Asafoetida (hing) processing center"
+    "notes": "Asafoetida (hing) processing center",
+    "districts": "Naya Ganj, Sasni Gate, hing manufacturing units",
+    "localBiz": "a GI-tagged hing (asafoetida) processing hub and Holi gulal colours"
   },
   {
     "slug": "tenali",
@@ -5943,7 +5993,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Rice and commerce town near Guntur"
+    "notes": "Rice and commerce town near Guntur",
+    "districts": "Morrispet, Chenchupet, Ramalingeswarapet",
+    "localBiz": "rice milling and tobacco trade in the Guntur delta"
   },
   {
     "slug": "kanchipuram",
@@ -5962,7 +6014,9 @@
       "hospitality",
       "agencies"
     ],
-    "notes": "Silk saree weaving and temple town"
+    "notes": "Silk saree weaving and temple town",
+    "districts": "Nellukara Street, Pillaiyarpalayam, Gandhi Road",
+    "localBiz": "GI-tagged Kanchipuram silk saree weaving via cooperative societies"
   },
   {
     "slug": "vapi",
@@ -5981,7 +6035,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Large chemical industrial belt"
+    "notes": "Large chemical industrial belt",
+    "districts": "GIDC Vapi, Chala, Gunjan",
+    "localBiz": "one of India's largest chemical and pharma industrial estates"
   },
   {
     "slug": "rajnandgaon",
@@ -6019,7 +6075,9 @@
       "manufacturing",
       "agencies"
     ],
-    "notes": "Gold trading and cotton hub"
+    "notes": "Gold trading and cotton hub",
+    "districts": "Gandhi Road gold market, Main Bazar, cotton market yard",
+    "localBiz": "a gold jewellery trading hub plus cotton ginning and rice mills"
   },
   {
     "slug": "godhra",
@@ -6109,7 +6167,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Gateway to J&K and HP"
+    "notes": "Gateway to J&K and HP",
+    "districts": "Cantonment, Dhangu Road market, industrial area",
+    "localBiz": "a trade gateway to J&K and HP, with timber and stone crushing"
   },
   {
     "slug": "moga",
@@ -6128,7 +6188,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "District HQ, dairy and food"
+    "notes": "District HQ, dairy and food",
+    "districts": "Nestle factory area, Moga Grain Market, GT Road",
+    "localBiz": "a Nestle dairy and food processing plant plus a grain mandi"
   },
   {
     "slug": "anantnag",
@@ -6147,7 +6209,9 @@
       "hospitality",
       "education"
     ],
-    "notes": "South Kashmir district HQ"
+    "notes": "South Kashmir district HQ",
+    "districts": "Jablipora fruit terminal, Lal Chowk Anantnag, K.P. Road",
+    "localBiz": "Kashmir apple orchards, fruit mandi trade and handicrafts"
   },
   {
     "slug": "robertsonpet",
@@ -6166,7 +6230,9 @@
       "education",
       "logistics"
     ],
-    "notes": "KGF gold fields township"
+    "notes": "KGF gold fields township",
+    "districts": "Robertsonpet, Andersonpet, Marikuppam",
+    "localBiz": "a legacy Kolar Gold Fields town with BEML earth-mover works"
   },
   {
     "slug": "saharsa",
@@ -6223,7 +6289,9 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Pilgrimage city; Kurukshetra University"
+    "notes": "Pilgrimage city; Kurukshetra University",
+    "districts": "Pipli New Grain Market, Thanesar, Sector 2 industrial area",
+    "localBiz": "a grain mandi, rice shellers and religious tourism trade"
   },
   {
     "slug": "kishangarh",
@@ -6242,7 +6310,9 @@
       "logistics",
       "agencies"
     ],
-    "notes": "Marble trading and processing center"
+    "notes": "Marble trading and processing center",
+    "districts": "RIICO Industrial Area Madanganj, Silora, Marble Mandi",
+    "localBiz": "Asia's largest marble mandi with processing and gangsaw units"
   },
   {
     "slug": "rudrapur",
@@ -6261,7 +6331,9 @@
       "retail",
       "bfsi"
     ],
-    "notes": "SIDCUL industrial estate"
+    "notes": "SIDCUL industrial estate",
+    "districts": "SIDCUL IIE Pantnagar, Rudrapur industrial area",
+    "localBiz": "a SIDCUL automobile and FMCG manufacturing hub of Uttarakhand"
   },
   {
     "slug": "nalgonda",
@@ -6299,7 +6371,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Industrial area and hardware park"
+    "notes": "Industrial area and hardware park",
+    "districts": "KIADB Industrial Growth Centre, Hassan SEZ, Sakleshpur coffee estates",
+    "localBiz": "a KIADB industrial growth centre plus Malnad coffee trade"
   },
   {
     "slug": "dibrugarh",
@@ -6318,7 +6392,9 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "Tea and oil city, medical college"
+    "notes": "Tea and oil city, medical college",
+    "districts": "Thana Chariali, New Market, Lepetkata",
+    "localBiz": "a tea trade hub with Assam oilfields and petrochemicals"
   },
   {
     "slug": "veraval",
@@ -6337,7 +6413,9 @@
       "retail",
       "hospitality"
     ],
-    "notes": "Fishing port near Somnath"
+    "notes": "Fishing port near Somnath",
+    "districts": "GIDC Veraval, fishing harbour, Somnath road",
+    "localBiz": "India's largest fishing harbour with seafood processing and export"
   },
   {
     "slug": "jorhat",
@@ -6356,7 +6434,9 @@
       "retail",
       "hospitality"
     ],
-    "notes": "Tea capital, district HQ"
+    "notes": "Tea capital, district HQ",
+    "districts": "Gar-Ali, A.T. Road, Tarajan",
+    "localBiz": "the tea capital of Assam with Tocklai research and auctions"
   },
   {
     "slug": "hazaribagh",
@@ -6413,7 +6493,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Rice milling cluster in Nalgonda"
+    "notes": "Rice milling cluster in Nalgonda",
+    "districts": "TSIIC industrial area, rice mill belt, agricultural market yard",
+    "localBiz": "the Rice Bowl of Telangana with 170-plus rice mills"
   },
   {
     "slug": "lakhimpur",
@@ -6451,7 +6533,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Silk and auto manufacturing near Bengaluru"
+    "notes": "Silk and auto manufacturing near Bengaluru",
+    "districts": "Gollapuram industrial area, silk handloom quarter, Hindupur market",
+    "localBiz": "silk and cotton handloom weaving near Bengaluru"
   },
   {
     "slug": "beawar",
@@ -6470,7 +6554,9 @@
       "logistics",
       "agencies"
     ],
-    "notes": "Cement and mineral processing town"
+    "notes": "Cement and mineral processing town",
+    "districts": "RIICO Industrial Area, mineral grinding belt, wool market",
+    "localBiz": "cement, mineral grinding and Rajasthan's second-largest wool trade"
   },
   {
     "slug": "balurghat",
@@ -6526,7 +6612,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Steel and power industry town"
+    "notes": "Steel and power industry town",
+    "districts": "Jindal Steel complex, Kotra industrial area, Gharghoda coal belt",
+    "localBiz": "an integrated steel and captive power hub led by Jindal Steel"
   },
   {
     "slug": "barabanki",
@@ -6564,7 +6652,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Home to Visvesvaraya Iron and Steel plant"
+    "notes": "Home to Visvesvaraya Iron and Steel plant",
+    "districts": "New Town, Paper Town, VISL steel plant",
+    "localBiz": "the Visvesvaraya iron and steel plant and Mysore Paper Mills town"
   },
   {
     "slug": "narasaraopet",
@@ -6602,7 +6692,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Major saree printing and textile dyeing centre."
+    "notes": "Major saree printing and textile dyeing centre.",
+    "districts": "Dhoraji Road, Dhareshwar GIDC, Ganga Udyog Nagar",
+    "localBiz": "a cotton saree screen-printing and dyeing cluster exporting African fabrics"
   },
   {
     "slug": "hajipur",
@@ -6621,7 +6713,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Banana trade, rail hub"
+    "notes": "Banana trade, rail hub",
+    "districts": "BIADA Industrial Area, Industrial Area Hajipur, banana belt",
+    "localBiz": "a BIADA food and FMCG estate (PepsiCo, Britannia) plus banana trade"
   },
   {
     "slug": "sasaram",
@@ -6640,7 +6734,9 @@
       "manufacturing",
       "logistics"
     ],
-    "notes": "Stone chips industry"
+    "notes": "Stone chips industry",
+    "districts": "Dalmianagar, Banjari, Sasaram trade market",
+    "localBiz": "stone crushing from the Kaimur hills, cement and grain trade"
   },
   {
     "slug": "srikakulam",
@@ -6659,7 +6755,9 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "Northern coastal district HQ"
+    "notes": "Northern coastal district HQ",
+    "districts": "Pydibhimavaram pharma cluster, jute mills, Palasa cashew belt",
+    "localBiz": "a pharma bulk-drug cluster plus jute mills and cashew processing"
   },
   {
     "slug": "nagaon",
@@ -6678,7 +6776,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "Central Assam district HQ"
+    "notes": "Central Assam district HQ",
+    "districts": "Haibargaon, Itachali, A.T. Road",
+    "localBiz": "a rice and pulses trade centre with handloom weaving"
   },
   {
     "slug": "habra",

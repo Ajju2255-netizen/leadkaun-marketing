@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "indian-b2b-sales-lead-benchmarks-2026",
+    "metaTitle": "Indian B2B Sales & Lead Management Benchmarks (2026) — Data Report",
+    "metaDescription": "A sourced 2026 benchmark report on B2B lead response time, follow-up, WhatsApp in India, and how reps spend their time — every figure cited to its original research.",
+    "h1": "Indian B2B Sales & Lead Management Benchmarks (2026)",
+    "dek": "Sales teams lose more revenue to slow, inconsistent follow-up than to any pricing or product gap — but the claim is only worth as much as the evidence behind it. This report compiles the most credible public research on lead response, follow-up, WhatsApp adoption in India, and how reps actually spend their week. Every figure links to its original source. Where a widely-circulated stat couldn't be traced to rigorous research, we've flagged or omitted it.",
+    "updated": "2026-07",
+    "quickAnswer": {
+      "question": "How fast should you respond to a sales lead, and why does it matter?",
+      "answer": "Research is consistent: speed dominates. A Harvard Business Review audit found firms that contacted a web lead within an hour were about 7× more likely to qualify it than those who waited an hour longer, and 60× more likely than those who waited 24 hours. Yet the average company took ~42 hours to respond — so most leads go cold before anyone calls."
+    },
+    "keyFindings": [
+      "Speed-to-lead is the single most evidence-backed lever in sales: contacting a lead within an hour makes it ~7× more likely to qualify (HBR), yet the average firm takes ~42 hours to respond.",
+      "Most demand is never worked — research suggests only about 27% of inbound web leads are ever contacted by a rep.",
+      "WhatsApp is now the default business channel in India: 500M+ users, and 91% of online adults message a business at least weekly.",
+      "Reps spend only ~28% of their week actually selling — the rest goes to admin, data entry, and figuring out who to call next.",
+      "India's formal SMB base has crossed 5.7 crore registered MSMEs — a vast, digitising B2B market."
+    ],
+    "sections": [
+      {
+        "heading": "Speed-to-lead: the response-time window",
+        "intro": "Two landmark studies anchor everything here — and they're often conflated. Keep them distinct: HBR (2011) measured response within the hour; the MIT/InsideSales Lead Response Management study (2007) measured the difference between 5 and 30 minutes.",
+        "stats": [
+          { "claim": "Firms that contacted a web lead within an hour were ~7× more likely to qualify it than those who waited an hour longer — and 60× more likely than those who waited 24+ hours.", "figure": "7× / 60×", "source": "Harvard Business Review — \"The Short Life of Online Sales Leads\" (audit of 2,241 U.S. companies)", "url": "https://hbr.org/2011/03/the-short-life-of-online-sales-leads", "year": "2011" },
+          { "claim": "The average company took about 42 hours to respond to a web lead, and 23% never responded at all.", "figure": "~42 hrs", "source": "Harvard Business Review — \"The Short Life of Online Sales Leads\"", "url": "https://hbr.org/2011/03/the-short-life-of-online-sales-leads", "year": "2011" },
+          { "claim": "Responding in 5 minutes vs 30 minutes increased the odds of contacting a lead ~100× and the odds of qualifying it ~21×.", "figure": "100× / 21×", "source": "MIT (Dr. James Oldroyd) & InsideSales.com — Lead Response Management Study (15,000+ leads)", "url": "https://www.leadresponsemanagement.org/lrm_study/", "year": "2007" },
+          { "claim": "Only 7% of companies responded to a web lead within 5 minutes; 55% took five or more business days, or never replied.", "figure": "7%", "source": "Drift — Lead Response Report (mystery-shopped 433 B2B companies)", "url": "https://www.drift.com/blog/lead-response-survey/", "year": "2017" }
+        ]
+      },
+      {
+        "heading": "Follow-up: persistence and the leads nobody works",
+        "intro": "Speed gets the first call; persistence closes. But most reps stop early, and most inbound demand is never touched.",
+        "stats": [
+          { "claim": "Only about 27% of inbound web leads are ever contacted by a sales rep — meaning roughly 73% of marketing-generated demand is never worked.", "figure": "~27%", "source": "InsideSales.com research, reported by Ken Krogue in Forbes", "url": "https://www.forbes.com/sites/kenkrogue/2012/07/12/the-black-hole-that-executives-dont-know-about/", "year": "2012" },
+          { "claim": "The average sales rep makes only ~1.4 call attempts before giving up on a lead.", "figure": "1.4 attempts", "source": "InsideSales.com secret-shopper study (14,000+ companies), via Forbes", "url": "https://www.forbes.com/sites/kenkrogue/2012/11/11/latest-inside-sales-research-shows-its-all-about-the-leads/", "year": "2012" },
+          { "claim": "Widely cited industry research suggests roughly four in five sales require five or more follow-ups, while nearly half of reps give up after one attempt. (Frequently attributed to Invesp; treat as directional, not a rigorous primary study.)", "figure": "~80% / 5+", "source": "Invesp, compiled in HubSpot Sales Statistics", "url": "https://blog.hubspot.com/sales/sales-statistics", "year": "2024" }
+        ]
+      },
+      {
+        "heading": "WhatsApp: the default business channel in India",
+        "intro": "Any benchmark that ignores WhatsApp misreads how Indian B2B actually communicates. These figures are Meta-attributed (some via named research partners).",
+        "stats": [
+          { "claim": "WhatsApp has more than 500 million users in India — its single largest market worldwide.", "figure": "500M+", "source": "Meta (company figure), reported by TechCrunch", "url": "https://techcrunch.com/2025/12/14/whatsapps-biggest-market-is-becoming-its-toughest-test/", "year": "2025" },
+          { "claim": "91% of online adults in India message a business at least once a week.", "figure": "91%", "source": "Kantar study, cited by Meta (India newsroom)", "url": "https://about.fb.com/news/2026/05/introducing-business-ai-on-whatsapp-for-small-businesses-in-india/", "year": "2025" },
+          { "claim": "Around 80% of small-business owners in markets like India and Brazil say WhatsApp helps them communicate with customers and grow. (India + Brazil combined.)", "figure": "~80%", "source": "Meta / WhatsApp small-business messaging data", "url": "https://about.fb.com/news/2026/05/introducing-business-ai-on-whatsapp-for-small-businesses-in-india/", "year": "2024" }
+        ]
+      },
+      {
+        "heading": "How reps actually spend their week",
+        "intro": "The follow-up gap isn't laziness — it's that selling is a minority of the working week, and the tools meant to help often add admin.",
+        "stats": [
+          { "claim": "Sales reps spend just 28% of their week actually selling — the rest goes to admin, deal management, and data entry.", "figure": "28%", "source": "Salesforce — State of Sales report, 5th edition (7,700+ sales professionals)", "url": "https://www.salesforce.com/news/stories/sales-research-2023/", "year": "2023" },
+          { "claim": "Industry estimates suggest roughly a third of CRM/customer data is inaccurate, incomplete, or outdated at any given time.", "figure": "~⅓", "source": "Aggregated CRM data-quality research (directional)", "url": "https://www.salesmate.io/blog/crm-statistics/", "year": "2024" }
+        ]
+      },
+      {
+        "heading": "The Indian B2B market, in context",
+        "intro": "The demand side keeps formalising and digitising — the backdrop for why lead-management discipline is becoming a competitive edge.",
+        "stats": [
+          { "claim": "About 5.70 crore (57 million) MSMEs were registered on India's Udyam portal as of December 2024, employing roughly 24.14 crore people — a base that has since grown past 7.8 crore.", "figure": "5.70 crore", "source": "Ministry of MSME / IBEF (India Brand Equity Foundation)", "url": "https://www.ibef.org/industry/msme", "year": "2024" }
+        ]
+      }
+    ],
+    "methodology": "This report compiles publicly available research; each figure links to its original or most authoritative source with a publication year. Studies differ in geography (several speed-to-lead studies are US-based) and definition (e.g. what counts as an \"MQL\"), so treat them as directional benchmarks, not universal constants. Where a commonly-circulated statistic could not be traced to rigorous primary research, we omitted it or labelled it as widely-cited/directional. Two speed-to-lead studies are frequently conflated online — the 7×/60× figures are Harvard Business Review (2011); the 100×/21× figures are the MIT/InsideSales Lead Response Management study (2007) — and we keep them distinct.",
+    "leadkaunAngle": "The pattern across this data is simple: the teams that win reach the right lead first, and keep reaching them. That's precisely what Leadkaun is built to operationalise for Indian B2B — grade every lead A–F the moment it arrives, auto-rank each rep's Priority Queue so the highest-intent lead is always on top, treat WhatsApp as a first-class signal, and surface the revenue slipping away in rupees. The benchmarks above are the 'why'; the product is one way to act on them."
+  }
+]

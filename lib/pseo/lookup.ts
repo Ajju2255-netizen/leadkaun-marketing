@@ -100,6 +100,12 @@ export const getIntegrations = loadAnyJson("integrations.json")
 export const getResources    = loadAnyJson("resources.json")
 export const getBest         = loadAnyJson("best.json")
 export const getAlternatives = loadAnyJson("alternatives.json")
+export const getResearch     = loadAnyJson("research.json")
+
+export async function getResearchReport<T = unknown>(slug: string): Promise<T | null> {
+  const list = (await getResearch()) as Array<{ slug: string }>
+  return (list.find((r) => r.slug === slug) as T) ?? null
+}
 
 export async function getBestGuide<T = unknown>(slug: string): Promise<T | null> {
   const list = (await getBest()) as Array<{ slug: string }>

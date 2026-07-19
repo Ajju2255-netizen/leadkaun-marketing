@@ -361,6 +361,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://leadkaun.com/research</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leadkaun.com/research/indian-b2b-sales-lead-benchmarks-2026</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://leadkaun.com/security</loc>
     <lastmod>2026-07-19</lastmod>
     <changefreq>yearly</changefreq>

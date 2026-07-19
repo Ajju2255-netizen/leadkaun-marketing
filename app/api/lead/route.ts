@@ -15,6 +15,25 @@ type Lead = {
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
 /**
+ * Read Worker env. On Cloudflare Workers, secrets/vars live on the Cloudflare
+ * context env (like the R2 binding in lib/pseo/lookup.ts) and are NOT reliably
+ * mirrored to process.env — so merge both, preferring the Worker context.
+ */
+async function readEnv(): Promise<Record<string, string | undefined>> {
+  const base = { ...(process.env as Record<string, string | undefined>) }
+  if (typeof navigator !== "undefined" && navigator.userAgent === "Cloudflare-Workers") {
+    try {
+      const { getCloudflareContext } = await import("@opennextjs/cloudflare")
+      const ctx = await getCloudflareContext({ async: true })
+      if (ctx?.env) Object.assign(base, ctx.env as Record<string, string | undefined>)
+    } catch {
+      /* fall back to process.env */
+    }
+  }
+  return base
+}
+
+/**
  * POST /api/lead — marketing lead capture (contact / demo forms).
  *
  * Provider-flexible so it works the moment ONE of these is set in the Worker env:
@@ -48,8 +67,10 @@ export async function POST(req: Request) {
     receivedAt: new Date().toISOString(),
   }
 
+  const env = await readEnv()
+
   // 1) Webhook (preferred).
-  const webhook = process.env.LEAD_WEBHOOK_URL
+  const webhook = env.LEAD_WEBHOOK_URL
   if (webhook) {
     try {
       const r = await fetch(webhook, {
@@ -65,15 +86,15 @@ export async function POST(req: Request) {
   }
 
   // 2) Resend email (fallback).
-  const key = process.env.RESEND_API_KEY
-  const to = process.env.LEAD_NOTIFY_EMAIL
+  const key = env.RESEND_API_KEY
+  const to = env.LEAD_NOTIFY_EMAIL
   if (key && to) {
     try {
       const r = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          from: process.env.LEAD_FROM_EMAIL ?? "leads@leadkaun.com",
+          from: env.LEAD_FROM_EMAIL ?? "leads@leadkaun.com",
           to: [to],
           reply_to: payload.email,
           subject: `New lead (${payload.source}) — ${payload.name ?? payload.email}`,

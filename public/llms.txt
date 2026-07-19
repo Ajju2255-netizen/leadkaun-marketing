@@ -39,6 +39,7 @@ Grade matrix: A (65/60/60), B (55/40/50), C (40/25/35), D (20/10/20), F (quality
 - https://leadkaun.com/use-cases — industry applications
 - https://leadkaun.com/compare — competitor comparisons
 - https://leadkaun.com/best — honest "best software" rankings (lead management, WhatsApp CRM, lead scoring, real estate CRM — India)
+- https://leadkaun.com/alternatives — honest alternatives to Zoho, HubSpot, Salesforce, Pipedrive, LeadSquared, Kylas, TeleCRM, Bitrix24 and more
 - https://leadkaun.com/blog — sales behaviour insights
 - https://leadkaun.com/glossary — sales terminology
 - https://leadkaun.com/questions — common questions answered

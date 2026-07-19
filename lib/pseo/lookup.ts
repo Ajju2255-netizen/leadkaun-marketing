@@ -99,10 +99,16 @@ export const getHowTo        = loadAnyJson("how-to.json")
 export const getIntegrations = loadAnyJson("integrations.json")
 export const getResources    = loadAnyJson("resources.json")
 export const getBest         = loadAnyJson("best.json")
+export const getAlternatives = loadAnyJson("alternatives.json")
 
 export async function getBestGuide<T = unknown>(slug: string): Promise<T | null> {
   const list = (await getBest()) as Array<{ slug: string }>
   return (list.find((b) => b.slug === slug) as T) ?? null
+}
+
+export async function getAlternative<T = unknown>(slug: string): Promise<T | null> {
+  const list = (await getAlternatives()) as Array<{ slug: string }>
+  return (list.find((a) => a.slug === slug) as T) ?? null
 }
 
 // ─────────────────────────────────────────────────────────────────────────

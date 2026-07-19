@@ -109,6 +109,8 @@ const core = [
   { path: "/best/crm-for-real-estate-india", priority: "0.8", changefreq: "monthly" },
   { path: "/best/sales-crm-for-small-business-india", priority: "0.8", changefreq: "monthly" },
   { path: "/best/telecalling-crm-india", priority: "0.7", changefreq: "monthly" },
+  { path: "/alternatives", priority: "0.8", changefreq: "monthly" },
+  ...["zoho-crm", "leadsquared", "hubspot", "salesforce", "freshsales", "pipedrive", "zoho-bigin", "kylas", "telecrm", "bitrix24"].map((s) => ({ path: `/alternatives/${s}`, priority: "0.7", changefreq: "monthly" })),
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/terms", priority: "0.3", changefreq: "yearly" },
 ]

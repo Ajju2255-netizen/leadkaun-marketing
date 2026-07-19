@@ -11,8 +11,8 @@ import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
-import { GlossButton } from "@/app/components/gloss-button"
 import { Reveal } from "@/app/components/reveal"
+import { DemoForm } from "@/app/components/demo-form"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
@@ -34,14 +34,6 @@ const GUARANTEES = [
   "Bring the team — managers and reps both welcome",
   "Take away a free lead-scoring template after the call",
 ]
-
-const inputCls =
-  "h-11 w-full rounded-xl glass-1 gloss-edge px-4 text-[14px] text-ink placeholder:text-ink-faint " +
-  "transition-all focus:outline-none focus:[background:rgba(255,255,255,0.85)] focus:border-sky-400 " +
-  "border border-white/70"
-
-const labelCls =
-  "mb-1.5 block font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted"
 
 export default function DemoPage() {
   return (
@@ -79,59 +71,7 @@ export default function DemoPage() {
                 </h2>
               </Reveal>
 
-              <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mt-8 p-6 md:p-8" as="form">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className={labelCls}>Your name</label>
-                    <input type="text" name="name" placeholder="Rajan Mehta" className={inputCls} />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Company</label>
-                    <input type="text" name="company" placeholder="Growfast Realty" className={inputCls} />
-                  </div>
-                </div>
-
-                <div className="mt-5">
-                  <label className={labelCls}>Work email</label>
-                  <input type="email" name="email" placeholder="rajan@growfast.in" className={inputCls} />
-                </div>
-
-                <div className="mt-5">
-                  <label className={labelCls}>Phone / WhatsApp</label>
-                  <input type="tel" name="phone" placeholder="+91 98765 43210" className={inputCls} />
-                </div>
-
-                <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className={labelCls}>Team size</label>
-                    <select name="team_size" defaultValue="" className={inputCls + " text-ink-soft"}>
-                      <option value="" disabled>Select…</option>
-                      <option value="1-3">1–3 reps</option>
-                      <option value="4-10">4–10 reps</option>
-                      <option value="11-25">11–25 reps</option>
-                      <option value="26+">26+ reps</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className={labelCls}>Preferred time (IST)</label>
-                    <select name="preferred_time" defaultValue="" className={inputCls + " text-ink-soft"}>
-                      <option value="" disabled>Select…</option>
-                      <option value="morning">Morning (9 AM – 12 PM)</option>
-                      <option value="afternoon">Afternoon (12 – 4 PM)</option>
-                      <option value="evening">Evening (4 – 7 PM)</option>
-                    </select>
-                  </div>
-                </div>
-
-                <GlossButton variant="primary" size="md" type="submit" className="mt-6 w-full">
-                  Book my demo
-                  <span className="font-mono opacity-80">→</span>
-                </GlossButton>
-
-                <p className="mt-4 text-center text-[12px] text-ink-muted">
-                  We confirm on WhatsApp or email within 2 hours.
-                </p>
-              </FloatingCard></Reveal>
+              <Reveal delay={0.08}><DemoForm /></Reveal>
             </div>
 
             {/* WHAT TO EXPECT */}

@@ -56,10 +56,10 @@ Goal: stop the trust/EEAT bleed. Highest leverage, lowest risk.
 - ✅ — `/privacy` · `/terms`
 
 ### 1C. CRO (conversion) — *weakest area*
-- 🔒 M — Real `/demo` form + Cal.com/Calendly booking (today: links to register) **CRITICAL**
+- ✅ M — **`/demo` form LIVE** — real demo-request form (DemoForm) wired to /api/lead → emails sales@leadkaun.com. Was a dead-end static form. (Optional later: swap for Cal.com/Calendly booking.)
 - ✅ S — **Lead capture ACTIVE** — `/api/lead` now emails sales@leadkaun.com via Resend. Fixed two bugs: route now reads Worker secrets via `getCloudflareContext().env` (not `process.env`), and `LEAD_FROM_EMAIL` set to the verified sender `noreply@send.leadkaun.com` (root leadkaun.com isn't verified in Resend). Verified live with a test lead.
 - ⬜ M — Live chat + WhatsApp click-to-chat widget
-- 🟡 S — ✅ **Site-wide email capture LIVE** — reusable EmailCapture component (posts to the live /api/lead) in the footer (every page) + on /research reports. Honest framing, no fake newsletter automation. ⬜ Still: sticky CTA + exit-intent.
+- ✅ S — **Site-wide email capture + sticky CTA LIVE** — EmailCapture (footer every page + /research), and StickyCTA (scroll-triggered, dismissible, root layout, every page). Both honest. ⬜ Optional: exit-intent variant.
 - 🟡 M — Lead magnets: research report has an email capture; ⬜ add a downloadable gated PDF; `/resources` PDFs still to come.
 - ✅ S — Missed-revenue calculator (1st interactive tool)
 
@@ -114,7 +114,7 @@ Goal: scale the *right* axis — depth of entities, gated by quality.
 - ⬜ M — Keywords 8 → 25–30 (lead-management, follow-up-automation, sales-pipeline, whatsapp-crm, telecalling-crm, field-sales, inside-sales, lead-distribution, sales-analytics, lead-nurturing…)
 - ⬜ M — Industries 11 → 18 (insurance, automotive, travel, staffing, D2C, coaching, interior/construction)
 - ⬜ M — Roles 10 → 25 · add Company-size, Pain-point, Sales-stage, Intent as entities
-- 🟡 L — Fill empty city records with VERIFIED notes — ✅ 55 done (web-researched, real economic identities); ~150 remain (17 flagged "unsure — no distinctive identity", correctly left noindex). Gate is now significance-based (pop ≥150k + real note), so each newly-verified city promotes to indexable.
+- ✅ L — Fill empty city records with VERIFIED notes — 55 done (web-researched, real economic identities). **Hit honest diminishing returns**: only ~25 no-note cities would still promote to indexable, and 17 of those are the ones research flagged as having NO distinctive economic identity. Adding thin notes to game the gate would violate quality-first, so stopped. (Real remaining lever: lower `HUB_MIN_POPULATION` only if paired with genuinely richer per-city data — a data-sourcing project, not a quick win.)
 
 ### 3B. New programmatic combinations (each a distinct high-intent SERP)
 - ⬜ M — `feature × industry` (/lead-scoring/real-estate) · `feature × city`

@@ -116,13 +116,18 @@ const questions = questionsData.map((q) => ({ path: `/questions/${q.slug}`, prio
 const glossary = glossaryData.map((g) => ({ path: `/glossary/${g.slug}`, priority: "0.5", changefreq: "weekly" }))
 const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6", changefreq: "weekly" }))
 
-// Indexation gate — mirrors lib/pseo/indexable.ts. Only Tier ≤ 2 city leaves are
-// indexable today, so the sitemap must not advertise the noindexed long-tail.
+// Indexation gate — mirrors lib/pseo/indexable.ts. Leaves (keyword/role) index
+// only for Tier ≤ 2 cities; hubs (city + industry×city) index for Tier ≤ 2, or
+// Tier 3 with real local data. The sitemap must never advertise a noindexed URL.
 const INDEX_MAX_TIER = 2
+const HUB_INDEX_MAX_TIER = 3
 const indexableCities = citiesData.filter((c) => c.tier <= INDEX_MAX_TIER)
+const hubIndexable = (c) =>
+  c.tier <= INDEX_MAX_TIER || (c.tier <= HUB_INDEX_MAX_TIER && !!c.notes)
+const hubCities = citiesData.filter(hubIndexable)
 
 const pseoCity = [
-  ...citiesData.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
+  ...hubCities.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
   ...rolesData.flatMap((r) =>
     indexableCities.map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
   ),
@@ -140,10 +145,13 @@ const pseoDeepByBucket = { 1: [], 2: [], 3: [] }
 for (const city of citiesData) {
   const bucket = bucketByFirstLetter(city)
   const cityIndexable = city.tier <= INDEX_MAX_TIER
+  const cityHubIndexable = hubIndexable(city)
   for (const ind of industriesData) {
-    // Industry×city hubs stay indexable (local-context module); keyword leaves
-    // are only indexable for Tier ≤ 2 cities until the quality gate promotes them.
-    pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}`, priority: "0.6", changefreq: "monthly" })
+    // Industry×city hubs index for Tier ≤ 2, or Tier 3 with real local data;
+    // keyword leaves only for Tier ≤ 2 until the quality gate promotes them.
+    if (cityHubIndexable) {
+      pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}`, priority: "0.6", changefreq: "monthly" })
+    }
     if (cityIndexable) {
       for (const kw of keywordsData) {
         pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}/${kw.slug}`, priority: "0.5", changefreq: "monthly" })

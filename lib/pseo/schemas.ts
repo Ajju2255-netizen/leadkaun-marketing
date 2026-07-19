@@ -76,11 +76,14 @@ export const IndustrySchema = z.object({
   ticketBand: z.string(),
   salesCycle: z.string(),
   channels: z.array(z.string()),
+  // Illustrative scenario shown on industry×city pages. NOT a real customer
+  // testimonial — no fabricated names/results. name/role/city kept optional for
+  // the day real, consented case studies replace these.
   proofQuote: z.object({
     text: z.string(),
-    name: z.string(),
-    role: z.string(),
-    city: z.string(),
+    name: z.string().optional(),
+    role: z.string().optional(),
+    city: z.string().optional(),
   }).optional(),
   proofStat: z.string().optional(),
   faqs: z.array(FaqSchema).min(3).max(6),

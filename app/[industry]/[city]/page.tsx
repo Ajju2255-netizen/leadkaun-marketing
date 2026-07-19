@@ -16,6 +16,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { SellSpine } from "@/app/components/sell/blocks"
 
+import { hubIndexable } from "@/lib/pseo/indexable"
 import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
 import { relatedForIndustryCity } from "@/lib/pseo/related"
@@ -42,6 +43,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${ind.name} CRM & Lead Management in ${cityRec.name} — Leadkaun`,
     description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup in 60 minutes.`,
     alternates: { canonical: `/${industry}/${canonicalCity}` },
+    // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
+    robots: { index: hubIndexable(cityRec.tier, !!cityRec.notes), follow: true },
   }
 }
 

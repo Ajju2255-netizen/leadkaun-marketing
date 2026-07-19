@@ -13,6 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -78,6 +79,16 @@ export default function LeadScoringPage() {
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Priority Queue", href: "/features/priority-queue" }}
         />
+
+        {/* AI QUICK ANSWER (GEO / voice) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question="What is lead scoring and how does Leadkaun's engine work?"
+              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in under 500ms across three independent scores — Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
+            />
+          </Container>
+        </SectionGround>
 
         {/* THREE SCORES */}
         <SectionGround variant="cream" size="lg">

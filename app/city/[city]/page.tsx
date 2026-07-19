@@ -14,6 +14,7 @@ import { IndustryTile } from "@/app/components/industry-tile"
 import { Reveal } from "@/app/components/reveal"
 import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
 
+import { hubIndexable } from "@/lib/pseo/indexable"
 import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
 import { relatedForCity } from "@/lib/pseo/related"
@@ -52,6 +53,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `Sales CRM & Lead Management in ${cityRec.name} | Leadkaun`,
     description: `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup in 60 min.`,
     alternates: { canonical: `/city/${canonicalCity}` },
+    // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
+    robots: { index: hubIndexable(cityRec.tier, !!cityRec.notes), follow: true },
   }
 }
 

@@ -59,8 +59,8 @@ Goal: stop the trust/EEAT bleed. Highest leverage, lowest risk.
 - 🔒 M — Real `/demo` form + Cal.com/Calendly booking (today: links to register) **CRITICAL**
 - ✅ S — **Lead capture ACTIVE** — `/api/lead` now emails sales@leadkaun.com via Resend. Fixed two bugs: route now reads Worker secrets via `getCloudflareContext().env` (not `process.env`), and `LEAD_FROM_EMAIL` set to the verified sender `noreply@send.leadkaun.com` (root leadkaun.com isn't verified in Resend). Verified live with a test lead.
 - ⬜ M — Live chat + WhatsApp click-to-chat widget
-- ⬜ S — Newsletter capture + sticky CTA + exit-intent + comparison-page CTA
-- 🔒 M — Lead magnets: make `/resources` downloadable (PDFs) → email gate
+- 🟡 S — ✅ **Site-wide email capture LIVE** — reusable EmailCapture component (posts to the live /api/lead) in the footer (every page) + on /research reports. Honest framing, no fake newsletter automation. ⬜ Still: sticky CTA + exit-intent.
+- 🟡 M — Lead magnets: research report has an email capture; ⬜ add a downloadable gated PDF; `/resources` PDFs still to come.
 - ✅ S — Missed-revenue calculator (1st interactive tool)
 
 ### 1D. Analytics / instrumentation 🔒 (needs founder GA4/GSC access)

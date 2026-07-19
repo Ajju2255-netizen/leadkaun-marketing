@@ -3281,7 +3281,9 @@
       "agencies",
       "education"
     ],
-    "notes": "Wool carpets and aqua processing"
+    "notes": "Wool carpets and aqua processing",
+    "districts": "Thangellamudi carpet cluster, R.R. Pet commercial area, Powerpet, Sanivarapupeta",
+    "localBiz": "a woollen pile carpet weaving cluster amid delta rice and aquaculture trade"
   },
   {
     "slug": "tiruvottiyur",
@@ -3299,7 +3301,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "North Chennai industrial suburb"
+    "notes": "North Chennai industrial suburb",
+    "districts": "North Chennai auto belt, Royal Enfield plant area, Manali industrial estate, Tiruvottiyur High Road",
+    "localBiz": "part of North Chennai's auto belt with Royal Enfield and MRF manufacturing plants"
   },
   {
     "slug": "pallavaram",
@@ -4064,7 +4068,9 @@
       "retail",
       "bfsi"
     ],
-    "notes": "Railway junction, gold and textile trade"
+    "notes": "Railway junction, gold and textile trade",
+    "districts": "Ratlam Industrial Area, Do Batti jewellery bazaar, Namkeen cluster, Namli belt",
+    "localBiz": "gold jewellery trade and the GI-tagged Ratlami sev namkeen manufacturing cluster"
   },
   {
     "slug": "durg",
@@ -4083,7 +4089,9 @@
       "retail",
       "education"
     ],
-    "notes": "Twin city of Bhilai, steel belt"
+    "notes": "Twin city of Bhilai, steel belt",
+    "districts": "Bhilai Steel Plant area, Borai Industrial Area, Durg anaj mandi",
+    "localBiz": "the SAIL Bhilai Steel Plant and the Borai industrial area anchoring the Durg-Bhilai belt"
   },
   {
     "slug": "imphal",
@@ -4102,7 +4110,9 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "Manipur state capital"
+    "notes": "Manipur state capital",
+    "districts": "Ima Keithel women's market, Paona Bazaar, Thangal Bazaar",
+    "localBiz": "Ima Keithel, Asia's largest all-women market, anchoring handloom and produce trade"
   },
   {
     "slug": "arrah",
@@ -4157,7 +4167,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Cattle breed and tobacco trading"
+    "notes": "Cattle breed and tobacco trading",
+    "districts": "Chimakurthy black-granite belt, Ongole tobacco market yard, Kothapatnam shrimp cluster",
+    "localBiz": "Black Galaxy granite from Chimakurthy plus tobacco trading and shrimp processing"
   },
   {
     "slug": "bharatpur",
@@ -4176,7 +4188,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Tourism gateway, Keoladeo bird sanctuary"
+    "notes": "Tourism gateway, Keoladeo bird sanctuary",
+    "districts": "RIICO Industrial Area Brij Nagar, mustard oil mill belt, Bharatpur grain mandi",
+    "localBiz": "a RIICO industrial area with a large mustard oil milling cluster"
   },
   {
     "slug": "begusarai",
@@ -4195,7 +4209,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Refinery and fertiliser"
+    "notes": "Refinery and fertiliser",
+    "districts": "Barauni Refinery (IOCL), Barauni Industrial Area (BIADA), HURL fertiliser complex",
+    "localBiz": "the IOCL Barauni refinery, HURL fertiliser plant and NTPC thermal power anchoring industry"
   },
   {
     "slug": "ambarnath",
@@ -4213,7 +4229,9 @@
       "retail",
       "real-estate"
     ],
-    "notes": "Mumbai satellite — MIDC industry & ancient Shiva temple"
+    "notes": "Mumbai satellite — MIDC industry & ancient Shiva temple",
+    "districts": "Anand Nagar MIDC, Additional Ambernath MIDC, Morivali MIDC",
+    "localBiz": "the Anand Nagar and Additional MIDC estates forming a major chemical manufacturing cluster"
   },
   {
     "slug": "gandhidham",

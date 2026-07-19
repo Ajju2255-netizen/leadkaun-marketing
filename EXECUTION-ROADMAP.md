@@ -247,10 +247,11 @@ Goal: Google/AI sees an **industry authority**, not software.
 
 **Sprint 1 (this week) — finish trust + AI-answer rollout (all doable without founder data):**
 1. ✅ Parent-hub gating · ✅ remove fake testimonials · ✅ QuickAnswer primitive
-2. ⬜ Roll QuickAnswer + KeyTakeaways across all 6 features, 11 industries, 10 compares
-3. ⬜ Build `/best/lead-management-software-india` + 4 `/best/{category}` (own head terms — zero today)
+2. 🟡 Roll QuickAnswer + KeyTakeaways across all 6 features, 11 industries, 10 compares *(done: lead-scoring + all 4 /best guides; remaining: 5 features, industries, compares)*
+3. ✅ **`/best/*` head-term layer** — hub + 4 honest ranked guides live (lead-management-software-india, whatsapp-crm-india, lead-scoring-software, crm-for-real-estate-india), ItemList+FAQ schema, wired to footer/sitemap/llms.txt. *(Fixed cf:upload-data to be directory-driven so best.json auto-syncs to R2.)*
 4. ⬜ `/alternatives/{x}` layer for the 10 competitors + 5 new compares (Monday, Apollo, Clay, Close, Sell.Do)
 5. ⬜ Company-page shells (`/security`, `/status`, `/customers`, `/careers`) — structure now, real content as it arrives
+6. ⬜ Expand `/best/*` to 8–10 categories (crm-for-edtech-india, sales-crm-small-business, telecalling-crm, field-sales-app, best-crm-startups-india)
 
 **Sprint 2 — authority wiring:**
 6. ⬜ Pillar infra + wire the 8 pillars whose content already exists

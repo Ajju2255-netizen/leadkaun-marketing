@@ -249,7 +249,7 @@ Goal: Google/AI sees an **industry authority**, not software.
 1. ✅ Parent-hub gating · ✅ remove fake testimonials · ✅ QuickAnswer primitive
 2. ✅ **QuickAnswer (Speakable) on all 20 money pages** — 6 features + 10 compares (via ComparePageLayout) + 6 /best guides. *(Remaining: industry hubs + industry×city template — Sprint 2.)*
 3. ✅ **`/best/*` head-term layer** — hub + **6** honest ranked guides live (lead-management-software-india, whatsapp-crm-india, lead-scoring-software, crm-for-real-estate-india, sales-crm-for-small-business-india, telecalling-crm-india), ItemList+FAQ+QuickAnswer schema, wired to footer/sitemap/llms.txt. *(Fixed cf:upload-data to be directory-driven so best.json auto-syncs to R2.)*
-4. 🟡 `/alternatives/{x}` layer — ✅ **all 10 competitor alternative pages + hub live** (honest, distinct-intent from /compare, QuickAnswer+ItemList+FAQ schema, cross-linked to compares). ⬜ Remaining: 5 new *compare* pages (Monday, Apollo, Clay, Close, Sell.Do)
+4. ✅ `/alternatives/{x}` layer — all 10 competitor alternative pages + hub live (honest, distinct-intent from /compare, QuickAnswer+ItemList+FAQ schema, cross-linked to compares). ✅ **+5 new /compare pages live** (monday, close, Sell.Do as rivals; Apollo + Clay framed honestly as complementary "Better together"). **Compare layer now 15 pages.** Corrected a Sell.Do ownership error (not Anarock).
 5. ⬜ Company-page shells (`/security`, `/status`, `/customers`, `/careers`) — structure now, real content as it arrives
 6. 🟡 Expand `/best/*` to 8–10 categories — 6 done; remaining: crm-for-edtech-india, field-sales-app, best-crm-startups-india, sales-automation-software
 

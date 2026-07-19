@@ -37,6 +37,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "vs Salesforce",    href: "/compare/leadkaun-vs-salesforce" },
       { label: "vs Freshsales",    href: "/compare/leadkaun-vs-freshsales" },
       { label: "All alternatives", href: "/compare" },
+      { label: "Best software",    href: "/best" },
     ],
   },
   {

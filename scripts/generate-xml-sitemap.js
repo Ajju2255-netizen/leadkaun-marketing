@@ -102,6 +102,11 @@ const core = [
   { path: "/questions", priority: "0.6", changefreq: "weekly" },
   { path: "/how-to", priority: "0.6", changefreq: "weekly" },
   { path: "/tools/missed-revenue-calculator", priority: "0.7", changefreq: "monthly" },
+  { path: "/best", priority: "0.8", changefreq: "monthly" },
+  { path: "/best/lead-management-software-india", priority: "0.8", changefreq: "monthly" },
+  { path: "/best/whatsapp-crm-india", priority: "0.8", changefreq: "monthly" },
+  { path: "/best/lead-scoring-software", priority: "0.7", changefreq: "monthly" },
+  { path: "/best/crm-for-real-estate-india", priority: "0.8", changefreq: "monthly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/terms", priority: "0.3", changefreq: "yearly" },
 ]

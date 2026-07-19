@@ -98,6 +98,12 @@ export const getQuestions    = loadAnyJson("questions.json")
 export const getHowTo        = loadAnyJson("how-to.json")
 export const getIntegrations = loadAnyJson("integrations.json")
 export const getResources    = loadAnyJson("resources.json")
+export const getBest         = loadAnyJson("best.json")
+
+export async function getBestGuide<T = unknown>(slug: string): Promise<T | null> {
+  const list = (await getBest()) as Array<{ slug: string }>
+  return (list.find((b) => b.slug === slug) as T) ?? null
+}
 
 // ─────────────────────────────────────────────────────────────────────────
 // Slug-based getters — async, mirror the previous sync API surface.

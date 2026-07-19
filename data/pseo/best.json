@@ -1,0 +1,133 @@
+[
+  {
+    "slug": "lead-management-software-india",
+    "metaTitle": "9 Best Lead Management Software in India (2026) — Honest Comparison",
+    "metaDescription": "An honest, criteria-based ranking of the best lead management software for Indian B2B teams in 2026 — pricing, WhatsApp, lead scoring, and who each one is really for.",
+    "h1": "Best Lead Management Software in India (2026)",
+    "intro": "There is no single \"best\" lead management tool — the right one depends on your team size, your sales motion, and whether you sell the way Indian B2B teams actually sell (WhatsApp-first, rupee-denominated, response-time-driven). Below is an honest, criteria-based ranking. We build Leadkaun, so we've put it first and told you exactly where each alternative is the better call.",
+    "quickAnswer": {
+      "question": "What is the best lead management software in India?",
+      "answer": "For Indian B2B SMBs that want leads graded and prioritised automatically, Leadkaun is the strongest fit — it grades every lead A–F in real time, builds a Priority Queue per rep, and treats WhatsApp as a first-class signal, at flat INR pricing. Zoho CRM suits teams wanting deep customisation, LeadSquared suits high-volume lead-gen, and Zoho Bigin suits micro-teams."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Lead scoring quality — real-time and behaviour-based, or just points?",
+      "WhatsApp handling — first-class signal, native, or bolt-on?",
+      "Pricing model — flat per account vs per user, INR vs USD",
+      "Rep adoption — how likely a busy Indian sales rep actually uses it daily",
+      "Setup time and India-specific fit (phone normalisation, lakh/crore, response-time focus)"
+    ],
+    "picks": [
+      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Sales Behaviour OS — grades, ranks, and surfaces missed ₹.", "bestFor": "Indian B2B SMBs (3–50 reps) that want leads prioritised for them, not just stored.", "pricingNote": "Flat per account — Free / ₹2,999 / ₹7,999 / ₹19,999 per month.", "whyPick": "Grades every lead A–F across Fit × Intent × Quality in under 500ms with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily. WhatsApp is a first-class 3-tap signal. Flat INR pricing means cost doesn't grow with headcount.", "watchOut": "No built-in dialer, and a Google Sheets connector is still on the roadmap. Best when your bottleneck is prioritisation, not raw calling volume.", "url": "/product" },
+      { "rank": 2, "name": "Zoho CRM", "tagline": "The default customisable Indian SMB CRM.", "bestFor": "Teams that want deep customisation and the wider Zoho ecosystem.", "pricingNote": "Per user, INR. Professional ~₹2,400/user/mo (verify 2026).", "whyPick": "Huge feature surface, 60+ native integrations, scales from tiny to 500+ reps, deep workflow customisation via Deluge.", "watchOut": "Logging a call takes several clicks — rep adoption in Indian SMBs is often 30–40%. Scoring is points-based with no decay.", "url": "/compare/leadkaun-vs-zoho-crm" },
+      { "rank": 3, "name": "LeadSquared", "tagline": "India-built, high-volume lead-gen and marketing automation.", "bestFor": "High-volume lead-gen teams in edtech, BFSI, and real estate.", "pricingNote": "Per user, INR (custom/mid-market).", "whyPick": "Strong at capturing and routing large lead volumes with marketing automation and activity tracking.", "watchOut": "Tracks activity, not behaviour; can be heavy and pricey for a small B2B team.", "url": "/compare/leadkaun-vs-leadsquared" },
+      { "rank": 4, "name": "Kylas", "tagline": "India-first CRM with unlimited users at a flat rate.", "bestFor": "Larger/growing teams that want no per-seat cost.", "pricingNote": "Flat ~₹12,999/mo, unlimited users (verify 2026).", "whyPick": "Unlimited users on paid plans, guided onboarding, native WhatsApp, solid lead capture and routing.", "watchOut": "Flat rate is expensive for small teams; scoring is rule-based, not real-time intent grading.", "url": "/compare/leadkaun-vs-kylas" },
+      { "rank": 5, "name": "Freshsales", "tagline": "Clean UI with built-in phone and email.", "bestFor": "Teams that want a simple CRM with telephony baked in.", "pricingNote": "Per user; free tier available.", "whyPick": "Low learning curve, built-in phone/email, decent automation.", "watchOut": "Its \"AI\" (Freddy) scoring is fairly opaque; less India-specific behaviour tooling.", "url": "/compare/leadkaun-vs-freshsales" },
+      { "rank": 6, "name": "Zoho Bigin", "tagline": "Lightweight CRM for micro-teams.", "bestFor": "Solopreneurs and teams under ~10 who need a simple pipeline.", "pricingNote": "Per user, from ~₹400/user/mo (verify 2026); free single-user tier.", "whyPick": "Very cheap and easy; native WhatsApp Business from the entry tier.", "watchOut": "No real lead-scoring engine; automation hits a ceiling as you grow.", "url": "/compare/leadkaun-vs-zoho-bigin" },
+      { "rank": 7, "name": "HubSpot", "tagline": "Marketing-first, global, generous free tier.", "bestFor": "Content-led teams that want marketing + CRM in one, and don't mind USD.", "pricingNote": "USD, per seat; free tier, paid tiers escalate fast.", "whyPick": "Best-in-class marketing tooling and a strong free CRM to start.", "watchOut": "USD pricing gets expensive at scale; overbuilt for most Indian SMB sales desks.", "url": "/compare/leadkaun-vs-hubspot" }
+    ],
+    "faqs": [
+      { "q": "What is lead management software?", "a": "Lead management software captures incoming leads, organises them, and helps reps decide who to contact first and when. The best tools also score leads by likelihood to convert and track follow-up so hot leads don't go cold." },
+      { "q": "Which lead management software is best for a small Indian B2B team?", "a": "For a small team, flat-priced tools avoid per-seat cost creep. Leadkaun (flat INR, with a Free tier) and Zoho Bigin (cheap per-user) are common starting points; Leadkaun adds automatic A–F grading and a Priority Queue that Bigin doesn't have." },
+      { "q": "Do these tools support WhatsApp?", "a": "Several do. Zoho Bigin, Kylas, and TeleCRM offer native WhatsApp; Leadkaun treats a logged WhatsApp reply as a ranked Intent signal that can change a lead's grade. HubSpot and Pipedrive need third-party WhatsApp integrations." },
+      { "q": "Is per-user or flat pricing better?", "a": "Flat per-account pricing (Leadkaun, Kylas) is usually better once you have several reps, because cost doesn't grow with headcount. Per-user pricing (Zoho, Freshsales, Bigin) can be cheaper for very small teams." }
+    ],
+    "relatedCompares": ["leadkaun-vs-zoho-crm", "leadkaun-vs-leadsquared", "leadkaun-vs-kylas"]
+  },
+  {
+    "slug": "whatsapp-crm-india",
+    "metaTitle": "7 Best WhatsApp CRM Software in India (2026) — Honest Guide",
+    "metaDescription": "The best WhatsApp CRM tools for Indian sales teams in 2026 — which are true sales CRMs vs broadcast platforms, pricing, and who each is really for.",
+    "h1": "Best WhatsApp CRM Software in India (2026)",
+    "intro": "\"WhatsApp CRM\" means two very different things: sales CRMs that log and act on WhatsApp conversations, and broadcast/marketing platforms built on the WhatsApp Business API. Both are useful — for different jobs. Here's an honest breakdown so you pick the right category first. We build Leadkaun; it sits firmly in the first camp.",
+    "quickAnswer": {
+      "question": "What is the best WhatsApp CRM in India?",
+      "answer": "It depends on the job. For turning WhatsApp replies into ranked sales signals, Leadkaun logs each exchange in 3 taps and feeds it into real-time lead grading. For high-volume broadcasts and WhatsApp Business API campaigns, dedicated platforms like AiSensy or Interakt fit better. TeleCRM and Kylas offer WhatsApp inside a fuller CRM."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Is it a sales CRM or a broadcast/marketing platform? (Different categories.)",
+      "How WhatsApp is used — ranked sales signal, chat log, or bulk messaging",
+      "Whether it needs the WhatsApp Business API (and its per-message costs)",
+      "Pricing model and India fit",
+      "Lead scoring and prioritisation, if any"
+    ],
+    "picks": [
+      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "WhatsApp as a first-class, ranked sales signal.", "bestFor": "B2B teams that want WhatsApp activity to drive who reps call next.", "pricingNote": "Flat per account, from Free; no WhatsApp API required.", "whyPick": "Reps log each WhatsApp exchange in 3 taps (stage, intent, outcome), which feeds the Intent Score and can push a Grade C lead to Grade A in under 500ms. Works with any regular WhatsApp account — no BSP stack needed.", "watchOut": "It is not a bulk-broadcast tool. If your need is sending thousands of template messages, pair it with a WhatsApp API platform.", "url": "/features/whatsapp-tracking" },
+      { "rank": 2, "name": "TeleCRM", "tagline": "Telecalling + WhatsApp automation for high-volume teams.", "bestFor": "Inside-sales and calling teams that also run WhatsApp follow-ups.", "pricingNote": "₹799/user/mo (annual) + add-ons (verify 2026).", "whyPick": "Strong, affordable WhatsApp automation, a built-in dialer, and multi-platform lead capture.", "watchOut": "Per-user plus add-ons (Chat Sync, WhatsApp API setup); no intent-based lead grading.", "url": "/compare/leadkaun-vs-telecrm" },
+      { "rank": 3, "name": "Kylas", "tagline": "Native WhatsApp inside a full India-first CRM.", "bestFor": "Teams wanting WhatsApp alongside a complete CRM, at unlimited users.", "pricingNote": "Flat ~₹12,999/mo, unlimited users (verify 2026).", "whyPick": "Native WhatsApp Business integration on paid tiers plus full lead management.", "watchOut": "Flat rate is pricey for small teams; scoring is rule-based.", "url": "/compare/leadkaun-vs-kylas" },
+      { "rank": 4, "name": "Zoho Bigin", "tagline": "Cheapest way to get native WhatsApp in a CRM.", "bestFor": "Micro-teams that want WhatsApp + a light pipeline on a budget.", "pricingNote": "Per user, from ~₹400/user/mo (verify 2026).", "whyPick": "Native WhatsApp Business from the entry tier at a very low price.", "watchOut": "No real scoring or prioritisation engine.", "url": "/compare/leadkaun-vs-zoho-bigin" },
+      { "rank": 5, "name": "AiSensy / Interakt / Wati", "tagline": "WhatsApp Business API broadcast & marketing platforms.", "bestFor": "Bulk campaigns, notifications, chatbots, and click-to-WhatsApp ads at scale.", "pricingNote": "Platform fee + Meta per-conversation charges.", "whyPick": "Purpose-built for WhatsApp Business API — broadcasts, templates, chatbots, catalogues.", "watchOut": "These are messaging platforms, not sales CRMs — they broadcast and automate, but don't grade or prioritise leads for your reps. Often used alongside a sales CRM.", "url": "/integrations" }
+    ],
+    "faqs": [
+      { "q": "Is a WhatsApp CRM the same as a WhatsApp broadcast tool?", "a": "No. A WhatsApp broadcast tool (AiSensy, Interakt, Wati) sends bulk template messages via the WhatsApp Business API. A WhatsApp CRM logs and acts on individual sales conversations. Leadkaun is the latter — it turns a WhatsApp reply into a ranked sales signal." },
+      { "q": "Do I need the WhatsApp Business API?", "a": "Not for Leadkaun — reps log exchanges in 3 taps from any regular WhatsApp account. You need the API only if you want to send bulk templated messages or run chatbots, which is where broadcast platforms come in." },
+      { "q": "Can I use both a WhatsApp CRM and a broadcast tool?", "a": "Yes, and many teams do — a broadcast platform for campaigns and a sales CRM like Leadkaun for grading and prioritising the leads those campaigns produce." }
+    ],
+    "relatedCompares": ["leadkaun-vs-telecrm", "leadkaun-vs-kylas", "leadkaun-vs-zoho-bigin"]
+  },
+  {
+    "slug": "lead-scoring-software",
+    "metaTitle": "6 Best Lead Scoring Software (2026) — Transparent vs Black-Box",
+    "metaDescription": "The best lead scoring software in 2026 — which use transparent, real-time scoring vs opaque AI, and who each is for. Honest comparison from the Leadkaun team.",
+    "h1": "Best Lead Scoring Software (2026)",
+    "intro": "Most lead scoring is one of two things: a static points system you configure by hand, or an opaque \"AI\" score you can't explain to your reps. The best scoring is transparent, real-time, and decays as leads go cold. Here's an honest ranking on those terms. We build Leadkaun, whose three-score model is designed to be auditable.",
+    "quickAnswer": {
+      "question": "What is the best lead scoring software?",
+      "answer": "For transparent, real-time scoring, Leadkaun grades every lead A–F across three auditable scores — Fit, Intent, and Quality — in under 500ms, with intent that decays as leads go silent. HubSpot and Salesforce (Einstein) offer predictive AI scoring for larger, marketing-led teams, but their models are less transparent and priced in USD."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Transparency — can you see and audit the weights, or is it a black box?",
+      "Real-time — does the score update the instant a signal arrives?",
+      "Decay — does intent fade as a lead goes cold?",
+      "Setup effort and who has to maintain the model",
+      "Pricing and India fit"
+    ],
+    "picks": [
+      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Transparent 3-score grading in under 500ms.", "bestFor": "Sales teams that want scoring their reps actually trust and understand.", "pricingNote": "Flat per account, from Free.", "whyPick": "Every lead is graded A–F across Fit (ICP match), Intent (live engagement, which decays), and Quality (data reliability) — with weights you can see and tune. The grade updates in real time and drives the Priority Queue.", "watchOut": "Purpose-built for B2B sales prioritisation, not marketing-automation scoring across huge email databases.", "url": "/features/lead-scoring" },
+      { "rank": 2, "name": "HubSpot", "tagline": "Predictive + manual scoring for marketing-led teams.", "bestFor": "Content/marketing-led teams already in the HubSpot ecosystem.", "pricingNote": "USD, per seat; scoring on higher tiers.", "whyPick": "Both manual and predictive scoring across a strong marketing platform.", "watchOut": "Predictive model is less transparent; USD pricing and higher tiers add up.", "url": "/compare/leadkaun-vs-hubspot" },
+      { "rank": 3, "name": "Salesforce (Einstein)", "tagline": "Enterprise AI lead scoring.", "bestFor": "Large enterprises with data teams and a Salesforce footprint.", "pricingNote": "USD, enterprise; Einstein is an add-on.", "whyPick": "Powerful AI scoring that improves with large data volumes.", "watchOut": "Overkill and expensive under ~200 reps; opaque to front-line reps.", "url": "/compare/leadkaun-vs-salesforce" },
+      { "rank": 4, "name": "Zoho CRM (Zia)", "tagline": "AI scoring inside a customisable CRM.", "bestFor": "Existing Zoho users who want scoring without leaving the suite.", "pricingNote": "Per user, INR; Zia on higher tiers.", "whyPick": "Zia adds prediction and scoring to a familiar, customisable CRM.", "watchOut": "Model transparency is limited; rep adoption of Zoho remains the bigger challenge.", "url": "/compare/leadkaun-vs-zoho-crm" },
+      { "rank": 5, "name": "Freshsales (Freddy)", "tagline": "Built-in AI contact scoring.", "bestFor": "Teams that want simple scoring inside a clean CRM.", "pricingNote": "Per user; free tier.", "whyPick": "Freddy scores contacts automatically with little setup.", "watchOut": "The scoring rationale is fairly opaque; limited control over weights.", "url": "/compare/leadkaun-vs-freshsales" }
+    ],
+    "faqs": [
+      { "q": "What is lead scoring?", "a": "Lead scoring ranks leads by how likely they are to convert, so reps work the best ones first. Good scoring is transparent (you can see why), real-time (updates on new signals), and decays as leads go cold." },
+      { "q": "What's wrong with black-box AI scoring?", "a": "If a rep can't see why a lead scored high, they won't trust the number — and they'll go back to gut feel. Transparent scoring (like Leadkaun's three visible scores) is easier to trust, tune, and coach against." },
+      { "q": "Does lead scoring need a lot of setup?", "a": "It varies. Enterprise AI models need data and tuning; Leadkaun ships with weights calibrated for Indian B2B verticals so a graded lead is in the queue within the first hour, and you can tune weights later." }
+    ],
+    "relatedCompares": ["leadkaun-vs-hubspot", "leadkaun-vs-salesforce", "leadkaun-vs-zoho-crm"]
+  },
+  {
+    "slug": "crm-for-real-estate-india",
+    "metaTitle": "6 Best Real Estate CRM Software in India (2026) — Honest Ranking",
+    "metaDescription": "The best real estate CRM and lead management software for Indian developers and brokers in 2026 — response time, portal leads, WhatsApp, pricing.",
+    "h1": "Best Real Estate CRM Software in India (2026)",
+    "intro": "In real estate, the first team to reach a fresh enquiry usually wins it — so the best CRM is the one that gets your reps to the hottest 99acres/MagicBricks/Housing lead first, not the one with the most fields. Here's an honest ranking for Indian property teams. We build Leadkaun, built around exactly that response-time problem.",
+    "quickAnswer": {
+      "question": "What is the best CRM for real estate in India?",
+      "answer": "For developers and brokers whose problem is slow follow-up on portal enquiries, Leadkaun grades every enquiry and surfaces the hottest buyers first, with WhatsApp logging and ₹-at-risk alerts. Sell.Do suits large developers wanting deep real-estate workflows, and LeadSquared suits very high portal-lead volumes."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Speed to lead — does it get reps to fresh enquiries fast?",
+      "Portal lead handling (99acres, MagicBricks, Housing) and WhatsApp",
+      "Prioritisation — does it rank enquiries by likelihood to book a site visit?",
+      "Fit for developer vs broker vs channel-partner workflows",
+      "Pricing and India fit"
+    ],
+    "picks": [
+      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Grades and queues property enquiries by likelihood to convert.", "bestFor": "Developers and brokers losing site visits to slow follow-up.", "pricingNote": "Flat per account, from Free.", "whyPick": "Every enquiry is graded A–F on project fit, location match, and engagement; the Priority Queue surfaces the buyers most likely to book today; WhatsApp site-visit coordination is logged in 3 taps; stale enquiries surface with ₹ at risk.", "watchOut": "It's a behaviour-first lead engine, not a full property-inventory/booking ERP — pair it with your inventory system if you need one.", "url": "/use-cases/real-estate" },
+      { "rank": 2, "name": "Sell.Do", "tagline": "Purpose-built real-estate CRM (Anarock group).", "bestFor": "Larger developers wanting deep, real-estate-specific workflows.", "pricingNote": "Custom/enterprise (verify 2026).", "whyPick": "Built specifically for real estate, with sales, marketing, and post-sales modules.", "watchOut": "Heavier and more enterprise-leaning; more than a small brokerage usually needs.", "url": "/use-cases/real-estate" },
+      { "rank": 3, "name": "LeadSquared", "tagline": "High-volume portal lead capture and routing.", "bestFor": "Teams processing very high volumes of portal and ad leads.", "pricingNote": "Per user, INR.", "whyPick": "Strong lead capture, distribution, and marketing automation at volume.", "watchOut": "Activity-focused rather than behaviour-focused; cost and complexity climb.", "url": "/compare/leadkaun-vs-leadsquared" },
+      { "rank": 4, "name": "Zoho CRM", "tagline": "Customisable general CRM adapted for real estate.", "bestFor": "Teams that want to configure their own real-estate pipeline.", "pricingNote": "Per user, INR.", "whyPick": "Highly customisable with a large ecosystem.", "watchOut": "Not real-estate-specific out of the box; rep adoption is the usual hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" },
+      { "rank": 5, "name": "Kylas", "tagline": "India-first CRM, unlimited users.", "bestFor": "Growing brokerages that want no per-seat cost.", "pricingNote": "Flat ~₹12,999/mo (verify 2026).", "whyPick": "Unlimited users, native WhatsApp, guided onboarding.", "watchOut": "Pricey for small teams; scoring is rule-based, not response-time-driven.", "url": "/compare/leadkaun-vs-kylas" }
+    ],
+    "faqs": [
+      { "q": "What should a real estate team look for in a CRM?", "a": "Speed to lead above all — the tool should get a rep to a fresh 99acres/MagicBricks enquiry fast, ideally with the hottest buyers ranked first. WhatsApp logging, portal lead capture, and per-rep accountability matter more than field count." },
+      { "q": "Does Leadkaun integrate with 99acres and MagicBricks?", "a": "Not with a native connector in Phase 1 — you export portal leads to CSV (a Google Sheets connector is on the roadmap) and Leadkaun grades and queues them. The value is prioritisation and response time, not portal plumbing." },
+      { "q": "Sell.Do vs Leadkaun for real estate?", "a": "Sell.Do is a deep, real-estate-specific CRM/ERP suited to larger developers. Leadkaun is a lighter behaviour layer focused on grading enquiries and fixing response time — often a better fit for brokers and mid-size teams, and it can sit alongside a heavier system." }
+    ],
+    "relatedCompares": ["leadkaun-vs-zoho-crm", "leadkaun-vs-leadsquared", "leadkaun-vs-kylas"]
+  }
+]

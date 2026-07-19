@@ -25,7 +25,7 @@
 | Resources | 12 | ⚠️ none downloadable |
 | Tools/calculators | 1 | missed-revenue-calculator |
 | **Programmatic (generated)** | **~68,900 URLs** | industry×city 6,875 · +keyword 55,000 · role×city 6,250 · city 625 |
-| **Indexable (after this session's gating)** | **~5,700** | was ~12,400 — parent hubs now gated to 154 data-complete cities |
+| **Indexable (in sitemap)** | **8,594** | significance-gated: 296 data-complete cities (was 157) after enriching 55 with verified notes |
 | Data entities | 10 collections | cities 625 · industries 11 · keywords 8 · roles 10 · competitors 5 · … |
 | Schema types | 14 | no fabricated rating; missing Service/Video/Review/Speakable(partial)/Dataset |
 | AI-search assets | llms.txt, ai-context.json, RSS | ahead of most SaaS |
@@ -114,7 +114,7 @@ Goal: scale the *right* axis — depth of entities, gated by quality.
 - ⬜ M — Keywords 8 → 25–30 (lead-management, follow-up-automation, sales-pipeline, whatsapp-crm, telecalling-crm, field-sales, inside-sales, lead-distribution, sales-analytics, lead-nurturing…)
 - ⬜ M — Industries 11 → 18 (insurance, automotive, travel, staffing, D2C, coaching, interior/construction)
 - ⬜ M — Roles 10 → 25 · add Company-size, Pain-point, Sales-stage, Intent as entities
-- 🔒 L — Fill 196 empty city records (or exclude from generation) — data work
+- 🟡 L — Fill empty city records with VERIFIED notes — ✅ 55 done (web-researched, real economic identities); ~150 remain (17 flagged "unsure — no distinctive identity", correctly left noindex). Gate is now significance-based (pop ≥150k + real note), so each newly-verified city promotes to indexable.
 
 ### 3B. New programmatic combinations (each a distinct high-intent SERP)
 - ⬜ M — `feature × industry` (/lead-scoring/real-estate) · `feature × city`

@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Container } from "@/app/components/container"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
 import { GradientBlob } from "@/app/components/gradient-blob"
+import { EmailCapture } from "@/app/components/email-capture"
 
 const COLS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -116,8 +117,12 @@ export default function Footer() {
           ))}
         </div>
 
+        <div className="mt-14 max-w-md rounded-2xl glass-1 gloss-edge p-6">
+          <EmailCapture source="footer-newsletter" />
+        </div>
+
         <div
-          className="mt-16 flex flex-wrap items-center justify-between gap-4 pt-6"
+          className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-6"
           style={{ borderTop: "1px solid var(--hairline)" }}
         >
           <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">

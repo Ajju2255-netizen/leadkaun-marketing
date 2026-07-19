@@ -13,6 +13,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
+import { EmailCapture } from "@/app/components/email-capture"
 import { getResearch, getResearchReport } from "@/lib/pseo/lookup"
 import { articleSchema, jsonLdScript, breadcrumbListSchema, canonical } from "@/lib/seo"
 import { resolveAuthor } from "@/lib/authors"
@@ -171,6 +172,21 @@ export default async function ResearchReportPage({ params }: Params) {
                   </li>
                 ))}
               </ol>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* GET NEW REPORTS */}
+        <SectionGround variant="cream" size="md">
+          <Container>
+            <Reveal className="mx-auto max-w-2xl rounded-2xl glass-1 gloss-edge p-7 md:p-8">
+              <EmailCapture
+                source="research-report"
+                heading="Get the next Leadkaun report first"
+                blurb="We publish new sourced benchmarks on Indian B2B sales periodically. Leave your email and we'll send the next one your way."
+                cta="Send me new reports"
+                doneNote="Done — you'll get the next report when it's out."
+              />
             </Reveal>
           </Container>
         </SectionGround>

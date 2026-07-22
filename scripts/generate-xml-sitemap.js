@@ -116,6 +116,8 @@ const core = [
   { path: "/best/telecalling-crm-india", priority: "0.7", changefreq: "monthly" },
   { path: "/alternatives", priority: "0.8", changefreq: "monthly" },
   ...["zoho-crm", "leadsquared", "hubspot", "salesforce", "freshsales", "pipedrive", "zoho-bigin", "kylas", "telecrm", "bitrix24"].map((s) => ({ path: `/alternatives/${s}`, priority: "0.7", changefreq: "monthly" })),
+  { path: "/learn", priority: "0.8", changefreq: "monthly" },
+  ...["lead-scoring", "lead-management", "whatsapp-sales", "sales-follow-up", "missed-revenue", "sales-behaviour"].map((s) => ({ path: `/learn/${s}`, priority: "0.8", changefreq: "monthly" })),
   { path: "/research", priority: "0.8", changefreq: "monthly" },
   { path: "/research/indian-b2b-sales-lead-benchmarks-2026", priority: "0.8", changefreq: "monthly" },
   { path: "/security", priority: "0.5", changefreq: "yearly" },

@@ -1,0 +1,16 @@
+Leadkaun CRM Migration Checklist
+"A clean, low-risk path to switch tools without losing data or momentum. Run top to bottom."
+,
+Step,Done?
+1. Export leads, contacts, deals and activity history as CSV from your current tool,
+2. Keep only the last 90 days of live/active data; archive the rest separately,
+3. Map each old field to a new field (custom fields import as columns),
+4. Import the live CSVs into the new tool; verify Indian phone numbers normalised,
+5. Set up your ICP / lead-scoring weights,
+6. Import 5-10 real leads and confirm grading + queue look right,
+7. Run both tools in parallel for 30 days (old tool read-only as archive),
+8. Train reps on the new logging flow (aim for 3-tap / low-friction),
+9. Measure: response time, follow-up completion, ₹ recovered,
+10. Decide at day 60 - if the new tool recovers more than the combined cost, consolidate,
+,
+"The hardest part of migration is psychological, not technical - a clean CSV export solves most of it. Leadkaun onboards in ~60 minutes: https://leadkaun.com"

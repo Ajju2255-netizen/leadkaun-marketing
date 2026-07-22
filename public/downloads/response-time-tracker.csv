@@ -1,0 +1,17 @@
+Leadkaun Response-Time Tracker
+"Log every enquiry's arrival time and first-contact time. Each Friday, review the % of Grade A leads reached inside your target window vs those that slipped to 4h+ or 24h+."
+"The first team to reach a fresh enquiry usually wins it. This sheet makes your real response time visible so you can fix it."
+,,,,,,,
+Enquiry,Source,Grade,Arrived (date & time),First Contact (date & time),Time to First Contact,Outcome,Rep
+Example: 3BHK enquiry,99acres,A,2026-07-01 10:12,2026-07-01 10:40,28 min,Site visit booked,Rahul
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+Weekly rollup,,,,,,,
+% Grade A reached within target window,,,,,,,
+% reached at 4h+,,,,,,,
+% reached at 24h+ or never,,,,,,,
+,,,,,,,
+"Adoption of a fast, measured response SLA on your best leads consistently lifts conversion. Leadkaun surfaces the hottest leads first and flags any that age past their window — try it free at https://leadkaun.com"

@@ -1,0 +1,35 @@
+LEADKAUN — 90-DAY SALES SETUP PLAN (INDIAN B2B SMB)
+====================================================
+A pragmatic plan to go from "leads in a spreadsheet" to a working sales system.
+One focus per phase. Don't skip ahead — each phase makes the next one stick.
+
+--------------------------------------------------
+DAYS 1-30 — CAPTURE & CLARITY
+  [ ] Get every lead into ONE place (stop the five-inboxes problem).
+  [ ] Normalise Indian phone numbers and dedupe on import.
+  [ ] Write your ICP (see the ICP Worksheet) — who you sell to best.
+  [ ] Set a simple A-F grade on each lead (Fit x Intent x Quality).
+  [ ] Agree a response-time target for Grade A leads.
+  Outcome: no lead is lost, and everyone knows which leads matter.
+
+DAYS 31-60 — PRIORITISE & FOLLOW UP
+  [ ] Build a Priority Queue: reps work top-down, not newest-first.
+  [ ] Log calls / WhatsApp in a low-friction way (aim for 3 taps).
+  [ ] Start a Morning Brief — ₹ at risk + top Grade A + overdue follow-ups.
+  [ ] Track follow-up completion per rep.
+  Outcome: reps spend hours on the right leads; fewer go cold.
+
+DAYS 61-90 — MEASURE & COACH
+  [ ] Run a weekly review off real numbers (see the Weekly Review Template).
+  [ ] Track the 4 behaviours that predict revenue: response time, follow-up
+      completion, lead selection, ₹ recovered.
+  [ ] Coach on specific signals, not effort.
+  [ ] Decide what to automate (queue, scoring, alerts) vs keep manual.
+  Outcome: a repeatable system you can grow headcount into.
+
+--------------------------------------------------
+HIRING SIGNAL: add your second rep when the data shows Grade A leads slipping
+uncontacted week after week — a measured bottleneck, not a hunch.
+
+Leadkaun compresses this 90-day setup into ~60 minutes and automates the
+capture, grading, queue, brief and measurement — https://leadkaun.com

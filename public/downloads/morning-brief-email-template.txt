@@ -1,0 +1,32 @@
+LEADKAUN — MORNING BRIEF EMAIL TEMPLATE
+========================================
+Send to each rep + manager at ~8:30 AM. Lead with money and the hot leads.
+Answer "what do I do first?" in the first five lines. Everything else below fold.
+
+Subject:  Morning Brief — [DATE] — ₹[X] at risk, [N] Grade A to call
+
+--------------------------------------------------
+Good morning [Name],
+
+₹ AT RISK TODAY: ₹[X]
+   Deals that go cold if nobody acts. Top three:
+   1. [Lead] — ₹[value] — [why it's slipping]
+   2. [Lead] — ₹[value] — [why]
+   3. [Lead] — ₹[value] — [why]
+
+TOP GRADE A LEADS TO CALL (in order):
+   1. [Lead] — [company] — [1-line context]
+   2. [Lead] — [company] — [context]
+   3. [Lead] — [company] — [context]
+
+OVERDUE FOLLOW-UPS:
+   - [Lead] — committed [date], now [X] days late
+   - [Lead] — committed [date], now [X] days late
+
+--------------------------------------------------
+(Pipeline totals and vanity counts go here, below the fold — they're not
+what you act on at 9 AM.)
+
+--------------------------------------------------
+Doing this by hand every morning is the hard part. Leadkaun generates this
+brief automatically at 8:30 AM IST from live lead data — https://leadkaun.com

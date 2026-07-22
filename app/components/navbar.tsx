@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Search } from "lucide-react"
 import { APP_URLS } from "@/lib/urls"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
 import { GlossLink } from "@/app/components/gloss-button"
@@ -92,6 +92,13 @@ export default function Navbar() {
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            href="/search"
+            aria-label="Search"
+            className="grid h-9 w-9 place-items-center rounded-lg text-ink-soft transition-colors hover:bg-sky-50 hover:text-sky-600"
+          >
+            <Search className="h-[18px] w-[18px]" strokeWidth={2} />
+          </Link>
           <Link
             href={APP_URLS.login}
             className="rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft transition-colors hover:bg-sky-50 hover:text-sky-600"

@@ -1,0 +1,39 @@
+LEADKAUN — WEEKLY SALES REVIEW TEMPLATE
+========================================
+A 30-minute review that opens with money, not vanity metrics. Run it the same
+time every week. Rule: start with ₹ at risk, end with one commitment per rep.
+
+--------------------------------------------------
+1. ₹ AT RISK THIS WEEK (5 min)
+   - Total ₹ at risk across the team: __________
+   - Broken down per rep:  __________
+   - The 3 biggest single leads slipping:  __________
+   Ask: what's the plan to recover each, today?
+
+2. RESPONSE TIME ON GRADE A LEADS (5 min)
+   - Avg time-to-first-contact on Grade A, per rep:  __________
+   - Any rep above 2 hours?  __________
+   (Fast response is the single behaviour most tied to closed ₹.)
+
+3. FOLLOW-UP COMPLETION (5 min)
+   - % of scheduled follow-ups completed, per rep:  __________
+   - Any multi-touch deals stalled?  __________
+
+4. LEAD SELECTION (5 min)
+   - Did reps work the queue in order, or chase the newest lead?  __________
+   - Any Grade A leads left uncontacted while Grade C/D got worked?  __________
+
+5. PIPELINE MOVEMENT (5 min)
+   - What moved forward, what went cold, and why:  __________
+
+6. ONE COMMITMENT PER REP (5 min)
+   - Rep 1: __________
+   - Rep 2: __________
+   - Rep 3: __________
+
+--------------------------------------------------
+Coaching principle: point at the behaviour, not the person.
+"This Grade A lead sat 9 hours" is actionable. "Why aren't you working harder"
+is not. Leadkaun computes ₹ at risk, response time and follow-up completion
+automatically, so this review runs off real numbers, not a spreadsheet you
+maintained by hand. Try it free — https://leadkaun.com

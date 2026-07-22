@@ -13,6 +13,7 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { GlossLink } from "@/app/components/gloss-button"
+import { GatedDownload } from "@/app/components/gated-download"
 import { Reveal } from "@/app/components/reveal"
 
 import { getResources } from "@/lib/pseo/lookup"
@@ -104,10 +105,14 @@ export default async function ResourcePage({ params }: Params) {
           h1={r.name}
           sub={r.tagline}
           cta={r.downloadUrl ? (
-            <GlossLink variant="primary" size="md" href={r.downloadUrl} target="_blank" rel="noreferrer">
-              Open the {r.type}
-              <span className="font-mono opacity-80">→</span>
-            </GlossLink>
+            r.gated ? (
+              <GatedDownload downloadUrl={r.downloadUrl} type={r.type} source={r.slug} />
+            ) : (
+              <GlossLink variant="primary" size="md" href={r.downloadUrl} target={r.downloadUrl.startsWith("/downloads") ? "_blank" : undefined} rel="noreferrer">
+                Open the {r.type}
+                <span className="font-mono opacity-80">→</span>
+              </GlossLink>
+            )
           ) : undefined}
         />
 

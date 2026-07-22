@@ -1,0 +1,12 @@
+Leadkaun Rep Performance Tracker
+"Track behaviour, not vanity activity. These four metrics predict revenue better than raw call counts. Update weekly, per rep."
+,,,,,,
+Rep,Grade A response time (avg),Follow-up completion %,Leads worked (Grade A/B first?),₹ recovered / at risk,Notes,Week
+Example: Priya,35 min,82%,Yes,,,
+Example: Anand,4 hrs,48%,No - worked newest,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+"What good looks like: fast Grade A response, high follow-up completion, working the queue in order (not just the newest lead), and ₹ recovered trending up."
+"Coach on the specific signal, not effort: 'this Grade A lead sat 9 hours' is a conversation a rep can act on. Leadkaun computes all four automatically - https://leadkaun.com"

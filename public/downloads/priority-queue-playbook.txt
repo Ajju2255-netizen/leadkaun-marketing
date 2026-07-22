@@ -1,0 +1,38 @@
+LEADKAUN — PRIORITY QUEUE PLAYBOOK
+===================================
+How to give every rep one ranked list of who to call next — manual first,
+automated second. A queue exists to protect the response window on your best
+leads, so the hot lead is the one your rep calls at minute five, not position 38.
+
+--------------------------------------------------
+THE 4-SIGNAL RANK FORMULA
+Rank each lead by combining:
+  1. GRADE — the A-F score (Fit x Intent x Quality). Grade A floats to the top.
+  2. URGENCY — how close the lead is to going cold / past its window.
+  3. TREND — is intent rising (recent reply, call) or decaying (silent)?
+  4. RECENCY — freshness, as a tie-breaker only — NOT the primary sort.
+Common mistake: sorting by recency alone. That buries a warm Grade B that
+replied 2 days ago behind a cold new form-fill.
+
+GRADE WEIGHTS THAT WORK FOR INDIAN B2B SMBs
+  Fit:     industry (30) + geography (20) + business type (20) + role (15) + budget (15)
+  Intent:  source baseline + call (+15) + WhatsApp reply (+10) + meeting (+25),
+           minus ~3/day decay after the engagement threshold
+  Quality: valid phone (30) + email (15) + company (15) + inquiry clarity (20) + source (10)
+
+FATIGUE RULE
+A lead contacted 6+ times with no positive signal drops to the bottom
+(rank score -1) so reps stop burning time on it. Un-fatigue manually if
+circumstances change.
+
+MANUAL-TO-AUTOMATED TRANSITION CRITERIA
+Move from a spreadsheet queue to an automated one when you hit roughly:
+  - 200+ live leads, OR
+  - 3+ reps sharing/handing off leads, OR
+  - leads arriving from 3+ channels.
+Below that, a disciplined spreadsheet works. Above it, manual re-ranking breaks.
+
+--------------------------------------------------
+A queue you maintain by hand goes stale the moment a new signal arrives.
+Leadkaun re-ranks the queue in real time as WhatsApp replies land and intent
+decays — try it free at https://leadkaun.com

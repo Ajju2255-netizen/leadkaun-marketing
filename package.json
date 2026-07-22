@@ -11,7 +11,7 @@
     "gate:warn": "node scripts/content-gate.mjs --warn",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "generate-xml-sitemap": "node scripts/generate-xml-sitemap.js",
-    "postbuild": "node scripts/generate-xml-sitemap.js",
+    "postbuild": "node scripts/generate-xml-sitemap.js && node scripts/generate-search-index.js",
     "submit-urls": "node scripts/submit-urls.js",
     "submit-all": "node scripts/submit-urls.js --all",
     "submit-google": "node scripts/submit-urls.js --protocol=google",

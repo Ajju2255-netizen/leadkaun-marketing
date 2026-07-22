@@ -12,7 +12,7 @@ import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
 import { ProofBand, ProductShowcase } from "@/app/components/sell/blocks"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 type Cell = boolean | string | "neutral"
@@ -77,7 +77,10 @@ export function ComparePageLayout(p: CompareProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(faqPageSchema(p.faqs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Compare", url: "/compare" }, { name: `Leadkaun vs ${p.competitor}` }]),
+        faqPageSchema(p.faqs),
+      ]) }} />
 
       <main className="min-h-screen bg-bg-pure">
         <Navbar />

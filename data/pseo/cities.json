@@ -5177,7 +5177,9 @@
       "retail",
       "healthcare"
     ],
-    "notes": "Modern Coach Factory (rail coaches); Gandhi political base"
+    "notes": "Modern Coach Factory (rail coaches); Gandhi political base",
+    "districts": "Lalganj Modern Coach Factory, Unchahar NTPC, ITI Colony",
+    "localBiz": "the Modern Coach Factory and NTPC Unchahar anchoring the industrial economy"
   },
   {
     "slug": "rae-bareli",
@@ -5275,7 +5277,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Kutch handicrafts, rebuilt post-2001 quake"
+    "notes": "Kutch handicrafts, rebuilt post-2001 quake",
+    "districts": "GIDC Estate Bhuj, Bhujodi handicraft village, Madhapar",
+    "localBiz": "Kutch handicrafts and textiles plus GIDC ceramics and engineering units"
   },
   {
     "slug": "bhusawal",
@@ -5375,7 +5379,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Gas-based fertilizer town — NFL Vijaipur plant"
+    "notes": "Gas-based fertilizer town — NFL Vijaipur plant",
+    "districts": "AKVN Industrial Area, Krishi Upaj Mandi, Deepak Spinners belt",
+    "localBiz": "a soybean and mustard mandi with textile spinning and fertilizer units"
   },
   {
     "slug": "jaunpur",
@@ -5475,7 +5481,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Saurashtra cotton ginning & trading hub"
+    "notes": "Saurashtra cotton ginning & trading hub",
+    "districts": "Wadhwan, GIDC Industrial Estate, Cotton Market Yard",
+    "localBiz": "cotton ginning, ceramics and salt processing driving district B2B trade"
   },
   {
     "slug": "sitapur",
@@ -5494,7 +5502,9 @@
       "healthcare",
       "education"
     ],
-    "notes": "Eye hospital hub"
+    "notes": "Eye hospital hub",
+    "districts": "Khairabad, Laharpur, Industrial Estate Khairabad",
+    "localBiz": "a handwoven Citapore dhurrie and carpet cluster anchoring local exports"
   },
   {
     "slug": "unnao",
@@ -5513,7 +5523,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Leather tanning cluster near Kanpur"
+    "notes": "Leather tanning cluster near Kanpur",
+    "districts": "Banthar Leather Park, Magarwara, Dahi Chowki UPSIDC Site",
+    "localBiz": "a leather tanning and footwear cluster with UPSIDC industrial estates"
   },
   {
     "slug": "chittoor",
@@ -5617,7 +5629,9 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "Barak Valley commercial hub — tea & trade"
+    "notes": "Barak Valley commercial hub — tea & trade",
+    "districts": "Meherpur, Tarapur, Rangirkhari",
+    "localBiz": "the Barak Valley tea trade and a wholesale commercial hub"
   },
   {
     "slug": "gadag",
@@ -5636,7 +5650,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Textile and cotton trading town"
+    "notes": "Textile and cotton trading town",
+    "districts": "Betageri, APMC Cotton Market Yard, Industrial Estate",
+    "localBiz": "Jayadhar cotton trading and a handloom weaving cluster"
   },
   {
     "slug": "bahadurgarh",
@@ -5675,7 +5691,9 @@
       "retail",
       "hospitality"
     ],
-    "notes": "South Gujarat — Alphonso mango & Atul chemical belt"
+    "notes": "South Gujarat — Alphonso mango & Atul chemical belt",
+    "districts": "GIDC Vapi, GIDC Sarigam, GIDC Pardi, GIDC Umbergaon",
+    "localBiz": "the Vapi chemical, pharma and paper belt — Gujarat's largest MSME hub"
   },
   {
     "slug": "botad",
@@ -5773,7 +5791,9 @@
       "agencies",
       "education"
     ],
-    "notes": "Doaba town known for wood-inlay craft"
+    "notes": "Doaba town known for wood-inlay craft",
+    "districts": "Focal Point Industrial Area, Guru Gobind Singh Nagar, Industrial Estate",
+    "localBiz": "a tractor and auto-parts cluster with spinning and paper mills"
   },
   {
     "slug": "bharuch",
@@ -5954,7 +5974,9 @@
       "agencies",
       "manufacturing"
     ],
-    "notes": "Former Nawabi town — Arabic-Persian manuscript archive"
+    "notes": "Former Nawabi town — Arabic-Persian manuscript archive",
+    "districts": "RIICO Industrial Area Tonk, Newai Industrial Area, Malpura",
+    "localBiz": "RIICO industrial estates and a grain-oilseed mandi"
   },
   {
     "slug": "hathras",
@@ -6056,7 +6078,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Cotton-textile & agro-industrial town, Chhattisgarh"
+    "notes": "Cotton-textile & agro-industrial town, Chhattisgarh",
+    "districts": "Industrial Estate, Mohara, Basantpur",
+    "localBiz": "a rice, dal and poha milling cluster with an agricultural mandi"
   },
   {
     "slug": "proddatur",
@@ -6149,7 +6173,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "Tribal border district — railway locomotive plant"
+    "notes": "Tribal border district — railway locomotive plant",
+    "districts": "GIDC Chhalkiya Road, Mega GIDC Kharedi, APMC Market Yard",
+    "localBiz": "GIDC engineering and plastics units with an APMC agricultural market"
   },
   {
     "slug": "pathankot",
@@ -6270,7 +6296,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "Soybean belt near the Sanchi stupas"
+    "notes": "Soybean belt near the Sanchi stupas",
+    "districts": "Sagar Road Industrial Area, New Galla Mandi, Pital Mill Chauraha",
+    "localBiz": "a wheat and soybean grain mandi with oil and flour mills"
   },
   {
     "slug": "kurukshetra",
@@ -6474,7 +6502,9 @@
       "education",
       "bfsi"
     ],
-    "notes": "Clay-doll craft town (Ghurni), Nadia"
+    "notes": "Clay-doll craft town (Ghurni), Nadia",
+    "districts": "Ghurni, Kumorpara, Natunbazar",
+    "localBiz": "the Ghurni clay-doll and terracotta modelling handicraft cluster"
   },
   {
     "slug": "miryalaguda",
@@ -6514,7 +6544,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Terai sugarcane belt; Dudhwa park gateway"
+    "notes": "Terai sugarcane belt; Dudhwa park gateway",
+    "districts": "Gola Gokarannath, Palia Kalan, Mailani",
+    "localBiz": "integrated sugar mills and sugarcane trade"
   },
   {
     "slug": "hindupur",
@@ -6593,7 +6625,9 @@
       "manufacturing",
       "logistics"
     ],
-    "notes": "Canal-irrigated cotton & foodgrain belt"
+    "notes": "Canal-irrigated cotton & foodgrain belt",
+    "districts": "New Dhan Mandi, RIICO Industrial Area, Hanumangarh Junction",
+    "localBiz": "cotton and grain mandi trade with ginning and RIICO units"
   },
   {
     "slug": "raigarh",
@@ -6632,7 +6666,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "India's largest mentha (mint) farming belt"
+    "notes": "India's largest mentha (mint) farming belt",
+    "districts": "Kursi Road Industrial Area UPSIDC, Dewa Road, Safdarganj",
+    "localBiz": "menthol and mint-oil trade with pharma and food processing"
   },
   {
     "slug": "bhadravati",
@@ -7297,7 +7333,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Sugarcane belt and sugar mills"
+    "notes": "Sugarcane belt and sugar mills",
+    "districts": "Sugar Town, KIADB Industrial Area, APMC Market Yard",
+    "localBiz": "sugar mills and sugarcane-jaggery trade anchoring the sugar bowl"
   },
   {
     "slug": "dehri",
@@ -7334,7 +7372,9 @@
       "agencies",
       "retail"
     ],
-    "notes": "Rubber trade and publishing hub"
+    "notes": "Rubber trade and publishing hub",
+    "districts": "Nagampadam, Nattakom Industrial Estate, Kanjikuzhy",
+    "localBiz": "natural rubber trade and processing plus publishing and printing"
   },
   {
     "slug": "malerkotla",
@@ -7425,7 +7465,9 @@
       "education",
       "hospitality"
     ],
-    "notes": "Patola weaving; Rani ki Vav"
+    "notes": "Patola weaving; Rani ki Vav",
+    "districts": "GIDC Patan, Charup GIDC, Patola weaving cluster",
+    "localBiz": "Patola double-ikat silk weaving with food processing and textiles"
   },
   {
     "slug": "bettiah",
@@ -7483,7 +7525,9 @@
       "agencies",
       "retail"
     ],
-    "notes": "District HQ; NCR industrial town"
+    "notes": "District HQ; NCR industrial town",
+    "districts": "HSIIDC Industrial Estate, Rajiv Nagar, Bamnikhera",
+    "localBiz": "cotton trade and ginning with oil, malt and sugar units"
   },
   {
     "slug": "pilibhit",
@@ -7598,7 +7642,9 @@
       "logistics",
       "agencies"
     ],
-    "notes": "Ceramics and pottery"
+    "notes": "Ceramics and pottery",
+    "districts": "Khurja Nagar, UPSIDC Industrial Area, pottery cluster",
+    "localBiz": "a GI-tagged ceramic pottery and electrical-insulator manufacturing cluster"
   },
   {
     "slug": "lalitpur",
@@ -7693,7 +7739,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "Largest city in Goa; home to Mormugao port and Dabolim airport."
+    "notes": "Largest city in Goa; home to Mormugao port and Dabolim airport.",
+    "districts": "Mormugao Port area, Sada Industrial Estate, Zuarinagar",
+    "localBiz": "Mormugao port cargo trade, shipbuilding and industrial estates"
   },
   {
     "slug": "khanna",
@@ -7712,7 +7760,9 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Asia's largest grain market"
+    "notes": "Asia's largest grain market",
+    "districts": "Grain Market (Anaj Mandi), Focal Point Industrial Area, GT Road",
+    "localBiz": "Asia's largest grain market trading wheat and paddy"
   },
   {
     "slug": "neemuch",
@@ -7787,7 +7837,9 @@
       "logistics",
       "agencies"
     ],
-    "notes": "Sandstone quarrying town"
+    "notes": "Sandstone quarrying town",
+    "districts": "RIICO Industrial Area Jiroly, Bari stone belt, Mania",
+    "localBiz": "red Dholpur sandstone quarrying and a stone-carving industry"
   },
   {
     "slug": "nabadwip",
@@ -7825,7 +7877,9 @@
       "logistics",
       "healthcare"
     ],
-    "notes": "Bastar regional headquarters"
+    "notes": "Bastar regional headquarters",
+    "districts": "Nagarnar NMDC steel plant, Jagdalpur Industrial Estate, Bastar haat markets",
+    "localBiz": "the NMDC Nagarnar steel plant with Bastar forest-produce and tamarind trade"
   },
   {
     "slug": "tinsukia",
@@ -7844,7 +7898,9 @@
       "manufacturing",
       "agencies"
     ],
-    "notes": "Upper Assam trade and rail hub"
+    "notes": "Upper Assam trade and rail hub",
+    "districts": "Digboi oil refinery, Doom Dooma tea belt, Makum coal fields",
+    "localBiz": "the commerce capital of Upper Assam, trading tea, oil and coal"
   },
   {
     "slug": "sitamarhi",

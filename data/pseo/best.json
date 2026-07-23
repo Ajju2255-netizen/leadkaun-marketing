@@ -568,5 +568,353 @@
       "leadkaun-vs-kylas",
       "leadkaun-vs-freshsales"
     ]
+  },
+  {
+    "slug": "crm-for-edtech-india",
+    "metaTitle": "6 Best CRM for EdTech & Admissions in India (2026) — Honest Guide",
+    "metaDescription": "The best CRM and lead management software for Indian EdTech and admissions teams in 2026 — WhatsApp counsellor workflows, seasonal cycles, pricing.",
+    "h1": "Best CRM for EdTech & Admissions in India (2026)",
+    "intro": "EdTech admissions run on WhatsApp, long parent threads and seasonal spikes — so the best CRM is the one that tells a counsellor which parents to call first this morning, not the one with the most fields. Here's an honest ranking for Indian admissions teams. We build Leadkaun and say where each alternative fits better.",
+    "quickAnswer": {
+      "question": "What is the best CRM for EdTech admissions in India?",
+      "answer": "For admissions teams whose bottleneck is calling the right parent before enquiries go cold, Leadkaun grades every enquiry, ranks a counsellor's queue, and treats WhatsApp as a first-class signal. LeadSquared suits very high-volume lead-gen, and Zoho or Kylas suit teams wanting a broader customisable CRM."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "WhatsApp handling for parent threads (native vs bolt-on)",
+      "Does it rank which enquiry to call first, or just store them?",
+      "Fit for seasonal admissions cycles and counsellor workloads",
+      "Pricing model and India fit",
+      "Setup speed for a counselling team"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Grades and queues admissions enquiries by likelihood to enrol.",
+        "bestFor": "Admissions teams losing enrolments to slow, unranked follow-up.",
+        "pricingNote": "Flat per account, from Free.",
+        "whyPick": "Every enquiry is graded A–F on course fit and engagement from both student and parent; the Priority Queue surfaces the Grade A parents who replied overnight; WhatsApp is logged in 3 taps; intent decay respects the admissions cycle so a silent Grade A drops over a week.",
+        "watchOut": "It is a behaviour-first lead engine, not a full SIS/LMS — pair it with your student system if you need one.",
+        "url": "/use-cases/edtech"
+      },
+      {
+        "rank": 2,
+        "name": "LeadSquared",
+        "tagline": "High-volume lead capture and marketing automation.",
+        "bestFor": "Large EdTech teams processing very high lead volumes.",
+        "pricingNote": "Per user, INR (mid-market).",
+        "whyPick": "Strong at capturing and routing large volumes with marketing automation — widely used in Indian EdTech.",
+        "watchOut": "Activity-focused rather than behaviour-focused; heavier and pricier for a small counselling team.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 3,
+        "name": "Kylas",
+        "tagline": "India-first CRM, unlimited users.",
+        "bestFor": "Growing institutes wanting no per-seat cost.",
+        "pricingNote": "Flat ~₹12,999/mo (verify 2026).",
+        "whyPick": "Unlimited users, native WhatsApp, guided onboarding.",
+        "watchOut": "Pricey for small teams; scoring is rule-based, not intent-graded.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 4,
+        "name": "Zoho CRM",
+        "tagline": "Customisable general CRM.",
+        "bestFor": "Teams wanting to configure their own admissions pipeline.",
+        "pricingNote": "Per user, INR.",
+        "whyPick": "Highly customisable with a large ecosystem and course-level pipelines.",
+        "watchOut": "Not admissions-specific out of the box; rep adoption is the usual hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 5,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Small counselling teams wanting simple + telephony.",
+        "pricingNote": "Per user; free tier.",
+        "whyPick": "Low learning curve, built-in calling, decent automation.",
+        "watchOut": "Opaque AI scoring; less admissions-specific.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why does WhatsApp matter so much for EdTech?",
+        "a": "Most admissions conversations move to WhatsApp — parents ask questions, go quiet, and come back. If those threads live on one counsellor's phone, they never feed the system. Leadkaun logs each exchange in 3 taps and turns it into a ranked signal."
+      },
+      {
+        "q": "Can it handle the parent + student dual thread?",
+        "a": "Yes — the lead record holds primary and secondary contacts, and WhatsApp logging records who replied when, so a counsellor sees the full thread."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-leadsquared",
+      "leadkaun-vs-zoho-crm",
+      "leadkaun-vs-kylas"
+    ]
+  },
+  {
+    "slug": "crm-for-startups-india",
+    "metaTitle": "6 Best CRM for Startups in India (2026) — Free-Friendly Picks",
+    "metaDescription": "The best sales CRM for Indian startups in 2026 — free tiers, flat pricing, fast setup, and who each tool is really for. Honest, no fluff.",
+    "h1": "Best CRM for Startups in India (2026)",
+    "intro": "A startup needs a CRM that reps actually use, doesn't get expensive as you hire, and gets out of the way. Here's an honest ranking for early Indian startups — free tiers and flat pricing weighed heavily. We build Leadkaun and tell you where a lighter or cheaper option fits.",
+    "quickAnswer": {
+      "question": "What is the best CRM for an early-stage Indian startup?",
+      "answer": "For a startup that wants leads prioritised automatically without per-seat cost creep, Leadkaun has a Free tier plus flat INR pricing, A–F grading and a Priority Queue. Zoho Bigin is the cheapest simple pipeline, HubSpot has a strong free marketing CRM, and Freshsales adds built-in calling."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Free tier or low flat cost that doesn't scale per seat",
+      "Speed to value — useful in the first hour",
+      "Rep adoption for a small, busy founding team",
+      "WhatsApp and India fit",
+      "Room to grow without re-platforming"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Free to start; grades and queues leads automatically.",
+        "bestFor": "Founder-led sales teams that want prioritisation, not just a contact list.",
+        "pricingNote": "Free tier, then flat ₹2,999 / ₹7,999 per month — not per user.",
+        "whyPick": "A Free tier, flat INR pricing that doesn't grow with headcount, automatic A–F grading, a Priority Queue, and WhatsApp as a 3-tap signal — a graded lead is in the queue within the first hour.",
+        "watchOut": "No built-in dialer; if raw calling volume is your only need, a telecalling tool may fit better.",
+        "url": "/pricing"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho Bigin",
+        "tagline": "Cheapest simple pipeline with native WhatsApp.",
+        "bestFor": "Solo founders and micro-teams wanting a light pipeline.",
+        "pricingNote": "From ~₹400/user/mo (verify 2026); free single-user tier.",
+        "whyPick": "Very cheap, easy, native WhatsApp from the entry tier.",
+        "watchOut": "No real lead scoring or prioritisation; per-user.",
+        "url": "/compare/leadkaun-vs-zoho-bigin"
+      },
+      {
+        "rank": 3,
+        "name": "HubSpot",
+        "tagline": "Strong free marketing + CRM to start.",
+        "bestFor": "Content-led startups that want marketing + CRM in one.",
+        "pricingNote": "USD; generous free tier, paid tiers escalate.",
+        "whyPick": "Best-in-class marketing tooling and a genuinely useful free CRM.",
+        "watchOut": "USD pricing gets expensive fast as you scale.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 4,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Startups wanting calling inside the CRM.",
+        "pricingNote": "Per user; free tier.",
+        "whyPick": "Low learning curve, telephony baked in.",
+        "watchOut": "Opaque AI scoring; per-user cost as you grow.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      },
+      {
+        "rank": 5,
+        "name": "Pipedrive",
+        "tagline": "Clean global pipeline CRM.",
+        "bestFor": "Startups wanting a polished visual pipeline, USD ok.",
+        "pricingNote": "From ~$14/user/mo (USD).",
+        "whyPick": "Very adoptable pipeline UI, big integration marketplace.",
+        "watchOut": "USD per-user; WhatsApp only via paid add-ons.",
+        "url": "/compare/leadkaun-vs-pipedrive"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is there a genuinely free CRM for startups in India?",
+        "a": "Yes — Leadkaun has a Free tier with lead grading and a Priority Queue, Zoho Bigin has a free single-user plan, and HubSpot has a free CRM. A free tier lets you validate the workflow before paying."
+      },
+      {
+        "q": "Per-user or flat pricing for a startup?",
+        "a": "Flat wins once you have a few reps, because cost doesn't climb as you hire. Leadkaun is flat; Bigin/Freshsales/Pipedrive are per-user, which can be cheaper at the very smallest sizes."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-zoho-bigin",
+      "leadkaun-vs-hubspot",
+      "leadkaun-vs-freshsales"
+    ]
+  },
+  {
+    "slug": "sales-automation-software",
+    "metaTitle": "6 Best Sales Automation Software (2026) — Honest Comparison",
+    "metaDescription": "The best sales automation software in 2026 — what to automate (grading, queueing, follow-up, alerts) vs marketing automation, and who each tool is for.",
+    "h1": "Best Sales Automation Software (2026)",
+    "intro": "\"Sales automation\" means very different things — from auto-grading and queueing leads to marketing email sequences. The best tool depends on which job you mean. Here's an honest ranking. We build Leadkaun, which automates the decision of who to work next.",
+    "quickAnswer": {
+      "question": "What is the best sales automation software?",
+      "answer": "For automating the sales-behaviour layer — grading each lead the moment it lands, building the queue, and firing ₹-at-risk alerts — Leadkaun is purpose-built, at flat INR pricing. HubSpot and Zoho are stronger for marketing-automation sequences across large databases, and Freshsales bundles automation into a simple CRM."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "What it automates — sales decisions (grade, queue, alerts) vs marketing email",
+      "Transparency — can reps see why the system did what it did?",
+      "Real-time vs batch",
+      "Pricing model and India fit",
+      "Setup effort"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Automates the decision of who to work next.",
+        "bestFor": "Teams that want grading, queueing and alerts automated, not just emails.",
+        "pricingNote": "Flat per account, from Free.",
+        "whyPick": "Grades every lead automatically the moment it lands, builds a self-updating Priority Queue, generates grade-aware follow-up flags, and fires ₹-at-risk alerts — all transparent, all real-time.",
+        "watchOut": "Not a marketing-automation suite for nurturing huge email lists — pair it if you need that.",
+        "url": "/features/priority-queue"
+      },
+      {
+        "rank": 2,
+        "name": "HubSpot",
+        "tagline": "Marketing + sales automation, global.",
+        "bestFor": "Content/marketing-led teams automating sequences.",
+        "pricingNote": "USD, per seat; higher tiers for automation.",
+        "whyPick": "Deep workflow and email automation across a strong marketing platform.",
+        "watchOut": "USD pricing; overbuilt for a lean Indian sales desk.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 3,
+        "name": "Zoho CRM",
+        "tagline": "Customisable automation via workflows.",
+        "bestFor": "Teams wanting to build their own automations.",
+        "pricingNote": "Per user, INR.",
+        "whyPick": "Deep workflow customisation (Blueprint, Deluge) at Indian pricing.",
+        "watchOut": "Automations you build yourself; rep adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 4,
+        "name": "Freshsales",
+        "tagline": "Automation inside a simple CRM.",
+        "bestFor": "Teams wanting basic automation without complexity.",
+        "pricingNote": "Per user; free tier.",
+        "whyPick": "Workflow automation and sequences in a clean UI.",
+        "watchOut": "Opaque AI; less real-time behaviour automation.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      },
+      {
+        "rank": 5,
+        "name": "Pipedrive",
+        "tagline": "Pipeline automation for SMB sales.",
+        "bestFor": "Teams automating a visual pipeline.",
+        "pricingNote": "USD per user.",
+        "whyPick": "Solid workflow automation on higher tiers.",
+        "watchOut": "USD; thin native lead scoring.",
+        "url": "/compare/leadkaun-vs-pipedrive"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Sales automation vs marketing automation — what's the difference?",
+        "a": "Marketing automation nurtures large lists with email/sequences. Sales automation acts inside the sales motion — grading a lead, deciding who to call next, flagging what's slipping. Leadkaun does the latter; HubSpot/Zoho lean toward the former."
+      },
+      {
+        "q": "Won't automating grading make it a black box?",
+        "a": "It shouldn't. Leadkaun automates grading with transparent, auditable weights — reps see why a lead is Grade A, which is why they trust and act on it."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-hubspot",
+      "leadkaun-vs-zoho-crm",
+      "leadkaun-vs-freshsales"
+    ]
+  },
+  {
+    "slug": "crm-for-manufacturing-india",
+    "metaTitle": "6 Best CRM for Manufacturing in India (2026) — Honest Ranking",
+    "metaDescription": "The best CRM and lead management software for Indian manufacturers and industrial B2B in 2026 — long quote cycles, IndiaMART/TradeIndia leads, distributor networks.",
+    "h1": "Best CRM for Manufacturing in India (2026)",
+    "intro": "Industrial B2B runs on long quote cycles, IndiaMART/TradeIndia enquiries and distributor networks — so the best CRM is the one that stops quotes going silent and multi-stakeholder threads getting lost. Here's an honest ranking for Indian manufacturers. We build Leadkaun and note where each alternative fits.",
+    "quickAnswer": {
+      "question": "What is the best CRM for manufacturing in India?",
+      "answer": "For manufacturers whose problem is quotes going cold and follow-up slipping across a 90-day cycle, Leadkaun grades every enquiry, surfaces ₹ at risk on stale quotes, and logs WhatsApp and distributor conversations. Zoho and LeadSquared suit teams wanting broad customisation; Kylas suits unlimited-user pricing."
+    },
+    "updated": "2026-07",
+    "criteria": [
+      "Handling of long, multi-stakeholder quote cycles",
+      "Capture from IndiaMART / TradeIndia / distributor channels",
+      "Does it flag stale quotes with a rupee value?",
+      "Pricing model and India fit",
+      "Field/distributor-friendly (mobile, WhatsApp)"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Grades enquiries and surfaces ₹ at risk on stale quotes.",
+        "bestFor": "Manufacturers losing orders to un-followed-up quotes.",
+        "pricingNote": "Flat per account, from Free.",
+        "whyPick": "Every enquiry is graded A–F on fit and engagement; the Missed Opportunity Engine attaches a rupee value to every stale quote; WhatsApp and distributor conversations log in 3 taps; the queue keeps a Grade B that replied last week above a cold new form-fill.",
+        "watchOut": "It's a behaviour-first lead engine, not an ERP or inventory system — pair it if you need one.",
+        "url": "/use-cases/manufacturing"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable general CRM.",
+        "bestFor": "Teams wanting to configure their own quote pipeline.",
+        "pricingNote": "Per user, INR.",
+        "whyPick": "Deep customisation, large ecosystem, telephony integrations.",
+        "watchOut": "Not manufacturing-specific; rep adoption is the usual hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "LeadSquared",
+        "tagline": "High-volume lead capture and routing.",
+        "bestFor": "Manufacturers with very high portal/ad lead volumes.",
+        "pricingNote": "Per user, INR.",
+        "whyPick": "Strong capture, distribution and automation at volume.",
+        "watchOut": "Activity-focused; heavier and pricier for a small team.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 4,
+        "name": "Kylas",
+        "tagline": "India-first CRM, unlimited users.",
+        "bestFor": "Growing manufacturers wanting no per-seat cost.",
+        "pricingNote": "Flat ~₹12,999/mo (verify 2026).",
+        "whyPick": "Unlimited users, native WhatsApp, lead routing.",
+        "watchOut": "Pricey for small teams; rule-based scoring.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 5,
+        "name": "Bitrix24",
+        "tagline": "All-in-one suite with CRM.",
+        "bestFor": "Teams wanting projects + CRM in one platform.",
+        "pricingNote": "USD, flat per org.",
+        "whyPick": "Broad feature set; contact-center routing.",
+        "watchOut": "Complex, low rep adoption; USD; not India-first.",
+        "url": "/compare/leadkaun-vs-bitrix24"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why do manufacturing quotes go cold?",
+        "a": "A quote goes out, then silence — procurement is evaluating, engineering wants a sample, and nobody on the sales side sees the full thread or gets a nudge to follow up. Leadkaun attaches a rupee value to every stale quote so follow-up stops slipping."
+      },
+      {
+        "q": "Does it capture IndiaMART / TradeIndia leads?",
+        "a": "You export portal leads to CSV (a Google Sheets connector is on the roadmap) and Leadkaun grades and queues them. The value is prioritisation and follow-up discipline, not portal plumbing."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-zoho-crm",
+      "leadkaun-vs-leadsquared",
+      "leadkaun-vs-kylas"
+    ]
   }
 ]

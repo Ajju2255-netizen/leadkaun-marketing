@@ -15,7 +15,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 
-import { getHowTo } from "@/lib/pseo/lookup"
+import { getHowTo, pillarForHref } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, howToSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 604800
@@ -52,6 +52,7 @@ export default async function HowToPage({ params }: Params) {
   const list = (await getHowTo()) as HowToEntry[]
   const h = list.find((x) => x.slug === slug)
   if (!h) notFound()
+  const pillar = await pillarForHref(`/how-to/${h.slug}`)
 
   const related = list.filter((x) => x.slug !== h.slug && x.category === h.category).slice(0, 3)
 
@@ -69,6 +70,7 @@ export default async function HowToPage({ params }: Params) {
         <Navbar />
 
         <DetailHero
+          pillar={pillar}
           breadcrumb={[{ label: "How to", href: "/how-to" }, { label: h.category.replace(/-/g, " ") }]}
           eyebrow={`Playbook${h.timeRequired ? ` · ${h.timeRequired}` : ""}`}
           h1={h.title}

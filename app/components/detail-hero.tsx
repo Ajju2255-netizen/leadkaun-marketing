@@ -5,6 +5,7 @@ import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
 import { Eyebrow } from "@/app/components/eyebrow"
 import { FloatingCard } from "@/app/components/floating-card"
+import { PillarLink } from "@/app/components/pillar-link"
 
 type Crumb = { label: string; href?: string }
 
@@ -19,6 +20,8 @@ type Props = {
   tldr?: { label: string; body: ReactNode; tone?: "sky" | "peach" }
   /** Optional CTA row */
   cta?: ReactNode
+  /** Optional "part of the {pillar} guide" rail — completes the topical mesh */
+  pillar?: { slug: string; title: string } | null
 }
 
 /**
@@ -26,7 +29,7 @@ type Props = {
  * Used by blog/[slug], glossary/[term], questions/[slug], how-to/[slug], integrations/[slug],
  * resources/[slug], and the pSEO industry/city pages.
  */
-export function DetailHero({ breadcrumb, eyebrow, badges, h1, sub, tldr, cta }: Props) {
+export function DetailHero({ breadcrumb, eyebrow, badges, h1, sub, tldr, cta, pillar }: Props) {
   return (
     <SectionGround variant="mesh" size="md" ambient={false} className="pt-32 md:pt-40">
       <GradientBlob color="sky"   size="xl" position="-top-32 -left-40"     intensity={0.40} />
@@ -81,6 +84,7 @@ export function DetailHero({ breadcrumb, eyebrow, badges, h1, sub, tldr, cta }: 
             </FloatingCard>
           )}
           {cta && <div className="mt-8 flex flex-wrap items-center gap-3">{cta}</div>}
+          {pillar && <div className="mt-7">{<PillarLink pillar={pillar} />}</div>}
         </div>
       </Container>
     </SectionGround>

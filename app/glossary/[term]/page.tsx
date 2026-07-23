@@ -14,7 +14,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 
-import { getGlossary } from "@/lib/pseo/lookup"
+import { getGlossary, pillarForHref } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, definedTermSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 604800
@@ -57,6 +57,7 @@ export default async function GlossaryTermPage({ params }: Params) {
     .map((t) => list.find((g) => g.slug === t))
     .filter((e): e is GlossaryEntry => e !== undefined)
     .slice(0, 6)
+  const pillar = await pillarForHref(`/glossary/${entry.slug}`)
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Glossary", url: "/glossary" }, { name: entry.term }]),
@@ -71,6 +72,7 @@ export default async function GlossaryTermPage({ params }: Params) {
         <Navbar />
 
         <DetailHero
+          pillar={pillar}
           breadcrumb={[{ label: "Glossary", href: "/glossary" }, { label: entry.term }]}
           eyebrow="Definition"
           h1={entry.term}

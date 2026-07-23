@@ -113,6 +113,24 @@ export async function getPillar<T = unknown>(slug: string): Promise<T | null> {
   return (list.find((p) => p.slug === slug) as T) ?? null
 }
 
+/**
+ * Reverse lookup: which pillar does a given content page belong to? Scans the
+ * pillars' clusters for the href, so supporting pages (glossary, how-to,
+ * questions, blog) can link UP to their pillar — completing the topical mesh.
+ * Data-driven, so a link can never point at content that isn't clustered.
+ */
+export async function pillarForHref(href: string): Promise<{ slug: string; title: string } | null> {
+  const pillars = (await getPillars()) as Array<{
+    slug: string; title: string; clusters: Array<{ links: Array<{ href: string }> }>
+  }>
+  for (const p of pillars) {
+    for (const c of p.clusters) {
+      if (c.links.some((l) => l.href === href)) return { slug: p.slug, title: p.title }
+    }
+  }
+  return null
+}
+
 export async function getBestGuide<T = unknown>(slug: string): Promise<T | null> {
   const list = (await getBest()) as Array<{ slug: string }>
   return (list.find((b) => b.slug === slug) as T) ?? null

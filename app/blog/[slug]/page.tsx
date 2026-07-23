@@ -16,6 +16,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 
 import { getAllPosts, getPostBySlug, getRelatedPosts, getCategory, estimateReadingTime } from "@/lib/blog"
+import { pillarForHref } from "@/lib/pseo/lookup"
 import { articleSchema, breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { resolveAuthor } from "@/lib/authors"
 import { AuthorCard } from "@/app/components/author-card"
@@ -51,6 +52,7 @@ export default async function BlogPostPage({ params }: Params) {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
+  const pillar = await pillarForHref(`/blog/${post.slug}`)
 
   const category = getCategory(post.category)
   const related = getRelatedPosts(post, 3)
@@ -81,6 +83,7 @@ export default async function BlogPostPage({ params }: Params) {
         <Navbar />
 
         <DetailHero
+          pillar={pillar}
           breadcrumb={[
             { label: "Blog", href: "/blog" },
             ...(category ? [{ label: category.title, href: `/blog/categories/${category.slug}` }] : []),

@@ -14,7 +14,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 
-import { getQuestions } from "@/lib/pseo/lookup"
+import { getQuestions, pillarForHref } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, qaPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 604800
@@ -52,6 +52,7 @@ export default async function QuestionPage({ params }: Params) {
   const list = (await getQuestions()) as QuestionEntry[]
   const q = list.find((x) => x.slug === slug)
   if (!q) notFound()
+  const pillar = await pillarForHref(`/questions/${q.slug}`)
 
   const related = (q.relatedSlugs ?? [])
     .map((s) => list.find((x) => x.slug === s))
@@ -71,6 +72,7 @@ export default async function QuestionPage({ params }: Params) {
         <Navbar />
 
         <DetailHero
+          pillar={pillar}
           breadcrumb={[{ label: "Questions", href: "/questions" }, { label: q.category.replace(/-/g, " ") }]}
           eyebrow="Q&A"
           h1={q.question}

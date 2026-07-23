@@ -16,13 +16,41 @@
       "WhatsApp is an add-on integration, not a first-class signal"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Grades and ranks leads for you; 3-tap logging reps actually use.", "bestFor": "Teams that left Zoho over rep adoption or weak scoring.", "watchOut": "No built-in dialer; Google Sheets connector on roadmap.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 2, "name": "Freshsales", "tagline": "Cleaner UI with built-in phone.", "bestFor": "Teams wanting a simpler CRM with telephony.", "watchOut": "Opaque AI scoring; per-user pricing.", "url": "/compare/leadkaun-vs-freshsales" },
-      { "rank": 3, "name": "Kylas", "tagline": "India-first, flat unlimited-user pricing.", "bestFor": "Larger teams wanting no per-seat cost.", "watchOut": "Pricey for small teams; rule-based scoring.", "url": "/compare/leadkaun-vs-kylas" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Grades and ranks leads for you; 3-tap logging reps actually use.",
+        "bestFor": "Teams that left Zoho over rep adoption or weak scoring.",
+        "watchOut": "No built-in dialer; Google Sheets connector on roadmap.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 2,
+        "name": "Freshsales",
+        "tagline": "Cleaner UI with built-in phone.",
+        "bestFor": "Teams wanting a simpler CRM with telephony.",
+        "watchOut": "Opaque AI scoring; per-user pricing.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      },
+      {
+        "rank": 3,
+        "name": "Kylas",
+        "tagline": "India-first, flat unlimited-user pricing.",
+        "bestFor": "Larger teams wanting no per-seat cost.",
+        "watchOut": "Pricey for small teams; rule-based scoring.",
+        "url": "/compare/leadkaun-vs-kylas"
+      }
     ],
     "faqs": [
-      { "q": "Why do teams switch from Zoho CRM?", "a": "Most commonly because reps disengage from the click-heavy interface, or because they want scoring that decays as leads go cold. Data migration is straightforward via CSV export." },
-      { "q": "Is there a simpler alternative to Zoho CRM in India?", "a": "Yes — Leadkaun focuses on grading and prioritising leads with 3-tap logging built for adoption, and Freshsales offers a cleaner general-CRM experience. Both are quicker to get reps using than full Zoho CRM." }
+      {
+        "q": "Why do teams switch from Zoho CRM?",
+        "a": "Most commonly because reps disengage from the click-heavy interface, or because they want scoring that decays as leads go cold. Data migration is straightforward via CSV export."
+      },
+      {
+        "q": "Is there a simpler alternative to Zoho CRM in India?",
+        "a": "Yes — Leadkaun focuses on grading and prioritising leads with 3-tap logging built for adoption, and Freshsales offers a cleaner general-CRM experience. Both are quicker to get reps using than full Zoho CRM."
+      }
     ],
     "comparePage": "leadkaun-vs-zoho-crm"
   },
@@ -43,13 +71,41 @@
       "Tracks activity rather than buyer behaviour"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Behaviour-first: grades and ranks leads in real time.", "bestFor": "Teams wanting prioritisation without the weight of a marketing suite.", "watchOut": "Not a full marketing-automation platform.", "url": "/compare/leadkaun-vs-leadsquared" },
-      { "rank": 2, "name": "Kylas", "tagline": "India-first CRM, unlimited users.", "bestFor": "Growing teams that want flat pricing.", "watchOut": "Pricey for small teams; rule-based scoring.", "url": "/compare/leadkaun-vs-kylas" },
-      { "rank": 3, "name": "Zoho CRM", "tagline": "Customisable general CRM.", "bestFor": "Teams wanting deep customisation.", "watchOut": "Rep adoption is the usual hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Behaviour-first: grades and ranks leads in real time.",
+        "bestFor": "Teams wanting prioritisation without the weight of a marketing suite.",
+        "watchOut": "Not a full marketing-automation platform.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 2,
+        "name": "Kylas",
+        "tagline": "India-first CRM, unlimited users.",
+        "bestFor": "Growing teams that want flat pricing.",
+        "watchOut": "Pricey for small teams; rule-based scoring.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 3,
+        "name": "Zoho CRM",
+        "tagline": "Customisable general CRM.",
+        "bestFor": "Teams wanting deep customisation.",
+        "watchOut": "Rep adoption is the usual hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
     ],
     "faqs": [
-      { "q": "Why do teams switch from LeadSquared?", "a": "Usually because it's more platform than a lean B2B sales team needs, or the cost outgrows the value at their size. Lighter tools like Leadkaun focus purely on grading and prioritising leads." },
-      { "q": "Is Leadkaun a full LeadSquared replacement?", "a": "For the sales-behaviour layer, yes — grading, queueing, and ₹-at-risk. If you rely heavily on LeadSquared's marketing automation, you may keep that and add Leadkaun for prioritisation." }
+      {
+        "q": "Why do teams switch from LeadSquared?",
+        "a": "Usually because it's more platform than a lean B2B sales team needs, or the cost outgrows the value at their size. Lighter tools like Leadkaun focus purely on grading and prioritising leads."
+      },
+      {
+        "q": "Is Leadkaun a full LeadSquared replacement?",
+        "a": "For the sales-behaviour layer, yes — grading, queueing, and ₹-at-risk. If you rely heavily on LeadSquared's marketing automation, you may keep that and add Leadkaun for prioritisation."
+      }
     ],
     "comparePage": "leadkaun-vs-leadsquared"
   },
@@ -70,13 +126,41 @@
       "Marketing-first; the sales-behaviour layer is thinner"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Flat INR pricing; grades and ranks leads in real time.", "bestFor": "Indian SMB sales teams that want focus and rupee pricing.", "watchOut": "Not a marketing-automation suite.", "url": "/compare/leadkaun-vs-hubspot" },
-      { "rank": 2, "name": "Zoho CRM", "tagline": "Customisable, INR-priced, huge ecosystem.", "bestFor": "Teams wanting breadth at Indian pricing.", "watchOut": "Rep adoption hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 3, "name": "Freshsales", "tagline": "Clean CRM with built-in phone.", "bestFor": "Teams wanting a simple, affordable CRM.", "watchOut": "Opaque AI scoring.", "url": "/compare/leadkaun-vs-freshsales" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Flat INR pricing; grades and ranks leads in real time.",
+        "bestFor": "Indian SMB sales teams that want focus and rupee pricing.",
+        "watchOut": "Not a marketing-automation suite.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced, huge ecosystem.",
+        "bestFor": "Teams wanting breadth at Indian pricing.",
+        "watchOut": "Rep adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Teams wanting a simple, affordable CRM.",
+        "watchOut": "Opaque AI scoring.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
     ],
     "faqs": [
-      { "q": "Is there a cheaper HubSpot alternative in India?", "a": "Yes — Leadkaun bills flat in INR with a Free tier, and Zoho CRM and Freshsales are INR-priced per user. All avoid HubSpot's USD escalation for Indian teams." },
-      { "q": "What does Leadkaun do that HubSpot doesn't?", "a": "Real-time A–F lead grading with intent decay, an auto-ranked Priority Queue, ₹-denominated missed-revenue alerts, and WhatsApp as a first-class signal — built specifically for Indian B2B sales behaviour." }
+      {
+        "q": "Is there a cheaper HubSpot alternative in India?",
+        "a": "Yes — Leadkaun bills flat in INR with a Free tier, and Zoho CRM and Freshsales are INR-priced per user. All avoid HubSpot's USD escalation for Indian teams."
+      },
+      {
+        "q": "What does Leadkaun do that HubSpot doesn't?",
+        "a": "Real-time A–F lead grading with intent decay, an auto-ranked Priority Queue, ₹-denominated missed-revenue alerts, and WhatsApp as a first-class signal — built specifically for Indian B2B sales behaviour."
+      }
     ],
     "comparePage": "leadkaun-vs-hubspot"
   },
@@ -97,13 +181,41 @@
       "Opaque to front-line reps; long implementation"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "60-minute setup; grades and ranks leads out of the box.", "bestFor": "SMBs that want Salesforce-style prioritisation without the weight.", "watchOut": "Not an enterprise platform with unlimited customisation.", "url": "/compare/leadkaun-vs-salesforce" },
-      { "rank": 2, "name": "Zoho CRM", "tagline": "Customisable and INR-priced.", "bestFor": "Teams wanting breadth without enterprise cost.", "watchOut": "Adoption and setup overhead.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 3, "name": "Freshsales", "tagline": "Simple CRM with built-in phone.", "bestFor": "Teams wanting an easy start.", "watchOut": "Opaque scoring.", "url": "/compare/leadkaun-vs-freshsales" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "60-minute setup; grades and ranks leads out of the box.",
+        "bestFor": "SMBs that want Salesforce-style prioritisation without the weight.",
+        "watchOut": "Not an enterprise platform with unlimited customisation.",
+        "url": "/compare/leadkaun-vs-salesforce"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable and INR-priced.",
+        "bestFor": "Teams wanting breadth without enterprise cost.",
+        "watchOut": "Adoption and setup overhead.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "Freshsales",
+        "tagline": "Simple CRM with built-in phone.",
+        "bestFor": "Teams wanting an easy start.",
+        "watchOut": "Opaque scoring.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
     ],
     "faqs": [
-      { "q": "Is Salesforce worth it for a small team?", "a": "Usually not under ~200 reps — the cost, complexity, and implementation time outweigh the benefit. Lighter tools like Leadkaun deliver prioritisation and accountability without an admin team." },
-      { "q": "How fast can I switch from Salesforce?", "a": "Export your leads and deals to CSV; Leadkaun's 60-minute onboarding imports them and grades them immediately. Keep Salesforce read-only during a parallel run if you like." }
+      {
+        "q": "Is Salesforce worth it for a small team?",
+        "a": "Usually not under ~200 reps — the cost, complexity, and implementation time outweigh the benefit. Lighter tools like Leadkaun deliver prioritisation and accountability without an admin team."
+      },
+      {
+        "q": "How fast can I switch from Salesforce?",
+        "a": "Export your leads and deals to CSV; Leadkaun's 60-minute onboarding imports them and grades them immediately. Keep Salesforce read-only during a parallel run if you like."
+      }
     ],
     "comparePage": "leadkaun-vs-salesforce"
   },
@@ -124,13 +236,41 @@
       "Less India-specific behaviour tooling"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Transparent 3-score grading; flat INR pricing.", "bestFor": "Teams that want scoring reps can actually trust.", "watchOut": "No built-in dialer.", "url": "/compare/leadkaun-vs-freshsales" },
-      { "rank": 2, "name": "Zoho Bigin", "tagline": "Cheap, simple, native WhatsApp.", "bestFor": "Micro-teams on a budget.", "watchOut": "No real scoring engine.", "url": "/compare/leadkaun-vs-zoho-bigin" },
-      { "rank": 3, "name": "Kylas", "tagline": "India-first, unlimited users.", "bestFor": "Growing teams wanting flat pricing.", "watchOut": "Pricey for small teams.", "url": "/compare/leadkaun-vs-kylas" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Transparent 3-score grading; flat INR pricing.",
+        "bestFor": "Teams that want scoring reps can actually trust.",
+        "watchOut": "No built-in dialer.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho Bigin",
+        "tagline": "Cheap, simple, native WhatsApp.",
+        "bestFor": "Micro-teams on a budget.",
+        "watchOut": "No real scoring engine.",
+        "url": "/compare/leadkaun-vs-zoho-bigin"
+      },
+      {
+        "rank": 3,
+        "name": "Kylas",
+        "tagline": "India-first, unlimited users.",
+        "bestFor": "Growing teams wanting flat pricing.",
+        "watchOut": "Pricey for small teams.",
+        "url": "/compare/leadkaun-vs-kylas"
+      }
     ],
     "faqs": [
-      { "q": "Why switch from Freshsales?", "a": "Most often to get lead scoring you can see and tune, rather than an opaque AI number, or to move to flat pricing that doesn't grow per user. Leadkaun's three visible scores are built for exactly that." },
-      { "q": "Does Leadkaun have a free tier like Freshsales?", "a": "Yes — Leadkaun has a Free tier, so you can trial grading and the Priority Queue before paying, just as Freshsales offers a free plan." }
+      {
+        "q": "Why switch from Freshsales?",
+        "a": "Most often to get lead scoring you can see and tune, rather than an opaque AI number, or to move to flat pricing that doesn't grow per user. Leadkaun's three visible scores are built for exactly that."
+      },
+      {
+        "q": "Does Leadkaun have a free tier like Freshsales?",
+        "a": "Yes — Leadkaun has a Free tier, so you can trial grading and the Priority Queue before paying, just as Freshsales offers a free plan."
+      }
     ],
     "comparePage": "leadkaun-vs-freshsales"
   },
@@ -151,13 +291,41 @@
       "Native lead scoring / prioritisation is thin"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Flat INR; grades and ranks leads; native WhatsApp signal.", "bestFor": "Indian teams wanting rupee pricing and real prioritisation.", "watchOut": "Less of a classic visual-pipeline focus.", "url": "/compare/leadkaun-vs-pipedrive" },
-      { "rank": 2, "name": "Zoho CRM", "tagline": "Customisable, INR-priced.", "bestFor": "Teams wanting breadth at Indian pricing.", "watchOut": "Adoption hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 3, "name": "Freshsales", "tagline": "Clean CRM with built-in phone.", "bestFor": "Teams wanting simple + telephony.", "watchOut": "Opaque scoring.", "url": "/compare/leadkaun-vs-freshsales" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Flat INR; grades and ranks leads; native WhatsApp signal.",
+        "bestFor": "Indian teams wanting rupee pricing and real prioritisation.",
+        "watchOut": "Less of a classic visual-pipeline focus.",
+        "url": "/compare/leadkaun-vs-pipedrive"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced.",
+        "bestFor": "Teams wanting breadth at Indian pricing.",
+        "watchOut": "Adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Teams wanting simple + telephony.",
+        "watchOut": "Opaque scoring.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
     ],
     "faqs": [
-      { "q": "Is there an India-priced Pipedrive alternative?", "a": "Yes — Leadkaun bills flat in INR, and Zoho CRM and Freshsales are INR per-user. All avoid Pipedrive's USD billing and FX exposure for Indian teams." },
-      { "q": "Which Pipedrive alternative has native WhatsApp?", "a": "Leadkaun treats WhatsApp as a first-class 3-tap signal; Zoho Bigin and Kylas offer native WhatsApp too. Pipedrive itself needs a third-party integration." }
+      {
+        "q": "Is there an India-priced Pipedrive alternative?",
+        "a": "Yes — Leadkaun bills flat in INR, and Zoho CRM and Freshsales are INR per-user. All avoid Pipedrive's USD billing and FX exposure for Indian teams."
+      },
+      {
+        "q": "Which Pipedrive alternative has native WhatsApp?",
+        "a": "Leadkaun treats WhatsApp as a first-class 3-tap signal; Zoho Bigin and Kylas offer native WhatsApp too. Pipedrive itself needs a third-party integration."
+      }
     ],
     "comparePage": "leadkaun-vs-pipedrive"
   },
@@ -178,13 +346,41 @@
       "Deliberately limited for growing/complex B2B sales"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Adds grading, a Priority Queue, and ₹-at-risk.", "bestFor": "Teams that outgrew Bigin but want to keep flat pricing.", "watchOut": "No built-in dialer.", "url": "/compare/leadkaun-vs-zoho-bigin" },
-      { "rank": 2, "name": "Freshsales", "tagline": "Fuller CRM with built-in phone.", "bestFor": "Teams wanting more automation + telephony.", "watchOut": "Opaque scoring; per-user.", "url": "/compare/leadkaun-vs-freshsales" },
-      { "rank": 3, "name": "Kylas", "tagline": "India-first, unlimited users.", "bestFor": "Growing teams wanting flat pricing.", "watchOut": "Pricey at small sizes.", "url": "/compare/leadkaun-vs-kylas" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Adds grading, a Priority Queue, and ₹-at-risk.",
+        "bestFor": "Teams that outgrew Bigin but want to keep flat pricing.",
+        "watchOut": "No built-in dialer.",
+        "url": "/compare/leadkaun-vs-zoho-bigin"
+      },
+      {
+        "rank": 2,
+        "name": "Freshsales",
+        "tagline": "Fuller CRM with built-in phone.",
+        "bestFor": "Teams wanting more automation + telephony.",
+        "watchOut": "Opaque scoring; per-user.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      },
+      {
+        "rank": 3,
+        "name": "Kylas",
+        "tagline": "India-first, unlimited users.",
+        "bestFor": "Growing teams wanting flat pricing.",
+        "watchOut": "Pricey at small sizes.",
+        "url": "/compare/leadkaun-vs-kylas"
+      }
     ],
     "faqs": [
-      { "q": "When should I move on from Zoho Bigin?", "a": "When leads pile up without being prioritised, or you need scoring and multi-step automation Bigin doesn't offer. Leadkaun adds grading and a Priority Queue while staying flat-priced with a Free tier." },
-      { "q": "Is migration from Bigin hard?", "a": "No — export from Bigin as CSV and import into Leadkaun; the 60-minute onboarding handles ICP setup and Indian phone normalisation." }
+      {
+        "q": "When should I move on from Zoho Bigin?",
+        "a": "When leads pile up without being prioritised, or you need scoring and multi-step automation Bigin doesn't offer. Leadkaun adds grading and a Priority Queue while staying flat-priced with a Free tier."
+      },
+      {
+        "q": "Is migration from Bigin hard?",
+        "a": "No — export from Bigin as CSV and import into Leadkaun; the 60-minute onboarding handles ICP setup and Indian phone normalisation."
+      }
     ],
     "comparePage": "leadkaun-vs-zoho-bigin"
   },
@@ -205,13 +401,41 @@
       "Some users report initial setup is time-consuming"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Flat pricing (from Free) with real-time grading.", "bestFor": "Small teams that found Kylas's flat rate too high.", "watchOut": "No built-in dialer.", "url": "/compare/leadkaun-vs-kylas" },
-      { "rank": 2, "name": "Zoho CRM", "tagline": "Customisable, per-user INR.", "bestFor": "Teams wanting breadth and per-user flexibility.", "watchOut": "Adoption hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 3, "name": "TeleCRM", "tagline": "Telecalling + WhatsApp, low per-user cost.", "bestFor": "Calling-heavy teams.", "watchOut": "Per-user + add-ons; no intent grading.", "url": "/compare/leadkaun-vs-telecrm" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Flat pricing (from Free) with real-time grading.",
+        "bestFor": "Small teams that found Kylas's flat rate too high.",
+        "watchOut": "No built-in dialer.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, per-user INR.",
+        "bestFor": "Teams wanting breadth and per-user flexibility.",
+        "watchOut": "Adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "TeleCRM",
+        "tagline": "Telecalling + WhatsApp, low per-user cost.",
+        "bestFor": "Calling-heavy teams.",
+        "watchOut": "Per-user + add-ons; no intent grading.",
+        "url": "/compare/leadkaun-vs-telecrm"
+      }
     ],
     "faqs": [
-      { "q": "Is Kylas expensive for a small team?", "a": "It can be — the flat ~₹12,999/mo is designed for teams that add many users. For a 5–15 person team, Leadkaun's Growth tier (₹7,999) or Free tier is often cheaper." },
-      { "q": "Which alternative has better lead scoring than Kylas?", "a": "Leadkaun grades leads A–F on Fit × Intent × Quality in real time with intent decay, which is a different mechanism from Kylas's rule-based scoring." }
+      {
+        "q": "Is Kylas expensive for a small team?",
+        "a": "It can be — the flat ~₹12,999/mo is designed for teams that add many users. For a 5–15 person team, Leadkaun's Growth tier (₹7,999) or Free tier is often cheaper."
+      },
+      {
+        "q": "Which alternative has better lead scoring than Kylas?",
+        "a": "Leadkaun grades leads A–F on Fit × Intent × Quality in real time with intent decay, which is a different mechanism from Kylas's rule-based scoring."
+      }
     ],
     "comparePage": "leadkaun-vs-kylas"
   },
@@ -232,13 +456,41 @@
       "Geared to calling volume rather than B2B pipeline nuance"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Ranks who to call first; flat pricing.", "bestFor": "Calling teams whose bottleneck is priority, not dial speed.", "watchOut": "No built-in dialer — pair with a calling tool.", "url": "/compare/leadkaun-vs-telecrm" },
-      { "rank": 2, "name": "Kylas", "tagline": "India-first CRM, unlimited users.", "bestFor": "Growing teams wanting a fuller CRM.", "watchOut": "Pricey for small teams.", "url": "/compare/leadkaun-vs-kylas" },
-      { "rank": 3, "name": "Zoho CRM", "tagline": "Customisable CRM with telephony integrations.", "bestFor": "Teams wanting breadth.", "watchOut": "Adoption overhead.", "url": "/compare/leadkaun-vs-zoho-crm" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Ranks who to call first; flat pricing.",
+        "bestFor": "Calling teams whose bottleneck is priority, not dial speed.",
+        "watchOut": "No built-in dialer — pair with a calling tool.",
+        "url": "/compare/leadkaun-vs-telecrm"
+      },
+      {
+        "rank": 2,
+        "name": "Kylas",
+        "tagline": "India-first CRM, unlimited users.",
+        "bestFor": "Growing teams wanting a fuller CRM.",
+        "watchOut": "Pricey for small teams.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 3,
+        "name": "Zoho CRM",
+        "tagline": "Customisable CRM with telephony integrations.",
+        "bestFor": "Teams wanting breadth.",
+        "watchOut": "Adoption overhead.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
     ],
     "faqs": [
-      { "q": "Does Leadkaun replace TeleCRM?", "a": "They solve different problems — TeleCRM maximises dialing; Leadkaun decides which lead deserves the next call by grading intent. Many calling teams run both together." },
-      { "q": "Which TeleCRM alternative has flat pricing?", "a": "Leadkaun and Kylas are flat-priced. Leadkaun's flat per-account price doesn't grow with headcount or add-ons the way TeleCRM's per-user plus extras can." }
+      {
+        "q": "Does Leadkaun replace TeleCRM?",
+        "a": "They solve different problems — TeleCRM maximises dialing; Leadkaun decides which lead deserves the next call by grading intent. Many calling teams run both together."
+      },
+      {
+        "q": "Which TeleCRM alternative has flat pricing?",
+        "a": "Leadkaun and Kylas are flat-priced. Leadkaun's flat per-account price doesn't grow with headcount or add-ons the way TeleCRM's per-user plus extras can."
+      }
     ],
     "comparePage": "leadkaun-vs-telecrm"
   },
@@ -259,14 +511,207 @@
       "USD pricing; sales intelligence gated on higher tiers"
     ],
     "alternatives": [
-      { "rank": 1, "name": "Leadkaun", "isLeadkaun": true, "tagline": "Focused sales-behaviour tool reps actually use.", "bestFor": "Teams that want the sales job done without an all-in-one suite.", "watchOut": "Not an all-in-one (no projects/intranet).", "url": "/compare/leadkaun-vs-bitrix24" },
-      { "rank": 2, "name": "Zoho CRM", "tagline": "Customisable, INR-priced.", "bestFor": "Teams wanting breadth at Indian pricing.", "watchOut": "Adoption hurdle.", "url": "/compare/leadkaun-vs-zoho-crm" },
-      { "rank": 3, "name": "Freshsales", "tagline": "Clean CRM with built-in phone.", "bestFor": "Teams wanting simple + telephony.", "watchOut": "Opaque scoring.", "url": "/compare/leadkaun-vs-freshsales" }
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Focused sales-behaviour tool reps actually use.",
+        "bestFor": "Teams that want the sales job done without an all-in-one suite.",
+        "watchOut": "Not an all-in-one (no projects/intranet).",
+        "url": "/compare/leadkaun-vs-bitrix24"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced.",
+        "bestFor": "Teams wanting breadth at Indian pricing.",
+        "watchOut": "Adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Teams wanting simple + telephony.",
+        "watchOut": "Opaque scoring.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
     ],
     "faqs": [
-      { "q": "Why do sales teams leave Bitrix24?", "a": "Usually because its breadth makes it complex and reps disengage, or setup drags on. A focused tool like Leadkaun gets a graded lead into the queue within the first hour." },
-      { "q": "Is there a simpler Bitrix24 alternative?", "a": "Yes — Leadkaun does grading, prioritisation, and ₹-at-risk with 3-tap logging; Zoho CRM and Freshsales are simpler than Bitrix24 for pure sales use." }
+      {
+        "q": "Why do sales teams leave Bitrix24?",
+        "a": "Usually because its breadth makes it complex and reps disengage, or setup drags on. A focused tool like Leadkaun gets a graded lead into the queue within the first hour."
+      },
+      {
+        "q": "Is there a simpler Bitrix24 alternative?",
+        "a": "Yes — Leadkaun does grading, prioritisation, and ₹-at-risk with 3-tap logging; Zoho CRM and Freshsales are simpler than Bitrix24 for pure sales use."
+      }
     ],
     "comparePage": "leadkaun-vs-bitrix24"
+  },
+  {
+    "slug": "monday",
+    "name": "monday CRM",
+    "metaTitle": "6 Best monday CRM Alternatives for Indian Teams (2026)",
+    "metaDescription": "Looking for a monday CRM alternative in India? Honest picks — flat INR instead of USD per-seat, native WhatsApp, and built-in lead scoring.",
+    "h1": "Best monday CRM Alternatives (2026)",
+    "intro": "monday CRM is a flexible no-code Work OS, but Indian teams look elsewhere when USD per-seat pricing (with a 3-seat minimum) adds up, or they want lead scoring built in rather than assembled by hand. Here are honest, India-fit alternatives.",
+    "quickAnswer": {
+      "question": "What is the best monday CRM alternative in India?",
+      "answer": "For Indian B2B teams, Leadkaun is a strong monday CRM alternative — flat INR pricing instead of USD per-seat, A–F lead grading out of the box, and WhatsApp as a first-class signal. Zoho CRM and Freshsales are also solid, India-priced options."
+    },
+    "whyLookElsewhere": [
+      "USD per-seat with a 3-seat minimum — pricey for small INR teams",
+      "No native WhatsApp — only via third-party connectors",
+      "No built-in lead grading — you construct scoring by hand"
+    ],
+    "alternatives": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Flat INR; grades and ranks leads out of the box.",
+        "bestFor": "Teams that left monday over USD pricing or DIY scoring.",
+        "watchOut": "Not a general work-management platform.",
+        "url": "/compare/leadkaun-vs-monday"
+      },
+      {
+        "rank": 2,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced.",
+        "bestFor": "Teams wanting breadth at Indian pricing.",
+        "watchOut": "Rep adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      },
+      {
+        "rank": 3,
+        "name": "Freshsales",
+        "tagline": "Clean CRM with built-in phone.",
+        "bestFor": "Teams wanting simple + telephony.",
+        "watchOut": "Opaque AI scoring.",
+        "url": "/compare/leadkaun-vs-freshsales"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why switch from monday CRM?",
+        "a": "Usually to escape USD per-seat pricing with a 3-seat minimum, or to get real lead grading instead of formulas you maintain yourself. Leadkaun bills flat in INR and grades leads out of the box."
+      },
+      {
+        "q": "Is monday CRM good for lead scoring?",
+        "a": "Not natively — you build scoring with formula columns and automations. Leadkaun grades A–F on Fit × Intent × Quality in under 500ms automatically."
+      }
+    ],
+    "comparePage": "leadkaun-vs-monday"
+  },
+  {
+    "slug": "close",
+    "name": "Close",
+    "metaTitle": "6 Best Close CRM Alternatives for Indian Teams (2026)",
+    "metaDescription": "Looking for a Close alternative in India? Honest picks — flat INR instead of USD per-seat + usage, native WhatsApp, and behaviour-based lead grading.",
+    "h1": "Best Close CRM Alternatives (2026)",
+    "intro": "Close is a strong inside-sales CRM with native calling, but Indian teams look elsewhere when USD per-seat plus usage-based call/SMS costs stack up, or they want WhatsApp as a first-class signal. Here are honest alternatives.",
+    "quickAnswer": {
+      "question": "What is the best Close CRM alternative in India?",
+      "answer": "For Indian B2B teams, Leadkaun is a strong Close alternative — flat INR pricing with no per-minute costs, A–F lead grading, and WhatsApp as a first-class signal. TeleCRM suits high-volume dialing, and Zoho CRM offers broad customisation."
+    },
+    "whyLookElsewhere": [
+      "USD per-seat plus usage-based call/SMS costs",
+      "WhatsApp is not native — only via integrations",
+      "No opinionated A–F grading with intent decay"
+    ],
+    "alternatives": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Flat INR; grades and ranks inbound leads.",
+        "bestFor": "Teams that left Close over USD + usage costs.",
+        "watchOut": "No built-in dialer — pair with a calling tool.",
+        "url": "/compare/leadkaun-vs-close"
+      },
+      {
+        "rank": 2,
+        "name": "TeleCRM",
+        "tagline": "Telecalling + WhatsApp, low per-user cost.",
+        "bestFor": "High-volume calling teams wanting a dialer.",
+        "watchOut": "Per-user + add-ons; no intent grading.",
+        "url": "/compare/leadkaun-vs-telecrm"
+      },
+      {
+        "rank": 3,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced.",
+        "bestFor": "Teams wanting breadth and telephony integrations.",
+        "watchOut": "Adoption overhead.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Why switch from Close?",
+        "a": "Most often to escape USD per-seat plus usage-based calling costs, or to make WhatsApp a first-class channel. Leadkaun bills flat in INR with no per-minute costs."
+      },
+      {
+        "q": "Does Leadkaun have a dialer like Close?",
+        "a": "No built-in dialer today — that's genuinely Close's strength. Leadkaun logs call outcomes in 3 taps and feeds them into scoring; calling-heavy teams sometimes run both."
+      }
+    ],
+    "comparePage": "leadkaun-vs-close"
+  },
+  {
+    "slug": "selldo",
+    "name": "Sell.Do",
+    "metaTitle": "5 Best Sell.Do Alternatives (2026) — Real Estate & Beyond",
+    "metaDescription": "Looking for a Sell.Do alternative? Honest picks — for real estate and for horizontal B2B, with transparent pricing and flexible lead grading.",
+    "h1": "Best Sell.Do Alternatives (2026)",
+    "intro": "Sell.Do is a deep, real-estate-specific CRM, but teams look elsewhere when they need a horizontal tool across industries, transparent pricing instead of quote-only, or a lighter behaviour layer. Here are honest alternatives.",
+    "quickAnswer": {
+      "question": "What is the best Sell.Do alternative?",
+      "answer": "For teams that need lead grading across industries (not just real estate) with transparent flat pricing, Leadkaun is a strong Sell.Do alternative. Kylas (from the same makers) is a horizontal option, and Zoho CRM is broadly customisable."
+    },
+    "whyLookElsewhere": [
+      "Built around real-estate workflows — overkill for general B2B",
+      "Quote-only pricing with no public tiers",
+      "Scoring is real-estate-buyer-intent, not a horizontal A–F grade"
+    ],
+    "alternatives": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Horizontal A–F grading, transparent flat pricing.",
+        "bestFor": "Teams needing lead grading across industries, not just real estate.",
+        "watchOut": "Not a real-estate ERP with booking/inventory.",
+        "url": "/compare/leadkaun-vs-selldo"
+      },
+      {
+        "rank": 2,
+        "name": "Kylas",
+        "tagline": "India-first horizontal CRM, unlimited users.",
+        "bestFor": "Teams wanting a broad CRM at flat pricing.",
+        "watchOut": "Pricey for small teams; rule-based scoring.",
+        "url": "/compare/leadkaun-vs-kylas"
+      },
+      {
+        "rank": 3,
+        "name": "Zoho CRM",
+        "tagline": "Customisable, INR-priced.",
+        "bestFor": "Teams wanting to configure their own pipeline.",
+        "watchOut": "Adoption hurdle.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Sell.Do or Leadkaun for real estate?",
+        "a": "Sell.Do is deeply real-estate-specific and suits larger developers. Leadkaun is lighter and focused on grading enquiries and fixing response time — often a better fit for brokers and mid-size teams, and it works across industries too."
+      },
+      {
+        "q": "How transparent is the pricing?",
+        "a": "Leadkaun publishes flat INR tiers; Sell.Do is quote-based with no public pricing, which makes direct comparison harder."
+      }
+    ],
+    "comparePage": "leadkaun-vs-selldo"
   }
 ]

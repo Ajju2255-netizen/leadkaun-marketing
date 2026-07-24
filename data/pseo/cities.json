@@ -3576,7 +3576,9 @@
       "manufacturing",
       "retail"
     ],
-    "notes": "Seed and cotton trade town"
+    "notes": "Seed and cotton trade town",
+    "districts": "PB Road, APMC Yard, Halageri Road",
+    "localBiz": "Hybrid seed-processing hub and cotton trade"
   },
   {
     "slug": "angul",
@@ -3594,7 +3596,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Coal, aluminium and power belt"
+    "notes": "Coal, aluminium and power belt",
+    "districts": "NALCO Nagar, Talcher Road, Similipada",
+    "localBiz": "NALCO aluminium, MCL coal, and thermal-power industrial belt"
   },
   {
     "slug": "bhatpara",
@@ -7906,7 +7910,9 @@
       "hospitality",
       "agencies"
     ],
-    "notes": "Pilgrimage town on the Ganga"
+    "notes": "Pilgrimage town on the Ganga",
+    "districts": "Nabadwip Ghat, Poramatala, Prannath Road",
+    "localBiz": "Vaishnav pilgrimage economy, sweets, and terracotta crafts"
   },
   {
     "slug": "jagdalpur",
@@ -8061,7 +8067,9 @@
       "agencies",
       "education"
     ],
-    "notes": "District HQ"
+    "notes": "District HQ",
+    "districts": "Hatmoor, Deshbandhu Road, Ranchi Road",
+    "localBiz": "Purulia district administration with lac and tussar-silk trade"
   },
   {
     "slug": "churu",
@@ -8433,7 +8441,9 @@
       "agencies",
       "healthcare"
     ],
-    "notes": "Handloom and growing district HQ"
+    "notes": "Handloom and growing district HQ",
+    "districts": "Bus Stand area, Komati Cheruvu, Housing Board Colony",
+    "localBiz": "Handloom (Gollabhama saree) weaving and fast-growing district administration"
   },
   {
     "slug": "gangapur-city",
@@ -8469,7 +8479,9 @@
       "agencies",
       "manufacturing"
     ],
-    "notes": "District HQ in central Tamil Nadu"
+    "notes": "District HQ in central Tamil Nadu",
+    "districts": "Santhanathapuram, Thirumayam Road, Big Bazaar Street",
+    "localBiz": "District administration, temple heritage, and agri-trade"
   },
   {
     "slug": "adilabad",
@@ -8488,7 +8500,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "Cotton and forest district HQ"
+    "notes": "Cotton and forest district HQ",
+    "districts": "RTC Complex, Mavala Road, Old Town",
+    "localBiz": "Cotton trade and forest-district agri-commerce"
   },
   {
     "slug": "sri-muktsar-sahib",
@@ -8506,7 +8520,9 @@
       "retail",
       "hospitality"
     ],
-    "notes": "Maghi Mela pilgrimage town"
+    "notes": "Maghi Mela pilgrimage town",
+    "districts": "Kotkapura Road, Sadar Bazaar, Gurudwara area",
+    "localBiz": "Maghi Mela pilgrimage economy and cotton-wheat agri-trade"
   },
   {
     "slug": "hosur",
@@ -8564,7 +8580,9 @@
       "education",
       "hospitality"
     ],
-    "notes": "Mayurbhanj district HQ"
+    "notes": "Mayurbhanj district HQ",
+    "districts": "Bhanjpur, Traffic Square, Takatpur",
+    "localBiz": "Mayurbhanj district administration, Similipal tourism, and sabai-grass crafts"
   },
   {
     "slug": "sahibganj",
@@ -8583,7 +8601,9 @@
       "manufacturing",
       "education"
     ],
-    "notes": "Ganga river port town"
+    "notes": "Ganga river port town",
+    "districts": "Station Road, Multi-modal Terminal area, Sakrigali",
+    "localBiz": "Ganga river-port trade (multi-modal terminal) and stone-chip industry"
   },
   {
     "slug": "chittorgarh",
@@ -8602,7 +8622,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Chittorgarh Fort, largest fort in India"
+    "notes": "Chittorgarh Fort, largest fort in India",
+    "districts": "Chittorgarh Fort area, Sadar Bazaar, Pratap Nagar",
+    "localBiz": "Chittorgarh Fort heritage tourism, cement units, and district agri-trade"
   },
   {
     "slug": "barnala",
@@ -8620,7 +8642,9 @@
       "agencies",
       "retail"
     ],
-    "notes": "Trident textiles hub"
+    "notes": "Trident textiles hub",
+    "districts": "Handiaya Road, Trident complex area, Sadar Bazaar",
+    "localBiz": "Trident textile and paper manufacturing plus cotton trade"
   },
   {
     "slug": "ballia",
@@ -8656,7 +8680,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Leather and footwear export cluster"
+    "notes": "Leather and footwear export cluster",
+    "districts": "SIPCOT area, Pernambut Road, Melvisharam Road",
+    "localBiz": "Leather and footwear export cluster — a major Tamil Nadu tanning belt"
   },
   {
     "slug": "osmanabad",
@@ -8763,7 +8789,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Leather tanning and export center"
+    "notes": "Leather tanning and export center",
+    "districts": "Udayendram, Pallikonda Road, Ambur Road",
+    "localBiz": "Leather tanning and finished-leather export center"
   },
   {
     "slug": "theni",
@@ -8798,7 +8826,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Rig boring and drilling equipment industry"
+    "notes": "Rig boring and drilling equipment industry",
+    "districts": "Sankagiri Road, Pallipalayam, Elampillai Road",
+    "localBiz": "Borewell rig and drilling-equipment manufacturing plus textile units"
   },
   {
     "slug": "ranebennuru",
@@ -8818,7 +8848,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Seed-processing and cotton-trade town"
+    "notes": "Seed-processing and cotton-trade town",
+    "districts": "PB Road, APMC Yard, Halageri Road",
+    "localBiz": "Hybrid seed-processing hub and cotton trade"
   },
   {
     "slug": "tadipatri",
@@ -8838,7 +8870,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Cement-manufacturing cluster and temple town"
+    "notes": "Cement-manufacturing cluster and temple town",
+    "districts": "Anantapur Road, Bus Stand area, Old Town temple quarter",
+    "localBiz": "Cement-manufacturing cluster, granite processing, and temple tourism"
   },
   {
     "slug": "jagtial",
@@ -8858,7 +8892,9 @@
       "logistics",
       "healthcare"
     ],
-    "notes": "Rice and maize trade district HQ"
+    "notes": "Rice and maize trade district HQ",
+    "districts": "Market Yard, Kodimial Road, Bus Stand area",
+    "localBiz": "Rice and maize milling and trade for the district"
   },
   {
     "slug": "bodhan",
@@ -8878,7 +8914,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Sugar-factory town in Nizamabad district"
+    "notes": "Sugar-factory town in Nizamabad district",
+    "districts": "Sugar Factory area, Salampad, Bus Stand area",
+    "localBiz": "Sugar-factory town (Nizam Sugars) with agri-processing"
   },
   {
     "slug": "buldhana",
@@ -8965,7 +9003,9 @@
       "education",
       "manufacturing"
     ],
-    "notes": "District HQ, sugar belt"
+    "notes": "District HQ, sugar belt",
+    "districts": "Civil Lines, Nehtaur Road, Station Road",
+    "localBiz": "Sugarcane belt with multiple sugar mills and agri-trade"
   },
   {
     "slug": "shamli",
@@ -8984,7 +9024,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "District HQ, sugar mill town"
+    "notes": "District HQ, sugar mill town",
+    "districts": "Bhagwan Chowk, Jhinjhana Road, Railway Road",
+    "localBiz": "Sugar-mill town and western-UP agri-trade"
   },
   {
     "slug": "baraut",
@@ -9002,7 +9044,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Sugar town in Baghpat district"
+    "notes": "Sugar town in Baghpat district",
+    "districts": "Delhi Road, Chhaprauli Road, Station Road",
+    "localBiz": "Sugarcane processing and agri-trade in Baghpat district"
   },
   {
     "slug": "shikohabad",
@@ -9021,7 +9065,9 @@
       "agencies",
       "logistics"
     ],
-    "notes": "Glass-industry town in Firozabad dist"
+    "notes": "Glass-industry town in Firozabad dist",
+    "districts": "Station Road, Agra Road, Railway quarter",
+    "localBiz": "Glass and bangle work linked to the Firozabad cluster, plus a sugar mill"
   },
   {
     "slug": "ambikapur",
@@ -9040,7 +9086,9 @@
       "education",
       "healthcare"
     ],
-    "notes": "Surguja division headquarters"
+    "notes": "Surguja division headquarters",
+    "districts": "Gandhi Chowk, Sanjay Nagar, Brahmapara",
+    "localBiz": "Surguja division administration and forest-belt agri-trade"
   },
   {
     "slug": "bangaon",
@@ -9059,7 +9107,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Border town near Petrapole"
+    "notes": "Border town near Petrapole",
+    "districts": "Petrapole Road, T-Bazar, Naopara",
+    "localBiz": "India–Bangladesh border trade (Petrapole) and agri-market commerce"
   },
   {
     "slug": "sehore",
@@ -9095,7 +9145,9 @@
       "manufacturing",
       "logistics"
     ],
-    "notes": "District HQ"
+    "notes": "District HQ",
+    "districts": "Charampa, Bus Stand area, Puruna Bazaar",
+    "localBiz": "District administration, rice trade, and small-scale industry"
   },
   {
     "slug": "jalpaiguri",
@@ -9114,7 +9166,9 @@
       "education",
       "bfsi"
     ],
-    "notes": "District HQ, tea region gateway"
+    "notes": "District HQ, tea region gateway",
+    "districts": "Dinbazar, Kadamtala, Station Road",
+    "localBiz": "Dooars tea-region gateway and district administration"
   },
   {
     "slug": "karaikudi",
@@ -9192,7 +9246,9 @@
       "education",
       "agencies"
     ],
-    "notes": "Highway commerce town, district HQ"
+    "notes": "Highway commerce town, district HQ",
+    "districts": "NH-65 corridor, Bus Stand area, Old Town",
+    "localBiz": "Highway (NH-65) commerce and district administrative trade"
   },
   {
     "slug": "dausa",
@@ -9228,7 +9284,9 @@
       "logistics",
       "education"
     ],
-    "notes": "Railway workshop town"
+    "notes": "Railway workshop town",
+    "districts": "Railway Workshop area, Institute area, Station Road",
+    "localBiz": "Jamalpur Railway Workshop (one of India's oldest) and railway-town trade"
   },
   {
     "slug": "akbarpur",
@@ -9263,7 +9321,9 @@
       "retail",
       "logistics"
     ],
-    "notes": "Site of the historic 1764 Battle of Buxar"
+    "notes": "Site of the historic 1764 Battle of Buxar",
+    "districts": "Ramrekha Ghat, Station Road, Civil Lines",
+    "localBiz": "Ganga-side pilgrimage and district agri-trade"
   },
   {
     "slug": "mettupalayam",
@@ -9299,7 +9359,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Hill station and tourist destination in the Nilgiris"
+    "notes": "Hill station and tourist destination in the Nilgiris",
+    "districts": "Charing Cross, Ooty Lake area, Botanical Garden Road",
+    "localBiz": "Nilgiris hill-station tourism, tea estates, and horticulture"
   },
   {
     "slug": "villupuram",
@@ -9317,7 +9379,9 @@
       "agencies",
       "retail"
     ],
-    "notes": "Major railway junction"
+    "notes": "Major railway junction",
+    "districts": "Railway Junction area, Kandamangalam Road, Tindivanam Road",
+    "localBiz": "Major railway junction with sugar mills and agri-trade"
   },
   {
     "slug": "amaravati",
@@ -9357,7 +9421,9 @@
       "logistics",
       "retail"
     ],
-    "notes": "Pharma corridor and IIT Hyderabad district"
+    "notes": "Pharma corridor and IIT Hyderabad district",
+    "districts": "Kandi (IIT Hyderabad), Patancheru pharma belt, Bus Stand area",
+    "localBiz": "Pharma-manufacturing corridor (Patancheru) and IIT Hyderabad academic hub"
   },
   {
     "slug": "mancherial",
@@ -9376,7 +9442,9 @@
       "retail",
       "education"
     ],
-    "notes": "Coal mining and cement town"
+    "notes": "Coal mining and cement town",
+    "districts": "RTC Complex, Naspur, Godavarikhani Road",
+    "localBiz": "Coal-mining (SCCL) and cement-town economy"
   },
   {
     "slug": "tadepalligudem",
@@ -9395,7 +9463,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Agri-university and rice mills"
+    "notes": "Agri-university and rice mills",
+    "districts": "RTC Complex, Nidadavolu Road, Power Peta",
+    "localBiz": "Rice milling, aquaculture trade, and an agricultural-university township"
   },
   {
     "slug": "jhumri-telaiya",
@@ -9414,7 +9484,9 @@
       "education",
       "logistics"
     ],
-    "notes": "Koderma district mica belt"
+    "notes": "Koderma district mica belt",
+    "districts": "Main Bazaar, Jhumri Telaiya, Tilaiya Dam area",
+    "localBiz": "Koderma mica-belt trade and Tilaiya-dam-side commerce"
   },
   {
     "slug": "betul",
@@ -9451,7 +9523,9 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "Coastal port and fishing district HQ"
+    "notes": "Coastal port and fishing district HQ",
+    "districts": "Harbour area, Kamaraj Salai, Velippalayam",
+    "localBiz": "Coastal fishing, minor-port trade, and salt production"
   },
   {
     "slug": "madhubani",
@@ -9470,7 +9544,9 @@
       "agencies",
       "hospitality"
     ],
-    "notes": "Mithila painting heartland"
+    "notes": "Mithila painting heartland",
+    "districts": "Station Road, Rahika, Watson School area",
+    "localBiz": "Madhubani (Mithila) painting craft economy and agri-trade"
   },
   {
     "slug": "nagaur",
@@ -9507,7 +9583,9 @@
       "agencies",
       "education"
     ],
-    "notes": "Murshidabad silk belt"
+    "notes": "Murshidabad silk belt",
+    "districts": "Raghunathganj, Ferry Ghat, Bansabati",
+    "localBiz": "Beedi rolling and Murshidabad silk-belt trade"
   },
   {
     "slug": "tezpur",
@@ -9526,7 +9604,9 @@
       "retail",
       "agencies"
     ],
-    "notes": "Sonitpur district HQ, university"
+    "notes": "Sonitpur district HQ, university",
+    "districts": "Chowk Bazaar, Mission Chariali, Tezpur University area",
+    "localBiz": "Sonitpur district administration, tea estates, and a university township"
   },
   {
     "slug": "seoni",
@@ -9562,7 +9642,9 @@
       "healthcare",
       "agencies"
     ],
-    "notes": "Yoga and tourism hub"
+    "notes": "Yoga and tourism hub",
+    "districts": "Laxman Jhula, Ram Jhula, Tapovan",
+    "localBiz": "Yoga and adventure-tourism hub on the Ganga — ashrams, rafting, and hospitality"
   },
   {
     "slug": "udhampur",

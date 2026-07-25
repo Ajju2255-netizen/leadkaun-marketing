@@ -186,13 +186,13 @@ export function ConversionPopup() {
       >
         <div className="flex flex-col sm:flex-row">
           {/* ── Left: model photo (Grade-A / ₹-at-risk chips baked in) ──────── */}
-          <div className="relative h-[210px] w-full shrink-0 overflow-hidden bg-slate-100 sm:h-auto sm:w-[41%]">
+          <div className="relative w-full shrink-0 overflow-hidden bg-slate-100 sm:w-[41%]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/popup-hero.jpg"
               alt="A Leadkaun sales rep at her desk"
               draggable={false}
-              className="absolute inset-0 h-full w-full select-none object-cover object-[center_22%] sm:object-center"
+              className="block h-[210px] w-full select-none object-cover object-[center_22%] sm:h-auto sm:object-cover"
             />
           </div>
 
@@ -217,9 +217,11 @@ export function ConversionPopup() {
             </h2>
 
             <p className="mt-3.5 text-[14px] leading-[1.55] text-ink-soft">
-              Leadkaun grades every lead <span className="font-medium text-sky-600">A–F</span>, builds each
-              rep&apos;s Priority Queue, and flags the <span className="font-medium text-sky-600">₹</span> you&apos;re
-              about to lose — live in about 60 minutes.
+              Leadkaun grades every lead{" "}
+              <span className="font-medium text-sky-600">A–F</span>, builds each rep&apos;s Priority
+              Queue, and flags the{" "}
+              <span className="font-medium text-sky-600">₹</span> you&apos;re about to lose — live in
+              about 60 minutes.
             </p>
 
             <ul className="mt-5 flex flex-col gap-2.5">
@@ -239,7 +241,7 @@ export function ConversionPopup() {
                 onClick={() => onCta("register")}
                 className="w-full justify-center"
               >
-                Start free — no card <ArrowRight className="h-4 w-4" />
+                Start free <ArrowRight className="h-4 w-4" />
               </GlossLink>
               <a
                 href="/pricing"
@@ -250,7 +252,7 @@ export function ConversionPopup() {
               </a>
             </div>
 
-            <p className="mt-5 text-[12px] text-ink-muted">
+            <p className="mt-5 text-center text-[12px] text-ink-muted">
               Free tier · No credit card · Cancel anytime
             </p>
           </div>

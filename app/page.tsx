@@ -24,6 +24,7 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
 import { HeroSignupCard } from "@/app/components/hero-signup"
+import { PlatformShowcase } from "@/app/components/platform-showcase"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -66,6 +67,7 @@ export default function HomePage() {
       <Navbar />
 
       <Hero />
+      <PlatformShowcase />
       <EditorialStatement />
       <Problem />
       <HowItWorks />

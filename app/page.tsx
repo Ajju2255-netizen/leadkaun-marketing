@@ -112,7 +112,7 @@ function Hero() {
               </span>
             </div>
 
-            <h1 className="mt-7 text-[40px] font-semibold leading-[1.02] tracking-[-0.04em] text-ink md:text-[62px]">
+            <h1 className="mt-7 font-serif text-[42px] font-medium leading-[1.06] tracking-[-0.015em] text-ink md:text-[60px]">
               Tell every rep{" "}
               <span
                 className="bg-clip-text text-transparent"
@@ -152,6 +152,32 @@ function Hero() {
             <HeroSignupCard />
           </div>
 
+        </div>
+
+        {/* Activity strip — the system at work (editorial status cards) */}
+        <div className="mt-12 overflow-hidden rounded-2xl glass-2 gloss-edge elevate-1 sm:flex">
+          {[
+            { icon: BarChart3,     label: "Lead graded A" },
+            { icon: ListOrdered,   label: "Added to Priority Queue" },
+            { icon: AlertTriangle, label: "₹ at risk flagged" },
+          ].map(({ icon: Icon, label }, i) => (
+            <div
+              key={label}
+              className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
+              style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
+                <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
+              </span>
+              <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
+              <span
+                className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
+                style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
+              >
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
+              </span>
+            </div>
+          ))}
         </div>
 
         {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}
@@ -221,7 +247,7 @@ function Problem() {
         <Reveal className="grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <NumberedTag number="01" label="The Problem" />
-            <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+            <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
               Your CRM tells you what happened.<br />
               Leadkaun tells your team{" "}
               <span
@@ -296,7 +322,7 @@ function HowItWorks() {
       <Container>
         <Reveal className="mb-12 md:mb-16">
           <NumberedTag number="02" label="How it works" tone="warm" />
-          <h2 className="mt-5 max-w-2xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 max-w-2xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             Three moves. That&apos;s it.
           </h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft md:text-[18px]">
@@ -389,7 +415,7 @@ function Modules() {
       <Container>
         <Reveal className="mb-12 md:mb-16">
           <NumberedTag number="03" label="The Product" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             Twelve live modules. One behaviour system.
           </h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft md:text-[18px]">
@@ -435,7 +461,7 @@ function NotACRM() {
       <Container>
         <Reveal className="mb-12 md:mb-16">
           <NumberedTag number="04" label="This is not a CRM" tone="warm" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             What Leadkaun does that your CRM doesn&apos;t.
           </h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
@@ -479,7 +505,7 @@ function Industries() {
       <Container>
         <Reveal className="mb-12 md:mb-14">
           <NumberedTag number="05" label="By Industry" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             Built for the Indian sales reality.
           </h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
@@ -507,7 +533,7 @@ function Testimonials() {
       <Container>
         <Reveal className="mb-12 md:mb-14 max-w-3xl">
           <NumberedTag number="06" label="What it recovers" tone="warm" />
-          <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             The money that slips — and what a queue-first system claws back.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
@@ -545,7 +571,7 @@ function Pricing() {
       <Container className="relative">
         <Reveal className="mb-12 md:mb-16 max-w-3xl">
           <NumberedTag number="07" label="Pricing" />
-          <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
             Start free. Grow into more sales.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
@@ -644,7 +670,7 @@ function FaqBlock() {
           <div className="flex justify-center">
             <NumberedTag number="08" label="FAQ" tone="warm" />
           </div>
-          <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
+          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[40px]">
             Common questions.
           </h2>
         </Reveal>

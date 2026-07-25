@@ -155,30 +155,46 @@ function Hero() {
 
         </div>
 
-        {/* Activity strip — the system at work (editorial status cards) */}
-        <div className="mt-12 overflow-hidden rounded-2xl glass-2 gloss-edge elevate-1 sm:flex">
-          {[
-            { icon: BarChart3,     label: "Lead graded A" },
-            { icon: ListOrdered,   label: "Added to Priority Queue" },
-            { icon: AlertTriangle, label: "₹ at risk flagged" },
-          ].map(({ icon: Icon, label }, i) => (
-            <div
-              key={label}
-              className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
-              style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
-            >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
-                <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
-              </span>
-              <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
-              <span
-                className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
-                style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
-              >
-                <Check className="h-3 w-3 text-white" strokeWidth={3} />
-              </span>
+        {/* Immersive banner — the product in context (misty valley at sunrise) */}
+        <div className="relative mt-14 md:mt-16">
+          <div className="overflow-hidden rounded-[28px] border border-white/60 gloss-edge elevate-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/hero-banner.webp"
+              alt="A sales leader working in Leadkaun, overlooking a misty valley at sunrise"
+              width={1720}
+              height={914}
+              className="block w-full"
+            />
+          </div>
+
+          {/* Activity status cards overlapping the banner's lower edge */}
+          <div className="relative z-10 mx-auto -mt-9 w-[92%] max-w-4xl md:-mt-12">
+            <div className="overflow-hidden rounded-2xl glass-3 gloss-edge elevate-3 sm:flex">
+              {[
+                { icon: BarChart3,     label: "Lead graded A" },
+                { icon: ListOrdered,   label: "Added to Priority Queue" },
+                { icon: AlertTriangle, label: "₹ at risk flagged" },
+              ].map(({ icon: Icon, label }, i) => (
+                <div
+                  key={label}
+                  className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
+                  style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
+                >
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
+                    <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
+                  </span>
+                  <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
+                  <span
+                    className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
+                    style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
+                  >
+                    <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}

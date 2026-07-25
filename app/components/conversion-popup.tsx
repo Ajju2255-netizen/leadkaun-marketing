@@ -74,17 +74,30 @@ export function ConversionPopup() {
     return true
   }, [excluded])
 
-  const fire = useCallback(() => {
-    if (firedRef.current || !eligible()) return
+  const fire = useCallback((force = false) => {
+    if (firedRef.current) return
+    if (!force && !eligible()) return
     firedRef.current = true
-    try {
-      sessionStorage.setItem(K_SESSION, "1")
-      localStorage.setItem(K_LAST, String(Date.now()))
-    } catch { /* ignore */ }
+    if (!force) {
+      // Forced previews don't count against the frequency cap, so you can
+      // re-test freely.
+      try {
+        sessionStorage.setItem(K_SESSION, "1")
+        localStorage.setItem(K_LAST, String(Date.now()))
+      } catch { /* ignore */ }
+    }
     setOpen(true)
     requestAnimationFrame(() => requestAnimationFrame(() => setMounted(true)))
-    track("popup_shown", { path: pathname })
+    track("popup_shown", { path: pathname, forced: force })
   }, [eligible, pathname])
+
+  // Force-show for testing/demos: add ?lkpopup=1 to any URL (ignores the cap,
+  // the delays, and the excluded-page list).
+  useEffect(() => {
+    try {
+      if (new URLSearchParams(window.location.search).has("lkpopup")) fire(true)
+    } catch { /* ignore */ }
+  }, [fire])
 
   // Arm the triggers once the visitor is eligible.
   useEffect(() => {

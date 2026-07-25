@@ -139,21 +139,16 @@ const questions = questionsData.map((q) => ({ path: `/questions/${q.slug}`, prio
 const glossary = glossaryData.map((g) => ({ path: `/glossary/${g.slug}`, priority: "0.5", changefreq: "weekly" }))
 const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6", changefreq: "weekly" }))
 
-// Indexation gate — mirrors lib/pseo/indexable.ts. Leaves (keyword/role) index
-// only for Tier ≤ 2 cities; hubs (city + industry×city) index for Tier ≤ 2, or
-// Tier 3 with real local data. The sitemap must never advertise a noindexed URL.
-const INDEX_MAX_TIER = 2
-const HUB_INDEX_MAX_TIER = 3
-const HUB_MIN_POPULATION = 150000
-// Leaf (keyword/role) gate: Tier ≤ 2, OR the city carries rich verified local
-// data (a `districts` string) that differentiates the leaf. Mirrors lib/pseo/indexable.ts.
-const leafIndexableCity = (c) => c.tier <= INDEX_MAX_TIER || !!c.districts
+// Indexation gate — SINGLE SOURCE OF TRUTH shared with the routes' robots meta
+// via lib/pseo/gate.js, so the sitemap can never drift and advertise a noindexed
+// URL. Leaves (keyword/role) index for Tier ≤ 2 or rich-district cities; hubs
+// (city + industry×city) index for Tier ≤ 2, Tier 3 with local notes, or a
+// substantial city (≥ 1.5 lakh) with local notes.
+const { leafIndexable, hubIndexable } = require("../lib/pseo/gate")
+const leafIndexableCity = (c) => leafIndexable(c.tier, !!c.districts)
+const hubIndexableCity = (c) => hubIndexable(c.tier, c.population, !!c.notes)
 const indexableCities = citiesData.filter(leafIndexableCity)
-const hubIndexable = (c) =>
-  c.tier <= INDEX_MAX_TIER ||
-  (c.tier <= HUB_INDEX_MAX_TIER && !!c.notes) ||
-  (!!c.notes && c.population >= HUB_MIN_POPULATION)
-const hubCities = citiesData.filter(hubIndexable)
+const hubCities = citiesData.filter(hubIndexableCity)
 
 const pseoCity = [
   ...hubCities.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
@@ -174,7 +169,7 @@ const pseoDeepByBucket = { 1: [], 2: [], 3: [] }
 for (const city of citiesData) {
   const bucket = bucketByFirstLetter(city)
   const cityIndexable = leafIndexableCity(city)
-  const cityHubIndexable = hubIndexable(city)
+  const cityHubIndexable = hubIndexableCity(city)
   for (const ind of industriesData) {
     // Industry×city hubs index for Tier ≤ 2, or Tier 3+ with real local data;
     // keyword leaves for Tier ≤ 2, or cities with rich verified district data.
@@ -279,3 +274,22 @@ console.log(`✓ sitemap.xml (index) + ${emittedShards.length} shards generated 
 for (const { filename, count } of emittedShards) {
   console.log(`   ${filename.padEnd(32)} ${String(count).padStart(6)} URLs`)
 }
+
+// Gate the-matrix measurement — the "junk vs Live" split (P1 acceptance criterion).
+// Total permutations vs what actually clears the gate and gets advertised.
+const nCity = citiesData.length
+const nInd = industriesData.length
+const nKw = keywordsData.length
+const nRole = rolesData.length
+const hubTotal = nCity * nInd, hubLive = hubCities.length * nInd
+const leafTotal = nCity * nInd * nKw, leafLive = indexableCities.length * nInd * nKw
+const cityLive = hubCities.length, roleTotal = nCity * nRole, roleLive = indexableCities.length * nRole
+const pct = (a, b) => (b ? ((a / b) * 100).toFixed(1) : "0.0")
+console.log(`\n  Gate (Live : total permutations — the anti-junk split):`)
+console.log(`   industry×city hubs   ${String(hubLive).padStart(6)} / ${hubTotal}  (${pct(hubLive, hubTotal)}%  — ${hubCities.length}/${nCity} cities)`)
+console.log(`   industry×city×kw     ${String(leafLive).padStart(6)} / ${leafTotal}  (${pct(leafLive, leafTotal)}%  — ${indexableCities.length}/${nCity} cities)`)
+console.log(`   /city/[city]         ${String(cityLive).padStart(6)} / ${nCity}  (${pct(cityLive, nCity)}%)`)
+console.log(`   /for/[role]/[city]   ${String(roleLive).padStart(6)} / ${roleTotal}  (${pct(roleLive, roleTotal)}%)`)
+const grandTotal = hubTotal + leafTotal + nCity + roleTotal
+const grandLive = hubLive + leafLive + cityLive + roleLive
+console.log(`   ── pSEO total        ${String(grandLive).padStart(6)} / ${grandTotal}  (${pct(grandLive, grandTotal)}% Live; ${grandTotal - grandLive} gated noindex)`)

@@ -16,7 +16,7 @@
       { "heading": "Add rank score", "body": "Formula: grade_points + overdue_bonus + recency_bonus. Grade weights: A=4000, B=3000, C=2000, D=500, F=-1. Overdue bonus: 800 if past SLA. Recency: up to 500." },
       { "heading": "Sort and distribute", "body": "Sort by rank score descending. Top 30 per rep is the day's work. Share the sheet with reps Monday morning." },
       { "heading": "Measure for 2 weeks", "body": "Track: % of Grade A contacted within SLA, ₹ recovered from previously-stale leads, Grade A conversion rate. Most teams recover ₹1–3 lakh in the first two weeks." },
-      { "heading": "Automate when manual breaks", "body": "Past 200 leads, nobody updates the rank column religiously. Leadkaun automates this in 60 minutes of onboarding — same formula, no spreadsheet maintenance." }
+      { "heading": "Automate when manual breaks", "body": "Past 200 leads, nobody updates the rank column religiously. Leadkaun automates this the same day — same formula, no spreadsheet maintenance." }
     ],
     "commonMistakes": [
       "Sorting by recency instead of grade — defeats the whole point",
@@ -138,7 +138,7 @@
   {
     "slug": "how-to-migrate-from-zoho-crm",
     "title": "How to Migrate from Zoho CRM to Leadkaun (in 2–4 Weeks)",
-    "tldr": "Export from Zoho as CSV, audit (keep only live leads), onboard Leadkaun (60 min), run parallel for 30 days, cut over, maintain Zoho read-only as archive. Total: 2–4 weeks for an SMB.",
+    "tldr": "Export from Zoho as CSV, audit (keep only live leads), onboard Leadkaun (same day), run parallel for 30 days, cut over, maintain Zoho read-only as archive. Total: 2–4 weeks for an SMB.",
     "why": "Most Indian SMBs leave Zoho because of rep-adoption failure, complexity, or the realisation that 'workflow CRM' isn't what they need — they need a Sales Behaviour OS. The migration itself is not the hard part; psychology is. Most teams think 'downgrading' when they should think 'rightsizing'.",
     "prerequisites": [
       "Zoho admin access (export permission)",
@@ -148,7 +148,7 @@
     "steps": [
       { "heading": "Week 1: Export Zoho data", "body": "Export Leads, Contacts, Accounts, Deals, Activity History as CSVs. Activity History is the big one — it carries every call, email, note." },
       { "heading": "Week 1: Audit", "body": "Separate live leads (last 90 days activity) from archive. Most SMBs find 40–60% of Zoho data is stale. Migrate only live data." },
-      { "heading": "Week 2: Onboard Leadkaun", "body": "60-minute wizard. Pick industry (pre-configured ICP templates), import live leads via CSV, configure sales stages, create rep accounts." },
+      { "heading": "Week 2: Onboard Leadkaun", "body": "Same-day setup wizard. Pick industry (pre-configured ICP templates), import live leads via CSV, configure sales stages, create rep accounts." },
       { "heading": "Week 2: Parallel-run", "body": "Keep Zoho running in read-only mode for safety. Reps use Leadkaun primarily; critical escalations can reference Zoho." },
       { "heading": "Week 3: Rep training + measurement", "body": "2-hour session per team. Show 3-tap logging, Priority Queue, Morning Brief. Baseline metrics: rep adoption rate, response time, ₹ recovered." },
       { "heading": "Week 4: Cutover", "body": "Switch primary system. Maintain Zoho read-only for 90 days as fallback archive." },
@@ -239,37 +239,36 @@
   },
   {
     "slug": "how-to-connect-google-sheets-to-leadkaun",
-    "title": "How to Connect Google Sheets to Leadkaun (5-Min Sync)",
-    "tldr": "Share your Google Sheet with the Leadkaun service account, paste the sheet URL into Leadkaun's connector, map columns (name, phone, email, source), set 5-minute polling. New rows flow into Leadkaun automatically.",
-    "why": "Most Indian SMBs live in Google Sheets. Ad agencies dump lead data there weekly. WhatsApp enquiries get logged there manually. Instead of migrating, Leadkaun meets teams where they already work — the sheet becomes the live source, and Leadkaun polls every 5 minutes for new rows.",
+    "title": "How to Bring Google Sheets Leads into Leadkaun (CSV Import)",
+    "tldr": "Export your Google Sheet to CSV (File → Download → CSV), then import it in Leadkaun: Settings → Leads → Import, map columns (name, phone, email, source), and every row is graded A–F on import. Native background sheet sync is on the roadmap; CSV import is the live path today.",
+    "why": "Most Indian SMBs live in Google Sheets — ad agencies dump lead data there weekly, WhatsApp enquiries get logged there manually. Today Leadkaun ingests those leads via CSV import (which handles Google Sheet exports directly), so you can start scoring and queuing without migrating your workflow. Native scheduled sync is planned; until then a CSV export takes seconds.",
     "prerequisites": [
-      "A Google Sheet with at least columns: name, phone, source",
-      "Permission to share the sheet",
-      "Leadkaun account with connector access"
+      "A Google Sheet with at least columns: name, phone",
+      "Access to download the sheet",
+      "A Leadkaun account (any tier, including Free)"
     ],
     "steps": [
       { "heading": "Prepare your sheet", "body": "Row 1 = headers. Required columns: name, phone. Recommended: email, source, date-added, initial-enquiry, company." },
-      { "heading": "Share with Leadkaun service account", "body": "Leadkaun provides an email like imports@leadkaun.iam.gserviceaccount.com. Share the sheet with that address, Viewer permission." },
-      { "heading": "Paste URL in Leadkaun connector", "body": "In Leadkaun → Settings → Integrations → Google Sheets → Add sheet. Paste URL. Connector auto-detects headers." },
-      { "heading": "Map columns", "body": "Drag each sheet column to its Leadkaun field. Leadkaun pre-fills obvious matches (name, phone, email)." },
-      { "heading": "Set polling interval", "body": "Default: 5 minutes. Faster polling costs API quota; 5 minutes is the sweet spot for most teams." },
-      { "heading": "Test sync", "body": "Add a test row to the sheet. Within 5 minutes it should appear as a new lead in Leadkaun, graded A–F automatically." },
-      { "heading": "Monitor", "body": "First week: check daily for duplicate leads (phone dedup should catch them) or mapping errors. After that, set-and-forget." }
+      { "heading": "Export the sheet to CSV", "body": "In Google Sheets: File → Download → Comma-separated values (.csv). One tab exports at a time — export each tab you need." },
+      { "heading": "Open the importer", "body": "In Leadkaun → Settings → Leads → Import. Upload the CSV; Leadkaun auto-detects headers." },
+      { "heading": "Map columns", "body": "Drag each CSV column to its Leadkaun field. Leadkaun pre-fills obvious matches (name, phone, email) and parses Indian amounts (₹1,50,000 / 2.5L / 1Cr)." },
+      { "heading": "Import and review", "body": "Confirm the mapping and import. Every row is graded A–F on Fit × Intent × Quality as it lands, and phone-number dedup catches repeats automatically." },
+      { "heading": "Re-import when the sheet updates", "body": "When new rows accumulate, export and import again — dedup means re-importing the whole sheet only adds the genuinely new leads. (Scheduled auto-sync is on the roadmap.)" }
     ],
     "commonMistakes": [
-      "Sharing sheet with Edit permission instead of Viewer — Leadkaun only needs read",
-      "Not including a unique identifier column (phone) — duplicates accumulate",
-      "Trying to sync >100k rows in one sheet — split into monthly sheets instead"
+      "Exporting the wrong tab — a .csv download captures only the active sheet tab",
+      "Not including a unique identifier column (phone) — dedup relies on it",
+      "Trying to import >100k rows at once — split into smaller files instead"
     ],
     "faqs": [
-      { "q": "Can I sync multiple sheets?", "a": "Yes — connect as many as you need. Each maps to a different source tag." },
-      { "q": "Does it delete rows?", "a": "No. Leadkaun reads only; deleting rows from the sheet doesn't remove leads from Leadkaun." },
-      { "q": "What if the sheet owner leaves?", "a": "Re-share with the Leadkaun service account from a new owner account. Existing data stays." }
+      { "q": "Does Leadkaun sync my sheet automatically?", "a": "Not yet — native scheduled sync is on the roadmap. Today you import via CSV export, which takes a few seconds and dedups on phone number." },
+      { "q": "Will re-importing create duplicates?", "a": "No. Leadkaun dedups on phone number within your account, so re-importing an updated sheet only adds genuinely new leads." },
+      { "q": "Can I import multiple sheets?", "a": "Yes — import as many CSVs as you need. Set a different source tag per import to keep attribution clean." }
     ],
     "category": "data-import",
     "relatedFeatures": ["lead-ingestion"],
     "relatedBlog": null,
-    "timeRequired": "PT15M"
+    "timeRequired": "PT10M"
   },
   {
     "slug": "how-to-train-reps-on-a-new-sales-tool",
@@ -308,7 +307,7 @@
   {
     "slug": "how-to-track-property-enquiries",
     "title": "How to Track Property Enquiries for Indian Real Estate Teams",
-    "tldr": "Grade every enquiry A–F within 5 minutes of arrival, surface Grade A in the Priority Queue for immediate callback, target 47-minute response window. Log WhatsApp + call outcomes in 3 taps. Track site visit conversion per source.",
+    "tldr": "Grade every enquiry A–F within 5 minutes of arrival, surface Grade A in the Priority Queue for immediate callback, target a fast response window (minutes, not hours). Log WhatsApp + call outcomes in 3 taps. Track site visit conversion per source.",
     "why": "Real estate is the most response-time-sensitive vertical in Indian B2B — in Leadkaun's framing, Grade A enquiries reached quickly convert far better than 4-hour callbacks. A single missed site visit is ₹5–50 lakh in lost GCV. The workflow is simple; the discipline is what wins.",
     "prerequisites": [
       "Active lead sources (99acres, MagicBricks, Housing.com, Facebook Ads, walk-ins)",
@@ -316,9 +315,9 @@
       "Team of 3+ reps assigned to enquiries"
     ],
     "steps": [
-      { "heading": "Ingest from every source", "body": "99acres + MagicBricks → export to Google Sheet → Leadkaun polls every 5 min. FB Ads → CSV upload. Walk-ins → manual entry (15 seconds)." },
+      { "heading": "Ingest from every source", "body": "99acres + MagicBricks → export to Google Sheet → CSV import into Leadkaun (native Sheets sync on the roadmap). FB Ads → CSV upload. Walk-ins → manual entry (15 seconds)." },
       { "heading": "Auto-grade on arrival", "body": "Score on Fit (project match + location match + budget fit) + Intent (source baseline) + Quality (phone/email/inquiry). Grade A if all three strong." },
-      { "heading": "Surface Grade A for 47-minute callback", "body": "Priority Queue + instant alert to assigned rep. Rep aims to make first contact within 47 minutes of enquiry." },
+      { "heading": "Surface Grade A for immediate callback", "body": "Priority Queue + instant alert to assigned rep. Rep aims to make first contact fast, while the enquiry is still hot." },
       { "heading": "Log every interaction in 3 taps", "body": "Call outcome (interested / site visit booked / cold / wrong number). WhatsApp stage if engaged there. Site visit confirmation in one tap." },
       { "heading": "Follow-up cadence", "body": "Grade A: 3 touches in day 1 (call, WA, call). Grade B: call + WA week 1. Grade C: weekly WA nurture." },
       { "heading": "Track conversion by source", "body": "Source Truth card shows ₹ closed per source over last 90 days. Kill bad sources fast; double down on good ones." },

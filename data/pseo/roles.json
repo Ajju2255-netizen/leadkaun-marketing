@@ -65,7 +65,7 @@
     "seniority": "mid",
     "industryTags": ["real-estate", "bfsi", "fintech"],
     "dailyStruggle": "You work on commission. You represent a builder / insurance brand / loan aggregator. Your enquiries come from portals and paid ads. You lose leads because the first call didn't happen within the SLA window. Every missed site visit is ₹5–50L in lost commission.",
-    "leadkaunAngle": "Grade A enquiries need callback in 47 minutes — you see them first, you call first, you close first. Missed Opportunity Engine shows ₹ you can still recover from stale enquiries. Attribution clear — no commission disputes.",
+    "leadkaunAngle": "Grade A enquiries need a callback fast, while the enquiry is hot — you see them first, you call first, you close first. Missed Opportunity Engine shows ₹ you can still recover from stale enquiries. Attribution clear — no commission disputes.",
     "featuresUsedMost": ["priority-queue", "missed-opportunity-engine", "whatsapp-tracking"],
     "personaSource": "Audience/Personas.md §5"
   },

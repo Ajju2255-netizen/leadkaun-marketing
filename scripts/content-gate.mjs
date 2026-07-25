@@ -56,6 +56,20 @@ const FAKE_STAT = [
   /\bconvert\s+\d+\s*[×x]\b/i,
 ];
 
+// Honesty patterns with NO legitimate use in Leadkaun's own copy — enforced as
+// ERRORs across BOTH data files and source (spread into QUARANTINE below). The
+// 47-min pattern excludes hyphen-continuation so it never flags the kept slug
+// `47-minute-response-tracker`. See vault "Leadkaun Brain" 00 §4/§5.
+const DATA_HONESTY = [
+  { re: /india'?s first/i,             name: 'unverifiable superlative "India\'s first"' },
+  { re: /built-in crm/i,               name: 'banned framing "Built-in CRM" (runs alongside a CRM)' },
+  { re: /cloudflare pages/i,           name: 'wrong infra "Cloudflare Pages" (it is Workers via OpenNext)' },
+  { re: /under 500\s?ms/i,             name: 'unverified latency "under 500ms" (use "real time")' },
+  { re: /\b500\s?ms\b/i,               name: 'unverified latency "500ms" (use "real time")' },
+  { re: /under a second/i,             name: 'unverified latency "under a second" (use "real time")' },
+  { re: /47[-\s]?min(ute)?s?\b(?!-)/i, name: 'quarantined fabricated stat "47 min(ute)" (de-specify)' },
+];
+
 // ---- helpers ---------------------------------------------------------------
 function* strings(node, path = "") {
   if (typeof node === "string") { yield [path, node]; return; }
@@ -87,6 +101,7 @@ for (const f of jsonFiles) {
     if (text.length < 12) continue;
     const b = text.match(bannedRe);
     if (b) warn(`${f}:${path}`, `AI-slop phrase "${b[0]}"`);
+    for (const q of DATA_HONESTY) if (q.re.test(text)) err(`${f}:${path}`, q.name);
     if (FAKE_STAT_EXEMPT.has(f)) continue;
     for (const re of FAKE_STAT) {
       const m = text.match(re);
@@ -143,19 +158,13 @@ for (let i = 0; i < corpus.length; i++) {
 // Escape hatch: put `lk-gate-ignore` on a line to allow a legit mention
 // (e.g. quoting a COMPETITOR's per-seat pricing on a /compare page).
 const QUARANTINE = [
-  { re: /india'?s first/i,            name: 'unverifiable superlative "India\'s first"' },
-  { re: /built-in crm/i,              name: 'banned framing "Built-in CRM" (we run alongside a CRM)' },
-  { re: /cloudflare pages/i,          name: 'wrong infra "Cloudflare Pages" (it is Workers via OpenNext)' },
-  { re: /under 500\s?ms/i,            name: 'unverified latency "under 500ms" (use "real time")' },
-  { re: /\b500\s?ms\b/i,              name: 'unverified latency "500ms" (use "real time")' },
-  { re: /under a second/i,            name: 'unverified latency "under a second" (use "real time")' },
+  ...DATA_HONESTY, // shared unambiguous set (india's-first, 500ms, built-in-crm, 47-min, …)
   { re: /(set ?up|go live) in (about )?an hour|in about an hour/i, name: 'unverified "~an hour" setup claim (soften to non-numeric)' },
   { re: /\b60[-\s]?minutes?\b/i,      name: 'unverified "60 minute" setup claim (soften to non-numeric)' },
   { re: /\b60[-\s]?min\b/i,           name: 'unverified "60 min" setup claim (soften to non-numeric)' },
   { re: /trusted by 50\+/i,           name: 'unverified customer count "Trusted by 50+"' },
   { re: /50\+\s*(indian\s*b2b|b2b)\s*teams/i, name: 'unverified customer count "50+ teams"' },
   { re: /₹\s?4\.2\s?cr/i,             name: 'quarantined aggregate outcome "₹4.2 Cr"' },
-  { re: /47[-\s]?min(ute)?\s*(window|conversion)/i, name: 'quarantined stat "47-min window"' },
   { re: /per rep\.\s*in rupees/i,     name: 'banned pricing model "Per rep. In rupees." (flat per account)' },
   { re: /(starter|growth|scale)\s*[·:—-]?\s*₹\s?999\b/i, name: 'stale plan price "₹999" (Starter is ₹2,999)' },
   // NOTE: we intentionally do NOT blanket-ban "per rep/seat/user" — /compare
@@ -175,12 +184,15 @@ function walk(dir, acc = []) {
   }
   return acc;
 }
+const DOWNLOADS = join(ROOT, "public", "downloads");
 const honestyTargets = [
   ...walk(join(ROOT, "app")),
   ...walk(join(ROOT, "components")),
   ...walk(join(ROOT, "lib")), // content generators (variation.ts etc.) live here too
   join(ROOT, "public", "llms.txt"),
   join(ROOT, "public", "ai-context.json"),
+  // lead-magnet downloads carry Leadkaun copy too
+  ...(existsSync(DOWNLOADS) ? readdirSync(DOWNLOADS).filter((f) => /\.(csv|txt|md)$/i.test(f)).map((f) => join(DOWNLOADS, f)) : []),
 ].filter(existsSync);
 for (const file of honestyTargets) {
   const rel = file.slice(ROOT.length + 1);

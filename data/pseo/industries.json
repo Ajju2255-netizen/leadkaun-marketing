@@ -3,7 +3,7 @@
     "slug": "real-estate",
     "name": "Real Estate",
     "painH1": "Stop Losing Property Enquiries.",
-    "heroSub": "Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that in 60 minutes.",
+    "heroSub": "Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that the same day.",
     "painPoints": [
       {
         "title": "Property enquiries go cold within the hour",
@@ -54,7 +54,7 @@
     "faqs": [
       {
         "q": "Does Leadkaun integrate with 99acres / MagicBricks?",
-        "a": "Not natively in Phase 1 — export their leads to a Google Sheet, Leadkaun pulls from the sheet every 5 minutes."
+        "a": "Not natively in Phase 1 — export their leads to CSV (from 99acres / MagicBricks, or a Google Sheet) and import into Leadkaun; native sheet sync is on the roadmap."
       },
       {
         "q": "Can multiple agents share one enquiry?",
@@ -66,7 +66,7 @@
       },
       {
         "q": "Does it track site visit outcomes?",
-        "a": "Yes — site visit is a stage in the built-in CRM with booked/no-show/follow-up outcomes."
+        "a": "Yes — site visit is a pipeline stage in Leadkaun with booked/no-show/follow-up outcomes."
       },
       {
         "q": "What if a broker closes the deal outside Leadkaun?",
@@ -178,7 +178,7 @@
     "slug": "bfsi",
     "name": "BFSI",
     "painH1": "BFSI Sales, in ₹ — Audit Trail, Assignment, Accountability.",
-    "heroSub": "Insurance branch managers, NBFC sales heads, and wealth RMs across India run regulated sales with compliance pressure and agent-network complexity. Leadkaun gives you grading, assignment, audit trail, and ₹-at-risk — in 60 minutes.",
+    "heroSub": "Insurance branch managers, NBFC sales heads, and wealth RMs across India run regulated sales with compliance pressure and agent-network complexity. Leadkaun gives you grading, assignment, audit trail, and ₹-at-risk — the same day.",
     "painPoints": [
       {
         "title": "Compliance trail gaps at audit",
@@ -241,7 +241,7 @@
       },
       {
         "q": "Does it work with aggregator-sourced leads?",
-        "a": "Yes — CSV / Google Sheet ingestion from PolicyBazaar/BankBazaar exports."
+        "a": "Yes — CSV import of PolicyBazaar/BankBazaar exports (including Google Sheet exports)."
       },
       {
         "q": "Does it support bancassurance cross-sell?",
@@ -461,7 +461,7 @@
       }
     ],
     "howItHelps": [
-      "Trial signups ingested via webhook, CSV, or Google Sheet — graded A–F by company size, stack signals, and role the moment they arrive",
+      "Trial signups imported via CSV (including webhook exports and Google Sheet exports) — graded A–F by company size, stack signals, and role as soon as they land",
       "Intent decay tuned for SaaS: a trial user silent for 10 days is a strong negative signal; someone who invited 3 teammates is a Grade A spike",
       "Expansion-opportunity detection flags existing customers with usage, role-add, or seat-limit signals as separate lead type",
       "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4'",

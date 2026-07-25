@@ -26,7 +26,7 @@
       "Transparent weights — every rep can see why a lead is Grade A, not a black-box AI score",
       "Intent decays automatically when leads go silent — stale grades drop without manager intervention",
       "{industry}-specific ICP templates built for Indian market defaults",
-      "Grades in under 500ms as each lead lands, so the queue is ready before the rep opens it"
+      "Grades in real time as each lead lands, so the queue is ready before the rep opens it"
     ],
     "featureLink": "/features/lead-scoring",
     "glossaryLink": "/glossary/lead-scoring"

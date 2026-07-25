@@ -217,7 +217,7 @@
       "Each Friday, each rep updates their tab.",
       "Monday 10 AM review uses the rollup."
     ],
-    "whyItMatters": "Manual trackers teach the discipline. Once the team runs on ₹-at-risk conversations for 4 weeks, automating with Leadkaun is a 60-minute switch — same behaviour, less typing.",
+    "whyItMatters": "Manual trackers teach the discipline. Once the team runs on ₹-at-risk conversations for 4 weeks, automating with Leadkaun is a same-day switch — same behaviour, less typing.",
     "downloadUrl": "/downloads/rep-performance-tracker.csv",
     "embedCode": null,
     "relatedResources": [
@@ -234,21 +234,21 @@
   },
   {
     "slug": "47-minute-response-tracker",
-    "name": "47-Minute Response Time Tracker (Real Estate)",
+    "name": "Rapid Response Time Tracker (Real Estate)",
     "type": "template",
-    "tagline": "A simple log for real-estate teams to measure Grade A enquiry response time and close the 47-minute gap.",
-    "description": "Real estate teams know they should call Grade A enquiries within 47 minutes. Almost nobody measures whether they actually do. This tracker logs every enquiry's first-contact time and produces a weekly % of Grade A leads hitting the window.\n\nUse it for 2 weeks. Adopting a fast, measured response SLA on your best leads consistently lifts conversion.",
+    "tagline": "A simple log for real-estate teams to measure Grade A enquiry response time and close the response-time gap.",
+    "description": "Real estate teams know they should call Grade A enquiries within the hour. Almost nobody measures whether they actually do. This tracker logs every enquiry's first-contact time and produces a weekly % of Grade A leads hitting the window.\n\nUse it for 2 weeks. Adopting a fast, measured response SLA on your best leads consistently lifts conversion.",
     "inside": [
       "Enquiry-arrival log with timestamp",
       "Auto-calculated time-to-first-contact",
-      "Weekly rollup: % within 47 min, % at 4h, % at 24h+",
+      "Weekly rollup: % within the hour, % at 4h, % at 24h+",
       "Per-rep breakdown",
       "Conversion tracking by response-time band"
     ],
     "howToUse": [
       "Make a copy of the sheet.",
       "Each enquiry gets a row: source, arrival time, first-contact time, grade, rep.",
-      "Friday review: which reps hit 47 min? Which enquiries missed the window?"
+      "Friday review: which reps hit the SLA? Which enquiries missed the window?"
     ],
     "whyItMatters": "Real-estate teams that pair lead grading with response-time measurement tend to see the biggest ROI — the gap between reaching a Grade A lead fast and reaching it hours later is where the deals are won or lost.",
     "downloadUrl": "/downloads/response-time-tracker.csv",

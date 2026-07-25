@@ -25,7 +25,7 @@
         "tagline": "Sales Behaviour OS — grades, ranks, and surfaces missed ₹.",
         "bestFor": "Indian B2B SMBs (3–50 reps) that want leads prioritised for them, not just stored.",
         "pricingNote": "Flat per account — Free / ₹2,999 / ₹7,999 / ₹19,999 per month.",
-        "whyPick": "Grades every lead A–F across Fit × Intent × Quality in under 500ms with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily. WhatsApp is a first-class 3-tap signal. Flat INR pricing means cost doesn't grow with headcount.",
+        "whyPick": "Grades every lead A–F across Fit × Intent × Quality in real time with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily. WhatsApp is a first-class 3-tap signal. Flat INR pricing means cost doesn't grow with headcount.",
         "watchOut": "No built-in dialer, and a Google Sheets connector is still on the roadmap. Best when your bottleneck is prioritisation, not raw calling volume.",
         "url": "/product"
       },
@@ -140,7 +140,7 @@
         "tagline": "WhatsApp as a first-class, ranked sales signal.",
         "bestFor": "B2B teams that want WhatsApp activity to drive who reps call next.",
         "pricingNote": "Flat per account, from Free; no WhatsApp API required.",
-        "whyPick": "Reps log each WhatsApp exchange in 3 taps (stage, intent, outcome), which feeds the Intent Score and can push a Grade C lead to Grade A in under 500ms. Works with any regular WhatsApp account — no BSP stack needed.",
+        "whyPick": "Reps log each WhatsApp exchange in 3 taps (stage, intent, outcome), which feeds the Intent Score and can push a Grade C lead to Grade A in real time. Works with any regular WhatsApp account — no BSP stack needed.",
         "watchOut": "It is not a bulk-broadcast tool. If your need is sending thousands of template messages, pair it with a WhatsApp API platform.",
         "url": "/features/whatsapp-tracking"
       },
@@ -213,7 +213,7 @@
     "intro": "Most lead scoring is one of two things: a static points system you configure by hand, or an opaque \"AI\" score you can't explain to your reps. The best scoring is transparent, real-time, and decays as leads go cold. Here's an honest ranking on those terms. We build Leadkaun, whose three-score model is designed to be auditable.",
     "quickAnswer": {
       "question": "What is the best lead scoring software?",
-      "answer": "For transparent, real-time scoring, Leadkaun grades every lead A–F across three auditable scores — Fit, Intent, and Quality — in under 500ms, with intent that decays as leads go silent. HubSpot and Salesforce (Einstein) offer predictive AI scoring for larger, marketing-led teams, but their models are less transparent and priced in USD."
+      "answer": "For transparent, real-time scoring, Leadkaun grades every lead A–F across three auditable scores — Fit, Intent, and Quality — in real time, with intent that decays as leads go silent. HubSpot and Salesforce (Einstein) offer predictive AI scoring for larger, marketing-led teams, but their models are less transparent and priced in USD."
     },
     "updated": "2026-07",
     "criteria": [
@@ -228,7 +228,7 @@
         "rank": 1,
         "name": "Leadkaun",
         "isLeadkaun": true,
-        "tagline": "Transparent 3-score grading in under 500ms.",
+        "tagline": "Transparent 3-score grading in real time.",
         "bestFor": "Sales teams that want scoring their reps actually trust and understand.",
         "pricingNote": "Flat per account, from Free.",
         "whyPick": "Every lead is graded A–F across Fit (ICP match), Intent (live engagement, which decays), and Quality (data reliability) — with weights you can see and tune. The grade updates in real time and drives the Priority Queue.",

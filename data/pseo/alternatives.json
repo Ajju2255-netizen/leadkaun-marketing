@@ -185,7 +185,7 @@
         "rank": 1,
         "name": "Leadkaun",
         "isLeadkaun": true,
-        "tagline": "60-minute setup; grades and ranks leads out of the box.",
+        "tagline": "Same-day setup; grades and ranks leads out of the box.",
         "bestFor": "SMBs that want Salesforce-style prioritisation without the weight.",
         "watchOut": "Not an enterprise platform with unlimited customisation.",
         "url": "/compare/leadkaun-vs-salesforce"
@@ -214,7 +214,7 @@
       },
       {
         "q": "How fast can I switch from Salesforce?",
-        "a": "Export your leads and deals to CSV; Leadkaun's 60-minute onboarding imports them and grades them immediately. Keep Salesforce read-only during a parallel run if you like."
+        "a": "Export your leads and deals to CSV; Leadkaun's same-day onboarding imports them and grades them immediately. Keep Salesforce read-only during a parallel run if you like."
       }
     ],
     "comparePage": "leadkaun-vs-salesforce"
@@ -379,7 +379,7 @@
       },
       {
         "q": "Is migration from Bigin hard?",
-        "a": "No — export from Bigin as CSV and import into Leadkaun; the 60-minute onboarding handles ICP setup and Indian phone normalisation."
+        "a": "No — export from Bigin as CSV and import into Leadkaun; the same-day onboarding handles ICP setup and Indian phone normalisation."
       }
     ],
     "comparePage": "leadkaun-vs-zoho-bigin"
@@ -599,7 +599,7 @@
       },
       {
         "q": "Is monday CRM good for lead scoring?",
-        "a": "Not natively — you build scoring with formula columns and automations. Leadkaun grades A–F on Fit × Intent × Quality in under 500ms automatically."
+        "a": "Not natively — you build scoring with formula columns and automations. Leadkaun grades A–F on Fit × Intent × Quality in real time, automatically."
       }
     ],
     "comparePage": "leadkaun-vs-monday"

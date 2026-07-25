@@ -8,7 +8,7 @@
     "dek": "Lead scoring decides which lead your rep calls next — and getting it right is the difference between a busy team and a closing team. This is the complete map of how Leadkaun grades every lead A–F in real time, the concepts behind it, and the guides to set it up.",
     "quickAnswer": {
       "question": "What is lead scoring and how does it work?",
-      "answer": "Lead scoring ranks each lead by how likely it is to convert. Leadkaun grades every lead A–F in under 500ms across three independent scores — Fit (ICP match), Intent (live engagement, which decays as leads go silent), and Quality (data reliability) — with transparent weights, so reps work the highest-probability leads first."
+      "answer": "Lead scoring ranks each lead by how likely it is to convert. Leadkaun grades every lead A–F in real time across three independent scores — Fit (ICP match), Intent (live engagement, which decays as leads go silent), and Quality (data reliability) — with transparent weights, so reps work the highest-probability leads first."
     },
     "keyTakeaways": [
       "Three independent scores — Fit, Intent, Quality — combine into one A–F grade.",
@@ -105,7 +105,7 @@
     "dek": "Most Indian B2B first-contact happens on WhatsApp — yet most CRMs treat it as a side-channel. This is the full map of making WhatsApp a first-class sales signal instead of a blind spot.",
     "quickAnswer": {
       "question": "How do you use WhatsApp for B2B sales in India?",
-      "answer": "Treat every WhatsApp reply as a ranked buying signal, not just a chat. In Leadkaun, reps log each exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, which feeds the Intent Score in real time and can push a Grade C lead to Grade A in under 500ms."
+      "answer": "Treat every WhatsApp reply as a ranked buying signal, not just a chat. In Leadkaun, reps log each exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, which feeds the Intent Score in real time and can push a Grade C lead to Grade A in real time."
     },
     "keyTakeaways": [
       "WhatsApp is where most Indian B2B pipelines actually start.",

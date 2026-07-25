@@ -19,24 +19,21 @@ export function IndustryTile({ href, label, meta, icon: Icon, cta = false, class
       <Link
         href={href}
         className={cn(
-          "group relative flex items-center justify-between gap-4 overflow-hidden rounded-2xl px-5 py-5 lift gloss-edge",
-          "text-white",
+          "btn-gloss-primary shimmer-on-hover group relative flex items-center overflow-hidden rounded-2xl px-5 py-5",
           className
         )}
-        style={{
-          background: "linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 8px 22px -10px rgba(14,165,233,0.6)",
-        }}
       >
-        <div className="min-w-0">
-          <p className="text-[15px] font-semibold">{label}</p>
-          {meta && (
-            <p className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/75">
-              {meta}
-            </p>
-          )}
-        </div>
-        <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+        <span className="relative z-[2] flex w-full items-center justify-between gap-4">
+          <span className="min-w-0">
+            <span className="block text-[15px] font-semibold">{label}</span>
+            {meta && (
+              <span className="mt-0.5 block font-mono text-[11px] uppercase tracking-[0.08em] text-white/75">
+                {meta}
+              </span>
+            )}
+          </span>
+          <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+        </span>
       </Link>
     )
   }

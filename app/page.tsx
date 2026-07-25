@@ -95,21 +95,11 @@ const GRADE_BG: Record<string, string> = {
 
 function Hero() {
   return (
-    <SectionGround variant="mesh" size="xl" ambient={false} className="relative pt-36 md:pt-44 pb-24 md:pb-32">
-      {/* Full-bleed hero background image + readability scrims */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/brand/hero-banner.webp"
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover object-[center_38%]"
-        />
-        {/* left scrim — keeps the copy legible over the scene */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.58) 40%, rgba(255,255,255,0.18) 66%, rgba(255,255,255,0.42) 100%)" }} />
-        {/* top + bottom fade — nav clearance and a soft blend into the page */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 72%, rgba(255,251,245,0.96) 100%)" }} />
-      </div>
+    <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44 pb-20 md:pb-28">
+      {/* Coastal mesh blobs — drifting */}
+      <GradientBlob color="sky"   size="xl" position="-top-32 -left-40" intensity={0.7} />
+      <GradientBlob color="cyan"  size="lg" position="top-20 -right-32" intensity={0.5} delay={4} />
+      <GradientBlob color="peach" size="xl" position="-bottom-40 -right-20" intensity={0.65} delay={2} />
 
       <Container className="relative">
         <div className="grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14">
@@ -165,34 +155,30 @@ function Hero() {
 
         </div>
 
-        {/* Activity status cards — glass strip over the scene */}
-        <div className="relative mt-16 md:mt-20">
-          <div className="mx-auto w-full max-w-4xl">
-            <div className="overflow-hidden rounded-2xl glass-3 gloss-edge elevate-3 sm:flex">
-              {[
-                { icon: BarChart3,     label: "Lead graded A" },
-                { icon: ListOrdered,   label: "Added to Priority Queue" },
-                { icon: AlertTriangle, label: "₹ at risk flagged" },
-              ].map(({ icon: Icon, label }, i) => (
-                <div
-                  key={label}
-                  className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
-                  style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
-                    <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
-                  </span>
-                  <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
-                  <span
-                    className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
-                    style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
-                  >
-                    <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                  </span>
-                </div>
-              ))}
+        {/* Activity strip — the system at work (editorial status cards) */}
+        <div className="mt-12 overflow-hidden rounded-2xl glass-2 gloss-edge elevate-1 sm:flex">
+          {[
+            { icon: BarChart3,     label: "Lead graded A" },
+            { icon: ListOrdered,   label: "Added to Priority Queue" },
+            { icon: AlertTriangle, label: "₹ at risk flagged" },
+          ].map(({ icon: Icon, label }, i) => (
+            <div
+              key={label}
+              className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
+              style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
+                <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
+              </span>
+              <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
+              <span
+                className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
+                style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
+              >
+                <Check className="h-3 w-3 text-white" strokeWidth={3} />
+              </span>
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}

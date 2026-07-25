@@ -62,12 +62,13 @@ export default function AboutPage() {
         <Container>
           <Reveal><MetricStrip
             items={[
-              { value: "₹18L",   label: "Avg revenue recovered / team / 30 days" },
-              { value: "3.4×",   label: "Follow-up rate lift in week 1" },
-              { value: "60 min", label: "Setup to first scored lead" },
-              { value: "50+",    label: "Indian B2B teams shipping on it" },
+              { value: "₹18L",     label: "Modelled ₹ recovered / team / 30 days" },
+              { value: "3.4×",     label: "Follow-up rate lift in week 1" },
+              { value: "same day", label: "Setup to first scored lead" },
+              { value: "A–F",      label: "Every lead graded, in real time" },
             ]}
           /></Reveal>
+          <p className="mt-4 text-center font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-muted">Illustrative model — not customer results</p>
         </Container>
       </SectionGround>
 

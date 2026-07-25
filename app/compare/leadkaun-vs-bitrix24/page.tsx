@@ -38,7 +38,7 @@ export default function VsBitrix24() {
         { label: "All-in-one breadth (projects, intranet, telephony)",  leadkaun: false,          competitor: true  },
         { label: "Rep adoption / simplicity",                           leadkaun: true,           competitor: "neutral" },
         { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "Weeks" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Weeks" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,7 +46,7 @@ export default function VsBitrix24() {
       }}
       switching={[
         { title: "Export from Bitrix24", body: "Export leads, contacts, and deals as CSV. Bitrix24's breadth means you'll only migrate the sales-relevant data." },
-        { title: "Onboard Leadkaun",     body: "60-minute wizard with a pre-configured ICP. Import the sales CSVs; Indian phones normalise on import." },
+        { title: "Onboard Leadkaun",     body: "Same-day wizard with a pre-configured ICP. Import the sales CSVs; Indian phones normalise on import." },
         { title: "Keep Bitrix24 for non-sales", body: "If you rely on Bitrix24 for projects or intranet, keep it there. Move only the sales motion to Leadkaun for grading and prioritisation." },
         { title: "Decide",               body: "If focused behaviour tooling lifts rep adoption and ₹ recovered versus the all-in-one, consolidate the sales layer into Leadkaun." },
       ]}
@@ -54,7 +54,7 @@ export default function VsBitrix24() {
         { q: "Bitrix24 does everything — why add Leadkaun?", a: "Breadth is Bitrix24's pitch and its problem: reps often disengage from a tool that does ten jobs. Leadkaun does one — grade every lead A–F, auto-rank the queue, surface ₹-at-risk — with 3-tap logging built for adoption." },
         { q: "Is Bitrix24 cheaper?", a: "Its flat per-org price looks low, but it's USD (FX), and the sales intelligence you'd want sits on higher tiers. Leadkaun is a flat INR account price with all 12 modules on every tier." },
         { q: "Does Bitrix24 handle WhatsApp?", a: "Yes, through Open Channels and marketplace apps — messages route into the CRM and can create leads. Leadkaun treats a logged WhatsApp reply as a ranked Intent signal rather than an inbound channel to manage." },
-        { q: "How long does Bitrix24 take to set up?", a: "Longer than the others here — its breadth means real configuration effort, often with an admin or partner. Leadkaun's guided onboarding puts a graded lead in the queue within the first hour." },
+        { q: "How long does Bitrix24 take to set up?", a: "Longer than the others here — its breadth means real configuration effort, often with an admin or partner. Leadkaun's guided onboarding puts a graded lead in the queue the same day." },
         { q: "Is pricing INR with GST?", a: "Leadkaun is — flat INR, GST-compliant, per account. Bitrix24 bills in USD." },
       ]}
     />

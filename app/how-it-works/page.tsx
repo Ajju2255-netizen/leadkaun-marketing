@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const STEPS = [
   { step: "01", title: "Lead arrives. Any source.",                   body: "Import from Google Sheets (auto-sync every 5 minutes), CSV upload, IndiaMART feed, FB Lead Ads webhook, or manual entry. Indian phone formats auto-normalised, duplicates caught on insert, junk flagged before it hits a rep.", detail: "Sources: Google Sheets · CSV · IndiaMART · FB Lead Ads · Manual · Webhook" },
-  { step: "02", title: "Scoring engine runs in under 500ms.",         body: "Three scores computed in parallel: Fit (ICP match), Intent (source + signal events like WhatsApp reply or pricing-page visit), Quality (data completeness + junk detection). Combined into a single A–F grade with decay applied over time.", detail: "Grade A = Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60" },
+  { step: "02", title: "Scoring engine runs in real time.",         body: "Three scores computed in parallel: Fit (ICP match), Intent (source + signal events like WhatsApp reply or pricing-page visit), Quality (data completeness + junk detection). Combined into a single A–F grade with decay applied over time.", detail: "Grade A = Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60" },
   { step: "03", title: "Next-best-action is assigned.",               body: "Based on grade, source, and behavioural signals, the system assigns one of Call Now, WhatsApp, Re-engage, or Nurture. Rep sees it as a single instruction — not a screen of buttons to choose from.", detail: "Action changes dynamically as signals come in" },
   { step: "04", title: "Priority Queue updates live.",                body: "Rep opens the queue. Leads ranked by grade, overdue follow-ups, callback requests, and recency. No filtering, no guesswork. Log the outcome in three taps — call, WhatsApp, or result.", detail: "Queue refresh: every 30 seconds · Mobile-web parity" },
   { step: "05", title: "Missed-Opportunity Engine fires daily.",      body: "At 9 AM IST the system surfaces every lead that has gone stale — with its rupee value attached. Manager sees per-rep accountability. Rep sees a recovery path. Not blame. Clarity.", detail: "Not reports. Action." },
@@ -58,9 +58,9 @@ export default function HowItWorksPage() {
         <Container>
           <Reveal><MetricStrip
             items={[
-              { value: "< 500ms", label: "Lead scored on arrival" },
+              { value: "Real-time", label: "Lead scored on arrival" },
               { value: "8:30 AM", label: "Morning Brief · IST" },
-              { value: "60 min",  label: "Setup to first graded lead" },
+              { value: "same day",  label: "Setup to first graded lead" },
               { value: "3 taps",  label: "Log an outcome" },
             ]}
           /></Reveal>

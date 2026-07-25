@@ -51,7 +51,7 @@ export function UseCaseLayout({
   const ind = industryLabel.toLowerCase()
   const qa = quickAnswer ?? {
     question: `How does Leadkaun help ${ind} sales teams in India?`,
-    answer: `Leadkaun is a Sales Behaviour OS for ${ind} teams — it grades every lead A–F across Fit, Intent, and Quality in under 500ms, builds a live Priority Queue so reps work the highest-value enquiries first, surfaces missed revenue in rupees, and treats WhatsApp as a first-class signal. Setup takes about 60 minutes, with flat INR pricing.`,
+    answer: `Leadkaun is a Sales Behaviour OS for ${ind} teams — it grades every lead A–F across Fit, Intent, and Quality in real time, builds a live Priority Queue so reps work the highest-value enquiries first, surfaces missed revenue in rupees, and treats WhatsApp as a first-class signal. Setup happens the same day, with flat INR pricing.`,
   }
   return (
     <>

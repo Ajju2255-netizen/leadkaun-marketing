@@ -83,7 +83,7 @@ export function StickyCTA() {
       </button>
 
       <p className="pr-7 text-[14px] font-semibold leading-snug text-ink">
-        Grade your leads A–F in 60 minutes.
+        Grade your leads A–F the same day.
       </p>
       <p className="mt-1 text-[12.5px] leading-snug text-ink-soft">Free tier — no card required.</p>
 

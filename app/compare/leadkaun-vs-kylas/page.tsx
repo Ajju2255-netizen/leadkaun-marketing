@@ -38,7 +38,7 @@ export default function VsKylas() {
         { label: "Unlimited users at flat price",                       leadkaun: "neutral",      competitor: true  },
         { label: "Cost for a small team (5–15 reps)",                   leadkaun: "Lower",        competitor: "Higher" },
         { label: "India-specific behaviour layer",                      leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "Guided" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Guided" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,14 +46,14 @@ export default function VsKylas() {
       }}
       switching={[
         { title: "Export from Kylas",  body: "Export leads, contacts, and pipeline data as CSV." },
-        { title: "Onboard Leadkaun",   body: "60-minute wizard with a pre-configured ICP for your industry. Import the CSVs." },
+        { title: "Onboard Leadkaun",   body: "Same-day wizard with a pre-configured ICP for your industry. Import the CSVs." },
         { title: "Run parallel for 30 days", body: "Reps work Leadkaun's Priority Queue while Kylas stays as an archive. Compare how the two rank the same day's leads." },
         { title: "Decide at day 60",   body: "If A–F grading and ₹-at-risk change rep behaviour — and the flat cost is lower for your team size — consolidate. If you need Kylas's unlimited-user economics at large scale, keep it." },
       ]}
       faqs={[
         { q: "Both are flat-priced — so what's different?", a: "The pricing model is similar; the product category isn't. Kylas is a full-featured CRM that stores and routes leads. Leadkaun is a Sales Behaviour OS that grades every lead A–F in real time, auto-ranks each rep's queue, and surfaces ₹-at-risk. One records; the other decides priority." },
         { q: "Is Kylas cheaper?", a: "It depends on team size. Kylas's unlimited-user flat rate wins at large headcount. For a small team, Leadkaun's Growth tier (₹7,999) is typically less than Kylas's flat rate — and Leadkaun has a Free tier to start." },
-        { q: "Does Kylas have lead scoring?", a: "Yes, but it's rule-based — you configure scoring rules on fields. Leadkaun grades on Fit × Intent × Quality in under 500ms with intent decay, which is a different mechanism, not a rules checklist." },
+        { q: "Does Kylas have lead scoring?", a: "Yes, but it's rule-based — you configure scoring rules on fields. Leadkaun grades on Fit × Intent × Quality in real time with intent decay, which is a different mechanism, not a rules checklist." },
         { q: "Does Kylas support WhatsApp?", a: "Yes, natively on paid tiers. The difference is that Leadkaun turns a logged WhatsApp reply into a ranked Intent signal, not just a synced message." },
         { q: "Is pricing INR with GST?", a: "Yes — both are Indian, INR, GST-compliant. Leadkaun bills flat per account." },
       ]}

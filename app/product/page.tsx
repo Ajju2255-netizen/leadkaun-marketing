@@ -19,14 +19,14 @@ import { ProductShowcase, WhyNotCRM, PricingCTA } from "@/app/components/sell/bl
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Product — India's First Sales Behaviour OS",
+  title: "Product — Sales Behaviour OS for Indian Sales Teams",
   description:
     "Leadkaun grades every lead A–F, surfaces a Priority Queue, tracks missed ₹, and sends managers a Morning Brief — all built for Indian B2B sales teams. 12 live modules.",
   alternates: { canonical: "/product" },
 }
 
 const CORE_MODULES = [
-  { icon: BarChart3,     href: "/features/lead-scoring",              title: "Lead Scoring Engine",       description: "Grade A–F in under 500 ms. Fit + Intent + Quality, transparent weights, decay baked in." },
+  { icon: BarChart3,     href: "/features/lead-scoring",              title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in." },
   { icon: ListOrdered,   href: "/features/priority-queue",            title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — rep works top-down." },
   { icon: AlertTriangle, href: "/features/missed-opportunity-engine", title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily." },
   { icon: Mail,          href: "/features/morning-brief",             title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today." },
@@ -35,9 +35,9 @@ const CORE_MODULES = [
 ]
 
 const SUPPORTING_MODULES = [
-  { icon: Settings, title: "Onboarding & ICP",        description: "6-step wizard. First graded lead in the queue within the first hour of signup." },
-  { icon: Database, title: "Lead Ingestion",          description: "Google Sheets, CSV, manual entry. Indian phone normalisation + dedup built in." },
-  { icon: Inbox,    title: "Built-in CRM",            description: "Pipeline, contact record, call log. Everything a CRM does, without the bloat." },
+  { icon: Settings, title: "Onboarding & ICP",        description: "6-step wizard. First graded lead in the queue the same day you sign up." },
+  { icon: Database, title: "Lead Ingestion",          description: "CSV import and manual entry (Google Sheets sync on the roadmap). Indian phone normalisation + dedup built in." },
+  { icon: Inbox,    title: "Pipeline & Lead Records", description: "Kanban pipeline, contact records, call log — the workspace your reps act in, alongside your CRM." },
   { icon: FileText, title: "Lead Quality Analysis",   description: "Junk detection, source reliability scoring, phone + email validity." },
   { icon: Workflow, title: "Follow-up Engine",        description: "Grade-aware cadence. Per-rep Follow-up Score shows consistency at a glance." },
   { icon: UserCog,  title: "Team & Admin Management", description: "Roles, assignment rules, unassigned queue control, full audit export." },
@@ -45,7 +45,7 @@ const SUPPORTING_MODULES = [
 
 const HOW_IT_WORKS = [
   { n: "01", title: "Import your leads.",            body: "CSV upload (10k rows / 60s) or manual entry — Indian phones normalised, duplicates deduped. A Google Sheets connector is on the roadmap." },
-  { n: "02", title: "Leads grade in 500 ms.",        body: "Every new lead scored A–F across Fit, Intent, Quality. Weights are yours to audit. No black box." },
+  { n: "02", title: "Leads grade in real time.",      body: "Every new lead scored A–F across Fit, Intent, Quality. Weights are yours to audit. No black box." },
   { n: "03", title: "Reps work the Queue top-down.", body: "Re-ranks in real time as WhatsApp replies arrive and intent decays. Decision made. No triage." },
   { n: "04", title: "Managers see ₹ accountability.", body: "Morning Brief at 8:30 AM IST. Monday review opens with ₹ at risk per rep. Coaching becomes specific." },
 ]
@@ -78,10 +78,10 @@ export default function ProductPage() {
         <Container>
           <Reveal><MetricStrip
             items={[
-              { value: "500 ms", label: "Per-lead grading",       hint: "Fit × Intent × Quality" },
-              { value: "60 min", label: "Setup to first lead",    hint: "Google Sheets or CSV" },
-              { value: "12",     label: "Core modules, day one",  hint: "All tiers include all 12" },
-              { value: "₹18 L",  label: "Avg recovered, 30 days", hint: "across 50+ B2B teams" },
+              { value: "A–F",      label: "Per-lead grading",       hint: "Fit × Intent × Quality" },
+              { value: "same day", label: "Setup to first lead",    hint: "CSV import" },
+              { value: "12",       label: "Core modules",           hint: "Premium features unlock by tier" },
+              { value: "₹18 L",    label: "Modelled ₹ recovered, 30 days", hint: "illustrative model" },
             ]}
           /></Reveal>
         </Container>

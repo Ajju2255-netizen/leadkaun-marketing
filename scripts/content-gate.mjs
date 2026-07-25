@@ -14,6 +14,9 @@
  *  2. Fabricated-precision stat patterns ("studies show N×", bare "N% of ...").
  *  3. Fact completeness — every industry carries the economics the templates read.
  *  4. Near-duplicate bodies (Jaccard over word-shingles) across industries + blog.
+ *  5. P0 honesty lint over app/ + components/ + machine surfaces (llms.txt,
+ *     ai-context.json): banned strings + quarantined-as-fact stats. Escape a
+ *     legit line (e.g. a competitor's per-seat price) with `lk-gate-ignore`.
  *
  * ERRORs fail the gate; WARNs are advisory.
  */
@@ -131,6 +134,60 @@ for (let i = 0; i < corpus.length; i++) {
     const sim = jaccard(corpus[i].sh, corpus[j].sh);
     if (sim >= DUP) warn("dedup", `${corpus[i].id} ~ ${corpus[j].id} (Jaccard ${sim.toFixed(2)})`);
   }
+}
+
+// ---- 5. P0 honesty lint: source + machine surfaces -------------------------
+// Guards against banned strings + quarantined-as-fact stats resurfacing in
+// page/component copy and the AI machine surfaces (llms.txt, ai-context.json).
+// See vault "Leadkaun Brain" 00 — Canonical Facts & Corrections §2/§4/§5.
+// Escape hatch: put `lk-gate-ignore` on a line to allow a legit mention
+// (e.g. quoting a COMPETITOR's per-seat pricing on a /compare page).
+const QUARANTINE = [
+  { re: /india'?s first/i,            name: 'unverifiable superlative "India\'s first"' },
+  { re: /built-in crm/i,              name: 'banned framing "Built-in CRM" (we run alongside a CRM)' },
+  { re: /cloudflare pages/i,          name: 'wrong infra "Cloudflare Pages" (it is Workers via OpenNext)' },
+  { re: /under 500\s?ms/i,            name: 'unverified latency "under 500ms" (use "real time")' },
+  { re: /\b500\s?ms\b/i,              name: 'unverified latency "500ms" (use "real time")' },
+  { re: /\b60[-\s]?minutes?\b/i,      name: 'unverified "60 minute" setup claim (soften to non-numeric)' },
+  { re: /\b60[-\s]?min\b/i,           name: 'unverified "60 min" setup claim (soften to non-numeric)' },
+  { re: /trusted by 50\+/i,           name: 'unverified customer count "Trusted by 50+"' },
+  { re: /50\+\s*(indian\s*b2b|b2b)\s*teams/i, name: 'unverified customer count "50+ teams"' },
+  { re: /₹\s?4\.2\s?cr/i,             name: 'quarantined aggregate outcome "₹4.2 Cr"' },
+  { re: /47[-\s]?min(ute)?\s*(window|conversion)/i, name: 'quarantined stat "47-min window"' },
+  { re: /per rep\.\s*in rupees/i,     name: 'banned pricing model "Per rep. In rupees." (flat per account)' },
+  { re: /(starter|growth|scale)\s*[·:—-]?\s*₹\s?999\b/i, name: 'stale plan price "₹999" (Starter is ₹2,999)' },
+  // NOTE: we intentionally do NOT blanket-ban "per rep/seat/user" — /compare
+  // pages legitimately quote competitors' per-seat pricing. Leadkaun's own
+  // flat-per-account model is guarded by the "Per rep. In rupees." phrase above
+  // and by the pricing-page copy review.
+];
+const SRC_EXT = /\.(tsx?|jsx?)$/;
+const SKIP_DIR = new Set(["node_modules", ".next", ".open-next", ".git"]);
+function walk(dir, acc = []) {
+  if (!existsSync(dir)) return acc;
+  for (const d of readdirSync(dir, { withFileTypes: true })) {
+    if (SKIP_DIR.has(d.name)) continue;
+    const p = join(dir, d.name);
+    if (d.isDirectory()) walk(p, acc);
+    else if (SRC_EXT.test(d.name)) acc.push(p);
+  }
+  return acc;
+}
+const honestyTargets = [
+  ...walk(join(ROOT, "app")),
+  ...walk(join(ROOT, "components")),
+  join(ROOT, "public", "llms.txt"),
+  join(ROOT, "public", "ai-context.json"),
+].filter(existsSync);
+for (const file of honestyTargets) {
+  const rel = file.slice(ROOT.length + 1);
+  const lines = readFileSync(file, "utf8").split("\n");
+  lines.forEach((ln, i) => {
+    if (ln.includes("lk-gate-ignore")) return;
+    for (const q of QUARANTINE) {
+      if (q.re.test(ln)) err(`${rel}:${i + 1}`, q.name);
+    }
+  });
 }
 
 // ---- report ----------------------------------------------------------------

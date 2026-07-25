@@ -18,9 +18,9 @@ import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Lead Scoring Software India — Grade A–F in 500ms",
+  title: "Lead Scoring Software India — Grade A–F in real time",
   description:
-    "Leadkaun's scoring engine grades every lead A–F across Fit, Intent, and Quality in under 500ms. Transparent weights, intent decay, calibrated for Indian B2B.",
+    "Leadkaun's scoring engine grades every lead A–F across Fit, Intent, and Quality in real time. Transparent weights, intent decay, calibrated for Indian B2B.",
   alternates: { canonical: "/features/lead-scoring" },
 }
 
@@ -53,7 +53,7 @@ const GRADES = [
 const FAQ = [
   { q: "What is lead scoring, in simple terms?", a: "Lead scoring ranks every lead by how likely they are to convert. Leadkaun scores across three independent dimensions — Fit (ICP match), Intent (engagement), Quality (data reliability) — and combines them into a Grade A–F. Your rep works Grade A first, always." },
   { q: "How is this different from my CRM's lead scoring?", a: "Most CRM scoring is a single points-based number — a black box. Leadkaun uses three transparent scores with weights you can audit. Intent decays automatically when leads go silent, so stale Grade A leads drop to B or C on their own — no manager intervention." },
-  { q: "How fast is it?", a: "Under 500 ms per lead. When a new lead arrives or a signal is logged, the scoring engine runs immediately and propagates the grade change to every rep's Priority Queue in real time." },
+  { q: "How fast is it?", a: "In real time, per lead. When a new lead arrives or a signal is logged, the scoring engine runs immediately and propagates the grade change to every rep's Priority Queue in real time." },
   { q: "Can I customise the weights?", a: "Yes — on Growth and Scale tiers. Defaults are calibrated for Indian B2B SMBs across 12 industries. You can tune weights per pipeline (e.g. weight geography higher for real estate, weight role higher for SaaS)." },
   { q: "What about junk leads?", a: "Quality Score catches them. Phone normalisation (Indian carrier ranges), email MX validation, company name checks, and inquiry text patterns combine into a Quality score. Anything under 20 is marked Grade F and excluded from the queue automatically." },
 ]
@@ -74,8 +74,8 @@ export default function LeadScoringPage() {
 
         <PageHero
           eyebrow={<><Gauge className="h-3 w-3" strokeWidth={2} /> Lead Scoring Engine</>}
-          h1={<>Grade A–F. In 500 ms.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>Three scores. One answer.</span></>}
-          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions — Fit, Intent, Quality — in under 500 milliseconds. Your rep always knows who to call first."
+          h1={<>Grade A–F. In real time.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>Three scores. One answer.</span></>}
+          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions — Fit, Intent, Quality — in real time. Your rep always knows who to call first."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Priority Queue", href: "/features/priority-queue" }}
         />
@@ -85,7 +85,7 @@ export default function LeadScoringPage() {
           <Container>
             <QuickAnswer
               question="What is lead scoring and how does Leadkaun's engine work?"
-              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in under 500ms across three independent scores — Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
+              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in real time across three independent scores — Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
             />
           </Container>
         </SectionGround>
@@ -249,7 +249,7 @@ export default function LeadScoringPage() {
 
         <CTABanner
           tag={{ number: "06", label: "Ready when you are" }}
-          headline="See your leads graded in 60 minutes."
+          headline="See your leads graded the same day."
           sub="Import a CSV. Leadkaun grades every lead A–F by the end of the hour. Free for 14 days."
         />
 

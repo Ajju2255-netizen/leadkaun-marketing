@@ -152,7 +152,7 @@ export function ComparePageLayout(p: CompareProps) {
                   India&apos;s first Sales Behaviour OS. Grades every lead A–F, builds the Priority Queue, surfaces ₹ at risk — built specifically for Indian B2B SMBs.
                 </p>
                 <ul className="mt-5 space-y-2.5 text-[14px] leading-[1.55] text-ink-soft">
-                  <li className="flex items-center gap-2.5"><MintCheck /> 60-minute setup</li>
+                  <li className="flex items-center gap-2.5"><MintCheck /> same-day setup</li>
                   <li className="flex items-center gap-2.5"><MintCheck /> 3-tap WhatsApp logging</li>
                   <li className="flex items-center gap-2.5"><MintCheck /> ₹-at-risk surfaced daily</li>
                   <li className="flex items-center gap-2.5"><MintCheck /> INR pricing</li>

@@ -179,7 +179,7 @@ export default async function GlossaryTermPage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "From definitions to doing" }}
           headline="Stop defining. Start scoring."
-          sub="Leadkaun puts these concepts into practice — A–F grading, Priority Queue, Missed ₹. Setup in 60 minutes."
+          sub="Leadkaun puts these concepts into practice — A–F grading, Priority Queue, Missed ₹. Setup the same day."
         />
         <Footer />
       </main>

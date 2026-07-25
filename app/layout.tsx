@@ -18,7 +18,7 @@ const geistMono = GeistMono
 
 export const metadata: Metadata = {
   title: {
-    default: "Leadkaun — India's First Sales Behaviour OS",
+    default: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
     template: "%s | Leadkaun",
   },
   description:
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Leadkaun",
-    title: "Leadkaun — India's First Sales Behaviour OS",
+    title: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
     description:
       "Grade A–F. Priority Queue. Missed ₹ surfaced before it's gone. Built for Indian B2B sales teams.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leadkaun — India's First Sales Behaviour OS",
+    title: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
     description:
       "Grade A–F. Priority Queue. Missed ₹ surfaced before it's gone.",
   },

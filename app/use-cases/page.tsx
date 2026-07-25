@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const INDUSTRIES = [
-  { href: "/use-cases/real-estate",   label: "Real Estate",       meta: "₹5–50L GCV · 47-min window" },
+  { href: "/use-cases/real-estate",   label: "Real Estate",       meta: "₹5–50L GCV · high-velocity leads" },
   { href: "/use-cases/edtech",        label: "EdTech",            meta: "Admissions cycles · WA-heavy" },
   { href: "/use-cases/bfsi",          label: "BFSI & Insurance",  meta: "Audit-ready · Renewals" },
   { href: "/use-cases/saas",          label: "SaaS",              meta: "Trial → paid · Expansion" },
@@ -43,7 +43,7 @@ export default function UseCasesHub() {
           <div className="mb-10">
             <NumberedTag number="01" tone="warm" label="Seven industries" />
             <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
-              Pick your vertical. Start in 60 minutes.
+              Pick your vertical. Start the same day.
             </h2>
           </div>
 

@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const canonicalCity = canonicalCityResolved ?? city
   return {
     title: `Sales CRM & Lead Management in ${cityRec.name} | Leadkaun`,
-    description: `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup in 60 min.`,
+    description: `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup the same day.`,
     alternates: { canonical: `/city/${canonicalCity}` },
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
     robots: { index: hubIndexable(cityRec.tier, cityRec.population, !!cityRec.notes), follow: true },
@@ -90,7 +90,7 @@ export default async function CityPage({ params }: Params) {
           breadcrumb={[{ label: "City" }, { label: cityRec.name }]}
           eyebrow={`${cityRec.state} · Tier ${cityRec.tier}`}
           h1={<>Sales CRM &amp; Lead Management in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
-          sub={`Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Tier-${cityRec.tier} city in ${cityRec.state}${cityRec.notes ? `. ${cityRec.notes}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup in 60 minutes.`}
+          sub={`Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Tier-${cityRec.tier} city in ${cityRec.state}${cityRec.notes ? `. ${cityRec.notes}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup the same day.`}
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
@@ -119,7 +119,7 @@ export default async function CityPage({ params }: Params) {
                 {formatPopulation(cityRec.population)} people{cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}.
                 Leadkaun works the {served.length} B2B {served.length === 1 ? "sector" : "sectors"} that sell here
                 {served.length > 0 ? `, led by ${served.slice(0, 3).map((i) => i.name).join(", ")}` : ""}: grade every lead
-                A–F in under 500ms, build each rep&apos;s priority queue, and surface ₹ at risk before a hot lead cools.
+                A–F in real time, build each rep&apos;s priority queue, and surface ₹ at risk before a hot lead cools.
               </p>
             </Reveal>
             <Reveal delay={0.08} className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">

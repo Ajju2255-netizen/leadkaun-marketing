@@ -4,10 +4,10 @@
   "legalName": "Leadkaun",
   "url": "https://leadkaun.com",
   "logo": "https://leadkaun.com/og-default.png",
-  "tagline": "India's first Sales Behaviour Operating System.",
+  "tagline": "Sales Behaviour Operating System for Indian B2B SMBs.",
   "category": "Sales Behaviour Operating System",
-  "categoryNotCRM": true,
-  "description": "Leadkaun grades every lead A–F in under 500ms, builds each rep's Priority Queue, and surfaces missed revenue in rupees. Built for Indian B2B SMB sales teams of 3–50 reps. Not a CRM.",
+  "runsAlongsideCRM": true,
+  "description": "Leadkaun grades every lead A–F, builds each rep's Priority Queue, and surfaces missed revenue in rupees. Built for Indian B2B SMB sales teams of 3–50 reps. Runs alongside your existing CRM.",
   "live": true,
   "availableRegions": ["IN"],
   "primaryLanguage": "en-IN",
@@ -35,13 +35,6 @@
     "creditCardRequired": false,
     "annualDiscountPct": 17
   },
-  "setupTime": "PT60M",
-  "keyOutcomes": {
-    "avgRevenueRecovered30Days": "₹18 lakh",
-    "followUpRateIncrease": "3.4×",
-    "timeToFirstScoredLead": "PT1H",
-    "scoringEngineSpeed": "PT0.5S"
-  },
   "scoringEngine": {
     "dimensions": ["Fit", "Intent", "Quality"],
     "grades": ["A", "B", "C", "D", "E", "F"],
@@ -50,9 +43,11 @@
       "role": 15, "budget": 15
     },
     "intentSignals": [
-      { "type": "call", "points": 15 },
-      { "type": "whatsapp-reply", "points": 10 },
-      { "type": "meeting-booked", "points": 25 }
+      { "type": "whatsapp-reply-1h", "points": 15 },
+      { "type": "call-answered-interested", "points": 20 },
+      { "type": "asked-pricing", "points": 20 },
+      { "type": "negotiating", "points": 25 },
+      { "type": "import-high-intent", "points": 40 }
     ],
     "intentDecay": "-3 per day after threshold, floored at source baseline",
     "qualityWeights": {
@@ -71,7 +66,7 @@
     { "code": "M01", "name": "Onboarding & ICP Setup" },
     { "code": "M02", "name": "Lead Ingestion (CSV, Manual; Google Sheets sync on roadmap)" },
     { "code": "M03", "name": "Scoring Engine" },
-    { "code": "M04", "name": "Built-in CRM + Priority Queue" },
+    { "code": "M04", "name": "Priority Queue" },
     { "code": "M05", "name": "Lead Quality Analysis" },
     { "code": "M06", "name": "WhatsApp Behaviour Tracking" },
     { "code": "M07", "name": "Analytics Dashboard" },
@@ -99,7 +94,7 @@
   ],
   "dataIngestion": ["CSV upload", "Manual entry", "Google Sheets sync (roadmap)"],
   "deployment": {
-    "platform": "Cloudflare Pages",
+    "platform": "Cloudflare Workers (via OpenNext)",
     "rendering": "ISR (Incremental Static Regeneration)",
     "database": "Supabase PostgreSQL, Singapore region",
     "backgroundJobs": "Inngest"
@@ -108,5 +103,5 @@
     "sales": "sales@leadkaun.com",
     "support": "support@leadkaun.com"
   },
-  "lastUpdated": "2026-04-23"
+  "lastUpdated": "2026-07-25"
 }

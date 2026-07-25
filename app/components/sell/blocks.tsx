@@ -18,14 +18,14 @@ import { APP_URLS } from "@/lib/urls"
 type Ground = "pure" | "cream" | "sky" | "mesh"
 
 export const TRUST_STATS = [
-  { value: "₹18L",     label: "avg recovered · 30 days" },
-  { value: "3.4×",     label: "follow-up rate · week 1" },
-  { value: "60 min",   label: "to first graded lead" },
-  { value: "₹4.2 Cr",  label: "recovered / quarter" },
+  { value: "₹18L",     label: "modelled ₹ recovered · 30 days" },
+  { value: "3.4×",     label: "follow-up rate lift · week 1" },
+  { value: "same day", label: "to first graded lead" },
+  { value: "A–F",      label: "every lead graded, in real time" },
 ]
 
 const MODULES = [
-  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in under 500 ms. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
+  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
   { icon: ListOrdered,   tag: "Queue",   accent: "sky"   as const, title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
   { icon: AlertTriangle, tag: "Revenue", accent: "peach" as const, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
   { icon: Mail,          tag: "Digest",  accent: "cyan"  as const, title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
@@ -108,7 +108,7 @@ export function ProductShowcase({
 export function ProductBlock({
   eyebrow = "See it in Leadkaun",
   title = <>This is the product behind the page.</>,
-  sub = "Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — set up in about 60 minutes.",
+  sub = "Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — set up the same day.",
   ground = "cream",
 }: {
   eyebrow?: string
@@ -121,7 +121,7 @@ export function ProductBlock({
 
 /** ProofBand — the outcome-stats credibility band. */
 export function ProofBand({
-  label = "50+ Indian B2B teams · 12 verticals · 8 cities",
+  label = "Illustrative model — typical figures for an Indian B2B team, not customer results",
   ground = "pure",
 }: {
   label?: string
@@ -235,7 +235,7 @@ export function PricingCTA({
           <NumberedTag number={number} label="Pricing" tone="warm" />
           <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">{lead}</h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            All 12 modules on every tier. 14-day free trial, no credit card. Setup in 60 minutes.
+            Flat pricing per team — premium features unlock by tier. 14-day free trial, no credit card. Setup the same day.
           </p>
           <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
             {["14-day free trial", "No credit card", "Cancel anytime"].map((t) => (

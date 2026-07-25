@@ -80,7 +80,7 @@ export function HeroSignupCard() {
 
         <h2 className="mt-3.5 text-[22px] font-bold tracking-[-0.025em] text-ink">Create your free account</h2>
         <p className="mt-1.5 text-[13.5px] leading-[1.5] text-ink-soft">
-          Grade your leads A–F in 60 minutes. No credit card.
+          Grade your leads A–F the same day. No credit card.
         </p>
 
         <form onSubmit={submit} className="mt-5 space-y-3">
@@ -109,7 +109,7 @@ export function HeroSignupCard() {
         </form>
 
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-          {["Free tier", "No credit card", "Setup in 60 min"].map((t) => (
+          {["Free tier", "No credit card", "Setup the same day"].map((t) => (
             <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-ink-muted">
               <span className="grid h-4 w-4 place-items-center rounded-full bg-emerald-100">
                 <Check className="h-2.5 w-2.5 text-emerald-600" strokeWidth={3} />

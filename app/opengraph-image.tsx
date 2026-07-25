@@ -180,9 +180,9 @@ export default async function OGImage() {
               color: FOREGROUND_MUTED,
             }}
           >
-            <span>50+ teams</span>
+            <span>Grades leads A–F</span>
             <span style={{ color: BG_SOFT }}>·</span>
-            <span>60-min setup</span>
+            <span>Priority Queue</span>
             <span style={{ color: BG_SOFT }}>·</span>
             <span>No credit card</span>
           </div>

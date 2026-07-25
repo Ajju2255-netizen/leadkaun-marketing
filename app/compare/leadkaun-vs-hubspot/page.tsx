@@ -47,7 +47,7 @@ export default function VsHubSpot() {
       switching={[
         { title: "Export from HubSpot",          body: "Export contacts, companies, deals, activity history as CSV. HubSpot's export is clean; nothing lost." },
         { title: "Pick what to keep",            body: "HubSpot Free for marketing? Keep it. Your sales team moves to Leadkaun for the behaviour layer." },
-        { title: "Onboard Leadkaun",             body: "60-minute wizard; import the CSV. First graded lead in the queue within the hour." },
+        { title: "Onboard Leadkaun",             body: "Same-day wizard; import the CSV. First graded lead in the queue the same day." },
         { title: "Compare ₹ recovered vs HS bill", body: "At day 60, compare Leadkaun recovery + HubSpot Free (₹0) to HubSpot Sales Pro bill. Most SMBs save ₹5–10 L/year." },
       ]}
       faqs={[

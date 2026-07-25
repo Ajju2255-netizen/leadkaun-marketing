@@ -37,7 +37,7 @@ export default function VsZoho() {
         { label: "WhatsApp as first-class signal (3-tap)",              leadkaun: true,            competitor: "Integration" },
         { label: "Workflow customisation (Deluge-style)",               leadkaun: "neutral",       competitor: true  },
         { label: "Zoho Suite integrations (Books, Desk, Projects)",     leadkaun: false,           competitor: true  },
-        { label: "Setup time",                                          leadkaun: "60 min",        competitor: "1–4 wks" },
+        { label: "Setup time",                                          leadkaun: "same day",        competitor: "1–4 wks" },
         { label: "Rep adoption (typical Indian SMB)",                   leadkaun: "80%+",          competitor: "30–40%" },
       ]}
       pricing={{
@@ -46,7 +46,7 @@ export default function VsZoho() {
       }}
       switching={[
         { title: "Export from Zoho",             body: "Export leads, contacts, deals, activity history as CSV. Keep only the last 90 days of live data; archive the rest." },
-        { title: "Onboard Leadkaun",             body: "60-minute wizard with pre-configured ICP for your industry. Import the live CSVs." },
+        { title: "Onboard Leadkaun",             body: "Same-day wizard with pre-configured ICP for your industry. Import the live CSVs." },
         { title: "Run parallel for 30 days",     body: "Keep Zoho in read-only mode as an archive. Reps work out of Leadkaun. Measure ₹ recovered." },
         { title: "Decide at day 60",             body: "If the Missed Opportunity Engine recovers more than the combined subscription cost, consolidate. If Zoho's workflow depth still justifies it, keep both." },
       ]}

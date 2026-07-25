@@ -279,7 +279,7 @@ export default function PricingPage() {
       <CTABanner
         tag={{ number: "05", label: "Ready when you are" }}
         headline="Start free. Upgrade when you're leaving money on the table."
-        sub="100 leads, full AI scoring, no credit card. Setup in 60 minutes."
+        sub="100 leads, full AI scoring, no credit card. Setup the same day."
       />
 
       <Footer />

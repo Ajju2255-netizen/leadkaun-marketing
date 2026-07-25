@@ -115,7 +115,7 @@ export default async function ResourcesHubPage() {
       <CTABanner
         tag={{ number: "→", label: "Skip the manual version" }}
         headline="Or just let Leadkaun run it."
-        sub="Everything these resources teach you to build by hand, Leadkaun automates in 60 minutes. Scoring, Priority Queue, Morning Brief, ₹ at risk — no spreadsheet maintenance."
+        sub="Everything these resources teach you to build by hand, Leadkaun automates the same day. Scoring, Priority Queue, Morning Brief, ₹ at risk — no spreadsheet maintenance."
       />
       <Footer />
     </main>

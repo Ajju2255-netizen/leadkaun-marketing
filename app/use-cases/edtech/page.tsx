@@ -35,7 +35,7 @@ export default function EdTechPage() {
         { q: "Does it handle the parent + student dual thread?", a: "Yes. Lead record has primary + secondary contacts. WhatsApp tracking logs who replied when; Intent Score aggregates across both." },
         { q: "Can we set different scoring per course?", a: "Yes, on Growth tier. Course-level ICP weights let you tune for engineering vs arts vs PG programmes." },
         { q: "Does it integrate with our LMS / SIS?", a: "Not natively in Phase 1. Export leads to CSV for your SIS; Leadkaun owns the enquiry-to-enrolment funnel." },
-        { q: "What about offline / walk-in admissions?", a: "Manual entry takes 15 seconds. The lead enters the queue immediately, graded within 500ms." },
+        { q: "What about offline / walk-in admissions?", a: "Manual entry takes 15 seconds. The lead enters the queue immediately, graded in real time." },
         { q: "How does it handle seasonality?", a: "Intent decay rates are configurable per admissions cycle. Default India EdTech cycle supported out of the box." },
       ]}
       relatedCities={[

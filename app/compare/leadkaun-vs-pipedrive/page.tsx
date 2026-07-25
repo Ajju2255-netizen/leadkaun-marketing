@@ -38,7 +38,7 @@ export default function VsPipedrive() {
         { label: "Visual pipeline (Kanban)",                            leadkaun: "neutral",     competitor: true  },
         { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per user (USD)" },
         { label: "India-specific UX",                                   leadkaun: true,          competitor: false },
-        { label: "Setup time",                                          leadkaun: "60 min",      competitor: "Days" },
+        { label: "Setup time",                                          leadkaun: "same day",      competitor: "Days" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,7 +46,7 @@ export default function VsPipedrive() {
       }}
       switching={[
         { title: "Export from Pipedrive", body: "Export leads, deals, and activities as CSV. Keep the last 90 days of live data; archive the rest." },
-        { title: "Onboard Leadkaun",      body: "60-minute wizard with a pre-configured ICP for your industry. Import the live CSVs." },
+        { title: "Onboard Leadkaun",      body: "Same-day wizard with a pre-configured ICP for your industry. Import the live CSVs." },
         { title: "Run parallel for 30 days", body: "Keep Pipedrive read-only as an archive. Reps work out of Leadkaun's Priority Queue. Measure ₹ recovered." },
         { title: "Decide at day 60",      body: "If the Missed Opportunity Engine recovers more than the combined subscription cost, consolidate. If you rely on Pipedrive's automation depth, keep both." },
       ]}
@@ -54,7 +54,7 @@ export default function VsPipedrive() {
         { q: "Is Pipedrive more expensive for an Indian team?", a: "Usually, at any real headcount — it's billed per user in USD, so cost grows with every rep and carries FX. Leadkaun is a single flat INR price per account regardless of team size." },
         { q: "Does Pipedrive support WhatsApp?", a: "Not natively. WhatsApp works through third-party marketplace apps, which add cost and setup. Leadkaun treats WhatsApp as a first-class 3-tap signal that feeds the Intent Score." },
         { q: "Can I keep Pipedrive for pipeline management?", a: "Yes. Many teams keep a familiar pipeline tool and add Leadkaun for the behaviour layer — grading, queueing, and ₹-at-risk. CSV export makes coexistence low-friction." },
-        { q: "Which has better lead scoring?", a: "Leadkaun grades every lead A–F on Fit, Intent, and Quality in under 500ms with intent decay. Pipedrive's native prioritisation is thin and typically leans on integrations." },
+        { q: "Which has better lead scoring?", a: "Leadkaun grades every lead A–F on Fit, Intent, and Quality in real time with intent decay. Pipedrive's native prioritisation is thin and typically leans on integrations." },
         { q: "Is the pricing really INR with GST?", a: "Yes. All Leadkaun invoices are INR, GST-compliant, no USD surcharge." },
       ]}
     />

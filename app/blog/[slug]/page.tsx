@@ -175,7 +175,7 @@ export default async function BlogPostPage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "From reading to shipping" }}
           headline="See how Leadkaun solves this."
-          sub="A–F lead scoring in under 500ms, a Priority Queue your reps actually use, and ₹ at risk surfaced before deals rot. Setup in 60 minutes."
+          sub="A–F lead scoring in real time, a Priority Queue your reps actually use, and ₹ at risk surfaced before deals rot. Setup the same day."
         />
         <Footer />
       </main>

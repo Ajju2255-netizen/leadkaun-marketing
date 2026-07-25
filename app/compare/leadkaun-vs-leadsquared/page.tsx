@@ -37,7 +37,7 @@ export default function VsLeadSquared() {
         { label: "WhatsApp 3-tap logging (any account)",            leadkaun: true,          competitor: "BSP only" },
         { label: "Mobile field-rep UI",                             leadkaun: true,          competitor: true },
         { label: "Workflow automation builder",                     leadkaun: "neutral",     competitor: true },
-        { label: "Setup time",                                      leadkaun: "60 min",      competitor: "2–8 wks" },
+        { label: "Setup time",                                      leadkaun: "same day",      competitor: "2–8 wks" },
         { label: "Transparent pricing",                             leadkaun: true,          competitor: false },
       ]}
       pricing={{
@@ -46,13 +46,13 @@ export default function VsLeadSquared() {
       }}
       switching={[
         { title: "Export from LeadSquared",      body: "Export leads, activities, stage history as CSV. Most mid-market accounts export in 2–3 hours." },
-        { title: "Onboard Leadkaun",             body: "Industry-specific ICP templates for EdTech / BFSI / healthcare already configured. 60-minute setup." },
+        { title: "Onboard Leadkaun",             body: "Industry-specific ICP templates for EdTech / BFSI / healthcare already configured. Same-day setup." },
         { title: "Train reps on 3-tap logging",  body: "2-hour session per team. Reps log 5 real leads live. Within a week, adoption >70%." },
         { title: "Measure ₹ recovered for 60 days", body: "The behaviour-layer ROI shows up in Missed Opportunity recovery. If it beats the combined bill, consolidate." },
       ]}
       faqs={[
         { q: "We use LeadSquared's mobile app heavily. Does Leadkaun have one?", a: "Leadkaun works on mobile web — same features, no app install, patchy-3G tolerant. Field reps in manufacturing / real estate use Leadkaun exclusively from phones." },
-        { q: "Our onboarding for LeadSquared took 6 weeks. Is Leadkaun really 60 minutes?", a: "Yes. Pre-configured ICP templates for 12 Indian B2B verticals mean most SMBs don't need to define ICP from scratch. First scored lead in the queue within the first hour." },
+        { q: "Our onboarding for LeadSquared took 6 weeks. Is Leadkaun really same-day?", a: "Yes. Pre-configured ICP templates for 12 Indian B2B verticals mean most SMBs don't need to define ICP from scratch. First scored lead in the queue the same day." },
         { q: "LeadSquared is strong on marketing automation. Can Leadkaun replace that?", a: "Not in Phase 1. If marketing automation is core to your stack, keep LeadSquared / HubSpot for that layer; Leadkaun handles the sales-behaviour layer on top." },
         { q: "Can I keep LeadSquared for workflow and add Leadkaun for scoring?", a: "Yes — this is the most common pattern. Sync leads via CSV / Sheets; behaviour runs on Leadkaun; LeadSquared keeps the workflow depth." },
       ]}

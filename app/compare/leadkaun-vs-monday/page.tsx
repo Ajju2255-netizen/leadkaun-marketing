@@ -38,7 +38,7 @@ export default function VsMonday() {
         { label: "No-code custom workflows / work management",          leadkaun: "neutral",      competitor: true  },
         { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per seat (USD), 3-seat min" },
         { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "DIY / days" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "DIY / days" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,13 +46,13 @@ export default function VsMonday() {
       }}
       switching={[
         { title: "Export from monday", body: "Export leads, contacts, and deals as CSV from your monday boards." },
-        { title: "Onboard Leadkaun",   body: "60-minute wizard with a pre-configured ICP; Indian phones normalise on import." },
+        { title: "Onboard Leadkaun",   body: "Same-day wizard with a pre-configured ICP; Indian phones normalise on import." },
         { title: "Run parallel",       body: "Keep monday for any non-sales work management. Reps work Leadkaun's Priority Queue for the sales motion." },
         { title: "Decide",             body: "If ready-made grading + queue beats a self-built pipeline for your team, consolidate sales into Leadkaun." },
       ]}
       faqs={[
         { q: "Is monday CRM expensive for an Indian team?", a: "It can be — it's billed per seat in USD with a 3-seat minimum, so a small team's real floor is higher than the headline price. Leadkaun is one flat INR price per account regardless of team size." },
-        { q: "Does monday CRM have lead scoring?", a: "Not as a built-in engine — you construct scoring with formula columns and automations. Leadkaun grades every lead A–F on Fit × Intent × Quality in under 500ms with intent decay, out of the box." },
+        { q: "Does monday CRM have lead scoring?", a: "Not as a built-in engine — you construct scoring with formula columns and automations. Leadkaun grades every lead A–F on Fit × Intent × Quality in real time with intent decay, out of the box." },
         { q: "Does monday CRM support WhatsApp?", a: "Only through third-party connectors. Leadkaun treats a logged WhatsApp reply as a ranked Intent signal that can change a lead's grade." },
         { q: "When is monday the better choice?", a: "If you want one flexible tool for both CRM and general work management and are happy to build your own workflows, monday's no-code canvas is a genuine strength." },
       ]}

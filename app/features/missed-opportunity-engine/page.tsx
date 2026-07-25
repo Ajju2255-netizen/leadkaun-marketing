@@ -33,7 +33,7 @@ const STALE_WINDOWS = [
 
 const FAQ = [
   { q: "How is ₹ at risk calculated?", a: "Formula: avg deal value for that grade × grade-specific conversion rate × 1 lead. For a real-estate team with ₹45L avg GCV and 10% Grade A conversion, a single stale Grade A lead = ₹4.5L at risk. Aggregated across stale leads, this becomes your weekly ₹ at risk number." },
-  { q: "Where do the avg deal values come from?", a: "Default values are industry benchmarks (calibrated across 50+ Indian B2B teams). On Growth and Scale, you customise per pipeline using your actual last-90-day closed-won data." },
+  { q: "Where do the avg deal values come from?", a: "Default values are industry benchmarks. On Growth and Scale, you customise per pipeline using your actual last-90-day closed-won data." },
   { q: "Does it shame reps?", a: "Rep-facing copy is framed as opportunity, not blame. The rep's Morning Brief says '₹1.8L to recover today — top 3: Priya, Rajesh, Mohan' — not 'you missed ₹1.8L'. Same number, different conversation. Managers see per-rep rollups separately." },
   { q: "What happens when we mark a lead as closed-lost?", a: "It leaves the at-risk bucket and gets logged for Loss Analysis — so over time you see which sources / industries / reps have higher loss rates, and you can coach / retarget accordingly." },
   { q: "How does it integrate with Morning Brief?", a: "The top of every Morning Brief email leads with 'Your ₹ at risk today' and lists the top Grade A leads to recover. It's the single metric that sets the rep's day." },

@@ -38,7 +38,7 @@ export default function VsSalesforce() {
         { label: "Customisation ceiling",                      leadkaun: "Growth tier", competitor: "Unlimited" },
         { label: "AppExchange equivalent",                     leadkaun: false,        competitor: true },
         { label: "Requires dedicated admin",                   leadkaun: false,        competitor: true },
-        { label: "Setup time (typical SMB)",                   leadkaun: "60 min",     competitor: "3–12 mo" },
+        { label: "Setup time (typical SMB)",                   leadkaun: "same day",     competitor: "3–12 mo" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "All modules included. No admin overhead." },
@@ -47,7 +47,7 @@ export default function VsSalesforce() {
       switching={[
         { title: "Be honest about scale",        body: "Under 200 reps? You're paying Salesforce for capabilities you don't use. Above? Salesforce is the right call." },
         { title: "Export Salesforce data",       body: "Export leads, accounts, opportunities, activity history. The SF export is thorough; CSV imports cleanly into Leadkaun." },
-        { title: "Skip the consultant",          body: "Salesforce rebuilds take months. Leadkaun onboarding is 60 minutes. The speed itself is a feature." },
+        { title: "Skip the consultant",          body: "Salesforce rebuilds take months. Leadkaun onboarding is same-day. The speed itself is a feature." },
         { title: "Measure over 90 days",         body: "Compare rep adoption rate, response-time, ₹ recovered. If Leadkaun wins outcomes at 1/4 the cost, the decision is made." },
       ]}
       faqs={[

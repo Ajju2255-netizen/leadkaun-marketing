@@ -35,11 +35,11 @@ const FAQ = [
   { q: "Can it auto-log WhatsApp messages?", a: "Not yet — auto-logging via a WhatsApp Business Service Provider (Gupshup, AiSensy, Interakt) is on our roadmap. Today, 3-tap manual logging works with any WhatsApp account and takes about 10 seconds per conversation, and that's what feeds the Intent Score." },
   { q: "How long does logging take?", a: "About 10 seconds per exchange. Reps log after each meaningful reply — not every 'hi'. By the end of a morning of calls, logging is muscle memory." },
   { q: "Does the manager see the message content?", a: "No. Only the aggregated signals (stage + intent + outcome) show up on the manager view. Per-rep WhatsApp activity counts show on the Rep Performance card. No message content without explicit permission." },
-  { q: "What feeds the scoring engine?", a: "Intent tap directly: High = +10 pts Intent, Medium = +5, Low = 0, Negative = −10. Stage transitions are logged for reporting. A high-intent reply can push a Grade C lead to Grade A within 500 ms." },
+  { q: "What feeds the scoring engine?", a: "Intent tap directly: High = +10 pts Intent, Medium = +5, Low = 0, Negative = −10. Stage transitions are logged for reporting. A high-intent reply can push a Grade C lead to Grade A in real time." },
 ]
 
 const RELATED = [
-  { icon: Gauge,       title: "Lead Scoring",       description: "WhatsApp replies feed the Intent Score. 3 taps → 500 ms grade update.",          href: "/features/lead-scoring" },
+  { icon: Gauge,       title: "Lead Scoring",       description: "WhatsApp replies feed the Intent Score. 3 taps → real-time grade update.",          href: "/features/lead-scoring" },
   { icon: ListOrdered, title: "Priority Queue",     description: "High-intent WA replies instantly re-rank the lead to the top of the queue.",      href: "/features/priority-queue" },
   { icon: Users,       title: "Sales Rep Tracking", description: "Per-rep WhatsApp activity and stage progression on the Rep Performance card.",    href: "/features/sales-rep-tracking" },
 ]
@@ -65,7 +65,7 @@ export default function WhatsAppTrackingPage() {
           <Container>
             <QuickAnswer
               question="How does Leadkaun track WhatsApp for sales?"
-              answer="Reps log each WhatsApp exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, no Business API needed. That logged signal feeds the Intent Score in real time, so a high-intent reply can push a Grade C lead to Grade A in under 500ms and move it up the Priority Queue."
+              answer="Reps log each WhatsApp exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, no Business API needed. That logged signal feeds the Intent Score in real time, so a high-intent reply can push a Grade C lead to Grade A in real time and move it up the Priority Queue."
             />
           </Container>
         </SectionGround>

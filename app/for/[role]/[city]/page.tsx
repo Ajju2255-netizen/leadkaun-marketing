@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const canonicalCity = canonicalCityResolved ?? city
   return {
     title: `Sales Software for ${r.title}s in ${cityRec.name} | Leadkaun`,
-    description: `${r.title}s in ${cityRec.name} use Leadkaun to grade leads A–F, build rep queues, and surface missed ₹. Setup in 60 min.`,
+    description: `${r.title}s in ${cityRec.name} use Leadkaun to grade leads A–F, build rep queues, and surface missed ₹. Setup the same day.`,
     alternates: { canonical: `/for/${role}/${canonicalCity}` },
     // Quality-first: role pages for smaller cities are noindexed until they clear
     // the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.

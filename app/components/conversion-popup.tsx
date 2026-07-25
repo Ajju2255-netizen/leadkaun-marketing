@@ -225,8 +225,7 @@ export function ConversionPopup() {
               Leadkaun grades every lead{" "}
               <span className="font-medium text-sky-600">A–F</span>, builds each rep&apos;s Priority
               Queue, and flags the{" "}
-              <span className="font-medium text-sky-600">₹</span> you&apos;re about to lose — live in
-              about 60 minutes.
+              <span className="font-medium text-sky-600">₹</span> you&apos;re about to lose — live the same day.
             </p>
 
             <ul className="mt-5 flex flex-col gap-2.5">

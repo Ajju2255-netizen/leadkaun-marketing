@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const canonicalCity = canonicalCityResolved ?? city
   return {
     title: `${ind.name} CRM & Lead Management in ${cityRec.name} — Leadkaun`,
-    description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup in 60 minutes.`,
+    description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup the same day.`,
     alternates: { canonical: `/${industry}/${canonicalCity}` },
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
     robots: { index: hubIndexable(cityRec.tier, cityRec.population, !!cityRec.notes), follow: true },
@@ -79,7 +79,7 @@ export default async function IndustryCityPage({ params }: Params) {
           breadcrumb={[{ label: ind.name, href: `/use-cases/${ind.slug}` }, { label: cityRec.name }]}
           eyebrow={`${ind.name} · ${cityRec.name}`}
           h1={<>{ind.name} Lead Management in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
-          sub={`${cityRec.name}-based ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in rupees. Setup in 60 minutes.`}
+          sub={`${cityRec.name}-based ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in rupees. Setup the same day.`}
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
@@ -98,7 +98,7 @@ export default async function IndustryCityPage({ params }: Params) {
           <Container>
             <QuickAnswer
               question={`How does Leadkaun help ${ind.name.toLowerCase()} teams in ${cityRec.name} manage leads?`}
-              answer={`Leadkaun grades every ${ind.name.toLowerCase()} lead in ${cityRec.name} A–F across fit, intent, and quality in under 500ms, then builds each rep a live Priority Queue so the highest-intent enquiries get worked first. WhatsApp is a first-class 3-tap signal, and missed revenue surfaces in rupees. Setup takes about 60 minutes, at flat INR pricing.`}
+              answer={`Leadkaun grades every ${ind.name.toLowerCase()} lead in ${cityRec.name} A–F across fit, intent, and quality in real time, then builds each rep a live Priority Queue so the highest-intent enquiries get worked first. WhatsApp is a first-class 3-tap signal, and missed revenue surfaces in rupees. Setup happens the same day, at flat INR pricing.`}
             />
           </Container>
         </SectionGround>

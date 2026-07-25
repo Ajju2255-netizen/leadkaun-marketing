@@ -38,7 +38,7 @@ export default function VsSellDo() {
         { label: "Real-estate-specific workflows (site visits, bookings)", leadkaun: false,       competitor: true  },
         { label: "AI call sentiment analysis",                          leadkaun: false,          competitor: true  },
         { label: "India-specific UX",                                   leadkaun: true,           competitor: true  },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "Guided / heavier" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Guided / heavier" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth", price: "₹7,999 / mo", note: "Flat per account, transparent, 14-day free trial" },
@@ -47,7 +47,7 @@ export default function VsSellDo() {
       switching={[
         { title: "Decide by vertical", body: "If you're a property developer needing deep real-estate workflows, Sell.Do is purpose-built. For horizontal B2B, read on." },
         { title: "Export leads",       body: "Export leads and activity as CSV." },
-        { title: "Onboard Leadkaun",   body: "60-minute wizard with a pre-configured ICP for your industry." },
+        { title: "Onboard Leadkaun",   body: "Same-day wizard with a pre-configured ICP for your industry." },
         { title: "Run parallel",       body: "Grade the same leads in both for 2–4 weeks and compare how each ranks your day." },
       ]}
       faqs={[

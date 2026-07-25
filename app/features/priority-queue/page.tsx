@@ -114,7 +114,7 @@ export default function PriorityQueuePage() {
                 {[
                   { v: "30s",   l: "Queue refresh interval",     h: "Polling via React Query — no realtime overhead per row" },
                   { v: "< 2s",  l: "Queue load for 5,000 leads", h: "Paginated 100/page, infinite scroll" },
-                  { v: "500 ms", l: "Re-rank latency on signal",  h: "Deterministic TypeScript, no DB triggers" },
+                  { v: "Real-time", l: "Re-rank latency on signal",  h: "Deterministic TypeScript, no DB triggers" },
                 ].map((m, i) => (
                   <FloatingCard key={m.l} tier="2" depth="2" gloss aura={i === 1 ? "peach" : "sky"} className="p-6">
                     <div className="font-mono text-[34px] font-semibold tracking-[-0.025em] text-ink tabular">{m.v}</div>
@@ -165,7 +165,7 @@ export default function PriorityQueuePage() {
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}
           headline="See the queue on your leads."
-          sub="Import your leads. Leadkaun grades and ranks them. First queue built within the hour."
+          sub="Import your leads. Leadkaun grades and ranks them. First queue built the same day."
         />
 
         <Footer />

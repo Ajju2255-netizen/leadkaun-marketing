@@ -46,7 +46,7 @@ export default function VsFreshsales() {
       switching={[
         { title: "Export from Freshsales",       body: "Contacts, deals, activity CSV. Standard Freshworks export path — no surprises." },
         { title: "Keep Freshworks suite if needed", body: "Freshdesk + Freshchat deliver real value for support teams. Keep them. Swap Freshsales for Leadkaun." },
-        { title: "Onboard Leadkaun",             body: "60-min wizard; pre-built ICPs for Indian B2B SMBs. Import your data." },
+        { title: "Onboard Leadkaun",             body: "Same-day wizard; pre-built ICPs for Indian B2B SMBs. Import your data." },
         { title: "Audit the scoring",            body: "Open Leadkaun's Grade A queue on day 7. Ask: does this match your gut? Transparent weights make the answer always 'yes' — that's the point." },
       ]}
       faqs={[

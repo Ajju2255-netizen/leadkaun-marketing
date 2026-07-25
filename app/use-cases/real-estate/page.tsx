@@ -15,7 +15,7 @@ export default function RealEstatePage() {
       industryLabel="Real Estate"
       icon={Building2}
       h1="Stop losing property enquiries."
-      subhead="Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that in 60 minutes."
+      subhead="Real estate sales teams across India lose lakhs every week to slow follow-up and no-priority-system. Leadkaun fixes that the same day."
       ticketBand="₹5L–₹5Cr GCV"
       salesCycle="2 days to 4 months"
       channels={["99acres", "MagicBricks", "Facebook Ads", "Google Ads", "Walk-ins"]}
@@ -43,11 +43,11 @@ export default function RealEstatePage() {
       faqs={[
         {
           q: "How long does it take to set up Leadkaun for a real-estate team?",
-          a: "60 minutes from signup to your first graded property enquiry in the queue. Real estate ICP weights are pre-configured — you tweak project tiers and city focus, then go live.",
+          a: "The same day from signup to your first graded property enquiry in the queue. Real estate ICP weights are pre-configured — you tweak project tiers and city focus, then go live.",
         },
         {
           q: "Do you integrate with 99acres, MagicBricks, and HousingMan?",
-          a: "Yes — via CSV bulk import and webhooks, most teams pipe portal leads in within an hour. Google Sheets sync and WhatsApp BSP auto-logging (AiSensy, Gupshup, Interakt) are on our roadmap; until then, WhatsApp is tracked with fast 3-tap manual logging.",
+          a: "Yes — via CSV bulk import and webhooks, most teams pipe portal leads in the same day. Google Sheets sync and WhatsApp BSP auto-logging (AiSensy, Gupshup, Interakt) are on our roadmap; until then, WhatsApp is tracked with fast 3-tap manual logging.",
         },
         {
           q: "What if a rep handles HNI buyers — different ICP from mass-market?",

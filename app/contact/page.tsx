@@ -119,7 +119,7 @@ export default function ContactPage() {
       <ProductBlock
         eyebrow="See it in Leadkaun"
         title={<>While you&apos;re here — see the product.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees. Set up in about 60 minutes."
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees. Set up the same day."
       />
 
       <CTABanner />

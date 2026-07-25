@@ -251,7 +251,7 @@ export default async function IntegrationPage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "Plug it in" }}
           headline={`Ship Leadkaun with ${entry.name}.`}
-          sub="Setup takes 60 minutes. 14-day trial. No credit card. Connect your stack and watch behaviour show up by Friday."
+          sub="Setup happens the same day. 14-day trial. No credit card. Connect your stack and watch behaviour show up by Friday."
         />
         <Footer />
       </main>

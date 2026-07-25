@@ -15,7 +15,7 @@ export default function BFSIPage() {
       industryLabel="BFSI & Insurance"
       icon={Landmark}
       h1="Audit trail. Assignment. Accountability in ₹."
-      subhead="Branch managers, NBFC sales heads, and wealth RMs run regulated sales with compliance pressure and agent-network complexity. Leadkaun delivers grading, assignment, audit trail, and ₹ at risk — all in 60 minutes."
+      subhead="Branch managers, NBFC sales heads, and wealth RMs run regulated sales with compliance pressure and agent-network complexity. Leadkaun delivers grading, assignment, audit trail, and ₹ at risk — all the same day."
       ticketBand="₹8k – ₹2L premium / ₹1L – ₹25L disbursement"
       salesCycle="1 day to 60 days"
       channels={["PolicyBazaar", "BankBazaar", "Paisabazaar", "Google Ads", "DSA network"]}

@@ -24,7 +24,6 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
 import { HeroSignupCard } from "@/app/components/hero-signup"
-import { PlatformShowcase } from "@/app/components/platform-showcase"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -67,7 +66,6 @@ export default function HomePage() {
       <Navbar />
 
       <Hero />
-      <PlatformShowcase />
       <EditorialStatement />
       <Problem />
       <HowItWorks />
@@ -146,7 +144,7 @@ function Hero() {
             </ul>
 
             <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-              50+ Indian B2B teams · 60-min setup · No credit card
+              Grades every lead A–F · Priority Queue · No credit card
             </p>
           </div>
 
@@ -186,7 +184,7 @@ function Hero() {
         {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}
         <div className="mt-16 rounded-3xl glass-2 elevate-2 gloss-edge px-6 py-7 md:mt-20 md:px-10">
           <p className="text-center font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-            50+ Indian B2B teams · 12 verticals · 8 cities
+            Illustrative model — typical figures for an Indian B2B team, not customer results
           </p>
           <dl className="mt-6 grid grid-cols-2 gap-y-5 md:grid-cols-4 md:gap-y-0">
             {TRUST_STATS.map((s, i) => (
@@ -215,10 +213,10 @@ function Hero() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const TRUST_STATS = [
-  { value: "₹18L",     label: "avg recovered · 30 days" },
-  { value: "3.4×",     label: "follow-up rate · week 1" },
-  { value: "60 min",   label: "to first graded lead" },
-  { value: "₹4.2 Cr",  label: "recovered / quarter" },
+  { value: "₹18L",     label: "modelled ₹ recovered · 30 days" },
+  { value: "3.4×",     label: "follow-up rate lift · week 1" },
+  { value: "same day", label: "to first graded lead" },
+  { value: "A–F",      label: "every lead graded, in real time" },
 ]
 
 /* ───────────────────────────────────────────────────────────────────────
@@ -315,7 +313,7 @@ const STEPS = [
   {
     n: "01",
     tag: "GRADE",
-    h: "Every lead scored A–F in 500 ms.",
+    h: "Every lead scored A–F in real time.",
     b: "Fit + Intent + Quality — transparent weights, no black box. Runs on every Sheet, CSV, and form.",
     meta: "Transparent scoring, auditable weights.",
   },
@@ -426,7 +424,7 @@ function HowItWorks() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const MODULES = [
-  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in under 500 ms. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
+  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
   { icon: ListOrdered,   tag: "Queue",   accent: "sky"   as const, title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
   { icon: AlertTriangle, tag: "Revenue", accent: "peach" as const, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
   { icon: Mail,          tag: "Digest",  accent: "cyan"  as const, title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
@@ -703,7 +701,7 @@ function FaqBlock() {
         <Reveal delay={0.08}><Faq
           items={[
             { q: "How is Leadkaun different from a CRM?",            a: "A CRM records what happened. Leadkaun reshapes what happens next — by grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. Most teams run Leadkaun alongside their CRM for 60–90 days, then consolidate." },
-            { q: "How long does setup take?",                         a: "60 minutes from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP templates for 12 Indian B2B verticals, so you do not need to define your ICP from scratch." },
+            { q: "How long does setup take?",                         a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP templates for 12 Indian B2B verticals, so you do not need to define your ICP from scratch." },
             { q: "Do I need to import all my historical leads?",      a: "No — and we recommend you do not. Import only the live leads (last 90 days of activity). Stale data pollutes the grade distribution. Most teams migrate 40–60% of their CRM data; the rest stays archived." },
             { q: "Does it handle WhatsApp?",                          a: "Yes — as a first-class signal, not an integration afterthought. Reps log every meaningful WhatsApp exchange in 3 taps (stage + intent + outcome), feeding the Intent Score directly. Works with any WhatsApp account; BSP integrations are available for Gupshup, AiSensy, and Interakt." },
             { q: "What happens if a rep leaves?",                     a: "One-click handover. Lead records, activity history, WhatsApp logs, follow-up schedules all transfer to the new rep. The pipeline does not leave with the person." },

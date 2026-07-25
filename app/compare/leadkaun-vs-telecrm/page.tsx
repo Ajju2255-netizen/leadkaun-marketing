@@ -38,7 +38,7 @@ export default function VsTeleCRM() {
         { label: "Built-in dialer / telecalling",                       leadkaun: false,          competitor: true  },
         { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per user + add-ons" },
         { label: "India-specific behaviour layer",                      leadkaun: true,           competitor: "neutral" },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "Self-serve" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Self-serve" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,7 +46,7 @@ export default function VsTeleCRM() {
       }}
       switching={[
         { title: "Export from TeleCRM", body: "Export leads and call/activity history as CSV." },
-        { title: "Onboard Leadkaun",    body: "60-minute wizard with a pre-configured ICP. Import the CSVs; Indian phones normalise automatically." },
+        { title: "Onboard Leadkaun",    body: "Same-day wizard with a pre-configured ICP. Import the CSVs; Indian phones normalise automatically." },
         { title: "Run both if you dial heavily", body: "Many teams keep a dialer for raw call volume and add Leadkaun for grading and prioritisation — so reps dial the highest-intent lead first." },
         { title: "Decide",              body: "If grading + queue + ₹-at-risk lift conversion on the same call volume, Leadkaun earns its place. If you purely need a dialer, TeleCRM is the cheaper single tool." },
       ]}
@@ -54,7 +54,7 @@ export default function VsTeleCRM() {
         { q: "Is TeleCRM a direct replacement for Leadkaun?", a: "Not really — they solve different problems. TeleCRM maximises calling and follow-up throughput. Leadkaun decides which lead deserves the next call by grading intent and auto-ranking the queue. Calling teams often run both." },
         { q: "Does Leadkaun have a dialer?", a: "No built-in dialer today — that's genuinely TeleCRM's strength. Leadkaun logs call outcomes in 3 taps and feeds them into scoring and the queue." },
         { q: "Which is cheaper?", a: "TeleCRM's base per-user rate is low, but add-ons (Chat Sync, WhatsApp API) and headcount raise the real cost. Leadkaun is one flat account price regardless of team size." },
-        { q: "Does TeleCRM score leads?", a: "It captures, assigns, and automates follow-ups, but doesn't ship a documented intent-graded scoring engine. Leadkaun grades A–F on Fit × Intent × Quality in under 500ms." },
+        { q: "Does TeleCRM score leads?", a: "It captures, assigns, and automates follow-ups, but doesn't ship a documented intent-graded scoring engine. Leadkaun grades A–F on Fit × Intent × Quality in real time." },
         { q: "Is pricing INR with GST?", a: "Yes — both are Indian, INR, GST-compliant. Leadkaun bills flat per account." },
       ]}
     />

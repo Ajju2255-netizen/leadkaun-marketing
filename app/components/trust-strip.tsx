@@ -23,7 +23,7 @@ const DEFAULT_LOGOS = [
  * Semrush-style confidence builder below hero.
  */
 export function TrustStrip({
-  headline = "Trusted by 50+ Indian B2B sales teams",
+  headline = "Built for Indian B2B sales teams",
   logos = DEFAULT_LOGOS,
   className,
 }: Props) {

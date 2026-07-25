@@ -38,7 +38,7 @@ export default function VsClose() {
         { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
         { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per seat (USD) + usage" },
         { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "60 min",       competitor: "Self-serve" },
+        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Self-serve" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
@@ -46,7 +46,7 @@ export default function VsClose() {
       }}
       switching={[
         { title: "Export from Close",  body: "Export leads, contacts, and activity as CSV." },
-        { title: "Onboard Leadkaun",   body: "60-minute wizard; Indian phones normalise on import." },
+        { title: "Onboard Leadkaun",   body: "Same-day wizard; Indian phones normalise on import." },
         { title: "Keep a dialer if needed", body: "If raw calling volume is core, keep a dialer and add Leadkaun for grading and prioritisation." },
         { title: "Decide",             body: "If knowing which lead to call first lifts conversion on the same effort, Leadkaun earns its place." },
       ]}

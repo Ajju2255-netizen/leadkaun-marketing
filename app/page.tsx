@@ -66,6 +66,7 @@ export default function HomePage() {
       <Navbar />
 
       <Hero />
+      <EditorialStatement />
       <Problem />
       <HowItWorks />
       <Modules />
@@ -217,6 +218,28 @@ const TRUST_STATS = [
   { value: "60 min",   label: "to first graded lead" },
   { value: "₹4.2 Cr",  label: "recovered / quarter" },
 ]
+
+/* ───────────────────────────────────────────────────────────────────────
+   EDITORIAL STATEMENT — big serif thesis, folded between hero and problem
+─────────────────────────────────────────────────────────────────────── */
+
+function EditorialStatement() {
+  return (
+    <SectionGround variant="cream" size="lg">
+      <Container>
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <p className="font-serif text-[25px] font-medium leading-[1.4] tracking-[-0.01em] text-ink md:text-[36px] md:leading-[1.38]">
+            Great sales teams aren&apos;t working harder — they&apos;re working the right lead first.{" "}
+            <span className="text-ink-muted">
+              Leadkaun grades every enquiry, builds each rep&apos;s queue, and surfaces the ₹ at risk — so your
+              team spends its hours where the revenue actually is.
+            </span>
+          </p>
+        </Reveal>
+      </Container>
+    </SectionGround>
+  )
+}
 
 /* ───────────────────────────────────────────────────────────────────────
    PROBLEM — split editorial, glass cards, severity-tinted micro-glows

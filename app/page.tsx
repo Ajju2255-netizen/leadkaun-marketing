@@ -23,7 +23,7 @@ import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
-import { HeroSignup } from "@/app/components/hero-signup"
+import { HeroSignupCard } from "@/app/components/hero-signup"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -92,13 +92,6 @@ const GRADE_BG: Record<string, string> = {
   C: "linear-gradient(180deg,#FDBA74,#FB923C)",
 }
 
-const HERO_QUEUE = [
-  { grade: "A", name: "Priya Sharma", company: "Sunrise Realty",  value: "42L", ago: "now" },
-  { grade: "A", name: "Rahul Mehta",  company: "Apex Capital",    value: "28L", ago: "4m ago" },
-  { grade: "B", name: "Anjali Rao",   company: "BrightEdu",       value: "9L",  ago: "1h ago" },
-  { grade: "C", name: "Imran Khan",   company: "Metro Logistics", value: "3L",  ago: "3h ago" },
-]
-
 function Hero() {
   return (
     <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44 pb-20 md:pb-28">
@@ -134,75 +127,29 @@ function Hero() {
               missed revenue in ₹ — so your team closes more and wastes less.
             </p>
 
-            <HeroSignup />
+            <ul className="mt-7 space-y-2.5">
+              {[
+                "AI grades every lead A–F, automatically",
+                "A Priority Queue your reps actually follow",
+                "Missed ₹ surfaced before it's gone",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2.5 text-[14.5px] text-ink-soft">
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-sky-100">
+                    <Check className="h-3 w-3 text-sky-600" strokeWidth={3} />
+                  </span>
+                  {t}
+                </li>
+              ))}
+            </ul>
 
             <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
               50+ Indian B2B teams · 60-min setup · No credit card
             </p>
           </div>
 
-          {/* ── RIGHT: live product preview (Priority Queue) ─────────── */}
-          <div className="relative">
-            {/* floating accent chips for depth */}
-            <div className="pointer-events-none absolute -left-4 -top-4 z-20 hidden -rotate-[5deg] md:block">
-              <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-2 glass-peach gloss-edge elevate-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full" style={{ background: "linear-gradient(180deg,#FDBA74,#FB923C)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5)" }}>
-                  <ArrowRight className="h-3 w-3 -rotate-45 text-white" strokeWidth={3} />
-                </span>
-                <span className="font-mono text-[12px] font-semibold text-orange-500 tabular">+3.4× follow-ups</span>
-              </div>
-            </div>
-            <div className="pointer-events-none absolute -right-4 bottom-6 z-20 hidden rotate-[4deg] md:block">
-              <div className="rounded-2xl px-4 py-2.5 glass-sky gloss-edge elevate-2">
-                <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-sky-600">Recovered · week 1</div>
-                <div className="font-mono text-[18px] font-semibold tabular text-ink">₹18.4L</div>
-              </div>
-            </div>
-
-            {/* main panel */}
-            <div className="relative rounded-[28px] glass-3 gloss-edge elevate-3 p-5 md:p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Priority Queue · Today</p>
-                  <h3 className="mt-1.5 text-[18px] font-semibold tracking-[-0.02em] text-ink">Who to call next</h3>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full glass-1 gloss-edge px-2.5 py-1">
-                  <span className="relative flex h-1.5 w-1.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint-400 opacity-75" /><span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mint-500" /></span>
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-soft">8 hot</span>
-                </span>
-              </div>
-
-              {/* ₹ at risk strip */}
-              <div className="mt-4 flex items-center justify-between rounded-2xl glass-peach gloss-edge px-4 py-3">
-                <span className="text-[12.5px] font-medium text-ink-soft">₹ at risk today</span>
-                <span className="font-mono text-[19px] font-semibold tabular text-orange-500">₹4.2L</span>
-              </div>
-
-              {/* lead rows */}
-              <div className="mt-3.5 space-y-2.5">
-                {HERO_QUEUE.map((l, i) => (
-                  <div key={l.name} className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white/65 gloss-edge px-3.5 py-2.5">
-                    <span
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl font-mono text-[13px] font-bold text-white"
-                      style={{ background: GRADE_BG[l.grade], boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 3px 8px rgba(15,23,42,0.16)" }}
-                    >
-                      {l.grade}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-[13.5px] font-semibold leading-tight text-ink">{l.name}</p>
-                      <p className="truncate font-mono text-[11px] text-ink-muted">{l.company} · ₹{l.value}</p>
-                    </div>
-                    {i === 0 ? (
-                      <span className="shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold text-white" style={{ background: "linear-gradient(180deg,#38BDF8,#0EA5E9)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 3px 10px rgba(14,165,233,0.32)" }}>
-                        Call now
-                      </span>
-                    ) : (
-                      <span className="shrink-0 font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-faint">{l.ago}</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* ── RIGHT: signup form (ads landing) ─────────────────────── */}
+          <div className="relative lg:pl-2">
+            <HeroSignupCard />
           </div>
 
         </div>

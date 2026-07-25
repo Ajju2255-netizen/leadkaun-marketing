@@ -277,12 +277,12 @@ export const CATEGORIES: BlogCategory[] = [
     title: "WhatsApp for B2B Sales",
     pillar: 9,
     color: "#25D366",
-    description: "Around 70% of Indian B2B leads first-contact on WhatsApp — how to treat it as a real sales channel.",
+    description: "Most Indian B2B leads first-contact on WhatsApp — how to treat it as a real sales channel.",
     keyword: "whatsapp for b2b sales india",
     metaTitle: "WhatsApp for B2B Sales in India — Best Practices That Actually Convert",
     metaDescription: "Most Indian B2B leads reply on WhatsApp, yet it's invisible to CRMs. Learn how to log WhatsApp conversations, keep response-time discipline, and turn threads into scored, queued leads.",
     quickAnswer:
-      "In India, WhatsApp is where the deal actually happens — roughly 70% of B2B leads first-contact there, reply there, and negotiate there. Yet most CRMs can't see it, so the richest intent signal your team has goes unlogged. Treating WhatsApp as a real channel means three things: log every conversation in seconds (stage, intent, outcome) without leaving the chat, hold the same response-time discipline you'd want on calls (Grade A converts within the hour), and turn each thread into a scored, queued lead instead of a message that scrolls out of sight.",
+      "In India, WhatsApp is where the deal actually happens — most B2B leads first-contact there, reply there, and negotiate there. Yet most CRMs can't see it, so the richest intent signal your team has goes unlogged. Treating WhatsApp as a real channel means three things: log every conversation in seconds (stage, intent, outcome) without leaving the chat, hold the same response-time discipline you'd want on calls (Grade A converts within the hour), and turn each thread into a scored, queued lead instead of a message that scrolls out of sight.",
     featuredSlug: "whatsapp-for-b2b-sales-india-best-practices",
     faqs: [
       { q: "Why is WhatsApp critical for B2B sales in India?", a: "Because that's where buyers actually engage — they reply to a WhatsApp message they'll ignore as a call. A WhatsApp reply is a strong intent signal, and the team that treats it as first-class (logging it, scoring it, following up fast) wins the leads that CRM-only teams never even see." },

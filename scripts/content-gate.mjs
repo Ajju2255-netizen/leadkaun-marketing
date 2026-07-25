@@ -167,6 +167,7 @@ const QUARANTINE = [
   { re: /₹\s?4\.2\s?cr/i,             name: 'quarantined aggregate outcome "₹4.2 Cr"' },
   { re: /per rep\.\s*in rupees/i,     name: 'banned pricing model "Per rep. In rupees." (flat per account)' },
   { re: /(starter|growth|scale)\s*[·:—-]?\s*₹\s?999\b/i, name: 'stale plan price "₹999" (Starter is ₹2,999)' },
+  { re: /\b\d{2,3}\s?%\s+of\s+(indian|b2b|sales|leads|companies|teams|smbs?|businesses|reps)\b/i, name: 'uncited "N% of <population>" stat — cite a primary source or soften to "most"' },
   // NOTE: we intentionally do NOT blanket-ban "per rep/seat/user" — /compare
   // pages legitimately quote competitors' per-seat pricing. Leadkaun's own
   // flat-per-account model is guarded by the "Per rep. In rupees." phrase above

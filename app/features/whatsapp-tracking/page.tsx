@@ -121,10 +121,10 @@ export default function WhatsAppTrackingPage() {
                 className="mt-4 font-mono text-[64px] md:text-[96px] font-bold leading-none tracking-[-0.04em] tabular bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(135deg, #0EA5E9 0%, #FB923C 100%)" }}
               >
-                70%
+                1st
               </p>
               <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                of Indian B2B leads first-contact on WhatsApp — not email, not phone. Any system that treats WhatsApp as an afterthought loses half the signal.
+                WhatsApp is the first channel most Indian B2B leads reach you on — before email, before phone. Any system that treats it as an afterthought misses the richest signal your team has.
               </p>
             </FloatingCard></Reveal>
           </Container>

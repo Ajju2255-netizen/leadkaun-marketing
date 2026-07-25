@@ -54,7 +54,7 @@ export default function VsSalesforce() {
         { q: "Our investors like Salesforce. Will switching hurt optics?", a: "Reframe: you're right-sizing, not downgrading. SF at 20 reps is under-utilisation, not sophistication. Investors respect operators who don't over-buy." },
         { q: "We use Salesforce for marketing + service + sales. Can Leadkaun do all that?", a: "No. Leadkaun is focused on sales behaviour. If you need SF for Service Cloud or Marketing Cloud, keep it. Add Leadkaun for sales behaviour alone." },
         { q: "We've invested in Apex customisations. Is switching worth it?", a: "Honest answer: only if those customisations aren't driving outcomes today. If they are, keep SF. If they're gathering dust while reps still work in Excel, switching recovers that ₹." },
-        { q: "What about the AppExchange integrations we rely on?", a: "Leadkaun has native support for the Indian SMB stack (Google Sheets, WhatsApp BSPs, Razorpay, Calendly). For niche SaaS, Zapier bridges most gaps. We won't match AppExchange breadth — but 95% of SMBs don't need it." },
+        { q: "What about the AppExchange integrations we rely on?", a: "Leadkaun keeps integrations lean and India-first — CSV import today, with WhatsApp BSP (Gupshup / AiSensy / Interakt) and native Google Sheets sync on the roadmap. We won't match AppExchange breadth — but most Indian SMBs don't need it." },
       ]}
     />
   )

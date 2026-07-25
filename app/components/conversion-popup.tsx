@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 import { X, ArrowRight, CheckCircle2 } from "lucide-react"
 import { APP_URLS } from "@/lib/urls"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
+import { GlossLink } from "@/app/components/gloss-button"
 
 /**
  * Site-wide conversion popup (mounted once in the root layout).
@@ -196,7 +197,7 @@ export function ConversionPopup() {
           </div>
 
           {/* ── Right: logo + copy + CTAs ──────────────────────────────────── */}
-          <div className="relative flex flex-1 flex-col justify-center px-7 py-7 sm:px-9 sm:py-8">
+          <div className="relative flex flex-1 flex-col justify-center px-7 py-8 sm:px-10 sm:py-10">
             <button
               onClick={() => close("dismiss")}
               aria-label="Close"
@@ -207,52 +208,49 @@ export function ConversionPopup() {
 
             {/* our logo */}
             <div className="flex items-center gap-2.5">
-              <LeadkaunMark size={30} gloss />
-              <span className="text-[19px] font-bold tracking-[-0.03em] text-ink">Leadkaun</span>
+              <LeadkaunMark size={28} gloss />
+              <span className="text-[18px] font-bold tracking-[-0.03em] text-ink">Leadkaun</span>
             </div>
 
-            <h2 id="lk-popup-title" className="mt-5 text-[32px] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[34px]">
+            <h2 id="lk-popup-title" className="mt-6 text-[32px] font-bold leading-[1.06] tracking-[-0.03em] text-ink sm:text-[34px]">
               Close more.<br />Chase less.
             </h2>
 
-            <p className="mt-3.5 max-w-[44ch] text-[14px] leading-[1.55] text-ink-soft">
-              Leadkaun grades every lead <span className="font-medium text-blue-600">A–F</span>, builds each
-              rep&apos;s Priority Queue, and flags the <span className="font-medium text-blue-600">₹</span> you&apos;re
+            <p className="mt-3.5 text-[14px] leading-[1.55] text-ink-soft">
+              Leadkaun grades every lead <span className="font-medium text-sky-600">A–F</span>, builds each
+              rep&apos;s Priority Queue, and flags the <span className="font-medium text-sky-600">₹</span> you&apos;re
               about to lose — live in about 60 minutes.
             </p>
 
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-5 flex flex-col gap-2.5">
               {["A–F lead grading, automatically", "A Priority Queue reps actually follow", "Missed ₹ surfaced before it's gone"].map((t) => (
-                <li key={t} className="flex items-center gap-2.5 text-[13.5px] text-ink-soft">
-                  <CheckCircle2 className="h-[18px] w-[18px] shrink-0 text-blue-500" strokeWidth={2} />
-                  {t}
+                <li key={t} className="flex items-center gap-2.5 text-[13.5px] leading-tight text-ink-soft">
+                  <CheckCircle2 className="h-[18px] w-[18px] shrink-0 text-sky-500" strokeWidth={2} />
+                  <span>{t}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6 space-y-3">
-              <a
+            <div className="mt-7 flex flex-col items-stretch gap-3">
+              <GlossLink
+                variant="primary"
+                size="lg"
                 href={APP_URLS.register}
                 onClick={() => onCta("register")}
-                className="group flex h-[52px] w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold text-white transition-all duration-200 active:scale-[0.99]"
-                style={{
-                  background: "linear-gradient(95deg, #2563EB 0%, #3B82F6 55%, #4F97FF 100%)",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35), 0 12px 26px rgba(37,99,235,0.38)",
-                }}
+                className="w-full justify-center"
               >
-                Start free — no card
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-              </a>
+                Start free — no card <ArrowRight className="h-4 w-4" />
+              </GlossLink>
               <a
                 href="/pricing"
                 onClick={() => onCta("pricing")}
-                className="flex h-9 w-full items-center justify-center text-[14px] font-semibold text-blue-600 transition-opacity hover:opacity-80"
+                className="flex h-9 w-full items-center justify-center text-[14px] font-semibold text-sky-600 transition-opacity hover:opacity-80"
               >
                 See plans from ₹2,999/mo →
               </a>
             </div>
 
-            <p className="mt-4 text-[12px] text-ink-muted">
+            <p className="mt-5 text-[12px] text-ink-muted">
               Free tier · No credit card · Cancel anytime
             </p>
           </div>

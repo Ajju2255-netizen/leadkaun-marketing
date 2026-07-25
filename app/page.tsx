@@ -23,7 +23,7 @@ import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
-import { GlossLink } from "@/app/components/gloss-button"
+import { HeroSignup } from "@/app/components/hero-signup"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -134,17 +134,9 @@ function Hero() {
               missed revenue in ₹ — so your team closes more and wastes less.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <GlossLink variant="primary" size="lg" href={APP_URLS.register}>
-                Start free trial
-                <span className="font-mono opacity-80">→</span>
-              </GlossLink>
-              <GlossLink variant="glass" size="lg" href={APP_URLS.register}>
-                Create your free workspace
-              </GlossLink>
-            </div>
+            <HeroSignup />
 
-            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+            <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
               50+ Indian B2B teams · 60-min setup · No credit card
             </p>
           </div>

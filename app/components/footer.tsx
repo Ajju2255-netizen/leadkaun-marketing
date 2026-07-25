@@ -118,8 +118,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 max-w-md rounded-2xl glass-1 gloss-edge p-6">
-          <EmailCapture source="footer-newsletter" />
+        <div className="mt-14 rounded-2xl glass-1 gloss-edge p-6 md:p-8">
+          <EmailCapture source="footer-newsletter" layout="split" />
         </div>
 
         <div

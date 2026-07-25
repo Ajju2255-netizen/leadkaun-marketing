@@ -17,6 +17,8 @@ type Props = {
   /** Confirmation line after a successful submit — keep it truthful about what happens next. */
   doneNote?: string
   className?: string
+  /** "stack" (default) = heading/blurb over the field; "split" = text left, form right. */
+  layout?: "stack" | "split"
 }
 
 const inputCls =
@@ -30,6 +32,7 @@ export function EmailCapture({
   cta = "Keep me posted",
   doneNote = "You're on the list. We'll be in touch — nothing spammy.",
   className = "",
+  layout = "stack",
 }: Props) {
   const [status, setStatus] = useState<Status>("idle")
   const [err, setErr] = useState("")
@@ -72,28 +75,37 @@ export function EmailCapture({
     )
   }
 
+  const isSplit = layout === "split"
   return (
     <div className={className}>
-      {heading && <p className="text-[15px] font-semibold text-ink">{heading}</p>}
-      {blurb && <p className="mt-1 text-[13px] leading-[1.5] text-ink-muted">{blurb}</p>}
-      <form onSubmit={onSubmit} className="mt-3 flex flex-col gap-2.5 sm:flex-row">
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="you@company.com"
-          aria-label="Email address"
-          className={inputCls}
-        />
-        <button
-          type="submit"
-          disabled={status === "sending"}
-          className="inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-sky-500 px-5 text-[14px] font-semibold text-white transition-all hover:bg-sky-400 disabled:opacity-60"
-        >
-          {status === "sending" ? "Signing up…" : cta}
-          {status !== "sending" && <ArrowRight className="h-4 w-4" />}
-        </button>
-      </form>
+      <div className={isSplit ? "flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between" : ""}>
+        {(heading || blurb) && (
+          <div className={isSplit ? "lg:max-w-sm" : ""}>
+            {heading && <p className="text-[15px] font-semibold text-ink">{heading}</p>}
+            {blurb && <p className="mt-1 text-[13px] leading-[1.5] text-ink-muted">{blurb}</p>}
+          </div>
+        )}
+        <form onSubmit={onSubmit} className={`flex flex-col gap-2.5 sm:flex-row ${isSplit ? "w-full sm:w-auto" : "mt-3"}`}>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@company.com"
+            aria-label="Email address"
+            className={`${inputCls} ${isSplit ? "sm:flex-none sm:w-[260px]" : ""}`}
+          />
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="btn-gloss-primary shimmer-on-hover relative inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl px-5 text-[14px] font-medium tracking-tight disabled:opacity-60"
+          >
+            <span className="relative z-[2] inline-flex items-center gap-1.5">
+              {status === "sending" ? "Signing up…" : cta}
+              {status !== "sending" && <ArrowRight className="h-4 w-4" />}
+            </span>
+          </button>
+        </form>
+      </div>
       {status === "error" && <p className="mt-2 text-[13px] text-red-600">{err}</p>}
     </div>
   )

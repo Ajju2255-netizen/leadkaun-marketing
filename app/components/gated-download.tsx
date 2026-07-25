@@ -61,9 +61,11 @@ export function GatedDownload({
         <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" className={inputCls} />
         <button
           type="submit" disabled={status === "sending"}
-          className="inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-sky-500 px-5 text-[14px] font-semibold text-white transition-all hover:bg-sky-400 disabled:opacity-60"
+          className="btn-gloss-primary shimmer-on-hover relative inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl px-5 text-[14px] font-medium tracking-tight disabled:opacity-60"
         >
-          {status === "sending" ? "Unlocking…" : <>Get the {type} <ArrowRight className="h-4 w-4" /></>}
+          <span className="relative z-[2] inline-flex items-center gap-1.5">
+            {status === "sending" ? "Unlocking…" : <>Get the {type} <ArrowRight className="h-4 w-4" /></>}
+          </span>
         </button>
       </div>
       {status === "error" && <p className="mt-2 text-[13px] text-red-600">{err}</p>}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { X, ArrowRight } from "lucide-react"
 import { APP_URLS } from "@/lib/urls"
+import { GlossLink } from "@/app/components/gloss-button"
 
 /**
  * Scroll-triggered, dismissible conversion bar shown site-wide (mounted in the
@@ -46,12 +47,9 @@ export function StickyCTA() {
           <span className="font-semibold">Grade your leads A–F in 60 minutes.</span>{" "}
           <span className="text-ink-soft">Free tier, no card.</span>
         </p>
-        <a
-          href={APP_URLS.register}
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl bg-sky-500 px-4 text-[13.5px] font-semibold text-white transition-all hover:bg-sky-400"
-        >
+        <GlossLink variant="primary" size="sm" href={APP_URLS.register} className="shrink-0">
           Start free <ArrowRight className="h-3.5 w-3.5" />
-        </a>
+        </GlossLink>
         <button
           onClick={dismiss}
           aria-label="Dismiss"

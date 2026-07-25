@@ -3,7 +3,7 @@ import { Container } from "@/app/components/container"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
-import { GlossLink, GlossNavLink } from "@/app/components/gloss-button"
+import { GlossLink } from "@/app/components/gloss-button"
 
 type Props = {
   /** Optional override of the numbered tag */
@@ -20,8 +20,8 @@ export default function CTABanner({
   headline = "Your reps open their queue tomorrow.",
   sub = "Setup in 60 minutes. 14-day free trial. No credit card required.",
   primaryLabel = "Start free trial",
-  secondaryLabel = "Book a 15-min demo",
-  secondaryHref = "/demo",
+  secondaryLabel = "Create free account",
+  secondaryHref = APP_URLS.register,
 }: Props) {
   return (
     <SectionGround variant="mesh" size="xl" ambient={false}>
@@ -48,9 +48,9 @@ export default function CTABanner({
               {primaryLabel}
               <span className="font-mono opacity-80">→</span>
             </GlossLink>
-            <GlossNavLink variant="warm" size="lg" href={secondaryHref}>
+            <GlossLink variant="warm" size="lg" href={secondaryHref}>
               {secondaryLabel}
-            </GlossNavLink>
+            </GlossLink>
           </div>
         </div>
       </Container>

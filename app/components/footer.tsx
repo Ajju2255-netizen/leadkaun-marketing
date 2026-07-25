@@ -3,6 +3,7 @@ import { Container } from "@/app/components/container"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
 import { GradientBlob } from "@/app/components/gradient-blob"
 import { EmailCapture } from "@/app/components/email-capture"
+import { APP_URLS } from "@/lib/urls"
 
 const COLS: { title: string; links: { label: string; href: string }[] }[] = [
   {
@@ -60,7 +61,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Company",
     links: [
       { label: "About",          href: "/about" },
-      { label: "Demo",           href: "/demo" },
+      { label: "Get Started",    href: APP_URLS.register },
       { label: "Contact",        href: "/contact" },
       { label: "Security",       href: "/security" },
       { label: "Cities we serve", href: "/city" },

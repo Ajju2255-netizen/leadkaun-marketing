@@ -70,7 +70,7 @@ export default function ProductPage() {
         }
         sub="CRMs record what happened. Leadkaun reshapes what happens next — twelve modules that grade, prioritise, alert, and recover revenue your team was losing silently."
         primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
-        secondary={{ kind: "glass", label: "Book a 15-min demo", href: "/demo" }}
+        secondary={{ kind: "glass", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
       />
 
       {/* STATS */}

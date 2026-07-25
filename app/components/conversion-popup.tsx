@@ -40,7 +40,7 @@ const K_LAST      = "lk_popup_last"       // last shown/dismissed (ms)
 const K_CONVERTED = "lk_popup_converted"  // CTA-clicked timestamp (ms)
 const K_SESSION   = "lk_popup_session"    // shown this session
 
-const EXCLUDED = ["/pricing", "/demo", "/contact", "/register", "/checkout"]
+const EXCLUDED = ["/pricing", "/contact", "/register", "/checkout"]
 const DAY = 86_400_000
 
 function track(event: string, extra: Record<string, unknown> = {}) {

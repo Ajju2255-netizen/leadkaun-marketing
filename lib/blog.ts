@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { marked } from "marked"
+import { APP_URLS } from "@/lib/urls"
 
 /**
  * Blog data layer — reads Markdown files from content/blog/ at build time,
@@ -141,7 +142,7 @@ export const CATEGORIES: BlogCategory[] = [
       { label: "Missed Opportunity Engine", href: "/features/missed-opportunity-engine", note: "₹ at risk, surfaced every day." },
       { label: "Sales Rep Tracking", href: "/features/sales-rep-tracking", note: "₹ recovered, per rep." },
       { label: "See pricing", href: "/pricing", note: "ROI in rupees, from ₹2,999/month." },
-      { label: "Book a demo", href: "/demo", note: "See your ₹-at-risk number live." },
+      { label: "Start free", href: APP_URLS.register, note: "See your ₹-at-risk number in your own workspace." },
     ],
   },
   {
@@ -293,7 +294,7 @@ export const CATEGORIES: BlogCategory[] = [
       { label: "WhatsApp Tracking", href: "/features/whatsapp-tracking", note: "WhatsApp as a first-class sales channel." },
       { label: "Priority Queue", href: "/features/priority-queue", note: "Turn WhatsApp threads into a ranked queue." },
       { label: "Real Estate use case", href: "/use-cases/real-estate", note: "A WhatsApp-heavy vertical in action." },
-      { label: "Book a demo", href: "/demo", note: "See 3-tap WhatsApp logging live." },
+      { label: "Start free", href: APP_URLS.register, note: "3-tap WhatsApp logging, free to start." },
     ],
   },
   {
@@ -318,7 +319,7 @@ export const CATEGORIES: BlogCategory[] = [
       { label: "The product", href: "/product", note: "The whole system in one view." },
       { label: "See pricing", href: "/pricing", note: "Free to start · Starter ₹2,999 → Scale ₹19,999/month." },
       { label: "Lead Scoring", href: "/features/lead-scoring", note: "Score leads from day one." },
-      { label: "Book a demo", href: "/demo", note: "60-minute setup, walked through." },
+      { label: "Start free", href: APP_URLS.register, note: "60-minute setup. Free tier, no card." },
     ],
   },
 ]

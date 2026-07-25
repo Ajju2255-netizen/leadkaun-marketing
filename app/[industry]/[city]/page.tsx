@@ -86,8 +86,8 @@ export default async function IndustryCityPage({ params }: Params) {
                 Start free trial
                 <span className="font-mono opacity-80">→</span>
               </GlossLink>
-              <Link href="/demo" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
-                Book a 15-min demo →
+              <Link href={APP_URLS.register} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+                Get started free →
               </Link>
             </>
           }

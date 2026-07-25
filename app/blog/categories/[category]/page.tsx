@@ -222,7 +222,6 @@ export default async function CategoryPage({ params }: Params) {
                 <GlossLink variant="primary" size="md" href={APP_URLS.register}>
                   Start free trial <span className="font-mono opacity-80">→</span>
                 </GlossLink>
-                <GlossNavLink variant="warm" size="md" href="/demo">Book a 15-min demo</GlossNavLink>
                 <GlossNavLink variant="glass" size="md" href="/pricing">See pricing</GlossNavLink>
               </div>
             </Container>

@@ -23,7 +23,7 @@ import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { GradientBlob } from "@/app/components/gradient-blob"
-import { GlossLink, GlossNavLink } from "@/app/components/gloss-button"
+import { GlossLink } from "@/app/components/gloss-button"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -139,9 +139,9 @@ function Hero() {
                 Start free trial
                 <span className="font-mono opacity-80">→</span>
               </GlossLink>
-              <GlossNavLink variant="glass" size="lg" href="/demo">
-                Book a 15-min demo
-              </GlossNavLink>
+              <GlossLink variant="glass" size="lg" href={APP_URLS.register}>
+                Create your free workspace
+              </GlossLink>
             </div>
 
             <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">

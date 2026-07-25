@@ -6,6 +6,7 @@ import { CheckCircle2 } from "lucide-react"
 
 import { FloatingCard } from "@/app/components/floating-card"
 import { GlossButton } from "@/app/components/gloss-button"
+import { APP_URLS } from "@/lib/urls"
 
 const inputCls =
   "h-11 w-full rounded-xl glass-1 gloss-edge px-4 text-[14px] text-ink placeholder:text-ink-faint " +
@@ -69,8 +70,8 @@ export function ContactForm({ source = "contact" }: { source?: string }) {
           <p className="text-[16px] font-semibold text-ink">Got it — thank you.</p>
           <p className="mt-1.5 text-[14px] leading-[1.6] text-ink-soft">
             We read every message and reply within 4 business hours (Mon–Sat, 9 AM–7 PM IST). Prefer to move faster?{" "}
-            <Link href="/demo" className="font-semibold text-sky-600 underline-offset-4 hover:underline">
-              Book a 15-min call →
+            <Link href={APP_URLS.register} className="font-semibold text-sky-600 underline-offset-4 hover:underline">
+              Start free now →
             </Link>
           </p>
         </div>
@@ -123,9 +124,9 @@ export function ContactForm({ source = "contact" }: { source?: string }) {
         </GlossButton>
 
         <p className="mt-4 text-center text-[12px] text-ink-muted">
-          Prefer a demo?{" "}
-          <Link href="/demo" className="text-sky-600 underline-offset-4 hover:underline">
-            Book a 15-min call →
+          Prefer to just start?{" "}
+          <Link href={APP_URLS.register} className="text-sky-600 underline-offset-4 hover:underline">
+            Start free →
           </Link>
         </p>
       </FloatingCard>

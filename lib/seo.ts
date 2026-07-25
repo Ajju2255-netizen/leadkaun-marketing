@@ -28,7 +28,7 @@ export function organizationSchema(): JsonLd {
     url: SITE_URL,
     logo: `${SITE_URL}/og-default.png`,
     description:
-      "India's first Sales Behaviour Operating System. Grades every lead A–F, builds Priority Queues, and surfaces missed revenue in rupees.",
+      "Sales Behaviour Operating System for Indian sales teams. Grades every lead A–F, builds Priority Queues, and surfaces missed revenue in rupees.",
     sameAs: [
       "https://www.linkedin.com/company/leadkaun",
       "https://twitter.com/leadkaun",
@@ -78,11 +78,11 @@ export function softwareApplicationSchema(): JsonLd {
     applicationSubCategory: "Sales Behaviour Operating System",
     operatingSystem: "Web",
     description:
-      "Grades every lead A–F in under 500ms, builds each rep's Priority Queue, and surfaces missed revenue in rupees. Built for Indian B2B SMB sales teams.",
+      "Grades every lead A–F in real time, builds each rep's Priority Queue, and surfaces missed revenue in rupees. Built for Indian B2B SMB sales teams.",
     url: SITE_URL,
     image: `${SITE_URL}/og-default.png`,
     featureList: [
-      "Lead scoring (Grade A–F) in under 500ms",
+      "Lead scoring (Grade A–F) in real time",
       "Priority Queue with real-time re-ranking",
       "Missed Opportunity Engine (₹-denominated)",
       "Morning Brief email at 8:30 AM IST",

@@ -89,7 +89,7 @@ export const CATEGORIES: BlogCategory[] = [
       { q: "Do I need a CRM for lead management?", a: "Not necessarily a heavy one. A solo founder can run on a spreadsheet. Once multiple reps work hundreds of leads and follow-ups slip, you need scoring, a priority queue, and reminders — which a record-keeping CRM doesn't provide. That's the behaviour layer Leadkaun adds." },
     ],
     moneyLinks: [
-      { label: "Lead Scoring (Grade A–F)", href: "/features/lead-scoring", note: "Every lead graded in under 500ms." },
+      { label: "Lead Scoring (Grade A–F)", href: "/features/lead-scoring", note: "Every lead graded in real time." },
       { label: "Priority Queue", href: "/features/priority-queue", note: "The list that tells reps who to call next." },
       { label: "Missed Opportunity Engine", href: "/features/missed-opportunity-engine", note: "See ₹ slipping before it's gone." },
       { label: "See pricing", href: "/pricing", note: "Plans from ₹2,999/month." },
@@ -110,7 +110,7 @@ export const CATEGORIES: BlogCategory[] = [
     faqs: [
       { q: "What's the difference between sales activity and sales behaviour?", a: "Activity is volume — calls made, emails sent, meetings booked. Behaviour is quality and discipline — how fast a rep responds to a Grade A lead, whether follow-ups happen on time, whether the priority order is respected. Activity dashboards make busy reps look productive; behaviour metrics show who actually moves revenue." },
       { q: "How do I track sales behaviour without micromanaging?", a: "Measure outcomes and habits, not keystrokes. Leadkaun's Sales Rep Tracking surfaces per-rep response time, follow-up completion, and ₹ recovered — so 1:1s become specific coaching, not surveillance. The Morning Brief gives reps their own priorities at 8:30 AM IST, which builds self-direction." },
-      { q: "Which behaviours predict revenue?", a: "Three repeatedly: speed to first contact on high-grade leads (the ~47-minute window), follow-up completion rate, and adherence to the priority queue. Teams that improve those three see more pipeline converted from the same lead volume." },
+      { q: "Which behaviours predict revenue?", a: "Three repeatedly: speed to first contact on high-grade leads (minutes matter, not days), follow-up completion rate, and adherence to the priority queue. Teams that improve those three see more pipeline converted from the same lead volume." },
       { q: "Can a CRM track behaviour?", a: "Most record activity, not behaviour — they store what was logged but don't tell you whether the right lead was worked first or whether ₹ is slipping. That's the behaviour layer a Sales Behaviour OS adds on top." },
     ],
     moneyLinks: [
@@ -150,7 +150,7 @@ export const CATEGORIES: BlogCategory[] = [
     title: "Real Estate Sales",
     pillar: 4,
     color: "#EF4444",
-    description: "Property enquiry follow-up, the 47-minute window, and priority queues for Indian real estate teams.",
+    description: "Property enquiry follow-up, fast speed-to-lead, and priority queues for Indian real estate teams.",
     keyword: "real estate lead management india",
     metaTitle: "Real Estate Sales in India — Enquiry Follow-Up, Scoring & Priority Queues",
     metaDescription: "Property enquiries arrive from 99acres, Housing and MagicBricks and go cold in hours. Learn how Indian real estate teams follow up inside the window, prioritise site-visit-likely leads, and recover ₹ from stale enquiries.",
@@ -237,7 +237,7 @@ export const CATEGORIES: BlogCategory[] = [
       { q: "When should an Indian company leave Salesforce?", a: "Salesforce earns its cost at ~200+ reps, in regulated industries, or with a dedicated admin. Below that, most Indian SMBs run a tool built for enterprises at 20–40% rep adoption while paying ₹7,500+/rep/month. If your reps don't log calls and your manager can't answer 'what's ₹ at risk this week', you've outgrown the fit, not the size." },
       { q: "Is HubSpot too expensive for Indian teams?", a: "HubSpot's paid tiers are USD-priced and roughly 2× most Indian alternatives, and the free tier breaks once you need automation or more than a few seats. For marketing-heavy pipelines it can still be worth it; for sales-behaviour problems, a ₹-priced India-built tool plus HubSpot's free CRM is often the cheaper, higher-adoption combination." },
       { q: "How long does it take to switch CRMs?", a: "For most Indian SMBs, 2–4 weeks: week 1 export + audit (30–60% of CRM data is usually stale), week 2 set up the target and ingest live records, week 3 train reps, week 4 cut over and measure adoption, response time, and licence savings. Run the old and new systems side-by-side for 30 days so nothing breaks." },
-      { q: "Can Leadkaun replace my CRM?", a: "Often, for Indian SMBs — Leadkaun has a built-in CRM (pipeline, stages, notes, contacts) plus the behaviour layer most CRMs lack. But it's designed to win even when it doesn't replace: run it alongside Zoho or LeadSquared for 60–90 days, prove the ₹-recovered ROI, then decide whether to consolidate." },
+      { q: "Can Leadkaun replace my CRM?", a: "Often, for Indian SMBs — Leadkaun includes the pipeline, stages, notes and contacts most teams need, plus the behaviour layer most CRMs lack. But it's designed to win even when it doesn't replace: run it alongside Zoho or LeadSquared for 60–90 days, prove the ₹-recovered ROI, then decide whether to consolidate." },
     ],
     moneyLinks: [
       { label: "Leadkaun vs Zoho CRM", href: "/compare/leadkaun-vs-zoho-crm", note: "The default Indian SMB CRM — where adoption breaks." },
@@ -287,7 +287,7 @@ export const CATEGORIES: BlogCategory[] = [
     faqs: [
       { q: "Why is WhatsApp critical for B2B sales in India?", a: "Because that's where buyers actually engage — they reply to a WhatsApp message they'll ignore as a call. A WhatsApp reply is a strong intent signal, and the team that treats it as first-class (logging it, scoring it, following up fast) wins the leads that CRM-only teams never even see." },
       { q: "How do I track WhatsApp sales conversations?", a: "With logging fast enough that reps actually do it. Leadkaun's 3-tap logging captures stage, intent and outcome from a WhatsApp thread in seconds, turning it into a scored lead in the priority queue — no copy-pasting into a CRM, no broken flow." },
-      { q: "What are good WhatsApp response times?", a: "Treat hot WhatsApp replies like hot calls — inside the hour, ideally the ~47-minute window where Grade A leads convert best. A reply that sits for a day is a buyer who's already messaging a competitor." },
+      { q: "What are good WhatsApp response times?", a: "Treat hot WhatsApp replies like hot calls — inside the hour, while the enquiry is still hot — Grade A leads convert best when you reach them fast. A reply that sits for a day is a buyer who's already messaging a competitor." },
       { q: "Can WhatsApp leads be scored and prioritised?", a: "Yes. Once a thread is logged, it's scored on fit, intent and quality like any lead and dropped into the rep's Grade A–F priority queue — so WhatsApp stops being a separate inbox and becomes part of one ranked day." },
     ],
     moneyLinks: [
@@ -312,14 +312,14 @@ export const CATEGORIES: BlogCategory[] = [
     faqs: [
       { q: "When should a startup set up sales operations?", a: "The moment a second person sells or lead volume outgrows your memory — usually well before founders think. Start light: capture every lead, its source, and its next step. You don't need a CRM on day one; you need a single source of truth and a follow-up habit." },
       { q: "What should I track from day one?", a: "Three things: every lead and where it came from, what happened on each (call, WhatsApp, outcome), and which leads are hot. That's enough to stop leaks. Add scoring and a priority queue once reps can't hold the pipeline in their heads." },
-      { q: "When does a startup outgrow the spreadsheet?", a: "When multiple reps edit it, nobody knows who to call next, follow-ups slip without reminders, and you can't answer 'what's ₹ at risk this week'. At that point graduate to a tool that scores and queues leads — Leadkaun imports your sheet (CSV or Google Sheets) and is set up in about 60 minutes." },
+      { q: "When does a startup outgrow the spreadsheet?", a: "When multiple reps edit it, nobody knows who to call next, follow-ups slip without reminders, and you can't answer 'what's ₹ at risk this week'. At that point graduate to a tool that scores and queues leads — Leadkaun imports your sheet (CSV) and is set up the same day." },
       { q: "What's the right sales stack for an Indian SMB?", a: "Lean: a lead source or two, a way to log WhatsApp and calls in seconds, scoring + a priority queue so reps know what to do next, and ₹-first reporting. Avoid enterprise CRMs until you genuinely need their complexity — they lower adoption at this stage." },
     ],
     moneyLinks: [
       { label: "The product", href: "/product", note: "The whole system in one view." },
       { label: "See pricing", href: "/pricing", note: "Free to start · Starter ₹2,999 → Scale ₹19,999/month." },
       { label: "Lead Scoring", href: "/features/lead-scoring", note: "Score leads from day one." },
-      { label: "Start free", href: APP_URLS.register, note: "60-minute setup. Free tier, no card." },
+      { label: "Start free", href: APP_URLS.register, note: "Same-day setup. Free tier, no card." },
     ],
   },
 ]

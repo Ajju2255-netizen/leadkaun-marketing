@@ -61,7 +61,7 @@ export const INTRO_FRAMINGS: ReadonlyArray<(c: PseoVariantCtx) => string> = [
   (c) =>
     `In ${c.cityName}, a ${c.industryLower} lead is warmest the moment it lands. Leadkaun's ${c.keywordLower} grades it instantly, drops it into the assigned rep's Priority Queue, and decays stale intent automatically — so nothing quietly ages out of view.`,
   (c) =>
-    `Leadkaun brings ${c.keywordLower} to ${c.industryLower} teams in ${c.cityName} without the enterprise-CRM weight: every lead graded A–F in under a second, a live queue that re-ranks as signals arrive, and missed revenue surfaced in rupees — set up in about an hour.`,
+    `Leadkaun brings ${c.keywordLower} to ${c.industryLower} teams in ${c.cityName} without the enterprise-CRM weight: every lead graded A–F in real time, a live queue that re-ranks as signals arrive, and missed revenue surfaced in rupees — set up the same day.`,
   (c) =>
     `The ${c.industryLower} teams that win in ${c.cityName} aren't the ones with the most leads — they're the ones that call the right lead first. ${c.keywordLabel} makes "the right lead" explicit: a grade, a reason, and a queue position, on every enquiry.`,
 ]

@@ -148,6 +148,8 @@ const QUARANTINE = [
   { re: /cloudflare pages/i,          name: 'wrong infra "Cloudflare Pages" (it is Workers via OpenNext)' },
   { re: /under 500\s?ms/i,            name: 'unverified latency "under 500ms" (use "real time")' },
   { re: /\b500\s?ms\b/i,              name: 'unverified latency "500ms" (use "real time")' },
+  { re: /under a second/i,            name: 'unverified latency "under a second" (use "real time")' },
+  { re: /(set ?up|go live) in (about )?an hour|in about an hour/i, name: 'unverified "~an hour" setup claim (soften to non-numeric)' },
   { re: /\b60[-\s]?minutes?\b/i,      name: 'unverified "60 minute" setup claim (soften to non-numeric)' },
   { re: /\b60[-\s]?min\b/i,           name: 'unverified "60 min" setup claim (soften to non-numeric)' },
   { re: /trusted by 50\+/i,           name: 'unverified customer count "Trusted by 50+"' },
@@ -176,6 +178,7 @@ function walk(dir, acc = []) {
 const honestyTargets = [
   ...walk(join(ROOT, "app")),
   ...walk(join(ROOT, "components")),
+  ...walk(join(ROOT, "lib")), // content generators (variation.ts etc.) live here too
   join(ROOT, "public", "llms.txt"),
   join(ROOT, "public", "ai-context.json"),
 ].filter(existsSync);

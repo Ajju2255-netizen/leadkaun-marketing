@@ -93,57 +93,9 @@ const GRADE_BG: Record<string, string> = {
   C: "linear-gradient(180deg,#FDBA74,#FB923C)",
 }
 
-/** Atmospheric layered-hills backdrop for the hero — misty, sky/cream palette,
- *  no external imagery. A mist overlay keeps the copy + form fully readable. */
-function HeroAtmosphere() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" className="absolute inset-0 h-full w-full">
-        <defs>
-          <linearGradient id="lk-sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="52%" stopColor="#F0F9FF" />
-            <stop offset="100%" stopColor="#FFFBF5" />
-          </linearGradient>
-          <radialGradient id="lk-glow" cx="50%" cy="66%" r="46%">
-            <stop offset="0%" stopColor="#FED7AA" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#FED7AA" stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="lk-h1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#E0F2FE" /><stop offset="100%" stopColor="#EAF6FF" />
-          </linearGradient>
-          <linearGradient id="lk-h2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#BAE6FD" /><stop offset="100%" stopColor="#DCF0FD" />
-          </linearGradient>
-          <linearGradient id="lk-h3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#7DD3FC" /><stop offset="100%" stopColor="#B6E4FC" />
-          </linearGradient>
-          <linearGradient id="lk-mist" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
-            <stop offset="46%" stopColor="#FFFFFF" stopOpacity="0.5" />
-            <stop offset="70%" stopColor="#FFFFFF" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-
-        <rect width="1440" height="760" fill="url(#lk-sky)" />
-        <rect width="1440" height="760" fill="url(#lk-glow)" />
-
-        <path d="M0,470 C240,432 470,452 720,442 C980,432 1210,462 1440,448 L1440,760 L0,760 Z" fill="url(#lk-h1)" opacity="0.55" />
-        <path d="M0,532 C260,500 500,520 740,510 C980,500 1220,524 1440,514 L1440,760 L0,760 Z" fill="url(#lk-h2)" opacity="0.55" />
-        <path d="M0,596 C300,568 620,588 900,578 C1140,570 1330,592 1440,584 L1440,760 L0,760 Z" fill="url(#lk-h3)" opacity="0.5" />
-
-        <rect width="1440" height="760" fill="url(#lk-mist)" />
-      </svg>
-    </div>
-  )
-}
-
 function Hero() {
   return (
     <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44 pb-20 md:pb-28">
-      {/* Atmospheric layered-hills backdrop — mist → hills, on the sky/cream palette */}
-      <HeroAtmosphere />
-
       {/* Coastal mesh blobs — drifting */}
       <GradientBlob color="sky"   size="xl" position="-top-32 -left-40" intensity={0.7} />
       <GradientBlob color="cyan"  size="lg" position="top-20 -right-32" intensity={0.5} delay={4} />

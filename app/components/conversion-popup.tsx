@@ -93,6 +93,19 @@ export function ConversionPopup() {
     track("popup_shown", { path: pathname, forced: force })
   }, [eligible, pathname])
 
+  // Strip a lingering ?lkpopup param from the URL (e.g. from an old shared/test
+  // link or a bookmark) so the address bar stays clean. It no longer does
+  // anything functionally.
+  useEffect(() => {
+    try {
+      const url = new URL(window.location.href)
+      if (url.searchParams.has("lkpopup")) {
+        url.searchParams.delete("lkpopup")
+        window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash)
+      }
+    } catch { /* ignore */ }
+  }, [])
+
   // Arm the triggers once the visitor is eligible.
   useEffect(() => {
     if (!eligible()) return

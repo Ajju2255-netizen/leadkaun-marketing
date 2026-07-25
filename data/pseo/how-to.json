@@ -405,5 +405,73 @@
     "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "morning-brief"],
     "relatedBlog": null,
     "timeRequired": "PT30M"
+  },
+  {
+    "slug": "how-to-get-sales-reps-to-follow-up",
+    "title": "How to Get Sales Reps to Actually Follow Up",
+    "tldr": "Follow-up isn't a motivation problem — it's a visibility and priority problem. Make the next action obvious (Priority Queue), auto-schedule follow-ups, put overdue Grade A/B leads in front of managers every morning, and coach on a per-rep follow-up score in weekly one-on-ones. Leadkaun runs alongside your CRM to surface and remind — reps still make the call.",
+    "why": "Reps call the newest enquiry and forget the warm one that replied two days ago. Managers can't see who is slipping until the quarter misses. It looks like a discipline problem, but reps disengage when they can't tell which of 200 leads to work next and when 'did you follow up' is never measured. Fix the visibility and the behaviour follows.",
+    "prerequisites": [
+      "Leads imported and graded A–F (ICP configured)",
+      "A manager who runs a consistent weekly rhythm",
+      "A follow-up SLA agreed per grade"
+    ],
+    "steps": [
+      { "heading": "Agree the follow-up SLA per grade", "body": "Set the window each grade must be worked in — e.g. Grade A within 24 hours, B within 48 hours, C within a week. This is the SLA Leadkaun measures compliance against, so 'follow up' becomes concrete, not a vibe." },
+      { "heading": "Make the next action obvious", "body": "The Priority Queue ranks who to call next per rep and re-ranks as signals arrive, so reps work top-down instead of spending 30 minutes each morning deciding. No triage means no excuse." },
+      { "heading": "Auto-schedule the follow-up", "body": "A follow-up task is generated from each stage change and logged signal on a per-stage cadence; overdue ones are promoted and flagged automatically. The rep never has to remember to set a reminder." },
+      { "heading": "Put overdue follow-ups in front of managers daily", "body": "The 8:30 AM IST Morning Brief lists overdue Grade A/B leads and the ₹ at risk today. Managers see the slip the morning it happens, not at month-end." },
+      { "heading": "Measure it per rep", "body": "The follow-up score (completed ÷ completed + overdue) and the daily execution score turn 'did you follow up' into a number per rep, with response-compliance % against the SLA above." },
+      { "heading": "Coach on the number, weekly", "body": "In one-on-ones, review each rep's follow-up % and missed-recovery — not activity theatre like raw call counts. What gets measured and reviewed gets done." }
+    ],
+    "commonMistakes": [
+      "Chasing every lead equally — grade first, then work the queue, or reps drown",
+      "Measuring calls made instead of follow-up completion against the SLA",
+      "No manager rhythm — the score only changes behaviour if it's reviewed",
+      "Expecting automation to do the follow-up — Leadkaun surfaces and reminds; a rep still makes the call"
+    ],
+    "faqs": [
+      { "q": "Does Leadkaun message or call leads automatically?", "a": "No. It tells the rep who to follow up and when, and the rep logs the outcome in 3 taps (including WhatsApp via a manual 3-tap log). It does not auto-send messages." },
+      { "q": "What if a rep just ignores the queue?", "a": "The manager sees that rep's follow-up %, overdue count and response-compliance % in the Morning Brief and the rep scorecard — the gap is visible daily, so it gets coached." },
+      { "q": "How long until follow-up discipline sticks?", "a": "Usually a few weeks of consistent weekly review. Reps adopt fastest when the next action is obvious and the number shows up in their one-on-one." }
+    ],
+    "category": "sales-management",
+    "relatedFeatures": ["sales-rep-tracking", "priority-queue", "morning-brief"],
+    "relatedBlog": null,
+    "timeRequired": "PT20M"
+  },
+  {
+    "slug": "how-to-reduce-lead-response-time",
+    "title": "How to Reduce Your Lead Response Time (Speed to Lead)",
+    "tldr": "Cut the gap between a lead arriving and a rep making first contact. Get every lead into one ranked place, grade it on arrival, alert the assigned rep on new Grade A, hold a response SLA per grade, and start each day on the overnight hot leads. Track first-contact time per rep and size the gap with the missed-revenue calculator.",
+    "why": "In Indian B2B the first team to reach a fresh enquiry usually wins it, yet most teams respond in hours. Slow response is rarely laziness — leads pile up across inboxes, WhatsApp and sheets with no triage, so a rep can't tell which of 200 to call first. Speed-to-lead on your best leads is the single highest-leverage metric most SMBs never measure.",
+    "prerequisites": [
+      "Leads flowing into one place (CSV import or manual entry)",
+      "ICP configured so grading is meaningful",
+      "A response SLA agreed per grade"
+    ],
+    "steps": [
+      { "heading": "Get every lead into one ranked place", "body": "Scattered inboxes and spreadsheets are why leads wait unseen. Centralise intake so nothing sits in a channel nobody is watching, and Leadkaun runs alongside your CRM rather than replacing it." },
+      { "heading": "Grade on arrival", "body": "Every lead is scored A–F across Fit, Intent and Quality in real time as it lands, so the hottest enquiries surface immediately instead of being buried under the newest ones." },
+      { "heading": "Alert the assigned rep on a new Grade A", "body": "A fresh Grade A drops to the top of that rep's Priority Queue with a notification, so the highest-intent lead is the obvious next call." },
+      { "heading": "Hold a response SLA per grade", "body": "Aim to reach Grade A within the hour, Grade B the same day, Grade C within the week. Leadkaun records speed-to-lead (time to first contact) on the first logged call or WhatsApp, so the SLA is measured, not hoped for." },
+      { "heading": "Start the day on the hot leads", "body": "The 8:30 AM IST Morning Brief lists the overnight Grade A leads to call first, so the morning starts with the buyers most likely to close today." },
+      { "heading": "Measure and recover", "body": "Track first-contact time per rep, and use the Missed Opportunity Engine's ₹-at-risk view plus the missed-revenue calculator to size what slow response is costing — then work the recovery queue." }
+    ],
+    "commonMistakes": [
+      "Treating all leads equally — grade first, then chase Grade A fast; slow on cold leads is fine",
+      "Measuring average response across all leads instead of Grade A specifically",
+      "Leaving leads in WhatsApp or a sheet, unlogged, where the clock runs invisibly",
+      "Promising instant auto-response — Leadkaun surfaces and alerts; a human still makes contact"
+    ],
+    "faqs": [
+      { "q": "What's a good lead response time?", "a": "Faster than most teams manage for Grade A — reaching a hot lead within the hour consistently beats a next-day callback. Lower grades can wait longer, which is the point of grading first." },
+      { "q": "Does Leadkaun auto-reply to leads?", "a": "No. It surfaces the hot lead and alerts the rep so a human responds fast; it does not send automated replies." },
+      { "q": "How do I actually measure speed-to-lead?", "a": "Leadkaun records time-to-first-contact on each lead from the first logged call or WhatsApp exchange, and rolls it up per rep so you can coach the number." }
+    ],
+    "category": "metrics",
+    "relatedFeatures": ["priority-queue", "morning-brief", "missed-opportunity-engine"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
   }
 ]

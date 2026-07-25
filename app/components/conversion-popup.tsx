@@ -93,14 +93,6 @@ export function ConversionPopup() {
     track("popup_shown", { path: pathname, forced: force })
   }, [eligible, pathname])
 
-  // Force-show for testing/demos: add ?lkpopup=1 to any URL (ignores the cap,
-  // the delays, and the excluded-page list).
-  useEffect(() => {
-    try {
-      if (new URLSearchParams(window.location.search).has("lkpopup")) fire(true)
-    } catch { /* ignore */ }
-  }, [fire])
-
   // Arm the triggers once the visitor is eligible.
   useEffect(() => {
     if (!eligible()) return

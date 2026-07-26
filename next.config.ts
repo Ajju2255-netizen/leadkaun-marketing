@@ -20,11 +20,16 @@ const nextConfig: NextConfig = {
       // legacy /education/* + /use-cases/education so equity + indexed URLs move over.
       { source: "/education/:path*", destination: "/edtech/:path*", permanent: true },
       { source: "/use-cases/education", destination: "/use-cases/edtech", permanent: true },
-      // Keyword consolidation: 6 near-synonym keyword slugs collapsed to 4 distinct
-      // intents to kill keyword cannibalisation. 301 the retired slugs to their
-      // canonical so any indexed URLs + link equity move over.
-      { source: "/:industry/:city/crm-software", destination: "/:industry/:city/sales-crm", permanent: true },
-      { source: "/:industry/:city/sales-software", destination: "/:industry/:city/sales-crm", permanent: true },
+      // Keyword-set discipline (Wave 4, doc 20 §8.2): the permutable leaf keyword set is
+      // now just lead-management + lead-scoring. sales-crm is DEMOTED and sales-automation
+      // PRUNED (both junk-prone commodity terms); their leaves + the near-synonyms 301 to
+      // the industry×city HUB, which carries the CRM/automation angle as H2 variants.
+      // lead-tracking / lead-management-software fold into lead-management. Moves indexed
+      // URLs + link equity over with no redirect chains.
+      { source: "/:industry/:city/sales-crm", destination: "/:industry/:city", permanent: true },
+      { source: "/:industry/:city/sales-automation", destination: "/:industry/:city", permanent: true },
+      { source: "/:industry/:city/crm-software", destination: "/:industry/:city", permanent: true },
+      { source: "/:industry/:city/sales-software", destination: "/:industry/:city", permanent: true },
       { source: "/:industry/:city/lead-tracking", destination: "/:industry/:city/lead-management", permanent: true },
       { source: "/:industry/:city/lead-management-software", destination: "/:industry/:city/lead-management", permanent: true },
     ]

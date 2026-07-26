@@ -30,37 +30,5 @@
     ],
     "featureLink": "/features/lead-scoring",
     "glossaryLink": "/glossary/lead-scoring"
-  },
-  {
-    "slug": "sales-crm",
-    "label": "Sales CRM",
-    "intent": "C",
-    "queryPattern": "{industry} sales CRM in {city}",
-    "benefitH2": "A sales CRM calibrated for {industry} reality in {city}",
-    "benefitBullets": [
-      "{industry}-specific ICP templates — not generic US B2B defaults",
-      "WhatsApp tracking native (3-tap logging) — not a paid add-on",
-      "Indian deal values in lakhs and crores throughout the UI",
-      "Role-based access — reps see only assigned leads, managers see all",
-      "A built-in pipeline and contact record — everything a CRM does, without the bloat"
-    ],
-    "featureLink": "/product",
-    "glossaryLink": "/glossary/crm"
-  },
-  {
-    "slug": "sales-automation",
-    "label": "Sales Automation",
-    "intent": "C",
-    "queryPattern": "{industry} sales automation in {city}",
-    "benefitH2": "What 'sales automation' should actually mean for {industry} in {city}",
-    "benefitBullets": [
-      "Grade every lead automatically the moment it lands — no rep decision needed",
-      "The Priority Queue builds itself every morning and re-ranks through the day",
-      "Grade-aware follow-up cadence — the system flags who is due, when",
-      "Missed Opportunity alerts fire automatically with a ₹ value attached",
-      "Morning Brief email to every rep and manager at 8:30 AM IST"
-    ],
-    "featureLink": "/features/priority-queue",
-    "glossaryLink": "/glossary/sales-automation"
   }
 ]

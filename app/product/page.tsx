@@ -159,11 +159,51 @@ export default function ProductPage() {
         </Container>
       </SectionGround>
 
+      {/* METHODOLOGY — how the A–F grade is actually computed */}
+      <SectionGround variant="pure" size="lg">
+        <Container>
+          <Reveal className="mb-10 md:mb-14 max-w-3xl">
+            <NumberedTag number="03" label="How the grade works" />
+            <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+              How the A–F grade is actually computed.
+            </h2>
+            <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
+              No black box. Every grade is three transparent 0–100 scores combined against fixed, auditable thresholds — a rep can always see exactly why a lead is Grade A.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+            {[
+              { tag: "Fit", range: "0–100", body: "How closely the lead matches the ICP you set at onboarding — industry, state, business type, decision-maker role and budget band. This is the one part you shape: you configure who a good customer is, not the maths behind it." },
+              { tag: "Intent", range: "0–100", body: "Engagement and signal events — source strength, WhatsApp replies, pricing-page visits, callbacks. Intent decays as a lead goes silent, so a hot lead that stops responding cools automatically instead of sitting falsely high." },
+              { tag: "Quality", range: "0–100", body: "Data reliability — completeness, phone and email validity, junk and duplicate detection. If Quality falls below 20 the lead is capped at Grade F, so bad data can never masquerade as a good lead." },
+            ].map((s) => (
+              <Reveal key={s.tag} delay={0.04}><FloatingCard tier="3" depth="3" gloss className="h-full p-7 md:p-8">
+                <div className="flex items-baseline justify-between">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{s.tag}</p>
+                  <p className="font-mono text-[12px] text-ink-muted tabular">{s.range}</p>
+                </div>
+                <p className="mt-4 text-[15px] leading-[1.6] text-ink-soft">{s.body}</p>
+              </FloatingCard></Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.1} className="mx-auto mt-6 max-w-3xl">
+            <FloatingCard tier="1" depth="1" gloss className="p-7 md:p-8">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">The threshold</p>
+              <p className="mt-3 text-[16px] leading-[1.6] text-ink">
+                A lead is <span className="font-semibold">Grade A</span> when Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60 — the rest step down through B–F on the same fixed cut-offs. Because the weights are identical for every account, the grade stays explainable and comparable: no per-customer tuning, no hidden model.
+              </p>
+            </FloatingCard>
+          </Reveal>
+        </Container>
+      </SectionGround>
+
       {/* SUPPORTING MODULES */}
       <SectionGround variant="sky" size="lg">
         <Container>
           <Reveal className="mb-12 md:mb-16">
-            <NumberedTag number="03" label="Supporting layer" />
+            <NumberedTag number="04" label="Supporting layer" />
             <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
               Plus everything a CRM would do.
             </h2>
@@ -188,7 +228,7 @@ export default function ProductPage() {
 
       {/* PRODUCT — show the live system, then differentiate + price */}
       <ProductShowcase
-        number="04"
+        number="05"
         ground="cream"
         title={<>See the whole system in one screen.</>}
         sub="Every lead graded A–F, a live Priority Queue per rep, and ₹ at risk surfaced in real rupees — the working surface your team opens every morning."
@@ -197,15 +237,15 @@ export default function ProductPage() {
       <SectionGround variant="cream" size="md">
         <Container>
           <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-            <div className="flex justify-center"><NumberedTag number="05" tone="warm" label="FAQ" /></div>
+            <div className="flex justify-center"><NumberedTag number="06" tone="warm" label="FAQ" /></div>
             <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">Questions about Leadkaun.</h2>
           </Reveal>
           <Reveal delay={0.08}><Faq items={FAQ} /></Reveal>
         </Container>
       </SectionGround>
 
-      <WhyNotCRM number="06" ground="sky" />
-      <PricingCTA number="07" ground="cream" />
+      <WhyNotCRM number="07" ground="sky" />
+      <PricingCTA number="08" ground="cream" />
 
       <CTABanner />
       <Footer />

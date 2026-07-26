@@ -40,6 +40,7 @@ export default function RealEstatePage() {
         "Missed Opportunity Engine shows every stale enquiry with ₹ value — manager sees per-rep accountability",
         "Morning Brief: '4 Grade A enquiries need callback. ₹12L in site visits at risk today'",
       ]}
+      insight="Per Anarock's ASTRA analysis of 2.8 million homebuyer leads, the average enquiry-to-booking cycle stretched from 25 days in 2022 to 28 days in 2024 — a longer, multi-touch decision. Over a window that long, the site teams that respond first and keep following up before leads go cold capture a disproportionate share."
       faqs={[
         {
           q: "How long does it take to set up Leadkaun for a real-estate team?",

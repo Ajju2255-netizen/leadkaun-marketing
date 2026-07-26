@@ -57,6 +57,11 @@ export default function VsBigin() {
         { q: "Is migration hard?", a: "No. Bigin exports clean CSVs and Leadkaun ingests arbitrary columns as custom fields. The same-day onboarding handles ICP setup." },
         { q: "Is pricing INR with GST?", a: "Yes — Leadkaun bills flat INR, GST-compliant, per account." },
       ]}
+      verdict={{
+        competitorWins: "Bigin is one of the cheapest, easiest paid CRMs going, and it earns that reputation. Most micro-teams are productive within a day, it ships native WhatsApp Business from the entry tier, and it opens a clean upgrade path into the wider Zoho ecosystem — a fair on-ramp for a solo founder or a three-person shop.",
+        leadkaunWins: "Leadkaun is a different category — the behaviour layer Bigin does not try to be. It grades every lead A–F with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily, on flat per-account pricing that does not climb with headcount. For a growing Indian B2B team, that is the gap between recording the pipeline and being told who to call next.",
+        bottomLine: "If you only need a light, cheap pipeline to keep contacts tidy, Bigin is genuinely enough and simpler to run. If leads sit un-worked because nothing tells reps which one is hot, Leadkaun adds that decision layer — and its Free tier means even a small team can try it alongside Bigin before consolidating.",
+      }}
     />
   )
 }

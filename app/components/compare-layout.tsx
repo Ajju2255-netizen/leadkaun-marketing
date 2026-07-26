@@ -34,6 +34,9 @@ export type CompareProps = {
   }
   switching: { title: string; body: string }[]
   faqs: FaqItem[]
+  // Optional narrative verdict — honest 2–3 paragraph prose on where each tool
+  // genuinely wins, plus a bottom-line recommendation. Renders below the matrix.
+  verdict?: { competitorWins: string; leadkaunWins: string; bottomLine: string }
   // Optional label overrides — for complementary tools (e.g. Apollo, Clay) that
   // aren't replacements, so the "switching" section can read "work together".
   switchingLabel?: string
@@ -150,7 +153,7 @@ export function ComparePageLayout(p: CompareProps) {
               <FloatingCard tier="3" depth="3" gloss className="p-8 md:p-10 aura-sky-hover">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Leadkaun at a glance</p>
                 <p className="mt-4 text-[17px] leading-[1.5] text-ink">
-                  India&apos;s first Sales Behaviour OS. Grades every lead A–F, builds the Priority Queue, surfaces ₹ at risk — built specifically for Indian B2B SMBs.
+                  The Sales Behaviour OS built for Indian B2B SMBs. Grades every lead A–F, builds the Priority Queue, and surfaces ₹ at risk — the daily working layer that runs alongside your CRM.
                 </p>
                 <ul className="mt-5 space-y-2.5 text-[14px] leading-[1.55] text-ink-soft">
                   <li className="flex items-center gap-2.5"><MintCheck /> same-day setup</li>
@@ -209,9 +212,39 @@ export function ComparePageLayout(p: CompareProps) {
           </Container>
         </SectionGround>
 
+        {/* HONEST VERDICT — narrative on where each genuinely wins */}
+        {p.verdict && (
+          <SectionGround variant="pure" size="lg">
+            <Container>
+              <Reveal className="mb-10 md:mb-14 max-w-3xl">
+                <NumberedTag number="02" label="The honest verdict" />
+                <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                  Where each one genuinely wins.
+                </h2>
+              </Reveal>
+              <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+                <Reveal><FloatingCard tier="2" depth="2" gloss className="h-full p-8 md:p-9">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Where {short} wins</p>
+                  <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">{p.verdict.competitorWins}</p>
+                </FloatingCard></Reveal>
+                <Reveal delay={0.06}><FloatingCard tier="3" depth="3" gloss className="h-full p-8 md:p-9 aura-sky-hover">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Where Leadkaun wins</p>
+                  <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">{p.verdict.leadkaunWins}</p>
+                </FloatingCard></Reveal>
+              </div>
+              <Reveal delay={0.1} className="mx-auto mt-6 max-w-3xl">
+                <FloatingCard tier="1" depth="1" gloss className="p-7 md:p-8">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">Bottom line</p>
+                  <p className="mt-3 text-[16px] leading-[1.6] text-ink">{p.verdict.bottomLine}</p>
+                </FloatingCard>
+              </Reveal>
+            </Container>
+          </SectionGround>
+        )}
+
         {/* PRODUCT — show the live system the competitor lacks */}
         <ProductShowcase
-          number="02"
+          number="03"
           ground="pure"
           eyebrow="See it work"
           title={<>See what {short} can&apos;t show you.</>}
@@ -222,7 +255,7 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="03" tone="warm" label="Pricing comparison" />
+              <NumberedTag number="04" tone="warm" label="Pricing comparison" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Real numbers, not teaser rates.
               </h2>
@@ -253,7 +286,7 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="04" label={p.switchingLabel ?? "Switching guide"} />
+              <NumberedTag number="05" label={p.switchingLabel ?? "Switching guide"} />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 {p.switchingHeading ?? "How teams switch cleanly."}
               </h2>
@@ -283,7 +316,7 @@ export function ComparePageLayout(p: CompareProps) {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="05" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="06" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 {p.faqHeading ?? `Switching from ${short}.`}
               </h2>
@@ -293,7 +326,7 @@ export function ComparePageLayout(p: CompareProps) {
         </SectionGround>
 
         <CTABanner
-          tag={{ number: "06", label: "Ready when you are" }}
+          tag={{ number: "07", label: "Ready when you are" }}
           headline={`Try Leadkaun alongside ${short} for 14 days.`}
           sub="Import a CSV. Run both in parallel. Measure ₹ recovered. Decide at day 60."
         />

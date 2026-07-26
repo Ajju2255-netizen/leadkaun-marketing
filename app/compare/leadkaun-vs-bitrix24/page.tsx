@@ -57,6 +57,11 @@ export default function VsBitrix24() {
         { q: "How long does Bitrix24 take to set up?", a: "Longer than the others here — its breadth means real configuration effort, often with an admin or partner. Leadkaun's guided onboarding puts a graded lead in the queue the same day." },
         { q: "Is pricing INR with GST?", a: "Leadkaun is — flat INR, GST-compliant, per account. Bitrix24 bills in USD." },
       ]}
+      verdict={{
+        competitorWins: "Bitrix24 offers genuinely remarkable breadth for the price — CRM plus projects, telephony, an intranet and a contact center that routes WhatsApp, Telegram and web chat into one place, at a flat per-organisation rate with generous user allowances and a free tier for unlimited users. If you want one platform to run most of the business, that consolidation is real value.",
+        leadkaunWins: "Leadkaun does one job deeply rather than ten broadly. It grades every lead A–F with intent decay, builds a real-time Priority Queue, surfaces ₹ at risk, and sends a morning brief — with 3-tap WhatsApp logging designed so reps actually adopt it. It bills flat in INR and GST-compliant instead of USD, and goes live the same day rather than needing a partner-led rollout.",
+        bottomLine: "If you need an all-in-one suite and can invest in setup and an admin, Bitrix24 is a strong, economical pick. If your priority is rep adoption and turning leads into ₹ recovered, Leadkaun is the sharper fit — and you can keep Bitrix24 for projects and intranet while moving just the sales motion to Leadkaun.",
+      }}
     />
   )
 }

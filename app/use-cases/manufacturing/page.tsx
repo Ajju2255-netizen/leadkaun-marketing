@@ -31,6 +31,7 @@ export default function ManufacturingPage() {
         "Quote objects on the lead record carry value, validity, and next-touch date — the Missed Opportunity Engine surfaces ₹ at risk per open quote.",
         "Distributor attribution with commission splits — no more credit disputes when a dealer closes an inside-sales-sourced deal.",
       ]}
+      insight="IndiaMART alone connects over 8 million suppliers with 200 million-plus registered buyers and holds a majority of India's online B2B enquiry traffic (IndiaMART). Industrial buyers fire the same RFQ to several suppliers at once, so the vendor who quotes first and chases the enquiry typically lands the order."
       faqs={[
         { q: "Does it handle quote tracking?", a: "Lead record has a quote object with value, status, and follow-up schedule. Stale quotes surface with ₹ at risk." },
         { q: "How does it work with field reps on patchy mobile data?", a: "Mobile-optimised logging works offline; syncs when connectivity returns." },

@@ -57,6 +57,11 @@ export default function VsKylas() {
         { q: "Does Kylas support WhatsApp?", a: "Yes, natively on paid tiers. The difference is that Leadkaun turns a logged WhatsApp reply into a ranked Intent signal, not just a synced message." },
         { q: "Is pricing INR with GST?", a: "Yes — both are Indian, INR, GST-compliant. Leadkaun bills flat per account." },
       ]}
+      verdict={{
+        competitorWins: "Kylas has a real, honest hook: unlimited users at a flat monthly rate, so you can add reps without per-seat cost. It is India-first, with guided onboarding and training included, and it covers CRM fundamentals well — lead capture and routing, pipelines, workflow automation, and native WhatsApp on paid tiers. At large headcount, those economics are genuinely hard to beat.",
+        leadkaunWins: "Leadkaun is also flat-priced, but it is a Sales Behaviour OS rather than a system of record. It grades every lead A–F in real time with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹ at risk — decisions that Kylas's rule-based scoring does not make for you. For a small team, Growth also lands below Kylas's flat rate.",
+        bottomLine: "For a large team that mainly needs a full CRM without per-seat cost, Kylas's unlimited-user model is the economical pick. For a smaller team that wants leads graded and prioritised daily, Leadkaun Growth costs less and adds the behaviour layer. Because Leadkaun runs alongside a CRM, some teams keep both.",
+      }}
     />
   )
 }

@@ -31,6 +31,7 @@ export default function AgenciesPage() {
         "CSV export per client is white-label-ready — branded report in 10 minutes, not 4 hours.",
         "Morning Brief per pipeline: BD head sees new-business; each account director sees their client's ₹ at risk.",
       ]}
+      insight="India's digital advertising grew about 21% in 2024 and now rivals TV for the largest share of ad spend (Dentsu). As budgets shift, agencies field more inbound project enquiries and RFPs than they can chase — so the shops that qualify prospects, respond fast, and follow up on proposals win more retainers."
       faqs={[
         { q: "Can each client have its own ICP?", a: "Yes — define per-pipeline ICP weights on Growth tier." },
         { q: "Is there a client-portal view?", a: "Not in Phase 1. Export per-client CSV for white-label reporting." },

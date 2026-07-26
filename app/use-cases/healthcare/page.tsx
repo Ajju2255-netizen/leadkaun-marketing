@@ -31,6 +31,7 @@ export default function HealthcarePage() {
         "WhatsApp tracking logs appointment confirmations, report-delivery replies, and follow-up requests.",
         "Compliance-ready: every signal timestamped, every contact audit-exportable, DND flags respected.",
       ]}
+      insight="India's digital-health segment is compounding at roughly 24% a year (IBEF), pushing more patient enquiries for appointments, diagnostics and procedures onto portals and WhatsApp. Health decisions are urgent and comparison-driven, so the clinics and diagnostics teams that respond fast and chase unbooked enquiries convert far more of them."
       faqs={[
         { q: "Is health data stored securely?", a: "Supabase Singapore region; RLS policies at DB level; encryption in transit and at rest; full audit log." },
         { q: "Does it support DND compliance for tele-callers?", a: "DND flag on lead record; callers don't see DND leads in the queue." },

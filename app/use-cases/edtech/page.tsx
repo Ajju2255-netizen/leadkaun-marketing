@@ -31,6 +31,7 @@ export default function EdTechPage() {
         "Intent decay respects admissions cycles: a silent Grade A drops to Grade B over a week automatically.",
         "Morning Brief: '8 Grade A enquiries replied overnight. ₹6 L in admissions at risk if not called by 11 AM.'",
       ]}
+      insight="India is the world's second-largest e-learning market, with edtech valued around US$7.5 billion and projected to reach US$29 billion by 2030 (IBEF). Course enquiries arrive in bulk but vary wildly in intent, so counselling teams that grade leads, call the serious ones first, and follow up enrol more of them."
       faqs={[
         { q: "Does it handle the parent + student dual thread?", a: "Yes. Lead record has primary + secondary contacts. WhatsApp tracking logs who replied when; Intent Score aggregates across both." },
         { q: "Can we set different scoring per course?", a: "Yes, on Growth tier. Course-level ICP weights let you tune for engineering vs arts vs PG programmes." },

@@ -38,7 +38,6 @@ export default function VsZoho() {
         { label: "Workflow customisation (Deluge-style)",               leadkaun: "neutral",       competitor: true  },
         { label: "Zoho Suite integrations (Books, Desk, Projects)",     leadkaun: false,           competitor: true  },
         { label: "Setup time",                                          leadkaun: "same day",        competitor: "1–4 wks" },
-        { label: "Rep adoption (typical Indian SMB)",                   leadkaun: "80%+",          competitor: "30–40%" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All 12 modules, 14-day free trial, no credit card" },
@@ -54,9 +53,14 @@ export default function VsZoho() {
         { q: "Can I keep using Zoho for some things?", a: "Absolutely. Many teams run Zoho for long-tail customisation and Leadkaun for the behaviour layer. The CSV export path and webhook ingestion make coexistence low-friction." },
         { q: "How do we handle our existing Zoho workflows?", a: "Map each workflow to a Leadkaun equivalent (Priority Queue, Follow-up Engine, Morning Brief). Most cover 80%+ of Zoho workflow use cases natively." },
         { q: "We've customised Zoho heavily. Is migration painful?", a: "The custom fields export cleanly as CSV columns. Leadkaun ingests arbitrary columns as custom fields. The hardest part is psychological, not technical." },
-        { q: "Will my reps find Leadkaun easier?", a: "Yes — the 3-tap logging is the design constraint. Typical rep adoption on Leadkaun reaches 80%+ within two weeks. On Zoho, mid-market Indian SMBs average 30–40%." },
+        { q: "Will my reps find Leadkaun easier?", a: "Yes — the 3-tap logging is the design constraint. Because logging a WhatsApp update or call outcome takes a few taps instead of a multi-click form, reps actually keep it current. The usual reason a CRM goes stale is data-entry friction, and removing that friction is what keeps the data — and the grading built on it — trustworthy." },
         { q: "Is the pricing really INR with GST?", a: "Yes. All Leadkaun invoices are INR, GST-compliant, no USD surcharge." },
       ]}
+      verdict={{
+        competitorWins: "Zoho CRM has earned its place as the default Indian SMB CRM. The brand makes internal buy-in easy, the native Zoho Suite integrations and Deluge-level customisation run deep, and it scales from a tiny team to hundreds of reps. If workflow depth and a single well-connected suite matter most, Zoho is a genuinely strong, well-supported choice.",
+        leadkaunWins: "Leadkaun does not replace that depth — it adds the behaviour layer alongside it. It grades leads A–F with intent decay, auto-ranks each rep's Priority Queue, and puts a ₹ figure on stale-lead risk, with 3-tap WhatsApp and call logging so updates actually get made. It runs on flat per-account pricing that stays flat as the team grows.",
+        bottomLine: "Choose Zoho CRM when customisation depth and suite integrations are the priority and you have admin capacity to run it. Choose Leadkaun when rep behaviour — who gets called, when, and what is slipping — is where deals are lost. Many teams run both for a couple of months, then keep whichever earns its cost.",
+      }}
     />
   )
 }

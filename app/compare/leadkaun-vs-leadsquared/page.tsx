@@ -56,6 +56,11 @@ export default function VsLeadSquared() {
         { q: "LeadSquared is strong on marketing automation. Can Leadkaun replace that?", a: "Not in Phase 1. If marketing automation is core to your stack, keep LeadSquared / HubSpot for that layer; Leadkaun handles the sales-behaviour layer on top." },
         { q: "Can I keep LeadSquared for workflow and add Leadkaun for scoring?", a: "Yes — this is the most common pattern. Sync leads via CSV / Sheets; behaviour runs on Leadkaun; LeadSquared keeps the workflow depth." },
       ]}
+      verdict={{
+        competitorWins: "LeadSquared is India-built and genuinely deep in regulated, high-velocity verticals — EdTech, BFSI and healthcare — where its activity orchestration, mobile field-rep workflow and automation builder are proven at scale. If your process depends on structured activity tracking and vertical-specific workflows, that maturity is real and hard to replicate quickly.",
+        leadkaunWins: "Leadkaun tracks behaviour rather than activity. It grades leads on Fit × Intent × Quality with intent decay, auto-ranks each rep's Priority Queue, turns a 3-tap WhatsApp log into a ranked intent signal, and reports ₹ at risk — with published INR pricing instead of quote-based deals. Setup is same-day, not a multi-week consulting engagement.",
+        bottomLine: "If you are in BFSI, EdTech or healthcare and lean on deep workflow automation, LeadSquared remains a strong backbone. If you want a lighter, rupee-first sales-behaviour layer that reps actually work every day, choose Leadkaun. Many teams keep LeadSquared for workflow and run Leadkaun alongside for scoring and prioritisation.",
+      }}
     />
   )
 }

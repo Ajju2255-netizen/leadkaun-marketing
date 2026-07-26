@@ -88,7 +88,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-[240px] text-[13.5px] leading-[1.6] text-ink-soft">
-              India&apos;s first Sales Behaviour OS. Grade every lead, build a Priority Queue, surface missed ₹.
+              The Sales Behaviour OS for Indian B2B SMBs. Grade every lead, build a Priority Queue, surface missed ₹.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1 glass-peach gloss-edge">
               <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />

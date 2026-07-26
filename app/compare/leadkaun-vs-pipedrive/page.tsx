@@ -57,6 +57,11 @@ export default function VsPipedrive() {
         { q: "Which has better lead scoring?", a: "Leadkaun grades every lead A–F on Fit, Intent, and Quality in real time with intent decay. Pipedrive's native prioritisation is thin and typically leans on integrations." },
         { q: "Is the pricing really INR with GST?", a: "Yes. All Leadkaun invoices are INR, GST-compliant, no USD surcharge." },
       ]}
+      verdict={{
+        competitorWins: "Pipedrive earns its reputation for a clean, visual pipeline that reps actually adopt. The drag-and-drop Kanban has a genuinely low learning curve, and its activity tracking, email sync, and forecasting are mature on the higher tiers. For teams that mainly want a well-designed pipeline CRM backed by a large integration marketplace, Pipedrive is a strong, proven choice.",
+        leadkaunWins: "Leadkaun is not a pipeline CRM; it is the behaviour layer Pipedrive lacks. It grades every lead A–F with intent decay, surfaces ₹ at risk from stale leads, and gives each rep a live Priority Queue to work. Flat INR pricing per account and 3-tap WhatsApp logging suit Indian SMB teams better than per-user USD billing that grows with headcount.",
+        bottomLine: "Choose Pipedrive if a polished pipeline reps love is your main need. Choose Leadkaun if lead grading, prioritisation, and follow-up discipline matter more than pipeline visuals. Because Leadkaun runs alongside your CRM, many teams keep Pipedrive for the pipeline and add Leadkaun for the behaviour layer, and CSV export keeps that coexistence low-friction.",
+      }}
     />
   )
 }

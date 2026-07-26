@@ -31,6 +31,7 @@ export default function SaaSPage() {
         "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4.'",
         "Multi-seat deal threading: SDR's initial contact flows to the AE's closing thread without losing context.",
       ]}
+      insight="India's B2B SaaS sector has scaled to roughly US$13 billion in ARR and is growing near 30% a year (NASSCOM), flooding sales teams with trial signups and inbound demo requests. When volume outruns capacity, grading leads by fit and intent — and reaching the hottest ones first — is what protects the pipeline."
       faqs={[
         { q: "Does it integrate with our trial signup flow?", a: "Webhook or CSV; we publish a SaaS-specific onboarding guide. Segment/Mixpanel on roadmap." },
         { q: "How does it handle PLG self-upgrade events?", a: "Trigger a 'self-upgrade' signal manually or via API; scoring surfaces the user for expansion conversations." },

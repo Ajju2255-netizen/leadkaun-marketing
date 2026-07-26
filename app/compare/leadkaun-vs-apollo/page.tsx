@@ -58,6 +58,11 @@ export default function VsApollo() {
         { q: "Should I buy both?", a: "If you run outbound prospecting and also handle inbound leads, yes — Apollo for sourcing, Leadkaun for triage and prioritisation. If you only need to work the leads already coming in, Leadkaun alone is enough." },
         { q: "Which is better for Indian data?", a: "Apollo's database is US-centric and Indian coverage is weaker. Leadkaun doesn't source data — it works whatever leads you capture, with Indian phone normalisation and lakh/crore UI." },
       ]}
+      verdict={{
+        competitorWins: "Apollo genuinely owns the top of the funnel that Leadkaun never touches: a large global contact database with deep filters, built-in email sequencing and a dialer, plus enrichment and intent signals for targeting net-new prospects. For an outbound team building pipeline from scratch, that sourcing-plus-outreach engine is the whole point, and the free tier makes it easy to start.",
+        leadkaunWins: "Leadkaun takes over once a lead exists. It grades every inbound and captured lead A–F on Fit, Intent and Quality, auto-ranks each rep’s Priority Queue, and surfaces the ₹ going cold in stale leads — with 3-tap WhatsApp logging and Indian phone handling Apollo does not offer. It also bills flat in INR rather than USD per seat plus credits.",
+        bottomLine: "This isn’t either-or. Run Apollo to find and reach net-new prospects, and run Leadkaun alongside it to grade, prioritise and work the leads you already have. If you only handle inbound and existing leads, Leadkaun alone is enough; if you prospect outbound too, the honest answer is Apollo plus Leadkaun.",
+      }}
     />
   )
 }

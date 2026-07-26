@@ -13,6 +13,8 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { MetricStrip } from "@/app/components/metric-strip"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
+import { Faq } from "@/app/components/faq"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "How Leadkaun Works — From Lead In to Deal Closed",
@@ -30,9 +32,18 @@ const STEPS = [
   { step: "06", title: "Morning Brief lands at 8:30 AM.",             body: "Every rep and manager gets a personalised daily brief — Grade A leads that need action today, ₹ at risk this week, and overdue follow-ups. The day starts with a plan, not a scroll through the inbox.", detail: "Delivered Mon – Sat · 8:30 AM IST · Email" },
 ]
 
+const FAQ = [
+  { q: "What does a rep actually see at 8:30 AM?", a: "An email brief, then the Priority Queue. The brief lists the handful of Grade A leads to act on today, any follow-ups that have gone overdue, and the ₹ at risk this week. Opening the queue, those same leads are already ranked at the top — the rep works down the list and logs each outcome in three taps. No filtering, no deciding who to call first." },
+  { q: "What does a manager see on Monday morning?", a: "Per-rep accountability in rupees, not activity counts. The Missed-Opportunity view shows which Grade A leads went stale under each rep and the ₹ value attached, so a review opens with 'these three deals worth ₹9L aged out last week' instead of 'how many calls did you make'. Coaching becomes specific and factual." },
+  { q: "Do I have to configure anything to get started?", a: "No heavy setup. A short onboarding wizard captures your ICP (industries, states, business types, budget bands), you import a CSV of leads, and every lead is graded A–F the same day. Indian phone formats are normalised and duplicates caught on import automatically." },
+  { q: "How does the A–F grade get decided?", a: "Three transparent 0–100 scores — Fit (ICP match), Intent (source and signal events like a WhatsApp reply), and Quality (data completeness and junk detection) — combine into one grade. Grade A means Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60. Intent decays as a lead goes silent, so grades stay honest over time. The weights are fixed and auditable, not a black-box AI score." },
+  { q: "Does this replace my CRM?", a: "No — Leadkaun runs alongside your CRM. Your CRM stays the system of record for what happened; Leadkaun is the behaviour layer that decides what happens next — grading, prioritising, and surfacing the ₹ at risk. Most teams import a CSV and run both in parallel to measure the difference before changing anything." },
+]
+
 export default function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "How it works" }]), faqPageSchema(FAQ)]) }} />
       <Navbar />
 
       <PageHero
@@ -147,6 +158,17 @@ export default function HowItWorksPage() {
               ))}
             </Reveal>
           </div>
+        </Container>
+      </SectionGround>
+
+      {/* FAQ */}
+      <SectionGround variant="pure" size="md">
+        <Container>
+          <Reveal className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="flex justify-center"><NumberedTag number="?" tone="warm" label="FAQ" /></div>
+            <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">A day inside the system.</h2>
+          </Reveal>
+          <Reveal delay={0.08}><Faq items={FAQ} /></Reveal>
         </Container>
       </SectionGround>
 

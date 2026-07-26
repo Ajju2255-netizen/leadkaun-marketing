@@ -31,6 +31,7 @@ export default function BFSIPage() {
         "Renewal dates live on the lead record — the Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse.",
         "Branch Manager Morning Brief: '12 Grade A leads unassigned. ₹4 L premium at risk today.'",
       ]}
+      insight="India's insurance penetration sits at just 3.7% against a ~7% global average (IRDAI/IBEF), and health-insurance premiums grew over 30% in FY24 — enormous headroom, and heavy enquiry volume chasing every agent. In a market where buyers compare quotes instantly, the first responder who follows up consistently usually wins the policy."
       faqs={[
         { q: "Is the data compliant with IRDAI / RBI audit requirements?", a: "Row-Level Security at the DB level; full audit trail per lead; one-click export. Talk to us for regulator-specific checklists." },
         { q: "Can we track renewals + upsell, not just new business?", a: "Lead records carry renewal dates. The Missed Opportunity Engine surfaces upcoming renewals as opportunities." },

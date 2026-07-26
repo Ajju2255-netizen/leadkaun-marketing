@@ -61,7 +61,7 @@ const FAKE_STAT = [
 // 47-min pattern excludes hyphen-continuation so it never flags the kept slug
 // `47-minute-response-tracker`. See vault "Leadkaun Brain" 00 §4/§5.
 const DATA_HONESTY = [
-  { re: /india'?s first/i,             name: 'unverifiable superlative "India\'s first"' },
+  { re: /india(?:'|’|&(?:apos|#39|rsquo|#8217);)?s?\s+first/i, name: 'unverifiable superlative "India\'s first" (incl. HTML-entity apostrophe)' },
   { re: /built-in crm/i,               name: 'banned framing "Built-in CRM" (runs alongside a CRM)' },
   { re: /cloudflare pages/i,           name: 'wrong infra "Cloudflare Pages" (it is Workers via OpenNext)' },
   { re: /under 500\s?ms/i,             name: 'unverified latency "under 500ms" (use "real time")' },

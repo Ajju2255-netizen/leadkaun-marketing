@@ -56,6 +56,11 @@ export default function VsSellDo() {
         { q: "How transparent is pricing?", a: "Leadkaun publishes flat INR tiers (Free / ₹2,999 / ₹7,999 / ₹19,999). Sell.Do is quote-based with no public pricing, which makes direct comparison harder." },
         { q: "Who's behind Sell.Do?", a: "Sell.Do and Kylas share a founder (Ketan Sabnis) — Kylas is the horizontal SMB CRM, Sell.Do the real-estate product. (It is not an ANAROCK product; ANAROCK runs a separate CRM.)" },
       ]}
+      verdict={{
+        competitorWins: "Sell.Do is a genuinely India-first, real-estate-specific CRM. It is built around property motions — site visits, bookings, channel partners — with native WhatsApp, Indian telephony, and multi-language AI call sentiment analysis. For property developers and larger brokerages that live in those workflows, that vertical depth is a real strength Leadkaun does not attempt to match.",
+        leadkaunWins: "Leadkaun is horizontal where Sell.Do is specialised. It grades any lead source A–F on Fit, Intent, and Quality across industries, not just real-estate buyer intent, and publishes flat, transparent INR pricing where Sell.Do stays quote-only. For a general B2B team, or a broker wanting lighter grading and faster response over property-specific machinery, that fit is the better one.",
+        bottomLine: "If you are a property developer whose day runs on site visits, bookings, and channel-partner tracking, Sell.Do is purpose-built, so pick it. If you sell across other B2B industries, or want horizontal A–F grading with transparent pricing, choose Leadkaun. In real estate the two overlap, and a lighter Leadkaun layer can sit alongside a heavier vertical system.",
+      }}
     />
   )
 }

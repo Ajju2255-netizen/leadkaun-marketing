@@ -55,6 +55,11 @@ export default function VsFreshsales() {
         { q: "Will switching feel like a downgrade in UI?", a: "Leadkaun's UI is deliberately minimal — data-first, no distractions. It's different, not worse. Reps adapt in a week; managers notice better decision-making within the month." },
         { q: "Freshsales has a mobile app. Does Leadkaun?", a: "Leadkaun is mobile-web first — works on any device, no app install. Performance on 3G is a design priority. Field reps prefer it." },
       ]}
+      verdict={{
+        competitorWins: "Freshsales is a genuinely polished product — a clean, modern UI, built-in email and phone, and tight ties into the wider Freshworks suite like Freshdesk and Freshchat. For a team that wants one vendor across sales and support, with familiar CRM UX and pricing that is reasonable against global peers, it is a strong and mature choice.",
+        leadkaunWins: "Leadkaun wins where decisions get made rather than where the screen looks nicer. Its Fit, Intent and Quality scores are transparent and auditable, so managers can coach reps on why a lead ranks — something Freddy AI keeps opaque. Add the ₹-at-risk view, the auto-ranked Priority Queue and the morning brief, all calibrated for Indian B2B SMBs.",
+        bottomLine: "Pick Freshsales if you want one well-designed CRM spanning sales and support. Pick Leadkaun if your reps need transparent prioritisation and a daily ₹-at-risk view your CRM does not surface. Many teams keep Freshdesk or Freshchat and run Leadkaun alongside as the sales-behaviour layer.",
+      }}
     />
   )
 }

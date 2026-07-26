@@ -57,6 +57,11 @@ export default function VsTeleCRM() {
         { q: "Does TeleCRM score leads?", a: "It captures, assigns, and automates follow-ups, but doesn't ship a documented intent-graded scoring engine. Leadkaun grades A–F on Fit × Intent × Quality in real time." },
         { q: "Is pricing INR with GST?", a: "Yes — both are Indian, INR, GST-compliant. Leadkaun bills flat per account." },
       ]}
+      verdict={{
+        competitorWins: "TeleCRM is genuinely the better tool when the day is defined by call volume. Its one-click dialer, call recording, follow-up reminders and native WhatsApp automation are purpose-built for inside-sales and tele-calling teams, and the low per-user entry price gets a calling floor running quickly.",
+        leadkaunWins: "Leadkaun wins when the problem is not dialing faster but calling the right lead first. It grades every lead A–F on Fit × Intent × Quality, auto-ranks each rep's Priority Queue, and surfaces the ₹ at risk from stale leads — the behaviour layer a dialer-first CRM leaves out, tuned for how Indian SMB reps actually work.",
+        bottomLine: "Pick TeleCRM if you purely need a fast, affordable dialer for high-volume calling. Pick Leadkaun if grading and prioritisation matter more than raw call throughput. Many calling teams run both — a dialer for volume, Leadkaun alongside it so reps dial the highest-intent lead first.",
+      }}
     />
   )
 }

@@ -58,6 +58,11 @@ export default function VsClay() {
         { q: "Do I need both?", a: "Only if you build and enrich outbound lists at scale. If you mainly work inbound and existing leads, Leadkaun alone covers grading, prioritisation, and follow-up." },
         { q: "Why compare them at all?", a: "Because teams researching GTM tooling often see both names and wonder how they relate. The honest answer: Clay gets and cleans data; Leadkaun decides what your reps do with the leads." },
       ]}
+      verdict={{
+        competitorWins: "Clay is genuinely strong at what it does: waterfall enrichment across many data providers, flexible spreadsheet-style tables, and AI research and scraping to build and clean prospect lists at scale, then push them into downstream tools. For a GTM or ops team that lives in data operations, nothing Leadkaun does replaces that sourcing-and-enrichment power.",
+        leadkaunWins: "Leadkaun starts where Clay stops. It doesn’t source data; it grades the leads already in your funnel A–F, auto-ranks each rep’s Priority Queue, surfaces the ₹ going cold, and gives reps 3-tap WhatsApp logging and Indian phone normalisation. It is built for a rep triaging inbound, not a power user orchestrating data, and it bills flat in INR rather than USD plus credits.",
+        bottomLine: "These are complementary, not competing. Use Clay to build and enrich your lists, then feed those leads into Leadkaun to grade, prioritise and work them. If you build outbound lists at scale, run both; if you mainly handle inbound and existing leads, Leadkaun alone covers grading, prioritisation and follow-up.",
+      }}
     />
   )
 }

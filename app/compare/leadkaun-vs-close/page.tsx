@@ -56,6 +56,11 @@ export default function VsClose() {
         { q: "Does Close support WhatsApp?", a: "Not natively — only via third-party integrations. Leadkaun treats WhatsApp as a first-class 3-tap signal that feeds the Intent Score." },
         { q: "When is Close the better choice?", a: "If your team sells mostly by phone at high volume and wants native calling/SMS built in, Close is purpose-built for that." },
       ]}
+      verdict={{
+        competitorWins: "Close is genuinely excellent for phone-first inside sales. Calling, SMS and email are native rather than bolted on, with power and predictive dialers on higher tiers, a fast activity-focused UI, solid sequence automation, and transparent published per-seat pricing. If your team lives on the dialer and sells by high-volume outreach, Close is purpose-built for that motion.",
+        leadkaunWins: "Leadkaun is built around deciding which lead to work next, not around the call itself. It grades leads A–F on Fit, Intent and Quality with intent decay, ranks the Priority Queue in real time, surfaces ₹ at risk, and treats a logged WhatsApp reply as a first-class signal — none of it native to Close. It bills flat in INR with no per-minute usage, and handles Indian phone formats and lakh/crore figures.",
+        bottomLine: "If native calling and SMS at volume is your core motion, Close is the better engine. If knowing which lead to call first — and catching the ones going cold — matters more, Leadkaun earns its place; calling-heavy teams sometimes keep a dialer or Close and add Leadkaun for grading and prioritisation.",
+      }}
     />
   )
 }

@@ -56,6 +56,11 @@ export default function VsMonday() {
         { q: "Does monday CRM support WhatsApp?", a: "Only through third-party connectors. Leadkaun treats a logged WhatsApp reply as a ranked Intent signal that can change a lead's grade." },
         { q: "When is monday the better choice?", a: "If you want one flexible tool for both CRM and general work management and are happy to build your own workflows, monday's no-code canvas is a genuine strength." },
       ]}
+      verdict={{
+        competitorWins: "monday CRM is genuinely more flexible. Its no-code Work OS lets you shape pipelines, automations, and dashboards exactly how you want, and it stretches well beyond sales into general work management. If your team wants one customisable canvas and has the appetite to build its own workflows, that openness is a real advantage Leadkaun deliberately does not offer.",
+        leadkaunWins: "Leadkaun is opinionated where monday is a blank canvas. For a lean Indian B2B team it grades every lead A–F on Fit, Intent, and Quality and hands each rep a ready Priority Queue on day one, with no formula columns to build first. Flat INR pricing per account and 3-tap WhatsApp logging fit smaller teams better than USD per-seat billing with a 3-seat minimum.",
+        bottomLine: "Pick monday if you want a flexible tool spanning CRM and wider work management and will invest in configuring it. Pick Leadkaun if you want lead grading and prioritisation working out of the box on Indian pricing. Many teams keep monday for work management and run Leadkaun alongside it as the sales behaviour layer.",
+      }}
     />
   )
 }

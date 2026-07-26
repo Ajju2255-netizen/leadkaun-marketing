@@ -56,6 +56,11 @@ export default function VsSalesforce() {
         { q: "We've invested in Apex customisations. Is switching worth it?", a: "Honest answer: only if those customisations aren't driving outcomes today. If they are, keep SF. If they're gathering dust while reps still work in Excel, switching recovers that ₹." },
         { q: "What about the AppExchange integrations we rely on?", a: "Leadkaun keeps integrations lean and India-first — CSV import today, with WhatsApp BSP (Gupshup / AiSensy / Interakt) and native Google Sheets sync on the roadmap. We won't match AppExchange breadth — but most Indian SMBs don't need it." },
       ]}
+      verdict={{
+        competitorWins: "Salesforce is the enterprise standard for good reason: unlimited customisation through Apex and Flow, a 7,000-plus app AppExchange, enterprise-grade security and compliance, and reporting that scales to thousands of reps. At 200-plus reps with a dedicated admin team, nothing matches its depth and ecosystem, and Leadkaun does not try to compete on that ground.",
+        leadkaunWins: "Leadkaun is not an enterprise-CRM replacement; it is the sales behaviour layer for leaner Indian teams. It grades leads on a transparent 3-dimensional model, builds each rep a Priority Queue, and surfaces ₹ at risk, all on flat INR pricing with no dedicated admin and no months-long implementation. For a 3–50 rep team, that right-sizing is the entire point.",
+        bottomLine: "At enterprise scale, or if you rely on Service Cloud, Marketing Cloud, or deep Apex customisations, Salesforce remains the right answer, so keep it. For a smaller Indian SMB team paying enterprise cost for capacity it never uses, Leadkaun delivers grading and prioritisation at a fraction of the overhead, and can even run alongside Salesforce purely as the sales behaviour layer.",
+      }}
     />
   )
 }

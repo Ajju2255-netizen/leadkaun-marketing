@@ -25,6 +25,8 @@ type AltGuide = {
   slug: string; name: string; metaTitle: string; metaDescription: string; h1: string; intro: string
   quickAnswer: { question: string; answer: string }; whyLookElsewhere: string[]
   alternatives: Alt[]; faqs: { q: string; a: string }[]; comparePage: string
+  // Optional wedge paragraph: "you may not need to rip {name} out — run Leadkaun alongside it."
+  runAlongside?: string
 }
 
 export async function generateStaticParams() {
@@ -144,11 +146,26 @@ export default async function AlternativesPage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {/* RUN ALONGSIDE — the hybrid wedge */}
+        {g.runAlongside && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <Reveal className="mx-auto max-w-3xl">
+                <NumberedTag number="03" label={`Or: keep ${g.name}, add Leadkaun`} />
+                <p className="mt-6 text-[17px] leading-[1.7] text-ink-soft">{g.runAlongside}</p>
+                <p className="mt-4 text-[13px] text-ink-muted">
+                  See exactly how they overlap in <Link href={`/compare/${g.comparePage}`} className="font-semibold text-sky-600 hover:text-sky-500">Leadkaun vs {g.name}</Link>.
+                </p>
+              </Reveal>
+            </Container>
+          </SectionGround>
+        )}
+
         {/* FAQ */}
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="03" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="04" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">Common questions.</h2>
             </Reveal>
             <Reveal delay={0.08}><Faq items={g.faqs} /></Reveal>

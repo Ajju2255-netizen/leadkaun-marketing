@@ -82,7 +82,9 @@
       { "heading": "How-to guides", "links": [
         { "label": "How to build a lead priority queue", "href": "/how-to/how-to-build-a-lead-priority-queue" },
         { "label": "How to import leads from CSV", "href": "/how-to/how-to-import-leads-from-csv" },
-        { "label": "Can Leadkaun handle 10,000 leads?", "href": "/questions/can-leadkaun-handle-10000-leads" }
+        { "label": "Can Leadkaun handle 10,000 leads?", "href": "/questions/can-leadkaun-handle-10000-leads" },
+        { "label": "How to manage IndiaMART leads", "href": "/how-to/how-to-manage-indiamart-leads" },
+        { "label": "How to manage leads from multiple sources", "href": "/how-to/how-to-manage-leads-from-multiple-sources" }
       ]},
       { "heading": "In-depth reads", "links": [
         { "label": "Building a lead prioritisation system (India)", "href": "/blog/lead-prioritization-system-india" },
@@ -173,7 +175,9 @@
       { "heading": "How-to guides", "links": [
         { "label": "How to run a Morning Brief", "href": "/how-to/how-to-run-a-morning-brief" },
         { "label": "How to track property enquiries", "href": "/how-to/how-to-track-property-enquiries" },
-        { "label": "What is lead response time in India?", "href": "/questions/what-is-lead-response-time-india" }
+        { "label": "What is lead response time in India?", "href": "/questions/what-is-lead-response-time-india" },
+        { "label": "How to get reps to follow up", "href": "/how-to/how-to-get-sales-reps-to-follow-up" },
+        { "label": "How to reduce lead response time", "href": "/how-to/how-to-reduce-lead-response-time" }
       ]},
       { "heading": "In-depth reads", "links": [
         { "label": "Lead response time in India (2026)", "href": "/blog/lead-response-time-india-2026" },
@@ -218,7 +222,9 @@
       { "heading": "How-to guides", "links": [
         { "label": "How to calculate ₹ at risk", "href": "/how-to/how-to-calculate-rupee-at-risk" },
         { "label": "What is the Missed Opportunity Engine?", "href": "/questions/what-is-missed-opportunity-engine" },
-        { "label": "How to calculate missed lead cost", "href": "/questions/how-to-calculate-missed-lead-cost" }
+        { "label": "How to calculate missed lead cost", "href": "/questions/how-to-calculate-missed-lead-cost" },
+        { "label": "How to recover cold leads", "href": "/how-to/how-to-recover-cold-leads" },
+        { "label": "How to find where you're losing deals", "href": "/how-to/how-to-find-where-you-are-losing-deals" }
       ]},
       { "heading": "In-depth reads", "links": [
         { "label": "The cost of a missed lead in India", "href": "/blog/cost-of-a-missed-lead-india" },

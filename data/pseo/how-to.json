@@ -541,5 +541,73 @@
     "relatedFeatures": ["lead-scoring", "priority-queue", "whatsapp-tracking"],
     "relatedBlog": null,
     "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-leads-from-multiple-sources",
+    "title": "How to Manage Leads From Multiple Sources in One Place",
+    "tldr": "Stop losing leads in the gaps between IndiaMART, WhatsApp, ad forms, referrals and walk-ins. Pull every source into one graded queue so reps work a single ranked list instead of five inboxes — each lead scored A–F on arrival, deduped on phone, and tagged by source so you can see which channel actually pays. Leadkaun runs alongside your CRM.",
+    "why": "Indian SMBs buy leads from five or more sources — IndiaMART, JustDial, Facebook and Google ads, housing portals, referrals, walk-ins — and each lands in a different inbox, sheet or WhatsApp thread. Leads fall through the cracks between them, and nobody can say which source is actually worth the spend. A single, source-tagged, graded queue fixes both problems at once.",
+    "prerequisites": [
+      "A list of your active lead sources",
+      "ICP configured so grading is meaningful",
+      "A Leadkaun account (any tier, including Free)"
+    ],
+    "steps": [
+      { "heading": "List your sources", "body": "IndiaMART, ad forms, portals, WhatsApp, referrals, walk-ins. Leadkaun ships with 26 common Indian lead sources seeded, each carrying a source-reliability weight that feeds scoring." },
+      { "heading": "Bring them into one place", "body": "CSV import or manual entry today, plus a generic webhook for real-time feeds; an IndiaMART API and native Google Sheets sync are on the roadmap. Tag each import with its source so attribution stays clean." },
+      { "heading": "Grade everything the same way", "body": "Every lead, whatever the source, is scored A–F on Fit, Intent and Quality — so a portal lead and a referral compete on merit in one queue, not by which inbox shouts loudest." },
+      { "heading": "Dedupe automatically", "body": "Phone-number dedup means the same buyer arriving via two sources becomes one lead, not two — so reps never double-call or argue over ownership." },
+      { "heading": "Work one ranked queue", "body": "Reps stop switching between five inboxes and simply work the Priority Queue top-down. The hottest lead is the next call, wherever it came from." },
+      { "heading": "See which source actually pays", "body": "Source performance shows ₹ won versus volume per source, so you can cut the channels that bring junk and reinvest in the ones that convert — instead of guessing." }
+    ],
+    "commonMistakes": [
+      "Leaving WhatsApp and referral leads unlogged — if they never enter the queue, they never get worked",
+      "Not tagging the source on import — you lose the attribution that tells you where to spend",
+      "Judging sources by volume instead of ₹ won",
+      "Expecting a live connector for every source today — CSV and webhook now; IndiaMART API and Sheets sync are on the roadmap"
+    ],
+    "faqs": [
+      { "q": "How many sources can I track?", "a": "Leadkaun seeds 26 common Indian lead sources and you can add your own, each with its own reliability weight that feeds the Quality score." },
+      { "q": "Does it connect to each source automatically?", "a": "CSV import and a generic webhook today; an IndiaMART API, a Facebook Lead Ads webhook and native Google Sheets sync are on the roadmap." },
+      { "q": "How does it stop duplicates across sources?", "a": "Phone-number dedup within your account merges the same buyer arriving via different channels into one lead." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["lead-scoring", "priority-queue", "missed-opportunity-engine"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-find-where-you-are-losing-deals",
+    "title": "How to Find Where You're Losing Deals in Your Pipeline",
+    "tldr": "Losing deals feels random until you make it visible. Track where leads go stale by grade and stage, why deals are lost (price, competitor, no response), and which rep and source the ₹ leaks from — then fix the biggest leak first. Leadkaun turns 'we're losing deals' into a ranked, rupee-valued list.",
+    "why": "Most managers know their pipeline is leaking but can't point to where. Is it slow first response? Follow-up drop-off at the proposal stage? One rep? One junk source? Without the breakdown you coach on vibes and the leak continues. Naming the leak in rupees, by rep and by stage, is the first step to closing it.",
+    "prerequisites": [
+      "Leads graded and moving through pipeline stages",
+      "Won/lost outcomes logged with a reason",
+      "A weekly review slot"
+    ],
+    "steps": [
+      { "heading": "See ₹ at risk, not just lead counts", "body": "The Missed Opportunity Engine puts a rupee value on every stale lead, so 'leaking pipeline' becomes a number you can rank and act on instead of a feeling." },
+      { "heading": "Break the leak down by rep, source and stage", "body": "Loss Analysis splits the ₹-at-risk pool by rep, by source, and by industry — so you can tell whether it's a rep-discipline problem, a source-quality problem, or a cadence-design problem." },
+      { "heading": "Log why deals are lost", "body": "Capture a loss reason on every lost deal — price too high, went to competitor, no budget, no response, requirement changed, wrong fit. Patterns emerge within a couple of weeks." },
+      { "heading": "Find the stage where deals stall", "body": "The pipeline flags how long leads sit in each stage; a pile-up at one stage — often proposal or negotiation — is your real bottleneck." },
+      { "heading": "Fix the biggest leak first", "body": "If it's slow first response, tighten the SLA; if it's proposal drop-off, add a follow-up cadence; if it's a junk source, cut it. One fix at a time, each measured against ₹ at risk." },
+      { "heading": "Review the number weekly", "body": "Bring ₹ at risk and the top loss reasons to your Monday review and watch the leak shrink, instead of rediscovering it at quarter-end." }
+    ],
+    "commonMistakes": [
+      "Treating loss as random — it clusters by stage, rep and source once you look",
+      "Not logging loss reasons — no reasons means no patterns to fix",
+      "Trying to fix everything at once — rank by ₹ at risk and fix the biggest leak first",
+      "Measuring activity instead of where the rupees actually leak"
+    ],
+    "faqs": [
+      { "q": "What loss reasons does Leadkaun track?", "a": "Price too high, went to competitor, no budget, no response, requirement changed, and wrong fit — plus your own notes on each lost deal." },
+      { "q": "Can I see losses by rep?", "a": "Yes — Loss Analysis breaks the ₹-at-risk pool and lost deals down by rep, by source, and by industry for your weekly one-on-ones." },
+      { "q": "How is this different from recovering cold leads?", "a": "Recovery works stale leads before they die; loss analysis diagnoses why deals die so you fix the underlying pattern." }
+    ],
+    "category": "metrics",
+    "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "priority-queue"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
   }
 ]

@@ -35,7 +35,7 @@ export default function BFSIPage() {
         { q: "Is the data compliant with IRDAI / RBI audit requirements?", a: "Row-Level Security at the DB level; full audit trail per lead; one-click export. Talk to us for regulator-specific checklists." },
         { q: "Can we track renewals + upsell, not just new business?", a: "Lead records carry renewal dates. The Missed Opportunity Engine surfaces upcoming renewals as opportunities." },
         { q: "How is attribution handled across agents?", a: "First-contact attribution with a configurable 'assisted' credit model for DSA networks." },
-        { q: "Does it work with aggregator-sourced leads?", a: "Yes — CSV / Google Sheet ingestion from PolicyBazaar / BankBazaar exports." },
+        { q: "Does it work with aggregator-sourced leads?", a: "Yes — CSV import of PolicyBazaar / BankBazaar exports (including Google Sheet exports)." },
         { q: "Does it support bancassurance cross-sell?", a: "Yes. A single lead can appear in multiple product queues with clear ownership rules." },
       ]}
       relatedCities={[

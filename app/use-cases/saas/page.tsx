@@ -25,7 +25,7 @@ export default function SaaSPage() {
         { title: "Content-spike chaos.", body: "A viral LinkedIn post drops 400 trial signups in a day. Sales has no triage. 350 go cold. Six figures of ARR walks away." },
       ]}
       helps={[
-        "Trial signups ingested via webhook, CSV, or Google Sheet — graded A–F by company size, stack signals, and role.",
+        "Trial signups imported via CSV or generic webhook (including Google Sheet exports) — graded A–F by company size, stack signals, and role.",
         "Intent decay tuned for SaaS: a trial user silent for 10 days is a strong negative; someone who invited 3 teammates is a Grade A spike.",
         "Expansion-opportunity detection flags existing customers with usage, role-add, or seat-limit signals as a separate lead type.",
         "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4.'",

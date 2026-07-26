@@ -12,6 +12,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { APP_URLS } from "@/lib/urls"
 import { PricingPlans } from "./pricing-plans"
 
@@ -127,6 +128,15 @@ export default function PricingPage() {
         primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
         secondary={{ kind: "text", label: "How it works", href: "/how-it-works" }}
       />
+
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <QuickAnswer
+            question="How much does Leadkaun cost?"
+            answer="Leadkaun is priced flat per account, not per seat: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Annual billing saves about 17%, and adding reps doesn't raise the bill within a tier's seat cap."
+          />
+        </Container>
+      </SectionGround>
 
       <ProductShowcase
         number="01"

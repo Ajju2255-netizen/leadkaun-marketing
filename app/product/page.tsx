@@ -15,8 +15,11 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { MetricStrip } from "@/app/components/metric-strip"
 import { Reveal } from "@/app/components/reveal"
+import { Faq } from "@/app/components/faq"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { ProductShowcase, WhyNotCRM, PricingCTA } from "@/app/components/sell/blocks"
 import { APP_URLS } from "@/lib/urls"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "Product — Sales Behaviour OS for Indian Sales Teams",
@@ -50,9 +53,18 @@ const HOW_IT_WORKS = [
   { n: "04", title: "Managers see ₹ accountability.", body: "Morning Brief at 8:30 AM IST. Monday review opens with ₹ at risk per rep. Coaching becomes specific." },
 ]
 
+const FAQ = [
+  { q: "Is Leadkaun a CRM?", a: "No — it's a Sales Behaviour OS that runs alongside your CRM. Your CRM records what happened; Leadkaun grades every lead A–F, ranks each rep's queue, and surfaces the ₹ at risk so reps know what to do next." },
+  { q: "How does the lead scoring work?", a: "Every lead gets three transparent 0–100 scores — Fit (ICP match), Intent (engagement, which decays as leads go silent) and Quality (data reliability) — combined into an A–F grade. Weights are auditable, not a black-box AI score." },
+  { q: "Does it work with WhatsApp?", a: "Yes — WhatsApp is a first-class signal. Reps log each exchange in 3 taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score." },
+  { q: "How do leads get into Leadkaun?", a: "CSV import or manual entry today, plus a generic webhook. IndiaMART/Facebook connectors and native Google Sheets sync are on the roadmap. Every lead is graded A–F the moment it lands." },
+  { q: "How much does Leadkaun cost?", a: "Flat per account, not per seat: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Adding reps doesn't raise the bill within a tier." },
+]
+
 export default function ProductPage() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Product" }]), faqPageSchema(FAQ)]) }} />
       <Navbar />
 
       <PageHero
@@ -72,6 +84,15 @@ export default function ProductPage() {
         primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
         secondary={{ kind: "glass", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
       />
+
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <QuickAnswer
+            question="What is Leadkaun?"
+            answer="Leadkaun is a Sales Behaviour OS for Indian SMB sales teams. It grades every lead A–F on Fit, Intent and Quality, builds each rep a Priority Queue of who to call next, and surfaces the ₹ at risk from stale leads — running alongside your CRM, not replacing it."
+          />
+        </Container>
+      </SectionGround>
 
       {/* STATS */}
       <SectionGround variant="cream" size="md">
@@ -172,8 +193,19 @@ export default function ProductPage() {
         title={<>See the whole system in one screen.</>}
         sub="Every lead graded A–F, a live Priority Queue per rep, and ₹ at risk surfaced in real rupees — the working surface your team opens every morning."
       />
-      <WhyNotCRM number="05" ground="sky" />
-      <PricingCTA number="06" ground="cream" />
+      {/* FAQ */}
+      <SectionGround variant="cream" size="md">
+        <Container>
+          <Reveal className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="flex justify-center"><NumberedTag number="05" tone="warm" label="FAQ" /></div>
+            <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">Questions about Leadkaun.</h2>
+          </Reveal>
+          <Reveal delay={0.08}><Faq items={FAQ} /></Reveal>
+        </Container>
+      </SectionGround>
+
+      <WhyNotCRM number="06" ground="sky" />
+      <PricingCTA number="07" ground="cream" />
 
       <CTABanner />
       <Footer />

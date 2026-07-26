@@ -261,6 +261,28 @@ export default function PricingPage() {
         </Container>
       </SectionGround>
 
+      {/* PER-SEAT VS FLAT CALCULATOR */}
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <Reveal className="mx-auto max-w-3xl">
+            <div className="flex flex-col items-start gap-4 rounded-2xl glass-2 elevate-1 gloss-edge p-6 md:flex-row md:items-center md:justify-between md:p-7">
+              <div>
+                <p className="text-[16px] font-semibold text-ink">Paying per seat elsewhere?</p>
+                <p className="mt-1 text-[14px] leading-[1.55] text-ink-soft">
+                  See what per-user pricing costs as your team grows, versus Leadkaun&apos;s flat per-account price.
+                </p>
+              </div>
+              <Link
+                href="/tools/crm-cost-calculator"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-full glass-1 gloss-edge px-5 py-2.5 text-[14px] font-semibold text-sky-600 transition-all hover:text-sky-500 lift"
+              >
+                CRM cost calculator →
+              </Link>
+            </div>
+          </Reveal>
+        </Container>
+      </SectionGround>
+
       {/* FAQ */}
       <SectionGround variant="sky" size="md">
         <Container>

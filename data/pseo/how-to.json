@@ -678,5 +678,73 @@
     "relatedFeatures": ["priority-queue", "lead-scoring"],
     "relatedBlog": null,
     "timeRequired": "P28D"
+  },
+  {
+    "slug": "how-to-manage-justdial-leads",
+    "title": "How to Manage JustDial Leads (When Speed Decides the Deal)",
+    "tldr": "JustDial shares a customer's number with several listed vendors at once, so the first credible call usually wins. Export your JustDial leads to CSV, import into Leadkaun, grade every one A–F on arrival, then work the Priority Queue fast — on JustDial, minutes matter more than almost anywhere else. Runs alongside your CRM.",
+    "why": "When someone enquires on JustDial, the lead goes to multiple listed vendors simultaneously — you're competing on who calls first, not just on price. Add JustDial's usual mix of low-detail, phone-only leads and price-shoppers, and working them in arrival order quietly loses deals to whoever grades and calls faster.",
+    "prerequisites": [
+      "A JustDial seller account (JD Omni / dashboard) with lead export",
+      "ICP configured so grading is meaningful",
+      "A Leadkaun account (any tier, including Free)"
+    ],
+    "steps": [
+      { "heading": "Export from JustDial", "body": "From your JD Omni or seller dashboard, export the day's leads to CSV (or download the lead list). JustDial leads are usually name + phone + a short requirement." },
+      { "heading": "Import into Leadkaun", "body": "Settings → Leads → Import; map name, phone and requirement. Indian phone-number parsing handles JustDial's formats and dedups repeats." },
+      { "heading": "Grade to filter the noise", "body": "Each lead is scored A–F on arrival. Thin, junk or repeat numbers score low on Quality; genuine, in-ICP enquiries surface as Grade A/B — so the queue reflects real buyers, not arrival order." },
+      { "heading": "Call fast, top of the queue", "body": "Because JustDial shares the enquiry with several vendors, speed-to-lead is decisive. Work the Priority Queue top-down and aim to reach Grade A within the hour, while you're still the first caller." },
+      { "heading": "Log the outcome in 3 taps", "body": "JustDial buyers often move to a call or WhatsApp — log stage, intent and outcome in 3 taps (any WhatsApp account, no API). Intent updates the grade and keeps the queue honest." },
+      { "heading": "Re-import daily", "body": "Phone-number dedup means re-importing the day's list only adds genuinely new leads. A native JustDial sync is on the roadmap." }
+    ],
+    "commonMistakes": [
+      "Calling JustDial leads in arrival order — grade and speed decide, not who came in first",
+      "Slow first response — on JustDial a faster vendor simply takes the deal",
+      "Treating every JustDial enquiry as a real buyer — let the Quality score flag the junk numbers",
+      "Importing without an ICP — fit scoring needs it to be useful"
+    ],
+    "faqs": [
+      { "q": "Why does speed matter so much for JustDial?", "a": "JustDial shares the enquiry with multiple listed vendors at the same time, so the first credible call usually wins. Grading plus a ranked queue helps you reach the best leads fastest." },
+      { "q": "Does Leadkaun connect to JustDial automatically?", "a": "Not yet — today you export JustDial leads to CSV and import them. A native sync is on the roadmap." },
+      { "q": "How does it handle junk JustDial numbers?", "a": "The Quality score (phone validity, data completeness) pushes junk and repeat numbers low, so reps don't burn time on dead leads." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["priority-queue", "lead-scoring", "morning-brief"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-facebook-lead-ads-leads",
+    "title": "How to Manage Facebook Lead Ads Leads (Volume vs Intent)",
+    "tldr": "Facebook Lead Ads bring cheap volume but plenty of low-intent, incentive-driven and junk-number leads. Export your Lead Ads submissions to CSV, import into Leadkaun, and grade every one A–F so reps chase the real buyers first — and respond fast, because form-fillers cool quickly. Runs alongside your CRM.",
+    "why": "A Facebook form-fill is a single tap, so the intent behind it varies wildly — a real chunk are curiosity clicks, freebie-hunters or fake numbers. Working them in arrival order burns reps on tyre-kickers. Grading on arrival, plus fast response while the form-fill is warm, turns a noisy paid channel into a ranked queue you can trust.",
+    "prerequisites": [
+      "Access to your Facebook Lead Ads submissions (Meta Lead Center)",
+      "ICP configured so fit scoring is meaningful",
+      "A Leadkaun account (any tier, including Free)"
+    ],
+    "steps": [
+      { "heading": "Export from Meta", "body": "Download your Facebook Lead Ads form submissions as CSV from Meta's Lead Center (or your ads manager)." },
+      { "heading": "Import into Leadkaun", "body": "Settings → Leads → Import; map name, phone, email and the form's qualifying answers so scoring has signal to work with." },
+      { "heading": "Grade to separate intent from noise", "body": "Each lead is scored A–F on arrival. Incentive-hunters, junk numbers and thin submissions score low; genuine, in-ICP leads surface as Grade A/B." },
+      { "heading": "Respond fast", "body": "A form-fill is warmest in the first hour. Alert the assigned rep and work Grade A at the top of the Priority Queue, before the lead forgets they even filled the form." },
+      { "heading": "Log outcomes in 3 taps", "body": "Many Facebook leads move to WhatsApp — log stage, intent and outcome in 3 taps (any WhatsApp account). Intent updates the grade." },
+      { "heading": "Judge the channel by ₹, not lead count", "body": "Tag the source on import; source performance shows ₹ won versus volume, so you can judge Facebook Lead Ads by real conversions. A direct Facebook webhook and native sync are on the roadmap; a generic webhook is available today." }
+    ],
+    "commonMistakes": [
+      "Judging Facebook by raw lead volume instead of ₹ won",
+      "Slow response — form-fillers cool within hours",
+      "Ignoring the form's qualifying answers, which are strong fit signal",
+      "Treating every submission as a buyer — grade first, then chase the real ones"
+    ],
+    "faqs": [
+      { "q": "Aren't Facebook leads low quality?", "a": "Many are — which is exactly why grading first matters. The Quality and Fit scores push freebie-hunters and junk numbers down, so reps spend their time on the genuine buyers." },
+      { "q": "How do leads get from Facebook into Leadkaun?", "a": "CSV export from Meta's Lead Center today, or a generic webhook. A direct Facebook Lead Ads webhook and native Google Sheets sync are on the roadmap." },
+      { "q": "Does Leadkaun auto-reply to form-fillers?", "a": "No — it surfaces and alerts the rep so a human responds fast; it does not send automated replies." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["lead-scoring", "priority-queue", "missed-opportunity-engine"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
   }
 ]

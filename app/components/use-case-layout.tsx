@@ -15,7 +15,7 @@ import { TestimonialCard } from "@/app/components/testimonial-card"
 import { Faq } from "@/app/components/faq"
 import { ProductShowcase, ModulesGrid, PricingCTA } from "@/app/components/sell/blocks"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 type Pain = { title: string; body: string }
@@ -55,7 +55,10 @@ export function UseCaseLayout({
   }
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(faqPageSchema(faqs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Use cases", url: "/use-cases" }, { name: industryLabel }]),
+        faqPageSchema(faqs),
+      ]) }} />
 
       <main className="min-h-screen bg-bg-pure">
         <Navbar />

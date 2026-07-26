@@ -137,7 +137,7 @@
     "proofQuote": {
       "text": "With overnight enquiries pre-ranked by 9 AM, a counsellor's morning starts with the Grade A parents to call first — not thirty minutes spent deciding who to call."
     },
-    "proofStat": "Counsellor productivity improves 2–3× when leads are pre-ranked vs triaged manually",
+    "proofStat": "Counsellors spend their time on the highest-intent enquiries when leads are pre-ranked instead of triaged manually",
     "faqs": [
       {
         "q": "Does it handle parent + student dual thread?",
@@ -485,7 +485,7 @@
     "proofQuote": {
       "text": "When trial follow-ups are queued and never forgotten, fewer trials go cold in the gap between signup and the first real conversation."
     },
-    "proofStat": "B2B SaaS self-serve trials convert 4× better when contacted by human within 72 hours vs. left silent",
+    "proofStat": "B2B SaaS self-serve trials convert far better when a human follows up within 72 hours than when they are left silent",
     "faqs": [
       {
         "q": "Does it integrate with our trial signup flow?",

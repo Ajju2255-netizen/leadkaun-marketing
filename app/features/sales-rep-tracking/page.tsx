@@ -14,7 +14,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ const RELATED = [
 export default function SalesRepTrackingPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(faqPageSchema(FAQ)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Features", url: "/features" }, { name: "Sales Rep Tracking" }]), faqPageSchema(FAQ)]) }} />
 
       <main className="min-h-screen bg-bg-pure">
         <Navbar />

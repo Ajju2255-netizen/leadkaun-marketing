@@ -5,16 +5,20 @@ import { z } from "zod"
  * Validation runs at data-load time (see lookup.ts) so build fails fast on bad data.
  */
 
+// The 11 industries live in industries.json. (The product's ICP wizard offers a
+// wider list; this enum tracks the marketing pSEO data only.)
 export const INDUSTRY_SLUGS = [
   "real-estate", "edtech", "bfsi", "manufacturing", "healthcare",
-  "saas", "agencies", "retail", "logistics", "education",
+  "saas", "agencies", "retail", "logistics",
   "fintech", "hospitality",
 ] as const
 export type IndustrySlug = (typeof INDUSTRY_SLUGS)[number]
 
-// Consolidated to 4 distinct intents (was 8; 4 near-synonyms 301'd — see next.config).
+// Two live leaf keywords. sales-crm/sales-automation were pruned + 301'd to the
+// hub (see next.config.ts + tier0.ts); the redirects use path literals, so they
+// no longer belong in the valid-slug enum.
 export const KEYWORD_SLUGS = [
-  "lead-management", "lead-scoring", "sales-crm", "sales-automation",
+  "lead-management", "lead-scoring",
 ] as const
 export type KeywordSlug = (typeof KEYWORD_SLUGS)[number]
 

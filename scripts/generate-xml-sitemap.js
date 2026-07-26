@@ -73,6 +73,7 @@ const core = [
   { path: "/about", priority: "0.7", changefreq: "monthly" },
   { path: "/contact", priority: "0.7", changefreq: "monthly" },
   { path: "/resources", priority: "0.6", changefreq: "monthly" },
+  { path: "/features", priority: "0.8", changefreq: "monthly" },
   { path: "/features/lead-scoring", priority: "0.9", changefreq: "monthly" },
   { path: "/features/priority-queue", priority: "0.8", changefreq: "monthly" },
   { path: "/features/missed-opportunity-engine", priority: "0.8", changefreq: "monthly" },
@@ -87,6 +88,10 @@ const core = [
   { path: "/use-cases/manufacturing", priority: "0.7", changefreq: "monthly" },
   { path: "/use-cases/healthcare", priority: "0.7", changefreq: "monthly" },
   { path: "/use-cases/saas", priority: "0.7", changefreq: "monthly" },
+  { path: "/use-cases/retail", priority: "0.7", changefreq: "monthly" },
+  { path: "/use-cases/logistics", priority: "0.7", changefreq: "monthly" },
+  { path: "/use-cases/fintech", priority: "0.7", changefreq: "monthly" },
+  { path: "/use-cases/hospitality", priority: "0.7", changefreq: "monthly" },
   { path: "/compare", priority: "0.8", changefreq: "monthly" },
   { path: "/compare/leadkaun-vs-salesforce", priority: "0.8", changefreq: "monthly" },
   { path: "/compare/leadkaun-vs-hubspot", priority: "0.8", changefreq: "monthly" },
@@ -147,7 +152,7 @@ const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6"
 // substantial city (≥ 1.5 lakh) with local notes.
 const { leafIndexable, hubIndexable } = require("../lib/pseo/gate")
 const leafIndexableCity = (c) => leafIndexable(c.tier, !!c.districts)
-const hubIndexableCity = (c) => hubIndexable(c.tier, c.population, !!c.notes)
+const hubIndexableCity = (c) => hubIndexable(c.tier, c.population, (c.notes && c.notes.trim().length >= 20))
 const indexableCities = citiesData.filter(leafIndexableCity)
 const hubCities = citiesData.filter(hubIndexableCity)
 

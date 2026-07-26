@@ -10,6 +10,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
     title: "Product",
     links: [
       { label: "How it works",       href: "/how-it-works" },
+      { label: "All features",       href: "/features" },
       { label: "Lead Scoring",       href: "/features/lead-scoring" },
       { label: "Priority Queue",     href: "/features/priority-queue" },
       { label: "Missed Opportunity", href: "/features/missed-opportunity-engine" },
@@ -28,6 +29,10 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Manufacturing", href: "/use-cases/manufacturing" },
       { label: "Agencies",      href: "/use-cases/agencies" },
       { label: "Healthcare",    href: "/use-cases/healthcare" },
+      { label: "Retail",        href: "/use-cases/retail" },
+      { label: "Logistics",     href: "/use-cases/logistics" },
+      { label: "Fintech",       href: "/use-cases/fintech" },
+      { label: "Hospitality",   href: "/use-cases/hospitality" },
     ],
   },
   {

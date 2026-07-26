@@ -15,7 +15,7 @@
       { "heading": "Assign grades", "body": "Grade A: F≥65 + I≥60 + Q≥60. Grade B: F≥55 + I≥40 + Q≥50. Grade C: F≥40 + I≥25 + Q≥35. Grade F: Q<20. Add a Grade column." },
       { "heading": "Add rank score", "body": "Formula: grade_points + overdue_bonus + recency_bonus. Grade weights: A=4000, B=3000, C=2000, D=500, F=-1. Overdue bonus: 800 if past SLA. Recency: up to 500." },
       { "heading": "Sort and distribute", "body": "Sort by rank score descending. Top 30 per rep is the day's work. Share the sheet with reps Monday morning." },
-      { "heading": "Measure for 2 weeks", "body": "Track: % of Grade A contacted within SLA, ₹ recovered from previously-stale leads, Grade A conversion rate. Most teams recover ₹1–3 lakh in the first two weeks." },
+      { "heading": "Measure for 2 weeks", "body": "Track: % of Grade A contacted within SLA, ₹ recovered from previously-stale leads, Grade A conversion rate. Even a few reclaimed Grade A deals can add up to ₹1–3 lakh — the ROI that justifies the ritual." },
       { "heading": "Automate when manual breaks", "body": "Past 200 leads, nobody updates the rank column religiously. Leadkaun automates this the same day — same formula, no spreadsheet maintenance." }
     ],
     "commonMistakes": [
@@ -37,7 +37,7 @@
     "slug": "how-to-set-up-lead-scoring",
     "title": "How to Set Up Lead Scoring for Your Sales Team",
     "tldr": "Define three scores (Fit, Intent, Quality), each 0–100, with transparent weights. Assign grades A–F using a fixed matrix. Start with Leadkaun defaults; customise per ICP only after 30 days of data.",
-    "why": "Lead scoring is the decision layer on top of your pipeline — it tells your rep who to call first. Done right, it converts Grade A leads 3–5× better than ungraded pipelines. Done wrong (single-number black-box AI scores), reps don't trust the output and revert to gut feel.",
+    "why": "Lead scoring is the decision layer on top of your pipeline — it tells your rep who to call first. Done right, it consistently converts Grade A leads better than working an ungraded pipeline. Done wrong (single-number black-box AI scores), reps don't trust the output and revert to gut feel.",
     "prerequisites": [
       "A rough ICP — at minimum: target industry, geography, company size",
       "30 days of historical closed-won deal data (or industry benchmarks if new)",
@@ -70,7 +70,7 @@
   {
     "slug": "how-to-run-a-morning-brief",
     "title": "How to Run a Daily Morning Brief for Your Sales Team",
-    "tldr": "Send each rep and manager a daily 8:30 AM IST email listing top Grade A leads, ₹ at risk today, and overdue follow-ups. Set the day before stand-up. Teams that adopt the ritual move 2–5× faster on Grade A leads.",
+    "tldr": "Send each rep and manager a daily 8:30 AM IST email listing top Grade A leads, ₹ at risk today, and overdue follow-ups. Set the day before stand-up. Teams that adopt the ritual respond to Grade A leads far faster.",
     "why": "Morning Brief is the ritual that turns lead scoring and priority queues into a daily habit. A rep who opens their inbox to '₹1.8L to recover today — Priya, Rajesh, Mohan' has their day planned before coffee. A manager who opens their inbox to a per-rep rollup has the 1:1 already written. No dashboards opened, no stand-up debates — just action by 10 AM.",
     "prerequisites": [
       "A graded lead system (hand-graded or via Leadkaun)",

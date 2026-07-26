@@ -37,6 +37,7 @@ import { PricingTier } from "@/app/components/pricing-tier"
 import { Faq } from "@/app/components/faq"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { APP_URLS } from "@/lib/urls"
+import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 import type { Metadata } from "next"
 
 // The homepage was the only page inheriting root defaults — give it its own
@@ -63,6 +64,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([faqPageSchema(HOME_FAQ)]) }} />
       <Navbar />
 
       <Hero />
@@ -685,6 +687,15 @@ function Pricing() {
    FAQ — glass accordion on warm cream
 ─────────────────────────────────────────────────────────────────────── */
 
+const HOME_FAQ = [
+  { q: "How is Leadkaun different from a CRM?",            a: "A CRM records what happened. Leadkaun reshapes what happens next — by grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. Most teams run Leadkaun alongside their CRM for 60–90 days, then consolidate." },
+  { q: "How long does setup take?",                         a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP defaults across a range of Indian B2B verticals, so you do not need to define your ICP from scratch." },
+  { q: "Do I need to import all my historical leads?",      a: "No — and we recommend you do not. Import only the live leads (last 90 days of activity). Stale data pollutes the grade distribution. Most teams migrate 40–60% of their CRM data; the rest stays archived." },
+  { q: "Does it handle WhatsApp?",                          a: "Yes — as a first-class signal, not an integration afterthought. Reps log every meaningful WhatsApp exchange in 3 taps (stage + intent + outcome), feeding the Intent Score directly. Works with any WhatsApp account — no Business API needed. BSP integrations (Gupshup, AiSensy, Interakt) for auto-logging are on the roadmap." },
+  { q: "What happens if a rep leaves?",                     a: "One-click handover. Lead records, activity history, WhatsApp logs, follow-up schedules all transfer to the new rep. The pipeline does not leave with the person." },
+  { q: "Is my data secure?",                                a: "Supabase Singapore region (lowest India latency). Row-Level Security enforced at the database level. Encryption in transit and at rest. Full audit trail per lead, exportable on demand. One-click CSV export of everything — your data is your data." },
+]
+
 function FaqBlock() {
   return (
     <SectionGround variant="cream" size="md">
@@ -698,16 +709,7 @@ function FaqBlock() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.08}><Faq
-          items={[
-            { q: "How is Leadkaun different from a CRM?",            a: "A CRM records what happened. Leadkaun reshapes what happens next — by grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. Most teams run Leadkaun alongside their CRM for 60–90 days, then consolidate." },
-            { q: "How long does setup take?",                         a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP templates for 12 Indian B2B verticals, so you do not need to define your ICP from scratch." },
-            { q: "Do I need to import all my historical leads?",      a: "No — and we recommend you do not. Import only the live leads (last 90 days of activity). Stale data pollutes the grade distribution. Most teams migrate 40–60% of their CRM data; the rest stays archived." },
-            { q: "Does it handle WhatsApp?",                          a: "Yes — as a first-class signal, not an integration afterthought. Reps log every meaningful WhatsApp exchange in 3 taps (stage + intent + outcome), feeding the Intent Score directly. Works with any WhatsApp account — no Business API needed. BSP integrations (Gupshup, AiSensy, Interakt) for auto-logging are on the roadmap." },
-            { q: "What happens if a rep leaves?",                     a: "One-click handover. Lead records, activity history, WhatsApp logs, follow-up schedules all transfer to the new rep. The pipeline does not leave with the person." },
-            { q: "Is my data secure?",                                a: "Supabase Singapore region (lowest India latency). Row-Level Security enforced at the database level. Encryption in transit and at rest. Full audit trail per lead, exportable on demand. One-click CSV export of everything — your data is your data." },
-          ]}
-        /></Reveal>
+        <Reveal delay={0.08}><Faq items={HOME_FAQ} /></Reveal>
       </Container>
     </SectionGround>
   )

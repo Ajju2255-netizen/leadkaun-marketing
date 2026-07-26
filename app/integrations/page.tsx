@@ -12,6 +12,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { Reveal } from "@/app/components/reveal"
 
 import { getIntegrations } from "@/lib/pseo/lookup"
+import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 type IntegrationEntry = {
   slug: string
@@ -82,6 +83,11 @@ export default async function IntegrationsIndexPage() {
 
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Integrations" }]),
+        { "@context": "https://schema.org", "@type": "ItemList", name: "Leadkaun integrations",
+          itemListElement: INTEGRATIONS.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: canonical(`/integrations/${it.slug}`) })) },
+      ]) }} />
       <Navbar />
 
       <PageHero

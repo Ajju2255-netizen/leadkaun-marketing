@@ -74,6 +74,23 @@ const DATA_HONESTY = [
   { re: /BSP integrations?[^.\n]{0,30}\bavailable/i, name: 'over-claim: BSP integrations "available" (Gupshup/AiSensy/Interakt are roadmap)' },
 ];
 
+// Over-claims that historically hid in DATA files because the strict QUARANTINE
+// set below only scans SOURCE. Enforced as ERRORs across data too (wired into the
+// data loop). FP-safe: ₹-scoped per-rep pricing won't flag competitor USD per-user
+// copy or "cost doesn't grow per seat"; the multiplier check is attribution-aware
+// so a cited "HBR … 7× more likely" is allowed.
+const DATA_OVERCLAIM = [
+  // Leadkaun's own copy says "rep"; Indian competitors legitimately price ₹ "per
+  // user" — so this is scoped to rep/seat to avoid flagging competitor pricing.
+  { re: /₹\s?[\d,]+(?:\s*[–-]\s*₹?\s?[\d,]+)?\s*(?:\/|per )\s*(reps?|seats?)\b/i, name: 'per-rep/seat pricing of Leadkaun (pricing is flat per account, not per seat)' },
+  { re: /\bper\s+rep\s+per\s+(month|mo)\b/i, name: 'per-rep pricing model (Leadkaun is flat per account)' },
+  { re: /\b(most\s+teams|teams|customers|users|clients)\s+(see|recover|save|gain|earn)\s+₹/i, name: 'promised-outcome ₹ claim (frame as illustrative/modelled, not a result)' },
+];
+// A performance multiplier ("3–5× higher", "~4× the rate") is only allowed when a
+// source is named in the same string. HBR/InsideSales/etc citations pass.
+const MULTIPLIER = /\b\d+(?:[.,]\d+)?(?:\s*[–-]\s*\d+)?\s*[×x]\s+(?:the\s+)?(?:rate|faster|better|more\s+likely|conversion|higher)/i;
+const ATTRIBUTION = /\b(hbr|harvard|insidesales|forbes|kantar|salesforce|gartner|mckinsey|nasscom|ibef|irdai|anarock|redseer|dentsu|meta|source|study|studies|research (?:by|from|found|reported)|according to)\b/i;
+
 // ---- helpers ---------------------------------------------------------------
 function* strings(node, path = "") {
   if (typeof node === "string") { yield [path, node]; return; }
@@ -107,6 +124,8 @@ for (const f of jsonFiles) {
     if (b) warn(`${f}:${path}`, `AI-slop phrase "${b[0]}"`);
     for (const q of DATA_HONESTY) if (q.re.test(text)) err(`${f}:${path}`, q.name);
     if (FAKE_STAT_EXEMPT.has(f)) continue;
+    for (const q of DATA_OVERCLAIM) if (q.re.test(text)) err(`${f}:${path}`, q.name);
+    if (MULTIPLIER.test(text) && !ATTRIBUTION.test(text)) err(`${f}:${path}`, `uncited performance multiplier "${text.match(MULTIPLIER)[0].trim()}" — cite a source or soften`);
     for (const re of FAKE_STAT) {
       const m = text.match(re);
       if (m) err(`${f}:${path}`, `fabricated-precision stat "${m[0].trim().slice(0, 60)}"`);

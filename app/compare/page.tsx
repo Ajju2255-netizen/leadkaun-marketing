@@ -11,6 +11,7 @@ import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { NumberedTag } from "@/app/components/numbered-tag"
+import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "CRM Alternatives India — Compare Leadkaun vs Zoho, Salesforce, HubSpot, LeadSquared, Freshsales",
@@ -40,6 +41,11 @@ const COMPARES = [
 export default function CompareHub() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Compare" }]),
+        { "@context": "https://schema.org", "@type": "ItemList", name: "Leadkaun CRM comparisons",
+          itemListElement: COMPARES.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: `Leadkaun vs ${c.name}`, url: canonical(`/compare/${c.slug}`) })) },
+      ]) }} />
       <Navbar />
 
       <PageHero

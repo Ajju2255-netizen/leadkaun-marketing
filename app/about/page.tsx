@@ -11,6 +11,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { MetricStrip } from "@/app/components/metric-strip"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
+import { breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "About Leadkaun — Built for Indian Sales Teams, Not Silicon Valley",
@@ -37,6 +38,7 @@ const PRINCIPLES = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "About" }])]) }} />
       <Navbar />
 
       <PageHero

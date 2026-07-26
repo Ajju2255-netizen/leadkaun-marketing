@@ -12,6 +12,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { Reveal } from "@/app/components/reveal"
 
 import { getQuestions } from "@/lib/pseo/lookup"
+import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 type QuestionEntry = {
   slug: string
@@ -54,6 +55,11 @@ export default async function QuestionsIndexPage() {
 
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Questions" }]),
+        { "@context": "https://schema.org", "@type": "ItemList", name: "Leadkaun sales questions answered",
+          itemListElement: QUESTIONS.map((q, i) => ({ "@type": "ListItem", position: i + 1, name: q.question, url: canonical(`/questions/${q.slug}`) })) },
+      ]) }} />
       <Navbar />
 
       <PageHero

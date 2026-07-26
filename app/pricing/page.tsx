@@ -14,6 +14,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { APP_URLS } from "@/lib/urls"
+import { faqPageSchema, offerSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { PricingPlans } from "./pricing-plans"
 
 export const metadata: Metadata = {
@@ -109,6 +110,13 @@ function MintCheck() {
 export default function PricingPage() {
   return (
     <main className="min-h-screen bg-bg-pure">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
+        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Pricing" }]),
+        faqPageSchema(FAQ),
+        offerSchema({ name: "Leadkaun Starter", priceInr: 2999, url: "/pricing" }),
+        offerSchema({ name: "Leadkaun Growth", priceInr: 7999, url: "/pricing" }),
+        offerSchema({ name: "Leadkaun Scale", priceInr: 19999, url: "/pricing" }),
+      ]) }} />
       <Navbar />
 
       <PageHero

@@ -35,7 +35,7 @@ export async function tier0CitiesForKeyword() {
 }
 
 export async function tier0Industries() {
-  // All industries are Tier-0 — only 12 of them, every one is a conversion target.
+  // All industries are Tier-0 — only 11 of them, every one is a conversion target.
   return getIndustries()
 }
 

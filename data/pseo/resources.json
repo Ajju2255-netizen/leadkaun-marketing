@@ -322,7 +322,10 @@
     "relatedResources": [
       "rep-performance-tracker"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "onboarding-icp"
+    ],
     "relatedBlog": "why-indian-companies-leave-salesforce",
     "gated": true,
     "audiencePersona": "founder"
@@ -384,7 +387,11 @@
       "icp-worksheet",
       "weekly-sales-review-template"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "priority-queue",
+      "morning-brief",
+      "sales-rep-tracking"
+    ],
     "relatedBlog": null,
     "gated": true,
     "audiencePersona": "founder"

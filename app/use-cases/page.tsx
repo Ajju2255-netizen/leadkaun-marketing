@@ -24,6 +24,10 @@ const INDUSTRIES = [
   { href: "/use-cases/manufacturing", label: "Manufacturing",     meta: "90-day cycles · Quotes" },
   { href: "/use-cases/agencies",      label: "Agencies",          meta: "Multi-client · White-label" },
   { href: "/use-cases/healthcare",    label: "Healthcare",        meta: "DND-compliant · Repeat LTV" },
+  { href: "/use-cases/retail",        label: "Retail",            meta: "High-volume · Franchise leads" },
+  { href: "/use-cases/logistics",     label: "Logistics",         meta: "Recurring contracts · RFQs" },
+  { href: "/use-cases/fintech",       label: "Fintech",           meta: "Disbursement · AUM cycles" },
+  { href: "/use-cases/hospitality",   label: "Hospitality",       meta: "Events · Bookings" },
 ]
 
 export default function UseCasesHub() {
@@ -34,14 +38,14 @@ export default function UseCasesHub() {
       <PageHero
         eyebrow="Use Cases"
         h1={<>Built for the Indian<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>sales reality.</span></>}
-        sub="ICP templates, cadence defaults, and copy tuned for seven Indian B2B verticals. Every setting is a starting point — not a locked path."
+        sub="ICP templates, cadence defaults, and copy tuned for eleven Indian B2B verticals. Every setting is a starting point — not a locked path."
         primary={undefined}
       />
 
       <SectionGround variant="cream" size="lg">
         <Container>
           <div className="mb-10">
-            <NumberedTag number="01" tone="warm" label="Seven industries" />
+            <NumberedTag number="01" tone="warm" label="Eleven industries" />
             <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
               Pick your vertical. Start the same day.
             </h2>

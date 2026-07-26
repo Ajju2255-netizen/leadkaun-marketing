@@ -15,7 +15,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { getPillars, getPillar } from "@/lib/pseo/lookup"
-import { breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, faqPageSchema, articleSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -54,6 +54,9 @@ export default async function PillarPage({ params }: Params) {
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Learn", url: "/learn" }, { name: p.title }]),
     faqPageSchema(p.faqs),
+    ...(p.body && p.body.length > 0
+      ? [articleSchema({ headline: p.h1, description: p.metaDescription, datePublished: "2026-07-25", url: `/learn/${p.slug}` })]
+      : []),
   ]
 
   return (

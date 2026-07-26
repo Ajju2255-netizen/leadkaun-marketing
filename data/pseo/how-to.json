@@ -473,5 +473,73 @@
     "relatedFeatures": ["priority-queue", "morning-brief", "missed-opportunity-engine"],
     "relatedBlog": null,
     "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-recover-cold-leads",
+    "title": "How to Recover Cold Leads Before They're Gone",
+    "tldr": "A cold lead isn't a dead lead — it's an un-worked one. Let stale leads surface themselves with a rupee value, work recovery by grade and ₹ at risk (not by age), reach out and log the outcome (which clears the lead from the missed list), and review recovered ₹ every week. Leadkaun surfaces and reminds — a rep still makes the call.",
+    "why": "Teams keep buying new leads while the ones they already paid for quietly age out. Without a system, nobody sees the leak: a Grade A that went silent three days ago is worth more than a fresh cold enquiry, but it's invisible in a normal CRM. Recovering stale leads is the cheapest pipeline you will ever add.",
+    "prerequisites": [
+      "Leads graded A–F (ICP configured)",
+      "Agreement on the grade-based follow-up windows",
+      "A weekly recovery slot in the calendar"
+    ],
+    "steps": [
+      { "heading": "Let stale leads surface themselves", "body": "The Missed Opportunity Engine flags a lead once it passes its grade's follow-up window (Grade A after about a day, B two days, C a week, D a month) with no logged activity — so you don't hunt for cold leads manually." },
+      { "heading": "Put a rupee value on each", "body": "Every missed lead carries its expected value, and the '₹ at risk today' total is the size of the leak in rupees — the number that makes recovery a priority, not a chore." },
+      { "heading": "Work recovery by grade and rupees, not age", "body": "Sort the recovery queue by grade and ₹ at risk. One stale Grade A worth ₹5L beats ten cold Grade D enquiries — chase the value, not the oldest row." },
+      { "heading": "Reach out and log it", "body": "Make contact by call or WhatsApp and log the outcome in 3 taps. Logging activity on a missed lead clears it from the missed list — that is the recovery path — and re-scores it as intent updates." },
+      { "heading": "Catch them before they go fully cold", "body": "An at-risk alert fires before a lead crosses its deadline, and the 8:30 AM IST Morning Brief lists Grade A/B leads at risk — so you act the same morning instead of at month-end." },
+      { "heading": "Measure recovered ₹ weekly", "body": "The 'recovered this week' figure totals the won value of previously-stale leads. Put it in your weekly review so recovery becomes a habit with a scoreboard." }
+    ],
+    "commonMistakes": [
+      "Treating every cold lead equally — grade and ₹ at risk decide the order",
+      "Waiting until a lead is fully cold — act on the at-risk alert, not the post-mortem",
+      "Not logging the recovery attempt — an unlogged call leaves the lead marked 'missed'",
+      "Assuming Leadkaun re-contacts leads for you — it surfaces and values them; a rep makes contact"
+    ],
+    "faqs": [
+      { "q": "What counts as a cold or 'missed' lead?", "a": "A lead that has passed its grade's follow-up window with no logged activity — Grade A after roughly a day, D after a month. The windows scale with how hot the grade is." },
+      { "q": "Does Leadkaun re-engage cold leads automatically?", "a": "No. It surfaces each stale lead with a rupee value and reminds the rep; the rep makes contact and logs the outcome, which clears it from the missed list." },
+      { "q": "How is the ₹ at risk calculated?", "a": "Each stale lead's expected value, summed across all missed leads, gives the daily ₹-at-risk total." }
+    ],
+    "category": "workflow",
+    "relatedFeatures": ["missed-opportunity-engine", "priority-queue", "morning-brief"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-indiamart-leads",
+    "title": "How to Manage IndiaMART Leads (Without Drowning in Junk)",
+    "tldr": "IndiaMART sends volume, not always quality. Export your IndiaMART enquiries to CSV, import them into Leadkaun, and every enquiry is graded A–F on Fit, Intent and Quality — so reps work the real buyers first and low-quality numbers get filtered down. Native sync is on the roadmap; CSV is the reliable path today, and Leadkaun runs alongside your existing CRM.",
+    "why": "For Indian manufacturers and industrial suppliers, IndiaMART is the #1 lead source — but a large share of enquiries are price-shoppers, wrong-fit, or junk numbers. Working them in arrival order burns reps on low-intent enquiries and buries the ₹1Cr machinery buyer under a bulk price-check. Grading first turns a noisy firehose into a ranked queue.",
+    "prerequisites": [
+      "An IndiaMART seller account with lead export",
+      "ICP configured (industry, geography, budget) so fit scoring is meaningful",
+      "A Leadkaun account (any tier, including Free)"
+    ],
+    "steps": [
+      { "heading": "Export from IndiaMART", "body": "IndiaMART seller dashboard → Leads → export to CSV, weekly or after an enquiry burst." },
+      { "heading": "Import into Leadkaun", "body": "Settings → Leads → Import; upload the CSV and map columns (name, phone, company, enquiry). Indian phone-number and amount parsing (₹1,50,000 / 2.5L / 1Cr) handle IndiaMART's formatting." },
+      { "heading": "Let grading filter the noise", "body": "Each enquiry is scored A–F on arrival. Junk numbers and thin enquiries score low on Quality; genuine, in-ICP buyers surface as Grade A/B — so the firehose becomes a ranked list." },
+      { "heading": "Work the Priority Queue, not the inbox", "body": "Reps call the graded top of the queue. A high-fit machinery enquiry outranks a low-intent bulk price-check, whatever order they arrived in." },
+      { "heading": "Log outcomes in 3 taps", "body": "IndiaMART buyers often move to WhatsApp — log each exchange in 3 taps (manual, works with any WhatsApp account). Intent updates the grade and keeps the queue honest." },
+      { "heading": "Re-import as new enquiries arrive", "body": "Phone-number dedup means re-importing your latest export only adds genuinely new leads. A direct IndiaMART API and native sync are on the roadmap for Growth+." }
+    ],
+    "commonMistakes": [
+      "Working IndiaMART leads in arrival order — grade first, then chase the fits",
+      "Importing before configuring your ICP — fit scoring needs it to be useful",
+      "Expecting a live IndiaMART sync today — it's CSV import; native sync is on the roadmap",
+      "Treating every enquiry as a real buyer — let the Quality score flag the junk numbers"
+    ],
+    "faqs": [
+      { "q": "Does Leadkaun connect to IndiaMART automatically?", "a": "Not yet — today you export IndiaMART leads to CSV and import them. A direct IndiaMART API and native Google Sheets sync are on the roadmap for Growth+ tiers." },
+      { "q": "How does it handle junk IndiaMART numbers?", "a": "The Quality score (phone validity, data completeness, source reliability) pushes junk enquiries low and can flag them, so reps don't waste calls on dead numbers." },
+      { "q": "Can I keep my existing CRM?", "a": "Yes — Leadkaun runs alongside it, grading and prioritising the IndiaMART leads you already collect rather than replacing your system of record." }
+    ],
+    "category": "data-import",
+    "relatedFeatures": ["lead-scoring", "priority-queue", "whatsapp-tracking"],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
   }
 ]

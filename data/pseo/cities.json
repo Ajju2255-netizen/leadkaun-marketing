@@ -1954,7 +1954,7 @@
       "retail",
       "education"
     ],
-    "notes": "SAIL steel township",
+    "notes": "Bokaro Steel City is a planned township built around SAIL's integrated Bokaro Steel Plant, and its B2B economy runs on steel ancillaries, fabrication, oil and cement units, logistics and the retail trade serving the township.",
     "districts": "City Centre (Sector 4 CBD), Balidih, Marafari, Chas wholesale market",
     "localBiz": "the SAIL Bokaro Steel Plant with BIADA ancillary steel-fabrication and engineering units"
   },
@@ -2637,7 +2637,10 @@
       "logistics",
       "agencies",
       "education"
-    ]
+    ],
+    "notes": "Dhule is a trade and agro-processing centre in northwest Maharashtra on the Mumbai-Agra highway, with dal mills, cotton ginning and pressing, textiles and wind-power projects anchoring its economy.",
+    "districts": "Awadhan MIDC industrial area, Agra Road commercial belt, Nardana MIDC",
+    "localBiz": "agro-processing, cotton ginning, textiles and highway wholesale trade"
   },
   {
     "slug": "tirupati",
@@ -3264,7 +3267,9 @@
       "retail",
       "logistics",
       "agencies"
-    ]
+    ],
+    "notes": "Bihar Sharif is the headquarters of Nalanda district and a regional market town whose economy rests on agricultural trade in vegetables and grains, a growing cloth market and household footwear and garment manufacturing.",
+    "localBiz": "agri-trade, cloth wholesale and household footwear and garment units"
   },
   {
     "slug": "eluru",
@@ -3449,7 +3454,7 @@
       "retail",
       "manufacturing"
     ],
-    "notes": "Rice export center",
+    "notes": "Kaithal is an agrarian market town in Haryana and part of the state's rice belt, with a large grain mandi and a cluster of basmati rice milling units driving its economy.",
     "districts": "Industrial Area, Karnal Road, Dhand Road",
     "localBiz": "basmati rice mills and grain-market exports"
   },
@@ -3469,7 +3474,9 @@
       "agencies",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Basirhat sits on the Ichamati river near the Bangladesh border in West Bengal and works as a trade depot for rice, jute, mustard and potatoes, with sugar milling and metalware among its industries.",
+    "localBiz": "agri-produce trade depot, sugar milling and metalware manufacturing"
   },
   {
     "slug": "dholpur",
@@ -3486,7 +3493,9 @@
       "manufacturing",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Dholpur in eastern Rajasthan is known for its sandstone deposits, with quarrying and stone cutting, polishing and finishing units of the Dholpur beige and red sandstone anchoring local commerce alongside farm trade.",
+    "localBiz": "sandstone quarrying, stone processing and agricultural trade"
   },
   {
     "slug": "chirala",
@@ -3504,7 +3513,7 @@
       "retail",
       "agencies"
     ],
-    "notes": "Handloom textiles",
+    "notes": "Chirala is a coastal town in Andhra Pradesh's Bapatla region with a long handloom weaving tradition, producing cotton sarees, dress materials and Real Madras Handkerchiefs that support a large weaver population.",
     "districts": "handloom weaving quarter, Vetapalem, Perala",
     "localBiz": "a cotton and silk handloom saree weaving cluster"
   },
@@ -3523,7 +3532,10 @@
       "agencies",
       "retail",
       "manufacturing"
-    ]
+    ],
+    "notes": "Khargone is a leading cotton and chilli producing district headquarters in western Madhya Pradesh, and its economy centres on cotton trade, textile and ginning units and agricultural mandi commerce.",
+    "districts": "Nimrani Industrial Area",
+    "localBiz": "cotton trade, textile and ginning units and agri-mandi commerce"
   },
   {
     "slug": "bagalkot",
@@ -3541,7 +3553,10 @@
       "retail",
       "education",
       "agencies"
-    ]
+    ],
+    "notes": "Bagalkot in northern Karnataka draws on local limestone, cotton and sugarcane, with cement plants, sugar factories and food processing plus the traditional Ilkal handloom saree weaving driving its commerce.",
+    "districts": "Navanagar Industrial Area, APMC Yard Navanagar",
+    "localBiz": "cement, sugar and food processing, handloom weaving and agri-trade"
   },
   {
     "slug": "firozpur",
@@ -3558,7 +3573,10 @@
       "agencies",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Firozpur is a Punjab border town whose economy rests on agriculture and agri-trade, holding among the highest concentrations of rice mills in the state, alongside cotton trading, food processing and its long-standing role as a cantonment and logistics point.",
+    "districts": "Sadar Bazaar, the grain market (anaj mandi)",
+    "localBiz": "rice milling, cotton and grain trade, and agro-processing"
   },
   {
     "slug": "ranebennur",
@@ -3720,7 +3738,10 @@
       "education",
       "retail",
       "manufacturing"
-    ]
+    ],
+    "notes": "Parbhani is a Marathwada agricultural and trading centre, home to a major agricultural university; its commerce runs on cotton and jowar trade, ginning and oil mills, dal milling and an MIDC industrial estate serving the surrounding farm belt.",
+    "districts": "the MIDC Parbhani industrial estate, the Parbhani APMC cotton and grain market yard",
+    "localBiz": "cotton and grain trade, ginning, oil and dal mills"
   },
   {
     "slug": "hisar",
@@ -4029,7 +4050,10 @@
       "real-estate",
       "manufacturing",
       "retail"
-    ]
+    ],
+    "notes": "Badlapur is a fast-growing township in the Mumbai Metropolitan Region, functioning largely as a residential and commuter town for Mumbai and Thane, with a MIDC industrial belt reserved mainly for chemical units and local retail serving its population.",
+    "districts": "the Badlapur MIDC industrial area",
+    "localBiz": "chemical manufacturing units, small-scale industry, and commuter-town retail"
   },
   {
     "slug": "mau",
@@ -4152,7 +4176,10 @@
       "retail",
       "education",
       "manufacturing"
-    ]
+    ],
+    "notes": "Arrah (Ara), headquarters of Bhojpur, sits in one of Bihar's main rice-growing tracts; its B2B economy runs on rice and flour milling, grain and cloth wholesale trade, cold storage and agro-based units serving the surrounding agricultural district.",
+    "districts": "the Anaj Mandi (grain market), the cloth market",
+    "localBiz": "rice and flour milling, grain and cloth wholesale trade"
   },
   {
     "slug": "etawah",
@@ -4170,7 +4197,9 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Etawah is an agrarian trading town on the Yamuna in western Uttar Pradesh, acting as a collection and marketing point for ghee, pulses, gram, oilseeds and dairy produce, with agro-processing and handloom weaving but little large industry.",
+    "localBiz": "agri-produce trade, ghee and oilseed processing, and dairy"
   },
   {
     "slug": "ongole",
@@ -4396,7 +4425,10 @@
       "manufacturing",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Bulandshahr is an agrarian district on the Delhi-Aligarh corridor best known for the ceramic and pottery cluster at Khurja, whose hundreds of units make and export crockery and tableware, alongside grain trade and agro-processing serving the surrounding farm economy.",
+    "districts": "the Khurja ceramic and pottery cluster",
+    "localBiz": "ceramics and pottery at Khurja, grain trade, and agro-processing"
   },
   {
     "slug": "kannur",
@@ -4938,7 +4970,10 @@
       "retail",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Chhapra, headquarters of Saran district, grew as a river mart at the Ganga-Ghaghara confluence; its economy today rests on agricultural trade and processing, including rice milling, edible-oil extraction and grain wholesale, with retail and transport hubs around the town.",
+    "districts": "Bhagwan Bazaar, Sahebganj, Nayabazar",
+    "localBiz": "agri-trade, rice and oil milling, and grain wholesale"
   },
   {
     "slug": "puri",
@@ -5019,7 +5054,10 @@
       "retail",
       "logistics",
       "manufacturing"
-    ]
+    ],
+    "notes": "Morena, in the Chambal region of Madhya Pradesh, is a major mustard-growing district; its commerce centres on mustard-oil milling, agri-produce mandis and stone cutting and polishing, with an industrial belt at Banmore (Bamor) hosting larger manufacturing units.",
+    "districts": "the Banmore (Bamor) industrial area",
+    "localBiz": "mustard-oil milling, agri-produce mandis, and stone cutting"
   },
   {
     "slug": "amroha",
@@ -5058,7 +5096,9 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Hardoi is a predominantly agricultural district in the Awadh region of Uttar Pradesh, trading wheat, groundnut, pulses and other grain through its mandis, with agro-processing, flour and yeast units and a handloom cloth-weaving tradition around Mallawa.",
+    "localBiz": "grain-mandi trade, agro-processing, and handloom cloth weaving"
   },
   {
     "slug": "bhiwani",
@@ -5097,7 +5137,10 @@
       "retail",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Bhind is an agrarian district town in the Chambal region of Madhya Pradesh whose B2B economy runs on grain trade, agricultural implements and food processing, anchored by the Malanpur industrial area that hosts large manufacturing units near the Gwalior corridor.",
+    "districts": "Malanpur Industrial Area",
+    "localBiz": "grain trade, agri-implements, food processing and Malanpur-based manufacturing"
   },
   {
     "slug": "porbandar",
@@ -5178,7 +5221,9 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Fatehpur is an agricultural district in central Uttar Pradesh along the Kanpur-Prayagraj corridor on NH-19, with an economy built on wheat, rice, gram and pulses, rice milling, cold storage and micro enterprises in agro-processing, metalwork and leather.",
+    "localBiz": "agri-produce trade, rice milling, cold storage and agro-processing MSMEs"
   },
   {
     "slug": "raebareli",
@@ -5259,7 +5304,10 @@
       "retail",
       "education",
       "logistics"
-    ]
+    ],
+    "notes": "Orai, headquarters of Jalaun district in the Bundelkhand region, is a trade centre for grains, oilseeds, ghee and cotton, with an industrial area on the national highway that hosts manufacturing units alongside a largely agrarian surrounding economy.",
+    "districts": "Orai Industrial Area",
+    "localBiz": "grain and oilseed trade, agri-commerce and highway-side manufacturing"
   },
   {
     "slug": "mahbubnagar",
@@ -5528,7 +5576,7 @@
       "healthcare",
       "education"
     ],
-    "notes": "Eye hospital hub",
+    "notes": "Sitapur is an agricultural district in the Awadh region of Uttar Pradesh where the economy runs on rice, wheat and sugarcane, with sugar mills, rice and flour mills, edible-oil units and a durrie (cotton mat) weaving trade centred on nearby Khairabad and Laharpur.",
     "districts": "Khairabad, Laharpur, Industrial Estate Khairabad",
     "localBiz": "a handwoven Citapore dhurrie and carpet cluster anchoring local exports"
   },
@@ -5924,7 +5972,9 @@
       "retail",
       "education",
       "healthcare"
-    ]
+    ],
+    "notes": "Basti is an agrarian district in eastern Uttar Pradesh whose economy is based on sugarcane, paddy and wheat, supporting sugar factories and agro-based small-scale industries such as brassware, ironwork, carpentry, agricultural implements and footwear.",
+    "localBiz": "sugarcane processing, agri-trade and agro-based small-scale manufacturing"
   },
   {
     "slug": "chandannagar",
@@ -6151,7 +6201,10 @@
       "retail",
       "manufacturing",
       "logistics"
-    ]
+    ],
+    "notes": "Godhra, headquarters of Panchmahal district in Gujarat, is a rail-junction trade town whose commerce blends agricultural trade with small manufacturing in its GIDC industrial estate, serving as a regional distribution point in eastern Gujarat.",
+    "districts": "Godhra GIDC Industrial Estate",
+    "localBiz": "GIDC manufacturing units, agri-trade and wholesale distribution"
   },
   {
     "slug": "banda",
@@ -6189,7 +6242,9 @@
       "agencies",
       "retail",
       "logistics"
-    ]
+    ],
+    "notes": "Budaun is a predominantly agricultural district in western Uttar Pradesh known for wheat, sugarcane, potato, guava and menthol production, with limited industry confined to sugar, rice and brick mills and mandi-based trade in farm produce.",
+    "localBiz": "agri-produce mandis, sugar and rice milling, menthol and potato trade"
   },
   {
     "slug": "dahod",
@@ -6646,7 +6701,8 @@
       "agencies",
       "education"
     ],
-    "notes": "Dakshin Dinajpur district HQ"
+    "notes": "Dakshin Dinajpur district HQ",
+    "localBiz": "rice, jute and oilseed trade, regional distribution and cottage handicrafts"
   },
   {
     "slug": "hanumangarh",

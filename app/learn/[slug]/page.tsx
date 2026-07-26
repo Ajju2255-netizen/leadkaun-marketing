@@ -22,9 +22,11 @@ export const revalidate = 86400
 
 type LinkItem = { label: string; href: string }
 type Cluster = { heading: string; links: LinkItem[] }
+type PillarSection = { heading: string; paragraphs: string[] }
 type Pillar = {
   slug: string; title: string; metaTitle: string; metaDescription: string; h1: string; dek: string
   quickAnswer: { question: string; answer: string }; keyTakeaways: string[]
+  body?: PillarSection[]
   clusters: Cluster[]; faqs: { q: string; a: string }[]; relatedPillars: string[]
 }
 
@@ -87,6 +89,24 @@ export default async function PillarPage({ params }: Params) {
             </Reveal>
           </Container>
         </SectionGround>
+
+        {/* ARTICLE BODY — the pillar prose */}
+        {p.body && p.body.length > 0 && (
+          <SectionGround variant="pure" size="lg">
+            <Container>
+              <div className="mx-auto max-w-3xl">
+                {p.body.map((s, si) => (
+                  <Reveal key={si} className={si > 0 ? "mt-10" : ""}>
+                    <h2 className="text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">{s.heading}</h2>
+                    {s.paragraphs.map((para, pi) => (
+                      <p key={pi} className="mt-4 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">{para}</p>
+                    ))}
+                  </Reveal>
+                ))}
+              </div>
+            </Container>
+          </SectionGround>
+        )}
 
         {/* CLUSTERS — the topical map */}
         <SectionGround variant="sky" size="lg">

@@ -16,37 +16,174 @@
       "Transparent weights beat a black-box AI score — reps trust a grade they can see.",
       "A graded lead is in the queue within the first hour of setup."
     ],
+    "body": [
+      {
+        "heading": "What lead scoring actually is",
+        "paragraphs": [
+          "Lead scoring is the discipline of ranking every incoming lead by how likely it is to convert, so a rep works the best-odds opportunity first instead of whatever landed most recently. That's the whole job. It is not a vanity metric or a report your manager reads on Fridays — it is the answer to the one question a rep asks forty times a day: out of everyone sitting in my list right now, who do I call next?",
+          "A useful score has to hold three separate ideas apart, because they move at different speeds. Is this the kind of customer we sell to? Are they showing buying behaviour right now? And is the record even usable — a real phone number, a real inquiry, a real company? Collapse those into one number and you lose the ability to explain any grade. Keep them separate and a lead becomes legible: you can see at a glance whether it's weak because it's a poor fit, because it's gone cold, or because half the fields are blank.",
+          "That is the model Leadkaun uses — three independent 0–100 scores, Fit, Intent and Quality, resolved into one grade from A to F. The grade drives the action: A means call now, F means junk, and everything between has a defined next step. A score nobody acts on is just decoration."
+        ]
+      },
+      {
+        "heading": "Why it matters more for Indian B2B",
+        "paragraphs": [
+          "The case for scoring is not academic; it is a leak you are almost certainly paying for. Harvard Business Review's audit of over 2,000 firms found the average company took about 42 hours to respond to a web lead, and 23% never responded at all — even though contacting a lead within the first hour made it roughly 7× more likely to qualify. Separately, InsideSales research reported in Forbes found only about 27% of inbound web leads are ever contacted by a rep. Most demand is never worked. The teams that win are simply the ones that reach the right lead first, and keep reaching them.",
+          "In India that gap is wider because the volume is higher and messier. Leads pour in from IndiaMART, JustDial, TradeIndia, Sulekha, website forms and walk-ins — often the same buyer across three of them in one afternoon. An edtech counsellor or real-estate broker can be staring at 150 fresh enquiries by lunch with no honest way to tell the ₹40L-ready buyer from the student comparing every institute in the city. Without scoring, the loudest or newest lead gets the call, and the best one goes cold in the pile.",
+          "There's also a channel reality no benchmark can ignore: WhatsApp is where Indian buyers reply. A Kantar study cited by Meta found 91% of online adults in India message a business at least once a week. A lead that ignores your call but replies on WhatsApp within an hour is showing intent — and any scoring model built for India has to treat that reply as a first-class signal, not an afterthought."
+        ]
+      },
+      {
+        "heading": "The Fit × Intent × Quality model, and how good scoring works",
+        "paragraphs": [
+          "Fit answers 'is this our kind of customer?' It is scored against your ICP — the industries, states, business types, buyer roles and budget bands that define who you sell to. In Leadkaun that's a 0–100 total: industry match is worth up to 30 points, geography 20, business type 20, decision-maker role 15 and budget signal 15. Fit is deliberately slow-moving — it changes only when new firmographic information arrives, not because a lead went quiet.",
+          "Intent answers 'are they hot right now?' It starts from a source baseline — a referral opens higher than a cold list — and then rises on real engagement: a WhatsApp reply, an 'asked about pricing' tag, an 'answered and interested' call, a negotiation. Crucially, intent decays. After a window tied to your sales cycle (four weeks by default), a silent lead loses 3 points a day, so a Grade A from a fortnight ago slides to a B on its own while genuinely fresh leads rise above it. Re-engagement spikes it straight back up. This is the single mechanic most homegrown scoring sheets miss — they never let a stale lead fall.",
+          "Quality answers 'is this record even usable?' — a valid Indian phone number, an email, a company name, a clear inquiry, a reliable source. It is a guard, not a booster: anything scoring under 20 is forced to Grade F and dropped from the queue, so junk and half-filled rows never eat a rep's morning. The three scores then resolve through a threshold matrix, not an averaged blend — a lead has to clear a real bar on each dimension to earn its grade, which is why a high-fit lead with dead data still can't sneak into the A pile."
+        ]
+      },
+      {
+        "heading": "Why transparent scoring beats a black-box AI score",
+        "paragraphs": [
+          "It is tempting to hand scoring to an opaque AI model that emits a single number. The problem is trust. When a rep is told 'this lead is a 74' with no visible reason, they do one of two things: obey it blindly, or ignore it and call whoever they had a good chat with last week. Neither is scoring — one is superstition, the other is guesswork. A grade only changes behaviour if the person acting on it can see why it is what it is.",
+          "Transparent scoring means the rep can open a Grade B lead and read the story: strong fit, but intent has decayed since the last reply and the email is missing. That is coachable. A manager can audit the same matrix — no hidden per-account drift, no model that quietly re-weights itself. In Leadkaun the scoring weights are fixed and identical for every account precisely so the grade stays explainable. You configure your ICP — who your best customers are — not the underlying weights. That is the right dial to give a sales team: the definition of a good customer, not the mechanics of the maths."
+        ]
+      },
+      {
+        "heading": "Common mistakes to avoid",
+        "paragraphs": [
+          "The first mistake is a static score that never decays. If a lead earns Grade A on Monday and holds it for three weeks of silence, your queue is lying to you — reps chase corpses while new demand waits. Time has to be a first-class input; silence should cost points.",
+          "The second is conflating fit and intent. A perfect-fit enterprise account that has shown zero interest is not the same as a scrappy small buyer messaging you every hour, yet a single blended number treats them as interchangeable. Keeping the two scores separate is what lets a rep decide whether to nurture patiently or call in the next ten minutes.",
+          "The third is scoring on rotten data. If half your leads import with no source, no budget and a mangled phone number, no model can save them — quality scoring has to quarantine junk before it pollutes the ranking. The fourth is scoring nobody acts on: a grade that doesn't translate into an ordered call list, a follow-up, and a visible consequence for ignoring it is just a number in a database."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches it — alongside your CRM",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS: a lead-intelligence layer that sits on top of the system you already run and does the one thing most CRMs do weakly — tell each rep who to call next and why. It doesn't replace your CRM; it's the ranking-and-behaviour layer your CRM is missing. You import leads by CSV (Indian amount formats like ₹1,50,000, 2.5L and 1Cr parse cleanly), and every lead is graded A–F the moment it lands.",
+          "From there the grade drives the working screen. The Priority Queue re-ranks each rep's list top-down by a blended, intent-weighted score, so the hottest lead is always on top — not the newest. The Missed Opportunity Engine watches for stale leads past their grade's window (a Grade A gets 24 hours, a B gets 48) and surfaces the ₹ at risk in real rupees, so a sales head sees 'this much revenue is going cold' rather than 'you have 12 overdue tasks'. WhatsApp and call outcomes feed the intent score through manual 3-tap logging — the rep opens their own WhatsApp, has the conversation, and taps the outcome; there's no automated messaging, just honest signal capture.",
+          "None of this asks you to rip anything out. Your CRM stays the system of record; Leadkaun is the layer that decides the order of the day and keeps the grades honest without a manager babysitting them."
+        ]
+      },
+      {
+        "heading": "Getting started and what to measure",
+        "paragraphs": [
+          "Start by defining your ICP honestly — the industries, states, business types, decision-maker roles and budget bands of the customers you actually close, plus your typical sales cycle, which sets how fast intent decays. This is the one input that makes fit scoring meaningful, and Leadkaun can suggest it back from your recent leads once enough have been analysed. Then import a batch and watch where your A and B grades come from.",
+          "The metrics that tell you scoring is working are behavioural, not cosmetic. Is first response landing on high-grade leads faster? Is the share of Grade A leads left un-contacted past their window shrinking? Are reps' calls concentrating at the top of the queue instead of scattering? Over time, watch which sources produce grades that actually convert — you may find a portal that sends volume but few winners, which is a renewal conversation you can now win with a number instead of a hunch. Good scoring doesn't just rank leads; it retrains the team to spend its scarce selling hours on the leads that pay."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The engine", "links": [
-        { "label": "Lead Scoring Engine (product)", "href": "/features/lead-scoring" },
-        { "label": "Best lead-scoring software (2026)", "href": "/best/lead-scoring-software" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "Lead scoring", "href": "/glossary/lead-scoring" },
-        { "label": "Fit Score", "href": "/glossary/fit-score" },
-        { "label": "Intent Score", "href": "/glossary/intent-score" },
-        { "label": "Quality Score", "href": "/glossary/quality-score" },
-        { "label": "Intent decay", "href": "/glossary/intent-decay" },
-        { "label": "Grade A", "href": "/glossary/grade-a" },
-        { "label": "ICP", "href": "/glossary/icp" }
-      ]},
-      { "heading": "Set it up", "links": [
-        { "label": "How to set up lead scoring", "href": "/how-to/how-to-set-up-lead-scoring" },
-        { "label": "How to score student leads (EdTech)", "href": "/how-to/how-to-score-student-leads-edtech" },
-        { "label": "What is lead scoring?", "href": "/questions/what-is-lead-scoring" },
-        { "label": "What is a Fit Score?", "href": "/questions/what-is-fit-score" },
-        { "label": "What is Intent decay?", "href": "/questions/what-is-intent-decay" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "What is lead scoring for Indian B2B?", "href": "/blog/what-is-lead-scoring-india-b2b" },
-        { "label": "How to score & prioritise EdTech leads", "href": "/blog/how-to-score-prioritise-edtech-leads" }
-      ]}
+      {
+        "heading": "The engine",
+        "links": [
+          {
+            "label": "Lead Scoring Engine (product)",
+            "href": "/features/lead-scoring"
+          },
+          {
+            "label": "Best lead-scoring software (2026)",
+            "href": "/best/lead-scoring-software"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "Lead scoring",
+            "href": "/glossary/lead-scoring"
+          },
+          {
+            "label": "Fit Score",
+            "href": "/glossary/fit-score"
+          },
+          {
+            "label": "Intent Score",
+            "href": "/glossary/intent-score"
+          },
+          {
+            "label": "Quality Score",
+            "href": "/glossary/quality-score"
+          },
+          {
+            "label": "Intent decay",
+            "href": "/glossary/intent-decay"
+          },
+          {
+            "label": "Grade A",
+            "href": "/glossary/grade-a"
+          },
+          {
+            "label": "ICP",
+            "href": "/glossary/icp"
+          }
+        ]
+      },
+      {
+        "heading": "Set it up",
+        "links": [
+          {
+            "label": "How to set up lead scoring",
+            "href": "/how-to/how-to-set-up-lead-scoring"
+          },
+          {
+            "label": "How to score student leads (EdTech)",
+            "href": "/how-to/how-to-score-student-leads-edtech"
+          },
+          {
+            "label": "What is lead scoring?",
+            "href": "/questions/what-is-lead-scoring"
+          },
+          {
+            "label": "What is a Fit Score?",
+            "href": "/questions/what-is-fit-score"
+          },
+          {
+            "label": "What is Intent decay?",
+            "href": "/questions/what-is-intent-decay"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "What is lead scoring for Indian B2B?",
+            "href": "/blog/what-is-lead-scoring-india-b2b"
+          },
+          {
+            "label": "How to score & prioritise EdTech leads",
+            "href": "/blog/how-to-score-prioritise-edtech-leads"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "Is lead scoring worth it for a small team?", "a": "Yes — a small team feels a wrong call-order most acutely, because every rep-hour counts. Automatic A–F grading means the first calls of the day go to the leads most likely to close, not the newest ones." },
-      { "q": "How is this different from my CRM's lead scoring?", "a": "Most CRM scoring is a single opaque points number. Leadkaun uses three transparent scores with weights you can audit, and intent that decays automatically — no manager intervention to keep grades honest." }
+      {
+        "q": "Is lead scoring worth it for a small team?",
+        "a": "Yes — a small team feels a wrong call-order most acutely, because every rep-hour counts. Automatic A–F grading means the first calls of the day go to the leads most likely to close, not the newest ones."
+      },
+      {
+        "q": "How is this different from my CRM's lead scoring?",
+        "a": "Most CRM scoring is a single opaque points number. Leadkaun uses three transparent scores with weights you can audit, and intent that decays automatically — no manager intervention to keep grades honest."
+      },
+      {
+        "q": "Does the scoring adapt to my kind of business?",
+        "a": "You configure your ICP — the industries, states, business types, decision-maker roles and budget bands that define your best customers — and that drives every lead's Fit score. The underlying weights themselves are fixed and identical for every account, by design: it keeps the grade explainable and auditable, so a rep can always see exactly why a lead is Grade A. You tune who a good customer is, not the maths behind it."
+      },
+      {
+        "q": "How does intent decay work?",
+        "a": "Intent starts from the lead's source baseline and rises on real engagement — a WhatsApp reply, a pricing question, an interested call. After a window tied to your sales cycle (four weeks by default), a lead that stays silent loses about 3 intent points a day, so a stale Grade A slides to a B or C on its own while genuinely fresh leads climb above it. Any new signal spikes intent straight back up. Intent never falls below where the lead started, so a good source is never punished to zero."
+      },
+      {
+        "q": "Do I need to replace my CRM to use lead scoring in Leadkaun?",
+        "a": "No. Leadkaun runs alongside your existing CRM as a lead-intelligence layer — it's the ranking-and-behaviour layer most CRMs do weakly, not a replacement. Your CRM stays the system of record for contracts and reporting; Leadkaun grades every lead A–F, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads. You bring leads in by CSV and start scoring without ripping anything out."
+      }
     ],
-    "relatedPillars": ["lead-management", "sales-follow-up"]
+    "relatedPillars": [
+      "lead-management",
+      "sales-follow-up"
+    ]
   },
   {
     "slug": "lead-management",
@@ -65,38 +202,175 @@
       "The Priority Queue decides who to call next, so reps work instead of triaging.",
       "Flat per-account pricing — cost doesn't grow with headcount."
     ],
+    "body": [
+      {
+        "heading": "What lead management actually is",
+        "paragraphs": [
+          "Lead management is the discipline of getting every enquiry from the moment it arrives to a decision — won, lost, or deliberately parked — without any of them slipping through a gap. It is not a piece of software you install and forget. It is a working loop: capture the lead, judge how good it is, decide who calls it and when, follow up until there is an answer, and pull back the ones that started going cold. Software helps, but the discipline is what closes deals.",
+          "Most Indian SMB teams already own a place to store leads — a CRM, a spreadsheet, or the enquiry dashboards inside IndiaMART and JustDial. Storage was never the problem. The problem is that storing a lead tells nobody which of the 200 rows in front of them is worth calling next, or which ₹8L enquiry has been sitting untouched since Tuesday. Lead management is the layer that turns a pile of contacts into an ordered list of actions.",
+          "Done well, it answers one question for the rep every single morning: who do I call right now, and why? Done badly, it looks like a full pipeline and a busy team that still loses the deals it should have won."
+        ]
+      },
+      {
+        "heading": "Why it matters more in Indian B2B",
+        "paragraphs": [
+          "Indian SMB sales runs on high volume and thin attention. A single manufacturer or education brand might pull enquiries from IndiaMART, JustDial, TradeIndia, Sulekha, a website form, Google and Meta ads, a walk-in register, and a WhatsApp Business number all at once — each in its own inbox that nobody owns end to end. The buyer, meanwhile, has fired the same enquiry at four of your competitors in the same sitting, and the one who calls back first usually wins the conversation.",
+          "The research on this is blunt. A Harvard Business Review audit found the average firm took about 42 hours to respond to a web lead, and 23% never responded at all — while firms that reached a lead within the hour were roughly 7× more likely to qualify it. Separately, InsideSales research reported by Forbes found only about 27% of inbound web leads are ever contacted by a rep, meaning close to three-quarters of the demand a business pays to generate is never actually worked.",
+          "Then there is the channel reality: WhatsApp is now the default way Indian buyers talk to businesses — more than 500 million users in India, and a Kantar study cited by Meta found 91% of online adults message a business at least weekly. Treat WhatsApp as an afterthought and you are blind to where most of the conversation happens. And none of this is a motivation problem: Salesforce's State of Sales report found reps spend only about 28% of their week actually selling. In a market with 5.7 crore-plus registered MSMEs digitising fast, the team that imposes order on that chaos first has a real, compounding edge."
+        ]
+      },
+      {
+        "heading": "The real lifecycle: capture, grade, prioritise, follow up, recover",
+        "paragraphs": [
+          "Good lead management is five stages, and skipping any one of them is where money leaks. Stage one is capture — every source lands in one place, with the source tag preserved and Indian phone numbers normalised (the +91, 0-prefixed and spaced formats collapsed to one) so the same buyer enquiring on IndiaMART and JustDill in the same hour becomes one record, not three. Deduplication at the door is not a nicety; without it your pipeline count lies and two reps chase one person.",
+          "Stage two is grading — deciding how good each lead is before anyone wastes a call on it. Strong grading separates fit (does this lead match the customers you actually win — the right industry, city, role, budget band?) from intent (are they showing buying behaviour right now — asking pricing, negotiating, replying fast?) and quality (is the data even usable, or is it a wrong number?). A ₹20L enquiry against ₹80L inventory is not the same lead as a budget-matched buyer who just asked for a quote, and your morning should reflect that.",
+          "Stage three is prioritisation — turning grades into a single ranked queue so reps work top-down instead of triaging. This is the step spreadsheets and generic CRMs quietly skip: they sort by newest, or by whatever tab loaded first, which means the loudest lead gets called and the most valuable one waits.",
+          "Stage four is follow-up — the persistence that actually closes. Most demand dies not on the first call but in the silence after it, because reps give up early or forget. A real cadence schedules the next touch and chases it. Stage five is recovery — catching leads that have gone stale and putting a rupee value on them before they are gone for good, so a manager acts on ₹ at risk rather than a vague sense that things are slipping."
+        ]
+      },
+      {
+        "heading": "Common mistakes that quietly cost deals",
+        "paragraphs": [
+          "The first mistake is the multi-inbox trap: leaving each source in its own dashboard and asking reps to check six tabs. Nobody does that at 9 PM on a Saturday, which is exactly when serious B2B buyers browse. If there is no single screen showing every enquiry ranked by what it is worth, the good ones cool while the junk gets called because it happened to be on top of one tab.",
+          "The second is calling in arrival order. Working leads newest-first, or oldest-first, feels fair but it is not prioritisation — it treats a tyre-kicker and a budget-matched, ready-to-buy enquiry identically. Reps burn their best hours on whoever shouted last.",
+          "The third is treating follow-up as memory. When the next touch lives in a rep's head or a sticky note, it doesn't happen consistently. The fourth is losing the source tag the moment a lead is typed into a spreadsheet — so at renewal season you cannot tell whether IndiaMART or JustDial actually sourced the deals that closed, and you renew subscriptions on a hunch.",
+          "The fifth, and most expensive, is having no recovery loop at all. Leads that go stale simply disappear from view. Nobody sees the ₹ walking out the door, so nobody acts, and a real pipeline of recoverable opportunities dies of neglect every month."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches it — alongside your CRM",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS: the lead-intelligence and prioritisation layer most Indian SMB stacks are missing. It is built to run alongside the CRM or spreadsheet you already use — your CRM keeps storing contacts and contracts; Leadkaun decides what your reps do next with them. The wedge is behaviour, not storage.",
+          "Capture and unification happen through CSV import (the primary intake today, with 100+ column aliases and Indian amount parsing that understands ₹1,50,000, 2.5L and 1Cr) plus manual entry, all deduped on a normalised +91 phone key. Every lead is then graded A–F the moment it lands, across three independent 0–100 scores — Fit, Intent and Quality — using transparent, fixed weights every rep can audit. You configure your ICP (your best-fit industries, cities, roles and budget bands); the weights themselves are the same for every account, so there is no black box and no per-account drift. Intent decays automatically when a lead goes silent, so a Grade A from last week doesn't sit at the top forever while fresher, hotter leads wait below it.",
+          "Those grades feed the Priority Queue — a per-rep, ranked call list that re-sorts as scores change, so the highest-value lead that hasn't been contacted is always on top. Reps stop triaging and start working. When they reach a buyer on WhatsApp — the channel Indian buyers actually reply on — logging the outcome takes three taps. To be clear about what that is: it opens the rep's own WhatsApp and records what happened; it is manual logging, not an automated messaging or API integration. The Missed Opportunity Engine then closes the loop, flagging leads that have gone stale by grade-based windows and surfacing the ₹ at risk today, so a sales head sees a rupee number to act on rather than a list of overdue tasks.",
+          "Pricing stays flat per account — Free, then Starter at ₹2,999, Growth at ₹7,999 and Scale at ₹19,999 per month — so the cost of running the system doesn't climb every time you add a rep. You are paying for the intelligence layer, not per seat."
+        ]
+      },
+      {
+        "heading": "Getting started and what to measure",
+        "paragraphs": [
+          "Start by pulling one week of real enquiries from every source into a single ranked view and setting your ICP so grading reflects the customers you actually win. The point of the first week is not a perfect setup — it is to see, for the first time, every lead in one place ordered by what it is worth.",
+          "Then measure the things that predict revenue rather than vanity totals: speed to first contact (how long before a rep reaches a new Grade A), follow-up adherence (what share of scheduled touches actually happen), and the ₹ at risk from stale leads month over month. If those three move in the right direction, deals follow — the benchmarks are clear that reaching the right lead first, and continuing to reach them, is the lever that matters most.",
+          "For the mechanics of each stage, the guides in this cluster go deeper: how to build a lead priority queue, how to import leads from CSV, how to manage IndiaMART leads, and how to manage leads from multiple sources — plus the concepts behind it, from a single source of truth to the MQL-to-SQL handoff."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The tools", "links": [
-        { "label": "Lead Scoring Engine", "href": "/features/lead-scoring" },
-        { "label": "Priority Queue", "href": "/features/priority-queue" },
-        { "label": "Best lead management software in India", "href": "/best/lead-management-software-india" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "Priority Queue", "href": "/glossary/priority-queue" },
-        { "label": "Single source of truth", "href": "/glossary/source-truth" },
-        { "label": "Unassigned queue", "href": "/glossary/unassigned-queue" },
-        { "label": "Nurture cadence", "href": "/glossary/nurture-cadence" },
-        { "label": "MQL", "href": "/glossary/mql" },
-        { "label": "SQL", "href": "/glossary/sql" }
-      ]},
-      { "heading": "How-to guides", "links": [
-        { "label": "How to build a lead priority queue", "href": "/how-to/how-to-build-a-lead-priority-queue" },
-        { "label": "How to import leads from CSV", "href": "/how-to/how-to-import-leads-from-csv" },
-        { "label": "Can Leadkaun handle 10,000 leads?", "href": "/questions/can-leadkaun-handle-10000-leads" },
-        { "label": "How to manage IndiaMART leads", "href": "/how-to/how-to-manage-indiamart-leads" },
-        { "label": "How to manage leads from multiple sources", "href": "/how-to/how-to-manage-leads-from-multiple-sources" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "Building a lead prioritisation system (India)", "href": "/blog/lead-prioritization-system-india" },
-        { "label": "When a spreadsheet stops working", "href": "/blog/when-a-spreadsheet-stops-working" },
-        { "label": "SMB sales software in India — what to buy", "href": "/blog/smb-sales-software-india-what-to-buy" }
-      ]}
+      {
+        "heading": "The tools",
+        "links": [
+          {
+            "label": "Lead Scoring Engine",
+            "href": "/features/lead-scoring"
+          },
+          {
+            "label": "Priority Queue",
+            "href": "/features/priority-queue"
+          },
+          {
+            "label": "Best lead management software in India",
+            "href": "/best/lead-management-software-india"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "Priority Queue",
+            "href": "/glossary/priority-queue"
+          },
+          {
+            "label": "Single source of truth",
+            "href": "/glossary/source-truth"
+          },
+          {
+            "label": "Unassigned queue",
+            "href": "/glossary/unassigned-queue"
+          },
+          {
+            "label": "Nurture cadence",
+            "href": "/glossary/nurture-cadence"
+          },
+          {
+            "label": "MQL",
+            "href": "/glossary/mql"
+          },
+          {
+            "label": "SQL",
+            "href": "/glossary/sql"
+          }
+        ]
+      },
+      {
+        "heading": "How-to guides",
+        "links": [
+          {
+            "label": "How to build a lead priority queue",
+            "href": "/how-to/how-to-build-a-lead-priority-queue"
+          },
+          {
+            "label": "How to import leads from CSV",
+            "href": "/how-to/how-to-import-leads-from-csv"
+          },
+          {
+            "label": "Can Leadkaun handle 10,000 leads?",
+            "href": "/questions/can-leadkaun-handle-10000-leads"
+          },
+          {
+            "label": "How to manage IndiaMART leads",
+            "href": "/how-to/how-to-manage-indiamart-leads"
+          },
+          {
+            "label": "How to manage leads from multiple sources",
+            "href": "/how-to/how-to-manage-leads-from-multiple-sources"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "Building a lead prioritisation system (India)",
+            "href": "/blog/lead-prioritization-system-india"
+          },
+          {
+            "label": "When a spreadsheet stops working",
+            "href": "/blog/when-a-spreadsheet-stops-working"
+          },
+          {
+            "label": "SMB sales software in India — what to buy",
+            "href": "/blog/smb-sales-software-india-what-to-buy"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "Do I need a CRM and lead management software?", "a": "Not two tools. Leadkaun is a behaviour layer that grades, prioritises and tracks leads — it includes a built-in pipeline and contact record, so most Indian SMBs run it in place of a traditional CRM." },
-      { "q": "How does Leadkaun stop duplicate leads?", "a": "Indian phone-number normalisation across +91 / 0-prefixed / spaced formats, plus email and company checks, dedupe leads on import so two reps never work the same enquiry." }
+      {
+        "q": "Do I need a CRM and lead management software?",
+        "a": "Not two tools. Leadkaun is a behaviour layer that grades, prioritises and tracks leads — it includes a built-in pipeline and contact record, so most Indian SMBs run it in place of a traditional CRM."
+      },
+      {
+        "q": "How does Leadkaun stop duplicate leads?",
+        "a": "Indian phone-number normalisation across +91 / 0-prefixed / spaced formats, plus email and company checks, dedupe leads on import so two reps never work the same enquiry."
+      },
+      {
+        "q": "How do I manage leads coming from IndiaMART, JustDial, portals and WhatsApp at once?",
+        "a": "Pull them into one ranked view instead of leaving each in its own dashboard. You bring enquiries in by CSV import or manual entry (with the source tag preserved), Leadkaun dedupes them on a normalised Indian phone key, grades each one A–F, and ranks everything into a single Priority Queue. WhatsApp conversations are logged in three taps against the same record, so one screen shows every enquiry from every source, ordered by what it is worth — not six tabs nobody checks."
+      },
+      {
+        "q": "How does Leadkaun decide which lead a rep should call first?",
+        "a": "It grades every lead A–F across three independent scores — Fit (how well it matches your ICP), Intent (live buying signals, which decay when a lead goes silent) and Quality (is the data usable) — using fixed, transparent weights. Those grades feed a per-rep Priority Queue that re-sorts as scores change, so the highest-value lead that hasn't been contacted yet is always on top. Reps work the list top-down instead of guessing or calling whoever enquired most recently."
+      },
+      {
+        "q": "What happens to leads that go cold?",
+        "a": "They surface instead of disappearing. The Missed Opportunity Engine flags leads that cross a grade-based staleness window — hotter grades get shorter windows — and rolls up the ₹ at risk today across everything slipping, with recovery alerts on the highest-value ones. The moment a rep logs any activity on a flagged lead, it clears the missed state. So instead of a vague sense that things are leaking, a manager sees a rupee number to act on before those opportunities are gone for good."
+      }
     ],
-    "relatedPillars": ["lead-scoring", "missed-revenue"]
+    "relatedPillars": [
+      "lead-scoring",
+      "missed-revenue"
+    ]
   },
   {
     "slug": "whatsapp-sales",
@@ -115,33 +389,157 @@
       "A logged reply becomes a ranked Intent signal, not a lost message.",
       "A high-intent WhatsApp reply can lift a lead's grade instantly."
     ],
+    "body": [
+      {
+        "heading": "What \"WhatsApp sales\" actually means",
+        "paragraphs": [
+          "For Indian B2B teams, WhatsApp sales is not a marketing campaign or a broadcast blast. It is the ordinary, day-to-day reality that most of your buying conversations happen inside a green chat window. A distributor asks for a rate card, an admissions counsellor sends a fee structure, a broker forwards a floor plan, a purchase manager negotiates delivery terms — and almost none of it happens over email or inside a CRM form. It happens on WhatsApp, on the rep's own phone, in threads the rest of the company never sees.",
+          "That is the whole problem and the whole opportunity. The conversation where a lead actually reveals intent — \"what's your best price?\", \"can you deliver by month-end?\", \"send me the proposal\" — is the single most valuable piece of sales information you own. Yet in most teams it lives and dies inside one rep's phone. When that rep is busy, off, or gone, the context is gone with them. Treating WhatsApp as a first-class sales channel means capturing what those replies mean, in a form the whole team can rank and act on, without pretending you have automation you don't."
+        ]
+      },
+      {
+        "heading": "Why WhatsApp is a first-class channel for Indian B2B",
+        "paragraphs": [
+          "The numbers make the case bluntly. WhatsApp has more than 500 million users in India — its single largest market in the world (Meta, reported by TechCrunch, 2025) — and a Kantar study cited by Meta found that 91% of online adults in India message a business at least once a week. Around 80% of small-business owners in markets like India say WhatsApp helps them communicate with customers and grow. For an Indian SMB, WhatsApp isn't a channel you choose to add; it's the channel your buyers already assume you're on.",
+          "This matters because of how leads arrive here. An IndiaMART or JustDial enquiry, a TradeIndia RFQ, a website form, a walk-in — the very first thing most of them do is drop you a WhatsApp message. First contact is a chat, not a call. And chat is where the highest-signal moments show up: a buyer who replies within the hour, asks about pricing, or starts negotiating is behaving completely differently from one who left a form and went quiet.",
+          "The evidence on why acting on those signals fast is decisive is well established. A Harvard Business Review audit of 2,241 companies found that firms contacting a web lead within an hour were about 7 times more likely to qualify it than those who waited an hour longer, and 60 times more likely than those who waited a day — yet the average firm took around 42 hours to respond. Separate InsideSales research, reported in Forbes, suggests only about 27% of inbound web leads are ever contacted by a rep at all. WhatsApp is where that first hour is won or lost, because it's where the buyer is already waiting for you."
+        ]
+      },
+      {
+        "heading": "Treat every reply as a ranked buying signal",
+        "paragraphs": [
+          "The shift that changes results is to stop reading WhatsApp as \"chat\" and start reading it as evidence of intent. Not every message is equal. \"Ok thanks\" is not the same event as \"what's your bulk price for 500 units?\" One is noise; the other is a buyer stepping toward a decision. A first-class WhatsApp sales practice grades these moments and lets the strongest ones change who gets called next.",
+          "In Leadkaun this is concrete: a WhatsApp exchange is logged against three things — the stage the conversation reached, the intent it revealed, and the outcome. That logged signal feeds the lead's Intent Score, which is one of the three dimensions (Fit, Intent, Quality) behind its A-F grade. A high-intent reply — asking pricing, negotiating, requesting a proposal — lifts Intent immediately, and because the Priority Queue re-ranks on the blended score, that lead can move to the top of a rep's call list the moment they log it. A Grade C lead can become a Grade A in real time, driven by nothing more expensive than what the buyer just typed.",
+          "The important honesty here: this is a human reading a real conversation and recording what it meant. There is no bot parsing your messages, no automated scoring of message text. The rep is the sensor; the system turns their three-tap judgement into a ranked, comparable signal the whole team can see."
+        ]
+      },
+      {
+        "heading": "How to run WhatsApp sales well: 3-tap manual logging",
+        "paragraphs": [
+          "Good WhatsApp sales discipline is not about logging every \"hi.\" It is about capturing the meaningful exchanges — a real reply, a pricing question, a negotiation, a booked meeting, a ghost — the moment they happen, before the rep moves to the next call and forgets. The mechanic that makes this survivable is deliberately tiny: three taps. Stage (first reply, asking questions, negotiating, objection, meeting booked, ghosted), intent (high, medium, low, negative), outcome (progressed, stuck, closed). It takes roughly ten seconds, and by the end of a morning of calls it becomes muscle memory rather than paperwork.",
+          "The reason to keep it manual and short is that reps abandon anything longer. A full CRM activity form after every WhatsApp reply is the classic tool nobody actually fills — which is why so much WhatsApp history is a black hole. Three taps stay inside the rep's flow. They message the buyer from their own WhatsApp, come back, tap stage-intent-outcome, and the lead's score, queue position, and follow-up state update on the back of it. Smart Templates help on the way out: pre-written WhatsApp openers and scripts with variables like the buyer's name, company and stage, so reps send a consistent message and then log the reply.",
+          "What \"good\" looks like in practice: every serious WhatsApp thread has a trail the next person can read, the highest-intent replies are surfacing to the top of the queue automatically, and a manager can see per-rep WhatsApp activity in aggregate — how many exchanges, what stages — without reading anyone's private messages. The content stays with the rep; the signal is what's shared."
+        ]
+      },
+      {
+        "heading": "Common mistakes",
+        "paragraphs": [
+          "The first mistake is treating WhatsApp as a side-channel while pouring process into email and calls. If half your first-contacts arrive as chats and none of them are captured, your pipeline data is describing the smaller half of your sales reality. The second is chasing the WhatsApp Business API too early — buying a BSP stack for automated broadcasts when the actual gap is that individual buyer replies aren't being logged or ranked at all. Broadcast tooling is a different job from selling; it doesn't fix an unlogged one-to-one conversation.",
+          "The third mistake is trusting reps' memory over a system. Context that lives only in one phone means every handover — leave, resignation, a lead reassigned — loses the thread. The fourth is speed blindness: with reps spending only about 28% of their week actually selling (Salesforce State of Sales), the few hot replies that deserve an instant call get buried under low-value ones simply because no one ranked them. When every WhatsApp thread looks equally urgent in the notification tray, the ₹5 lakh negotiation and the tyre-kicker get the same attention — which means the wrong one usually gets called first."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches it",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS, and it runs alongside your CRM rather than replacing it — the layer your CRM is missing for the channel your CRM barely sees. It does not connect to the WhatsApp Business API, send messages for you, or automate follow-ups. Reps use whatever WhatsApp account they already have; the product opens their own WhatsApp to message the buyer and records what came back. That is a deliberate, honest scope: WhatsApp here is manual 3-tap logging, not a BSP integration. Auto-logging through providers like Gupshup, AiSensy or Interakt is on our roadmap, not something we claim today.",
+          "What you get from that logging is the rest of the system working on the signal. The Intent Score updates, the A-F grade re-computes, the Priority Queue re-ranks so the highest-intent WhatsApp reply lands at the top of the right rep's list, and the Missed Opportunity Engine surfaces the rupees at risk when a hot WhatsApp lead is going stale — framed as ₹ at risk, not \"you have 12 overdue tasks.\" The Morning Brief and follow-up cadences then keep those threads from cooling. Managers see WhatsApp activity per rep on the Rep Performance card in aggregate, so coaching is based on real behaviour without surveilling message content.",
+          "The point isn't to replace the phone your reps already sell from. It's to make sure the buying signals flowing through it stop disappearing into private chats — and start ranking your next call."
+        ]
+      },
+      {
+        "heading": "Getting started and what to measure",
+        "paragraphs": [
+          "Start narrow: log only the exchanges that carry intent, and log them the moment they happen. Set up two or three Smart Templates for your most common openers so reps send consistently and log fast. Point every WhatsApp-first lead — IndiaMART, JustDial, website chat, referral — through the same three taps so the data is comparable across sources.",
+          "Then measure the things WhatsApp actually moves: how many high-intent replies were logged and how fast the lead was reached after, how often a WhatsApp signal lifted a lead's grade, and the ₹ at risk sitting in WhatsApp threads that went quiet. Those are the numbers that tell you whether your best channel is finally being worked like one — or still leaking into phones nobody else can see."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The tool", "links": [
-        { "label": "WhatsApp Tracking (product)", "href": "/features/whatsapp-tracking" },
-        { "label": "Best WhatsApp CRM in India", "href": "/best/whatsapp-crm-india" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "WhatsApp Intent signal", "href": "/glossary/whatsapp-intent" },
-        { "label": "3-tap logging", "href": "/glossary/3-tap-logging" },
-        { "label": "Zero-input mode", "href": "/glossary/zero-input-mode" },
-        { "label": "Intent Score", "href": "/glossary/intent-score" }
-      ]},
-      { "heading": "How-to guides", "links": [
-        { "label": "How to log WhatsApp for sales tracking", "href": "/how-to/how-to-log-whatsapp-for-sales-tracking" },
-        { "label": "Does Leadkaun support WhatsApp?", "href": "/questions/does-leadkaun-support-whatsapp" },
-        { "label": "How to track WhatsApp sales", "href": "/questions/how-to-track-whatsapp-sales" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "WhatsApp for B2B sales in India — best practices", "href": "/blog/whatsapp-for-b2b-sales-india-best-practices" },
-        { "label": "WhatsApp sales message templates (India)", "href": "/blog/whatsapp-sales-templates-india" },
-        { "label": "How to log WhatsApp sales conversations", "href": "/blog/log-whatsapp-sales-conversations" }
-      ]}
+      {
+        "heading": "The tool",
+        "links": [
+          {
+            "label": "WhatsApp Tracking (product)",
+            "href": "/features/whatsapp-tracking"
+          },
+          {
+            "label": "Best WhatsApp CRM in India",
+            "href": "/best/whatsapp-crm-india"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "WhatsApp Intent signal",
+            "href": "/glossary/whatsapp-intent"
+          },
+          {
+            "label": "3-tap logging",
+            "href": "/glossary/3-tap-logging"
+          },
+          {
+            "label": "Zero-input mode",
+            "href": "/glossary/zero-input-mode"
+          },
+          {
+            "label": "Intent Score",
+            "href": "/glossary/intent-score"
+          }
+        ]
+      },
+      {
+        "heading": "How-to guides",
+        "links": [
+          {
+            "label": "How to log WhatsApp for sales tracking",
+            "href": "/how-to/how-to-log-whatsapp-for-sales-tracking"
+          },
+          {
+            "label": "Does Leadkaun support WhatsApp?",
+            "href": "/questions/does-leadkaun-support-whatsapp"
+          },
+          {
+            "label": "How to track WhatsApp sales",
+            "href": "/questions/how-to-track-whatsapp-sales"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "WhatsApp for B2B sales in India — best practices",
+            "href": "/blog/whatsapp-for-b2b-sales-india-best-practices"
+          },
+          {
+            "label": "WhatsApp sales message templates (India)",
+            "href": "/blog/whatsapp-sales-templates-india"
+          },
+          {
+            "label": "How to log WhatsApp sales conversations",
+            "href": "/blog/log-whatsapp-sales-conversations"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "Do I need the WhatsApp Business API?", "a": "No. Leadkaun's 3-tap logging works with any regular WhatsApp account — reps summarise each exchange in three taps. You only need the API if you want bulk template broadcasts, which is a separate job." },
-      { "q": "Can a manager see WhatsApp activity?", "a": "Yes, in aggregate — per-rep WhatsApp activity shows on the Rep Performance card, without exposing message content." }
+      {
+        "q": "Do I need the WhatsApp Business API?",
+        "a": "No. Leadkaun's 3-tap logging works with any regular WhatsApp account — reps summarise each exchange in three taps. You only need the API if you want bulk template broadcasts, which is a separate job."
+      },
+      {
+        "q": "Can a manager see WhatsApp activity?",
+        "a": "Yes, in aggregate — per-rep WhatsApp activity shows on the Rep Performance card, without exposing message content."
+      },
+      {
+        "q": "Does Leadkaun send or automate WhatsApp messages?",
+        "a": "No. Leadkaun does not send, schedule, or automate any WhatsApp messages, and it isn't connected to the WhatsApp Business API. Reps message buyers from their own WhatsApp; the product opens WhatsApp for them and records the outcome in three taps. Auto-logging via a Business Service Provider like Gupshup, AiSensy or Interakt is on the roadmap, not something we do today."
+      },
+      {
+        "q": "How does a WhatsApp reply change a lead's grade?",
+        "a": "When a rep logs an exchange, the intent tap feeds the lead's Intent Score, one of the three dimensions (Fit, Intent, Quality) behind its A-F grade. A high-intent reply — asking pricing, negotiating, requesting a proposal — lifts Intent immediately, so a Grade C lead can become a Grade A in real time and jump to the top of that rep's Priority Queue. It's your rep's read of a real conversation, turned into a ranked signal — not a bot scoring message text."
+      },
+      {
+        "q": "How long does 3-tap logging take, and what should reps log?",
+        "a": "About ten seconds per exchange. Reps don't log every 'hi' — only the meaningful moments: a first reply, a pricing question, a negotiation, a booked meeting, or a ghost. The three taps are stage, intent, and outcome. Kept that light, logging stays inside the rep's calling flow and becomes muscle memory by the end of a morning."
+      }
     ],
-    "relatedPillars": ["lead-scoring", "sales-follow-up"]
+    "relatedPillars": [
+      "lead-scoring",
+      "sales-follow-up"
+    ]
   },
   {
     "slug": "sales-follow-up",
@@ -160,37 +558,168 @@
       "The Morning Brief answers 'what do I do first?' in the first five lines.",
       "Follow-up completion, tracked per rep, is a stronger predictor than call volume."
     ],
+    "body": [
+      {
+        "heading": "What follow-up and response time actually are",
+        "paragraphs": [
+          "Sales follow-up is the discipline of reaching a lead again, on time, until they either buy or clearly say no. Response time is its first and most important move: how long a fresh enquiry waits before a human actually contacts it. The two are the same skill measured at two moments. Response time is the first touch; follow-up is every touch after it. Most Indian B2B teams are competent at neither, not because reps are lazy, but because nobody can see, at a glance, which of two hundred open leads deserves the next call.",
+          "It helps to be precise about what good looks like. A follow-up is not a note that says 'will call later'. It is a scheduled action with an owner, a channel, and a deadline: call this budget-fit buyer by 6 PM, chase this proposal on WhatsApp tomorrow morning, drop this cold enquiry into a weekly nurture. When a team says it 'follows up', it usually means keen reps chase the leads they personally remember. That is not a system; it is a hope, and hope does not scale past a few hundred enquiries a month."
+        ]
+      },
+      {
+        "heading": "Why it is the highest-leverage lever in Indian B2B",
+        "paragraphs": [
+          "Of everything a sales team can tune — pricing, pitch, product, territory — follow-up speed is the one with the most evidence behind it and the lowest cost to fix. A Harvard Business Review audit of over 2,200 companies found that firms which contacted a web lead within an hour were about seven times more likely to qualify it than those who waited just an hour longer, and sixty times more likely than those who waited a day. Yet the average company in that same study took roughly 42 hours to respond, and 23% never responded at all. The gap between what the data rewards and what teams actually do is enormous — and it is pure, uncaptured revenue.",
+          "In India that gap is wider and more expensive, because the volume and the channels conspire against you. Leads pour in from IndiaMART, JustDial, TradeIndia, Sulekha, website forms, Google Ads and portal listings, often the same buyer enquiring on three of them in one evening. Serious buyers browse after work — 9 PM on a weekday, Saturday afternoon — which is exactly when no one is watching the inbox. And the buyer is not waiting: they fired the same enquiry at your competitors, and the deal usually goes to whoever calls back first with a relevant, human voice. When a single enquiry can be worth ₹40,000 or ₹40 lakh, the cost of answering it tomorrow instead of tonight is measured in real rupees, every week. Speed and persistence are the cheapest revenue lever most Indian SMB teams own — and the one they leak the most through."
+        ]
+      },
+      {
+        "heading": "What disciplined follow-up looks like",
+        "paragraphs": [
+          "Disciplined follow-up starts by refusing to treat every lead the same. A hot, budget-fit enquiry and a half-filled tyre-kicker should not get the same clock. The practical way to do this is a grade-based service-level agreement (SLA): the better the lead, the tighter the response window. A workable default for Indian B2B is to reach your top-grade leads within about 24 hours, second-tier within 48, mid-tier on a weekly nurture, and low-priority leads on a light monthly touch. The exact numbers matter less than the principle — that the window is explicit, tied to the lead's grade, and measured, so 'we follow up' becomes a number a manager can actually hold the team to.",
+          "The second half of the discipline is cadence: what happens after the first call. A stalled proposal needs a chaser in a day or two, not 'sometime this week'. A qualified lead that went quiet needs a WhatsApp nudge, then a call, then a decision on whether to nurture or drop. Good cadences are built into the workflow so a rep never has to remember them — the moment a deal moves to 'proposal sent', the follow-up to chase it is already scheduled. The rep's job shrinks to doing the next action, not inventing it.",
+          "The third piece is the one teams forget: make the next action obvious. Most follow-up dies in the gap between 'I know I should follow up' and 'I know exactly who to call, on what channel, and what to say'. The best-run teams remove that gap entirely. A rep opening their day should see a ranked list — call this person now, message that one, this one can wait — not a spreadsheet of two hundred rows they have to triage themselves before selling anything."
+        ]
+      },
+      {
+        "heading": "It is a visibility and priority problem, not a motivation one",
+        "paragraphs": [
+          "Managers usually diagnose weak follow-up as a discipline or attitude problem and reach for pressure: more reminders, more standups, more 'why didn't you call?'. That rarely works, because the real failure is upstream. Research on inside sales has repeatedly found reps average barely more than one call attempt before giving up on a lead, and that a large share of inbound demand is never contacted at all. That is not a team of unmotivated people. It is a team that cannot see which leads are worth a second, third and fourth attempt, so it defaults to whichever lead is loudest or most recent.",
+          "The context makes it worse. Salesforce's State of Sales research found reps spend only about 28% of their week actually selling — the rest goes to admin, data entry and figuring out who to call next. When most of the day is friction, follow-up is the first thing to fall off, because it is invisible work with no deadline screaming at you. A cold lead does not send a reminder. It just quietly goes to a competitor.",
+          "Reframed this way, the fix is not motivation, it is a system that answers one question every morning — who do I call first, and why — and then tracks whether the promised follow-ups actually happened. Give a rep a ranked queue and a visible follow-up scorecard, and the behaviour changes without a single lecture. Take away the visibility, and no amount of pressure holds."
+        ]
+      },
+      {
+        "heading": "Common mistakes that quietly cost deals",
+        "paragraphs": [
+          "The first mistake is treating first response as an inbox task instead of a race. If your enquiries sit in six separate portal dashboards until a rep happens to check, your real average response is measured in hours, and the hot ones cool while junk gets called first simply because it loaded at the top of a tab. The buyer who filled the same form on three listings is being called by three vendors right now; the one who waits loses.",
+          "The second is stopping too early. Most deals need several touches, but most reps quit after one or two — they call once, get voicemail, mark it 'not interested' and move on. The lead was never unqualified; it was just under-worked. Without a cadence that schedules attempt two, three and four automatically, persistence depends on memory, and memory loses at volume.",
+          "The third is 'follow-up theatre': lots of activity, no priority. A rep who makes forty calls a day to whoever is nearest the top of the list looks busy and productive on a dashboard, while three Grade-A enquiries worth ₹15 lakh age past their window untouched. Call volume is a vanity metric; whether the right leads got reached in time is the real one.",
+          "The fourth is losing the thread. A lead gets called and a WhatsApp gets sent, but none of it is logged, so the next person to touch the record has no idea what was already said. The buyer gets asked the same questions twice, feels like a number, and the follow-up meant to build trust erodes it instead."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches follow-up",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS that runs alongside your CRM, not instead of it — the layer your CRM is missing. It does not try to replace where your contracts and reporting live; it sits in front of them and answers the one question follow-up depends on: who does each rep call next, and why. The heart of that is the Priority Queue. Every lead is graded A–F the moment it arrives, across Fit, Intent and Quality, and each rep's queue is re-ranked so the highest-intent, highest-value lead sits on top — not the loudest or the most recent. The rep stops triaging and starts calling.",
+          "Speed is protected at the two moments it slips. The Morning Brief is a role-specific email sent at 8:30 AM IST, Monday to Saturday — it names the ₹ at risk today, the top Grade-A leads to call, and the overdue follow-ups, ranked rather than dumped, so the first five lines answer 'what do I do first?' before the day's noise buries it. (It is an email brief, deliberately — there is no separate screen to remember to open.) Through the day, the Missed Opportunity Engine flags leads that cross their grade-based staleness window and puts the exposure in rupees, so a slipping Grade-A enquiry surfaces as money at risk, not a silent overdue task.",
+          "Persistence is made measurable rather than hoped for. Leadkaun schedules follow-ups automatically as deals move through the pipeline, and computes a follow-up score — completed versus overdue, for each rep — so a manager can see who is actually keeping their commitments instead of guessing from call counts. When a rep does reach a buyer on WhatsApp, logging the outcome takes three taps: Leadkaun opens your own WhatsApp, you send the message yourself, and you tag what happened. To be clear about what that is and isn't — this is manual logging that keeps the activity history honest and feeds the lead's score; it is not an automated or API-based WhatsApp sender.",
+          "None of this requires ripping anything out. Your CRM keeps recording what happened; Leadkaun changes what happens next — making sure the right lead gets reached first, gets followed up on schedule, and never goes cold in a blind spot nobody owned."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The tools", "links": [
-        { "label": "Priority Queue", "href": "/features/priority-queue" },
-        { "label": "Morning Brief", "href": "/features/morning-brief" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "Priority Queue", "href": "/glossary/priority-queue" },
-        { "label": "Follow-up Score", "href": "/glossary/follow-up-score" },
-        { "label": "Nurture cadence", "href": "/glossary/nurture-cadence" },
-        { "label": "Intent decay", "href": "/glossary/intent-decay" },
-        { "label": "Morning Brief", "href": "/glossary/morning-brief" }
-      ]},
-      { "heading": "How-to guides", "links": [
-        { "label": "How to run a Morning Brief", "href": "/how-to/how-to-run-a-morning-brief" },
-        { "label": "How to track property enquiries", "href": "/how-to/how-to-track-property-enquiries" },
-        { "label": "What is lead response time in India?", "href": "/questions/what-is-lead-response-time-india" },
-        { "label": "How to get reps to follow up", "href": "/how-to/how-to-get-sales-reps-to-follow-up" },
-        { "label": "How to reduce lead response time", "href": "/how-to/how-to-reduce-lead-response-time" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "Lead response time in India (2026)", "href": "/blog/lead-response-time-india-2026" },
-        { "label": "Real estate lead follow-up best practices", "href": "/blog/real-estate-lead-follow-up-best-practices-india" },
-        { "label": "Why leads go cold in India", "href": "/blog/why-leads-go-cold-india" },
-        { "label": "What reps see in the 8:30 AM Morning Brief", "href": "/blog/morning-brief-what-reps-see-830am" }
-      ]}
+      {
+        "heading": "The tools",
+        "links": [
+          {
+            "label": "Priority Queue",
+            "href": "/features/priority-queue"
+          },
+          {
+            "label": "Morning Brief",
+            "href": "/features/morning-brief"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "Priority Queue",
+            "href": "/glossary/priority-queue"
+          },
+          {
+            "label": "Follow-up Score",
+            "href": "/glossary/follow-up-score"
+          },
+          {
+            "label": "Nurture cadence",
+            "href": "/glossary/nurture-cadence"
+          },
+          {
+            "label": "Intent decay",
+            "href": "/glossary/intent-decay"
+          },
+          {
+            "label": "Morning Brief",
+            "href": "/glossary/morning-brief"
+          }
+        ]
+      },
+      {
+        "heading": "How-to guides",
+        "links": [
+          {
+            "label": "How to run a Morning Brief",
+            "href": "/how-to/how-to-run-a-morning-brief"
+          },
+          {
+            "label": "How to track property enquiries",
+            "href": "/how-to/how-to-track-property-enquiries"
+          },
+          {
+            "label": "What is lead response time in India?",
+            "href": "/questions/what-is-lead-response-time-india"
+          },
+          {
+            "label": "How to get reps to follow up",
+            "href": "/how-to/how-to-get-sales-reps-to-follow-up"
+          },
+          {
+            "label": "How to reduce lead response time",
+            "href": "/how-to/how-to-reduce-lead-response-time"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "Lead response time in India (2026)",
+            "href": "/blog/lead-response-time-india-2026"
+          },
+          {
+            "label": "Real estate lead follow-up best practices",
+            "href": "/blog/real-estate-lead-follow-up-best-practices-india"
+          },
+          {
+            "label": "Why leads go cold in India",
+            "href": "/blog/why-leads-go-cold-india"
+          },
+          {
+            "label": "What reps see in the 8:30 AM Morning Brief",
+            "href": "/blog/morning-brief-what-reps-see-830am"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "How fast should we respond to a lead?", "a": "As fast as you can while intent is hot — for high-grade leads, within the hour is the difference between booking the meeting and losing it to whoever called back sooner. The Priority Queue exists to make the hot lead the one your rep calls at minute five." },
-      { "q": "What goes in the Morning Brief?", "a": "The ₹ at risk today, the top Grade A leads to call, and overdue follow-ups — ranked, not a data dump — delivered to each rep and manager at 8:30 AM IST." }
+      {
+        "q": "How fast should we respond to a lead?",
+        "a": "As fast as you can while intent is hot — for high-grade leads, within the hour is the difference between booking the meeting and losing it to whoever called back sooner. The Priority Queue exists to make the hot lead the one your rep calls at minute five."
+      },
+      {
+        "q": "What goes in the Morning Brief?",
+        "a": "The ₹ at risk today, the top Grade A leads to call, and overdue follow-ups — ranked, not a data dump — delivered to each rep and manager at 8:30 AM IST."
+      },
+      {
+        "q": "What does a good follow-up cadence look like for Indian B2B?",
+        "a": "Tie the window to the lead's grade, not a one-size rule: reach your top-grade leads within roughly a day, second-tier within two, put mid-tier leads on a weekly nurture and low-priority ones on a light monthly touch. Then schedule the next touch the moment a deal moves stage — a chaser after a proposal, a nudge after silence — so persistence never depends on a rep's memory. Leadkaun schedules these follow-ups automatically as leads move through the pipeline so the next action is always waiting, not invented."
+      },
+      {
+        "q": "How do you actually get reps to follow up?",
+        "a": "Not with more pressure — with visibility and priority. Weak follow-up is almost always a 'who do I call next?' problem, not a motivation one: reps default to the loudest lead because they can't see which of two hundred is worth the next attempt. Give them a ranked Priority Queue and a visible follow-up score (completed versus overdue, tracked for each rep), and the behaviour changes on its own, because the right call is obvious and the missed ones are no longer invisible."
+      },
+      {
+        "q": "Does Leadkaun send WhatsApp follow-ups automatically?",
+        "a": "No — and we're deliberate about saying so. Leadkaun uses manual 3-tap WhatsApp logging: it opens your own WhatsApp with your chosen template, you send the message yourself, and you tag the outcome in three taps. That keeps the activity history honest and feeds the lead's intent score, but it is not an automated or API-based sender that messages buyers on your behalf. What Leadkaun automates is the reminder and the ranking — telling the rep who to message and when — not the message itself."
+      }
     ],
-    "relatedPillars": ["lead-scoring", "missed-revenue"]
+    "relatedPillars": [
+      "lead-scoring",
+      "missed-revenue"
+    ]
   },
   {
     "slug": "missed-revenue",
@@ -209,34 +738,158 @@
       "Rupees move managers to act in a way '12 overdue tasks' never does.",
       "The calculator lets you estimate your own leak before signing up."
     ],
+    "body": [
+      {
+        "heading": "What 'missed revenue' actually means",
+        "paragraphs": [
+          "Missed revenue is the money you never lost in a fair fight. It isn't the deal that went to a cheaper competitor or the buyer who genuinely had no budget. It's the enquiry that came in hot on a Saturday night, sat in an inbox nobody owned, and went cold before anyone called back. The lead was real, the intent was real, the rupees were real. The only thing that failed was the follow-up.",
+          "Most teams can't see this loss because it never shows up as a loss. A deal you pitched and lost gets a reason logged against it; a lead that simply aged out gets nothing. It quietly slides from 'active' to 'stale' to 'forgotten', and at month-end the pipeline just looks a little thinner than you hoped. There's no line item called 'leads we let rot', so the leak stays invisible.",
+          "The discipline of finding missed revenue is about converting that silence into a number. Instead of 'we have some old leads lying around', you want a rupee figure: how much qualified pipeline is sitting past its contact window right now, whose desk it's on, and which source it came from. That reframe — from a task count to a ₹-at-risk figure — is what turns a vague worry into something a sales head acts on before lunch."
+        ]
+      },
+      {
+        "heading": "Why this hits Indian B2B teams harder",
+        "paragraphs": [
+          "Indian SMB sales runs on volume and speed, and both work against careful follow-up. A single mid-sized team can pull leads from IndiaMART, JustDial, TradeIndia, Sulekha, a website form, Google Ads, and a WhatsApp Business number all at once — hundreds a week, arriving at all hours, in wildly different quality. When that firehose lands on a handful of reps, the natural response is to work whatever's loudest or most recent, not whatever's most valuable. The ₹80L enquiry that came in at 9 PM loses to the ₹15L one that rang the phone at 11 AM.",
+          "The research on this is blunt. A Harvard Business Review audit of 2,241 companies found that firms contacting a web lead within an hour were about 7× more likely to qualify it than those who waited just an hour longer — yet the average company took around 42 hours to respond, and 23% never responded at all. Separate InsideSales research, reported in Forbes, suggests only about 27% of inbound web leads are ever contacted by a rep at all. Roughly three-quarters of the demand a business pays to generate is never even worked.",
+          "It isn't laziness. Salesforce's State of Sales survey found reps spend only about 28% of their week actually selling; the rest goes to admin, data entry, and figuring out who to call next. In an Indian context where WhatsApp is the default business channel — Meta reports 500M+ users in India, and a Kantar study cited by Meta found 91% of online adults message a business at least weekly — the 'who to call next' problem is even messier, because the highest-intent reply is often a WhatsApp message buried in a personal chat list rather than a neat row in a CRM. High volume plus scattered channels plus a minority of the week spent selling is exactly the environment where good leads quietly die."
+        ]
+      },
+      {
+        "heading": "How to find and recover missed revenue",
+        "paragraphs": [
+          "The first move is to stop treating all stale leads the same. A Grade A lead going quiet for two days is an emergency; a Grade D lead going quiet for two days is normal. So the practical approach is grade-based staleness windows — a different tolerance for each grade. A workable default set, and the one Leadkaun ships, is: Grade A stale after 24 hours of no action, Grade B after 48 hours, Grade C after 7 days, Grade D after 30 days, measured from the last logged activity (or the import date if nobody's touched it yet). Anything past its window is 'missed' and belongs on a recovery list, not buried in the general pile.",
+          "The second move is to put a rupee value on each of those aging leads instead of counting them. A defensible model is deal band × close probability × recoverability, where recoverability decays the longer a high-grade lead sits past its window. Sum that across every stale lead and you get a single '₹ at risk today' figure — and crucially, you can roll it up per rep and per source. Any specific number is illustrative and depends entirely on your own deal sizes and volumes; the point isn't a magic figure, it's that '₹12L at risk on Rajesh's desk' moves people in a way '18 overdue tasks' never will.",
+          "The third move is a recovery workflow, not a report. Flag leads before they fully cross the line, then route the recoverable ones (realistically, your A and B grades) straight into the rep's call list with the ₹ value attached. Recovery should be a first-class task with an owner, not a line in a dashboard nobody opens. The moment a rep logs a call or a WhatsApp on a missed lead, it clears off the list — the activity itself is the recovery.",
+          "The fourth move is loss analysis on the deals that do close out as lost. Every won or lost lead should carry a structured reason — price too high, went to a competitor, no budget, no response, requirement changed, wrong fit. Over a few months that becomes a pattern: if 'no response' and 'no budget' dominate, your leak is speed and qualification, not your pitch. Recovery fixes today's aging leads; loss analysis fixes the process that keeps producing them."
+        ]
+      },
+      {
+        "heading": "Common mistakes that keep the leak open",
+        "paragraphs": [
+          "Measuring the loss in percentages and task counts. 'a share of leads went uncontacted' or '40 overdue follow-ups' are true but inert — nobody reallocates a rep over a percentage. The same fact stated as '₹9L in Grade A pipeline aged out this week' gets a response. Rupees are the unit of urgency in a sales office; percentages are the unit of a spreadsheet nobody re-opens.",
+          "Treating every old lead as equally urgent (or equally hopeless). Teams that don't grade end up either chasing dead ₹15L tyre-kickers to 'clear the list' or letting a stale ₹1.2Cr enquiry sit next to them undistinguished. Without grade-based windows, effort flows to whatever's noisiest, not whatever's worth recovering.",
+          "Letting the source label die on import. When a lead gets typed from a portal dashboard into a CRM, the source tag is the first thing dropped or overwritten. Lose it and you can never answer 'which channel's leads do we keep letting rot?' — so you keep renewing the portal subscription that feeds you leads you never work, and starve the one that converts.",
+          "Confusing activity with recovery. Marking a lead 'contacted' because someone left a voicemail, or closing an overdue task without a real conversation, empties the list without saving the deal. Recovery has to be tied to a genuine logged interaction — a call answered, a WhatsApp replied — or you're just cleaning up the evidence of the leak instead of plugging it."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches it",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS — a lead-intelligence layer that runs alongside your existing CRM rather than replacing it. Your CRM keeps holding contracts, contacts, and reporting; Leadkaun's job is the layer most CRMs miss: making sure the right lead gets worked before it goes cold, and making the cost of not doing so visible in rupees.",
+          "The Missed Opportunity Engine is the piece built specifically for this. An hourly job checks every active lead against its grade's staleness window (the 24h / 48h / 7d / 30d defaults above), raises an at-risk warning as a lead approaches its limit, marks it missed once it crosses, and pushes recoverable A and B leads back into the rep's flow as recovery actions. It rolls the whole thing up into a '₹ at risk today' figure — valued by each lead's expected deal size, trended over the week, and broken out per rep and per source. Any ₹ figure you see is a transparent model of your own leads' values, never a fabricated outcome or a promise of what you'll recover.",
+          "It connects to the rest of the product honestly. Every lead is graded A–F across Fit, Intent, and Quality, and intent decays automatically when a lead goes silent, so a neglected Grade A slides toward B on its own — which is exactly what feeds the staleness windows. The Priority Queue keeps the highest-intent lead on top so fewer leads reach the missed list at all. WhatsApp and calls are logged in a few taps (manual logging that opens your own WhatsApp — not an automated messaging API), and that logged activity is what clears a lead off the recovery list. The analytics suite closes the loop with loss intelligence over structured win/loss reasons. The Missed Opportunity Engine is available from the Growth plan (₹7,999/month, flat per account) upward.",
+          "If you want to see the shape of your own leak before committing to anything, the missed-revenue calculator gives a transparent estimate from your real lead volume and deal size, with no invented multipliers. Start there, then decide whether making the loss visible every morning is worth it."
+        ]
+      },
+      {
+        "heading": "What to measure once you start",
+        "paragraphs": [
+          "Track three things weekly. First, '₹ at risk' as a trend, not a snapshot — the direction matters more than any single day's number. Second, recovery rate: of the leads that hit the missed list, how many got a genuine logged contact before they aged out. Third, the per-source breakdown of what goes stale, because that's the number that lets you decide which IndiaMART, JustDial, or portal subscriptions actually earn their renewal.",
+          "The goal isn't zero missed leads — with real volume, some slippage is inevitable. The goal is that no expensive lead dies unnoticed. When a stale ₹1.2Cr enquiry shows up on Monday with a rupee value and an owner's name attached, instead of in a lost-deal post-mortem three months later, you've already won the part of the game most teams don't know they're playing."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The tools", "links": [
-        { "label": "Missed Opportunity Engine (product)", "href": "/features/missed-opportunity-engine" },
-        { "label": "Missed-revenue calculator", "href": "/tools/missed-revenue-calculator" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "Missed Opportunity Engine", "href": "/glossary/missed-opportunity" },
-        { "label": "₹ at risk", "href": "/glossary/rupee-at-risk" },
-        { "label": "Loss analysis", "href": "/glossary/loss-analysis" }
-      ]},
-      { "heading": "How-to guides", "links": [
-        { "label": "How to calculate ₹ at risk", "href": "/how-to/how-to-calculate-rupee-at-risk" },
-        { "label": "What is the Missed Opportunity Engine?", "href": "/questions/what-is-missed-opportunity-engine" },
-        { "label": "How to calculate missed lead cost", "href": "/questions/how-to-calculate-missed-lead-cost" },
-        { "label": "How to recover cold leads", "href": "/how-to/how-to-recover-cold-leads" },
-        { "label": "How to find where you're losing deals", "href": "/how-to/how-to-find-where-you-are-losing-deals" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "The cost of a missed lead in India", "href": "/blog/cost-of-a-missed-lead-india" },
-        { "label": "₹-at-risk: the metric every sales manager needs", "href": "/blog/rupee-at-risk-metric-every-sales-manager" },
-        { "label": "Why percentage metrics lie (rupee metrics)", "href": "/blog/why-percentage-metrics-lie-rupee-metrics" }
-      ]}
+      {
+        "heading": "The tools",
+        "links": [
+          {
+            "label": "Missed Opportunity Engine (product)",
+            "href": "/features/missed-opportunity-engine"
+          },
+          {
+            "label": "Missed-revenue calculator",
+            "href": "/tools/missed-revenue-calculator"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "Missed Opportunity Engine",
+            "href": "/glossary/missed-opportunity"
+          },
+          {
+            "label": "₹ at risk",
+            "href": "/glossary/rupee-at-risk"
+          },
+          {
+            "label": "Loss analysis",
+            "href": "/glossary/loss-analysis"
+          }
+        ]
+      },
+      {
+        "heading": "How-to guides",
+        "links": [
+          {
+            "label": "How to calculate ₹ at risk",
+            "href": "/how-to/how-to-calculate-rupee-at-risk"
+          },
+          {
+            "label": "What is the Missed Opportunity Engine?",
+            "href": "/questions/what-is-missed-opportunity-engine"
+          },
+          {
+            "label": "How to calculate missed lead cost",
+            "href": "/questions/how-to-calculate-missed-lead-cost"
+          },
+          {
+            "label": "How to recover cold leads",
+            "href": "/how-to/how-to-recover-cold-leads"
+          },
+          {
+            "label": "How to find where you're losing deals",
+            "href": "/how-to/how-to-find-where-you-are-losing-deals"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "The cost of a missed lead in India",
+            "href": "/blog/cost-of-a-missed-lead-india"
+          },
+          {
+            "label": "₹-at-risk: the metric every sales manager needs",
+            "href": "/blog/rupee-at-risk-metric-every-sales-manager"
+          },
+          {
+            "label": "Why percentage metrics lie (rupee metrics)",
+            "href": "/blog/why-percentage-metrics-lie-rupee-metrics"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "How is ₹-at-risk calculated?", "a": "Roughly: deal band × close probability × recoverability, where recoverability decays the longer a high-grade lead sits past its contact window. Summed across every aging lead on the desk, it becomes a weekly number a sales head acts on." },
-      { "q": "Can I estimate my leak before buying?", "a": "Yes — the missed-revenue calculator gives a transparent estimate from your own lead volume and deal size, with no fabricated multipliers." }
+      {
+        "q": "How is ₹-at-risk calculated?",
+        "a": "Roughly: deal band × close probability × recoverability, where recoverability decays the longer a high-grade lead sits past its contact window. Summed across every aging lead on the desk, it becomes a weekly number a sales head acts on."
+      },
+      {
+        "q": "Can I estimate my leak before buying?",
+        "a": "Yes — the missed-revenue calculator gives a transparent estimate from your own lead volume and deal size, with no fabricated multipliers."
+      },
+      {
+        "q": "When does a lead count as 'missed' rather than just active?",
+        "a": "Leadkaun uses grade-based staleness windows rather than one blanket timer, because a hot lead going quiet is far more urgent than a cold one. The defaults are Grade A after 24 hours with no action, Grade B after 48 hours, Grade C after 7 days, and Grade D after 30 days, measured from the last logged activity — or the import date if nobody has touched the lead yet. A lead gets an at-risk warning as it approaches its window and is marked missed once it crosses."
+      },
+      {
+        "q": "How do I actually recover a lead once it's gone cold?",
+        "a": "Recovery is a workflow, not a report. Recoverable leads — realistically your Grade A and B — are pushed back into the rep's call list with their rupee value attached, so the highest-value cold lead is the one worked first. The moment a rep logs a genuine call or WhatsApp on that lead, it clears off the missed list; the logged activity is the recovery. The mistake to avoid is 'closing' a task with a voicemail or an empty note, which clears the evidence without saving the deal."
+      },
+      {
+        "q": "Isn't tracking missed leads just something my CRM already does?",
+        "a": "Most CRMs record what happened to a lead but don't make the cost of inaction visible or urgent — an overdue task list and a percentage aren't things a sales office reallocates people over. Leadkaun runs alongside your CRM as a behaviour layer: it grades every lead A–F, decays intent when a lead goes silent, and surfaces the loss as a daily '₹ at risk' figure rolled up per rep and per source. Your CRM keeps the system of record; this makes sure the expensive leads inside it don't die in silence."
+      }
     ],
-    "relatedPillars": ["lead-management", "sales-behaviour"]
+    "relatedPillars": [
+      "lead-management",
+      "sales-behaviour"
+    ]
   },
   {
     "slug": "sales-behaviour",
@@ -255,32 +908,150 @@
       "Coach on specific, measurable signals — slow Grade A response, dropped follow-ups.",
       "Leading indicators (response time, follow-up) beat lagging ones (closed count)."
     ],
+    "body": [
+      {
+        "heading": "What a Sales Behaviour OS actually is",
+        "paragraphs": [
+          "Most sales software falls into one of two buckets. A CRM is a system of record: it stores what already happened — the contact, the deal stage, the note a rep typed after a call. Sales engagement and outreach tools are systems of action for outbound: they fire sequences, blast emails, and automate the top of a cold pipeline. Both are useful. Neither one decides, for a given rep on a given morning, which lead to call next and why. That decision — the behaviour — is left to the rep's memory, mood, and whichever tab happened to load first.",
+          "A Sales Behaviour OS is the layer that owns that decision. Instead of recording the past or automating outbound, it reshapes what a rep does next. It grades every lead, ranks a per-rep queue of who to call now, puts a rupee value on the opportunities going stale, and turns the day into a small set of repeatable rituals — a morning brief, a working queue, a fast way to log the outcome. The unit of work isn't a record or a sequence; it's a decision a rep would otherwise get wrong under volume.",
+          "The distinction matters because a CRM can be perfectly maintained and a team can still lose the month. Every field filled, every call logged, and the reps still spending their best hours on Grade D enquiries while a budget-qualified buyer waits three days for a callback. A record tells you that happened. A behaviour layer stops it from happening — it changes the input to the day, not just the audit trail after it."
+        ]
+      },
+      {
+        "heading": "Why this matters for Indian B2B specifically",
+        "paragraphs": [
+          "Indian SMB sales runs on volume and speed in a way that breaks a pure record-keeping approach. Leads pour in from IndiaMART, JustDial, TradeIndia, Sulekha, website forms, Google Ads, and property portals — hundreds a month for a mid-sized team — and the serious buyers reach out after hours, on WhatsApp, on their own time. WhatsApp is now the default business channel here: it has more than 500 million users in India, and a Kantar study cited by Meta found 91% of online Indian adults message a business at least weekly. A workflow that assumes reps sit inside a CRM typing structured updates simply doesn't survive contact with that reality.",
+          "The research on where deals leak is blunt. A Harvard Business Review audit of 2,241 companies found the average firm took about 42 hours to respond to a web lead, and 23% never responded at all — while contacting a lead within an hour made it roughly 7 times more likely to qualify. Separately, InsideSales research reported that only about 27% of inbound web leads are ever contacted by a rep, meaning the majority of demand a business pays to generate is never even worked. And Salesforce's State of Sales report found reps spend just 28% of their week actually selling; the rest goes to admin, data entry, and figuring out who to call next.",
+          "Add it up and the Indian SMB problem isn't a missing database — most teams already have a CRM or a spreadsheet. It's that judgement doesn't scale. At ten leads a day a good rep holds priority in their head; at a hundred, spread across five portals and a WhatsApp inbox, they can't, and the ₹40 lakh buyer gets the same treatment as the tyre-kicker. That is exactly the gap a Sales Behaviour OS is built to close — and a gap another dashboard doesn't touch."
+        ]
+      },
+      {
+        "heading": "How to instil sales-behaviour discipline",
+        "paragraphs": [
+          "The mechanics of doing this well follow a simple chain: grade, then prioritise, then surface the money at risk, then wrap it in daily rituals. Grading comes first because it is the objective input everything else depends on. Score each lead on Fit (does it match your ideal customer — industry, geography, role, budget), Intent (how engaged it is right now, based on real signals like a pricing question or a WhatsApp reply), and Quality (is the data even usable). Keep the weights fixed and transparent so a rep can always see why a lead is Grade A rather than trusting a black box — you configure your ideal-customer profile, not the scoring maths.",
+          "Prioritisation is where behaviour actually changes. A Priority Queue takes the graded leads and ranks them so the highest-intent, highest-value lead a rep hasn't yet contacted is always on top. The rep stops deciding who to call — a decision they get wrong under load — and starts working a list that is already right. Then surface the cost of inaction in rupees: instead of '12 overdue tasks', show 'this much revenue is sitting in Grade A leads that have gone past their follow-up window.' A number in rupees is a number a sales head acts on; a task count is noise.",
+          "Rituals are what make it stick. A role-specific morning brief tells each rep the handful of leads that matter today and tells the manager where the team is leaking. A weekly review looks at leading indicators — response time to Grade A, follow-up completion, whether the right lead was worked next — not just the lagging closed count, which arrives too late to coach on. And logging has to be near-frictionless: if recording a call or a WhatsApp outcome takes a form nobody fills, the data rots and the whole chain breaks. The discipline is only as real as the data is complete."
+        ]
+      },
+      {
+        "heading": "Common mistakes teams make",
+        "paragraphs": [
+          "The first and most common is confusing activity with behaviour. A dashboard that celebrates 200 calls a week rewards busyness, not judgement. A rep can hit every activity target by dialling the easy, low-value leads and still miss the two enquiries that would have made the month. Activity is volume; behaviour is which lead, how fast, followed up how well — and only the second predicts revenue.",
+          "The second is treating the CRM's stored fields as if they were a plan. A record answers 'what happened to this lead?' It does not answer 'who should I call in the next hour?' Teams that expect their system of record to also drive the day end up with reps who dutifully update stages after the fact and still work the wrong leads in real time.",
+          "The third is over-automating outreach and calling it behaviour change: bolting a sequence tool onto a messy pipeline just sends more messages to badly-graded leads and scales the mistake. The fourth is coaching on effort instead of signal — 'try harder', 'be more disciplined', with nothing measurable to point at. Without a slow-Grade-A-response number or a dropped-follow-up rate, a review becomes a vibe check, and it slides into micromanaging because the manager has nothing concrete to reference."
+        ]
+      },
+      {
+        "heading": "How Leadkaun approaches it",
+        "paragraphs": [
+          "Leadkaun is a Sales Behaviour OS built for Indian SMB B2B teams, and it is deliberately the layer your CRM is missing rather than a replacement for it. Your CRM keeps doing what it is good at — contracts, records, reporting. Leadkaun sits in front of it and drives the behaviour: it grades every lead A–F across Fit, Intent, and Quality, and because those weights are fixed and transparent, a rep can always audit why a lead landed where it did. Intent decays when a lead goes silent, so a Grade A from two weeks ago doesn't block genuinely hot leads underneath it.",
+          "From those grades it builds each rep a Priority Queue — the one screen they open every morning, re-ranked live so the most valuable un-contacted lead is on top. The Missed Opportunity Engine flags leads that have gone stale past their grade's window and rolls up the ₹ at risk, so the leak shows as money, not a task backlog. A role-specific morning brief goes to reps and managers, follow-up cadences keep the next touch scheduled, and Rep Tracking turns leading indicators — response time, follow-up completion, missed-lead recovery — into a scorecard managers can coach on without hovering.",
+          "The register throughout is honest about what the product is. WhatsApp logging is manual and fast — three taps to open your own WhatsApp and record the outcome as a signal — not an automated messaging integration. The numbers a team sees are its own: where we describe rupees at risk, that is your pipeline valued by your data, not a promised result. That honesty is the point of the category. A behaviour layer earns trust by showing reps exactly why the queue is ordered the way it is, which is what makes them actually work it."
+        ]
+      },
+      {
+        "heading": "Getting started and what to measure",
+        "paragraphs": [
+          "You don't rip anything out to start. Point your ideal-customer profile — the industries, geographies, decision-maker roles, and budget bands that define your best customers — set your SQL thresholds, and import your leads by CSV (Indian amount formats like ₹1,50,000, 2.5L, and 1Cr parse natively). The moment leads land, they are graded and the queue is ranked; your CRM stays exactly where it is.",
+          "Then measure the leading indicators, not just the closed count: first-response time to Grade A leads, follow-up completion rate, how much of the week goes to selling versus admin, and the rupee value recovered from leads that were about to slip. These move before revenue does, which is what makes them coachable. When a weekly review points at a specific slow Grade A response instead of a rep's general effort, accountability stops feeling like surveillance and starts feeling like the job getting easier."
+        ]
+      }
+    ],
     "clusters": [
-      { "heading": "The tool", "links": [
-        { "label": "Sales Rep Tracking (product)", "href": "/features/sales-rep-tracking" },
-        { "label": "Product overview", "href": "/product" }
-      ]},
-      { "heading": "Core concepts", "links": [
-        { "label": "Sales Behaviour OS", "href": "/glossary/sales-behaviour-os" },
-        { "label": "Follow-up Score", "href": "/glossary/follow-up-score" },
-        { "label": "Zero-input mode", "href": "/glossary/zero-input-mode" }
-      ]},
-      { "heading": "How-to guides", "links": [
-        { "label": "How to run a weekly sales review", "href": "/how-to/how-to-run-a-weekly-sales-review" },
-        { "label": "What is a Sales Behaviour OS?", "href": "/questions/what-is-a-sales-behaviour-os" },
-        { "label": "How is Leadkaun different from a CRM?", "href": "/questions/how-is-leadkaun-different-from-crm" }
-      ]},
-      { "heading": "In-depth reads", "links": [
-        { "label": "Track sales behaviour, not just activity", "href": "/blog/how-to-track-sales-behaviour-not-just-activity" },
-        { "label": "Hold reps accountable without micromanaging", "href": "/blog/hold-sales-reps-accountable-without-micromanaging" },
-        { "label": "Build a sales behaviour culture (India)", "href": "/blog/build-sales-behaviour-culture-india" },
-        { "label": "Leading vs lagging sales indicators (India)", "href": "/blog/leading-vs-lagging-sales-indicators-india" }
-      ]}
+      {
+        "heading": "The tool",
+        "links": [
+          {
+            "label": "Sales Rep Tracking (product)",
+            "href": "/features/sales-rep-tracking"
+          },
+          {
+            "label": "Product overview",
+            "href": "/product"
+          }
+        ]
+      },
+      {
+        "heading": "Core concepts",
+        "links": [
+          {
+            "label": "Sales Behaviour OS",
+            "href": "/glossary/sales-behaviour-os"
+          },
+          {
+            "label": "Follow-up Score",
+            "href": "/glossary/follow-up-score"
+          },
+          {
+            "label": "Zero-input mode",
+            "href": "/glossary/zero-input-mode"
+          }
+        ]
+      },
+      {
+        "heading": "How-to guides",
+        "links": [
+          {
+            "label": "How to run a weekly sales review",
+            "href": "/how-to/how-to-run-a-weekly-sales-review"
+          },
+          {
+            "label": "What is a Sales Behaviour OS?",
+            "href": "/questions/what-is-a-sales-behaviour-os"
+          },
+          {
+            "label": "How is Leadkaun different from a CRM?",
+            "href": "/questions/how-is-leadkaun-different-from-crm"
+          }
+        ]
+      },
+      {
+        "heading": "In-depth reads",
+        "links": [
+          {
+            "label": "Track sales behaviour, not just activity",
+            "href": "/blog/how-to-track-sales-behaviour-not-just-activity"
+          },
+          {
+            "label": "Hold reps accountable without micromanaging",
+            "href": "/blog/hold-sales-reps-accountable-without-micromanaging"
+          },
+          {
+            "label": "Build a sales behaviour culture (India)",
+            "href": "/blog/build-sales-behaviour-culture-india"
+          },
+          {
+            "label": "Leading vs lagging sales indicators (India)",
+            "href": "/blog/leading-vs-lagging-sales-indicators-india"
+          }
+        ]
+      }
     ],
     "faqs": [
-      { "q": "How is this different from activity tracking?", "a": "Activity tracking counts outputs — calls, emails, messages. Behaviour tracking measures the decisions inside that activity: was the Grade A lead called in time, did the follow-up happen on schedule, was the right lead worked next. Behaviour predicts revenue; activity just proves busyness." },
-      { "q": "Does tracking behaviour mean micromanaging?", "a": "The opposite. Because logging is three taps, the data is complete on its own — so managers coach on a few specific, measurable signals instead of hovering. You point at a slow Grade A response, not a person's effort." }
+      {
+        "q": "How is this different from activity tracking?",
+        "a": "Activity tracking counts outputs — calls, emails, messages. Behaviour tracking measures the decisions inside that activity: was the Grade A lead called in time, did the follow-up happen on schedule, was the right lead worked next. Behaviour predicts revenue; activity just proves busyness."
+      },
+      {
+        "q": "Does tracking behaviour mean micromanaging?",
+        "a": "The opposite. Because logging is three taps, the data is complete on its own — so managers coach on a few specific, measurable signals instead of hovering. You point at a slow Grade A response, not a person's effort."
+      },
+      {
+        "q": "Is a Sales Behaviour OS the same as a sales engagement or outreach tool?",
+        "a": "No. Sales engagement tools automate outbound — they fire email and message sequences to move cold prospects. A Sales Behaviour OS works the other direction: it reshapes the human decision of who a rep should call next, in what order, and how fast, based on how each lead is graded and how much revenue is at risk. One scales messages; the other scales judgement. Sending more automated messages to badly-prioritised leads just scales the mistake."
+      },
+      {
+        "q": "Do I need to replace my CRM to use a Sales Behaviour OS?",
+        "a": "No — it is designed to run alongside your CRM, not instead of it. Your CRM stays the system of record for contacts, deals, and reporting. Leadkaun adds the behaviour layer on top: it grades every lead, ranks each rep's Priority Queue, and surfaces the rupees at risk, so the day is driven by who to call next rather than by fields updated after the fact. You keep what already works and fill the gap it was never built for."
+      },
+      {
+        "q": "How do you reshape rep behaviour without adding more admin?",
+        "a": "By removing decisions instead of adding data entry. The rep doesn't scan lists or update a form to figure out priority — the Priority Queue ranks the graded leads and serves the most valuable un-contacted one on top. Logging a call or WhatsApp outcome is three taps, not a CRM form, so the record stays complete without extra work. The behaviour changes because the right next action is already in front of the rep, not because they were told to be more disciplined."
+      }
     ],
-    "relatedPillars": ["missed-revenue", "sales-follow-up"]
+    "relatedPillars": [
+      "missed-revenue",
+      "sales-follow-up"
+    ]
   }
 ]

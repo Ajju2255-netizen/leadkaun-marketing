@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Check, X, Minus } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
@@ -238,6 +239,12 @@ export function ComparePageLayout(p: CompareProps) {
                 <p className="mt-4 font-mono text-[44px] font-semibold tracking-[-0.03em] text-ink tabular">{p.pricing.competitor.price}</p>
                 {p.pricing.competitor.note && <p className="mt-2 text-[13px] text-ink-soft">{p.pricing.competitor.note}</p>}
               </FloatingCard>
+            </Reveal>
+
+            <Reveal delay={0.12} className="mt-6 text-center">
+              <Link href="/tools/crm-cost-calculator" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 transition-colors hover:text-sky-500">
+                See what per-seat pricing costs as your team grows →
+              </Link>
             </Reveal>
           </Container>
         </SectionGround>

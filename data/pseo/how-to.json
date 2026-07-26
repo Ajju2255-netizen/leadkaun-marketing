@@ -609,5 +609,74 @@
     "relatedFeatures": ["missed-opportunity-engine", "sales-rep-tracking", "priority-queue"],
     "relatedBlog": null,
     "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-migrate-from-salesforce",
+    "title": "How to Migrate from Salesforce to Leadkaun (in 2–4 Weeks)",
+    "tldr": "Export from Salesforce (Data Export or Data Loader), audit down to your live leads, onboard Leadkaun the same day, run both in parallel for 30 days, then cut over and keep Salesforce read-only as an archive. Rightsizing from an enterprise CRM to a Sales Behaviour OS — not downgrading. Leadkaun can also run alongside Salesforce if you're not ready to leave.",
+    "why": "Most Indian SMBs on Salesforce are paying enterprise per-seat pricing plus admin overhead for a platform built for 200+ reps — when their actual bottleneck is 'which lead does the rep call next.' The migration itself isn't the hard part; the export and the psychology are. You're not downgrading; you're rightsizing to the sales-behaviour layer you actually use.",
+    "prerequisites": [
+      "Salesforce admin access (to run Data Export or Data Loader)",
+      "A Leadkaun account (any tier, including Free) and your ICP defined",
+      "Buy-in to run both systems in parallel for ~30 days"
+    ],
+    "steps": [
+      { "heading": "Week 1: Export from Salesforce", "body": "Salesforce → Setup → Data → Data Export gives you a scheduled CSV/ZIP of Leads, Contacts, Accounts, Opportunities and Activities; for a large or filtered pull, use Data Loader. This is the most involved export of any CRM — budget a day and check field-level permissions so nothing is silently dropped." },
+      { "heading": "Week 1: Audit down to live leads", "body": "Separate genuinely live leads (activity in the last 90 days) from the archive. Most SMBs find over half of a long-lived Salesforce org is dead data you don't want to carry over." },
+      { "heading": "Week 2: Onboard Leadkaun", "body": "Same-day setup wizard: pick your industry for a pre-configured ICP, then import the live leads via CSV. Indian phone and amount formats are parsed on the way in, and every lead is graded A–F on arrival." },
+      { "heading": "Week 2: Run in parallel", "body": "Keep Salesforce running (read-only is fine) while reps work primarily from Leadkaun's Priority Queue. This is the low-risk path — and if you have compliance reasons to keep Salesforce, Leadkaun simply runs alongside it as the sales-behaviour layer." },
+      { "heading": "Week 3: Train reps and baseline the numbers", "body": "A 2-hour hands-on session: 3-tap logging, the Priority Queue, the Morning Brief. Baseline rep adoption, first-response time and ₹ recovered so the parallel-run has a scoreboard." },
+      { "heading": "Week 4: Cut over", "body": "Switch the primary system to Leadkaun. Keep Salesforce read-only for 90 days as a fallback archive; for niche AppExchange integrations you relied on, a CSV export or Zapier bridge covers most gaps." },
+      { "heading": "Day 90: Decide on Salesforce", "body": "If the parallel-run numbers held — reps actually adopting, response time down, ₹ recovered rising — consolidate and drop the Salesforce seats. If you still need it for a specific workflow, keep a minimal seat count and let Leadkaun run alongside." }
+    ],
+    "commonMistakes": [
+      "Under-scoping the export — Salesforce Data Export needs permissions + scheduling; rushing it drops fields",
+      "Migrating the whole org instead of live leads — you carry years of dead data",
+      "Cutting over before the 30-day parallel-run proves the numbers",
+      "Assuming you must replace Salesforce day one — Leadkaun can run alongside it first"
+    ],
+    "faqs": [
+      { "q": "Isn't leaving Salesforce risky?", "a": "That's why you parallel-run for 30 days with Salesforce read-only, and keep it as a 90-day archive. Nothing is deleted until the numbers prove out — and you can keep Salesforce indefinitely with Leadkaun alongside it." },
+      { "q": "What about our AppExchange integrations?", "a": "Leadkaun keeps integrations lean and India-first (CSV today, with WhatsApp BSP and Google Sheets sync on the roadmap). For niche tools, a CSV export or Zapier bridge covers most gaps — but it won't match AppExchange breadth, which most SMBs don't need." },
+      { "q": "How is Leadkaun different from Salesforce?", "a": "Salesforce records what happened and is built for large, customised orgs; Leadkaun grades every lead A–F, ranks each rep's queue, and surfaces ₹ at risk — the sales-behaviour layer, at flat INR pricing instead of per-seat USD." }
+    ],
+    "category": "migration",
+    "relatedFeatures": ["priority-queue", "lead-scoring"],
+    "relatedBlog": null,
+    "timeRequired": "P28D"
+  },
+  {
+    "slug": "how-to-migrate-from-hubspot",
+    "title": "How to Migrate from HubSpot to Leadkaun (or Run Alongside)",
+    "tldr": "Export your sales objects from HubSpot (Contacts, Companies, Deals) as CSV, import the live ones into Leadkaun, and let it grade and queue them. The nuance with HubSpot: you often keep HubSpot Marketing and move only the sales-behaviour layer to Leadkaun — so 'alongside' is frequently the end state, not a full replacement.",
+    "why": "Indian SMBs leave HubSpot for two reasons: USD pricing that climbs with contact count, and the realisation that they're paying for a marketing suite when the actual bottleneck is sales follow-up. HubSpot is excellent at marketing; it's thinner on the sales-behaviour layer — which is exactly what Leadkaun does. So this is usually a partial move, not a rip-and-replace.",
+    "prerequisites": [
+      "HubSpot access to export Contacts, Companies and Deals",
+      "A Leadkaun account and your ICP defined",
+      "A decision on what to keep in HubSpot (usually Marketing)"
+    ],
+    "steps": [
+      { "heading": "Decide what actually moves", "body": "HubSpot holds marketing (forms, emails, workflows) and sales (contacts, deals). You're moving the SALES-behaviour layer to Leadkaun — grading, prioritisation, follow-up — and typically keeping HubSpot Marketing. Be clear on the split before you export." },
+      { "heading": "Export your sales objects", "body": "In HubSpot, export Contacts, Companies and Deals to CSV (from each object's view, or Settings → Import & Export → Export). You don't need the marketing data — leave it in HubSpot." },
+      { "heading": "Audit down to live leads", "body": "Keep leads with activity in the last 90 days; archive the rest. Don't drag a large HubSpot contact database into Leadkaun — bring the ones your reps are actually working." },
+      { "heading": "Onboard Leadkaun", "body": "Same-day setup: pick your industry for a pre-configured ICP, import the live leads via CSV, and every lead is graded A–F on arrival and dropped into the Priority Queue." },
+      { "heading": "Run alongside HubSpot", "body": "Point HubSpot Marketing's new leads into Leadkaun via CSV export (a native connector and Sheets sync are on the roadmap). HubSpot keeps generating demand; Leadkaun grades and works it. For many teams this alongside setup is the permanent answer." },
+      { "heading": "Measure over 30 days", "body": "Baseline rep adoption, first-response time on Grade A, and ₹ recovered. If Leadkaun is clearly carrying the sales-behaviour load, right-size your HubSpot seats down to what Marketing actually needs." }
+    ],
+    "commonMistakes": [
+      "Trying to move marketing too — keep HubSpot Marketing; move only the sales-behaviour layer",
+      "Importing the entire HubSpot contact database instead of live leads",
+      "Paying full HubSpot Sales seats after the sales work has moved to Leadkaun",
+      "Expecting a live HubSpot sync today — leads come across via CSV; a connector is on the roadmap"
+    ],
+    "faqs": [
+      { "q": "Do I have to leave HubSpot entirely?", "a": "No — and most teams don't. Keep HubSpot for marketing; run Leadkaun alongside it as the sales-behaviour layer. Leadkaun is designed to run alongside your existing stack, not force a rip-and-replace." },
+      { "q": "Why move sales off HubSpot at all?", "a": "USD pricing that scales with contacts, and a sales-behaviour layer that's thinner than a dedicated tool. Leadkaun grades A–F, ranks each rep's queue, and surfaces ₹ at risk, at flat INR pricing." },
+      { "q": "How do new HubSpot leads reach Leadkaun?", "a": "Today via CSV export of new contacts; a native connector and Google Sheets sync are on the roadmap. Once in Leadkaun, each lead is graded and queued automatically." }
+    ],
+    "category": "migration",
+    "relatedFeatures": ["priority-queue", "lead-scoring"],
+    "relatedBlog": null,
+    "timeRequired": "P28D"
   }
 ]

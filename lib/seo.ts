@@ -23,6 +23,7 @@ export function organizationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: "Leadkaun",
     legalName: "Leadkaun",
     url: SITE_URL,
@@ -55,9 +56,12 @@ export function webSiteSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
     name: "Leadkaun",
     url: SITE_URL,
     inLanguage: "en-IN",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    about: { "@id": `${SITE_URL}/#software` },
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -73,6 +77,7 @@ export function softwareApplicationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#software`,
     name: "Leadkaun",
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Sales Behaviour Operating System",
@@ -105,11 +110,7 @@ export function softwareApplicationSchema(): JsonLd {
     },
     // aggregateRating intentionally omitted: a hardcoded/unverifiable rating is a
     // Google structured-data manual-action risk. Re-add only with real reviews.
-    provider: {
-      "@type": "Organization",
-      name: "Leadkaun",
-      url: SITE_URL,
-    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
   }
 }
 
@@ -174,14 +175,7 @@ export function articleSchema(params: {
       ...(a.url ? { url: a.url } : {}),
       ...(a.type === "Person" && "jobTitle" in a && a.jobTitle ? { jobTitle: a.jobTitle } : {}),
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Leadkaun",
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/og-default.png`,
-      },
-    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: canonical(params.url),
     image: params.image ? [params.image] : [`${SITE_URL}/og-default.png`],
   }
@@ -209,11 +203,7 @@ export function localBusinessSchema(params: {
       containedInPlace: { "@type": "AdministrativeArea", name: params.state },
     },
     serviceType: `${params.industry} lead management`,
-    provider: {
-      "@type": "Organization",
-      name: "Leadkaun",
-      url: SITE_URL,
-    },
+    provider: { "@id": `${SITE_URL}/#organization` },
   }
 }
 

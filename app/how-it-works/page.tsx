@@ -27,7 +27,7 @@ const STEPS = [
   { step: "03", title: "Next-best-action is assigned.",               body: "Based on grade, source, and behavioural signals, the system assigns one of Call Now, WhatsApp, Re-engage, or Nurture. Rep sees it as a single instruction — not a screen of buttons to choose from.", detail: "Action changes dynamically as signals come in" },
   { step: "04", title: "Priority Queue updates live.",                body: "Rep opens the queue. Leads ranked by grade, overdue follow-ups, callback requests, and recency. No filtering, no guesswork. Log the outcome in three taps — call, WhatsApp, or result.", detail: "Queue refresh: every 30 seconds · Mobile-web parity" },
   { step: "05", title: "Missed-Opportunity Engine fires daily.",      body: "At 9 AM IST the system surfaces every lead that has gone stale — with its rupee value attached. Manager sees per-rep accountability. Rep sees a recovery path. Not blame. Clarity.", detail: "Not reports. Action." },
-  { step: "06", title: "Morning Brief lands at 8:30 AM.",             body: "Every rep and manager gets a personalised daily brief — Grade A leads that need action today, ₹ at risk this week, and overdue follow-ups. The day starts with a plan, not a scroll through the inbox.", detail: "Delivered Mon – Sat · 8:30 AM IST · Email + WhatsApp" },
+  { step: "06", title: "Morning Brief lands at 8:30 AM.",             body: "Every rep and manager gets a personalised daily brief — Grade A leads that need action today, ₹ at risk this week, and overdue follow-ups. The day starts with a plan, not a scroll through the inbox.", detail: "Delivered Mon – Sat · 8:30 AM IST · Email" },
 ]
 
 export default function HowItWorksPage() {

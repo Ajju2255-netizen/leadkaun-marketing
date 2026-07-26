@@ -71,12 +71,12 @@ export default function ProductPage() {
         eyebrow="Product · 12 live modules"
         h1={
           <>
-            Not a CRM.<br />
+            The layer your CRM is missing —<br />
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 50%, #FB923C 100%)" }}
             >
-              A system that changes how your team sells.
+              a system that changes how your team sells.
             </span>
           </>
         }

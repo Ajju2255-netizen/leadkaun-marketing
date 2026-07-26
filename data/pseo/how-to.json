@@ -59,7 +59,7 @@
     ],
     "faqs": [
       { "q": "Can I skip this and use Leadkaun's defaults?", "a": "Yes. Defaults are calibrated for Indian B2B SMBs and work for most teams on day one." },
-      { "q": "How often should I tune weights?", "a": "Every 90 days, based on conversion data per grade. Don't tune more often — you'll chase noise." },
+      { "q": "How often should I revisit my scoring setup?", "a": "Review your ICP every 90 days against conversion data by grade — are Grade A leads actually converting best? Adjust which industries, geographies and roles define your ICP if the mix has shifted. Don't fiddle more often, or you'll chase noise. The scoring weights themselves stay fixed and transparent." },
       { "q": "Different weights per product line?", "a": "Yes on the Growth tier. Multi-product teams typically have 2–4 ICP profiles." }
     ],
     "category": "lead-management-setup",

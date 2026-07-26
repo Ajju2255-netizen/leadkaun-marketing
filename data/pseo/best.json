@@ -287,7 +287,7 @@
       },
       {
         "q": "Does lead scoring need a lot of setup?",
-        "a": "It varies. Enterprise AI models need data and tuning; Leadkaun ships with weights calibrated for Indian B2B verticals so a graded lead is in the queue within the first hour, and you can tune weights later."
+        "a": "It varies. Enterprise AI models need data and tuning; Leadkaun ships with weights calibrated for Indian B2B verticals so a graded lead is in the queue within the first hour, and you refine your ICP as you learn what converts."
       }
     ],
     "relatedCompares": [

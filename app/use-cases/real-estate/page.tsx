@@ -51,7 +51,7 @@ export default function RealEstatePage() {
         },
         {
           q: "What if a rep handles HNI buyers — different ICP from mass-market?",
-          a: "Custom ICP weights per pipeline. Your HNI sales pod scores leads on project price band, city match, and broker source; your affordable-housing pod uses different weights.",
+          a: "Your ICP is set once per account and captures what a strong real-estate lead looks like — project price band, city and location match, and source reliability. It's shared across the account today (per-segment weighting isn't available yet), but the Fit score still reflects each lead's price band and geography, so an HNI-fit enquiry and an affordable-housing-fit enquiry grade on their own merits.",
         },
         {
           q: "How does Missed Opportunity work for property leads?",

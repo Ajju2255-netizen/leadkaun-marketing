@@ -8,6 +8,7 @@ import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { getBest } from "@/lib/pseo/lookup"
 
@@ -33,6 +34,14 @@ export default async function BestHub() {
         sub="Criteria-based rankings for Indian sales teams — pricing, WhatsApp, lead scoring, and who each tool is really for. We build Leadkaun and tell you exactly where the alternatives win."
         primary={undefined}
       />
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <QuickAnswer
+            question="What is the best lead management software in India?"
+            answer="For Indian B2B SMBs that want leads graded and prioritised automatically, Leadkaun is the strongest fit — it grades every lead A–F, builds a Priority Queue per rep, and treats WhatsApp as a first-class signal, at flat INR pricing. Zoho suits deep customisation; LeadSquared suits high-volume lead-gen."
+          />
+        </Container>
+      </SectionGround>
       <SectionGround variant="cream" size="lg">
         <Container>
           <div className="mb-10">

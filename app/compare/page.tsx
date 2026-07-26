@@ -9,6 +9,7 @@ import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { NumberedTag } from "@/app/components/numbered-tag"
 
 export const metadata: Metadata = {
@@ -47,6 +48,15 @@ export default function CompareHub() {
         sub="Honest, feature-by-feature. Named weak points for Leadkaun where they exist. No trash talk, no unverifiable claims."
         primary={undefined}
       />
+
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <QuickAnswer
+            question="What is the best CRM alternative for Indian SMB sales teams?"
+            answer="For Indian B2B SMBs that want leads graded and prioritised, Leadkaun is a strong alternative — it grades every lead A–F, ranks each rep's queue, and treats WhatsApp as a first-class signal, at flat INR pricing, running alongside your CRM. Zoho, Freshsales and Kylas suit other needs."
+          />
+        </Container>
+      </SectionGround>
 
       <SectionGround variant="cream" size="lg">
         <Container>

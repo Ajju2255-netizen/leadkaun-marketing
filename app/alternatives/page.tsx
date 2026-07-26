@@ -8,6 +8,7 @@ import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { getAlternatives } from "@/lib/pseo/lookup"
 
@@ -33,6 +34,14 @@ export default async function AlternativesHub() {
         sub="Honest, India-fit alternatives to every major CRM — why teams look elsewhere, and which options actually fit Indian B2B sales. We build Leadkaun and tell you where each competitor still wins."
         primary={undefined}
       />
+      <SectionGround variant="pure" size="sm">
+        <Container>
+          <QuickAnswer
+            question="What are the best alternatives to Zoho, HubSpot and Salesforce in India?"
+            answer="For Indian SMBs, the best alternative depends on why you're leaving. Leadkaun is a focused, flat-priced Sales Behaviour OS that grades and prioritises leads alongside your CRM; Kylas and Freshsales are also India-fit options. Each competitor page names where the incumbent still wins."
+          />
+        </Container>
+      </SectionGround>
       <SectionGround variant="cream" size="lg">
         <Container>
           <div className="mb-10">

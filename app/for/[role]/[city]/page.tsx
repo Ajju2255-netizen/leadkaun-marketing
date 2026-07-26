@@ -11,12 +11,19 @@ import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
 import { NumberedTag } from "@/app/components/numbered-tag"
+import { FloatingCard } from "@/app/components/floating-card"
+import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
+import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
-import { getCities, getCity, getRole, resolveCitySlug } from "@/lib/pseo/lookup"
+import { stableHash, pickN } from "@/lib/pseo/variation"
+import { SHARED_FAQS } from "@/lib/pseo/shared-content"
+import { getCities, getCity, getRole, getIndustries, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
-import { breadcrumbListSchema, placeSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -45,8 +52,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function RoleCityPage({ params }: Params) {
   const { role, city } = await params
-  const [r, cityRec, allCities] = await Promise.all([getRole(role), getCity(city), getCities()])
+  const [r, cityRec, allCities, industries] = await Promise.all([getRole(role), getCity(city), getCities(), getIndustries()])
   if (!r || !cityRec) notFound()
+
+  // Role × city fit: which local B2B sectors this role most often sells into.
+  const cityIndustries = industries.filter((i) => cityRec.industries.includes(i.slug))
+  const roleFit = cityIndustries.filter((i) => r.industryTags.includes(i.slug))
+  const fitIndustries = (roleFit.length ? roleFit : cityIndustries).slice(0, 3)
+  const faqs = pickN(SHARED_FAQS, 5, stableHash(`role:${role}:${cityRec.slug}`))
 
   const schemas = [
     breadcrumbListSchema([
@@ -54,6 +67,7 @@ export default async function RoleCityPage({ params }: Params) {
       { name: r.title }, { name: cityRec.name },
     ]),
     placeSchema({ city: cityRec.name, state: cityRec.state, lat: cityRec.lat, lng: cityRec.lng }),
+    faqPageSchema(faqs),
   ]
 
   return (
@@ -83,6 +97,16 @@ export default async function RoleCityPage({ params }: Params) {
 
         <ProofBand />
 
+        {/* AI QUICK ANSWER (GEO / speakable) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question={`Is Leadkaun useful for a ${r.title.toLowerCase()} in ${cityRec.name}?`}
+              answer={`Yes. ${r.leadkaunAngle}`}
+            />
+          </Container>
+        </SectionGround>
+
         {/* HOW IT CHANGES THE DAY */}
         <SectionGround variant="cream" size="lg">
           <Container>
@@ -96,18 +120,54 @@ export default async function RoleCityPage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {/* ROLE × CITY FIT */}
+        <SectionGround variant="sky" size="md">
+          <Container>
+            <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{r.title}s in {cityRec.name}</p>
+              <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
+                In {cityRec.name}, a {r.title.toLowerCase()} most often sells into <strong className="text-ink font-semibold">{fitIndustries.map((i) => i.name).join(", ")}</strong> — a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? ` of roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}. Leadkaun grades every enquiry from those sectors A–F on fit, intent and quality, so the queue is ranked before the {r.title.toLowerCase()} opens it.
+              </p>
+              {r.featuresUsedMost.length > 0 && (
+                <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                  The modules a {r.title.toLowerCase()} leans on most: <strong className="text-ink font-semibold">{r.featuresUsedMost.join(", ")}</strong> — built for how {r.title.toLowerCase()}s in Indian B2B actually work, with WhatsApp as a first-class signal and lakhs/crores throughout.
+                </p>
+              )}
+            </FloatingCard></Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* METHODOLOGY — how the grade is computed */}
+        <MethodologyCard number="03" ground="cream" />
+
         <SellSpine
-          start={2}
+          start={4}
           showcaseEyebrow={`How a ${r.title.toLowerCase()} works the queue`}
           showcaseTitle={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
           showcaseSub={`No dashboards to read. Leadkaun grades every lead A–F, ranks each rep's Priority Queue, and shows the ₹ at risk today — so a ${r.title.toLowerCase()} in ${cityRec.name} knows exactly who to call next.`}
         />
 
+        {/* SOURCES / REFERENCES */}
+        <ReferencesBlock number="08" ground="cream" />
+
+        {/* FAQ */}
+        <SectionGround variant="pure" size="md">
+          <Container>
+            <Reveal className="mx-auto mb-10 max-w-3xl text-center">
+              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
+                Questions {r.title.toLowerCase()}s ask.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}><Faq items={faqs} /></Reveal>
+          </Container>
+        </SectionGround>
+
         {/* RELATED */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mb-8">
-              <NumberedTag number="06" tone="warm" label="Same role, other cities" />
+              <NumberedTag number="10" tone="warm" label="Same role, other cities" />
               <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                 {r.title}s elsewhere in India.
               </h2>

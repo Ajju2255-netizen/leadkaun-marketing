@@ -17,6 +17,10 @@ import { Reveal } from "@/app/components/reveal"
 import { SellSpine } from "@/app/components/sell/blocks"
 
 import { hubIndexable } from "@/lib/pseo/indexable"
+import { stableHash } from "@/lib/pseo/variation"
+import { buildLeafFaqs } from "@/lib/pseo/shared-content"
+import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { ReferencesBlock } from "@/app/components/pseo/references-block"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
@@ -55,7 +59,7 @@ export default async function IndustryCityPage({ params }: Params) {
   if (!ind || !cityRec) notFound()
 
   const related = await relatedForIndustryCity(industry, cityRec.slug)
-  const faqs = ind.faqs.slice(0, 4)
+  const faqs = buildLeafFaqs(ind.faqs, undefined, stableHash(`${industry}:${cityRec.slug}`))
 
   const schemas = [
     breadcrumbListSchema([
@@ -211,18 +215,24 @@ export default async function IndustryCityPage({ params }: Params) {
           </SectionGround>
         )}
 
+        {/* METHODOLOGY — how the grade is computed */}
+        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} />
+
         <SellSpine
-          start={3}
+          start={4}
           showcaseEyebrow="See it work"
           showcaseTitle={<>See Leadkaun work for {ind.name.toLowerCase()} teams.</>}
           showcaseSub={`The Priority Queue, lead grades A–F, and the ₹-at-risk view your ${cityRec.name} ${ind.name.toLowerCase()} team opens every morning — so reps work the highest-value lead first, not the most recent.`}
         />
 
+        {/* SOURCES / REFERENCES */}
+        <ReferencesBlock number="08" ground="cream" />
+
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="07" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions for {ind.name.toLowerCase()} teams.
               </h2>
@@ -236,7 +246,7 @@ export default async function IndustryCityPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="08" tone="warm" label="Related" />
+                <NumberedTag number="10" tone="warm" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More {ind.name.toLowerCase()} locations &amp; pages.
                 </h2>

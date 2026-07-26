@@ -107,6 +107,9 @@ export const KeywordSchema = z.object({
   benefitBullets: z.array(z.string()).min(3).max(5),
   featureLink: z.string(),
   glossaryLink: z.string().optional(),
+  // Enrichment (optional): keyword-angle body paragraphs + keyword-specific FAQs.
+  body: z.array(z.string()).optional(),
+  faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
 })
 export type Keyword = z.infer<typeof KeywordSchema>
 

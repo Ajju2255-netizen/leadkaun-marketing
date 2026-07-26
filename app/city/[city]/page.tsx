@@ -11,14 +11,20 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { IndustryTile } from "@/app/components/industry-tile"
+import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
+import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
 import { hubIndexable } from "@/lib/pseo/indexable"
+import { stableHash, pickN } from "@/lib/pseo/variation"
+import { SHARED_FAQS } from "@/lib/pseo/shared-content"
 import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
 import { relatedForCity } from "@/lib/pseo/related"
-import { breadcrumbListSchema, placeSchema, jsonLdScript, canonical } from "@/lib/seo"
+import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -64,6 +70,7 @@ export default async function CityPage({ params }: Params) {
   if (!cityRec) notFound()
 
   const [served, related, roles] = await Promise.all([industriesServedInCity(cityRec.slug), relatedForCity(cityRec.slug), getRoles()])
+  const faqs = pickN(SHARED_FAQS, 6, stableHash(`city:${cityRec.slug}`))
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Cities", url: "/city" }, { name: cityRec.name }]),
@@ -77,6 +84,7 @@ export default async function CityPage({ params }: Params) {
         name: `${i.name} in ${cityRec.name}`,
       })),
     },
+    faqPageSchema(faqs),
   ]
 
   return (
@@ -106,6 +114,16 @@ export default async function CityPage({ params }: Params) {
 
         <ProofBand />
 
+        {/* AI QUICK ANSWER (GEO / speakable) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question={`Is Leadkaun a good fit for B2B sales teams in ${cityRec.name}?`}
+              answer={`Leadkaun is a Sales Behaviour OS for ${cityRec.name} B2B teams. It grades every lead A–F on fit, intent and quality, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads — running alongside your CRM, with same-day setup. It's calibrated for how ${cityRec.name} teams actually sell: Indian phone handling, WhatsApp as a first-class signal, and lakhs/crores throughout.`}
+            />
+          </Container>
+        </SectionGround>
+
         {/* ── Local-context fingerprint — real data, so no two city hubs read alike ── */}
         <SectionGround variant="pure" size="lg">
           <Container>
@@ -121,6 +139,11 @@ export default async function CityPage({ params }: Params) {
                 {served.length > 0 ? `, led by ${served.slice(0, 3).map((i) => i.name).join(", ")}` : ""}: grade every lead
                 A–F in real time, build each rep&apos;s priority queue, and surface ₹ at risk before a hot lead cools.
               </p>
+              {cityRec.districts && (
+                <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft md:text-[16px]">
+                  Commercial activity in {cityRec.name} clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local B2B economy built on {cityRec.localBiz}</> : null}. Leadkaun grades and queues enquiries from across those areas so the highest-intent ones surface first, wherever they land.
+                </p>
+              )}
             </Reveal>
             <Reveal delay={0.08} className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
               {[
@@ -177,18 +200,37 @@ export default async function CityPage({ params }: Params) {
           </SectionGround>
         )}
 
+        {/* METHODOLOGY — how the grade is computed */}
+        <MethodologyCard number="04" ground="cream" />
+
         <SellSpine
-          start={4}
+          start={5}
           showcaseEyebrow="See it work"
           showcaseTitle={<>See Leadkaun work for {cityRec.name} sales teams.</>}
           showcaseSub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen ${cityRec.name} B2B teams open every morning.`}
         />
 
+        {/* SOURCES / REFERENCES */}
+        <ReferencesBlock number="09" ground="cream" />
+
+        {/* FAQ */}
+        <SectionGround variant="sky" size="md">
+          <Container>
+            <Reveal className="mx-auto mb-10 max-w-3xl text-center">
+              <div className="flex justify-center"><NumberedTag number="10" label="FAQ" /></div>
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
+                Questions {cityRec.name} teams ask.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}><Faq items={faqs} /></Reveal>
+          </Container>
+        </SectionGround>
+
         {related.length > 0 && (
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="08" label="Related" />
+                <NumberedTag number="11" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More pages for {cityRec.name}.
                 </h2>

@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { leafIndexable } from "@/lib/pseo/indexable"
-import { stableHash, pickN, keywordIntro } from "@/lib/pseo/variation"
+import { stableHash, keywordIntro } from "@/lib/pseo/variation"
+import { buildLeafFaqs } from "@/lib/pseo/shared-content"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -15,7 +16,10 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
+import { QuickAnswer } from "@/app/components/quick-answer"
 import { SellSpine } from "@/app/components/sell/blocks"
+import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
 import { getIndustry, getCity, getKeyword, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
@@ -58,7 +62,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
   // Deterministic hash-seeded variation (Anti-AI Layer 2): same combo → same
   // render (ISR-safe), but neighbours differ in intro framing + FAQ subset.
   const seed = stableHash(`${industry}:${cityRec.slug}:${keyword}`)
-  const faqs = pickN(ind.faqs, Math.min(3, ind.faqs.length), seed)
+  const faqs = buildLeafFaqs(ind.faqs, kw.faqs, seed)
   const intro = keywordIntro(
     { industryName: ind.name, industryLower: ind.name.toLowerCase(), cityName: cityRec.name, keywordLabel: kw.label, keywordLower: kw.label.toLowerCase() },
     seed,
@@ -107,6 +111,16 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           }
         />
 
+        {/* AI QUICK ANSWER (GEO / speakable) */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <QuickAnswer
+              question={`What is Leadkaun's ${kw.label.toLowerCase()} for ${ind.name.toLowerCase()} teams in ${cityRec.name}?`}
+              answer={intro}
+            />
+          </Container>
+        </SectionGround>
+
         {/* BENEFITS */}
         <SectionGround variant="cream" size="lg">
           <Container>
@@ -138,6 +152,27 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {/* KEYWORD-ANGLE BODY */}
+        {kw.body && kw.body.length > 0 && (
+          <SectionGround variant="pure" size="lg">
+            <Container>
+              <div className="mx-auto max-w-3xl">
+                <Reveal>
+                  <NumberedTag number="02" label={`On ${kw.label.toLowerCase()}`} />
+                  <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
+                    What {kw.label.toLowerCase()} actually solves.
+                  </h2>
+                </Reveal>
+                {kw.body.map((para, i) => (
+                  <Reveal key={i} delay={0.04}>
+                    <p className="mt-5 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">{para}</p>
+                  </Reveal>
+                ))}
+              </div>
+            </Container>
+          </SectionGround>
+        )}
+
         {/* CITY CONTEXT */}
         <SectionGround variant="sky" size="md">
           <Container>
@@ -146,9 +181,12 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
                 In {cityRec.name}, {ind.name.toLowerCase()} teams typically work leads from <strong className="text-ink font-semibold">{ind.channels.slice(0, 3).join(", ")}</strong> — with deal sizes in the <strong className="text-ink font-semibold">{ind.ticketBand}</strong> range and sales cycles of <strong className="text-ink font-semibold">{ind.salesCycle}</strong>. Leadkaun&apos;s {kw.label.toLowerCase()} is calibrated for those realities, not a generic US B2B default.
               </p>
+              <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
+                {cityRec.name} is a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? `, home to roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}, where B2B demand concentrates in {cityRec.industries.slice(0, 3).join(", ").replace(/-/g, " ")}. Leadkaun grades and queues every enquiry here on fit, intent and quality — so a {cityRec.name} rep works the highest-probability leads first.
+              </p>
               {cityRec.notes && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  <span className="text-ink font-semibold">{cityRec.name}</span> is a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? `, home to roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}. {cityRec.notes.replace(/\.$/, "")}. Leadkaun scores every lead here on fit, intent and quality, so reps work the highest-probability enquiries first.
+                  {cityRec.notes.replace(/\.$/, "")} — context Leadkaun&apos;s grading accounts for when it ranks a {cityRec.name} {ind.name.toLowerCase()} pipeline.
                 </p>
               )}
               {cityRec.districts && (
@@ -160,18 +198,24 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {/* METHODOLOGY — how the grade is computed */}
+        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} />
+
         <SellSpine
-          start={2}
+          start={4}
           showcaseEyebrow="See it work"
           showcaseTitle={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
           showcaseSub={`This is the screen ${cityRec.name} ${ind.name.toLowerCase()} teams work from: every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees.`}
         />
 
+        {/* SOURCES / REFERENCES */}
+        <ReferencesBlock number="08" ground="cream" />
+
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="06" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions teams ask.
               </h2>
@@ -185,7 +229,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="07" tone="warm" label="Related" />
+                <NumberedTag number="10" tone="warm" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More {ind.name.toLowerCase()} × {kw.label.toLowerCase()} pages.
                 </h2>

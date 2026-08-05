@@ -6,6 +6,7 @@ import { leafIndexable } from "@/lib/pseo/indexable"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -23,6 +24,7 @@ import { stableHash, pickN } from "@/lib/pseo/variation"
 import { SHARED_FAQS } from "@/lib/pseo/shared-content"
 import { getCities, getCity, getRole, getIndustries, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
+import { commercialLinks, relatedForRoleCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -60,6 +62,10 @@ export default async function RoleCityPage({ params }: Params) {
   const roleFit = cityIndustries.filter((i) => r.industryTags.includes(i.slug))
   const fitIndustries = (roleFit.length ? roleFit : cityIndustries).slice(0, 3)
   const faqs = pickN(SHARED_FAQS, 5, stableHash(`role:${role}:${cityRec.slug}`))
+  const commercial = commercialLinks(`role:${role}:${cityRec.slug}`, fitIndustries[0]?.slug)
+  // Role pages previously linked ONLY other role pages — a closed loop. Pull in
+  // the cross-type links (industry×city, city hub, feature) so they join the mesh.
+  const crossLinks = (await relatedForRoleCity(role, cityRec.slug)).filter((l) => l.kind !== "sibling-city")
 
   const schemas = [
     breadcrumbListSchema([
@@ -178,9 +184,16 @@ export default async function RoleCityPage({ params }: Params) {
                   {r.title}s in {c.name}
                 </Link>
               ))}
+              {crossLinks.map((l) => (
+                <Link key={l.href} href={l.href} className="inline-flex items-center rounded-full glass-1 gloss-edge px-4 py-2 text-[13px] font-medium text-ink-soft transition-all hover:text-sky-600 lift">
+                  {l.label}
+                </Link>
+              ))}
             </Reveal>
           </Container>
         </SectionGround>
+
+        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${r.title.toLowerCase()}s.`} />
 
         <CTABanner />
         <Footer />

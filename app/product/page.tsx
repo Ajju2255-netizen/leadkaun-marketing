@@ -22,7 +22,7 @@ import { APP_URLS } from "@/lib/urls"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Product — Sales Behaviour OS for Indian Sales Teams",
+  title: "Lead Management Software — Product Tour | Leadkaun",
   description:
     "Leadkaun grades every lead A–F, surfaces a Priority Queue, tracks missed ₹, and sends managers a Morning Brief — all built for Indian B2B sales teams. 12 live modules.",
   alternates: { canonical: "/product" },

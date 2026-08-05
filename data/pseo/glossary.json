@@ -447,5 +447,117 @@
     ],
     "relatedFeature": "team-admin",
     "category": "workflow"
+  },
+  {
+    "slug": "lead-quality",
+    "term": "Lead Quality",
+    "definitionShort": "How reliable and complete a lead's data is — measured as a 0–100 Quality Score covering completeness, phone and email validity, and junk or duplicate detection.",
+    "definitionLong": "Lead quality is the third leg of lead scoring, alongside Fit and Intent, and the one most teams skip. It asks a narrower question than 'is this a good lead?' — it asks 'can we trust this record?' A lead with a fake phone number, a disposable email, or three missing fields cannot be worked no matter how well it matches the ICP. In Leadkaun, Quality is scored 0–100 on completeness, phone and email validity, and duplicate/junk detection, and it acts as a cap: if Quality is too low the lead is graded down regardless of Fit and Intent, so bad data can never masquerade as a hot lead. Tracking quality by source is usually the fastest way to find which channel is quietly wasting rep hours.",
+    "examples": [
+      "A lead with a valid 10-digit Indian mobile, a work email and a named company scores high on Quality.",
+      "A form fill with 'asdf' as the company name and a disposable email is capped at Grade F on Quality alone."
+    ],
+    "relatedTerms": [
+      "quality-score",
+      "junk-lead",
+      "lead-scoring",
+      "grade-f",
+      "source-truth"
+    ],
+    "relatedFeature": "lead-quality",
+    "category": "scoring"
+  },
+  {
+    "slug": "junk-lead",
+    "term": "Junk Lead",
+    "definitionShort": "A lead that can never convert because the record itself is invalid — fake contact details, a test submission, a bot fill, or a duplicate of an existing lead.",
+    "definitionLong": "A junk lead is different from a bad-fit lead. A bad-fit lead is a real person who is not your buyer; a junk lead is not a workable record at all. Junk arrives from bot form fills, mistyped or deliberately fake phone numbers, test submissions, and duplicate entries created when the same enquiry lands through two channels. The cost is rarely the lead itself — it is the rep time spent discovering it is junk, and the way junk inflates every conversion metric that uses total leads as a denominator. Leadkaun detects junk on insert: Indian phone formats are normalised and validated, duplicates are caught before they reach a rep, and junk is graded F so it never enters a Priority Queue.",
+    "examples": [
+      "The same enquiry submitted through a website form and a WhatsApp message becomes one lead, not two.",
+      "A 10-digit number that fails Indian mobile validation is flagged before a rep dials it."
+    ],
+    "relatedTerms": [
+      "lead-quality",
+      "quality-score",
+      "grade-f",
+      "unassigned-queue",
+      "source-truth"
+    ],
+    "relatedFeature": "lead-quality",
+    "category": "lifecycle"
+  },
+  {
+    "slug": "assignment-rules",
+    "term": "Assignment Rules",
+    "definitionShort": "The logic that decides which rep owns a new lead — by territory, industry, source, round-robin, or grade — applied the moment the lead lands.",
+    "definitionLong": "Assignment rules are lead routing made explicit. Without them, leads get claimed by whoever is watching the inbox, which concentrates the best enquiries on the fastest rep rather than the right one, and leaves the rest to age in an unassigned pile. Rules typically route on territory, industry, source, deal size band, round-robin, or grade — often in combination, with a fallback for anything unmatched. The rule that matters most is the fallback: every lead needs an owner within minutes, because an unowned lead is functionally an ignored lead. In Leadkaun, assignment happens at insert alongside grading, so a lead arrives already owned and already ranked in that rep's Priority Queue.",
+    "examples": [
+      "Real-estate enquiries above ₹1 crore route to the senior closer; everything else round-robins.",
+      "Anything unmatched after 15 minutes drops into the Unassigned Queue for the manager to clear."
+    ],
+    "relatedTerms": [
+      "unassigned-queue",
+      "priority-queue",
+      "team-admin",
+      "lead-scoring"
+    ],
+    "relatedFeature": "team-admin",
+    "category": "workflow"
+  },
+  {
+    "slug": "team-admin",
+    "term": "Team Admin",
+    "definitionShort": "The controls for who is on the sales team and what each person can see and do — roles, permissions, rep records, and lead ownership.",
+    "definitionLong": "Team admin is the layer that makes a sales tool safe to give an entire team. It covers adding and removing reps, assigning roles (rep, manager, admin), scoping what each role can see — usually their own leads for reps, the whole team for managers — and reassigning ownership when someone leaves or goes on leave. The reassignment path is the part teams discover too late: when a rep departs, their pipeline should transfer with its history and grades intact, not vanish or reset. Because Leadkaun prices flat per account rather than per seat, adding every rep costs nothing extra, which removes the usual incentive to share logins and keeps the accountability data honest.",
+    "examples": [
+      "A manager sees the whole team's Priority Queues; a rep sees only their own.",
+      "A departing rep's 40 open leads transfer to a teammate with grades and history intact."
+    ],
+    "relatedTerms": [
+      "assignment-rules",
+      "sales-rep-tracking",
+      "unassigned-queue",
+      "analytics-dashboard"
+    ],
+    "relatedFeature": "team-admin",
+    "category": "setup"
+  },
+  {
+    "slug": "sales-rep-tracking",
+    "term": "Sales Rep Tracking",
+    "definitionShort": "Measuring what reps actually do — calls made, follow-ups completed, response time, leads worked — rather than only what they close.",
+    "definitionLong": "Sales rep tracking measures leading indicators instead of lagging ones. Revenue tells you what happened last quarter; behaviour tells you what will happen next. The useful metrics are the ones a rep controls day to day: how fast they respond to a new Grade A lead, how many committed follow-ups they actually complete, how many leads they let go stale, and how much of their queue they work top-down. Tracked well, this is a coaching instrument, not surveillance — it shows a manager which specific habit is costing a specific rep deals. Tracked badly, it becomes an activity-count leaderboard that reps learn to game. The distinction is whether the metrics are tied to lead grade and outcome, or just to volume.",
+    "examples": [
+      "A rep with high call volume but a 6-hour response time on Grade A leads has a triage problem, not an effort problem.",
+      "Follow-up completion rate against committed follow-ups is more predictive than total calls."
+    ],
+    "relatedTerms": [
+      "follow-up-score",
+      "morning-brief",
+      "analytics-dashboard",
+      "sales-behaviour-os",
+      "team-admin"
+    ],
+    "relatedFeature": "sales-rep-tracking",
+    "category": "metrics"
+  },
+  {
+    "slug": "analytics-dashboard",
+    "term": "Analytics Dashboard",
+    "definitionShort": "The single view of pipeline health — grade distribution, ₹ at risk, source performance, response times, and rep behaviour — in one place.",
+    "definitionLong": "A sales analytics dashboard is only useful if it answers a decision. Most report totals — leads this month, calls made, deals won — which describe the past without suggesting an action. The versions worth opening daily report distributions and money: how leads split across Grades A–F, how much revenue is at risk from stale leads right now, which sources produce Grade A versus junk, and where response time is slipping by rep. Reporting in rupees rather than percentages matters here, because a manager can act on '₹18 lakh at risk in Grade A' in a way they cannot act on 'conversion down 4%'. In Leadkaun this feeds the Morning Brief, so the numbers arrive rather than waiting to be looked up.",
+    "examples": [
+      "Source performance by grade shows which channel produces buyers and which produces volume.",
+      "₹ at risk by rep shows where a manager's next coaching hour should go."
+    ],
+    "relatedTerms": [
+      "rupee-at-risk",
+      "morning-brief",
+      "sales-rep-tracking",
+      "loss-analysis",
+      "source-truth"
+    ],
+    "relatedFeature": "analytics",
+    "category": "metrics"
   }
 ]

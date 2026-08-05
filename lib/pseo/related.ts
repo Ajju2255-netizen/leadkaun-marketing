@@ -2,6 +2,7 @@ import {
   getKeywords, getCity, getIndustry, getKeyword,
   citiesServingIndustry, industriesServedInCity, getCities,
 } from "./lookup"
+import { pick, stableHash } from "./variation"
 
 /**
  * Related-content derivation for PSEO pages. Async — backed by the R2/fs
@@ -15,6 +16,73 @@ import {
  */
 
 export type RelatedLink = { href: string; label: string; kind: string }
+
+/* ────────────────────────────────────────────────────────────────────────────
+ * COMMERCIAL LINK LAYER
+ *
+ * Before this existed, the pSEO mesh was closed: `relatedForCity` returned 11
+ * links and all 11 were geo, so ~17k city pages passed authority only to each
+ * other while `/best/*` — the pages that actually target the money keywords —
+ * had one inbound internal link each (from the /best index). Every pSEO page
+ * now also links out to a matched commercial guide, a pillar, a feature and
+ * pricing, so the geo corpus feeds the commercial corpus instead of itself.
+ *
+ * Anchors are seeded per page (pillar + feature rotate) so 17k pages don't ship
+ * one byte-identical link block — same rationale as the variation layer.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+/** Industry → the /best guide that matches its buyer intent. */
+const GUIDE_BY_INDUSTRY: Record<string, { slug: string; label: string }> = {
+  "real-estate":  { slug: "crm-for-real-estate-india",         label: "Best real estate CRM software in India" },
+  edtech:         { slug: "crm-for-edtech-india",              label: "Best CRM for EdTech & admissions" },
+  manufacturing:  { slug: "crm-for-manufacturing-india",       label: "Best CRM for manufacturing in India" },
+  saas:           { slug: "crm-for-startups-india",            label: "Best CRM for startups in India" },
+  bfsi:           { slug: "telecalling-crm-india",             label: "Best telecalling CRM software in India" },
+  fintech:        { slug: "sales-crm-for-small-business-india", label: "Best sales CRM for small business" },
+  healthcare:     { slug: "lead-management-software-india",    label: "Best lead management software in India" },
+  retail:         { slug: "whatsapp-crm-india",                label: "Best WhatsApp CRM software in India" },
+  hospitality:    { slug: "whatsapp-crm-india",                label: "Best WhatsApp CRM software in India" },
+  agencies:       { slug: "lead-scoring-software",             label: "Best lead scoring software" },
+  logistics:      { slug: "sales-automation-software",         label: "Best sales automation software" },
+}
+
+const DEFAULT_GUIDE = { slug: "lead-management-software-india", label: "Best lead management software in India" }
+
+const PILLARS: ReadonlyArray<{ href: string; label: string }> = [
+  { href: "/learn/lead-management",  label: "Lead management: the complete guide" },
+  { href: "/learn/lead-scoring",     label: "How lead scoring works — the A–F method" },
+  { href: "/learn/sales-follow-up",  label: "Sales follow-up & response time" },
+  { href: "/learn/missed-revenue",   label: "Missed revenue & ₹ at risk, explained" },
+  { href: "/learn/whatsapp-sales",   label: "WhatsApp sales: tracking that actually sticks" },
+  { href: "/learn/sales-behaviour",  label: "Sales behaviour & accountability" },
+]
+
+const FEATURES: ReadonlyArray<{ href: string; label: string }> = [
+  { href: "/features/lead-scoring",              label: "Lead scoring software — grade A–F in real time" },
+  { href: "/features/priority-queue",            label: "Lead prioritisation — the Priority Queue" },
+  { href: "/features/missed-opportunity-engine", label: "Lead tracking — the Missed Opportunity Engine" },
+  { href: "/features/whatsapp-tracking",         label: "WhatsApp lead tracking" },
+  { href: "/features/sales-rep-tracking",        label: "Sales rep tracking & accountability" },
+  { href: "/features/morning-brief",             label: "The 8:30 AM Morning Brief" },
+]
+
+/**
+ * The commercial links every pSEO page carries. `seedKey` is the page's own
+ * slug path, so the pillar/feature choice is stable per URL but varies across
+ * neighbours; `industrySlug` picks the matching buyer guide.
+ */
+export function commercialLinks(seedKey: string, industrySlug?: string): RelatedLink[] {
+  const seed = stableHash(seedKey)
+  const guide = (industrySlug && GUIDE_BY_INDUSTRY[industrySlug]) || DEFAULT_GUIDE
+  const pillar = pick(PILLARS, seed)
+  const feature = pick(FEATURES, seed >>> 3)
+  return [
+    { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
+    { href: pillar.href, label: pillar.label, kind: "commercial-pillar" },
+    { href: feature.href, label: feature.label, kind: "commercial-feature" },
+    { href: "/pricing", label: "Leadkaun pricing in ₹ — flat per account", kind: "commercial-pricing" },
+  ]
+}
 
 // Industry + City page related content
 export async function relatedForIndustryCity(industrySlug: string, citySlug: string): Promise<RelatedLink[]> {

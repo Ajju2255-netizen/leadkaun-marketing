@@ -8,6 +8,7 @@ import { buildLeafFaqs } from "@/lib/pseo/shared-content"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -23,7 +24,7 @@ import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
 import { getIndustry, getCity, getKeyword, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
-import { relatedForIndustryCityKeyword } from "@/lib/pseo/related"
+import { commercialLinks, relatedForIndustryCityKeyword } from "@/lib/pseo/related"
 import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, offerSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -59,6 +60,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
   if (!ind || !cityRec || !kw) notFound()
 
   const related = await relatedForIndustryCityKeyword(industry, cityRec.slug, keyword)
+  const commercial = commercialLinks(`${industry}:${cityRec.slug}:${keyword}`, industry)
   // Deterministic hash-seeded variation (Anti-AI Layer 2): same combo → same
   // render (ISR-safe), but neighbours differ in intro framing + FAQ subset.
   const seed = stableHash(`${industry}:${cityRec.slug}:${keyword}`)
@@ -244,6 +246,8 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
             </Container>
           </SectionGround>
         )}
+
+        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
 
         <CTABanner />
         <Footer />

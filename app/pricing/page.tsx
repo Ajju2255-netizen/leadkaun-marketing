@@ -18,7 +18,7 @@ import { faqPageSchema, offerSchema, breadcrumbListSchema, jsonLdScript } from "
 import { PricingPlans } from "./pricing-plans"
 
 export const metadata: Metadata = {
-  title: "Pricing in ₹ — Start Free, Scale to Enterprise",
+  title: "Lead Management Software Pricing in ₹ — Start Free",
   description:
     "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 — flat per account, priced by team size and active-lead volume. Save 17% on annual billing.",
   alternates: { canonical: "/pricing" },

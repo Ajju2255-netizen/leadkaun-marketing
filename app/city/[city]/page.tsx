@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -23,7 +24,7 @@ import { stableHash, pickN } from "@/lib/pseo/variation"
 import { SHARED_FAQS } from "@/lib/pseo/shared-content"
 import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
-import { relatedForCity } from "@/lib/pseo/related"
+import { commercialLinks, relatedForCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -66,6 +67,7 @@ export default async function CityPage({ params }: Params) {
   if (!cityRec) notFound()
 
   const [served, related, roles] = await Promise.all([industriesServedInCity(cityRec.slug), relatedForCity(cityRec.slug), getRoles()])
+  const commercial = commercialLinks(`city:${cityRec.slug}`)
   const faqs = pickN(SHARED_FAQS, 6, stableHash(`city:${cityRec.slug}`))
 
   const schemas = [
@@ -242,6 +244,8 @@ export default async function CityPage({ params }: Params) {
             </Container>
           </SectionGround>
         )}
+
+        <CommercialLinks number="12" links={commercial} heading={`Lead management software for ${cityRec.name} sales teams.`} />
 
         <CTABanner />
         <Footer />

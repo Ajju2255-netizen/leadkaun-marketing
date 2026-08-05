@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
@@ -24,7 +25,7 @@ import { ReferencesBlock } from "@/app/components/pseo/references-block"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
-import { relatedForIndustryCity } from "@/lib/pseo/related"
+import { commercialLinks, relatedForIndustryCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -60,6 +61,7 @@ export default async function IndustryCityPage({ params }: Params) {
   if (!ind || !cityRec) notFound()
 
   const related = await relatedForIndustryCity(industry, cityRec.slug)
+  const commercial = commercialLinks(`${industry}:${cityRec.slug}`, industry)
   const faqs = buildLeafFaqs(ind.faqs, undefined, stableHash(`${industry}:${cityRec.slug}`))
 
   const schemas = [
@@ -264,6 +266,8 @@ export default async function IndustryCityPage({ params }: Params) {
             </Container>
           </SectionGround>
         )}
+
+        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
 
         <CTABanner />
         <Footer />

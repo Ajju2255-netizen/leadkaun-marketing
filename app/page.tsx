@@ -44,14 +44,14 @@ import type { Metadata } from "next"
 // title/description/canonical/OG. `absolute` opts out of the "%s | Leadkaun"
 // template so the head term leads.
 export const metadata: Metadata = {
-  title: { absolute: "Leadkaun — India's Sales Behaviour OS for B2B Sales Teams" },
+  title: { absolute: "Lead Management Software for Indian B2B Sales Teams | Leadkaun" },
   description:
-    "Leadkaun grades every lead A–F, builds each rep's Priority Queue, and surfaces missed revenue in ₹ — the India-first sales system that tells your team who to call next. Not a CRM. Start free.",
+    "Leadkaun is lead management software for Indian B2B teams — grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in ₹. Lead scoring, lead tracking and sales CRM in one place. Runs alongside your CRM. Start free.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Leadkaun — India's Sales Behaviour OS",
+    title: "Leadkaun — Lead Management Software for Indian B2B Teams",
     description:
-      "Grade every lead A–F, work a live Priority Queue, and recover missed revenue in ₹. The sales system that tells reps who to call next. Start free.",
+      "Grade every lead A–F, work a live Priority Queue, and recover missed revenue in ₹. Lead management and lead tracking software that tells reps who to call next. Start free.",
     url: "/",
     type: "website",
   },
@@ -116,7 +116,7 @@ function Hero() {
             </div>
 
             <h1 className="mt-7 font-serif text-[42px] font-medium leading-[1.06] tracking-[-0.015em] text-ink md:text-[60px]">
-              Tell every rep{" "}
+              Lead management software that tells every rep{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 45%, #FB923C 100%)" }}
@@ -126,8 +126,9 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-ink-soft md:text-[19px]">
-              Leadkaun grades every lead A–F, builds each rep&apos;s Priority Queue, and surfaces
-              missed revenue in ₹ — so your team closes more and wastes less.
+              Leadkaun is the Sales Behaviour OS for Indian B2B teams — it grades every lead A–F,
+              builds each rep&apos;s Priority Queue, and surfaces missed revenue in ₹. Sales CRM and
+              lead tracking in one place.
             </p>
 
             <ul className="mt-7 space-y-2.5">

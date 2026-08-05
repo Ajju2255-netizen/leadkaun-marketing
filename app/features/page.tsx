@@ -13,7 +13,7 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Features — The Sales Behaviour OS for Indian B2B Teams",
+  title: "Lead Management & Lead Scoring Features for Indian B2B Teams",
   description:
     "Every Leadkaun module in one place: A–F lead scoring, the Priority Queue, the Missed Opportunity Engine, the 8:30 AM Morning Brief, WhatsApp tracking, and sales-rep tracking — built for how Indian B2B teams sell.",
   alternates: { canonical: "/features" },

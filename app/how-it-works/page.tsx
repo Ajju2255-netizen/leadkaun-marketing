@@ -17,7 +17,7 @@ import { Faq } from "@/app/components/faq"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "How Leadkaun Works — From Lead In to Deal Closed",
+  title: "How Leadkaun Works — Lead Management From Enquiry to Deal",
   description:
     "See exactly how Leadkaun's scoring engine, priority queue, and missed opportunity engine work together to stop deals from dying. Built for Indian B2B sales teams.",
   alternates: { canonical: "/how-it-works" },

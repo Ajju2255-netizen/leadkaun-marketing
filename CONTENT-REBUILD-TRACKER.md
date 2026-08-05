@@ -42,11 +42,11 @@ _Measured 2026-08-05 by `npm run tracker`. Do not hand-edit this block._
 | Gate errors | **0** | `npm run gate` — must be 0 to ship |
 | Gate warnings | 6 | advisory; comparative-copy reviews + city notes |
 | Ledger capabilities | 17 | 11 shipped · 4 partial · 2 not-shipped/dark |
-| Shipped but unmarketed | **5** | intake-intelligence, import-readiness, score-evolution, confidence, freshness |
+| Shipped but unmarketed | **0** | — |
 | Page-type blueprints | 21 | each with a unique thesis, enforced |
-| Indexable URLs | 17,525 | sum of sitemap shards |
-| …of which city-scoped | 17,292 (98.7%) | the concentration Phase 3 is reducing |
-| Pillars / guides / glossary | 9 / 13 / 32 | the non-geo corpus |
+| Indexable URLs | 17,533 | sum of sitemap shards |
+| …of which city-scoped | 17,292 (98.6%) | the concentration Phase 3 is reducing |
+| Pillars / guides / glossary | 11 / 13 / 37 | the non-geo corpus |
 
 <!-- END generated:metrics -->
 

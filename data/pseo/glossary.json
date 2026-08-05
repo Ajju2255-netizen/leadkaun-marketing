@@ -864,5 +864,144 @@
       }
     ],
     "category": "metrics"
+  },
+  {
+    "slug": "confidence-score",
+    "term": "Confidence Score",
+    "definitionShort": "A 0–100 read of how much is actually known about a lead — separate from its grade, which says how good the lead is.",
+    "definitionLong": "Confidence answers a different question from the grade. The grade says how good a lead looks; confidence says how much information that judgement rests on. A lead with a company, a designation, a location and a budget can be graded with some assurance. A lead with a first name and a mobile number might be the best opportunity in the pipeline, and the honest position is that there is not yet enough to say — scoring it low would claim it is weak, which is a different and less truthful statement than admitting ignorance. Leadkaun computes confidence from eight weighted fields and returns a prioritised list of what to ask for next, so a rep with a thin lead knows exactly which two questions would move it. It is computed on demand rather than stored, and snapshotted onto the score timeline whenever a grade changes.",
+    "examples": [
+      "A lead with only a name and phone number can still be Grade B, but at low confidence — the next call is a qualifying call.",
+      "Adding company and designation typically moves confidence more than any other two fields."
+    ],
+    "relatedTerms": [
+      "quality-score",
+      "lead-quality",
+      "fit-score",
+      "score-evolution"
+    ],
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-data-trust"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
+    "category": "scoring"
+  },
+  {
+    "slug": "data-freshness",
+    "term": "Data Freshness",
+    "definitionShort": "How old a lead record is, expressed in ageing bands that keep moving — so a list bought six months ago never presents as new work.",
+    "definitionLong": "Freshness is the difference between a lead that arrived this morning and one that was collected eight months ago and imported today. On import they look identical, and that is precisely the failure that makes bought lists disappointing: the contact has no memory of the enquiry, has often changed roles, and treats the call as an intrusion rather than a follow-up. Leadkaun bands every lead by age and keeps ageing it, so the distinction stays visible in the queue instead of being discovered one call at a time. Where the original collection date is unknown, the band is inferred from the import date and flagged as inferred — an honest approximation rather than false precision. Measuring connect rate by freshness band is usually the fastest way to find out whether a list purchase was worth it.",
+    "examples": [
+      "A list collected six months before import starts in a late band, so reps calibrate rather than assume it is warm.",
+      "Connect rate by band turns a list-buying decision into evidence instead of a hunch."
+    ],
+    "relatedTerms": [
+      "lead-quality",
+      "intent-decay",
+      "junk-lead",
+      "confidence-score"
+    ],
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-data-trust"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
+    "category": "scoring"
+  },
+  {
+    "slug": "data-readiness",
+    "term": "Data Readiness",
+    "definitionShort": "A High / Medium / Low verdict on an uploaded lead file, produced before import from format validity, completeness, duplicates and business context.",
+    "definitionLong": "The most expensive moment in a bad import is the hour afterwards, when reps start dialling. Readiness is what you can learn before that point, and it is nearly free. Leadkaun profiles a sample of the file and answers plain questions: how many rows carry a valid Indian mobile, how many companies look like businesses rather than individuals, how many rows duplicate each other, which fields are systematically missing, and whether this is a B2B or B2C dataset at all. None of it needs a model — it is arithmetic on formats and completeness, and a rule you can read is easier to trust than one you cannot. The result is reported as a band rather than a number, because a band is a decision and a number is a debate. The point is not to reject files; it is to know what you are importing while you still have the option not to.",
+    "examples": [
+      "A file where a third of the phone numbers fail Indian mobile validation reads Low — the problem is the file, not rep effort.",
+      "A clean export from a trade portal usually reads High and can be imported as-is."
+    ],
+    "relatedTerms": [
+      "junk-lead",
+      "lead-quality",
+      "data-freshness"
+    ],
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-data-trust"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
+    "category": "setup"
+  },
+  {
+    "slug": "score-evolution",
+    "term": "Score Evolution",
+    "definitionShort": "An append-only timeline of every score change on a lead, with grade, confidence and all three sub-scores frozen as they were at that moment.",
+    "definitionLong": "Scores that move without explanation are scores nobody trusts. If a rep opens a lead that was Grade A yesterday and finds it Grade C today, the useful response is not reassurance — it is showing them what happened. Leadkaun writes every score change to a timeline that is only ever appended to, freezing the grade, the confidence reading and all three sub-scores at each event. A drop traces back to its cause: intent decayed after a fortnight of silence, a duplicate was detected, or the customer profile changed and the whole book was re-graded. This is also the honest answer to the question buyers ask and vendors usually dodge — what happens if your scoring is wrong. A frozen history is what lets you go back and check whether the grades predicted the outcomes.",
+    "examples": [
+      "A Grade A lead drops to B after two weeks of silence; the timeline shows intent decay, not a scoring error.",
+      "After an ICP change, the timeline shows which leads were re-graded and by how much."
+    ],
+    "relatedTerms": [
+      "intent-decay",
+      "confidence-score",
+      "lead-scoring",
+      "loss-analysis"
+    ],
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-data-trust"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-scoring-software"
+      }
+    ],
+    "category": "metrics"
+  },
+  {
+    "slug": "execution-score",
+    "term": "Execution Score",
+    "definitionShort": "A daily measure of whether the team is actually working the queue, scored against the shape of a working day rather than a flat target.",
+    "definitionLong": "Being behind at 11 AM and being behind at 4 PM mean different things, and a flat daily target cannot tell them apart. The execution score models the expected progress curve across an Indian working day and measures the team against where they should be by now, not against where they should end. That makes the mid-afternoon alert actionable: there is still time to change the outcome, which is the entire point of measuring execution rather than reporting on it the next morning. The components are weighted and fixed rather than customer-configurable, for the same reason the scoring weights are: a number two managers can compare is worth more than one each of them has tuned. Read it alongside response time on high-grade leads, which isolates the specific failure that costs revenue.",
+    "examples": [
+      "A score falling below the threshold in mid-afternoon triggers a manager alert while the day can still be saved.",
+      "A team that is on pace by volume but slow on Grade A response scores worse than its activity count suggests."
+    ],
+    "relatedTerms": [
+      "follow-up-score",
+      "sales-rep-tracking",
+      "analytics-dashboard",
+      "morning-brief"
+    ],
+    "relatedFeature": "sales-rep-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-execution-measurement"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
+    "category": "metrics"
   }
 ]

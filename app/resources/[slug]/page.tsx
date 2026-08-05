@@ -6,6 +6,8 @@ import { Check } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -231,6 +233,15 @@ export default async function ResourcePage({ params }: Params) {
         )}
 
         <ProductBlock />
+
+        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner
           tag={{ number: "→", label: "Or let Leadkaun run it" }}

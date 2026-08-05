@@ -6,6 +6,8 @@ import { leafIndexable } from "@/lib/pseo/indexable"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -207,6 +209,15 @@ export default async function RoleCityPage({ params }: Params) {
         </SectionGround>
 
         <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${r.title.toLowerCase()}s.`} />
+
+        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner />
         <Footer />

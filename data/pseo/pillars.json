@@ -1581,5 +1581,344 @@
     "_gateAllow": [
       "lead-assignment"
     ]
+  },
+  {
+    "slug": "lead-data-trust",
+    "title": "Lead Data Trust",
+    "metaTitle": "Can You Trust Your Lead Data? A Guide for Indian B2B Teams | Leadkaun",
+    "metaDescription": "Why bought lists, stale enquiries and half-filled forms quietly wreck a pipeline — and how to measure whether a lead record can be trusted before a rep spends an hour on it.",
+    "h1": "Lead Data Trust, end to end",
+    "dek": "Every team has been sold a list. The question nobody asks before importing it is the only one that matters: how much of this is real?",
+    "quickAnswer": {
+      "question": "How do you know whether your lead data can be trusted?",
+      "answer": "Trust in a lead record breaks into three separate questions, and most teams only ask one. Is the record complete and valid — a real phone, a real company, no duplicate? How old is it, and does anyone still remember the enquiry? And does it match the customer you actually sell to? Leadkaun scores all three: Quality on data validity, Freshness in five ageing bands, and Fit against the profile you configure. A lead you cannot reliably contact is not a good lead however well it matches, so Quality caps the grade rather than averaging into it."
+    },
+    "keyTakeaways": [
+      "A bad-fit lead and an untrustworthy record are different problems with opposite fixes. One means stop buying that channel; the other means fix the field.",
+      "Data ages whether or not anyone looks at it. A list bought six months ago should not look new on the day it is imported.",
+      "Completeness is not quality. A fully-filled form with a fake number scores worse than a sparse one with a real decision-maker.",
+      "The cost of junk is rarely the junk itself — it is the rep time spent discovering it, and the way it inflates every conversion rate that uses total leads as a denominator."
+    ],
+    "body": [
+      {
+        "heading": "The three questions that make up trust",
+        "paragraphs": [
+          "Ask a sales head whether their lead data is good and you will get one answer about lead quality in general. Ask three narrower questions and you get something actionable. First: is this record valid — a working phone, a real company, not a duplicate of a lead another rep is already working? Second: how old is it, and has anything happened since? Third: is this the kind of buyer we actually sell to?",
+          "These fail in different directions and need opposite responses. An invalid record is a data problem: fix the field, or stop accepting submissions that allow it. A stale record is a timing problem: it may have been excellent in March and be worthless now. A bad-fit record is a targeting problem: the lead is real, the person exists, and they are not your customer.",
+          "Collapsing all three into one score is why most lead scoring produces numbers reps ignore. A single blended figure of 62 does not tell anyone which of the three problems they are looking at, so it does not change what the rep does next."
+        ]
+      },
+      {
+        "heading": "Why bought lists behave the way they do",
+        "paragraphs": [
+          "List buying is routine in Indian B2B, and the failure pattern is consistent. The list arrives, it looks substantial, it gets imported, and for two weeks the team works it hard. Connect rates are poor but not catastrophic, so nobody stops. A month later the list is quietly abandoned and the next one is bought.",
+          "What went wrong is usually not that the data was fake. It is that the data was old, and nothing in the system said so. A contact who filled a form eight months ago has no memory of doing it, has often changed roles, and reacts to the call as an intrusion rather than a follow-up. The record looked identical on import to one generated yesterday.",
+          "That is the specific failure freshness scoring exists to prevent. Leadkaun bands every lead by age and keeps ageing it, so a list imported today does not present as new work. Where the original collection date is unknown the band is inferred from import date and flagged as such — an honest approximation rather than a false precision."
+        ]
+      },
+      {
+        "heading": "Reading the record before a rep touches it",
+        "paragraphs": [
+          "The most expensive moment in a bad import is the hour after it, when reps start dialling. Anything you can learn before that point is nearly free.",
+          "A useful intake check answers plain questions about a file: how many rows have a valid Indian mobile, how many companies look like businesses rather than individuals, how many rows duplicate each other, which fields are systematically missing, and whether this looks like a B2B or a B2C dataset at all. None of that needs a model — it is arithmetic on formats and completeness.",
+          "Leadkaun runs that profile on a sample of the file before import and reports a readiness band rather than a score, because a band is a decision and a number is a debate. High means import it. Low means the problem is the file, and no amount of rep effort will fix that.",
+          "The point is not to reject files. It is to know what you are importing while you still have the option not to."
+        ]
+      },
+      {
+        "heading": "Confidence is not the same as grade",
+        "paragraphs": [
+          "A grade answers how good a lead is. Confidence answers how much we actually know about it. These are separate axes and conflating them is a common, expensive mistake.",
+          "A lead with a company name, a designation, a location and a stated budget can be graded with some assurance. A lead with a first name and a mobile number might be the best opportunity in the pipeline, and the honest position is that there is not enough information to say. Scoring that lead low implies it is weak, which is a different claim from admitting ignorance.",
+          "Leadkaun keeps them apart. Confidence is a weighted read of field completeness with a prioritised list of what to ask for next, so a rep with a thin lead knows exactly which two questions would move it. A thin lead is not a bad lead — it is an unknown one, and that distinction changes what a rep does with it."
+        ]
+      },
+      {
+        "heading": "Watching a grade change over time",
+        "paragraphs": [
+          "Scores that move without explanation are scores nobody trusts. If a rep opens a lead that was Grade A yesterday and finds it Grade C today, the useful response is not reassurance — it is showing them what happened.",
+          "Every score change in Leadkaun is written to an append-only timeline with the grade, confidence and all three sub-scores frozen as they were at that moment. A drop is traceable to the event that caused it: intent decayed after a fortnight of silence, or a duplicate was detected, or the ICP changed and the whole book was re-graded.",
+          "This is also the honest answer to a question buyers ask often and vendors usually dodge: what happens if your scoring is wrong? A frozen history means you can go back and check whether the grades predicted the outcomes, which is the only way to find out."
+        ]
+      },
+      {
+        "heading": "What to do about it this quarter",
+        "paragraphs": [
+          "Start by measuring quality by source rather than volume by source. Most teams know which channel produces the most leads and few know which produces the most valid records. The gap between those two rankings is usually where the budget is being wasted.",
+          "Then set the customer profile properly. Fit is computed from the industries, states, business types, roles and budget bands you configure, and a vague profile produces a confident-looking grade on the wrong leads. This is twenty minutes of work that everything downstream inherits.",
+          "Finally, stop treating disqualification as permanent. A lead that scores badly should sink in the ordering rather than leave it, so a later signal can bring it back. Permanent rejection should be reserved for genuine wrong fit and invalid records — not for a lead that happened to be unreachable on a Tuesday."
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "heading": "The three reads",
+        "links": [
+          {
+            "label": "Confidence score",
+            "href": "/glossary/confidence-score"
+          },
+          {
+            "label": "Data freshness",
+            "href": "/glossary/data-freshness"
+          },
+          {
+            "label": "Lead quality",
+            "href": "/glossary/lead-quality"
+          },
+          {
+            "label": "Junk leads",
+            "href": "/glossary/junk-lead"
+          }
+        ]
+      },
+      {
+        "heading": "Before you import",
+        "links": [
+          {
+            "label": "Data readiness",
+            "href": "/glossary/data-readiness"
+          },
+          {
+            "label": "How to import leads from CSV cleanly",
+            "href": "/how-to/how-to-import-leads-from-csv"
+          },
+          {
+            "label": "How lead scoring works",
+            "href": "/learn/lead-scoring"
+          }
+        ]
+      },
+      {
+        "heading": "Checking the model",
+        "links": [
+          {
+            "label": "Score evolution",
+            "href": "/glossary/score-evolution"
+          },
+          {
+            "label": "Our methodology",
+            "href": "/methodology"
+          },
+          {
+            "label": "Lead qualification, end to end",
+            "href": "/learn/lead-qualification"
+          }
+        ]
+      },
+      {
+        "heading": "Do it this week",
+        "links": [
+          {
+            "label": "ICP worksheet",
+            "href": "/resources/icp-worksheet"
+          },
+          {
+            "label": "Best lead management software in India",
+            "href": "/best/lead-management-software-india"
+          },
+          {
+            "label": "Pricing in ₹",
+            "href": "/pricing"
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "We bought a list six months ago. Is it worth importing?",
+        "a": "Import it, but do not let it present as new work. Freshness banding keeps an old list visibly old, so reps calibrate their expectations and you can measure connect rate by band rather than blaming effort. If the oldest band converts at a fraction of the newest, you have a purchasing decision to make, not a coaching one."
+      },
+      {
+        "q": "What is the difference between confidence and grade?",
+        "a": "Grade says how good a lead is; confidence says how much we know about it. A lead with a name and a phone number and nothing else might be excellent — we simply cannot tell yet. Scoring it low would claim it is weak, which is a different and less honest statement than admitting the record is thin."
+      },
+      {
+        "q": "Does the intake check use AI?",
+        "a": "No. It is deterministic arithmetic on formats and completeness — phone shape, email validity, duplicate matching, field coverage, B2B versus B2C signals. Roughly eighty per cent of understanding a dataset does not require a model, and a rule you can read is easier to trust than one you cannot."
+      },
+      {
+        "q": "Can I see why a lead's grade changed?",
+        "a": "Yes. Every score change is written to an append-only timeline with the grade, confidence and all three sub-scores frozen at that moment, so a drop traces to the event that caused it — intent decay, a duplicate detection, or an ICP change that re-graded the book."
+      },
+      {
+        "q": "How is data quality different from lead qualification?",
+        "a": "Qualification asks whether this buyer is worth pursuing. Data trust asks whether the record describing them is reliable enough to act on. A perfect-fit company with a mistyped phone number passes qualification and fails on data, and the fix is to correct the field rather than to disqualify the company."
+      }
+    ],
+    "relatedPillars": [
+      "lead-qualification",
+      "lead-scoring",
+      "lead-management"
+    ]
+  },
+  {
+    "slug": "sales-execution-measurement",
+    "title": "Sales Execution Measurement",
+    "metaTitle": "Measuring Sales Execution: Did the Rep Do the Thing? | Leadkaun",
+    "metaDescription": "Activity dashboards measure effort, not execution. How to measure whether reps worked the right lead first, whether they followed the recommendation, and what that predicts.",
+    "h1": "Sales Execution Measurement, end to end",
+    "dek": "Revenue tells you what happened last quarter. Execution tells you what will happen next — but only if you measure the behaviour rather than the activity count.",
+    "quickAnswer": {
+      "question": "How do you measure sales execution rather than sales activity?",
+      "answer": "Activity metrics count what a rep did — calls made, emails sent. Execution metrics ask whether they did the right thing: was the first lead they contacted this morning one the system had ranked at the top, how fast did a high-grade lead get a response, and how many committed follow-ups were actually completed. Leadkaun measures the rank a lead held in its rep's queue at the moment of first contact, and how often a recommendation shown to a rep was accepted. It measures whether recommendations were followed — not whether they worked."
+    },
+    "keyTakeaways": [
+      "Activity counts are the easiest thing to measure and the easiest thing to game. A rep can make forty calls and work the wrong forty leads.",
+      "The most useful execution metric is positional: what rank did the lead a rep called first hold in their own queue?",
+      "Measuring adoption is not the same as measuring effectiveness. Say which one you have.",
+      "Execution data becomes surveillance the moment it is used without grade context. Tied to lead grade and outcome, it is coaching."
+    ],
+    "body": [
+      {
+        "heading": "Activity is not execution",
+        "paragraphs": [
+          "Almost every CRM reports activity: calls logged, emails sent, meetings booked. These are easy to capture and easy to compare, which is why they persist. They are also close to useless as a predictor, because they measure volume of effort rather than allocation of it.",
+          "A rep making forty calls a day is working hard. Whether they are working the right forty leads is a separate question, and it is the one that determines the quarter. Two reps with identical activity counts can produce very different revenue, and the activity report cannot explain the gap — which is why weekly reviews built on it turn into arguments about effort.",
+          "Execution measurement asks a different question: given everything this rep could have done today, did they do the highest-value available thing? That requires knowing what the highest-value thing was, which means it only works on top of a ranking."
+        ]
+      },
+      {
+        "heading": "The positional metric",
+        "paragraphs": [
+          "The single most informative execution metric is positional. When a rep makes their first contact of the day, what rank did that lead hold in their own queue?",
+          "If it is consistently in the top few, the rep is working the ranking and the system is earning its place. If it is consistently far down, one of two things is true: either the rep does not trust the ranking, or the ranking is wrong. Both are worth knowing, and neither shows up in an activity count.",
+          "Leadkaun captures this rank at the moment of first contact and stores it on the lead. A lead contacted from within the top ten counts as working the queue. Aggregated over a fortnight it produces a straight answer to a question most teams cannot answer at all: is the prioritisation actually being used?"
+        ]
+      },
+      {
+        "heading": "Adoption versus effectiveness — say which you have",
+        "paragraphs": [
+          "There are two distinct claims a vendor can make about a recommendation engine, and they are routinely conflated. The first is that reps follow the recommendations. The second is that following them produces better outcomes. The first is much easier to measure.",
+          "Leadkaun measures the first. When a recommendation is shown and a rep acts on it, that acceptance is recorded, and the ratio of accepted to shown gives an adoption rate. When a rep dismisses one, they pick a reason from a fixed list rather than typing free text, so the reasons are countable.",
+          "We do not currently compute whether the recommendation worked. The events needed to close that loop are being recorded, but no success rate is derived from them yet, and claiming otherwise would be the kind of thing this site now checks for automatically. Adoption is a real and useful number; it is not the same number as effectiveness, and a vendor that blurs them is telling you something about their evidence standards."
+        ]
+      },
+      {
+        "heading": "Response time, measured where it matters",
+        "paragraphs": [
+          "Speed to lead is the most-cited metric in sales and one of the most carelessly measured. An average across all leads is close to meaningless, because it mixes the enquiry that arrived at 3 AM with the one that arrived mid-morning, and the junk submission with the qualified buyer.",
+          "The number worth watching is response time on high-grade leads during working hours. That isolates the failure that actually costs money: a Grade A lead arriving at 10 AM and going untouched until the afternoon. Everything else is noise around that.",
+          "The corresponding daily measure is whether the team is on pace at all. Leadkaun scores execution against the shape of an Indian working day rather than a flat target, so being behind at 11 AM and being behind at 4 PM mean different things, and the manager alert fires when it still matters rather than the next morning."
+        ]
+      },
+      {
+        "heading": "Where measurement turns into surveillance",
+        "paragraphs": [
+          "Execution data is coaching material or it is surveillance, and the difference is entirely in how it is framed and what it is tied to.",
+          "The failure mode is a leaderboard of raw activity. It produces exactly the behaviour it counts: more calls, shorter calls, and quiet gaming of whatever the metric is. Reps are not being dishonest when this happens — they are responding rationally to what is being measured.",
+          "Tied to lead grade and outcome, the same data reads differently. A rep with high call volume and a six-hour response time on Grade A leads has a triage problem, not an effort problem, and telling them so is useful. That is a specific, fixable observation rather than a ranking, and it is the only version of this that survives contact with a real team."
+        ]
+      },
+      {
+        "heading": "What to instrument first",
+        "paragraphs": [
+          "Two numbers are enough to start. First, the share of Grade A leads that got a first contact on the day they arrived. Second, the queue rank of the lead each rep contacted first. Both are direct readouts of execution and both move before anything appears in closed-won.",
+          "Add follow-up completion against committed follow-ups third. It is a better predictor than total activity because it measures a promise the rep made rather than a quota someone set for them.",
+          "Resist adding more. Every additional metric dilutes attention and increases the chance that the team optimises for the wrong one. Three numbers a manager checks are worth more than a dashboard nobody opens."
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "heading": "The metrics",
+        "links": [
+          {
+            "label": "Execution score",
+            "href": "/glossary/execution-score"
+          },
+          {
+            "label": "Follow-up score",
+            "href": "/glossary/follow-up-score"
+          },
+          {
+            "label": "Sales rep tracking",
+            "href": "/glossary/sales-rep-tracking"
+          },
+          {
+            "label": "Analytics dashboard",
+            "href": "/glossary/analytics-dashboard"
+          }
+        ]
+      },
+      {
+        "heading": "What it measures against",
+        "links": [
+          {
+            "label": "Lead prioritization, end to end",
+            "href": "/learn/lead-prioritization"
+          },
+          {
+            "label": "Priority Queue (product)",
+            "href": "/features/priority-queue"
+          },
+          {
+            "label": "Sales rep tracking (product)",
+            "href": "/features/sales-rep-tracking"
+          }
+        ]
+      },
+      {
+        "heading": "Honest limits",
+        "links": [
+          {
+            "label": "Our methodology",
+            "href": "/methodology"
+          },
+          {
+            "label": "Sales behaviour & accountability",
+            "href": "/learn/sales-behaviour"
+          },
+          {
+            "label": "Missed revenue & ₹ at risk",
+            "href": "/learn/missed-revenue"
+          }
+        ]
+      },
+      {
+        "heading": "Do it this week",
+        "links": [
+          {
+            "label": "How to run a weekly sales review",
+            "href": "/how-to/how-to-run-a-weekly-sales-review"
+          },
+          {
+            "label": "Rep performance tracker",
+            "href": "/resources/rep-performance-tracker"
+          },
+          {
+            "label": "Pricing in ₹",
+            "href": "/pricing"
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Do you measure whether the recommendation worked?",
+        "a": "No, and we will not say otherwise. We measure whether it was followed — the ratio of accepted to shown recommendations, and the queue rank of the lead a rep contacts first. The events needed to compute an effectiveness rate are being recorded but no such rate is derived yet. Adoption and effectiveness are different claims."
+      },
+      {
+        "q": "Isn't this just rep surveillance?",
+        "a": "It becomes surveillance when it is an activity leaderboard, because that measures effort and invites gaming. Tied to lead grade and outcome it is diagnostic: a rep with high call volume and slow response on Grade A leads has a triage problem, which is a coachable, specific observation rather than a ranking."
+      },
+      {
+        "q": "What is the single best execution metric to start with?",
+        "a": "The share of Grade A leads contacted on the day they arrived. It is unambiguous, it moves quickly, and it isolates the failure that actually costs revenue — a good lead going cold while a rep works something older."
+      },
+      {
+        "q": "Why measure the queue rank of the first contact?",
+        "a": "Because it answers whether the prioritisation is being used at all. If reps consistently open leads from far down their queue, either they do not trust the ranking or the ranking is wrong — and both are worth discovering before you attribute a bad quarter to effort."
+      },
+      {
+        "q": "Does this work if reps are in the field with poor connectivity?",
+        "a": "Signal logging queues locally when the connection drops and syncs on reconnect, so a call logged in a basement is not lost. That matters for the measurement as much as for the rep: execution data with systematic gaps where coverage is bad produces misleading conclusions about the reps who travel most."
+      }
+    ],
+    "relatedPillars": [
+      "sales-behaviour",
+      "lead-prioritization",
+      "missed-revenue"
+    ]
   }
 ]

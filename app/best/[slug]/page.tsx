@@ -6,6 +6,8 @@ import { Check, AlertTriangle, Trophy } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -160,11 +162,49 @@ export default async function BestGuidePage({ params }: Params) {
           </Container>
         </SectionGround>
 
+        {/* RANKING METHODOLOGY — Brain 09 §3.7 requires a published method on a
+            buyer guide. Without it a ranking is just an opinion with numbers. */}
+        <SectionGround variant="pure" size="md">
+          <Container>
+            <Reveal className="mx-auto max-w-3xl">
+              <NumberedTag number="03" label="How this ranking is made" />
+              <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
+                Our method, and our conflict of interest.
+              </h2>
+              <div className="mt-6 space-y-4 text-[15px] leading-[1.65] text-ink-soft">
+                <p>
+                  We build one of the tools in this category, so treat this page accordingly. What we can offer instead
+                  of neutrality is a published method and a willingness to exclude ourselves.
+                </p>
+                <p>
+                  Rankings are built from the criteria listed above, applied in the same order to every tool. Pricing is
+                  read from each vendor&apos;s public pricing page at the review date on this page, in the currency they
+                  actually charge — not converted to make a comparison flatter. Capability claims come from vendor
+                  documentation, and where a capability is tier-gated we say so rather than crediting the product as a
+                  whole.
+                </p>
+                <p>
+                  Where Leadkaun does not belong in a category, it is not ranked. Our{" "}
+                  <Link href="/best/lead-routing-software" className="text-sky-600 underline-offset-2 hover:underline"> {/* lk-gate-ignore:lead-assignment */}
+                    lead routing guide {/* lk-gate-ignore:lead-assignment */}
+                  </Link>{" "}
+                  ranks five competitors and excludes us entirely, because we do not do rules-based routing. Claims we
+                  make about our own product are checked against the shipping code — see{" "}
+                  <Link href="/methodology" className="text-sky-600 underline-offset-2 hover:underline">our methodology</Link>.
+                </p>
+                <p>
+                  No vendor pays for placement here, and none of these links is affiliate-compensated.
+                </p>
+              </div>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
         {/* FAQ */}
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="03" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="04" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">Common questions.</h2>
             </Reveal>
             <Reveal delay={0.08}><Faq items={g.faqs} /></Reveal>
@@ -176,7 +216,7 @@ export default async function BestGuidePage({ params }: Params) {
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="04" label="Go deeper" />
+                <NumberedTag number="05" label="Go deeper" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">Head-to-head comparisons.</h2>
               </Reveal>
               <Reveal delay={0.08} className="flex flex-wrap gap-2.5">
@@ -189,6 +229,15 @@ export default async function BestGuidePage({ params }: Params) {
             </Container>
           </SectionGround>
         )}
+
+        <ReviewStamp updated={g.updated ?? CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner />
         <Footer />

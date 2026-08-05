@@ -69,6 +69,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Get Started",    href: APP_URLS.register },
       { label: "Contact",        href: "/contact" },
       { label: "Security",       href: "/security" },
+      { label: "Methodology",    href: "/methodology" },
       { label: "Cities we serve", href: "/city" },
       { label: "Privacy",        href: "/privacy" },
       { label: "Terms",          href: "/terms" },

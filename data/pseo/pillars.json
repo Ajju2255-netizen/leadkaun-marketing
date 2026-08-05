@@ -182,7 +182,9 @@
     ],
     "relatedPillars": [
       "lead-management",
-      "sales-follow-up"
+      "lead-qualification",
+      "lead-prioritization",
+      "whatsapp-sales"
     ]
   },
   {
@@ -369,7 +371,10 @@
     ],
     "relatedPillars": [
       "lead-scoring",
-      "missed-revenue"
+      "lead-prioritization",
+      "missed-revenue",
+      "sales-follow-up",
+      "whatsapp-sales"
     ]
   },
   {
@@ -537,6 +542,7 @@
       }
     ],
     "relatedPillars": [
+      "lead-management",
       "lead-scoring",
       "sales-follow-up"
     ]
@@ -717,8 +723,10 @@
       }
     ],
     "relatedPillars": [
-      "lead-scoring",
-      "missed-revenue"
+      "lead-management",
+      "whatsapp-sales",
+      "missed-revenue",
+      "sales-behaviour"
     ]
   },
   {
@@ -888,6 +896,7 @@
     ],
     "relatedPillars": [
       "lead-management",
+      "sales-follow-up",
       "sales-behaviour"
     ]
   },
@@ -1050,8 +1059,9 @@
       }
     ],
     "relatedPillars": [
-      "missed-revenue",
-      "sales-follow-up"
+      "lead-routing",
+      "sales-follow-up",
+      "missed-revenue"
     ]
   },
   {
@@ -1220,8 +1230,10 @@
       }
     ],
     "relatedPillars": [
+      "lead-management",
       "lead-scoring",
-      "lead-management"
+      "lead-qualification",
+      "lead-routing"
     ]
   },
   {
@@ -1390,8 +1402,9 @@
       }
     ],
     "relatedPillars": [
+      "lead-qualification",
       "lead-prioritization",
-      "lead-management"
+      "sales-behaviour"
     ]
   },
   {
@@ -1563,6 +1576,7 @@
     ],
     "relatedPillars": [
       "lead-scoring",
+      "lead-routing",
       "lead-prioritization"
     ]
   }

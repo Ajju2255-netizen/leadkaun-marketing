@@ -63,18 +63,54 @@ export function compileLedger(ledger) {
  */
 const IDENTIFIER_PATH = /(^|\.)(slug|href|url|category|relatedFeature)$|(^|\.)(relatedTerms|relatedPillars|relatedCompares|relatedFeatures|aliases|industries|keywords)\[\d+\]$/;
 
-export function ledgerCheck(text, file, rules, path = "") {
+/**
+ * Record-scoped exemption. A page that is genuinely ABOUT a capability we do not
+ * ship — an honest buyer guide to lead-routing software, say, where we recommend
+ * someone else — must be able to use the vocabulary. Weakening the global regex
+ * to allow that would blind the other 17k pages.
+ *
+ * Instead the record itself declares `"_gateAllow": ["lead-assignment"]`. That is
+ * explicit, greppable, and shows up in a diff, so a reviewer knows this is exactly
+ * the record to read closely.
+ */
+export function collectRecordExemptions(data) {
+  const map = new Map();
+  if (!Array.isArray(data)) return map;
+  data.forEach((rec, i) => {
+    const allow = rec && typeof rec === "object" ? rec._gateAllow : null;
+    if (Array.isArray(allow) && allow.length) map.set(`[${i}]`, new Set(allow));
+  });
+  return map;
+}
+
+export function ledgerCheck(text, file, rules, path = "", exemptions = null) {
   const out = [];
   if (path && IDENTIFIER_PATH.test(path)) return out;
+  let recordAllow = null;
+  if (exemptions && exemptions.size) {
+    const m = /^\[\d+\]/.exec(path);
+    if (m) recordAllow = exemptions.get(m[0]) ?? null;
+  }
   const base = file.includes("/") ? file.slice(file.lastIndexOf("/") + 1) : file;
   const mentionsUs = /leadkaun/i.test(text);
   for (const r of rules) {
+    if (recordAllow && recordAllow.has(r.capId)) continue;
     const m = r.re.exec(text);
     if (!m) continue;
     // A negated mention is a disclaimer, not a claim: "no round-robin bot",
     // "we don't do territory routing". These are exactly the sentences the
     // corrected copy will be full of, so they must never fail.
-    if (/\b(no|not|never|without|isn'?t|aren'?t|doesn'?t|don'?t|lacks?|unlike)\s+\S{0,12}$/i.test(text.slice(Math.max(0, m.index - 24), m.index))) continue;
+    //
+    // Scoped to the enclosing sentence rather than a fixed character window,
+    // because negations distribute across compound objects: "does NOT include
+    // automated outbound calling or automated WhatsApp sending" negates both,
+    // and the second one sits well outside any short lookback.
+    const sentenceStart = Math.max(
+      text.lastIndexOf(". ", m.index), text.lastIndexOf("? ", m.index),
+      text.lastIndexOf("! ", m.index), text.lastIndexOf("\n", m.index), -1,
+    ) + 1;
+    const before = text.slice(Math.max(sentenceStart, m.index - 220), m.index);
+    if (/\b(no|not|never|without|isn'?t|aren'?t|doesn'?t|don'?t|won'?t|cannot|can'?t|lacks?|unlike|instead of|rather than)\b/i.test(before)) continue;
     // allowFiles: a bare name matches the basename (data files); a trailing "/"
     // marks a path prefix, which lets whole comparative directories through.
     const exempt = r.allowFiles.has(base) || [...r.allowFiles].some((a) => a.endsWith("/") && file.replace(/\\/g, "/").includes(a));

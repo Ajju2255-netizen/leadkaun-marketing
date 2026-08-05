@@ -27,10 +27,10 @@ export default function BFSIPage() {
       helps={[
         "Every lead is graded A–F on Fit × Intent × Quality using per-product ICP templates — term, health, motor, disbursement — so a motor enquiry is scored on motor criteria, not a generic checklist.",
         "Each RM opens a Priority Queue that ranks the day's leads, so the highest-premium, highest-intent buyers get called first instead of whoever pinged most recently on WhatsApp.",
-        "Assignment rules by product × geography keep health leads out of a motor agent's queue and stamp first-contact ownership on every lead, ending the double-assignment disputes that surface on payout day.",
+        "Every enquiry is graded on product fit before it reaches an agent, so a health lead never reaches a motor agent looking like a live one — and first contact is stamped on the lead the moment it happens, which is what actually settles the ownership disputes that surface on payout day.",
         "Every call, WhatsApp, and email is timestamp-logged via 3-tap logging and exported on demand — the audit trail for IRDAI / RBI inspection prep sits one click away, not in an agent's memory.",
         "Renewal and cross-sell dates live on the lead record; the Missed Opportunity Engine resurfaces them with ₹ premium at risk well before the policy lapses, so retention becomes a queue item rather than an afterthought.",
-        "The Branch Manager Morning Brief lands each day — '12 Grade A leads unassigned, ₹4 L premium at risk today' — turning ₹ at risk into a number the whole branch sees before 10 AM.",
+        "The Branch Manager Morning Brief lands each day — '12 Grade A leads untouched since yesterday, ₹4 L premium at risk today' — turning ₹ at risk into a number the whole branch sees before 10 AM.",
       ]}
       insight="India's insurance penetration sits at roughly 3.7% against a ~7% global average (IRDAI / IBEF), and health-insurance premiums have grown strongly in recent years — enormous headroom, and heavy enquiry volume chasing every agent. In a market where buyers compare quotes instantly across aggregators, the first responder who follows up consistently usually wins the policy, while the rest of the funnel quietly lapses. Persistency and renewal discipline decide whether that book compounds or leaks. Leadkaun doesn't replace your CRM or your policy-admin system — it's the lead-intelligence layer on top, grading, queueing, and putting a ₹ figure on the premium your team is about to lose track of."
       faqs={[

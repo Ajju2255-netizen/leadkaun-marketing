@@ -566,7 +566,7 @@
     "slug": "sales-automation",
     "term": "Sales Automation",
     "definitionShort": "Software features that automate repetitive sales tasks — lead grading, follow-up scheduling, alerting — without removing human touch.",
-    "definitionLong": "Sales automation in the Leadkaun context means: automatic lead grading on arrival, automatic Priority Queue re-ranking as signals arrive, automatic follow-up cadence generation per grade, automatic alerts on SQL crossings. It does NOT mean automated outbound calling or automated WhatsApp sending — those remain human actions. Automation handles the decisions; humans handle the conversations.",
+    "definitionLong": "Sales automation in the Leadkaun context means: automatic lead grading on arrival, automatic Priority Queue re-ranking as signals arrive, automatic follow-up cadence generation per grade, automatic alerts on SQL crossings. It does NOT include automated outbound calling or automated WhatsApp sending — those remain human actions. Automation handles the decisions; humans handle the conversations.",
     "examples": [
       "New lead arrives → graded A–F in real time, automatically.",
       "Grade A stale 24h → alert fires to rep automatically."
@@ -693,32 +693,6 @@
     "category": "metrics"
   },
   {
-    "slug": "unassigned-queue",
-    "term": "Unassigned Queue",
-    "definitionShort": "A catch-all queue for leads that aren't yet assigned to a rep — manager-visible, bulk-assignable.",
-    "definitionLong": "Leads flow into Leadkaun faster than assignment rules can always perfectly route them. The Unassigned Queue captures the remainder: ambiguous ICP matches, geography outside default territories, manual entries without assignment. The manager sees the Unassigned Queue on their dashboard and can bulk-assign in a single click. Unassigned leads aren't invisible — they're just waiting.",
-    "examples": [
-      "Out-of-geography lead arrives → Unassigned Queue → manager routes to nearest rep.",
-      "Bulk CSV upload of 500 leads → 50 land Unassigned → 1-click route."
-    ],
-    "relatedTerms": [
-      "assignment-rules",
-      "team-admin"
-    ],
-    "relatedFeature": "priority-queue",
-    "relatedGuides": [
-      {
-        "label": "The complete guide",
-        "href": "/learn/lead-routing"
-      },
-      {
-        "label": "Compare the software",
-        "href": "/best/lead-routing-software"
-      }
-    ],
-    "category": "workflow"
-  },
-  {
     "slug": "lead-quality",
     "term": "Lead Quality",
     "definitionShort": "How reliable and complete a lead's data is — measured as a 0–100 Quality Score covering completeness, phone and email validity, and junk or duplicate detection.",
@@ -760,7 +734,6 @@
       "lead-quality",
       "quality-score",
       "grade-f",
-      "unassigned-queue",
       "source-truth"
     ],
     "relatedFeature": "lead-scoring",
@@ -779,17 +752,17 @@
   {
     "slug": "assignment-rules",
     "term": "Assignment Rules",
-    "definitionShort": "The logic that decides which rep owns a new lead — by territory, industry, source, round-robin, or grade — applied the moment the lead lands.",
-    "definitionLong": "Assignment rules are lead routing made explicit. Without them, leads get claimed by whoever is watching the inbox, which concentrates the best enquiries on the fastest rep rather than the right one, and leaves the rest to age in an unassigned pile. Rules typically route on territory, industry, source, deal size band, round-robin, or grade — often in combination, with a fallback for anything unmatched. The rule that matters most is the fallback: every lead needs an owner within minutes, because an unowned lead is functionally an ignored lead. In Leadkaun, assignment happens at insert alongside grading, so a lead arrives already owned and already ranked in that rep's Priority Queue.",
+    "definitionShort": "The logic that decides which rep owns a new lead — by territory, industry, source, round-robin or grade. A CRM concept; Leadkaun does not implement it.",
+    "definitionLong": "Assignment rules are lead routing made explicit. Without them, leads get claimed by whoever is watching the inbox, which concentrates the best enquiries on the fastest rep rather than the right one, and leaves the rest to age. Rules typically route on territory, industry, source, deal-size band, round-robin or grade — often in combination, with a fallback for anything unmatched. The rule that matters most is that fallback: every lead needs an owner quickly, because an unowned lead is functionally an ignored one. Leadkaun does not implement assignment rules. Assignment here is manual — an admin or manager assigns one lead at a time to a named rep — and imported leads arrive unassigned until someone picks an owner. If you need rules-based routing, it belongs in your CRM. What Leadkaun adds is what happens after ownership: the lead is already graded A–F on arrival, and once owned it takes a ranked position in that rep's Priority Queue.",
     "examples": [
-      "Real-estate enquiries above ₹1 crore route to the senior closer; everything else round-robins.",
-      "Anything unmatched after 15 minutes drops into the Unassigned Queue for the manager to clear."
+      "A CRM routes real-estate enquiries above ₹1 crore to the senior closer and distributes the rest evenly.",
+      "In Leadkaun the same lead arrives already graded, and a manager assigns it by hand."
     ],
     "relatedTerms": [
-      "unassigned-queue",
       "priority-queue",
+      "lead-scoring",
       "team-admin",
-      "lead-scoring"
+      "lead-quality"
     ],
     "relatedFeature": "priority-queue",
     "relatedGuides": [
@@ -802,21 +775,23 @@
         "href": "/best/lead-routing-software"
       }
     ],
-    "category": "workflow"
+    "category": "workflow",
+    "_gateAllow": [
+      "lead-assignment"
+    ]
   },
   {
     "slug": "team-admin",
     "term": "Team Admin",
-    "definitionShort": "The controls for who is on the sales team and what each person can see and do — roles, permissions, rep records, and lead ownership.",
-    "definitionLong": "Team admin is the layer that makes a sales tool safe to give an entire team. It covers adding and removing reps, assigning roles (rep, manager, admin), scoping what each role can see — usually their own leads for reps, the whole team for managers — and reassigning ownership when someone leaves or goes on leave. The reassignment path is the part teams discover too late: when a rep departs, their pipeline should transfer with its history and grades intact, not vanish or reset. Because Leadkaun prices flat per account rather than per seat, adding every rep costs nothing extra, which removes the usual incentive to share logins and keeps the accountability data honest.",
+    "definitionShort": "The controls for who is on the sales team and what each person can see and do — roles, permissions and lead ownership.",
+    "definitionLong": "Team admin is the layer that makes a sales tool safe to give an entire team. It covers adding and removing people, setting roles (Admin, Manager, Rep), scoping what each role can see — reps their own leads, managers the whole team — and moving ownership when someone leaves or goes on leave. The reassignment path is the part teams discover too late: when a rep departs, their pipeline should transfer with grades and history intact, not reset to blank records. In Leadkaun, ownership changes are made by an admin or manager one lead at a time, and because pricing is flat per account rather than per seat there is no cost incentive to share logins — which is what keeps the accountability data honest in the first place.",
     "examples": [
       "A manager sees the whole team's Priority Queues; a rep sees only their own.",
-      "A departing rep's 40 open leads transfer to a teammate with grades and history intact."
+      "A departing rep's 40 open leads are reassigned with grades and logged history intact."
     ],
     "relatedTerms": [
       "assignment-rules",
       "sales-rep-tracking",
-      "unassigned-queue",
       "analytics-dashboard"
     ],
     "relatedFeature": "sales-rep-tracking",

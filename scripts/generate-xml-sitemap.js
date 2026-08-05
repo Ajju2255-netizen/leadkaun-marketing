@@ -117,12 +117,12 @@ const core = [
   { path: "/tools/crm-cost-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/best", priority: "0.8", changefreq: "monthly" },
   // Derived from best.json — a hardcoded list here silently drops new guides.
-  ...bestData.map((g) => ({ path: `/best/${g.slug}`, priority: "0.8", changefreq: "monthly" })),
+  ...bestData.filter((g) => g.indexable !== false).map((g) => ({ path: `/best/${g.slug}`, priority: "0.8", changefreq: "monthly" })),
   { path: "/alternatives", priority: "0.8", changefreq: "monthly" },
   ...["zoho-crm", "leadsquared", "hubspot", "salesforce", "freshsales", "pipedrive", "zoho-bigin", "kylas", "telecrm", "bitrix24", "monday", "close", "selldo"].map((s) => ({ path: `/alternatives/${s}`, priority: "0.7", changefreq: "monthly" })),
   { path: "/learn", priority: "0.8", changefreq: "monthly" },
   // Derived from pillars.json — same reason as /best above.
-  ...pillarsData.map((pl) => ({ path: `/learn/${pl.slug}`, priority: "0.8", changefreq: "monthly" })),
+  ...pillarsData.filter((pl) => pl.indexable !== false).map((pl) => ({ path: `/learn/${pl.slug}`, priority: "0.8", changefreq: "monthly" })),
   { path: "/research", priority: "0.8", changefreq: "monthly" },
   { path: "/research/indian-b2b-sales-lead-benchmarks-2026", priority: "0.8", changefreq: "monthly" },
   { path: "/security", priority: "0.5", changefreq: "yearly" },
@@ -137,7 +137,7 @@ const blog = [
 ]
 
 const questions = questionsData.map((q) => ({ path: `/questions/${q.slug}`, priority: "0.5", changefreq: "weekly" }))
-const glossary = glossaryData.map((g) => ({ path: `/glossary/${g.slug}`, priority: "0.5", changefreq: "weekly" }))
+const glossary = glossaryData.filter((g) => g.indexable !== false).map((g) => ({ path: `/glossary/${g.slug}`, priority: "0.5", changefreq: "weekly" }))
 const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6", changefreq: "weekly" }))
 
 // Indexation gate — SINGLE SOURCE OF TRUTH shared with the routes' robots meta

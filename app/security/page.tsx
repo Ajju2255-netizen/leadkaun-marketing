@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const PRACTICES = [
   { icon: Lock, title: "Encryption in transit & at rest", body: "All traffic to Leadkaun is served over HTTPS/TLS. Your data is stored on managed cloud infrastructure that encrypts data at rest by default." },
   { icon: CreditCard, title: "Payments never touch our servers", body: "Payments are processed by Razorpay, a PCI-DSS Level 1 certified provider. Leadkaun never sees or stores your card details — Razorpay handles them end-to-end." },
-  { icon: Users, title: "Role-based access", body: "Team and admin controls let you decide who sees and does what — roles, assignment rules, an unassigned-lead queue, and a full audit export. Each account's data is kept separate." },
+  { icon: Users, title: "Role-based access", body: "Team and admin controls let you decide who sees and does what — Admin, Manager and Rep roles, per-workspace data separation, and a full audit export. Each account's data is kept separate." },
   { icon: Server, title: "Managed, resilient infrastructure", body: "Leadkaun runs on managed cloud platforms (edge delivery via Cloudflare; managed databases for application data) that maintain their own physical and network security and durability." },
   { icon: Database, title: "Data you control", body: "Your lead data is yours. You can export it at any time, and we'll delete it on request when you close your account. We don't sell your data." },
   { icon: FileCheck, title: "Privacy by design", body: "We collect what the product needs to work and no more. See our Privacy Policy and Terms for how data is handled, retained, and processed." },

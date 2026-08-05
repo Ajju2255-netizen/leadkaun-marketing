@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
       { source: "/:industry/:city/sales-software", destination: "/:industry/:city", permanent: true },
       { source: "/:industry/:city/lead-tracking", destination: "/:industry/:city/lead-management", permanent: true },
       { source: "/:industry/:city/lead-management-software", destination: "/:industry/:city/lead-management", permanent: true },
+      // Retired: /glossary/unassigned-queue described a product surface that does
+      // not exist (a manager dashboard with one-click bulk assign). The concept it
+      // gestured at belongs under assignment rules, which is now honest about
+      // Leadkaun not implementing them.
+      { source: "/glossary/unassigned-queue", destination: "/glossary/assignment-rules", permanent: true },
     ]
   },
 };

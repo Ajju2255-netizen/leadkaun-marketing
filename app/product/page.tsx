@@ -43,7 +43,7 @@ const SUPPORTING_MODULES = [
   { icon: Inbox,    title: "Pipeline & Lead Records", description: "Kanban pipeline, contact records, call log — the workspace your reps act in, alongside your CRM." },
   { icon: FileText, title: "Lead Quality Analysis",   description: "Junk detection, source reliability scoring, phone + email validity." },
   { icon: Workflow, title: "Follow-up Engine",        description: "Grade-aware cadence. Per-rep Follow-up Score shows consistency at a glance." },
-  { icon: UserCog,  title: "Team & Admin Management", description: "Roles, assignment rules, unassigned queue control, full audit export." },
+  { icon: UserCog,  title: "Team & Admin Management", description: "Admin / Manager / Rep roles, per-workspace separation, full audit export." },
 ]
 
 const HOW_IT_WORKS = [

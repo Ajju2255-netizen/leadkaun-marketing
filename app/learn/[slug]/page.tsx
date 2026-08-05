@@ -28,6 +28,8 @@ type Pillar = {
   quickAnswer: { question: string; answer: string }; keyTakeaways: string[]
   body?: PillarSection[]
   clusters: Cluster[]; faqs: { q: string; a: string }[]; relatedPillars: string[]
+  /** Opt-out: park a record at noindex while it is corrected. */
+  indexable?: boolean
 }
 
 export async function generateStaticParams() {
@@ -41,7 +43,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const p = await getPillar<Pillar>(slug)
   if (!p) return {}
-  return { title: p.metaTitle, description: p.metaDescription, alternates: { canonical: `/learn/${p.slug}` } }
+  return {
+    title: p.metaTitle,
+    description: p.metaDescription,
+    alternates: { canonical: `/learn/${p.slug}` },
+    // Records may park themselves at noindex with `"indexable": false` while being
+    // corrected. Kept in sync with scripts/generate-xml-sitemap.js so the sitemap
+    // can never advertise a noindex URL.
+    robots: { index: p.indexable !== false, follow: true },
+  }
 }
 
 export default async function PillarPage({ params }: Params) {

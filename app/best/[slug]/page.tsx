@@ -29,6 +29,8 @@ type BestGuide = {
   slug: string; metaTitle: string; metaDescription: string; h1: string; intro: string
   quickAnswer: { question: string; answer: string }; updated: string; criteria: string[]
   picks: Pick[]; faqs: { q: string; a: string }[]; relatedCompares: string[]
+  /** Opt-out: park a record at noindex while it is corrected. */
+  indexable?: boolean
 }
 
 export async function generateStaticParams() {
@@ -46,6 +48,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: g.metaTitle,
     description: g.metaDescription,
     alternates: { canonical: `/best/${g.slug}` },
+    robots: { index: g.indexable !== false, follow: true },
   }
 }
 

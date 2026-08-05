@@ -25,7 +25,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   loadLedger, compileLedger, ledgerCheck, isLedgerIgnored,
-  checkEvidencePaths, checkStaleness,
+  checkEvidencePaths, checkStaleness, collectRecordExemptions,
 } from "./lib/truth-ledger.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -138,12 +138,13 @@ const ledgerRules = compileLedger(ledger);
 const jsonFiles = readdirSync(DATA).filter((f) => f.endsWith(".json"));
 for (const f of jsonFiles) {
   let data; try { data = loadJson(f); } catch (e) { err(f, `invalid JSON: ${e.message}`); continue; }
+  const recordExemptions = collectRecordExemptions(data);
   for (const [path, text] of strings(data)) {
     if (text.length < 12) continue;
     const b = text.match(bannedRe);
     if (b) warn(`${f}:${path}`, `AI-slop phrase "${b[0]}"`);
     for (const q of DATA_HONESTY) if (q.re.test(text)) err(`${f}:${path}`, q.name);
-    for (const hit of ledgerCheck(text, f, ledgerRules, path)) (hit.severity === "warn" ? warn : err)(`${f}:${path}`, hit.msg);
+    for (const hit of ledgerCheck(text, f, ledgerRules, path, recordExemptions)) (hit.severity === "warn" ? warn : err)(`${f}:${path}`, hit.msg);
     if (FAKE_STAT_EXEMPT.has(f)) continue;
     for (const q of DATA_OVERCLAIM) if (q.re.test(text)) err(`${f}:${path}`, q.name);
     if (MULTIPLIER.test(text) && !ATTRIBUTION.test(text)) err(`${f}:${path}`, `uncited performance multiplier "${text.match(MULTIPLIER)[0].trim()}" — cite a source or soften`);

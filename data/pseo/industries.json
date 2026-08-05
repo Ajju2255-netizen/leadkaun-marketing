@@ -201,7 +201,7 @@
     ],
     "howItHelps": [
       "Per-product ICP templates — term, health, motor, loans — score each lead by the right criteria for its product line",
-      "Assignment rules by product × geography keep health leads out of a motor agent's queue, eliminating attribution disputes",
+      "Every enquiry is graded on product fit before it reaches an agent, so a health lead never looks like a motor lead in the queue",
       "Every call, WhatsApp, and email is logged with a timestamp and exported on demand for IRDAI / RBI audit preparation",
       "Renewal and cross-sell dates live on the lead record — the Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse",
       "Branch Manager Morning Brief: '12 Grade A leads unassigned. ₹4L premium at risk today'"
@@ -612,7 +612,7 @@
     "slug": "retail",
     "name": "Retail",
     "painH1": "Track Repeat Orders and Dealer Relationships in One Place.",
-    "heroSub": "B2B retail — wholesalers, franchise brands, dealer networks — depend on repeat-order behaviour and territory management. Leadkaun scores every enquiry and surfaces dealers who haven't ordered in 45 days.",
+    "heroSub": "B2B retail — wholesalers, franchise brands, dealer networks — depends on repeat-order behaviour and dealer coverage. Leadkaun scores every enquiry and surfaces dealers who haven't ordered in 45 days.",
     "painPoints": [
       {
         "title": "Repeat-order blindness",
@@ -635,7 +635,7 @@
     ],
     "howItHelps": [
       "Repeat-order cadence tracking on every account — missed cadence triggers missed-opportunity",
-      "Territory-aware assignment rules prevent rep conflict",
+      "One named owner per lead, so two reps never chase the same dealer",
       "Field-rep 3-tap logging + mobile-optimised interface",
       "Per-rep ₹ at risk highlights dealer churn risk early",
       "Franchise enquiry lifecycle tracking across multi-step workflow"
@@ -662,7 +662,7 @@
       },
       {
         "q": "How is territory handled?",
-        "a": "Assignment rules support territory-based routing."
+        "a": "Leadkaun does not route by territory — assignment is manual, one lead at a time, and territory rules belong in your CRM. What Leadkaun adds is grading every enquiry on fit before it is assigned, so whoever picks the owner can already see which dealer is worth the call."
       },
       {
         "q": "Does it work offline for field reps?",
@@ -818,8 +818,8 @@
         "a": "Not in Phase 1. Export and import via CSV."
       },
       {
-        "q": "Can we route leads by credit bureau score?",
-        "a": "Yes — custom field on lead record; assignment rules support it."
+        "q": "Can we use a credit bureau score in scoring?",
+        "a": "You can store it on the lead record and it feeds the Fit score through your ICP configuration. Leadkaun will not route leads on it — assignment is manual — but the grade a rep sees will already reflect it."
       },
       {
         "q": "How is DSA/agent performance tracked?",

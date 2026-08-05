@@ -1062,93 +1062,103 @@
   },
   {
     "slug": "lead-routing-software",
-    "metaTitle": "5 Best Lead Routing & Assignment Software (2026) | Leadkaun",
-    "metaDescription": "The best lead routing software in 2026 — compared on rule flexibility, fallback handling, speed of assignment, and what it costs to put every rep on it.",
+    "_gateAllow": [
+      "lead-assignment"
+    ],
+    "metaTitle": "5 Best Lead Routing & Assignment Software (2026) — An Honest Guide | Leadkaun",
+    "metaDescription": "The best lead routing software in 2026, compared on fallback handling, speed of assignment and reassignment. Leadkaun is not one of them, and this guide explains why.",
     "h1": "Best Lead Routing & Assignment Software (2026)",
-    "intro": "Routing software is easy to evaluate badly, because every tool demos the clean case: this sector goes to that rep. What separates them is the messy case — what happens to a lead with a missing field, an unrecognised sector, or a city nobody mapped. This guide compares tools on fallback handling, how fast assignment actually happens, and whether a reassignment carries the lead's history with it.",
+    "intro": "A note before the list: Leadkaun does not do rules-based lead routing, so we are not ranked here. We build the layer that runs after a lead has an owner — grading, ranking and decay — and routing belongs to your CRM. We publish this guide because the question comes up in nearly every evaluation, and sending you away with a straight answer is more useful than pretending we compete. Routing software is easy to evaluate badly, because every tool demos the clean case: this sector goes to that rep. What separates them is the messy case — a lead with a missing field, an unrecognised sector, or a city nobody mapped. This compares the tools on fallback handling, how fast assignment actually happens, and whether reassignment carries a lead's history with it.",
     "quickAnswer": {
       "question": "What is the best lead routing software in 2026?",
-      "answer": "For Indian B2B teams, Leadkaun assigns at the point of entry — a lead is graded, owned and ranked in one step — with flat per-account pricing, which matters because routing only works when every rep is actually on the system. Salesforce and HubSpot offer the deepest rule engines if you have admin capacity and can absorb per-seat USD pricing. LeadSquared is strong for high-volume Indian telecalling floors, and Zoho CRM covers the basics inexpensively if you are already in the Zoho suite."
+      "answer": "For most Indian B2B teams, Zoho CRM is the best value if you are already in the Zoho suite, and LeadSquared is the strongest fit for high-volume telecalling floors where distribution speed decides the day. Salesforce has the deepest rule engine if you have a dedicated admin and a real territory structure, and HubSpot is the cleanest to configure if marketing already runs on it. Leadkaun is not a lead routing tool — assignment here is manual, one lead at a time — so if automatic routing is a hard requirement, pick from the four above and run Leadkaun alongside for prioritisation if you want it."
     },
     "updated": "2026-08",
     "criteria": [
-      "Does assignment happen at entry, or on review?",
-      "Is there a real fallback for leads that match no rule — and is the unmatched set visible?",
-      "Can rules combine sector, territory, source and round-robin without becoming unmaintainable?",
-      "Does reassignment carry grade, history and follow-up record with it?",
+      "Does assignment happen at the moment of arrival, or only when someone reviews a list?",
+      "Is there a real fallback for leads matching no rule — and is that unmatched set visible to a named person?",
+      "Can rules combine sector, territory, source and even distribution without becoming unmaintainable?",
+      "Does reassignment carry grade, history and follow-up record, or reset the lead to a blank record?",
       "What does it cost to put the whole team on it — flat, or per seat?"
     ],
     "picks": [
       {
         "rank": 1,
-        "name": "Leadkaun",
-        "isLeadkaun": true,
-        "tagline": "Assigned, graded and ranked in one step at insert.",
-        "bestFor": "Indian B2B teams that want every lead owned within minutes, not at the Monday review.",
-        "pricingNote": "Flat per account, from Free — no per-seat cost to putting the whole team on it.",
-        "whyPick": "Assignment runs at insert alongside grading, so a lead arrives already owned and already positioned in that rep's Priority Queue. Rules cover sector, territory, source and round-robin, the Unassigned Queue makes the unmatched set a visible working surface rather than an invisible remainder, and transfers carry grade and logged history intact.",
-        "watchOut": "Rules are configured rather than scripted — deliberate, but teams wanting arbitrary custom routing logic will find it more opinionated than an enterprise rule engine.",
-        "url": "/glossary/assignment-rules"
+        "name": "Zoho CRM",
+        "tagline": "The best value for most Indian SMB teams.",
+        "bestFor": "Teams already in Zoho One, or cost-sensitive teams who need routing that simply works.",
+        "pricingNote": "₹ pricing, per user; assignment rules on paid editions.",
+        "whyPick": "Assignment rules, round-robin and territory management cover the common cases at a price nothing else in this list matches. For a team of ten in India this is usually the shortest path from 'leads land in a shared inbox' to 'every lead has an owner within a minute'.",
+        "watchOut": "Fallback handling for unmatched leads is weaker than Salesforce's — build the catch-all rule deliberately, or leads with missing fields quietly pool up. Per-user pricing.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
       },
       {
         "rank": 2,
-        "name": "Salesforce",
-        "tagline": "The deepest rule engine, if you have the admin capacity.",
-        "bestFor": "Large teams with a dedicated admin and complex territory structures.",
-        "pricingNote": "USD, per seat.",
-        "whyPick": "Assignment rules, queues and territory management cover essentially any routing model you can describe.",
-        "watchOut": "It is a build, not a setup. The flexibility is real and so is the ongoing maintenance cost when territories change.",
-        "url": "/compare/leadkaun-vs-salesforce"
+        "name": "LeadSquared",
+        "tagline": "Built for high-volume Indian inside sales.",
+        "bestFor": "Telecalling floors and admissions teams distributing large daily lead volumes.",
+        "pricingNote": "₹ pricing, per user.",
+        "whyPick": "Lead distribution designed around call-centre throughput rather than adapted to it. If forty reps need leads pushed to them continuously through the day, this is the category leader in India and it is not close.",
+        "watchOut": "Per-user pricing scales with floor size, which is exactly where routing matters most. Heavier than a ten-person team needs.",
+        "url": "/compare/leadkaun-vs-leadsquared"
       },
       {
         "rank": 3,
-        "name": "LeadSquared",
-        "tagline": "Built for high-volume Indian inside sales.",
-        "bestFor": "Telecalling and admissions floors distributing large daily lead volumes.",
-        "pricingNote": "₹ pricing, per user.",
-        "whyPick": "Strong lead distribution designed for call-centre motion, with rules built around throughput.",
-        "watchOut": "Per-user pricing scales with floor size, which is exactly where routing matters most.",
-        "url": "/compare/leadkaun-vs-leadsquared"
+        "name": "Salesforce",
+        "tagline": "The deepest rule engine, if you have the admin capacity.",
+        "bestFor": "Larger teams with a dedicated admin and a genuine territory structure.",
+        "pricingNote": "USD, per seat.",
+        "whyPick": "Assignment rules, queues and territory management can express essentially any routing model you can describe, and the fallback and escalation handling is the most complete here.",
+        "watchOut": "It is a build, not a setup. The flexibility is real and so is the maintenance cost every time territories change. Overkill below roughly 30 reps.",
+        "url": "/compare/leadkaun-vs-salesforce"
       },
       {
         "rank": 4,
         "name": "HubSpot",
-        "tagline": "Clean routing inside a marketing-led stack.",
+        "tagline": "The cleanest to configure, inside a marketing-led stack.",
         "bestFor": "Teams already running HubSpot for marketing.",
         "pricingNote": "USD, per seat; rotation features on paid tiers.",
-        "whyPick": "Lead rotation and workflow-based assignment are straightforward to configure and reliable.",
-        "watchOut": "Routing sophistication is tied to tier, and the per-seat model discourages putting every rep on it.",
+        "whyPick": "Lead rotation and workflow-based assignment are genuinely pleasant to configure and reliable in practice — the least likely of these to be quietly broken six months later.",
+        "watchOut": "Routing sophistication is tied to tier, and per-seat USD pricing discourages putting every rep on it, which undermines the point of routing.",
         "url": "/compare/leadkaun-vs-hubspot"
       },
       {
         "rank": 5,
-        "name": "Zoho CRM",
-        "tagline": "Adequate routing at a low price point.",
-        "bestFor": "Cost-sensitive teams already inside Zoho One.",
-        "pricingNote": "₹ pricing, per user.",
-        "whyPick": "Assignment rules and round-robin cover the common cases inexpensively.",
-        "watchOut": "Fallback handling and unassigned visibility are weaker; leads that match no rule are easy to lose track of.",
-        "url": "/compare/leadkaun-vs-zoho-crm"
+        "name": "Kylas",
+        "tagline": "Flat-priced Indian CRM with basic routing included.",
+        "bestFor": "Growing Indian SMBs who want unlimited users without per-seat maths.",
+        "pricingNote": "₹ pricing, flat with unlimited users.",
+        "whyPick": "Unusual in this list for not charging per user, which means you can actually put the whole floor on it. Routing covers the standard rules.",
+        "watchOut": "Rule depth is shallower than Zoho's and much shallower than Salesforce's; complex territory structures will hit the ceiling.",
+        "url": "/compare/leadkaun-vs-kylas"
       }
     ],
     "faqs": [
       {
+        "q": "Why isn't Leadkaun ranked in its own guide?",
+        "a": "Because it would be false. Leadkaun has no routing rule engine, no territory model, no round-robin distribution and no assignment on import — assignment is manual, one lead at a time, by an admin or manager. Ranking ourselves here would cost you evaluation time and cost us the trust that makes the rest of this site worth reading."
+      },
+      {
+        "q": "So what does Leadkaun do, if not routing?",
+        "a": "Everything after ownership. Every lead is graded A–F on Fit, Intent and Quality when it arrives, whoever owns it. Once a lead has an owner it takes a ranked position in that rep's Priority Queue, re-ordering as signals arrive and sinking as intent decays. Teams commonly run CRM-side routing for ownership and Leadkaun for what to do with the leads once owned."
+      },
+      {
         "q": "How is lead routing different from lead distribution?",
-        "a": "Distribution is about balancing load across reps; routing is about matching a lead to the right rep. Round-robin is distribution. Sending manufacturing enquiries to the rep who knows manufacturing is routing. Most teams need both, with distribution acting as the tie-breaker underneath a routing rule rather than as the strategy itself."
+        "a": "Distribution balances load across reps; routing matches a lead to the right rep. Round-robin is distribution. Sending manufacturing enquiries to the rep who knows manufacturing is routing. Most teams need both, with distribution acting as the tie-breaker underneath a routing rule rather than as the strategy itself."
       },
       {
         "q": "What should happen to leads that match no rule?",
-        "a": "They should land somewhere named, visible and time-bounded — an Unassigned Queue with a person accountable for clearing it, not a shared inbox. The useful metric is age rather than volume: how long the oldest unowned lead has been sitting is the cleanest indicator of whether routing is covering the pipeline."
+        "a": "They should land somewhere named, visible and time-bounded — a queue with a person accountable for clearing it, not a shared inbox. The metric worth watching is age rather than volume: how long the oldest unowned lead has been sitting is the cleanest indicator of whether routing is covering the pipeline."
       },
       {
-        "q": "Does routing need to integrate with our CRM?",
-        "a": "Not necessarily. Leadkaun runs alongside your CRM rather than replacing it — leads come in via CSV, manual entry or webhook, get assigned and ranked, and the CRM remains the record of what happened. Teams typically run both in parallel initially to compare coverage before changing any process."
+        "q": "Do we need routing software at all for a small team?",
+        "a": "Below roughly five reps, usually not. Manual assignment in a daily huddle covers it, and the cost of a rule engine outweighs the benefit. Routing starts paying for itself when lead volume outpaces the frequency with which a human looks at the list — which for most teams is somewhere around 30–40 leads a day."
       }
     ],
     "relatedCompares": [
-      "leadkaun-vs-salesforce",
+      "leadkaun-vs-zoho-crm",
       "leadkaun-vs-leadsquared",
-      "leadkaun-vs-zoho-crm"
+      "leadkaun-vs-salesforce"
     ]
   },
   {

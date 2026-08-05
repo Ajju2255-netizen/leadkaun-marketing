@@ -96,7 +96,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           ]}
           eyebrow={kw.label}
           h1={<>{kw.label} for {ind.name} Teams in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
-          sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell — Indian phone handling, WhatsApp as a first-class signal, lakhs/crores throughout.`}
+          sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell — Indian phone handling, WhatsApp as a first-class lead signal, ₹ figures in Indian formatting throughout.`}
           tldr={{ label: "In short", body: intro, tone: "sky" }}
           cta={
             <>
@@ -182,7 +182,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
                 In {cityRec.name}, {ind.name.toLowerCase()} teams typically work leads from <strong className="text-ink font-semibold">{ind.channels.slice(0, 3).join(", ")}</strong> — with deal sizes in the <strong className="text-ink font-semibold">{ind.ticketBand}</strong> range and sales cycles of <strong className="text-ink font-semibold">{ind.salesCycle}</strong>. Leadkaun&apos;s {kw.label.toLowerCase()} is calibrated for those realities, not a generic US B2B default.
               </p>
               <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                {cityRec.name} is a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? `, home to roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}, where B2B demand concentrates in {cityRec.industries.slice(0, 3).join(", ").replace(/-/g, " ")}. Leadkaun grades and queues every enquiry here on fit, intent and quality — so a {cityRec.name} rep works the highest-probability leads first.
+                In {cityRec.name}, {cityRec.state}, B2B demand concentrates in {cityRec.industries.slice(0, 3).join(", ").replace(/-/g, " ")}. Leadkaun grades and queues every enquiry here on fit, intent and quality — so a {cityRec.name} rep works the highest-probability leads first.
               </p>
               {cityRec.notes && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">

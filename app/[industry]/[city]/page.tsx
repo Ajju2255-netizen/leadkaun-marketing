@@ -194,7 +194,9 @@ export default async function IndustryCityPage({ params }: Params) {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{cityRec.name} context</p>
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
-                <span className="font-semibold text-ink">{cityRec.name}</span> is a Tier-{cityRec.tier} city in {cityRec.state} with an urban population of ~{(cityRec.population / 1000000).toFixed(1)}M. {cityRec.notes ? `${cityRec.notes}. ` : ""}{ind.name.toLowerCase()} teams here typically source leads from {ind.channels.slice(0, 3).join(", ")} — all of which flow into Leadkaun via CSV upload or manual entry in minutes (a Google Sheets connector is on the roadmap).
+                {/* City tier + population are intentionally not published here — they made these
+                    pages rank for encyclopedia queries instead of lead-management ones. */}
+                <span className="font-semibold text-ink">{ind.name}</span> teams in {cityRec.name}, {cityRec.state} typically source leads from {ind.channels.slice(0, 3).join(", ")}. {cityRec.notes ? `${cityRec.notes}. ` : ""}All of those channels flow into Leadkaun via CSV upload or manual entry in minutes (a Google Sheets connector is on the roadmap), where every enquiry is scored and graded A–F before it reaches a rep.
               </p>
               {cityRec.districts && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">

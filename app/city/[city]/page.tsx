@@ -29,19 +29,14 @@ import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
 
-/** Indian-format population: 1,25,00,000 → "1.25 crore", 1,98,000 → "1.98 lakh". */
-function formatPopulation(n: number): string {
-  if (n >= 10000000) return `${(n / 10000000).toFixed(2).replace(/\.?0+$/, "")} crore`
-  if (n >= 100000) return `${(n / 100000).toFixed(2).replace(/\.?0+$/, "")} lakh`
-  return n.toLocaleString("en-IN")
-}
-
-const TIER_LABEL: Record<number, string> = {
-  1: "metro",
-  2: "major city",
-  3: "emerging hub",
-  4: "growing market",
-}
+/**
+ * NOTE: city tier + population are deliberately NOT rendered anywhere on this
+ * page. They remain in the city record purely to drive the indexation gate
+ * (`hubIndexable`). Publishing them as prose/stat tiles made these pages rank
+ * for encyclopedia queries ("<city> is which tier city", "lakh definition")
+ * instead of lead-management queries — see the GSC audit. Keep them out of the
+ * rendered output; the local fingerprint comes from notes/districts/localBiz.
+ */
 
 export async function generateStaticParams() {
   const cities = await tier0Cities()
@@ -97,9 +92,9 @@ export default async function CityPage({ params }: Params) {
 
         <DetailHero
           breadcrumb={[{ label: "City" }, { label: cityRec.name }]}
-          eyebrow={`${cityRec.state} · Tier ${cityRec.tier}`}
+          eyebrow={`${cityRec.state} · Lead Management Software`}
           h1={<>Sales CRM &amp; Lead Management in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
-          sub={`Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Tier-${cityRec.tier} city in ${cityRec.state}${cityRec.notes ? `. ${cityRec.notes}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup the same day.`}
+          sub={`Lead management and sales CRM software for ${cityRec.name} B2B teams${cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup the same day.`}
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
@@ -120,7 +115,7 @@ export default async function CityPage({ params }: Params) {
           <Container>
             <QuickAnswer
               question={`Is Leadkaun a good fit for B2B sales teams in ${cityRec.name}?`}
-              answer={`Leadkaun is a Sales Behaviour OS for ${cityRec.name} B2B teams. It grades every lead A–F on fit, intent and quality, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads — running alongside your CRM, with same-day setup. It's calibrated for how ${cityRec.name} teams actually sell: Indian phone handling, WhatsApp as a first-class signal, and lakhs/crores throughout.`}
+              answer={`Leadkaun is lead management software for ${cityRec.name} B2B teams. It grades every lead A–F on fit, intent and quality, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads — running alongside your CRM, with same-day setup. It's calibrated for how ${cityRec.name} teams actually sell: Indian phone handling, WhatsApp as a first-class lead signal, and ₹ figures in Indian formatting throughout.`}
             />
           </Container>
         </SectionGround>
@@ -134,11 +129,12 @@ export default async function CityPage({ params }: Params) {
                 Built for how {cityRec.name} actually sells.
               </h2>
               <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft md:text-[17px]">
-                {cityRec.name} is a Tier-{cityRec.tier} {TIER_LABEL[cityRec.tier]} in {cityRec.state}, home to roughly{" "}
-                {formatPopulation(cityRec.population)} people{cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}.
-                Leadkaun works the {served.length} B2B {served.length === 1 ? "sector" : "sectors"} that sell here
-                {served.length > 0 ? `, led by ${served.slice(0, 3).map((i) => i.name).join(", ")}` : ""}: grade every lead
-                A–F in real time, build each rep&apos;s priority queue, and surface ₹ at risk before a hot lead cools.
+                Sales teams in {cityRec.name}, {cityRec.state} run on enquiries from calls, WhatsApp and portals
+                {cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}. Leadkaun is the lead management system
+                for the {served.length} B2B {served.length === 1 ? "sector" : "sectors"} that sell here
+                {served.length > 0 ? `, led by ${served.slice(0, 3).map((i) => i.name).join(", ")}` : ""}: score and grade
+                every lead A–F in real time, build each rep&apos;s priority queue, and surface ₹ at risk before a hot
+                lead cools.
               </p>
               {cityRec.districts && (
                 <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft md:text-[16px]">
@@ -149,9 +145,9 @@ export default async function CityPage({ params }: Params) {
             <Reveal delay={0.08} className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
               {[
                 { k: "State", v: cityRec.state },
-                { k: "City tier", v: `Tier ${cityRec.tier}` },
-                { k: "Population", v: `~${formatPopulation(cityRec.population)}` },
                 { k: "B2B sectors served", v: String(served.length) },
+                { k: "Lead grading", v: "A–F, live" },
+                { k: "Setup time", v: "Same day" },
               ].map((s) => (
                 <div key={s.k} className="rounded-2xl glass-2 gloss-edge p-5">
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-ink-muted">{s.k}</p>

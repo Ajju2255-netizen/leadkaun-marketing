@@ -126,11 +126,11 @@ export default async function RoleCityPage({ params }: Params) {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{r.title}s in {cityRec.name}</p>
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
-                In {cityRec.name}, a {r.title.toLowerCase()} most often sells into <strong className="text-ink font-semibold">{fitIndustries.map((i) => i.name).join(", ")}</strong> — a Tier-{cityRec.tier} market in {cityRec.state}{cityRec.population ? ` of roughly ${(cityRec.population / 1e6).toFixed(1)} million people` : ""}. Leadkaun grades every enquiry from those sectors A–F on fit, intent and quality, so the queue is ranked before the {r.title.toLowerCase()} opens it.
+                In {cityRec.name}, {cityRec.state}, a {r.title.toLowerCase()} most often sells into <strong className="text-ink font-semibold">{fitIndustries.map((i) => i.name).join(", ")}</strong>. Leadkaun grades every enquiry from those sectors A–F on fit, intent and quality, so the queue is ranked before the {r.title.toLowerCase()} opens it.
               </p>
               {r.featuresUsedMost.length > 0 && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  The modules a {r.title.toLowerCase()} leans on most: <strong className="text-ink font-semibold">{r.featuresUsedMost.join(", ")}</strong> — built for how {r.title.toLowerCase()}s in Indian B2B actually work, with WhatsApp as a first-class signal and lakhs/crores throughout.
+                  The modules a {r.title.toLowerCase()} leans on most: <strong className="text-ink font-semibold">{r.featuresUsedMost.join(", ")}</strong> — built for how {r.title.toLowerCase()}s in Indian B2B actually work, with WhatsApp as a first-class lead signal and ₹ figures in Indian formatting throughout.
                 </p>
               )}
             </FloatingCard></Reveal>

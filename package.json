@@ -20,7 +20,8 @@
     "cf:preview": "npm run cf:build && opennextjs-cloudflare preview",
     "cf:deploy": "npm run cf:build && opennextjs-cloudflare deploy",
     "cf:upload-data": "node scripts/upload-data-to-r2.js",
-    "cf:typegen": "wrangler types"
+    "cf:typegen": "wrangler types",
+    "truth": "node scripts/truth-report.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

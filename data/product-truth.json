@@ -1,0 +1,405 @@
+{
+  "_readme": [
+    "PRODUCT TRUTH LEDGER — what the Leadkaun product actually ships.",
+    "",
+    "This file exists because marketing copy drifted from product reality: the site",
+    "claimed assignment rules, round-robin routing, territory routing and an",
+    "'unassigned queue' in 8+ places, including a whole pillar and buyer guide. None",
+    "of it exists in the product. The Brain's canonical module list (00 s3) never",
+    "sanctioned it — it crept in, and nothing could catch it.",
+    "",
+    "scripts/content-gate.mjs compiles the deny[] patterns below and fails the build",
+    "on any copy that claims an unshipped capability. evidence[] paths are asserted",
+    "to exist in the product repo, so if the product moves the ledger errors and",
+    "forces a re-review rather than silently blessing stale facts.",
+    "",
+    "Deliberately NOT in data/pseo/: the gate lints every string in that directory",
+    "(this file must contain banned phrases verbatim), and upload-data-to-r2.js",
+    "syncs that directory to R2 — this is a build-time artefact, not page content.",
+    "",
+    "status: shipped | partial | dark | not-shipped | roadmap | never-market | DISPUTED",
+    "  dark = code exists but has zero production call sites",
+    "",
+    "To change a status you must cite a product-repo path. No path, no change."
+  ],
+  "version": 1,
+  "reviewed": "2026-08-05",
+  "reviewedBy": "product-code-audit",
+  "productRepo": "../leadkaun",
+  "capabilities": [
+    {
+      "id": "lead-assignment",
+      "label": "Lead assignment",
+      "status": "partial",
+      "claimable": "An admin or manager can assign one lead at a time to a named rep.",
+      "notClaimable": [
+        "rules-based routing",
+        "round-robin distribution",
+        "territory routing",
+        "assignment on import",
+        "bulk assignment",
+        "an unassigned-queue surface"
+      ],
+      "evidence": [
+        "app/api/leads/[id]/assign/route.ts"
+      ],
+      "counterEvidence": [
+        "lib/import",
+        "app/api/import"
+      ],
+      "note": "The import path never sets assigned_rep_id — imported leads arrive unassigned, and no surface lists them. There is no AssignmentRule or Territory model in prisma/schema.prisma.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "assignment rules?",
+        "routing rules?",
+        "round[\\s-]?robin",
+        "unassigned[\\s-]?(lead[\\s-]?)?queue",
+        "territory[\\s-]?(based\\s+)?(routing|assignment|management)",
+        "lead[\\s-]routing",
+        "assignment happens at insert",
+        "auto[\\s-]?assign(s|ed|ing|ment)?\\s+(the\\s+)?(leads?|enquir|to a rep|reps?|owners?)"
+      ],
+      "allowIfNear": [
+        "your CRM",
+        "in a CRM",
+        "manual",
+        "one at a time",
+        "one lead at a time",
+        "does not",
+        "doesn't",
+        "no rules"
+      ],
+      "allowFiles": [
+        "alternatives.json",
+        "app/alternatives/",
+        "app/compare/",
+        "best.json",
+        "competitors.json",
+        "data/pseo/competitors.json"
+      ]
+    },
+    {
+      "id": "learning-engine",
+      "label": "Learning Engine",
+      "status": "partial",
+      "claimable": "Read-only analytics — grade calibration against closed deals, close-time by grade, win rate by segment, and best contact hour. Every insight is sample-size gated and stays locked until there is enough data.",
+      "notClaimable": [
+        "improves its recommendations over time",
+        "gets smarter",
+        "self-tuning",
+        "the model retrains",
+        "a feedback loop into scoring"
+      ],
+      "evidence": [
+        "lib/analytics/learning.ts",
+        "lib/scoring/signal-weights.ts"
+      ],
+      "note": "signal-weights.ts is a static constant table and grade.ts thresholds are hardcoded literals. Nothing writes learned weights back into scoring; there is no learned-weight column in the schema. The engine reports what it observed — it does not act on it.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "learns (from|over time)",
+        "gets smarter",
+        "self[\\s-]?(learning|tuning|improving)",
+        "retrains?",
+        "improves (its )?(recommendations?|scoring|accuracy) over time",
+        "the more you use it,? the better"
+      ],
+      "allowIfNear": [
+        "does not",
+        "doesn't",
+        "no feedback",
+        "reports",
+        "read-only"
+      ],
+      "allowFiles": [
+        "alternatives.json",
+        "app/alternatives/",
+        "app/compare/",
+        "best.json",
+        "competitors.json",
+        "data/pseo/competitors.json"
+      ]
+    },
+    {
+      "id": "next-best-action-signal-aware",
+      "label": "Signal-aware next-best-action engine",
+      "status": "dark",
+      "claimable": "Nothing. The shipped recommendation is a static grade-to-action map (A = Call now, B = Call today, C = Nurture, D = Low priority, E = Drop, F = Junk).",
+      "notClaimable": [
+        "signal-aware recommendations",
+        "a next-best-action engine",
+        "recommendations that adapt to conversation stage"
+      ],
+      "evidence": [
+        "lib/scoring/next-action.ts"
+      ],
+      "counterEvidence": [
+        "lib/scoring/nba.ts"
+      ],
+      "note": "computeNextBestAction() in nba.ts has ZERO production call sites — only its own test file. Deliberately dark per an in-code comment: it stays off until there is adoption data to measure it against. If this ever ships, update this entry before writing copy about it.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "signal[\\s-]aware recommendation",
+        "next[\\s-]best[\\s-]action engine"
+      ]
+    },
+    {
+      "id": "recommendation-measurement",
+      "label": "Recommendation adoption measurement",
+      "status": "shipped",
+      "claimable": "We measure whether a recommendation was FOLLOWED — recommendation acceptance rate (accepted / shown), and the queue rank of the lead a rep contacts first (top 10 counts as following the queue).",
+      "notClaimable": [
+        "we measure whether the recommendation worked",
+        "recommendation success rate",
+        "RSR",
+        "we track the outcome of every recommendation"
+      ],
+      "evidence": [
+        "lib/analytics/recommendation-rank.ts",
+        "app/api/analytics/recommendations/route.ts"
+      ],
+      "note": "RAR (followed) ships. RSR (worked) is explicitly not computed — the read route says so. EXECUTED/OUTCOME events are now written but never aggregated into a success rate.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "recommendation success rate",
+        "\\bRSR\\b",
+        "whether the recommendation worked",
+        "measure(s)? (the )?outcome of (the |every )?recommendation"
+      ]
+    },
+    {
+      "id": "whatsapp-logging",
+      "label": "WhatsApp logging",
+      "status": "partial",
+      "claimable": "Open the chat from Leadkaun via a wa.me link, have the conversation in your own WhatsApp, come back and record the outcome. The log then drives stage advancement, follow-up scheduling and rescoring.",
+      "notClaimable": [
+        "WhatsApp API or BSP integration",
+        "sending WhatsApp messages from Leadkaun",
+        "automated WhatsApp follow-ups",
+        "reading or syncing your WhatsApp conversations"
+      ],
+      "evidence": [
+        "components/queue/LogWhatsAppModal.tsx",
+        "app/api/signals/whatsapp/route.ts"
+      ],
+      "note": "Zero references to Gupshup, Twilio, 360dialog, WATI or Interakt anywhere in the product. It is a deep link plus a manual form. Capture is manual; everything downstream of the log is real and substantial.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "whatsapp (api|bsp|integration)",
+        "send(s|ing)? whatsapp (from|via) leadkaun",
+        "automated whatsapp",
+        "whatsapp automation",
+        "syncs? (with )?your whatsapp",
+        "reads your whatsapp"
+      ],
+      "allowIfNear": [
+        "roadmap",
+        "not yet",
+        "manual",
+        "no BSP",
+        "on the roadmap"
+      ],
+      "allowFiles": [
+        "alternatives.json",
+        "app/alternatives/",
+        "app/compare/",
+        "best.json",
+        "competitors.json",
+        "data/pseo/competitors.json"
+      ]
+    },
+    {
+      "id": "scoring-weights",
+      "label": "Scoring weights",
+      "status": "partial",
+      "claimable": "The weights are fixed, published and identical for every account — that is what makes a grade explainable and comparable. What you configure is the ICP that Fit is computed from.",
+      "notClaimable": [
+        "customisable scoring weights",
+        "tune the weights",
+        "per-account weight overrides"
+      ],
+      "evidence": [
+        "lib/scoring/signal-weights.ts",
+        "lib/scoring/grade.ts"
+      ],
+      "note": "weight_overrides is dead per Brain 00 s4. You tune who a good customer is, not the maths behind it.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "customis(e|able)[^.\\n]{0,25}weights",
+        "tune[^.\\n]{0,15}(the\\s+)?weights",
+        "weights[^.\\n]{0,25}\\b(tune|customis(e|able)|adjust)\\b"
+      ],
+      "allowFiles": [
+        "alternatives.json",
+        "app/alternatives/",
+        "app/compare/",
+        "best.json",
+        "competitors.json",
+        "data/pseo/competitors.json"
+      ]
+    },
+    {
+      "id": "google-sheets-sync",
+      "label": "Google Sheets sync",
+      "status": "shipped",
+      "claimable": "Connect a Google Sheet and pull leads from it, optionally keeping it in sync so new rows arrive automatically.",
+      "notClaimable": [
+        "two-way sync",
+        "writes back to your sheet"
+      ],
+      "evidence": [
+        "lib/import/sheets-poller.ts",
+        "lib/import/run-sheet-import.ts",
+        "app/api/import/sheets/route.ts",
+        "inngest/functions/sheets-sync.ts",
+        "prisma/migrations/20260724120000_sheet_sync/migration.sql"
+      ],
+      "note": "RESOLVED 2026-08-05, and the Brain doc is the stale one. Brain 00 s4 bans Sheets sync as 'non-functional, model never migrated' — but the migration landed 2026-07-24, ONE DAY before the Brain was authored, so it was written against a snapshot that had just gone out of date. Verified shipped: migration exists, sheetsSyncFn is registered at app/api/inngest/route.ts:20, /api/import/sheets has full POST/GET/DELETE, and the import page has connect + disconnect UI. Brain 00 s4 needs updating. Marketing copy about Sheets is CORRECT and stays.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "two[\\s-]way (google )?sheets? sync",
+        "writes? back to (your )?(google )?sheet"
+      ]
+    },
+    {
+      "id": "mission-control",
+      "label": "Mission Control / platform admin / impersonation",
+      "status": "never-market",
+      "claimable": "Nothing. Internal platform-admin tooling.",
+      "notClaimable": [
+        "any customer-facing mention"
+      ],
+      "evidence": [
+        "lib/analytics/learning.ts"
+      ],
+      "note": "Internal admin surface at admin.leadkaun.com. Never a marketing feature — Brain 00 s4. evidence[] points at a stable product file purely to keep the liveness check meaningful; this capability has no marketable surface.",
+      "verifiedOn": "2026-08-05",
+      "deny": [
+        "mission control",
+        "impersonat(e|ion)"
+      ]
+    },
+    {
+      "id": "lead-scoring",
+      "label": "Lead scoring (Fit / Intent / Quality, A–F)",
+      "status": "shipped",
+      "claimable": "Every lead graded A–F from three independent 0–100 scores — Fit (ICP match), Intent (signals, with decay), Quality (data reliability) — on a published threshold matrix. Quality below 20 forces F.",
+      "evidence": [
+        "lib/scoring/grade.ts",
+        "lib/scoring/signal-weights.ts"
+      ],
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "priority-queue",
+      "label": "Priority Queue",
+      "status": "shipped",
+      "claimable": "One ranked list per rep that re-sorts as signals arrive. Reps work top-down instead of triaging.",
+      "evidence": [
+        "lib/scoring/next-action.ts"
+      ],
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "intake-intelligence",
+      "label": "Intake Intelligence",
+      "status": "shipped",
+      "claimable": "Before a single lead is imported, Leadkaun profiles the file — country and currency from phone shape, B2B vs B2C, industry inference, phone and email validity, in-file duplicates, missing fields — and shows you what is actually in it.",
+      "notClaimable": [
+        "runs in the background",
+        "asynchronous analysis",
+        "AI-powered analysis",
+        "uses an LLM"
+      ],
+      "evidence": [
+        "lib/intake/analyse.ts"
+      ],
+      "note": "Deterministic and explicitly non-LLM by design. Runs on a ~2k-row sample. ANALYSING is SYNCHRONOUS today — the schema comment says 'async-ready; today it's synchronous'. Never imply background processing.",
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "import-readiness",
+      "label": "Import readiness band",
+      "status": "shipped",
+      "claimable": "Each uploaded file gets a readiness band — High, Medium or Low — from mapping confidence, completeness, contact quality and business context.",
+      "notClaimable": [
+        "a tunable import score",
+        "configure the import weights"
+      ],
+      "evidence": [
+        "lib/intake/analyse.ts"
+      ],
+      "note": "The underlying weighted score is marked internal in the schema and is NOT customer-visible. Publishing it as tunable repeats the weight_overrides mistake. Market the band, never the number.",
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "score-evolution",
+      "label": "Score Evolution timeline",
+      "status": "shipped",
+      "claimable": "An append-only timeline of every score change on a lead — grade, confidence and all three sub-scores frozen at each event, so you can see exactly why a grade moved.",
+      "notClaimable": [
+        "a compliance audit trail",
+        "tamper-proof"
+      ],
+      "evidence": [
+        "lib/scoring/score-events.ts"
+      ],
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "confidence",
+      "label": "Confidence score",
+      "status": "shipped",
+      "claimable": "Separate from the grade. The grade says how good a lead is; confidence says how much we actually know about it — an 8-field weighted completeness read with a prioritised enrichment checklist.",
+      "evidence": [
+        "lib/scoring/confidence.ts"
+      ],
+      "note": "Computed on demand, not stored on Lead; snapshotted onto score events.",
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "freshness",
+      "label": "Data freshness",
+      "status": "shipped",
+      "claimable": "Five ageing bands on every lead, so a list you bought six months ago does not look new the day you import it.",
+      "notClaimable": [
+        "we know when the lead was originally collected"
+      ],
+      "evidence": [
+        "lib/scoring/freshness.ts"
+      ],
+      "note": "When source collection date is absent, freshness is inferred from import date. Do not claim knowledge of true collection time.",
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "execution-score",
+      "label": "Daily Execution Score",
+      "status": "shipped",
+      "claimable": "A time-of-day-aware daily score of whether the team is actually working the queue, with a mid-afternoon manager alert when it falls behind.",
+      "notClaimable": [
+        "configure the execution score weights"
+      ],
+      "evidence": [
+        "lib/scoring/execution-score.ts"
+      ],
+      "note": "Models a 09:30–19:00 IST workday. Weights are developer-tunable named exports, NOT customer-tunable.",
+      "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "offline-logging",
+      "label": "Offline signal logging",
+      "status": "shipped",
+      "claimable": "A rep on a patchy connection can still log a call or WhatsApp outcome — it queues locally and syncs when the connection returns.",
+      "notClaimable": [
+        "works offline",
+        "an offline app",
+        "full offline mode"
+      ],
+      "evidence": [
+        "lib/offline/queue.ts"
+      ],
+      "note": "It queues SIGNAL LOGS, not the whole application. Never say the app works offline.",
+      "verifiedOn": "2026-08-05"
+    }
+  ]
+}

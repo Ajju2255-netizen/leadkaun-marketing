@@ -23,6 +23,10 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  loadLedger, compileLedger, ledgerCheck, isLedgerIgnored,
+  checkEvidencePaths, checkStaleness,
+} from "./lib/truth-ledger.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = join(ROOT, "data", "pseo");
@@ -115,6 +119,22 @@ function jaccard(a, b) {
 // data report where every percentage carries an outbound citation — that check
 // targets UNCITED marketing copy. Banned-phrase linting still applies.
 const FAKE_STAT_EXEMPT = new Set(["research.json"]);
+
+// ---- 2b. product truth ledger ---------------------------------------------
+// The ledger enumerates what the PRODUCT actually ships; any copy claiming more
+// fails. See scripts/lib/truth-ledger.mjs for why this inversion matters.
+const ledger = loadLedger(ROOT);
+const ledgerRules = compileLedger(ledger);
+{
+  const stale = checkStaleness(ledger);
+  if (stale.level === "error") err("product-truth.json", stale.msg);
+  else if (stale.level === "warn") warn("product-truth.json", stale.msg);
+
+  const ev = checkEvidencePaths(ledger, ROOT);
+  if (ev.skipped) warn("product-truth.json", ev.reason);
+  else for (const m of ev.missing) err("product-truth.json", `evidence path no longer exists: ${m} — re-audit this capability`);
+}
+
 const jsonFiles = readdirSync(DATA).filter((f) => f.endsWith(".json"));
 for (const f of jsonFiles) {
   let data; try { data = loadJson(f); } catch (e) { err(f, `invalid JSON: ${e.message}`); continue; }
@@ -123,6 +143,7 @@ for (const f of jsonFiles) {
     const b = text.match(bannedRe);
     if (b) warn(`${f}:${path}`, `AI-slop phrase "${b[0]}"`);
     for (const q of DATA_HONESTY) if (q.re.test(text)) err(`${f}:${path}`, q.name);
+    for (const hit of ledgerCheck(text, f, ledgerRules, path)) (hit.severity === "warn" ? warn : err)(`${f}:${path}`, hit.msg);
     if (FAKE_STAT_EXEMPT.has(f)) continue;
     for (const q of DATA_OVERCLAIM) if (q.re.test(text)) err(`${f}:${path}`, q.name);
     if (MULTIPLIER.test(text) && !ATTRIBUTION.test(text)) err(`${f}:${path}`, `uncited performance multiplier "${text.match(MULTIPLIER)[0].trim()}" — cite a source or soften`);
@@ -222,6 +243,12 @@ for (const file of honestyTargets) {
   const rel = file.slice(ROOT.length + 1);
   const lines = readFileSync(file, "utf8").split("\n");
   lines.forEach((ln, i) => {
+    // Ledger rules run BEFORE the legacy bare `lk-gate-ignore` bail-out: they
+    // need the scoped form `lk-gate-ignore:<capability-id>`, so one broad ignore
+    // can't silence a future product-truth rule it was never meant to cover.
+    for (const hit of ledgerCheck(ln, rel, ledgerRules)) {
+      if (!isLedgerIgnored(ln, hit.capId)) (hit.severity === "warn" ? warn : err)(`${rel}:${i + 1}`, hit.msg);
+    }
     if (ln.includes("lk-gate-ignore")) return;
     for (const q of QUARANTINE) {
       if (q.re.test(ln)) err(`${rel}:${i + 1}`, q.name);

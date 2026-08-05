@@ -216,8 +216,8 @@ function Hero() {
 ─────────────────────────────────────────────────────────────────────── */
 
 const TRUST_STATS = [
-  { value: "₹18L",     label: "modelled ₹ recovered · 30 days" },
-  { value: "3.4×",     label: "follow-up rate lift · week 1" },
+  { value: "A–F",      label: "every lead graded, in real time" },
+  { value: "3 scores", label: "Fit, Intent, Quality — weights published" },
   { value: "same day", label: "to first graded lead" },
   { value: "A–F",      label: "every lead graded, in real time" },
 ]

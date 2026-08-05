@@ -24,10 +24,10 @@ actually ships. The third is what made the first two safe.
 | **0 — Product Truth Ledger** | `data/product-truth.json` + gate enforcement, so copy can't claim unshipped features | ✅ Done |
 | **1 — Truth correction** | Clear every false claim; honest rewrite of the routing pages; close the index-gate gap | ✅ Done |
 | **2 — Blueprint layer** | Purpose (thesis, intent, entities, evidence, links) defined per page type and enforced | ✅ Done |
-| **3 — Break duplication** | Fix `measure-overlap.ts`, re-baseline, remove SellSpine's 4 identical blocks from ~17k pages | ⬜ Next |
-| **4 — Page-type rebuild** | Missing blocks 6/10/11 sitewide; auto-numbering; shared hero shell; per-type stacks | ⬜ |
-| **5 — Moat content** | Surface the shipped-but-unmarketed capabilities in workflow language | ⬜ |
-| **6 — E-E-A-T** | `/methodology`, the evidence ladder, review timestamps, author correction | ⬜ |
+| **3 — Break duplication** | Fix `measure-overlap.ts`, re-baseline, remove SellSpine's 4 identical blocks from ~17k pages | ✅ Done |
+| **4 — Page-type rebuild** | Missing blocks 6/10/11 sitewide; auto-numbering; `/best` ranking methodology | ✅ Done |
+| **5 — Moat content** | Surface the shipped-but-unmarketed capabilities in workflow language | ✅ Done |
+| **6 — E-E-A-T** | `/methodology`, the evidence ladder, review timestamps, author correction | ✅ Done |
 
 ---
 
@@ -95,11 +95,54 @@ Verified by injecting three deliberate violations; all three failed correctly.
 section into `public/llms.txt` (one entry per URL *family* — rendering a type-level
 summary on every sibling page would manufacture the duplication Phase 3 removes).
 
-### 3 — Break duplication ⬜
-**Fix the instrument first.** `scripts/measure-overlap.ts` does not currently measure
-SellSpine, `MethodologyCard`, `ReferencesBlock` or `SHARED_FAQS` — i.e. it excludes
-exactly what Phase 3 deletes, so the reported ~52% overlap understates reality and
-would barely move. Extend `leafDoc()`, re-baseline, *then* operate.
+### 3 — Break duplication ✅
+The instrument was measuring the wrong corpus. `leafDoc()` excluded all four
+SellSpine blocks, `MethodologyCard`, `ReferencesBlock`, the shared FAQ pool and
+`kw.body` — exactly what this phase deletes. Fixed and re-baselined *before* any
+surgery: the true baseline was **71.6% mean / 61.4% near-duplicate pairs**, not 52%.
+
+`WhyNotCRM` and `PricingCTA` removed from pSEO entirely; `ModulesGrid` now renders
+a 3-module subset chosen from each page's own data.
+
+| | baseline | after |
+|---|---|---|
+| city-siblings, mean | 71.6% | 67.9% |
+| city-siblings, ≥0.70 | **61.4%** | **33.7%** |
+| industry-siblings, ≥0.70 | 37.7% | 1.6% |
+
+**Missed target, stated plainly:** the plan wanted a ≥15pt *mean* drop. The mean fell
+3.7pt; it was the near-duplicate share that collapsed. What remains is
+`MethodologyCard`, `ReferencesBlock` and the shared FAQ pool — deliberately
+identical, because they are the published methodology and the citations. Cutting
+them would buy a metric and cost evidence.
+
+### 4 — Page-type rebuild ✅
+Blocks 6, 10 and 11 existed only on `/blog`. `MidCta`, `ReviewStamp` and
+`AuthorLine` now reach 16 page types; `createSectionNumbering()` replaces
+hand-written numbers that had drifted. `/best` gained the ranking-methodology block
+Brain 09 §3.7 requires and which was missing — it states the conflict of interest
+outright. Unused components (`TrustStrip`, `KeyTakeaways`, `GlassPanel`) deleted so
+they are not mistaken for patterns.
+
+### 5 — Moat content ✅
+Two pillars for the two ownable theses: `/learn/lead-data-trust` (Confidence,
+Freshness, Readiness, Intake, Score Evolution — all *epistemic*, an axis no Indian
+SMB CRM markets) and `/learn/sales-execution-measurement`, which says out loud that
+we measure whether a recommendation was **followed**, not whether it **worked**.
+Plus 5 glossary terms. `npm run truth`: 5 unmarketed capabilities → **0**.
+
+### 6 — E-E-A-T ✅
+`/methodology` is the substitute for case studies we do not have: the engine's own
+published mechanics, which competitors structurally cannot copy because publishing
+them means committing to fixed weights. No `/customers` shell — an empty one is a
+credibility hole that invites fabrication.
+
+The quarantined stats (₹18L recovered, 3.4× lift, ₹4.2 Cr, "50+ Indian B2B teams")
+are gone from the homepage, `/about`, `/product`, `ProofBand`, `roles.json`,
+`resources.json` and a blog post — replaced by product-mechanism facts, with gate
+rules so they cannot return. The `ananya` **Person** byline is demoted to
+Organization: a Person with no avatar, no url and no `sameAs` is an E-E-A-T
+liability, and it was shipping on 33 posts.
 
 ---
 

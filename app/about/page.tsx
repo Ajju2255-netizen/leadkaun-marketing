@@ -64,8 +64,8 @@ export default function AboutPage() {
         <Container>
           <Reveal><MetricStrip
             items={[
-              { value: "₹18L",     label: "Modelled ₹ recovered / team / 30 days" },
-              { value: "3.4×",     label: "Follow-up rate lift in week 1" },
+              { value: "A–F",      label: "Every lead graded, in real time" },
+              { value: "3 scores", label: "Fit, Intent, Quality — weights published" },
               { value: "same day", label: "Setup to first scored lead" },
               { value: "A–F",      label: "Every lead graded, in real time" },
             ]}
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Generic CRMs told managers &quot;X calls made&quot; and &quot;Y leads added.&quot; Nobody was telling them{" "}
-                  <em className="text-ink not-italic font-semibold">&quot;₹18L is sitting in leads that haven&apos;t been
+                  <em className="text-ink not-italic font-semibold">&quot;There is money sitting in leads that haven&apos;t been
                   called in 3 days.&quot;</em> That number changes behaviour. That's what Leadkaun was built to surface.
                 </p>
                 <p>

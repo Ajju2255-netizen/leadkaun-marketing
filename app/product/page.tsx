@@ -104,7 +104,7 @@ export default function ProductPage() {
               { value: "A–F",      label: "Per-lead grading",       hint: "Fit × Intent × Quality" },
               { value: "same day", label: "Setup to first lead",    hint: "CSV import" },
               { value: "12",       label: "Core modules",           hint: "Premium features unlock by tier" },
-              { value: "₹18 L",    label: "Modelled ₹ recovered, 30 days", hint: "illustrative model" },
+              { value: "3 scores", label: "Fit, Intent, Quality", hint: "weights published" },
             ]}
           /></Reveal>
         </Container>

@@ -76,6 +76,12 @@ const DATA_HONESTY = [
   // weights" and "BSP … on the roadmap" phrasings do NOT match these.
   { re: /customis(e|able)[^.\n]{0,25}weights|tune[^.\n]{0,15}(the\s+)?weights|weights[^.\n]{0,25}\b(tune|customis(e|able)|adjust|change)\b|custom\s+(icp\s+)?weights/i, name: 'over-claim: customisable scoring weights (weight_overrides is not wired — weights are fixed/transparent)' },
   { re: /BSP integrations?[^.\n]{0,30}\bavailable/i, name: 'over-claim: BSP integrations "available" (Gupshup/AiSensy/Interakt are roadmap)' },
+  // Brain 00 §5 quarantine list. Removed sitewide in Phase 6; these keep them out.
+  // The ₹18L pattern excludes arithmetic worked examples ("4 × ₹4.5L = ₹18L").
+  { re: /₹\s?18\s?L\b(?![\s]*[.=)])/i, name: 'quarantined unsourced outcome "₹18L recovered"' },
+  { re: /3\.4\s?[×x]\b/i,              name: 'quarantined unsourced outcome "3.4× follow-up lift"' },
+  { re: /₹\s?4\.2\s?Cr\b/i,           name: 'quarantined unsourced outcome "₹4.2 Cr recovered"' },
+  { re: /\b50\+\s+(indian\s+)?b2b\s+(sales\s+)?teams\b/i, name: 'quarantined unsourced claim "50+ Indian B2B teams"' },
 ];
 
 // Over-claims that historically hid in DATA files because the strict QUARANTINE

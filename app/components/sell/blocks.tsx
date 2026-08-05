@@ -19,11 +19,24 @@ import { APP_URLS } from "@/lib/urls"
 
 type Ground = "pure" | "cream" | "sky" | "mesh"
 
+/**
+ * Evidence ladder — replaces the old TRUST_STATS.
+ *
+ * The figures it used to carry are on Brain 00 §5's quarantine list:
+ * unsourced outcome claims carried under an "illustrative model" label that was
+ * doing a great deal of work for very little payoff, across 9+ pages.
+ *
+ * These are product-mechanism facts instead — every one is a threshold or
+ * behaviour the engine actually applies, published at /methodology. Weaker on
+ * paper than a big rupee number; far stronger as evidence, because they are
+ * checkable. When consented customer results exist they replace these, and the
+ * ladder is why that is a data change rather than a rewrite.
+ */
 export const TRUST_STATS = [
-  { value: "₹18L",     label: "modelled ₹ recovered · 30 days" },
-  { value: "3.4×",     label: "follow-up rate lift · week 1" },
-  { value: "same day", label: "to first graded lead" },
   { value: "A–F",      label: "every lead graded, in real time" },
+  { value: "3 scores", label: "Fit, Intent and Quality — published weights" },
+  { value: "same day", label: "to first graded lead" },
+  { value: "flat ₹",   label: "priced per account, not per seat" },
 ]
 
 const MODULE_ICONS: Record<string, LucideIcon> = {
@@ -114,7 +127,7 @@ export function ProductBlock({
 
 /** ProofBand — the outcome-stats credibility band. */
 export function ProofBand({
-  label = "Illustrative model — typical figures for an Indian B2B team, not customer results",
+  label = "Product mechanics, published in full at /methodology",
   ground = "pure",
 }: {
   label?: string

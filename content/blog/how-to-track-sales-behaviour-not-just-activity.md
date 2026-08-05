@@ -93,6 +93,6 @@ The shift is from managing effort to managing decisions. Effort, you can only as
 
 Activity tells you a rep was busy. Behaviour tells you whether they'll close. For years Indian sales teams have measured the first because it's easy to count, and wondered why the green dashboards didn't turn into revenue.
 
-The teams pulling ahead measure response time, follow-up discipline, and lead-selection — and coach on the ₹ those behaviours recover, not the calls they generate. One team running this surfaced ₹18L in recoverable deals in its first week, money that every activity report had been hiding in plain sight.
+The teams pulling ahead measure response time, follow-up discipline, and lead-selection — and coach on the ₹ those behaviours recover, not the calls they generate. Run the same arithmetic on your own stale Grade A leads and the number that falls out is usually larger than anyone expected — money every activity report had been hiding in plain sight.
 
 You don't need your reps to work harder. You need to see the four decisions a day that actually move money — and put a rupee figure on the ones that get missed. [Book a 15-minute demo](/demo) and we'll show you what your activity dashboard has been hiding.

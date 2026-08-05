@@ -20,12 +20,21 @@ export type Author = {
 }
 
 export const AUTHORS: Record<string, Author> = {
+  // DEMOTED 2026-08 from Person to Organization.
+  //
+  // A schema.org Person with no avatar, no url and no sameAs is an E-E-A-T
+  // LIABILITY, not an asset — it is precisely the pattern helpful-content
+  // guidance targets, and it was shipping on 33 posts. An editorial byline is
+  // the honest form until a real, verifiable person exists to attribute to.
+  //
+  // To reinstate a Person: add a real name, a populated `url` pointing at a
+  // /authors/<key> page, and `sameAs` links that resolve. Not before.
   ananya: {
     key: "ananya",
-    name: "Ananya Menon",
-    type: "Person",
-    role: "Content Lead, Leadkaun",
-    bio: "Ananya writes about Indian B2B sales, lead management and rupee-first analytics for Leadkaun — working closely with the operators and engineers building the product to turn what happens on a real sales desk into practical playbooks.",
+    name: "The Leadkaun editorial team",
+    type: "Organization",
+    role: "Product & content, Leadkaun",
+    bio: "Written and maintained by the team building Leadkaun, from the shipping product and its published scoring model. Product claims on this site are checked against code — see our methodology.",
   },
   team: {
     key: "team",

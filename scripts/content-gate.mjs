@@ -155,6 +155,57 @@ for (const f of jsonFiles) {
   }
 }
 
+// ---- 2c. page blueprints ---------------------------------------------------
+// Blueprints are enforced, not documented. The load-bearing rule is the last one:
+// a blueprint may not reference a capability the product does not ship, so a page
+// cannot be DESIGNED around a feature that does not exist. That is the check that
+// would have prevented /learn/lead-routing from ever being written.
+{
+  const bpPath = join(ROOT, "data", "blueprints.json");
+  if (!existsSync(bpPath)) err("blueprints.json", "missing — the blueprint layer is required");
+  else {
+    const bp = JSON.parse(readFileSync(bpPath, "utf8"));
+    const types = bp.pageTypes ?? [];
+    const REQUIRED = ["id","route","userIntent","businessIntent","thesis","entities","uniqueInsight","capabilities","linksIn","linksOut","evidence","schema","llmSummary","cta","wordFloor","blocks"];
+
+    // Brain 09 §4 — authoritative rendered-text minimums. Hardcoded because the
+    // table is stable and this file must not depend on the vault being mounted.
+    const FLOORS = { homepage:0, product:1200, pricing:0, feature:900, compare:1000,
+      alternatives:800, best:1500, research:2000, blog:800, glossary:300, questions:400,
+      howto:500, calculator:500, industry:1000, city:800, "industry-city":500,
+      "industry-city-keyword":600, "role-city":500, integration:500, resources:400, learn:1500 };
+
+    // Only types lib/seo.ts can actually emit (plus the three global root schemas).
+    const EMITTABLE = new Set(["Organization","WebSite","SoftwareApplication","FAQPage",
+      "BreadcrumbList","Article","LocalBusiness","Place","Offer","Product","HowTo",
+      "QAPage","DefinedTerm","ItemList","Speakable"]);
+
+    const shippedCaps = new Set(ledger.capabilities.filter((c) => c.status === "shipped").map((c) => c.id));
+    const knownCaps = new Set(ledger.capabilities.map((c) => c.id));
+
+    for (const t of types) {
+      const where = `blueprints.json:${t.id ?? "?"}`;
+      for (const f of REQUIRED) if (t[f] === undefined || t[f] === null || t[f] === "") err(where, `blueprint field missing: ${f}`);
+      if (FLOORS[t.id] === undefined) warn(where, "no Brain 09 §4 word floor for this id");
+      else if (t.wordFloor !== FLOORS[t.id]) err(where, `wordFloor ${t.wordFloor} != Brain 09 §4 floor ${FLOORS[t.id]}`);
+      for (const sc of t.schema ?? []) if (!EMITTABLE.has(sc)) err(where, `schema "${sc}" is not emittable by lib/seo.ts`);
+      for (const cap of t.capabilities ?? []) {
+        if (!knownCaps.has(cap)) err(where, `capability "${cap}" is not in the product truth ledger`);
+        else if (!shippedCaps.has(cap)) err(where, `blueprint is designed around "${cap}", which is not shipped — a page cannot be planned around a capability the product lacks`);
+      }
+    }
+
+    // A thesis that duplicates another is the machine-readable version of
+    // "keyword-swapped template". Reuses the shingles/jaccard helpers above.
+    for (let i = 0; i < types.length; i++) {
+      for (let j = i + 1; j < types.length; j++) {
+        const sim = jaccard(shingles(types[i].thesis ?? ""), shingles(types[j].thesis ?? ""));
+        if (sim >= 0.5) err("blueprints.json", `thesis collision ${sim.toFixed(2)}: ${types[i].id} vs ${types[j].id} — every page type needs its own reason to exist`);
+      }
+    }
+  }
+}
+
 // ---- 3. industry fact completeness ----------------------------------------
 const industries = loadJson("industries.json");
 for (const ind of industries) {

@@ -74,3 +74,74 @@ Comparison pages at `/compare/leadkaun-vs-{zoho-crm|leadsquared|hubspot|salesfor
 - Sales: sales@leadkaun.com
 - Support: support@leadkaun.com
 - Website: https://leadkaun.com
+
+<!-- BEGIN generated:page-types — scripts/generate-llms-blueprints.mjs -->
+
+## Page types on this site
+
+Each URL family below answers one kind of question. The summary is the answer that page family gives.
+
+### `/`
+Leadkaun is lead management software for Indian B2B sales teams. It grades every lead A–F on fit, intent and quality, builds each rep a ranked Priority Queue, and surfaces the rupees at risk from leads going cold. It runs alongside your existing CRM rather than replacing it, and pricing is flat per account rather than per seat.
+
+### `/product`
+Leadkaun is a lead management system built around three scores. Fit measures how well a lead matches the customer profile you configure, Intent measures live engagement and decays as a lead goes quiet, and Quality measures whether the record can be trusted at all. Those combine into an A–F grade that drives a per-rep Priority Queue, a daily brief, and a running figure for revenue at risk.
+
+### `/pricing`
+Leadkaun pricing is flat per account, not per seat: Free at zero, Starter ₹2,999, Growth ₹7,999 and Scale ₹19,999 per month, with a custom Enterprise tier. Adding more reps does not raise the bill inside a tier. Tiers differ by seat count, monthly active-lead volume and which advanced modules are unlocked.
+
+### `/features/[feature]`
+Each Leadkaun feature page describes one module and the exact inputs it reads. Lead scoring computes three independent 0–100 scores and combines them into an A–F grade on fixed thresholds. The Priority Queue ranks a rep's owned leads using that grade plus recency and value. Every published threshold is the one the product actually applies.
+
+### `/compare/leadkaun-vs-[competitor]`
+This page compares Leadkaun with one named competitor on positioning, features, pricing model and switching effort. Leadkaun is a lead-prioritisation layer that runs alongside a CRM at flat per-account pricing; most competitors are full CRMs priced per user. The verdict section states plainly which team each tool suits.
+
+### `/alternatives/[competitor]`
+This page lists genuine alternatives to one named product, with what each is best for and where it falls short for Indian SMB teams. It also covers the option of keeping the existing tool and running a prioritisation layer alongside it, which is often less disruptive than a migration.
+
+### `/best/[category]`
+This is a ranked buyer guide for one software category, with the evaluation criteria published up front. Each pick lists what it is best for, its pricing model, why it earns the position and what to watch out for. Where Leadkaun does not belong in a category, it is excluded and the guide says why.
+
+### `/research/[report]`
+This is a sourced benchmark report on Indian B2B sales behaviour. Every figure names its primary source and year inline, and the methodology and full reference list are published at the end of the page.
+
+### `/blog/[slug]`
+A Leadkaun blog post covering one specific sales-execution problem for Indian B2B teams, with a worked example and a link to the pillar guide that covers the topic end to end.
+
+### `/glossary/[term]`
+A short, self-contained definition of one term used in Indian B2B sales and in Leadkaun, with a worked example and links to the guide and product surface where it applies.
+
+### `/questions/[slug]`
+A direct answer to one question about lead management or about how Leadkaun works, stated in the opening sentence and expanded below.
+
+### `/how-to/[slug]`
+A step-by-step playbook for one sales-operations task, with prerequisites, the time it takes, common mistakes, and the exact sequence to follow.
+
+### `/tools/[tool]`
+An interactive calculator that estimates a rupee figure from inputs you provide, with the formula disclosed on the page. The output is an illustrative model, not a measured result.
+
+### `/use-cases/[industry]`
+How Leadkaun works for one industry's sales motion in India, covering the lead channels that sector actually uses, typical deal size and cycle length, and what gets configured on day one.
+
+### `/city/[city]`
+Lead management and sales CRM for B2B teams in one Indian city, covering the sectors that sell there and how Leadkaun grades and ranks enquiries from them.
+
+### `/[industry]/[city]`
+Lead management software for one industry's sales teams in one Indian city, covering the channels those teams source enquiries from and how each enquiry is graded and queued.
+
+### `/[industry]/[city]/[keyword]`
+One lead-management capability, explained for a single industry in a single Indian city, including what the capability does and how it applies to that sector's enquiry mix.
+
+### `/for/[role]/[city]`
+How Leadkaun changes the working day of one sales role in one Indian city, covering what that role opens each morning and which modules they use most.
+
+### `/integrations/[tool]`
+How Leadkaun connects to one external tool, what data moves in which direction, and whether that connection is live today, manual, or on the roadmap.
+
+### `/resources/[slug]`
+A downloadable template or worksheet for one sales-operations task, with what is inside it and how to use it.
+
+### `/learn/[pillar]`
+A complete guide to one lead-management topic, covering what it is, why teams get it wrong, how it works mechanically, and where Leadkaun does and does not help.
+
+<!-- END generated:page-types -->

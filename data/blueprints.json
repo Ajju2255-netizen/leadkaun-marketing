@@ -1,0 +1,1336 @@
+{
+  "_readme": [
+    "PAGE BLUEPRINTS — purpose defined before copy.",
+    "",
+    "One record per page type, per Brain 09. A blueprint is not documentation: the",
+    "content gate enforces it. thesis[] must be unique across every type (jaccard",
+    "over word-shingles), wordFloor must match Brain 09 s4, schema[] must be",
+    "emittable by lib/seo.ts, and capabilities[] must be ids from",
+    "data/product-truth.json that are actually shipped.",
+    "",
+    "That last rule is the point: a page cannot be DESIGNED around a capability the",
+    "product does not have. It is the check that would have stopped",
+    "/learn/lead-routing being written at all.",
+    "",
+    "blocks[] is the ordered section stack from Brain 09 s1. The order never",
+    "changes; a page type may omit a block, never reorder one."
+  ],
+  "version": 1,
+  "blocks": [
+    "hero",
+    "tldr",
+    "context",
+    "methodology",
+    "body",
+    "midCta",
+    "faq",
+    "related",
+    "references",
+    "stamp",
+    "author",
+    "cta"
+  ],
+  "pageTypes": [
+    {
+      "id": "homepage",
+      "route": "/",
+      "userIntent": {
+        "code": "N",
+        "query": "leadkaun",
+        "job": "decide in 20 seconds whether this tool is for me"
+      },
+      "businessIntent": "convert brand + category traffic to trial; establish the category",
+      "thesis": "The homepage exists to answer one question a CRM never answers for a sales head: out of everything in the pipeline, who does my rep call next.",
+      "entities": [
+        "Leadkaun",
+        "Sales Behaviour OS",
+        "Priority Queue",
+        "Lead Scoring (A–F)"
+      ],
+      "uniqueInsight": "We publish the ranking mechanism itself — weights, thresholds, decay — which nobody else in this category does.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "external",
+        "/blog/*",
+        "/learn/*"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/product",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Organization",
+        "WebSite",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "llmSummary": "Leadkaun is lead management software for Indian B2B sales teams. It grades every lead A–F on fit, intent and quality, builds each rep a ranked Priority Queue, and surfaces the rupees at risk from leads going cold. It runs alongside your existing CRM rather than replacing it, and pricing is flat per account rather than per seat.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 0,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "cta"
+      ]
+    },
+    {
+      "id": "product",
+      "route": "/product",
+      "userIntent": {
+        "code": "C",
+        "query": "sales behaviour os",
+        "job": "understand the whole system before I commit"
+      },
+      "businessIntent": "move an evaluating buyer from interest to trial",
+      "thesis": "The product page has to show that these modules are one system with a single spine, not a feature list assembled to look complete.",
+      "entities": [
+        "Priority Queue",
+        "Lead Scoring (A–F)",
+        "Missed Opportunity Engine",
+        "Morning Brief",
+        "Confidence"
+      ],
+      "uniqueInsight": "Every module reads from the same three scores, so a change to your ICP moves the whole system at once.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue",
+        "confidence",
+        "freshness"
+      ],
+      "linksIn": [
+        "/",
+        "/features"
+      ],
+      "linksOut": {
+        "min": 10,
+        "required": [
+          "/pricing",
+          "/how-it-works",
+          "/features"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "SoftwareApplication",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "Leadkaun is a lead management system built around three scores. Fit measures how well a lead matches the customer profile you configure, Intent measures live engagement and decays as a lead goes quiet, and Quality measures whether the record can be trusted at all. Those combine into an A–F grade that drives a per-rep Priority Queue, a daily brief, and a running figure for revenue at risk.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "pricing"
+      },
+      "wordFloor": 1200,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "pricing",
+      "route": "/pricing",
+      "userIntent": {
+        "code": "T",
+        "query": "lead management software price india",
+        "job": "work out what this costs my team"
+      },
+      "businessIntent": "remove cost uncertainty at the point of decision",
+      "thesis": "Pricing is a positioning argument: flat per account is the reason a fifteen-person team can put every rep on the system instead of rationing logins.",
+      "entities": [
+        "Pricing tiers",
+        "Active-lead cap",
+        "Workspace"
+      ],
+      "uniqueInsight": "Per-seat pricing makes teams ration access, which corrupts the accountability data the product depends on. Flat pricing removes that incentive.",
+      "capabilities": [],
+      "linksIn": [
+        "/",
+        "/product",
+        "/compare/*"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/demo",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "verified-fact",
+        "sources": [
+          "/pricing"
+        ]
+      },
+      "schema": [
+        "Product",
+        "Offer",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "Leadkaun pricing is flat per account, not per seat: Free at zero, Starter ₹2,999, Growth ₹7,999 and Scale ₹19,999 per month, with a custom Enterprise tier. Adding more reps does not raise the bill inside a tier. Tiers differ by seat count, monthly active-lead volume and which advanced modules are unlocked.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "demo"
+      },
+      "wordFloor": 0,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "feature",
+      "route": "/features/[feature]",
+      "userIntent": {
+        "code": "C",
+        "query": "lead scoring software india",
+        "job": "see whether this specific mechanism does what I need"
+      },
+      "businessIntent": "convert mechanism-level interest into trial",
+      "thesis": "A feature page earns its ranking by publishing the mechanism — the actual inputs, weights and thresholds — rather than describing an outcome.",
+      "entities": [
+        "Fit Score",
+        "Intent Score",
+        "Quality Score",
+        "Grade A–F",
+        "Intent decay"
+      ],
+      "uniqueInsight": "The weights are fixed and identical for every account, which is what makes a grade explainable to the rep working it.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue",
+        "confidence",
+        "score-evolution"
+      ],
+      "linksIn": [
+        "/product",
+        "/features",
+        "/[i]/[c]/[k]"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/pricing",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "SoftwareApplication",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "Each Leadkaun feature page describes one module and the exact inputs it reads. Lead scoring computes three independent 0–100 scores and combines them into an A–F grade on fixed thresholds. The Priority Queue ranks a rep's owned leads using that grade plus recency and value. Every published threshold is the one the product actually applies.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 900,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "compare",
+      "route": "/compare/leadkaun-vs-[competitor]",
+      "userIntent": {
+        "code": "C",
+        "query": "leadkaun vs zoho crm",
+        "job": "decide between two named tools"
+      },
+      "businessIntent": "win the head-to-head for teams we genuinely fit",
+      "thesis": "A comparison page is only useful if it names the cases where the other tool wins, because a buyer already suspects the ones where it does not.",
+      "entities": [
+        "Leadkaun",
+        "Competitor",
+        "Pricing model",
+        "Priority Queue"
+      ],
+      "uniqueInsight": "We publish where the competitor wins, including cases where we recommend staying put — which is the only reason to trust the rest of the page.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/compare",
+        "/alternatives/*",
+        "/best/*"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/pricing",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "This page compares Leadkaun with one named competitor on positioning, features, pricing model and switching effort. Leadkaun is a lead-prioritisation layer that runs alongside a CRM at flat per-account pricing; most competitors are full CRMs priced per user. The verdict section states plainly which team each tool suits.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "demo"
+      },
+      "wordFloor": 1000,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "alternatives",
+      "route": "/alternatives/[competitor]",
+      "userIntent": {
+        "code": "C",
+        "query": "zoho crm alternatives",
+        "job": "find a replacement for a tool I already dislike"
+      },
+      "businessIntent": "capture switching intent at the moment it forms",
+      "thesis": "Someone searching for alternatives has already decided to leave; the page's job is to be honest about which escape route fits, including staying.",
+      "entities": [
+        "Competitor",
+        "Alternative products",
+        "Migration"
+      ],
+      "uniqueInsight": "We include the option of keeping the incumbent and adding a layer, because for most teams that is cheaper than migrating.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/alternatives",
+        "/compare/*"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/compare/leadkaun-vs-zoho-crm",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "This page lists genuine alternatives to one named product, with what each is best for and where it falls short for Indian SMB teams. It also covers the option of keeping the existing tool and running a prioritisation layer alongside it, which is often less disruptive than a migration.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "compare"
+      },
+      "wordFloor": 800,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "best",
+      "route": "/best/[category]",
+      "userIntent": {
+        "code": "C",
+        "query": "best lead management software india",
+        "job": "shortlist tools in a category"
+      },
+      "businessIntent": "own the category shortlist query",
+      "thesis": "A buyer guide is worth reading only if the ranking method is published and the author is willing to exclude themselves.",
+      "entities": [
+        "Software category",
+        "Ranking criteria",
+        "Vendors"
+      ],
+      "uniqueInsight": "Where we do not fit the category we say so and rank ourselves nowhere — as on the lead-routing guide.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/best",
+        "/learn/*",
+        "/[i]/[c]"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/pricing",
+          "/compare/*"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "This is a ranked buyer guide for one software category, with the evaluation criteria published up front. Each pick lists what it is best for, its pricing model, why it earns the position and what to watch out for. Where Leadkaun does not belong in a category, it is excluded and the guide says why.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "compare"
+      },
+      "wordFloor": 1500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "research",
+      "route": "/research/[report]",
+      "userIntent": {
+        "code": "I",
+        "query": "indian b2b sales benchmarks",
+        "job": "cite a number I can take to my boss"
+      },
+      "businessIntent": "earn citations and links; feed every other page's evidence",
+      "thesis": "A research page is the one surface where every figure carries an outbound source, which is what makes it quotable by both people and models.",
+      "entities": [
+        "Benchmark",
+        "Source",
+        "Response time"
+      ],
+      "uniqueInsight": "Each statistic links to its named primary source at the point of use, not in a footnote nobody reads.",
+      "capabilities": [],
+      "linksIn": [
+        "/blog/*",
+        "/learn/*"
+      ],
+      "linksOut": {
+        "min": 6,
+        "required": [
+          "/product",
+          "/methodology"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "external"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "This is a sourced benchmark report on Indian B2B sales behaviour. Every figure names its primary source and year inline, and the methodology and full reference list are published at the end of the page.",
+      "cta": {
+        "primary": "soft",
+        "secondary": "product"
+      },
+      "wordFloor": 2000,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "blog",
+      "route": "/blog/[slug]",
+      "userIntent": {
+        "code": "I",
+        "query": "why leads go cold",
+        "job": "understand a problem I recognise"
+      },
+      "businessIntent": "build topical depth and feed the pillars",
+      "thesis": "A post earns its place by starting from a situation a sales head has actually lived, not from a definition of the topic.",
+      "entities": [
+        "Topic",
+        "Pillar",
+        "Example"
+      ],
+      "uniqueInsight": "Posts argue from the mechanics of the product's own model rather than restating generic advice.",
+      "capabilities": [],
+      "linksIn": [
+        "/blog",
+        "/learn/*"
+      ],
+      "linksOut": {
+        "min": 6,
+        "required": [
+          "/learn/*",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "/research/*"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A Leadkaun blog post covering one specific sales-execution problem for Indian B2B teams, with a worked example and a link to the pillar guide that covers the topic end to end.",
+      "cta": {
+        "primary": "soft",
+        "secondary": "trial"
+      },
+      "wordFloor": 800,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "author",
+        "cta"
+      ]
+    },
+    {
+      "id": "glossary",
+      "route": "/glossary/[term]",
+      "userIntent": {
+        "code": "I",
+        "query": "what is fit score",
+        "job": "get a definition fast and move on"
+      },
+      "businessIntent": "own the vocabulary of the category",
+      "thesis": "A glossary entry has to be usable in isolation, because it is the page most likely to be lifted as a single quoted paragraph.",
+      "entities": [
+        "Term",
+        "Related terms",
+        "Feature"
+      ],
+      "uniqueInsight": "Every term is defined in the product's own operating vocabulary and links to where it is implemented.",
+      "capabilities": [
+        "lead-scoring",
+        "confidence",
+        "freshness"
+      ],
+      "linksIn": [
+        "/glossary",
+        "/learn/*",
+        "/questions/*"
+      ],
+      "linksOut": {
+        "min": 5,
+        "required": [
+          "/features/*",
+          "/learn/*"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "DefinedTerm",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A short, self-contained definition of one term used in Indian B2B sales and in Leadkaun, with a worked example and links to the guide and product surface where it applies.",
+      "cta": {
+        "primary": "soft",
+        "secondary": "product"
+      },
+      "wordFloor": 300,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "questions",
+      "route": "/questions/[slug]",
+      "userIntent": {
+        "code": "I",
+        "query": "what is lead scoring",
+        "job": "get one direct answer"
+      },
+      "businessIntent": "capture question-shaped and voice queries",
+      "thesis": "A question page answers in the first sentence and earns the rest of the page only if the reader wants the detail.",
+      "entities": [
+        "Question",
+        "Answer",
+        "Feature"
+      ],
+      "uniqueInsight": "The short answer is written to stand alone if extracted, with no pronoun referring back to the question.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/questions",
+        "/glossary/*"
+      ],
+      "linksOut": {
+        "min": 5,
+        "required": [
+          "/features/*",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "QAPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A direct answer to one question about lead management or about how Leadkaun works, stated in the opening sentence and expanded below.",
+      "cta": {
+        "primary": "soft",
+        "secondary": "product"
+      },
+      "wordFloor": 400,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "faq",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "howto",
+      "route": "/how-to/[slug]",
+      "userIntent": {
+        "code": "I",
+        "query": "how to set up lead scoring",
+        "job": "follow steps and get it done today"
+      },
+      "businessIntent": "convert doing-intent into product usage",
+      "thesis": "A how-to is judged on whether someone can finish it in one sitting, so every step names the screen and the decision it requires.",
+      "entities": [
+        "Task",
+        "Steps",
+        "Prerequisites"
+      ],
+      "uniqueInsight": "Steps are written against the real setup flow, including the parts that are fiddly.",
+      "capabilities": [
+        "lead-scoring",
+        "intake-intelligence",
+        "import-readiness"
+      ],
+      "linksIn": [
+        "/how-to",
+        "/learn/*"
+      ],
+      "linksOut": {
+        "min": 6,
+        "required": [
+          "/product",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "HowTo",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A step-by-step playbook for one sales-operations task, with prerequisites, the time it takes, common mistakes, and the exact sequence to follow.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "calculator",
+      "route": "/tools/[tool]",
+      "userIntent": {
+        "code": "C",
+        "query": "crm cost calculator",
+        "job": "get a number for my own situation"
+      },
+      "businessIntent": "create a personalised reason to talk to us",
+      "thesis": "A calculator earns trust by disclosing its formula, so the output reads as a model rather than a sales claim.",
+      "entities": [
+        "Formula",
+        "Inputs",
+        "Rupee output"
+      ],
+      "uniqueInsight": "The arithmetic is shown on the page, and the result is labelled a model rather than a promise.",
+      "capabilities": [],
+      "linksIn": [
+        "/pricing",
+        "/compare/*"
+      ],
+      "linksOut": {
+        "min": 5,
+        "required": [
+          "/pricing",
+          "/demo"
+        ]
+      },
+      "evidence": {
+        "tier": "illustrative-model",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "An interactive calculator that estimates a rupee figure from inputs you provide, with the formula disclosed on the page. The output is an illustrative model, not a measured result.",
+      "cta": {
+        "primary": "demo",
+        "secondary": "trial"
+      },
+      "wordFloor": 500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "cta"
+      ]
+    },
+    {
+      "id": "industry",
+      "route": "/use-cases/[industry]",
+      "userIntent": {
+        "code": "C",
+        "query": "crm for manufacturing india",
+        "job": "see whether this fits how my sector sells"
+      },
+      "businessIntent": "convert sector-qualified traffic",
+      "thesis": "An industry page must open on how that sector actually sells — its channels, ticket sizes and cycle — before naming a single feature.",
+      "entities": [
+        "Industry",
+        "Lead channels",
+        "Ticket band",
+        "Sales cycle"
+      ],
+      "uniqueInsight": "Each sector page carries its real economics — deal band, cycle length, dominant channels — not a swapped noun.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue",
+        "freshness"
+      ],
+      "linksIn": [
+        "/use-cases",
+        "/[i]/[c]"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/pricing",
+          "/product"
+        ]
+      },
+      "evidence": {
+        "tier": "named-source",
+        "sources": [
+          "/research/*"
+        ]
+      },
+      "schema": [
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "How Leadkaun works for one industry's sales motion in India, covering the lead channels that sector actually uses, typical deal size and cycle length, and what gets configured on day one.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "demo"
+      },
+      "wordFloor": 1000,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "city",
+      "route": "/city/[city]",
+      "userIntent": {
+        "code": "C",
+        "query": "lead management software bangalore",
+        "job": "check this is used by teams near me"
+      },
+      "businessIntent": "capture local commercial intent without publishing an encyclopedia",
+      "thesis": "A city page is only defensible if it carries commercial facts about that market; geography alone is not a reason for a page to exist.",
+      "entities": [
+        "City",
+        "State",
+        "Industries served"
+      ],
+      "uniqueInsight": "Local context is business context — districts, sectors, trade — never tier or population, which pulled encyclopedia traffic.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/city",
+        "/[i]/[c]"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/pricing",
+          "/best/*"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Place",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "Lead management and sales CRM for B2B teams in one Indian city, covering the sectors that sell there and how Leadkaun grades and ranks enquiries from them.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 800,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "industry-city",
+      "route": "/[industry]/[city]",
+      "userIntent": {
+        "code": "C",
+        "query": "real estate crm mumbai",
+        "job": "find a tool used by my sector in my city"
+      },
+      "businessIntent": "capture sector-plus-place intent at scale without thinning",
+      "thesis": "This page exists only where a real sector operates in a real market, and it has to prove that in the first paragraph.",
+      "entities": [
+        "Industry",
+        "City",
+        "Lead channels"
+      ],
+      "uniqueInsight": "The pairing carries both the sector's economics and the city's commercial districts, so no two cells read alike.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/city/[c]",
+        "/use-cases/[i]"
+      ],
+      "linksOut": {
+        "min": 8,
+        "required": [
+          "/best/*",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "LocalBusiness",
+        "Place",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "Lead management software for one industry's sales teams in one Indian city, covering the channels those teams source enquiries from and how each enquiry is graded and queued.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "industry-city-keyword",
+      "route": "/[industry]/[city]/[keyword]",
+      "userIntent": {
+        "code": "C",
+        "query": "lead scoring real estate pune",
+        "job": "find a specific capability for my sector and city"
+      },
+      "businessIntent": "capture the long tail only where it carries unique payload",
+      "thesis": "The deepest programmatic leaf must answer a narrower question than its parent or it has no reason to be separately indexed.",
+      "entities": [
+        "Keyword",
+        "Industry",
+        "City"
+      ],
+      "uniqueInsight": "Each leaf is gated on carrying city facts, sector economics and a distinct FAQ set before it may index.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue"
+      ],
+      "linksIn": [
+        "/[i]/[c]"
+      ],
+      "linksOut": {
+        "min": 7,
+        "required": [
+          "/features/*",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "LocalBusiness",
+        "Place",
+        "Offer",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "One lead-management capability, explained for a single industry in a single Indian city, including what the capability does and how it applies to that sector's enquiry mix.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 600,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "role-city",
+      "route": "/for/[role]/[city]",
+      "userIntent": {
+        "code": "C",
+        "query": "crm for sales manager delhi",
+        "job": "see the product through my job"
+      },
+      "businessIntent": "convert the individual who will actually use it",
+      "thesis": "A role page has to describe the reader's working day, because the buyer and the user are often not the same person.",
+      "entities": [
+        "Role",
+        "City",
+        "Daily workflow"
+      ],
+      "uniqueInsight": "Written from the role's own daily friction rather than from the product's feature order.",
+      "capabilities": [
+        "priority-queue",
+        "execution-score",
+        "offline-logging"
+      ],
+      "linksIn": [
+        "/city/[c]"
+      ],
+      "linksOut": {
+        "min": 7,
+        "required": [
+          "/features/sales-rep-tracking",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "Place",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "How Leadkaun changes the working day of one sales role in one Indian city, covering what that role opens each morning and which modules they use most.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "integration",
+      "route": "/integrations/[tool]",
+      "userIntent": {
+        "code": "C",
+        "query": "leadkaun google sheets",
+        "job": "check it connects to what I already run"
+      },
+      "businessIntent": "remove a specific blocker to trial",
+      "thesis": "An integration page must state shipping status plainly, because a buyer discovering a gap after signup is a refund and a bad review.",
+      "entities": [
+        "Integration",
+        "Data flow",
+        "Status"
+      ],
+      "uniqueInsight": "Ship status is stated in the first line — live, manual or roadmap — with no ambiguity.",
+      "capabilities": [
+        "google-sheets-sync",
+        "intake-intelligence",
+        "import-readiness"
+      ],
+      "linksIn": [
+        "/integrations",
+        "/how-to/*"
+      ],
+      "linksOut": {
+        "min": 6,
+        "required": [
+          "/product",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "verified-fact",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "SoftwareApplication",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "How Leadkaun connects to one external tool, what data moves in which direction, and whether that connection is live today, manual, or on the roadmap.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "resources",
+      "route": "/resources/[slug]",
+      "userIntent": {
+        "code": "I",
+        "query": "lead scoring template",
+        "job": "take away something I can use now"
+      },
+      "businessIntent": "capture email or seed product usage",
+      "thesis": "A resource page exists to hand over a working artefact; the page is packaging, and the artefact is the product.",
+      "entities": [
+        "Asset",
+        "Persona",
+        "Use"
+      ],
+      "uniqueInsight": "Every asset is built from the same model the product runs on, so using it teaches the system.",
+      "capabilities": [
+        "lead-scoring",
+        "confidence"
+      ],
+      "linksIn": [
+        "/resources",
+        "/how-to/*"
+      ],
+      "linksOut": {
+        "min": 5,
+        "required": [
+          "/product",
+          "/how-to/*"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology"
+        ]
+      },
+      "schema": [
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A downloadable template or worksheet for one sales-operations task, with what is inside it and how to use it.",
+      "cta": {
+        "primary": "download",
+        "secondary": "trial"
+      },
+      "wordFloor": 400,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "stamp",
+        "cta"
+      ]
+    },
+    {
+      "id": "learn",
+      "route": "/learn/[pillar]",
+      "userIntent": {
+        "code": "I",
+        "query": "lead management guide",
+        "job": "understand a topic end to end"
+      },
+      "businessIntent": "anchor a topical cluster and pass authority to the money pages",
+      "thesis": "A pillar has to be the page a reader stops at, which means covering the failure modes competitors omit because they are unflattering.",
+      "entities": [
+        "Topic",
+        "Sub-topics",
+        "Related pillars"
+      ],
+      "uniqueInsight": "Pillars name where Leadkaun does not help, which is why the recommendations elsewhere are credible.",
+      "capabilities": [
+        "lead-scoring",
+        "priority-queue",
+        "confidence"
+      ],
+      "linksIn": [
+        "/learn",
+        "/glossary/*",
+        "/[i]/[c]"
+      ],
+      "linksOut": {
+        "min": 10,
+        "required": [
+          "/best/*",
+          "/features/*",
+          "/pricing"
+        ]
+      },
+      "evidence": {
+        "tier": "product-mechanism",
+        "sources": [
+          "/methodology",
+          "/research/*"
+        ]
+      },
+      "schema": [
+        "Article",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "llmSummary": "A complete guide to one lead-management topic, covering what it is, why teams get it wrong, how it works mechanically, and where Leadkaun does and does not help.",
+      "cta": {
+        "primary": "trial",
+        "secondary": "product"
+      },
+      "wordFloor": 1500,
+      "blocks": [
+        "hero",
+        "tldr",
+        "context",
+        "methodology",
+        "body",
+        "midCta",
+        "faq",
+        "related",
+        "references",
+        "stamp",
+        "cta"
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ type Props = {
   leftHeader?: string
   /** header label for right column, e.g. "Leadkaun does" */
   rightHeader?: string
-  rows: Row[]
+  rows: readonly Row[]
   className?: string
 }
 

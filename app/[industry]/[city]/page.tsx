@@ -15,7 +15,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
-import { SellSpine } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProductShowcase } from "@/app/components/sell/blocks"
 
 import { hubIndexable } from "@/lib/pseo/indexable"
 import { stableHash } from "@/lib/pseo/variation"
@@ -25,6 +25,7 @@ import { ReferencesBlock } from "@/app/components/pseo/references-block"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
+import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
@@ -62,6 +63,7 @@ export default async function IndustryCityPage({ params }: Params) {
 
   const related = await relatedForIndustryCity(industry, cityRec.slug)
   const commercial = commercialLinks(`${industry}:${cityRec.slug}`, industry)
+  const modules = selectModules({ seedKey: `${industry}:${cityRec.slug}`, relatedFeatures: ind.relatedFeatures, industrySlug: industry })
   const faqs = buildLeafFaqs(ind.faqs, undefined, stableHash(`${industry}:${cityRec.slug}`))
 
   const schemas = [
@@ -221,13 +223,24 @@ export default async function IndustryCityPage({ params }: Params) {
         )}
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} />
+        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
-        <SellSpine
-          start={4}
-          showcaseEyebrow="See it work"
-          showcaseTitle={<>See Leadkaun work for {ind.name.toLowerCase()} teams.</>}
-          showcaseSub={`The Priority Queue, lead grades A–F, and the ₹-at-risk view your ${cityRec.name} ${ind.name.toLowerCase()} team opens every morning — so reps work the highest-value lead first, not the most recent.`}
+        <ProductShowcase
+          number="04"
+          ground="sky"
+          eyebrow="See it work"
+          title={<>See Leadkaun work for {ind.name.toLowerCase()} teams.</>}
+          sub={`The Priority Queue, lead grades A–F, and the ₹-at-risk view your ${cityRec.name} ${ind.name.toLowerCase()} team opens every morning — so reps work the highest-value lead first, not the most recent.`}
+        />
+
+        <ModulesGrid
+          number="05"
+          ground="cream"
+          tone="warm"
+          eyebrow="What a team here uses most"
+          title={<>The modules {ind.name.toLowerCase()} teams in {cityRec.name} lean on.</>}
+          sub={`Chosen for how ${ind.name.toLowerCase()} teams sell — not a full tour.`}
+          modules={modules}
         />
 
         {/* SOURCES / REFERENCES */}

@@ -18,12 +18,13 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { SellSpine } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProductShowcase } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
 import { getIndustry, getCity, getKeyword, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
+import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCityKeyword } from "@/lib/pseo/related"
 import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, offerSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
@@ -61,6 +62,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
 
   const related = await relatedForIndustryCityKeyword(industry, cityRec.slug, keyword)
   const commercial = commercialLinks(`${industry}:${cityRec.slug}:${keyword}`, industry)
+  const modules = selectModules({ seedKey: `${industry}:${cityRec.slug}:${keyword}`, featureLink: kw.featureLink, relatedFeatures: ind.relatedFeatures, industrySlug: industry })
   // Deterministic hash-seeded variation (Anti-AI Layer 2): same combo → same
   // render (ISR-safe), but neighbours differ in intro framing + FAQ subset.
   const seed = stableHash(`${industry}:${cityRec.slug}:${keyword}`)
@@ -201,13 +203,24 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         </SectionGround>
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} />
+        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
-        <SellSpine
-          start={4}
-          showcaseEyebrow="See it work"
-          showcaseTitle={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
-          showcaseSub={`This is the screen ${cityRec.name} ${ind.name.toLowerCase()} teams work from: every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees.`}
+        <ProductShowcase
+          number="04"
+          ground="sky"
+          eyebrow="See it work"
+          title={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
+          sub={`This is the screen ${cityRec.name} ${ind.name.toLowerCase()} teams work from: every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees.`}
+        />
+
+        <ModulesGrid
+          number="05"
+          ground="cream"
+          tone="warm"
+          eyebrow={`What ${kw.label.toLowerCase()} touches`}
+          title={<>The modules behind {kw.label.toLowerCase()}.</>}
+          sub={`The parts of Leadkaun a ${ind.name.toLowerCase()} team in ${cityRec.name} actually works with here.`}
+          modules={modules}
         />
 
         {/* SOURCES / REFERENCES */}

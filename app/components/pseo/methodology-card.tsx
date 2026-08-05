@@ -3,7 +3,7 @@ import { SectionGround } from "@/app/components/section-ground"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
-import { SCORING_DIMENSIONS, GRADE_A_THRESHOLD } from "@/lib/pseo/shared-content"
+import { SCORING_DIMENSIONS, GRADE_A_THRESHOLD, FIT_WORKED_EXAMPLE } from "@/lib/pseo/shared-content"
 
 /**
  * Shared "how the A–F grade is computed" methodology section for pSEO pages.
@@ -14,11 +14,15 @@ export function MethodologyCard({
   number = "03",
   ground = "pure",
   contextLabel,
+  industrySlug,
 }: {
   number?: string
   ground?: "pure" | "cream" | "sky"
   contextLabel?: string
+  /** Industry slug — renders a sector-specific worked example of the same mechanism. */
+  industrySlug?: string
 }) {
+  const worked = industrySlug ? FIT_WORKED_EXAMPLE[industrySlug] : undefined
   return (
     <SectionGround variant={ground} size="lg">
       <Container>
@@ -50,6 +54,7 @@ export function MethodologyCard({
           <FloatingCard tier="1" depth="1" gloss className="p-7 md:p-8">
             <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">The threshold</p>
             <p className="mt-3 text-[16px] leading-[1.6] text-ink">{GRADE_A_THRESHOLD}</p>
+            {worked && <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">{worked}</p>}
           </FloatingCard>
         </Reveal>
       </Container>

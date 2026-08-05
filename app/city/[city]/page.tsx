@@ -15,7 +15,7 @@ import { IndustryTile } from "@/app/components/industry-tile"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProductShowcase, ProofBand } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
@@ -24,6 +24,7 @@ import { stableHash, pickN } from "@/lib/pseo/variation"
 import { SHARED_FAQS } from "@/lib/pseo/shared-content"
 import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities } from "@/lib/pseo/tier0"
+import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
@@ -68,6 +69,7 @@ export default async function CityPage({ params }: Params) {
 
   const [served, related, roles] = await Promise.all([industriesServedInCity(cityRec.slug), relatedForCity(cityRec.slug), getRoles()])
   const commercial = commercialLinks(`city:${cityRec.slug}`)
+  const modules = selectModules({ seedKey: `city:${cityRec.slug}`, industrySlug: served[0]?.slug })
   const faqs = pickN(SHARED_FAQS, 6, stableHash(`city:${cityRec.slug}`))
 
   const schemas = [
@@ -200,13 +202,24 @@ export default async function CityPage({ params }: Params) {
         )}
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="04" ground="cream" />
+        <MethodologyCard number="04" ground="cream" industrySlug={served[0]?.slug} />
 
-        <SellSpine
-          start={5}
-          showcaseEyebrow="See it work"
-          showcaseTitle={<>See Leadkaun work for {cityRec.name} sales teams.</>}
-          showcaseSub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen ${cityRec.name} B2B teams open every morning.`}
+        <ProductShowcase
+          number="05"
+          ground="sky"
+          eyebrow="See it work"
+          title={<>See Leadkaun work for {cityRec.name} sales teams.</>}
+          sub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen ${cityRec.name} B2B teams open every morning.`}
+        />
+
+        <ModulesGrid
+          number="06"
+          ground="cream"
+          tone="warm"
+          eyebrow="What teams here use most"
+          title={<>The modules {cityRec.name} teams lean on.</>}
+          sub={`Picked for the sectors that sell in ${cityRec.name}.`}
+          modules={modules}
         />
 
         {/* SOURCES / REFERENCES */}

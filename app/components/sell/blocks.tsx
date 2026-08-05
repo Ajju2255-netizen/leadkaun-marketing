@@ -6,6 +6,8 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { Reveal } from "@/app/components/reveal"
 import { NumberedTag } from "@/app/components/numbered-tag"
+import type { LucideIcon } from "lucide-react"
+import { MODULES, ALONGSIDE_ROWS, type SpineModule } from "@/lib/pseo/spine-content"
 import { FeatureCard } from "@/app/components/feature-card"
 import { CompareTable } from "@/app/components/compare-table"
 import ShowcaseVisualsLazy from "@/app/components/sell/showcase-visuals-lazy"
@@ -24,23 +26,14 @@ export const TRUST_STATS = [
   { value: "A–F",      label: "every lead graded, in real time" },
 ]
 
-const MODULES = [
-  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
-  { icon: ListOrdered,   tag: "Queue",   accent: "sky"   as const, title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
-  { icon: AlertTriangle, tag: "Revenue", accent: "peach" as const, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
-  { icon: Mail,          tag: "Digest",  accent: "cyan"  as const, title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
-  { icon: MessageSquare, tag: "Signal",  accent: "mint"  as const, title: "WhatsApp Tracking",         description: "Most Indian B2B first-contact happens on WhatsApp. 3-tap logging feeds the Intent Score.",         href: "/features/whatsapp-tracking" },
-  { icon: Users,         tag: "Team",    accent: "sky"   as const, title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, follow-up completion — without micromanagement.",   href: "/features/sales-rep-tracking" },
-]
-
-const COMPARE_ROWS = [
-  { left: "Records the number of calls your reps made this week.",  right: "Surfaces ₹ at risk per rep, per week — money, not activity." },
-  { left: "Lead scoring is a single black-box number.",             right: "Three transparent scores: Fit, Intent, Quality — auditable weights." },
-  { left: "Grade A leads age out silently. Nobody notices.",        right: "Intent decay auto-drops stale leads. The queue stays honest." },
-  { left: "Priority decided by rep gut feel or recency.",           right: "Priority Queue re-ranks live — rep works top-down, no triage." },
-  { left: "WhatsApp is an integration (paid add-on).",              right: "WhatsApp is a first-class signal. 3-tap logging feeds scoring." },
-  { left: "Monday reviews are activity debates.",                   right: "Monday reviews open with ₹ at risk per rep. Coaching is specific." },
-]
+const MODULE_ICONS: Record<string, LucideIcon> = {
+  "lead-scoring": BarChart3, "priority-queue": ListOrdered, "missed-opportunity-engine": AlertTriangle,
+  "morning-brief": Mail, "whatsapp-tracking": MessageSquare, "sales-rep-tracking": Users,
+}
+const MODULE_ACCENTS: Record<string, "mint" | "sky" | "peach" | "cyan"> = {
+  "lead-scoring": "mint", "priority-queue": "sky", "missed-opportunity-engine": "peach",
+  "morning-brief": "cyan", "whatsapp-tracking": "mint", "sales-rep-tracking": "sky",
+}
 
 /**
  * ProductShowcase — SHOWS the product (live Priority Queue panel + grade
@@ -150,14 +143,16 @@ export function ProofBand({
   )
 }
 
-/** ModulesGrid — the 12-module sell (accent FeatureCards). */
+/** ModulesGrid — module sell (accent FeatureCards). Renders `modules` if given. */
 export function ModulesGrid({
   eyebrow = "The Product",
-  title = "Twelve live modules. One behaviour system.",
-  sub = "Every module works on day one. Every setting is transparent. Every weight is yours to audit.",
+  title = "The modules that reshape the day.",
+  sub = "Every module works on day one, and every weight behind the grade is published.",
   ground = "cream",
   tone,
   number = "02",
+  modules,
+  moreHref = "/product",
 }: {
   eyebrow?: string
   title?: ReactNode
@@ -165,7 +160,12 @@ export function ModulesGrid({
   ground?: Ground
   tone?: "warm"
   number?: string
+  /** Subset to render. pSEO pages pass 3 chosen by lib/pseo/spine.ts so ~17k
+   *  pages stop shipping the same six cards; hand-built pages pass nothing. */
+  modules?: readonly SpineModule[]
+  moreHref?: string
 }) {
+  const shown = modules ?? MODULES
   return (
     <SectionGround variant={ground} size="lg">
       <Container>
@@ -176,14 +176,14 @@ export function ModulesGrid({
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {MODULES.map((m) => (
-            <FeatureCard key={m.href} icon={m.icon} tag={m.tag} accent={m.accent} title={m.title} description={m.description} href={m.href} />
+          {shown.map((m) => (
+            <FeatureCard key={m.href} icon={MODULE_ICONS[m.key]} tag={m.tag} accent={MODULE_ACCENTS[m.key]} title={m.title} description={m.description} href={m.href} />
           ))}
         </Reveal>
 
         <div className="mt-10">
-          <Link href="/product" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
-            See all 12 modules
+          <Link href={moreHref} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+            See the full product
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
@@ -212,7 +212,7 @@ export function WhyNotCRM({
           <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">{title}</h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">{sub}</p>
         </Reveal>
-        <Reveal delay={0.08}><CompareTable rows={COMPARE_ROWS} /></Reveal>
+        <Reveal delay={0.08}><CompareTable rows={ALONGSIDE_ROWS} /></Reveal>
       </Container>
     </SectionGround>
   )

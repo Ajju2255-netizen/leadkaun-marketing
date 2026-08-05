@@ -16,7 +16,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { ProofBand, SellSpine } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProductShowcase, ProofBand } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
@@ -24,6 +24,7 @@ import { stableHash, pickN } from "@/lib/pseo/variation"
 import { SHARED_FAQS } from "@/lib/pseo/shared-content"
 import { getCities, getCity, getRole, getIndustries, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
+import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForRoleCity } from "@/lib/pseo/related"
 import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
@@ -63,6 +64,7 @@ export default async function RoleCityPage({ params }: Params) {
   const fitIndustries = (roleFit.length ? roleFit : cityIndustries).slice(0, 3)
   const faqs = pickN(SHARED_FAQS, 5, stableHash(`role:${role}:${cityRec.slug}`))
   const commercial = commercialLinks(`role:${role}:${cityRec.slug}`, fitIndustries[0]?.slug)
+  const modules = selectModules({ seedKey: `role:${role}:${cityRec.slug}`, relatedFeatures: r.featuresUsedMost, industrySlug: fitIndustries[0]?.slug })
   // Role pages previously linked ONLY other role pages — a closed loop. Pull in
   // the cross-type links (industry×city, city hub, feature) so they join the mesh.
   const crossLinks = (await relatedForRoleCity(role, cityRec.slug)).filter((l) => l.kind !== "sibling-city")
@@ -144,13 +146,24 @@ export default async function RoleCityPage({ params }: Params) {
         </SectionGround>
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="cream" />
+        <MethodologyCard number="03" ground="cream" industrySlug={fitIndustries[0]?.slug} />
 
-        <SellSpine
-          start={4}
-          showcaseEyebrow={`How a ${r.title.toLowerCase()} works the queue`}
-          showcaseTitle={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
-          showcaseSub={`No dashboards to read. Leadkaun grades every lead A–F, ranks each rep's Priority Queue, and shows the ₹ at risk today — so a ${r.title.toLowerCase()} in ${cityRec.name} knows exactly who to call next.`}
+        <ProductShowcase
+          number="04"
+          ground="sky"
+          eyebrow={`How a ${r.title.toLowerCase()} works the queue`}
+          title={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
+          sub={`No dashboards to read. Leadkaun grades every lead A–F, ranks each rep's Priority Queue, and shows the ₹ at risk today — so a ${r.title.toLowerCase()} in ${cityRec.name} knows exactly who to call next.`}
+        />
+
+        <ModulesGrid
+          number="05"
+          ground="cream"
+          tone="warm"
+          eyebrow={`What a ${r.title.toLowerCase()} uses`}
+          title={<>The modules a {r.title.toLowerCase()} lives in.</>}
+          sub={`The parts of Leadkaun this role opens daily.`}
+          modules={modules}
         />
 
         {/* SOURCES / REFERENCES */}

@@ -1053,5 +1053,517 @@
       "missed-revenue",
       "sales-follow-up"
     ]
+  },
+  {
+    "slug": "lead-prioritization",
+    "title": "Lead Prioritization",
+    "metaTitle": "Lead Prioritization for Indian B2B Sales — The Complete Guide | Leadkaun",
+    "metaDescription": "How lead prioritization works: turning A–F grades into one ranked queue per rep, why recency beats relevance by default, and how to roll it out without a three-month project.",
+    "h1": "Lead Prioritization, end to end",
+    "dek": "Scoring tells you how good a lead is. Prioritization decides which one your rep opens at 9:05 AM. They are not the same job, and most teams only ever build the first one.",
+    "quickAnswer": {
+      "question": "What is lead prioritization?",
+      "answer": "Lead prioritization is the discipline of putting every open lead into a single ranked order per rep, so the next call is decided before the rep opens their screen. It takes the output of lead scoring — a grade like A–F — and resolves it into a working sequence, factoring in how fresh the lead is, how much revenue is at stake, and whether a commitment has already been made. In Leadkaun this is the Priority Queue: every lead graded A–F on Fit, Intent and Quality, then ranked into one list per rep that re-orders live as new signals arrive."
+    },
+    "keyTakeaways": [
+      "Scoring and prioritization are different jobs. A grade rates a lead in isolation; a priority order ranks it against every other lead competing for the same hour.",
+      "Left alone, reps prioritise by recency, because the newest lead is the one visible at the top of the inbox. That is a UI default, not a decision.",
+      "A usable queue needs three inputs, not one: grade, decay, and rupee value. Grade alone produces ties, and ties get broken by whatever is most recent.",
+      "Prioritization only works if it produces one list. Two ranked views is the same as no ranking, because the rep picks the one that agrees with them."
+    ],
+    "body": [
+      {
+        "heading": "What lead prioritization actually is",
+        "paragraphs": [
+          "Lead prioritization is the step between knowing which leads are good and knowing which lead to call at 9:05 this morning. It takes a set of graded leads and resolves them into a sequence — first, second, third — for one specific rep with one specific working day. That resolution is the entire job, and it is the part most sales stacks skip.",
+          "The distinction matters because scoring and prioritization fail in different ways. Scoring fails when the grade is wrong: a lead marked A turns out to be a student doing research. Prioritization fails when the grades are right and the rep still calls the wrong person — because two leads are both Grade A, and nothing in the system says which of the two comes first. A scoring model with no prioritization layer hands the rep a filtered list and leaves the hardest decision exactly where it was.",
+          "Put concretely: a rep with forty open leads does not need to know that eleven are Grade A. They need to know which of the eleven to open now, which to leave until the afternoon, and which one is quietly about to go cold. That is an ordering problem, and it needs its own answer."
+        ]
+      },
+      {
+        "heading": "Why reps default to recency — and what it costs",
+        "paragraphs": [
+          "Ask a rep how they choose the next call and the honest answer is usually 'whatever came in most recently'. This is not laziness. It is what the interface encourages: new leads arrive at the top, unread items are bold, and the notification that just fired is the one occupying working memory. Recency is the default priority order in almost every tool, and nobody chose it.",
+          "Recency is not a terrible proxy — speed to lead is real, and a fresh enquiry genuinely is more likely to answer the phone. The problem is that recency is the only input. A lead that arrived four days ago with a large budget and a decision date next week ranks below a lead that arrived twenty minutes ago and asked for a brochure. Both are in the pipeline, and only one of them is going to be remembered.",
+          "The cost shows up as a specific pattern: the leads that go cold are almost never the worst ones. Genuinely bad leads get dismissed quickly. What ages out is the middle — good leads that arrived on a busy day, got postponed once, and then stopped being visible. Every week that pattern repeats, the pipeline loses value that never appears in any report, because a lead that was never called does not register as a loss."
+        ]
+      },
+      {
+        "heading": "The three inputs a priority order needs",
+        "paragraphs": [
+          "A working priority order needs three things, and grade is only the first. Grade answers 'how good is this lead' — the A–F output of Fit, Intent and Quality. On its own it produces large ties: a rep with eleven Grade A leads has eleven equal-first calls, which is the same as having none.",
+          "The second input is decay. Intent is a live measurement, not a permanent label, and a lead that engaged strongly on Monday and has ignored two calls since is not the lead it was. Without decay, a queue slowly fills with leads that were hot once and are now simply old, and the rep learns to distrust the ordering. With decay, a cooling lead sinks on its own and either surfaces for a different kind of outreach or drops out of the working set honestly.",
+          "The third is money. Two Grade A leads with the same intent are not equally urgent if one represents ₹40,000 and the other ₹12 lakh. Rupee value is what turns a ranked list into a defensible one, because it is the input a sales head can argue with. It also changes the conversation about what was missed: '₹ at risk in Grade A' is a number a manager can act on in a way that 'nine leads unworked' is not."
+        ]
+      },
+      {
+        "heading": "From grade to queue: how the ranking is built",
+        "paragraphs": [
+          "In Leadkaun the sequence runs in one direction. A lead lands through CSV import, manual entry or a webhook. Indian phone formats are normalised and duplicates are caught on insert, so junk never reaches the ranking stage. Three independent 0–100 scores are computed — Fit against the ICP you configured during onboarding, Intent from source strength and signal events, Quality from data completeness and validity — and combine into a single grade on fixed cut-offs: Grade A requires Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60.",
+          "Assignment happens at the same moment, so the lead arrives already owned. That ordering matters: a lead that is graded but unassigned sits in a pile everybody can see and nobody is accountable for, which is the failure mode assignment rules exist to prevent.",
+          "The graded, owned lead then enters that rep's Priority Queue and takes a position relative to everything else the rep is carrying. The queue re-ranks as signals arrive — a WhatsApp reply logged in three taps, a callback, a pricing-page visit — and as intent decays on the leads that have gone quiet. The rep does not sort, filter or triage. They open the queue and work top-down, which is the only interaction pattern that survives a busy Tuesday.",
+          "The weights behind the grade are fixed and identical for every account. That is a deliberate constraint rather than a missing feature: it means a rep can always be shown exactly why a lead is Grade A, and two managers comparing notes are looking at the same scale."
+        ]
+      },
+      {
+        "heading": "Where prioritization breaks in practice",
+        "paragraphs": [
+          "The most common failure is two queues. A team adopts a ranked list, but the old view stays available — a saved filter, a spreadsheet, a personal list of favourites. Reps then work whichever list agrees with their instinct, and the ranking becomes advisory. A priority order only changes behaviour when it is the single starting point for the day.",
+          "The second failure is an unowned pile. If leads can sit unassigned, the queue is only ranking part of the pipeline, and the unranked part is exactly where value leaks. A fallback assignment rule matters more than a clever one: every lead needs an owner within minutes, even if the first owner is a manager who reassigns later.",
+          "The third is treating the queue as a report. A ranked list that a manager reviews weekly is analytics; a ranked list a rep opens every morning is prioritization. The difference is not the data — it is who the artefact is built for. When the daily surface belongs to the manager, reps go back to their inbox, and the inbox goes back to sorting by recency.",
+          "The fourth is scoring drift with no review. An ICP set once at onboarding and never revisited will slowly grade the wrong leads highly as the business moves upmarket or into a new sector. Prioritization inherits every error in the grade underneath it, amplified, because ranking concentrates rep attention on whatever the top of the list says."
+        ]
+      },
+      {
+        "heading": "Rolling it out without a three-month project",
+        "paragraphs": [
+          "Prioritization does not need a migration. The fastest honest way to test it is to run it alongside whatever the team uses today: export the open pipeline to CSV, import it, let every lead grade, and look at the resulting order before changing anybody's workflow. If the top of the queue does not match what the sales head would have picked by hand, that disagreement is the useful output — it is either a wrong ICP or a real blind spot, and both are worth knowing before rollout.",
+          "Set the ICP properly in the onboarding wizard. Industries, states, business types, decision-maker roles and budget bands are the inputs Fit is computed from, and a lazy ICP produces a confident-looking queue that ranks the wrong leads. This is the single highest-leverage twenty minutes in the setup.",
+          "Then make the queue the only starting point, and give it one week before judging it. The measurable change in the first week is not revenue — it is how many Grade A leads went a full day without contact, and how much ₹ at risk sat unworked. Those two numbers move first, and they move before anything shows up in closed-won."
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "heading": "The engine",
+        "links": [
+          {
+            "label": "Priority Queue (product)",
+            "href": "/features/priority-queue"
+          },
+          {
+            "label": "Lead Scoring Engine (product)",
+            "href": "/features/lead-scoring"
+          },
+          {
+            "label": "Best lead prioritization software (2026)",
+            "href": "/best/lead-prioritization-software"
+          }
+        ]
+      },
+      {
+        "heading": "The inputs",
+        "links": [
+          {
+            "label": "How lead scoring works",
+            "href": "/learn/lead-scoring"
+          },
+          {
+            "label": "Intent decay, explained",
+            "href": "/glossary/intent-decay"
+          },
+          {
+            "label": "₹ at Risk",
+            "href": "/glossary/rupee-at-risk"
+          },
+          {
+            "label": "Priority Queue (glossary)",
+            "href": "/glossary/priority-queue"
+          }
+        ]
+      },
+      {
+        "heading": "Getting leads owned",
+        "links": [
+          {
+            "label": "Assignment rules",
+            "href": "/glossary/assignment-rules"
+          },
+          {
+            "label": "Unassigned Queue",
+            "href": "/glossary/unassigned-queue"
+          },
+          {
+            "label": "Lead routing, end to end",
+            "href": "/learn/lead-routing"
+          }
+        ]
+      },
+      {
+        "heading": "Do it this week",
+        "links": [
+          {
+            "label": "How to build a lead priority queue in 60 minutes",
+            "href": "/how-to/how-to-build-a-lead-priority-queue"
+          },
+          {
+            "label": "Priority Queue playbook",
+            "href": "/resources/priority-queue-playbook"
+          },
+          {
+            "label": "Pricing in ₹",
+            "href": "/pricing"
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is lead prioritization the same as lead scoring?",
+        "a": "No. Scoring rates a lead in isolation and returns a grade; prioritization ranks that lead against every other lead competing for the same rep's hour and returns a position. Scoring is the input, prioritization is the decision. A team can have accurate scoring and still call the wrong lead first, which is exactly what happens when eleven leads are all Grade A and nothing breaks the tie."
+      },
+      {
+        "q": "How does a lead's position in the queue change during the day?",
+        "a": "It re-ranks as signals arrive and as intent decays. A logged WhatsApp reply, a callback or a pricing-page visit raises intent and moves the lead up; going silent lets intent decay and the lead sinks. The rep does not refresh or re-sort — the order they see when they come back from a call already reflects what happened while they were on it."
+      },
+      {
+        "q": "What stops the queue from being dominated by big deals?",
+        "a": "Rupee value is one of three inputs, not the ranking itself. A large deal with weak fit and no engagement does not outrank a well-qualified lead that is actively responding, because Fit and Intent are scored independently and Quality can cap a lead down the grades regardless of value. Money breaks ties between comparable leads; it does not override the grade."
+      },
+      {
+        "q": "Do we have to replace our CRM to prioritise leads?",
+        "a": "No. Leadkaun runs alongside your CRM — the CRM stays the system of record for what happened, Leadkaun decides what happens next. Most teams import a CSV of open leads and run both in parallel for a few weeks to compare the ranking against their own judgement before changing any workflow."
+      },
+      {
+        "q": "How long does it take to get a working priority queue?",
+        "a": "You can be set up the same day. The onboarding wizard captures your ICP — industries, states, business types, decision-maker roles and budget bands — then a CSV import grades every lead immediately and the queue builds itself. The part worth spending time on is the ICP, because Fit is computed from it and a vague ICP produces a confident-looking queue that ranks the wrong leads."
+      }
+    ],
+    "relatedPillars": [
+      "lead-scoring",
+      "lead-management"
+    ]
+  },
+  {
+    "slug": "lead-routing",
+    "title": "Lead Routing & Assignment",
+    "metaTitle": "Lead Routing & Assignment for Indian Sales Teams — The Complete Guide | Leadkaun",
+    "metaDescription": "How lead routing works: territory, industry, source and round-robin rules, why the fallback rule matters more than the clever one, and how to stop leads sitting unowned.",
+    "h1": "Lead Routing & Assignment, end to end",
+    "dek": "A lead nobody owns is a lead nobody works. Routing is the least glamorous part of a sales system and the one that quietly decides how much of your pipeline gets touched at all.",
+    "quickAnswer": {
+      "question": "What is lead routing?",
+      "answer": "Lead routing is the logic that decides which rep owns each incoming lead, applied automatically the moment the lead arrives. Rules typically route on territory, industry, source, deal-size band, round-robin or grade, usually in combination, with a fallback for anything unmatched. In Leadkaun, assignment runs at insert alongside grading, so a lead arrives already owned and already ranked in that rep's Priority Queue rather than waiting in a shared pile."
+    },
+    "keyTakeaways": [
+      "Routing determines coverage, not fairness. Its real job is making sure every lead has an owner within minutes, because an unowned lead is functionally an ignored one.",
+      "The fallback rule matters more than the clever rule. Elaborate routing with no catch-all leaves the hardest leads unassigned.",
+      "Round-robin is a distribution method, not a routing strategy. It balances load; it does not put the right lead with the right rep.",
+      "Routing and prioritization are a pair. Assignment decides whose queue a lead enters; prioritization decides where in that queue it sits."
+    ],
+    "body": [
+      {
+        "heading": "What routing is actually for",
+        "paragraphs": [
+          "Lead routing answers one question: who owns this? It sounds administrative, and teams treat it that way until they measure how much of the pipeline never gets a first call. The leads that go untouched are rarely the ones a rep looked at and rejected. They are the ones that landed in a shared inbox, were visible to five people, and were therefore the responsibility of none.",
+          "Ownership changes behaviour because it changes accountability. A lead in a rep's own queue has a name attached to whether it was called. The same lead in a common pool has a diffuse claim on everybody's attention, which in practice means it competes with work that is already assigned and loses.",
+          "That is why routing belongs at the point of entry rather than at the point of review. Assigning during a Monday pipeline meeting is not routing — it is triage of a backlog that routing should have prevented."
+        ]
+      },
+      {
+        "heading": "The rule types, and what each is good for",
+        "paragraphs": [
+          "Territory routing sends leads by geography — a state, a city, a cluster of districts. It works when the sale is genuinely local: site visits, regional relationships, language. It fails when applied to a product sold identically everywhere, where it just adds a constraint with no benefit.",
+          "Industry or segment routing sends leads by what the buyer does. This is usually the highest-value rule, because sector fluency compounds: a rep who has sold to twelve manufacturing firms handles the thirteenth conversation better than a generalist. Where a team has real specialisation, routing on it beats routing on anything else.",
+          "Source routing separates channels that behave differently. Enquiries from a marketplace, a paid form and an inbound referral arrive with different intent and different junk rates, and often deserve different reps or different first responses.",
+          "Deal-size routing sends larger opportunities to more experienced closers. It is straightforward and easy to over-apply — value at entry is often a guess, and routing on a guessed number sends good leads to the wrong desk with confidence.",
+          "Round-robin distributes evenly across available reps. It is the correct default when no other signal separates the leads, and the wrong primary strategy when several do. Even distribution and correct distribution are not the same objective."
+        ]
+      },
+      {
+        "heading": "The fallback rule is the one that matters",
+        "paragraphs": [
+          "Most routing setups are built by listing the clean cases: this sector goes here, that city goes there, big deals go to the senior closer. The leads that break the setup are the ones with a missing field, an unrecognised sector, or a city nobody added to the territory map — and those are disproportionately the messy, high-intent enquiries that came in through an unusual path.",
+          "So the rule that decides what happens to everything unmatched is the one carrying the most weight. A fallback that routes to a named manager, with a time limit, is enough. A fallback that routes to a shared queue is only enough if somebody owns clearing that queue on a schedule, which in practice means naming a person rather than a team.",
+          "The Unassigned Queue exists for exactly this: it makes the unmatched set visible as a working surface rather than an invisible remainder. What gets measured here is not volume but age — how long the oldest unowned lead has been sitting, which is the cleanest single indicator of whether routing is actually covering the pipeline."
+        ]
+      },
+      {
+        "heading": "Routing and prioritization are a pair",
+        "paragraphs": [
+          "Routing and prioritization solve adjacent halves of the same problem and neither works alone. Assignment decides whose queue a lead enters. Prioritization decides where in that queue it sits. A team with excellent routing and no ranking gives every rep a correctly-owned pile and no guidance on order. A team with excellent ranking and no routing produces beautiful queues that omit whatever is still unassigned.",
+          "In Leadkaun the two run in the same step. A lead is graded A–F on Fit, Intent and Quality, assigned by rule, and placed in the owning rep's Priority Queue — all at insert. The rep does not receive a notification about a new lead to go and claim; they see their queue re-ordered with the new lead already in position.",
+          "This also removes the most common gaming pattern. When claiming is manual, fast reps take the obviously good leads and the rest age. When assignment is automatic and ranked, load is distributed by rule and attention is distributed by grade, which are two different problems solved separately rather than one problem solved by whoever refreshes fastest."
+        ]
+      },
+      {
+        "heading": "Handling leave, exits and reassignment",
+        "paragraphs": [
+          "Routing rules are written for a stable team and immediately meet an unstable one. Someone is on leave, someone leaves the company, someone moves territory. The rules that matter here are not about new leads but about existing ones: what happens to forty open leads when their owner stops working them.",
+          "The requirement is that a transfer carries history. A reassigned lead should arrive with its grade, its logged WhatsApp exchanges and its follow-up record intact, so the new owner starts from context rather than from scratch. A transfer that resets a lead to a blank record is not a transfer — it is a new lead with an old phone number, and the receiving rep treats it accordingly.",
+          "For temporary absence, pausing is better than reassigning. Routing new leads away from someone on leave while leaving their open pipeline in place avoids a churn of ownership that costs more in context than it saves in coverage."
+        ]
+      },
+      {
+        "heading": "Setting routing up without over-engineering it",
+        "paragraphs": [
+          "Start with one rule and a fallback. For most Indian B2B teams that means routing on sector where specialisation genuinely exists, round-robin for everything else, and a named manager on the fallback. That configuration covers the majority of leads correctly and, more importantly, covers all of them.",
+          "Then measure two numbers for a fortnight: the age of the oldest unowned lead, and the share of leads whose first contact happened on the day they arrived. Both are direct readouts of whether routing is working, and both move before anything appears in conversion data.",
+          "Add complexity only where those numbers say it is needed. Routing setups tend to accrete rules that made sense once, and every additional rule increases the surface where a lead can fall between two conditions. The setups that survive a year are usually simpler than the ones drawn on the whiteboard."
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "heading": "The mechanics",
+        "links": [
+          {
+            "label": "Assignment rules",
+            "href": "/glossary/assignment-rules"
+          },
+          {
+            "label": "Unassigned Queue",
+            "href": "/glossary/unassigned-queue"
+          },
+          {
+            "label": "Team admin & permissions",
+            "href": "/glossary/team-admin"
+          },
+          {
+            "label": "Best lead routing software (2026)",
+            "href": "/best/lead-routing-software"
+          }
+        ]
+      },
+      {
+        "heading": "What routing feeds",
+        "links": [
+          {
+            "label": "Lead prioritization, end to end",
+            "href": "/learn/lead-prioritization"
+          },
+          {
+            "label": "Priority Queue (product)",
+            "href": "/features/priority-queue"
+          },
+          {
+            "label": "How lead scoring works",
+            "href": "/learn/lead-scoring"
+          }
+        ]
+      },
+      {
+        "heading": "Keeping it honest",
+        "links": [
+          {
+            "label": "Sales rep tracking",
+            "href": "/glossary/sales-rep-tracking"
+          },
+          {
+            "label": "Sales rep tracking (product)",
+            "href": "/features/sales-rep-tracking"
+          },
+          {
+            "label": "Junk leads",
+            "href": "/glossary/junk-lead"
+          }
+        ]
+      },
+      {
+        "heading": "Do it this week",
+        "links": [
+          {
+            "label": "How to manage leads from multiple sources",
+            "href": "/how-to/how-to-manage-leads-from-multiple-sources"
+          },
+          {
+            "label": "Pricing in ₹",
+            "href": "/pricing"
+          },
+          {
+            "label": "Book a demo",
+            "href": "/demo"
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What's the difference between lead routing and lead assignment?",
+        "a": "They describe the same operation from different angles. Routing is the rule set — the logic that decides where a lead should go. Assignment is the result — the moment a specific lead gets a specific owner. In practice teams use them interchangeably, and the distinction only matters when you are debugging: a routing problem means the rules are wrong, an assignment problem means the rules did not fire."
+      },
+      {
+        "q": "Is round-robin good enough on its own?",
+        "a": "It is good enough when nothing meaningfully distinguishes your leads or your reps — same product, same sale, interchangeable skills. The moment real specialisation exists, round-robin actively works against it by sending sector-specific enquiries to whoever is next in line. Most teams end up using it as the tie-breaker underneath a sector or territory rule rather than as the rule itself."
+      },
+      {
+        "q": "How fast should a lead get an owner?",
+        "a": "Minutes, not hours. The precise number matters less than whether ownership happens before the first working window passes — a lead that arrives at 10 AM and is assigned at 4 PM has lost the window in which it was most likely to answer. Assigning at the point of entry rather than at review removes the question entirely."
+      },
+      {
+        "q": "What happens to a rep's leads when they leave?",
+        "a": "They should transfer with grade, logged history and follow-up record intact, so the new owner picks up with context. In Leadkaun this runs through team admin, and because pricing is flat per account rather than per seat there is no cost incentive to leave a departed rep's leads parked under an inactive login."
+      },
+      {
+        "q": "Can routing rules use the lead's grade?",
+        "a": "Yes, and it is a useful rule for teams with a clear seniority split — route Grade A to closers, everything else round-robin. The caution is that grade is computed from the ICP you set, so grade-based routing inherits every error in the ICP. Teams usually get more reliable results routing on sector or source and letting the Priority Queue handle grade within each rep's own list."
+      }
+    ],
+    "relatedPillars": [
+      "lead-prioritization",
+      "lead-management"
+    ]
+  },
+  {
+    "slug": "lead-qualification",
+    "title": "Lead Qualification",
+    "metaTitle": "Lead Qualification for Indian B2B Sales — The Complete Guide | Leadkaun",
+    "metaDescription": "How lead qualification works: MQL vs SQL, why one-time gates fail, continuous qualification through Fit, Intent and Quality, and how to qualify without losing good leads to a checklist.",
+    "h1": "Lead Qualification, end to end",
+    "dek": "Qualification is usually built as a gate — a yes/no a lead passes once. That is the wrong shape. Buyers do not qualify themselves on a Tuesday and stay qualified.",
+    "quickAnswer": {
+      "question": "What is lead qualification?",
+      "answer": "Lead qualification is the process of deciding whether a lead is worth a rep's time, and how much. Traditionally it is a one-time gate — a checklist a lead passes to become sales-qualified. Continuous qualification treats it as a live measurement instead: in Leadkaun every lead carries three independent 0–100 scores, Fit (ICP match), Intent (engagement, which decays as leads go silent) and Quality (data reliability), which combine into a Grade A–F that updates whenever a signal arrives."
+    },
+    "keyTakeaways": [
+      "A one-time gate cannot describe a moving target. A lead qualified in March and untouched since is not a qualified lead; it is a stale record with a good label.",
+      "Fit and Intent answer different questions. A perfect-fit company with no engagement and an eager enquiry with no budget both look 'half qualified' and need opposite responses.",
+      "Data quality is part of qualification, not a separate hygiene task. A lead you cannot reliably contact is not qualified regardless of how well it fits.",
+      "MQL and SQL are handoff labels, not scores. They describe which team owns the lead, which is a different question from how good it is."
+    ],
+    "body": [
+      {
+        "heading": "Why the qualification gate breaks",
+        "paragraphs": [
+          "Most qualification frameworks are built as a gate. A lead arrives, someone runs a checklist — budget, authority, need, timing, or a local variation — and the lead either passes into the pipeline or does not. The appeal is obvious: it is auditable, teachable, and produces a clean number for the weekly review.",
+          "The problem is that it measures once. A lead that qualified in March, went quiet in April and has ignored four calls since still carries the label. Meanwhile a lead that failed the gate because the budget was not confirmed on the first call has been filed as unqualified and will not be revisited, even though budget conversations routinely resolve on the third conversation rather than the first.",
+          "The result is a pipeline whose labels describe the past. Reps learn this quickly and start working around the labels, which is when qualification stops being a shared language and becomes paperwork completed after the decision has already been made."
+        ]
+      },
+      {
+        "heading": "Qualification as a live measurement",
+        "paragraphs": [
+          "Continuous qualification asks the same questions but never stops asking. Rather than a pass/fail stamp, each lead carries scores that move as evidence arrives. That single change fixes most of what is wrong with the gate: nothing is permanently qualified, nothing is permanently rejected, and the ordering reflects what is true this morning rather than what was true when someone last opened the record.",
+          "In Leadkaun the measurement splits three ways, deliberately. Fit scores how closely the lead matches the ICP you configured — industry, state, business type, decision-maker role, budget band. Intent scores live engagement: source strength and signal events such as a logged WhatsApp reply, a callback, or a pricing-page visit. Quality scores whether the record can be trusted at all — completeness, phone and email validity, junk and duplicate detection.",
+          "Keeping them separate is what makes the output actionable. A single blended number tells a rep a lead is a 62, which is not an instruction. Three numbers tell them the lead is a strong fit that has gone quiet, or an eager enquiry outside the ICP — two situations that need entirely different next actions."
+        ]
+      },
+      {
+        "heading": "MQL, SQL, and what they actually mean",
+        "paragraphs": [
+          "MQL and SQL are among the most-argued terms in sales, largely because teams use them to mean two incompatible things. Sometimes they are quality bands — an SQL is a better lead than an MQL. Sometimes they are ownership states — an MQL belongs to marketing, an SQL has been accepted by sales.",
+          "The ownership reading is the useful one. A marketing-qualified lead has met whatever bar marketing set for handing it over; a sales-qualified lead has been accepted by a rep who agrees it is worth working. That makes the MQL-to-SQL conversion rate a measurement of agreement between two teams, which is a genuinely useful diagnostic — a low rate means the handover bar is wrong, not that the leads are bad.",
+          "Treating them as quality bands is where it goes wrong, because it puts a stage label where a score belongs. A grade tells you how good a lead is; a stage tells you who is holding it. Teams that keep those separate stop having the same argument every quarter."
+        ]
+      },
+      {
+        "heading": "Qualifying without losing good leads",
+        "paragraphs": [
+          "Every qualification system has a failure mode in each direction. Too loose and reps spend their week on enquiries that were never going to buy. Too strict and the system discards leads that would have converted with one more conversation — and this failure is invisible, because a rejected lead never produces evidence that it was rejected wrongly.",
+          "The practical guard is to make rejection reversible rather than permanent. A lead that scores badly should sink in the ordering rather than disappear from it, so a later signal can bring it back. That is what intent decay does in reverse: a lead that has gone quiet drops, and a lead that re-engages climbs, without anyone manually re-qualifying it.",
+          "The second guard is to separate 'wrong fit' from 'bad data'. These get conflated constantly, and they need opposite handling. A wrong-fit lead is a real business you cannot serve — the right response is to disqualify cleanly and stop spending on that channel. A bad-data lead may be a perfect customer with a mistyped phone number, and the right response is to fix the record."
+        ]
+      },
+      {
+        "heading": "Where qualification meets the rest of the system",
+        "paragraphs": [
+          "Qualification is the input to two other decisions, and it is worth being explicit about which. Routing uses it to decide ownership — a Grade A lead might route to a senior closer where a team has that split. Prioritization uses it to decide order — where the lead sits in the owning rep's queue.",
+          "The dependency runs one way. Bad qualification produces confident routing to the wrong desk and a confident ranking of the wrong leads, and neither downstream system can detect the error, because both treat the grade as ground truth. When a priority queue looks wrong, the cause is almost always the ICP underneath it rather than the ranking logic on top.",
+          "This is also why the twenty minutes spent configuring the ICP at onboarding is the highest-leverage setup step in the whole system. Industries, states, business types, decision-maker roles and budget bands are what Fit is computed from, and every ranking, routing rule and ₹-at-risk figure downstream inherits whatever is entered there."
+        ]
+      },
+      {
+        "heading": "Reviewing qualification, not just running it",
+        "paragraphs": [
+          "Qualification criteria drift out of date faster than teams expect, because the business moves and the ICP does not. A company that starts selling to twenty-person firms and gradually moves upmarket will keep grading small enquiries highly for as long as nobody revisits the ICP, and the queue will faithfully rank the wrong leads first.",
+          "The review that catches this is straightforward: once a quarter, look at what actually closed and compare it against what was graded highly. Systematic disagreement is the signal — a run of closed deals that scored as B or C means the ICP no longer describes the customer.",
+          "The counterpart review is on the losses. Loss analysis by grade tells you whether the failures are qualification failures or execution failures, and those need different fixes. Grade A leads lost after sustained contact point at the pitch or the product; Grade A leads lost with no contact at all point at prioritization and routing."
+        ]
+      }
+    ],
+    "clusters": [
+      {
+        "heading": "The three scores",
+        "links": [
+          {
+            "label": "Fit Score",
+            "href": "/glossary/fit-score"
+          },
+          {
+            "label": "Intent Score",
+            "href": "/glossary/intent-score"
+          },
+          {
+            "label": "Quality Score",
+            "href": "/glossary/quality-score"
+          },
+          {
+            "label": "Lead quality",
+            "href": "/glossary/lead-quality"
+          }
+        ]
+      },
+      {
+        "heading": "Labels and handoffs",
+        "links": [
+          {
+            "label": "MQL, explained",
+            "href": "/glossary/mql"
+          },
+          {
+            "label": "SQL, explained",
+            "href": "/glossary/sql"
+          },
+          {
+            "label": "ICP (Ideal Customer Profile)",
+            "href": "/glossary/icp"
+          },
+          {
+            "label": "Junk leads",
+            "href": "/glossary/junk-lead"
+          }
+        ]
+      },
+      {
+        "heading": "What qualification feeds",
+        "links": [
+          {
+            "label": "Lead prioritization, end to end",
+            "href": "/learn/lead-prioritization"
+          },
+          {
+            "label": "Lead routing & assignment",
+            "href": "/learn/lead-routing"
+          },
+          {
+            "label": "Best lead qualification software (2026)",
+            "href": "/best/lead-qualification-software"
+          }
+        ]
+      },
+      {
+        "heading": "Do it this week",
+        "links": [
+          {
+            "label": "How to set up lead scoring",
+            "href": "/how-to/how-to-set-up-lead-scoring"
+          },
+          {
+            "label": "ICP worksheet",
+            "href": "/resources/icp-worksheet"
+          },
+          {
+            "label": "Pricing in ₹",
+            "href": "/pricing"
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What's the difference between lead qualification and lead scoring?",
+        "a": "Qualification is the decision — is this lead worth working. Scoring is the mechanism most teams now use to make that decision continuously rather than once. Older qualification frameworks reach the same decision through a checklist run by a human on a call; scoring reaches it from structured signals that keep updating. The questions are the same, the difference is whether the answer expires."
+      },
+      {
+        "q": "Is BANT still useful?",
+        "a": "As a conversation guide, yes — budget, authority, need and timing are still the things a rep needs to establish. As a gate, it is weak, because it forces a permanent judgement from a single conversation, and because it is easy to fail a good lead on timing alone. Most teams get more out of using it as the structure for a discovery call and letting continuous scoring carry the ongoing measurement."
+      },
+      {
+        "q": "Should marketing or sales own qualification?",
+        "a": "Both, at different stages, which is what the MQL and SQL labels are for when they are used as ownership states rather than quality bands. Marketing qualifies for handover; sales qualifies for acceptance. The conversion rate between them measures whether the two teams agree on the bar — a persistently low rate means the handover criteria need renegotiating, not that the leads are poor."
+      },
+      {
+        "q": "How do we avoid disqualifying leads that would have converted?",
+        "a": "Make rejection reversible. A poorly scoring lead should sink in the ordering rather than leave it, so a later signal — a reply, a callback, a return visit — can bring it back up without anyone manually re-qualifying it. Permanent disqualification should be reserved for genuine wrong fit and junk records, not for leads that were simply not ready on the day."
+      },
+      {
+        "q": "How often should qualification criteria be reviewed?",
+        "a": "Quarterly is a reasonable default, and the review that matters is comparing what closed against what graded highly. Systematic disagreement — a run of closed deals that scored B or C — means the ICP no longer describes the customer, which is the most common cause of a priority queue that reps have quietly stopped trusting."
+      }
+    ],
+    "relatedPillars": [
+      "lead-scoring",
+      "lead-prioritization"
+    ]
   }
 ]

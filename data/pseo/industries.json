@@ -145,7 +145,7 @@
       },
       {
         "q": "Can we set different scoring per course?",
-        "a": "Yes, on Growth tier. Course-level ICP weights let you tune for engineering vs arts vs PG."
+        "a": "Not as separate weightings. The scoring weights are fixed and identical for every account — that is what keeps a grade explainable and comparable between two managers looking at the same scale. What you configure is the ICP: the business types, decision-maker roles and budget bands that define a good enquiry. Programme-level differences come through Fit and Intent rather than a separate model — an engineering enquiry and an arts enquiry that behave differently will grade differently on the same scale."
       },
       {
         "q": "Does it integrate with our LMS / SIS?",

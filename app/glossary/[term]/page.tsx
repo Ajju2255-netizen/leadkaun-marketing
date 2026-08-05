@@ -22,6 +22,8 @@ export const revalidate = 604800
 type GlossaryEntry = {
   slug: string; term: string; definitionShort: string; definitionLong: string
   examples?: string[]; relatedTerms?: string[]; relatedFeature?: string | null; category?: string
+  /** Pillar + buyer-guide bridge, so a term is never a dead end in the graph. */
+  relatedGuides?: { label: string; href: string }[]
 }
 
 export async function generateStaticParams() {
@@ -147,6 +149,32 @@ export default async function GlossaryTermPage({ params }: Params) {
                     <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-sky-500 transition-all group-hover:translate-x-0.5" strokeWidth={1.75} />
                   </FloatingCard>
                 </Link>
+              </Reveal>
+            </Container>
+          </SectionGround>
+        )}
+
+        {/* GUIDE BRIDGE — pillar + buyer guide, so the term feeds the commercial
+            cluster it belongs to instead of only linking sideways to other terms. */}
+        {entry.relatedGuides && entry.relatedGuides.length > 0 && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <Reveal className="mx-auto max-w-3xl">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                  Go deeper on {entry.term.toLowerCase()}
+                </p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {entry.relatedGuides.map((g) => (
+                    <Link
+                      key={g.href}
+                      href={g.href}
+                      className="group flex items-center justify-between gap-5 rounded-2xl glass-2 gloss-edge p-5 transition-all lift aura-sky-hover"
+                    >
+                      <span className="text-[15px] font-medium leading-snug text-ink">{g.label}</span>
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-ink-muted transition-colors group-hover:text-sky-600" strokeWidth={1.75} />
+                    </Link>
+                  ))}
+                </div>
               </Reveal>
             </Container>
           </SectionGround>

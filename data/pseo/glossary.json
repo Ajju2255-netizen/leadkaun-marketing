@@ -16,6 +16,16 @@
       "priority-queue"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-scoring-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -34,6 +44,16 @@
       "fit-score"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-scoring-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -51,6 +71,16 @@
       "intent-decay"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-scoring-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -67,6 +97,16 @@
       "nurture-cadence"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-scoring-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -82,7 +122,17 @@
       "quality-score",
       "lead-scoring"
     ],
-    "relatedFeature": "lead-quality",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -100,6 +150,16 @@
       "quality-score"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -117,6 +177,16 @@
       "sql"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -133,7 +203,17 @@
       "lead-scoring",
       "junk-lead"
     ],
-    "relatedFeature": "lead-quality",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -151,6 +231,16 @@
       "priority-queue"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-prioritization"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-prioritization-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -168,6 +258,16 @@
       "morning-brief"
     ],
     "relatedFeature": "priority-queue",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-prioritization"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-prioritization-software"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -185,6 +285,16 @@
       "morning-brief"
     ],
     "relatedFeature": "missed-opportunity-engine",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/missed-revenue"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -201,6 +311,16 @@
       "morning-brief"
     ],
     "relatedFeature": "missed-opportunity-engine",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/missed-revenue"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -218,6 +338,16 @@
       "sales-behaviour-os"
     ],
     "relatedFeature": "morning-brief",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-behaviour"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -236,6 +366,16 @@
       "lead-scoring"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "lifecycle"
   },
   {
@@ -252,6 +392,16 @@
       "lead-scoring"
     ],
     "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "lifecycle"
   },
   {
@@ -268,7 +418,17 @@
       "lead-scoring",
       "mql"
     ],
-    "relatedFeature": "onboarding-icp",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "setup"
   },
   {
@@ -286,6 +446,16 @@
       "missed-opportunity"
     ],
     "relatedFeature": null,
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-behaviour"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "india-specific"
   },
   {
@@ -302,6 +472,16 @@
       "priority-queue"
     ],
     "relatedFeature": null,
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-management"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "comparison"
   },
   {
@@ -318,6 +498,16 @@
       "3-tap-logging"
     ],
     "relatedFeature": "whatsapp-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/whatsapp-sales"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/whatsapp-crm-india"
+      }
+    ],
     "category": "india-specific"
   },
   {
@@ -334,6 +524,16 @@
       "whatsapp-intent"
     ],
     "relatedFeature": "whatsapp-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/whatsapp-sales"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/whatsapp-crm-india"
+      }
+    ],
     "category": "india-specific"
   },
   {
@@ -349,7 +549,17 @@
       "3-tap-logging",
       "sales-behaviour-os"
     ],
-    "relatedFeature": "onboarding-icp",
+    "relatedFeature": "whatsapp-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/whatsapp-sales"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/whatsapp-crm-india"
+      }
+    ],
     "category": "india-specific"
   },
   {
@@ -366,6 +576,16 @@
       "morning-brief"
     ],
     "relatedFeature": "priority-queue",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-management"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/sales-automation-software"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -381,7 +601,17 @@
       "priority-queue",
       "follow-up-score"
     ],
-    "relatedFeature": "follow-up-engine",
+    "relatedFeature": "priority-queue",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-follow-up"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -397,7 +627,17 @@
       "nurture-cadence",
       "sales-rep-tracking"
     ],
-    "relatedFeature": "follow-up-engine",
+    "relatedFeature": "sales-rep-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-follow-up"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -413,7 +653,17 @@
       "lead-quality",
       "analytics-dashboard"
     ],
-    "relatedFeature": "analytics",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-management"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -429,7 +679,17 @@
       "missed-opportunity",
       "rupee-at-risk"
     ],
-    "relatedFeature": "analytics",
+    "relatedFeature": "sales-rep-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/missed-revenue"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -445,7 +705,17 @@
       "assignment-rules",
       "team-admin"
     ],
-    "relatedFeature": "team-admin",
+    "relatedFeature": "priority-queue",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-routing"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-routing-software"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -464,7 +734,17 @@
       "grade-f",
       "source-truth"
     ],
-    "relatedFeature": "lead-quality",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "scoring"
   },
   {
@@ -483,7 +763,17 @@
       "unassigned-queue",
       "source-truth"
     ],
-    "relatedFeature": "lead-quality",
+    "relatedFeature": "lead-scoring",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-qualification"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-qualification-software"
+      }
+    ],
     "category": "lifecycle"
   },
   {
@@ -501,7 +791,17 @@
       "team-admin",
       "lead-scoring"
     ],
-    "relatedFeature": "team-admin",
+    "relatedFeature": "priority-queue",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-routing"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-routing-software"
+      }
+    ],
     "category": "workflow"
   },
   {
@@ -519,7 +819,17 @@
       "unassigned-queue",
       "analytics-dashboard"
     ],
-    "relatedFeature": "team-admin",
+    "relatedFeature": "sales-rep-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/lead-routing"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-routing-software"
+      }
+    ],
     "category": "setup"
   },
   {
@@ -539,6 +849,16 @@
       "team-admin"
     ],
     "relatedFeature": "sales-rep-tracking",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/sales-behaviour"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   },
   {
@@ -557,7 +877,17 @@
       "loss-analysis",
       "source-truth"
     ],
-    "relatedFeature": "analytics",
+    "relatedFeature": "morning-brief",
+    "relatedGuides": [
+      {
+        "label": "The complete guide",
+        "href": "/learn/missed-revenue"
+      },
+      {
+        "label": "Compare the software",
+        "href": "/best/lead-management-software-india"
+      }
+    ],
     "category": "metrics"
   }
 ]

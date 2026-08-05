@@ -18,9 +18,11 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Priority Queue — Stop letting Grade A leads go cold",
+  // This page owns the "lead prioritisation software" term — deliberately NOT a
+  // separate /features/lead-prioritization route, which would cannibalise it.
+  title: "Lead Prioritization Software — The Priority Queue | Leadkaun",
   description:
-    "Leadkaun's Priority Queue ranks every lead by grade, urgency, and freshness — and re-ranks in real time as signals arrive. No manual sorting. No gut-feel triage.",
+    "Leadkaun's lead prioritization software ranks every lead by grade, urgency and freshness into one Priority Queue per rep — re-ranking in real time as signals arrive. No manual sorting, no gut-feel triage.",
   alternates: { canonical: "/features/priority-queue" },
 }
 

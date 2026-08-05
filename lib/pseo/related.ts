@@ -76,11 +76,15 @@ export function commercialLinks(seedKey: string, industrySlug?: string): Related
   const guide = (industrySlug && GUIDE_BY_INDUSTRY[industrySlug]) || DEFAULT_GUIDE
   const pillar = pick(PILLARS, seed)
   const feature = pick(FEATURES, seed >>> 3)
+  // Ordered as a descending funnel — learn the concept, see the product surface,
+  // compare the market, check the price, talk to someone. A flat pile of links
+  // reads as navigation; this reads as a path.
   return [
-    { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
     { href: pillar.href, label: pillar.label, kind: "commercial-pillar" },
     { href: feature.href, label: feature.label, kind: "commercial-feature" },
+    { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
     { href: "/pricing", label: "Leadkaun pricing in ₹ — flat per account", kind: "commercial-pricing" },
+    { href: "/demo", label: "Book a walkthrough", kind: "commercial-demo" },
   ]
 }
 

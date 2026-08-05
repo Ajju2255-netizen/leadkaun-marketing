@@ -231,7 +231,7 @@
         "tagline": "Transparent 3-score grading in real time.",
         "bestFor": "Sales teams that want scoring their reps actually trust and understand.",
         "pricingNote": "Flat per account, from Free.",
-        "whyPick": "Every lead is graded A–F across Fit (ICP match), Intent (live engagement, which decays), and Quality (data reliability) — with weights you can see and tune. The grade updates in real time and drives the Priority Queue.",
+        "whyPick": "Every lead is graded A–F across Fit (ICP match), Intent (live engagement, which decays), and Quality (data reliability) — on fixed, auditable weights, so a rep can always see exactly why a lead is Grade A. The grade updates in real time and drives the Priority Queue.",
         "watchOut": "Purpose-built for B2B sales prioritisation, not marketing-automation scoring across huge email databases.",
         "url": "/features/lead-scoring"
       },
@@ -963,6 +963,283 @@
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-kylas"
+    ]
+  },
+  {
+    "slug": "lead-prioritization-software",
+    "metaTitle": "5 Best Lead Prioritization Software (2026) — Ranked Queues vs Filters",
+    "metaDescription": "The best lead prioritization software in 2026 — which tools produce one ranked queue per rep, and which just give you another filtered list to triage. Compared on ranking logic, decay and rupee value.",
+    "h1": "Best Lead Prioritization Software (2026)",
+    "intro": "Most tools that claim to prioritise leads actually filter them. A filter narrows forty leads to eleven and hands the rep the same decision it started with — which of these eleven do I call first? Prioritization software is different: it returns a position, not a subset. This guide compares the tools on whether they produce one ranked working order per rep, whether that order changes as leads cool, and whether the ranking can be explained to the rep working it.",
+    "quickAnswer": {
+      "question": "What is the best lead prioritization software in 2026?",
+      "answer": "For Indian B2B sales teams that want one ranked queue per rep rather than another saved filter, Leadkaun is the strongest fit — it grades every lead A–F on Fit, Intent and Quality, applies intent decay automatically, and ranks each rep's Priority Queue live, at flat per-account pricing in rupees. Salesforce and HubSpot offer stronger prioritization if you are already committed to their platform and can absorb per-seat USD pricing; Zoho CRM and Freshsales sit in between, with scoring available but ranking left largely to manually built views."
+    },
+    "updated": "2026-08",
+    "criteria": [
+      "Does it return a ranked order, or just a filtered list the rep still has to triage?",
+      "Does the ranking update on its own as intent decays and new signals arrive?",
+      "Can a rep see why a lead sits where it does, or is the ranking a black box?",
+      "Is deal value part of the ordering, so ₹ at risk can be measured rather than guessed?",
+      "What does it cost to put every rep on it — flat, or per seat?"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "One ranked Priority Queue per rep, re-ranking live.",
+        "bestFor": "Indian B2B teams that want the next call decided before the rep opens their screen.",
+        "pricingNote": "Flat per account, from Free — adding reps doesn't raise the bill within a tier.",
+        "whyPick": "Every lead is graded A–F across Fit, Intent and Quality on fixed, auditable weights, then placed in one ranked queue per rep that re-orders as signals arrive and intent decays. Rupee value is part of the ordering, so ₹ at risk is a number rather than a feeling. Assignment happens at insert, so leads arrive already owned and already ranked.",
+        "watchOut": "Built for B2B sales prioritisation, not marketing-automation scoring across large email databases. Lead sources come in via CSV, manual entry or webhook today — native Google Sheets and IndiaMART connectors are on the roadmap.",
+        "url": "/features/priority-queue"
+      },
+      {
+        "rank": 2,
+        "name": "Salesforce",
+        "tagline": "Einstein lead scoring with deep customisation.",
+        "bestFor": "Large teams already standardised on Salesforce with admin capacity.",
+        "pricingNote": "USD, per seat; Einstein features on higher editions.",
+        "whyPick": "Predictive scoring plus near-unlimited flexibility in how list views and priority fields are constructed.",
+        "watchOut": "The ranking is whatever your admin builds — powerful, but it is a configuration project, and the predictive model is not easy to explain to a rep.",
+        "url": "/compare/leadkaun-vs-salesforce"
+      },
+      {
+        "rank": 3,
+        "name": "LeadSquared",
+        "tagline": "India-built, strong on high-volume inside sales.",
+        "bestFor": "High-velocity telecalling and admissions teams in India.",
+        "pricingNote": "₹ pricing, per user.",
+        "whyPick": "Built for Indian inside-sales motion, with call-centre style work queues and solid lead distribution.",
+        "watchOut": "Per-user pricing means putting the whole floor on it scales with headcount; prioritisation logic leans on rules you maintain.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 4,
+        "name": "HubSpot",
+        "tagline": "Predictive and manual scoring in a marketing-led stack.",
+        "bestFor": "Marketing-led teams already inside the HubSpot ecosystem.",
+        "pricingNote": "USD, per seat; scoring on higher tiers.",
+        "whyPick": "Both manual and predictive scoring, with task queues that can approximate a working order.",
+        "watchOut": "Prioritisation is a by-product of scoring plus views rather than a first-class ranked queue; costs climb quickly at the tiers where scoring lives.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 5,
+        "name": "Zoho CRM",
+        "tagline": "Affordable scoring, ranking left to you.",
+        "bestFor": "Cost-sensitive teams already running Zoho One.",
+        "pricingNote": "₹ pricing, per user; scoring on paid editions.",
+        "whyPick": "Scoring rules are inexpensive and flexible, and the wider Zoho suite is hard to beat on price.",
+        "watchOut": "You get scores and saved views; turning those into one ranked daily queue per rep is manual work that tends to decay after the admin who built it moves on.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What's the difference between lead scoring software and lead prioritization software?",
+        "a": "Scoring software returns a grade or number for each lead in isolation. Prioritization software returns a position — where this lead sits relative to everything else that rep is carrying right now. Almost every CRM does the first. The second requires deciding how to break ties between equally graded leads, which is where decay and deal value come in."
+      },
+      {
+        "q": "Can I prioritise leads without replacing my CRM?",
+        "a": "Yes, and it is the usual path. Leadkaun runs alongside your CRM: the CRM stays the record of what happened, Leadkaun ranks what happens next. Teams typically export open leads to CSV, import them, and compare the resulting order against their own judgement for a few weeks before changing any workflow."
+      },
+      {
+        "q": "How is deal value used without letting big deals dominate the queue?",
+        "a": "Rupee value breaks ties between comparable leads rather than overriding the grade. A large deal with weak ICP fit and no engagement still scores poorly on Fit and Intent, and low Quality caps a lead down the grades regardless of value. The effect is that money decides between two leads a rep would otherwise pick between at random."
+      },
+      {
+        "q": "Does prioritisation work for telecalling teams doing high volume?",
+        "a": "It matters more there, not less. At high volume the cost of working leads in arrival order compounds fastest, and the reps have the least time to triage. What changes is the shape of the queue: shorter working sets, faster decay, and a heavier reliance on assignment rules so nothing sits unowned while the floor is busy."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-leadsquared",
+      "leadkaun-vs-salesforce",
+      "leadkaun-vs-zoho-crm"
+    ]
+  },
+  {
+    "slug": "lead-routing-software",
+    "metaTitle": "5 Best Lead Routing & Assignment Software (2026) | Leadkaun",
+    "metaDescription": "The best lead routing software in 2026 — compared on rule flexibility, fallback handling, speed of assignment, and what it costs to put every rep on it.",
+    "h1": "Best Lead Routing & Assignment Software (2026)",
+    "intro": "Routing software is easy to evaluate badly, because every tool demos the clean case: this sector goes to that rep. What separates them is the messy case — what happens to a lead with a missing field, an unrecognised sector, or a city nobody mapped. This guide compares tools on fallback handling, how fast assignment actually happens, and whether a reassignment carries the lead's history with it.",
+    "quickAnswer": {
+      "question": "What is the best lead routing software in 2026?",
+      "answer": "For Indian B2B teams, Leadkaun assigns at the point of entry — a lead is graded, owned and ranked in one step — with flat per-account pricing, which matters because routing only works when every rep is actually on the system. Salesforce and HubSpot offer the deepest rule engines if you have admin capacity and can absorb per-seat USD pricing. LeadSquared is strong for high-volume Indian telecalling floors, and Zoho CRM covers the basics inexpensively if you are already in the Zoho suite."
+    },
+    "updated": "2026-08",
+    "criteria": [
+      "Does assignment happen at entry, or on review?",
+      "Is there a real fallback for leads that match no rule — and is the unmatched set visible?",
+      "Can rules combine sector, territory, source and round-robin without becoming unmaintainable?",
+      "Does reassignment carry grade, history and follow-up record with it?",
+      "What does it cost to put the whole team on it — flat, or per seat?"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Assigned, graded and ranked in one step at insert.",
+        "bestFor": "Indian B2B teams that want every lead owned within minutes, not at the Monday review.",
+        "pricingNote": "Flat per account, from Free — no per-seat cost to putting the whole team on it.",
+        "whyPick": "Assignment runs at insert alongside grading, so a lead arrives already owned and already positioned in that rep's Priority Queue. Rules cover sector, territory, source and round-robin, the Unassigned Queue makes the unmatched set a visible working surface rather than an invisible remainder, and transfers carry grade and logged history intact.",
+        "watchOut": "Rules are configured rather than scripted — deliberate, but teams wanting arbitrary custom routing logic will find it more opinionated than an enterprise rule engine.",
+        "url": "/glossary/assignment-rules"
+      },
+      {
+        "rank": 2,
+        "name": "Salesforce",
+        "tagline": "The deepest rule engine, if you have the admin capacity.",
+        "bestFor": "Large teams with a dedicated admin and complex territory structures.",
+        "pricingNote": "USD, per seat.",
+        "whyPick": "Assignment rules, queues and territory management cover essentially any routing model you can describe.",
+        "watchOut": "It is a build, not a setup. The flexibility is real and so is the ongoing maintenance cost when territories change.",
+        "url": "/compare/leadkaun-vs-salesforce"
+      },
+      {
+        "rank": 3,
+        "name": "LeadSquared",
+        "tagline": "Built for high-volume Indian inside sales.",
+        "bestFor": "Telecalling and admissions floors distributing large daily lead volumes.",
+        "pricingNote": "₹ pricing, per user.",
+        "whyPick": "Strong lead distribution designed for call-centre motion, with rules built around throughput.",
+        "watchOut": "Per-user pricing scales with floor size, which is exactly where routing matters most.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 4,
+        "name": "HubSpot",
+        "tagline": "Clean routing inside a marketing-led stack.",
+        "bestFor": "Teams already running HubSpot for marketing.",
+        "pricingNote": "USD, per seat; rotation features on paid tiers.",
+        "whyPick": "Lead rotation and workflow-based assignment are straightforward to configure and reliable.",
+        "watchOut": "Routing sophistication is tied to tier, and the per-seat model discourages putting every rep on it.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 5,
+        "name": "Zoho CRM",
+        "tagline": "Adequate routing at a low price point.",
+        "bestFor": "Cost-sensitive teams already inside Zoho One.",
+        "pricingNote": "₹ pricing, per user.",
+        "whyPick": "Assignment rules and round-robin cover the common cases inexpensively.",
+        "watchOut": "Fallback handling and unassigned visibility are weaker; leads that match no rule are easy to lose track of.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "How is lead routing different from lead distribution?",
+        "a": "Distribution is about balancing load across reps; routing is about matching a lead to the right rep. Round-robin is distribution. Sending manufacturing enquiries to the rep who knows manufacturing is routing. Most teams need both, with distribution acting as the tie-breaker underneath a routing rule rather than as the strategy itself."
+      },
+      {
+        "q": "What should happen to leads that match no rule?",
+        "a": "They should land somewhere named, visible and time-bounded — an Unassigned Queue with a person accountable for clearing it, not a shared inbox. The useful metric is age rather than volume: how long the oldest unowned lead has been sitting is the cleanest indicator of whether routing is covering the pipeline."
+      },
+      {
+        "q": "Does routing need to integrate with our CRM?",
+        "a": "Not necessarily. Leadkaun runs alongside your CRM rather than replacing it — leads come in via CSV, manual entry or webhook, get assigned and ranked, and the CRM remains the record of what happened. Teams typically run both in parallel initially to compare coverage before changing any process."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-salesforce",
+      "leadkaun-vs-leadsquared",
+      "leadkaun-vs-zoho-crm"
+    ]
+  },
+  {
+    "slug": "lead-qualification-software",
+    "metaTitle": "5 Best Lead Qualification Software (2026) — Continuous vs One-Time | Leadkaun",
+    "metaDescription": "The best lead qualification software in 2026 — which tools qualify continuously and which stamp a lead once. Compared on Fit, Intent and data quality handling.",
+    "h1": "Best Lead Qualification Software (2026)",
+    "intro": "The question worth asking of any qualification tool is what happens on day thirty. A lead qualified at intake and untouched since is a stale record with a good label, and most tools will keep showing you the label. This guide compares tools on whether qualification is a one-time stamp or a live measurement, whether fit and engagement are separable, and whether data quality is treated as part of qualification or as somebody else's cleanup job.",
+    "quickAnswer": {
+      "question": "What is the best lead qualification software in 2026?",
+      "answer": "For Indian B2B teams wanting qualification that keeps updating rather than expiring, Leadkaun scores every lead on three separate 0–100 dimensions — Fit, Intent and Quality — combining into a Grade A–F that moves as signals arrive and decays as leads go quiet, at flat per-account pricing. HubSpot and Salesforce are strong where you are already committed to the platform; LeadSquared suits high-volume Indian inside sales; Zoho CRM covers basic scoring cheaply but leaves the continuous part to you."
+    },
+    "updated": "2026-08",
+    "criteria": [
+      "Does qualification update as evidence arrives, or expire silently after intake?",
+      "Are fit and engagement scored separately, so a strong-fit-gone-quiet lead is distinguishable from an eager bad-fit one?",
+      "Is data quality part of the score, or assumed?",
+      "Can a rep see why a lead is qualified, or is it a black-box number?",
+      "What does it cost to qualify every lead for every rep?"
+    ],
+    "picks": [
+      {
+        "rank": 1,
+        "name": "Leadkaun",
+        "isLeadkaun": true,
+        "tagline": "Three separate scores, continuously updated.",
+        "bestFor": "Teams that want qualification their reps can argue with and understand.",
+        "pricingNote": "Flat per account, from Free.",
+        "whyPick": "Fit, Intent and Quality are scored 0–100 independently and combined into a Grade A–F on fixed, auditable cut-offs. Intent decays as leads go silent, so nothing stays qualified by inertia, and Quality caps a lead down the grades when the record cannot be trusted — so bad data never passes as a good lead.",
+        "watchOut": "The weights are fixed and identical across accounts. That is what keeps the grade explainable and comparable, but teams wanting a bespoke scoring model will find it deliberately constrained.",
+        "url": "/features/lead-scoring"
+      },
+      {
+        "rank": 2,
+        "name": "HubSpot",
+        "tagline": "Manual plus predictive scoring, marketing-led.",
+        "bestFor": "Content-led teams with large top-of-funnel volume.",
+        "pricingNote": "USD, per seat; scoring on higher tiers.",
+        "whyPick": "Mature scoring with both rule-based and predictive options across a strong marketing platform.",
+        "watchOut": "The predictive model is hard to explain to a rep, and scoring sits on tiers where USD per-seat costs add up.",
+        "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 3,
+        "name": "Salesforce",
+        "tagline": "Einstein scoring with full customisation.",
+        "bestFor": "Enterprise teams with admin capacity and clean historical data.",
+        "pricingNote": "USD, per seat; Einstein on higher editions.",
+        "whyPick": "Predictive scoring trained on your own history, with essentially unlimited configuration around it.",
+        "watchOut": "Needs volume and clean history to be useful, and the output is not readily explainable at the rep level.",
+        "url": "/compare/leadkaun-vs-salesforce"
+      },
+      {
+        "rank": 4,
+        "name": "LeadSquared",
+        "tagline": "Qualification tuned for Indian inside sales.",
+        "bestFor": "Admissions and high-velocity telecalling teams.",
+        "pricingNote": "₹ pricing, per user.",
+        "whyPick": "Scoring and stage management built around the Indian inside-sales motion, with strong call-centre workflows.",
+        "watchOut": "Per-user pricing, and qualification leans on rules you build and maintain.",
+        "url": "/compare/leadkaun-vs-leadsquared"
+      },
+      {
+        "rank": 5,
+        "name": "Zoho CRM",
+        "tagline": "Inexpensive rule-based scoring.",
+        "bestFor": "Small teams already using Zoho who need something better than nothing.",
+        "pricingNote": "₹ pricing, per user; scoring on paid editions.",
+        "whyPick": "Straightforward scoring rules at a price that is hard to argue with.",
+        "watchOut": "Scores are largely static unless you build the update logic; data quality is not part of the score.",
+        "url": "/compare/leadkaun-vs-zoho-crm"
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Is lead qualification software the same as lead scoring software?",
+        "a": "Scoring is how most qualification software now works, so the categories overlap heavily. The distinction worth keeping is that qualification is the decision and scoring is the mechanism. A tool that scores but never updates the score is doing one-time qualification with extra steps."
+      },
+      {
+        "q": "Does qualification software replace discovery calls?",
+        "a": "No. It changes which calls happen first and what the rep knows walking in. Budget, authority, need and timing still get established in conversation; the software decides which conversation is worth having this morning and keeps the record current between calls."
+      },
+      {
+        "q": "How does data quality affect qualification?",
+        "a": "Directly, and most tools ignore it. A lead you cannot reliably contact is not qualified regardless of how well the company fits. In Leadkaun, Quality is scored alongside Fit and Intent and acts as a cap: a record with an invalid phone or a duplicate match is graded down no matter how strong the other two scores are."
+      }
+    ],
+    "relatedCompares": [
+      "leadkaun-vs-hubspot",
+      "leadkaun-vs-salesforce",
+      "leadkaun-vs-leadsquared"
     ]
   }
 ]

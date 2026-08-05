@@ -70,7 +70,7 @@ const DATA_HONESTY = [
   { re: /47[-\s]?min(ute)?s?\b(?!-)/i, name: 'quarantined fabricated stat "47 min(ute)" (de-specify)' },
   // Over-claims (weight_overrides not wired; BSP is roadmap). "audit/transparent
   // weights" and "BSP … on the roadmap" phrasings do NOT match these.
-  { re: /customis(e|able)[^.\n]{0,25}weights|tune[^.\n]{0,15}(the\s+)?weights|custom\s+(icp\s+)?weights/i, name: 'over-claim: customisable scoring weights (weight_overrides is not wired — weights are fixed/transparent)' },
+  { re: /customis(e|able)[^.\n]{0,25}weights|tune[^.\n]{0,15}(the\s+)?weights|weights[^.\n]{0,25}\b(tune|customis(e|able)|adjust|change)\b|custom\s+(icp\s+)?weights/i, name: 'over-claim: customisable scoring weights (weight_overrides is not wired — weights are fixed/transparent)' },
   { re: /BSP integrations?[^.\n]{0,30}\bavailable/i, name: 'over-claim: BSP integrations "available" (Gupshup/AiSensy/Interakt are roadmap)' },
 ];
 

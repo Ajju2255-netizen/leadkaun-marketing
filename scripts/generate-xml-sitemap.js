@@ -39,6 +39,8 @@ const industriesData = readJson("data/pseo/industries.json")
 const keywordsData = readJson("data/pseo/keywords.json")
 const rolesData = readJson("data/pseo/roles.json")
 const glossaryData = readJson("data/pseo/glossary.json")
+const pillarsData = readJson("data/pseo/pillars.json")
+const bestData = readJson("data/pseo/best.json")
 const questionsData = readJson("data/pseo/questions.json")
 const howToData = readJson("data/pseo/how-to.json")
 const integrationsDataRaw = fs.existsSync(path.join(__dirname, "../data/pseo/integrations.json"))
@@ -114,20 +116,13 @@ const core = [
   { path: "/tools/missed-revenue-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/tools/crm-cost-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/best", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/lead-management-software-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/whatsapp-crm-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/lead-scoring-software", priority: "0.7", changefreq: "monthly" },
-  { path: "/best/crm-for-real-estate-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/sales-crm-for-small-business-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/telecalling-crm-india", priority: "0.7", changefreq: "monthly" },
-  { path: "/best/crm-for-edtech-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/crm-for-startups-india", priority: "0.8", changefreq: "monthly" },
-  { path: "/best/sales-automation-software", priority: "0.7", changefreq: "monthly" },
-  { path: "/best/crm-for-manufacturing-india", priority: "0.8", changefreq: "monthly" },
+  // Derived from best.json — a hardcoded list here silently drops new guides.
+  ...bestData.map((g) => ({ path: `/best/${g.slug}`, priority: "0.8", changefreq: "monthly" })),
   { path: "/alternatives", priority: "0.8", changefreq: "monthly" },
   ...["zoho-crm", "leadsquared", "hubspot", "salesforce", "freshsales", "pipedrive", "zoho-bigin", "kylas", "telecrm", "bitrix24", "monday", "close", "selldo"].map((s) => ({ path: `/alternatives/${s}`, priority: "0.7", changefreq: "monthly" })),
   { path: "/learn", priority: "0.8", changefreq: "monthly" },
-  ...["lead-scoring", "lead-management", "whatsapp-sales", "sales-follow-up", "missed-revenue", "sales-behaviour"].map((s) => ({ path: `/learn/${s}`, priority: "0.8", changefreq: "monthly" })),
+  // Derived from pillars.json — same reason as /best above.
+  ...pillarsData.map((pl) => ({ path: `/learn/${pl.slug}`, priority: "0.8", changefreq: "monthly" })),
   { path: "/research", priority: "0.8", changefreq: "monthly" },
   { path: "/research/indian-b2b-sales-lead-benchmarks-2026", priority: "0.8", changefreq: "monthly" },
   { path: "/security", priority: "0.5", changefreq: "yearly" },

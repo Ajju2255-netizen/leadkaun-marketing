@@ -41,6 +41,7 @@ const TERMS = {
   freshness: ["data freshness", "freshness band", "stale list", "how old the lead"],
   "execution-score": ["execution score"],
   "offline-logging": ["offline", "patchy", "without a connection"],
+  "win-loss-attribution": ["loss analysis", "won or lost", "why deals died", "frozen"],
   "google-sheets-sync": ["google sheets"],
   "lead-scoring": ["lead scoring", "a–f", "a-f grade"],
   "priority-queue": ["priority queue"],

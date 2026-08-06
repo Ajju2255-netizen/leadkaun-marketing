@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { BarChart3, ListOrdered, AlertTriangle, Mail, MessageSquare, Users } from "lucide-react"
+import { BarChart3, ListOrdered, AlertTriangle, Mail, MessageSquare, Users, FileSearch, History } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -26,6 +26,8 @@ const FEATURES = [
   { icon: Mail,          href: "/features/morning-brief",             title: "Morning Brief",             description: "An 8:30 AM IST email listing the day's Grade A leads, overdue follow-ups, and ₹ at risk. The day starts with a plan." },
   { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "WhatsApp as a first-class signal. Log each exchange in three taps from any regular account — it feeds the Intent Score." },
   { icon: Users,         href: "/features/sales-rep-tracking",        title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, and follow-up completion — behaviour over vanity activity counts." },
+  { icon: FileSearch,   href: "/features/intake-intelligence",        title: "Intake Intelligence",       description: "See what is actually in a lead file before you import it — valid phones, duplicates, missing fields, B2B or not." },
+  { icon: History,      href: "/features/score-evolution",            title: "Score Evolution",           description: "Every grade change written to an append-only timeline, so a drop traces back to the event that caused it." },
 ]
 
 export default function FeaturesHub() {

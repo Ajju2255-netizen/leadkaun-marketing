@@ -327,6 +327,63 @@ export function ComparePageLayout(p: CompareProps) {
           </Container>
         </SectionGround>
 
+        {/* COMPARISON METHODOLOGY — Brain 09: a verdict without a published method
+
+            is an opinion with a table around it. We build one of these tools. */}
+
+        <SectionGround variant="pure" size="md">
+
+          <Container>
+
+            <Reveal className="mx-auto max-w-3xl">
+
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+
+                How this comparison is made
+
+              </p>
+
+              <div className="mt-5 space-y-4 text-[15px] leading-[1.65] text-ink-soft">
+
+                <p>
+
+                  We build one of the two products on this page, so read it accordingly. What we can offer instead of
+
+                  neutrality is a stated method and a section that says where the other tool wins.
+
+                </p>
+
+                <p>
+
+                  Capability claims come from each vendor&apos;s own documentation, and where a capability sits behind a
+
+                  higher tier we say so rather than crediting the product as a whole. Pricing is read from the public
+
+                  pricing page at the review date below, in the currency each vendor actually charges — not converted to
+
+                  make the comparison flatter. Claims about Leadkaun are checked against the shipping code; see{" "}
+
+                  <Link href="/methodology" className="text-sky-600 underline-offset-2 hover:underline">our methodology</Link>.
+
+                </p>
+
+                <p>
+
+                  Nobody pays for placement here, and none of these links is affiliate-compensated. Where we are the wrong
+
+                  choice, the verdict section says so.
+
+                </p>
+
+              </div>
+
+            </Reveal>
+
+          </Container>
+
+        </SectionGround>
+
+
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
 
         <SectionGround variant="pure" size="sm">

@@ -400,6 +400,22 @@
       ],
       "note": "It queues SIGNAL LOGS, not the whole application. Never say the app works offline.",
       "verifiedOn": "2026-08-05"
+    },
+    {
+      "id": "win-loss-attribution",
+      "label": "Win/loss attribution",
+      "status": "shipped",
+      "claimable": "When a deal is marked won or lost, the lead's full scoring state is frozen at that moment — grade, sub-scores and reason — so you can go back and ask whether the grades actually predicted the outcomes.",
+      "notClaimable": [
+        "predicts why you will lose",
+        "automatic loss reason detection"
+      ],
+      "evidence": [
+        "app/api/leads/[id]/won/route.ts",
+        "app/api/leads/[id]/lost/route.ts"
+      ],
+      "note": "WinAttribution model plus an outcome_snapshot JSON frozen at decision time. This snapshot is what makes the Learning Engine's calibration honest — it compares against state as it was, not as it is now.",
+      "verifiedOn": "2026-08-06"
     }
   ]
 }

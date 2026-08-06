@@ -670,16 +670,16 @@
     "slug": "loss-analysis",
     "term": "Loss Analysis",
     "definitionShort": "An Analytics card showing stale leads by ₹ value and by rep — manager's 1:1 prep material.",
-    "definitionLong": "Loss Analysis breaks down the ₹-at-risk pool by rep, by source, and by industry. A manager uses it Monday morning to prepare weekly 1:1s with data in hand: 'Priya, your ₹ at risk is ₹1.8L this week — let's walk through the top 5'. No guesswork, no accusations — just numbers. Over time, Loss Analysis patterns reveal whether staleness is a rep discipline issue, a source quality issue, or a cadence design issue.",
+    "definitionLong": "Loss analysis asks why deals died, and it is only as good as what was recorded at the moment they did. Most teams reconstruct the answer weeks later from memory, which produces a tidy list of reasons that are mostly wrong — price is over-reported because it is the easiest thing to say. In Leadkaun, marking a deal won or lost freezes the lead's entire scoring state at that instant: the grade, all three sub-scores, the confidence reading and the recorded reason. Because the snapshot is taken at decision time rather than recomputed afterwards, you can go back and ask the question that actually matters — did the grades predict the outcomes? Systematic disagreement, such as a run of won deals that scored B or C, points at the customer profile rather than at the reps. It is also what keeps the analytics honest, since calibration is measured against state as it was, not as it looks now.",
     "examples": [
-      "Priya: ₹1.8L at risk, 80% from Grade A overdue.",
-      "Source X: 30% stale rate → audit for quality."
+      "A deal marked lost at Grade A with high confidence is an execution question; the same loss at Grade C is a targeting one.",
+      "Comparing frozen grades against six months of closed deals shows whether the ICP still describes your customer."
     ],
     "relatedTerms": [
       "missed-opportunity",
       "rupee-at-risk"
     ],
-    "relatedFeature": "sales-rep-tracking",
+    "relatedFeature": "score-evolution",
     "relatedGuides": [
       {
         "label": "The complete guide",
@@ -935,7 +935,7 @@
       "lead-quality",
       "data-freshness"
     ],
-    "relatedFeature": "lead-scoring",
+    "relatedFeature": "intake-intelligence",
     "relatedGuides": [
       {
         "label": "The complete guide",
@@ -963,7 +963,7 @@
       "lead-scoring",
       "loss-analysis"
     ],
-    "relatedFeature": "lead-scoring",
+    "relatedFeature": "score-evolution",
     "relatedGuides": [
       {
         "label": "The complete guide",

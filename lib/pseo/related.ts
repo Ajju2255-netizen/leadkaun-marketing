@@ -64,6 +64,8 @@ const FEATURES: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/features/whatsapp-tracking",         label: "WhatsApp lead tracking" },
   { href: "/features/sales-rep-tracking",        label: "Sales rep tracking & accountability" },
   { href: "/features/morning-brief",             label: "The 8:30 AM Morning Brief" },
+  { href: "/features/intake-intelligence",       label: "Check a lead list before you import it" },
+  { href: "/features/score-evolution",           label: "See why a lead's grade changed" },
 ]
 
 /**

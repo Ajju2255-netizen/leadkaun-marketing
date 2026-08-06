@@ -110,6 +110,8 @@ const core = [
   { path: "/compare/leadkaun-vs-selldo", priority: "0.7", changefreq: "monthly" },
   { path: "/compare/leadkaun-vs-apollo", priority: "0.7", changefreq: "monthly" },
   { path: "/compare/leadkaun-vs-clay", priority: "0.7", changefreq: "monthly" },
+  { path: "/features/intake-intelligence", priority: "0.8", changefreq: "monthly" },
+  { path: "/features/score-evolution", priority: "0.8", changefreq: "monthly" },
   { path: "/methodology", priority: "0.8", changefreq: "quarterly" },
   { path: "/glossary", priority: "0.6", changefreq: "weekly" },
   { path: "/questions", priority: "0.6", changefreq: "weekly" },

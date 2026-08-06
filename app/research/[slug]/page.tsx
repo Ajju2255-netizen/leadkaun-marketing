@@ -11,6 +11,7 @@ import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
+import { createSectionNumbering } from "@/app/components/section-numbering"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
@@ -66,6 +67,7 @@ export default async function ResearchReportPage({ params }: Params) {
     creator: { "@type": "Organization", name: "Leadkaun" },
     citation: sources.map((s) => `${s.source} (${s.year}) — ${s.url}`),
   }
+  const n = createSectionNumbering()
   const schemas = [
     breadcrumbListSchema([
       { name: "Home", url: "/" },
@@ -107,7 +109,7 @@ export default async function ResearchReportPage({ params }: Params) {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="01" tone="warm" label="Key findings" />
+              <NumberedTag number={n.next()} tone="warm" label="Key findings" />
               <ul className="mt-6 space-y-3">
                 {r.keyFindings.map((k, i) => (
                   <li key={i} className="flex items-start gap-3 text-[16px] leading-[1.55] text-ink">
@@ -125,7 +127,7 @@ export default async function ResearchReportPage({ params }: Params) {
           <SectionGround key={si} variant={si % 2 === 0 ? "sky" : "pure"} size="lg">
             <Container>
               <Reveal className="mx-auto max-w-3xl mb-8">
-                <NumberedTag number={String(si + 2).padStart(2, "0")} label="Benchmark" />
+                <NumberedTag number={n.next()} label="Benchmark" />
                 <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[34px]">{sec.heading}</h2>
                 {sec.intro && <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">{sec.intro}</p>}
               </Reveal>
@@ -153,7 +155,7 @@ export default async function ResearchReportPage({ params }: Params) {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="07" tone="warm" label="What this means for your team" />
+              <NumberedTag number={n.next()} tone="warm" label="What this means for your team" />
               <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft">{r.leadkaunAngle}</p>
             </Reveal>
           </Container>

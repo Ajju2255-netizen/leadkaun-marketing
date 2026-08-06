@@ -13,6 +13,7 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
+import { createSectionNumbering } from "@/app/components/section-numbering"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
@@ -71,6 +72,7 @@ export default async function RoleCityPage({ params }: Params) {
   // the cross-type links (industry×city, city hub, feature) so they join the mesh.
   const crossLinks = (await relatedForRoleCity(role, cityRec.slug)).filter((l) => l.kind !== "sibling-city")
 
+  const n = createSectionNumbering()
   const schemas = [
     breadcrumbListSchema([
       { name: "Home", url: "/" }, { name: "For", url: "/" },
@@ -121,7 +123,7 @@ export default async function RoleCityPage({ params }: Params) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="01" tone="warm" label="How Leadkaun changes your day" />
+              <NumberedTag number={n.next()} tone="warm" label="How Leadkaun changes your day" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 From triage to action.
               </h2>
@@ -148,10 +150,10 @@ export default async function RoleCityPage({ params }: Params) {
         </SectionGround>
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="cream" industrySlug={fitIndustries[0]?.slug} />
+        <MethodologyCard number={n.next()} ground="cream" industrySlug={fitIndustries[0]?.slug} />
 
         <ProductShowcase
-          number="04"
+          number={n.next()}
           ground="sky"
           eyebrow={`How a ${r.title.toLowerCase()} works the queue`}
           title={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
@@ -159,7 +161,7 @@ export default async function RoleCityPage({ params }: Params) {
         />
 
         <ModulesGrid
-          number="05"
+          number={n.next()}
           ground="cream"
           tone="warm"
           eyebrow={`What a ${r.title.toLowerCase()} uses`}
@@ -169,13 +171,13 @@ export default async function RoleCityPage({ params }: Params) {
         />
 
         {/* SOURCES / REFERENCES */}
-        <ReferencesBlock number="08" ground="cream" />
+        <ReferencesBlock number={n.next()} ground="cream" />
 
         {/* FAQ */}
         <SectionGround variant="pure" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number={n.next()} label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions {r.title.toLowerCase()}s ask.
               </h2>
@@ -188,7 +190,7 @@ export default async function RoleCityPage({ params }: Params) {
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mb-8">
-              <NumberedTag number="10" tone="warm" label="Same role, other cities" />
+              <NumberedTag number={n.next()} tone="warm" label="Same role, other cities" />
               <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                 {r.title}s elsewhere in India.
               </h2>
@@ -208,7 +210,7 @@ export default async function RoleCityPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${r.title.toLowerCase()}s.`} />
+        <CommercialLinks number={n.next()} links={commercial} heading={`Lead management software for ${r.title.toLowerCase()}s.`} />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
 

@@ -6,7 +6,7 @@ import { Check, X } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { MidCta, ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
 import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
@@ -157,6 +157,9 @@ export default async function HowToPage({ params }: Params) {
             </Reveal>
           </Container>
         </SectionGround>
+
+        <MidCta lead="Run this playbook on your own pipeline." />
+
 
         {/* MISTAKES */}
         {h.commonMistakes && h.commonMistakes.length > 0 && (

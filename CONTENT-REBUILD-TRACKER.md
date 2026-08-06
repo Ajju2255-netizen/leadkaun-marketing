@@ -35,7 +35,7 @@ actually ships. The third is what made the first two safe.
 
 <!-- BEGIN generated:metrics -->
 
-_Measured 2026-08-05 by `npm run tracker`. Do not hand-edit this block._
+_Measured 2026-08-06 by `npm run tracker`. Do not hand-edit this block._
 
 | Metric | Value | Notes |
 |---|---|---|
@@ -117,9 +117,14 @@ identical, because they are the published methodology and the citations. Cutting
 them would buy a metric and cost evidence.
 
 ### 4 — Page-type rebuild ✅
-Blocks 6, 10 and 11 existed only on `/blog`. `MidCta`, `ReviewStamp` and
-`AuthorLine` now reach 16 page types; `createSectionNumbering()` replaces
-hand-written numbers that had drifted. `/best` gained the ranking-methodology block
+Blocks 6, 10 and 11 existed only on `/blog`. `ReviewStamp` and `AuthorLine` reach
+16 page types; `MidCta` is on the long-form types (`/learn`, `/best`, `/how-to`).
+
+`createSectionNumbering()` is applied to the five templates whose numbering had
+drifted — verified contiguous in the rendered HTML: `/for/[role]/[city]` ran
+01,03,04,05,08,09 and now runs 01–08; `/research/[slug]` computed `si+2` in a
+variable-length loop while the next section hardcoded `07`, so any report without
+exactly five sections collided or skipped. `/best` gained the ranking-methodology block
 Brain 09 §3.7 requires and which was missing — it states the conflict of interest
 outright. Unused components (`TrustStrip`, `KeyTakeaways`, `GlassPanel`) deleted so
 they are not mistaken for patterns.
@@ -129,7 +134,16 @@ Two pillars for the two ownable theses: `/learn/lead-data-trust` (Confidence,
 Freshness, Readiness, Intake, Score Evolution — all *epistemic*, an axis no Indian
 SMB CRM markets) and `/learn/sales-execution-measurement`, which says out loud that
 we measure whether a recommendation was **followed**, not whether it **worked**.
-Plus 5 glossary terms. `npm run truth`: 5 unmarketed capabilities → **0**.
+Plus 5 glossary terms, and the two strongest capabilities got sections on the
+feature pages that own them: Confidence-vs-Grade on `/features/lead-scoring`
+("a thin lead is not a bad lead"), and recommendation adoption on
+`/features/sales-rep-tracking` — which states its own limit, that we measure
+whether a recommendation was *followed*, not whether it *worked*.
+
+A gate rule now rejects capability headings opening on an adjective
+(`AI…`, `Smart…`, `Powerful…`): open on what happens, not on a claim.
+
+`npm run truth`: 5 unmarketed capabilities → **0**.
 
 ### 6 — E-E-A-T ✅
 `/methodology` is the substitute for case studies we do not have: the engine's own
@@ -143,6 +157,14 @@ are gone from the homepage, `/about`, `/product`, `ProofBand`, `roles.json`,
 rules so they cannot return. The `ananya` **Person** byline is demoted to
 Organization: a Person with no avatar, no url and no `sameAs` is an E-E-A-T
 liability, and it was shipping on 33 posts.
+
+`/resources/[slug]` emitted `breadcrumbList` alone — the weakest schema on the
+site — and now carries an `ItemList` of what is actually in each asset.
+
+**Brain `00 §4` corrected in the vault.** It banned Google Sheets sync as
+"non-functional, model never migrated"; the migration landed one day before the
+doc was authored. The ban is replaced with the verified shipped-state plus a
+pointer to `data/product-truth.json` as the machine-checked source of truth.
 
 ---
 

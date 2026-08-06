@@ -15,6 +15,7 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
+import { createSectionNumbering } from "@/app/components/section-numbering"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
@@ -74,6 +75,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
     seed,
   )
 
+  const n = createSectionNumbering()
   const schemas = [
     breadcrumbListSchema([
       { name: "Home", url: "/" },
@@ -131,7 +133,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-10 md:mb-14 max-w-3xl">
-              <NumberedTag number="01" tone="warm" label={`What ${kw.label.toLowerCase()} does`} />
+              <NumberedTag number={n.next()} tone="warm" label={`What ${kw.label.toLowerCase()} does`} />
               <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 What it does for {ind.name.toLowerCase()} teams.
               </h2>
@@ -164,7 +166,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
             <Container>
               <div className="mx-auto max-w-3xl">
                 <Reveal>
-                  <NumberedTag number="02" label={`On ${kw.label.toLowerCase()}`} />
+                  <NumberedTag number={n.next()} label={`On ${kw.label.toLowerCase()}`} />
                   <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
                     What {kw.label.toLowerCase()} actually solves.
                   </h2>
@@ -205,10 +207,10 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         </SectionGround>
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
+        <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
         <ProductShowcase
-          number="04"
+          number={n.next()}
           ground="sky"
           eyebrow="See it work"
           title={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
@@ -216,7 +218,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         />
 
         <ModulesGrid
-          number="05"
+          number={n.next()}
           ground="cream"
           tone="warm"
           eyebrow={`What ${kw.label.toLowerCase()} touches`}
@@ -226,13 +228,13 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         />
 
         {/* SOURCES / REFERENCES */}
-        <ReferencesBlock number="08" ground="cream" />
+        <ReferencesBlock number={n.next()} ground="cream" />
 
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number={n.next()} label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions teams ask.
               </h2>
@@ -246,7 +248,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="10" tone="warm" label="Related" />
+                <NumberedTag number={n.next()} tone="warm" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More {ind.name.toLowerCase()} × {kw.label.toLowerCase()} pages.
                 </h2>
@@ -262,7 +264,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           </SectionGround>
         )}
 
-        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
+        <CommercialLinks number={n.next()} links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
 

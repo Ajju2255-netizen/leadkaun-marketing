@@ -212,6 +212,19 @@ for (const f of jsonFiles) {
   }
 }
 
+// ---- 2d. buzzword headings -------------------------------------------------
+// "AI-powered lead intelligence" is a noun phrase; "You upload a 4,000-row list
+// you bought six months ago" is a moment in a rep's day. The second is what the
+// founder asked for and the first is what generic SaaS copy reverts to.
+const BUZZWORD_HEADING = /^(AI|Smart|Intelligent|Advanced|Powerful|Next[- ]Gen|Cutting[- ]Edge|Revolutionary)\b/i;
+for (const f of ["pillars.json", "best.json", "how-to.json", "questions.json", "resources.json"]) {
+  let data; try { data = loadJson(f); } catch { continue; }
+  for (const [path, text] of strings(data)) {
+    if (!/\.(heading|h1|title|metaTitle|q)$/.test(path)) continue;
+    if (BUZZWORD_HEADING.test(text.trim())) err(`${f}:${path}`, `buzzword heading "${text.slice(0, 48)}" — open on what happens, not on an adjective`);
+  }
+}
+
 // ---- 3. industry fact completeness ----------------------------------------
 const industries = loadJson("industries.json");
 for (const ind of industries) {

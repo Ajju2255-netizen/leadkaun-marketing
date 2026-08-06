@@ -6,7 +6,7 @@ import { Check, AlertTriangle, Trophy } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { MidCta, ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
 import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -161,6 +161,9 @@ export default async function BestGuidePage({ params }: Params) {
             </div>
           </Container>
         </SectionGround>
+
+        <MidCta lead="Want to see how Leadkaun grades your own leads?" />
+
 
         {/* RANKING METHODOLOGY — Brain 09 §3.7 requires a published method on a
             buyer guide. Without it a ranking is just an opinion with numbers. */}

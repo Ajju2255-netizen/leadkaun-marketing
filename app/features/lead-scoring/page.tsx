@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { Metadata } from "next"
 import { Gauge, Zap, Filter, ListOrdered, AlertTriangle } from "lucide-react"
 
@@ -211,6 +212,77 @@ export default function LeadScoringPage() {
             </div>
           </Container>
         </SectionGround>
+
+        {/* CONFIDENCE — the axis nobody else markets */}
+
+        <SectionGround variant="pure" size="lg">
+
+          <Container>
+
+            <Reveal className="mx-auto max-w-3xl">
+
+              <NumberedTag number="05" label="Confidence" />
+
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
+
+                A thin lead is not a bad lead.
+
+              </h2>
+
+              <div className="mt-6 space-y-4 text-[16px] leading-[1.65] text-ink-soft">
+
+                <p>
+
+                  A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low,
+
+                  which says the lead is weak. That is a claim, and it is usually wrong — the honest position is that
+
+                  there is not enough here to judge yet.
+
+                </p>
+
+                <p>
+
+                  So Leadkaun keeps two readings apart. The grade says how good a lead looks. Confidence says how much we
+
+                  actually know about it — a weighted read across eight fields, with a prioritised list of what to ask
+
+                  for next. A rep with a thin lead sees exactly which two questions would move it, which turns a shrug
+
+                  into a qualifying call.
+
+                </p>
+
+                <p>
+
+                  Freshness runs on the same principle. A list collected eight months ago and imported this morning looks
+
+                  identical to a fresh enquiry until something says otherwise, so every lead carries an ageing band that
+
+                  keeps moving. It is the difference between a rep calling warm and a rep calling a stranger who has
+
+                  forgotten they ever filled a form.
+
+                </p>
+
+                <p>
+
+                  Both are visible on the lead, and both are frozen into the score timeline whenever a grade changes —
+
+                  see <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">the
+
+                  full guide to lead data trust</Link>.
+
+                </p>
+
+              </div>
+
+            </Reveal>
+
+          </Container>
+
+        </SectionGround>
+
 
         {/* FAQ */}
         <SectionGround variant="sky" size="md">

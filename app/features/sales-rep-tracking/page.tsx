@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { Metadata } from "next"
 import { Users, Gauge, AlertTriangle, Mail } from "lucide-react"
 
@@ -132,6 +133,65 @@ export default function SalesRepTrackingPage() {
             </div>
           </Container>
         </SectionGround>
+
+        {/* ADOPTION — measured, with its limit stated */}
+
+        <SectionGround variant="pure" size="lg">
+
+          <Container>
+
+            <Reveal className="mx-auto max-w-3xl">
+
+              <NumberedTag number="05" label="Adoption" />
+
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
+
+                Did the rep work the lead we put at the top?
+
+              </h2>
+
+              <div className="mt-6 space-y-4 text-[16px] leading-[1.65] text-ink-soft">
+
+                <p>
+
+                  Activity reports count calls. They cannot tell you whether a rep worked the right lead first, which is
+
+                  the thing that decides the quarter. So Leadkaun records the rank a lead held in its rep&apos;s queue at
+
+                  the moment of first contact.
+
+                </p>
+
+                <p>
+
+                  If first contacts consistently come from the top of the queue, the ranking is being used. If they come
+
+                  from far down it, either the rep does not trust it or the ranking is wrong — and both are worth
+
+                  discovering before a bad quarter gets blamed on effort.
+
+                </p>
+
+                <p>
+
+                  The limit, stated plainly: this measures whether a recommendation was <em className="not-italic font-semibold text-ink">followed</em>, not
+
+                  whether it <em className="not-italic font-semibold text-ink">worked</em>. We do not compute an effectiveness
+
+                  rate, and a vendor who blurs those two is telling you something about their evidence standards. See{" "}
+
+                  <Link href="/learn/sales-execution-measurement" className="text-sky-600 underline-offset-2 hover:underline">how we measure execution</Link>.
+
+                </p>
+
+              </div>
+
+            </Reveal>
+
+          </Container>
+
+        </SectionGround>
+
 
         {/* FAQ */}
         <SectionGround variant="cream" size="md">

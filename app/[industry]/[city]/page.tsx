@@ -12,6 +12,7 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
+import { createSectionNumbering } from "@/app/components/section-numbering"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FloatingCard } from "@/app/components/floating-card"
 import { TestimonialCard } from "@/app/components/testimonial-card"
@@ -68,6 +69,7 @@ export default async function IndustryCityPage({ params }: Params) {
   const modules = selectModules({ seedKey: `${industry}:${cityRec.slug}`, relatedFeatures: ind.relatedFeatures, industrySlug: industry })
   const faqs = buildLeafFaqs(ind.faqs, undefined, stableHash(`${industry}:${cityRec.slug}`))
 
+  const n = createSectionNumbering()
   const schemas = [
     breadcrumbListSchema([
       { name: "Home", url: "/" },
@@ -138,7 +140,7 @@ export default async function IndustryCityPage({ params }: Params) {
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="01" label={`Why ${cityRec.name} ${ind.name.toLowerCase()} teams lose deals`} />
+              <NumberedTag number={n.next()} label={`Why ${cityRec.name} ${ind.name.toLowerCase()} teams lose deals`} />
               <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 The patterns we see every week.
               </h2>
@@ -167,7 +169,7 @@ export default async function IndustryCityPage({ params }: Params) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
-              <NumberedTag number="02" tone="warm" label={`How Leadkaun helps ${ind.name.toLowerCase()} teams in ${cityRec.name}`} />
+              <NumberedTag number={n.next()} tone="warm" label={`How Leadkaun helps ${ind.name.toLowerCase()} teams in ${cityRec.name}`} />
               <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 What we configure on day one.
               </h2>
@@ -225,10 +227,10 @@ export default async function IndustryCityPage({ params }: Params) {
         )}
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="03" ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
+        <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
         <ProductShowcase
-          number="04"
+          number={n.next()}
           ground="sky"
           eyebrow="See it work"
           title={<>See Leadkaun work for {ind.name.toLowerCase()} teams.</>}
@@ -236,7 +238,7 @@ export default async function IndustryCityPage({ params }: Params) {
         />
 
         <ModulesGrid
-          number="05"
+          number={n.next()}
           ground="cream"
           tone="warm"
           eyebrow="What a team here uses most"
@@ -246,13 +248,13 @@ export default async function IndustryCityPage({ params }: Params) {
         />
 
         {/* SOURCES / REFERENCES */}
-        <ReferencesBlock number="08" ground="cream" />
+        <ReferencesBlock number={n.next()} ground="cream" />
 
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number={n.next()} label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions for {ind.name.toLowerCase()} teams.
               </h2>
@@ -266,7 +268,7 @@ export default async function IndustryCityPage({ params }: Params) {
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="10" tone="warm" label="Related" />
+                <NumberedTag number={n.next()} tone="warm" label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More {ind.name.toLowerCase()} locations &amp; pages.
                 </h2>
@@ -282,7 +284,7 @@ export default async function IndustryCityPage({ params }: Params) {
           </SectionGround>
         )}
 
-        <CommercialLinks number="11" links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
+        <CommercialLinks number={n.next()} links={commercial} heading={`Lead management software for ${ind.name.toLowerCase()} teams.`} />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
 

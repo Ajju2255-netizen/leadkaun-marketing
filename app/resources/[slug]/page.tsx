@@ -66,7 +66,17 @@ export default async function ResourcePage({ params }: Params) {
     .filter((e): e is ResourceEntry => e !== undefined)
     .slice(0, 3)
 
+  const insideList = (r.inside ?? []).length
+    ? [{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: `What's inside ${r.name}`,
+        numberOfItems: r.inside.length,
+        itemListElement: r.inside.map((it: string, i: number) => ({ "@type": "ListItem", position: i + 1, name: it })),
+      }]
+    : []
   const schemas = [
+    ...insideList,
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Resources", url: "/resources" }, { name: r.name }]),
     {
       "@context": "https://schema.org", "@type": "CreativeWork",

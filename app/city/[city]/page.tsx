@@ -12,6 +12,7 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { GlossLink } from "@/app/components/gloss-button"
+import { createSectionNumbering } from "@/app/components/section-numbering"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { IndustryTile } from "@/app/components/industry-tile"
 import { Faq } from "@/app/components/faq"
@@ -74,6 +75,7 @@ export default async function CityPage({ params }: Params) {
   const modules = selectModules({ seedKey: `city:${cityRec.slug}`, industrySlug: served[0]?.slug })
   const faqs = pickN(SHARED_FAQS, 6, stableHash(`city:${cityRec.slug}`))
 
+  const n = createSectionNumbering()
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Cities", url: "/city" }, { name: cityRec.name }]),
     placeSchema({ city: cityRec.name, state: cityRec.state, lat: cityRec.lat, lng: cityRec.lng }),
@@ -130,7 +132,7 @@ export default async function CityPage({ params }: Params) {
         <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mb-8 max-w-3xl">
-              <NumberedTag number="01" label={`${cityRec.name} at a glance`} />
+              <NumberedTag number={n.next()} label={`${cityRec.name} at a glance`} />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Built for how {cityRec.name} actually sells.
               </h2>
@@ -167,7 +169,7 @@ export default async function CityPage({ params }: Params) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-10">
-              <NumberedTag number="02" tone="warm" label="Industries" />
+              <NumberedTag number={n.next()} tone="warm" label="Industries" />
               <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Industries we serve in {cityRec.name}.
               </h2>
@@ -184,7 +186,7 @@ export default async function CityPage({ params }: Params) {
           <SectionGround variant="pure" size="lg">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="03" label="By role" />
+                <NumberedTag number={n.next()} label="By role" />
                 <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[34px]">
                   For sales roles in {cityRec.name}.
                 </h2>
@@ -204,10 +206,10 @@ export default async function CityPage({ params }: Params) {
         )}
 
         {/* METHODOLOGY — how the grade is computed */}
-        <MethodologyCard number="04" ground="cream" industrySlug={served[0]?.slug} />
+        <MethodologyCard number={n.next()} ground="cream" industrySlug={served[0]?.slug} />
 
         <ProductShowcase
-          number="05"
+          number={n.next()}
           ground="sky"
           eyebrow="See it work"
           title={<>See Leadkaun work for {cityRec.name} sales teams.</>}
@@ -215,7 +217,7 @@ export default async function CityPage({ params }: Params) {
         />
 
         <ModulesGrid
-          number="06"
+          number={n.next()}
           ground="cream"
           tone="warm"
           eyebrow="What teams here use most"
@@ -225,13 +227,13 @@ export default async function CityPage({ params }: Params) {
         />
 
         {/* SOURCES / REFERENCES */}
-        <ReferencesBlock number="09" ground="cream" />
+        <ReferencesBlock number={n.next()} ground="cream" />
 
         {/* FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="10" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number={n.next()} label="FAQ" /></div>
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Questions {cityRec.name} teams ask.
               </h2>
@@ -244,7 +246,7 @@ export default async function CityPage({ params }: Params) {
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="11" label="Related" />
+                <NumberedTag number={n.next()} label="Related" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">
                   More pages for {cityRec.name}.
                 </h2>
@@ -260,7 +262,7 @@ export default async function CityPage({ params }: Params) {
           </SectionGround>
         )}
 
-        <CommercialLinks number="12" links={commercial} heading={`Lead management software for ${cityRec.name} sales teams.`} />
+        <CommercialLinks number={n.next()} links={commercial} heading={`Lead management software for ${cityRec.name} sales teams.`} />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} />
 

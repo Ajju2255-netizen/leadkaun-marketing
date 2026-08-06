@@ -373,7 +373,7 @@
       "lead-scoring",
       "priority-queue"
     ],
-    "relatedQuestions": [
+    "relatedSlugs": [
       "what-is-lead-scoring",
       "what-is-fit-score",
       "what-is-quality-score"

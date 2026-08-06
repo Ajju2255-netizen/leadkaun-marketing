@@ -225,6 +225,24 @@ for (const f of ["pillars.json", "best.json", "how-to.json", "questions.json", "
   }
 }
 
+// ---- 2e. RECORD SHAPE ------------------------------------------------------
+// A record missing a field its route reads takes down `next build` during
+// prerender, which is the most expensive place to find out. Every record in a
+// file must carry the fields that >=80% of its siblings carry.
+for (const f of ["how-to.json", "questions.json", "pillars.json", "best.json", "glossary.json", "resources.json", "roles.json"]) {
+  let recs; try { recs = loadJson(f); } catch { continue; }
+  if (!Array.isArray(recs) || recs.length < 3) continue;
+  const freq = new Map();
+  for (const r of recs) for (const k of Object.keys(r)) if (!k.startsWith("_")) freq.set(k, (freq.get(k) ?? 0) + 1);
+  const required = [...freq].filter(([, n]) => n >= recs.length * 0.8).map(([k]) => k);
+  for (const r of recs) {
+    const missing = required.filter((k) => r[k] === undefined);
+    if (missing.length) err(`${f}:${r.slug ?? "?"}`, `record missing field(s) ${missing.join(", ")} that ${Math.round((freq.get(missing[0]) / recs.length) * 100)}%+ of siblings carry — routes read these`);
+    const stray = Object.keys(r).filter((k) => !k.startsWith("_") && (freq.get(k) ?? 0) === 1 && recs.length > 5);
+    if (stray.length) warn(`${f}:${r.slug ?? "?"}`, `field(s) ${stray.join(", ")} appear on no other record — invented, or a typo?`);
+  }
+}
+
 // ---- 3. industry fact completeness ----------------------------------------
 const industries = loadJson("industries.json");
 for (const ind of industries) {

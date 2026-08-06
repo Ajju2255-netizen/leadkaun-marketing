@@ -1455,8 +1455,7 @@
     "title": "How to Check a Lead List Before You Import It",
     "category": "data",
     "timeRequired": "20 minutes",
-    "metaTitle": "How to Check a Lead List Before You Import It | Leadkaun",
-    "metaDescription": "The twenty minutes before an import are the cheapest in the whole process. What to check in a bought or exported lead list, and what each failure actually costs.",
+    "tldr": "The twenty minutes before an import are the cheapest in the whole process. Check where the list came from and when, how many phone numbers are actually valid, how many rows you already have, and whether it is B2B at all — then import knowing what it is.",
     "why": "The most expensive moment in a bad import is the hour after it, when reps start dialling a file nobody looked at. Everything you can learn before that point is close to free — and the things that go wrong are boringly consistent: dead phone numbers, duplicates of leads someone is already working, and rows that were collected so long ago the contact has forgotten the enquiry. None of that is visible once the rows are mixed into the pipeline.",
     "prerequisites": [
       "The file itself, as CSV or a Google Sheet",
@@ -1509,9 +1508,12 @@
         "a": "There is no universal number, and anyone who gives you one is guessing. Measure it: track connect rate by freshness band on your own lists for a quarter, and the threshold where it falls off a cliff is your answer, for your market."
       }
     ],
-    "relatedGuides": [
-      "how-to-import-leads-from-csv",
-      "how-to-manage-leads-from-multiple-sources"
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue"
+    ],
+    "relatedBlog": [
+      "how-to-import-leads-from-csv"
     ]
   }
 ]

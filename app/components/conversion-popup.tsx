@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import { useEffect, useRef, useState, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import { X, ArrowRight, CheckCircle2 } from "lucide-react"
@@ -247,13 +249,12 @@ export function ConversionPopup() {
               >
                 Start free <ArrowRight className="h-4 w-4" />
               </GlossLink>
-              <a
-                href="/pricing"
+              <Link href="/pricing"
                 onClick={() => onCta("pricing")}
                 className="flex h-9 w-full items-center justify-center text-[14px] font-semibold text-sky-600 transition-opacity hover:opacity-80"
               >
                 See plans from ₹2,999/mo →
-              </a>
+              </Link>
             </div>
 
             <p className="mt-5 text-center text-[12px] text-ink-muted">

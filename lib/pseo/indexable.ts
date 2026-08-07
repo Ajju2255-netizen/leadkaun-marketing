@@ -13,7 +13,6 @@
  * generator (`scripts/generate-xml-sitemap.js`) also consumes, so robots meta and
  * advertised URLs can never drift apart.
  */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 import gate from "./gate.js";
 
 export const INDEX_MAX_TIER: number = gate.INDEX_MAX_TIER;

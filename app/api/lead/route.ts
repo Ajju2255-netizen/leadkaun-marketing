@@ -25,7 +25,14 @@ async function readEnv(): Promise<Record<string, string | undefined>> {
     try {
       const { getCloudflareContext } = await import("@opennextjs/cloudflare")
       const ctx = await getCloudflareContext({ async: true })
-      if (ctx?.env) Object.assign(base, ctx.env as Record<string, string | undefined>)
+      // CloudflareEnv holds bindings (R2Bucket, KVNamespace, Fetcher) alongside
+      // string vars, so it does not overlap Record<string, string|undefined>.
+      // Copy only the string-valued entries — which is all this needs.
+      if (ctx?.env) {
+        for (const [k, v] of Object.entries(ctx.env as unknown as Record<string, unknown>)) {
+          if (typeof v === "string") base[k] = v
+        }
+      }
     } catch {
       /* fall back to process.env */
     }

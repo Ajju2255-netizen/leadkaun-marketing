@@ -219,7 +219,7 @@ const TRUST_STATS = [
   { value: "A–F",      label: "every lead graded, in real time" },
   { value: "3 scores", label: "Fit, Intent, Quality — weights published" },
   { value: "same day", label: "to first graded lead" },
-  { value: "A–F",      label: "every lead graded, in real time" },
+  { value: "flat ₹",   label: "priced per account, not per seat" },
 ]
 
 /* ───────────────────────────────────────────────────────────────────────

@@ -65,7 +65,7 @@ async function run() {
       /* Hide any cookie banners or modals that could appear */
       await page.evaluate(() => {
         const selectors = ["[role='dialog']", ".modal-backdrop", "[data-radix-popper-content-wrapper]"]
-        selectors.forEach(s => document.querySelectorAll(s).forEach(el => (el as HTMLElement).style.display = "none"))
+        selectors.forEach((s) => document.querySelectorAll(s).forEach((el) => { el.style.display = "none" }))
       })
 
       const outPath = join(OUT_DIR, `${cap.name}.png`)
@@ -76,7 +76,7 @@ async function run() {
       })
       console.log(`  ✓ Saved → public/screenshots/${cap.name}.png`)
     } catch (err) {
-      console.error(`  ✗ Failed ${cap.name}:`, (err as Error).message)
+      console.error(`  ✗ Failed ${cap.name}:`, err instanceof Error ? err.message : String(err))
     }
   }
 
@@ -98,7 +98,7 @@ async function run() {
       console.log("  ℹ No lead rows found, skipping detail")
     }
   } catch (err) {
-    console.error("  ✗ Failed lead-detail:", (err as Error).message)
+    console.error("  ✗ Failed lead-detail:", err instanceof Error ? err.message : String(err))
   }
 
   await browser.close()

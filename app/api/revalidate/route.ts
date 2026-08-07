@@ -34,7 +34,8 @@ export async function POST(req: Request) {
 
   for (const t of body.tags ?? []) {
     if (typeof t === "string" && t.length > 0) {
-      revalidateTag(t)
+      // Next 16 requires a cache profile alongside the tag.
+      revalidateTag(t, "max")
       tagsRevalidated.push(t)
     }
   }

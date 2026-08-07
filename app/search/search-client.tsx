@@ -15,10 +15,20 @@ export function SearchClient() {
   const [index, setIndex] = useState<Entry[] | null>(null)
 
   useEffect(() => {
-    fetch("/search-index.json").then((r) => r.json()).then(setIndex).catch(() => setIndex([]))
+    fetch("/search-index.json")
+      .then((r) => r.json() as Promise<Entry[]>)
+      .then(setIndex)
+      .catch(() => setIndex([]))
   }, [])
 
-  useEffect(() => { setQ(initial) }, [initial])
+  // Adjusting state when a prop changes belongs in render, not an effect —
+  // an effect here causes a second render pass on every navigation.
+  // https://react.dev/learn/you-might-not-need-an-effect
+  const [prevInitial, setPrevInitial] = useState(initial)
+  if (initial !== prevInitial) {
+    setPrevInitial(initial)
+    setQ(initial)
+  }
 
   const results = useMemo(() => {
     if (!index || q.trim().length < 2) return []

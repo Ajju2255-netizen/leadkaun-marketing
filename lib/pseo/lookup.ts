@@ -67,7 +67,11 @@ async function loadJsonRaw(key: string): Promise<unknown> {
   return promise
 }
 
-function makeLoader<T>(key: string, schema: z.ZodType<T>, label: string): () => Promise<T[]> {
+// `z.ZodType<T>` alone means input === output, which breaks for any schema using
+// .default() — CitySchema's `aliases` is optional on the way in and guaranteed on
+// the way out. Widening the input to `unknown` is the accurate signature: we are
+// parsing untrusted JSON.
+function makeLoader<T>(key: string, schema: z.ZodType<T, z.ZodTypeDef, unknown>, label: string): () => Promise<T[]> {
   return async () => {
     const raw = await loadJsonRaw(key)
     const parsed = z.array(schema).safeParse(raw)

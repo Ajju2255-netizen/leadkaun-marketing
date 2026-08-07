@@ -3,8 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // ISR mode — NOT static export. Cloudflare Pages handles revalidation via edge cache.
   // Removed: output: 'export'
+  // NOTE: `eslint: { ignoreDuringBuilds }` was removed — Next 16 dropped the key
+  // and warned on every build. Linting is a separate step (`npm run lint`), which
+  // now actually works; see eslint.config.mjs.
   typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
   images: {
     unoptimized: true, // Cloudflare handles image optimization at the CDN layer
   },

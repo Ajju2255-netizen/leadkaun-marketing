@@ -18,7 +18,12 @@ export function StickyCTA() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // sessionStorage is unavailable during SSR, so this one-time mount read has
+    // to happen in an effect. A useSyncExternalStore version was tried and
+    // reverted: with a no-op subscribe it kept the server snapshot after
+    // hydration and the card never appeared (verified in a browser).
     if (sessionStorage.getItem("lk_sticky_dismissed") === "1") return
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDismissed(false)
 
     const onScroll = () => setScrolled(window.scrollY > 900)
@@ -48,6 +53,7 @@ export function StickyCTA() {
       const id = requestAnimationFrame(() => setMounted(true))
       return () => cancelAnimationFrame(id)
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(false)
   }, [visible])
 

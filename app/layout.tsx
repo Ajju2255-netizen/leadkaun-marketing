@@ -95,7 +95,7 @@ gtag('config', 'G-YB7279SHGQ');`,
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         <ScrollToTop />
-        <TooltipProvider delayDuration={120}>
+        <TooltipProvider>
           {children}
         </TooltipProvider>
         <StickyCTA />

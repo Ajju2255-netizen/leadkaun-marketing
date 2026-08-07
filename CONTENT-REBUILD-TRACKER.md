@@ -35,7 +35,7 @@ actually ships. The third is what made the first two safe.
 
 <!-- BEGIN generated:metrics -->
 
-_Measured 2026-08-06 by `npm run tracker`. Do not hand-edit this block._
+_Measured 2026-08-07 by `npm run tracker`. Do not hand-edit this block._
 
 | Metric | Value | Notes |
 |---|---|---|

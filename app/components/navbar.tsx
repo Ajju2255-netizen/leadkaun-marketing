@@ -33,7 +33,11 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/")
 }
 
-export default function Navbar() {
+export default function Navbar({ tone = "light" }: { tone?: "light" | "ink" } = {}) {
+  // `tone="ink"` is for pages whose hero is a dark anchor (the homepage): before
+  // the user scrolls, the bar goes transparent with light text so it reads as
+  // part of the hero instead of a pale band across it. Once scrolled, both tones
+  // land on the same solid glass treatment. Default is unchanged.
   const pathname = usePathname() ?? "/"
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -60,7 +64,9 @@ export default function Navbar() {
         "!fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "glass-2 gloss-edge shadow-[0_8px_24px_-12px_rgba(15,23,42,0.10)]"
-          : "glass-1"
+          : tone === "ink"
+            ? "bg-transparent [&_a]:text-slate-200 [&_a_span]:text-white [&_button]:text-slate-200"
+            : "glass-1"
       )}
       style={
         scrolled

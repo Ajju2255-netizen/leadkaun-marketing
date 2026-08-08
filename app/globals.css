@@ -641,3 +641,110 @@ a { color: inherit; text-decoration: none; }
 }
 .prose-leadkaun :where(code::before, code::after) { content: ""; }
 .prose-leadkaun :where(strong) { color: var(--ink); font-weight: 600; }
+
+/* ============================================================================
+   THE LEDGER — homepage brand layer (2026-08)
+   ----------------------------------------------------------------------------
+   Leadkaun's job is to decide an ORDER: who a rep calls next, ranked A–F with
+   the rupees at stake. Its native artefact is a ledger, and Indian B2B runs on
+   registers and rupees — so the homepage brand is editorial-ledger: an
+   authoritative display serif, monospace for every number, hairline rules, and
+   grade chips as the recurring motif.
+
+   ADDITIVE ONLY. Every token below is new; nothing existing is redefined, so
+   the other ~17.5k pages render exactly as before.
+   ========================================================================== */
+:root {
+  /* Ink anchors — the hero and the closing CTA invert the light site */
+  --ink-deep:    #0A1020;
+  --ink-deep-2:  #111A2E;
+  --ink-line:    rgba(255, 255, 255, 0.10);
+  --ink-line-2:  rgba(255, 255, 255, 0.18);
+
+  /* Warm paper for the editorial body */
+  --paper:       #FBF7F0;
+  --paper-2:     #F5EFE4;
+  --paper-line:  rgba(15, 23, 42, 0.10);
+
+  
+}
+
+.font-display { font-family: var(--font-display), ui-serif, Georgia, serif; }
+
+/* Fraunces exposes optical-size, softness and "wonk" axes. Dialling opsz up and
+   wonk on at display sizes gives the headline character that a static serif
+   cannot — this is the single strongest brand signal on the page. */
+.display-xl {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 20, "WONK" 1;
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 0.94;
+}
+.display-lg {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 96, "SOFT" 18, "WONK" 1;
+  font-weight: 500;
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+}
+.display-md {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 48, "SOFT" 12, "WONK" 0;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+/* Ledger rules — the hairline that makes a list read as a register */
+.rule-ink   { border-color: var(--ink-line); }
+.rule-paper { border-color: var(--paper-line); }
+
+/* Tabular numerals everywhere a figure appears */
+.ledger-num {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Grade chip — the recurring motif, A through F */
+.grade-chip {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem; font-weight: 700;
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 3px rgba(2,6,23,0.25);
+}
+
+/* Fine paper grain — atmosphere without an image request */
+.grain::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.55; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+}
+.grain-ink::before { mix-blend-mode: overlay; opacity: 0.4; }
+
+/* One orchestrated page-load reveal beats scattered micro-interactions */
+@keyframes ledger-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.rise { animation: ledger-rise 720ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; }
+}
+
+/* Text on the ink anchors.
+   globals.css sets `h1..h6 { color: var(--ink) }` and `a { color: inherit }`
+   UNLAYERED, which beats Tailwind's layered `text-white` / `text-sky-300`
+   utilities — so headings and links on a dark section render dark-on-dark.
+   These helpers are unlayered too and carry class specificity, so they win. */
+.on-ink        { color: #FFFFFF; }
+.on-ink-2      { color: rgba(203, 213, 225, 0.92); }
+.on-ink-3      { color: #94A3B8; }
+.on-ink-4      { color: #64748B; }
+.on-ink-accent { color: #7DD3FC; }

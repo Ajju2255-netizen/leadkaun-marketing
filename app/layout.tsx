@@ -6,6 +6,10 @@ import type { Metadata } from "next"
 // GeistMono expose --font-geist-sans / --font-geist-mono, matching globals.css.
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+// Display face — Fraunces (variable, OFL). Self-hosted for the same reason Geist
+// is: no build-time fetch, so a flaky network can never fail a deploy.
+// See app/fonts/README.md.
+import localFont from "next/font/local"
 import "./globals.css"
 import { rootSchemas, jsonLdScript } from "@/lib/seo"
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -15,6 +19,14 @@ import { ConversionPopup } from "@/app/components/conversion-popup"
 
 const geistSans = GeistSans
 const geistMono = GeistMono
+
+const fraunces = localFont({
+  src: "./fonts/Fraunces-Variable.woff2",
+  variable: "--font-display",
+  display: "swap",
+  weight: "300 900",
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: {
@@ -51,7 +63,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`}>
       <head>
         {/* Google Tag Manager — placed as high in <head> as possible */}
         <script

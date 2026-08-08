@@ -1,48 +1,19 @@
 import Link from "next/link"
-import {
-  BarChart3,
-  ListOrdered,
-  AlertTriangle,
-  Mail,
-  MessageSquare,
-  Users,
-  ArrowRight,
-  Building2,
-  GraduationCap,
-  ShieldCheck,
-  Cloud,
-  Factory,
-  Briefcase,
-  HeartPulse,
-  Check,
-} from "lucide-react"
+import type { Metadata } from "next"
+import { ArrowRight, Check } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 import { Container } from "@/app/components/container"
-import { SectionGround } from "@/app/components/section-ground"
-import { GradientBlob } from "@/app/components/gradient-blob"
 import { HeroSignupCard } from "@/app/components/hero-signup"
-import { FloatingCard } from "@/app/components/floating-card"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
+import { SectionGround } from "@/app/components/section-ground"
 import { Reveal } from "@/app/components/reveal"
-import { GradeDistribution } from "@/app/components/viz/grade-distribution"
-import { RupeeMeter } from "@/app/components/viz/rupee-meter"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FeatureCard } from "@/app/components/feature-card"
-import { CompareTable } from "@/app/components/compare-table"
-import { LeadkaunMark } from "@/app/components/leadkaun-mark"
-import { IndustryTile } from "@/app/components/industry-tile"
-import { PricingTier } from "@/app/components/pricing-tier"
 import { Faq } from "@/app/components/faq"
-import { TestimonialCard } from "@/app/components/testimonial-card"
 import { APP_URLS } from "@/lib/urls"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
-import type { Metadata } from "next"
 
-// The homepage was the only page inheriting root defaults — give it its own
-// title/description/canonical/OG. `absolute` opts out of the "%s | Leadkaun"
-// template so the head term leads.
 export const metadata: Metadata = {
   title: { absolute: "Lead Management Software for Indian B2B Sales Teams | Leadkaun" },
   description:
@@ -57,661 +28,589 @@ export const metadata: Metadata = {
   },
 }
 
-/* ═══════════════════════════════════════════════════════════════════════
-   HOMEPAGE — Coastal Sunrise + Layered Glass (visionOS depth)
-═══════════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════════
+   HOMEPAGE — "THE LEDGER"
+
+   The product decides an ORDER: who a rep calls next, ranked A–F, with the
+   rupees at stake. Its native artefact is a register — so the page is built as
+   one: display serif for authority, monospace for every figure, hairline rules,
+   and the grade chip repeating from hero to close.
+
+   Two ink anchors (hero, closing band) bracket a warm paper body. Section order
+   answers the buyer's questions in the order they are actually asked:
+   what breaks → what we do → how the grade works → what it costs → objections.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+const GRADE_BG: Record<string, string> = {
+  A: "linear-gradient(180deg,#6EE7B7,#10B981)",
+  B: "linear-gradient(180deg,#38BDF8,#0EA5E9)",
+  C: "linear-gradient(180deg,#FDBA74,#FB923C)",
+  D: "linear-gradient(180deg,#FDBA74,#F97316)",
+}
+
+function Grade({ g }: { g: string }) {
+  return <span className="grade-chip" style={{ background: GRADE_BG[g] ?? "linear-gradient(180deg,#CBD5E1,#94A3B8)" }}>{g}</span>
+}
+
+/* Rank, name, grade, why it sits there, rupees at stake. Illustrative of the
+   mechanism — no customer is named and no outcome is claimed. */
+const QUEUE = [
+  { rank: "01", who: "Sharma Textiles",    city: "Surat",     g: "A", why: "Replied on WhatsApp · 14 min ago", val: "₹ 6,40,000" },
+  { rank: "02", who: "Meridian Interiors", city: "Bengaluru", g: "A", why: "Asked for pricing · 2 h ago",      val: "₹ 4,10,000" },
+  { rank: "03", who: "Kalyani Motors",     city: "Pune",      g: "B", why: "Callback due today",               val: "₹ 2,75,000" },
+  { rank: "04", who: "Anand Polymers",     city: "Vadodara",  g: "B", why: "Site visit booked",                val: "₹ 1,95,000" },
+  { rank: "05", who: "Deccan Logistics",   city: "Hyderabad", g: "C", why: "Went quiet · intent decaying",     val: "₹ 88,000" },
+]
+
+const BREAKS = [
+  {
+    n: "01",
+    head: "The best lead is not the newest one",
+    body: "Enquiries arrive from IndiaMART, a website form, a hoarding, a referral and three different WhatsApp numbers. The inbox sorts them by arrival time, so that is the order they get called in. Arrival time is not a measure of anything.",
+  },
+  {
+    n: "02",
+    head: "Nobody notices a good lead going cold",
+    body: "A rep gets busy and a strong enquiry slips down the screen. There is no moment where it turns red. It simply stops being visible, and three weeks later nobody remembers it existed.",
+  },
+  {
+    n: "03",
+    head: "Monday review argues about effort",
+    body: "Activity reports count calls, so the meeting becomes a debate about how hard people worked. The question worth asking — did we call the right leads first — is not on the sheet.",
+  },
+]
+
+const MOVES = [
+  { k: "Grade",   t: "Every lead scored the moment it lands", d: "Three independent 0–100 reads — Fit against the customer profile you set, Intent from live signals, Quality from whether the record can be trusted — combine into one letter." },
+  { k: "Rank",    t: "One list per rep, re-ordering itself",  d: "The queue re-ranks as signals arrive and sinks leads whose intent has decayed. A rep opens it and works top-down. There is no triage step." },
+  { k: "Recover", t: "The money still on the table, in ₹",    d: "Stale leads carry a rupee value and roll up daily, so a manager opens the morning on a number rather than a feeling." },
+]
+
+/* The published mechanism — the site's strongest first-party evidence, because
+   committing to fixed weights is something competitors do not do. */
+const SCORES = [
+  { tag: "Fit",     range: "0–100", body: "Industry, state, business type, decision-maker role and budget band — the profile you configure." },
+  { tag: "Intent",  range: "0–100", body: "Source strength plus signal events. Decays as a lead goes quiet, floored at where it started." },
+  { tag: "Quality", range: "0–100", body: "Phone and email validity, completeness, duplicates. Caps the grade rather than averaging into it." },
+]
+
+const THRESHOLDS = [
+  { k: "Grade A", v: "Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60" },
+  { k: "F guard", v: "Quality < 20 forces F, always" },
+  { k: "Decay",   v: "−3 / day after 28 days of silence" },
+  { k: "Weights", v: "Fixed and identical for every account" },
+]
+
+const MODULES = [
+  { t: "Lead Scoring",        d: "A–F in real time, on published weights.",       href: "/features/lead-scoring" },
+  { t: "Priority Queue",      d: "One ranked list per rep. No sorting.",          href: "/features/priority-queue" },
+  { t: "Missed Opportunity",  d: "Stale leads, priced in rupees, daily.",         href: "/features/missed-opportunity-engine" },
+  { t: "Morning Brief",       d: "8:30 AM IST. The day's top five and the risk.", href: "/features/morning-brief" },
+  { t: "WhatsApp Tracking",   d: "Log an exchange in a few taps; it scores.",     href: "/features/whatsapp-tracking" },
+  { t: "Intake Intelligence", d: "Read a lead list before you import it.",        href: "/features/intake-intelligence" },
+  { t: "Score Evolution",     d: "Why a grade moved, frozen at each change.",     href: "/features/score-evolution" },
+  { t: "Rep Tracking",        d: "Whether the queue is actually being worked.",   href: "/features/sales-rep-tracking" },
+]
+
+const ALONGSIDE = [
+  { crm: "Records what happened",                    lk: "Decides what happens next" },
+  { crm: "A single opaque lead score",               lk: "Three visible scores and a published threshold" },
+  { crm: "Good leads age out unnoticed",             lk: "Intent decays, so the queue stays honest" },
+  { crm: "Priority is whatever the rep last opened", lk: "One ranked list, re-ordering as signals land" },
+  { crm: "Reviews argue about activity",             lk: "Reviews open on the rupees at risk" },
+]
+
+const INDUSTRIES = [
+  { n: "Real estate", h: "/use-cases/real-estate" }, { n: "EdTech & admissions", h: "/use-cases/edtech" },
+  { n: "BFSI", h: "/use-cases/bfsi" }, { n: "Manufacturing", h: "/use-cases/manufacturing" },
+  { n: "Healthcare", h: "/use-cases/healthcare" }, { n: "B2B SaaS", h: "/use-cases/saas" },
+  { n: "Agencies", h: "/use-cases/agencies" }, { n: "Retail & distribution", h: "/use-cases/retail" },
+]
+
+const TIERS = [
+  { name: "Free",    price: "₹0",      note: "1 seat · 100 active leads", cta: "Start free" },
+  { name: "Starter", price: "₹2,999",  note: "10 seats · 5,000 leads",    cta: "Start free" },
+  { name: "Growth",  price: "₹7,999",  note: "30 seats · 25,000 leads",   cta: "Start free", feature: true },
+  { name: "Scale",   price: "₹19,999", note: "75 seats · unlimited",      cta: "Talk to us" },
+]
+
+const HOME_FAQ = [
+  { q: "How is Leadkaun different from a CRM?", a: "A CRM records what happened. Leadkaun decides what happens next — grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. It runs alongside your CRM rather than replacing it, and most teams keep both." },
+  { q: "How long does setup take?", a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP defaults across a range of Indian B2B verticals, so you do not need to define your customer profile from scratch." },
+  { q: "Do I need to import all my historical leads?", a: "No — and we recommend you do not. Import only the live leads, roughly the last 90 days of activity. Stale data pollutes the grade distribution, and Leadkaun will tell you what is in a file before you import it." },
+  { q: "Does it handle WhatsApp?", a: "As a first-class signal. Reps open the chat from Leadkaun, have the conversation in their own WhatsApp, then record the outcome in a few taps — which feeds the Intent Score. It is manual capture rather than a Business API integration, and we would rather say so plainly." },
+  { q: "What happens if a rep leaves?", a: "Ownership transfers with the history intact — lead records, logged conversations and follow-up schedules move to the new owner. The pipeline does not leave with the person." },
+  { q: "Can I see why a lead's grade changed?", a: "Yes. Every score change is written to an append-only timeline with the grade, confidence and all three sub-scores frozen at that moment, so a drop traces back to the event that caused it rather than looking like a glitch." },
+]
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-bg-pure">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([faqPageSchema(HOME_FAQ)]) }} />
-      <Navbar />
+      <Navbar tone="ink" />
 
       <Hero />
-      <EditorialStatement />
-      <Problem />
-      <HowItWorks />
+      <Thesis />
+      <WhatBreaks />
+      <ThreeMoves />
+      <TheGrade />
       <Modules />
-      <NotACRM />
+      <Alongside />
       <Industries />
-      <Testimonials />
       <Pricing />
       <FaqBlock />
+      <CloseBand />
 
-      <CTABanner tag={{ number: "09", label: "Ready when you are" }} />
+      <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
+      <SectionGround variant="pure" size="sm">
+        <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+      </SectionGround>
 
       <Footer />
     </main>
   )
 }
 
-/* ───────────────────────────────────────────────────────────────────────
-   HERO — asymmetric: copy + live Priority-Queue product preview
-─────────────────────────────────────────────────────────────────────── */
-
-const GRADE_BG: Record<string, string> = {
-  A: "linear-gradient(180deg,#6EE7B7,#10B981)",
-  B: "linear-gradient(180deg,#38BDF8,#0EA5E9)",
-  C: "linear-gradient(180deg,#FDBA74,#FB923C)",
-}
-
+/* ─────────────────────────────────────────────────────────────────────────
+   HERO — ink anchor. The ledger IS the hero image.
+   ───────────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <SectionGround variant="mesh" size="xl" ambient={false} className="pt-36 md:pt-44 pb-20 md:pb-28">
-      {/* Coastal mesh blobs — drifting */}
-      <GradientBlob color="sky"   size="xl" position="-top-32 -left-40" intensity={0.7} />
-      <GradientBlob color="cyan"  size="lg" position="top-20 -right-32" intensity={0.5} delay={4} />
-      <GradientBlob color="peach" size="xl" position="-bottom-40 -right-20" intensity={0.65} delay={2} />
+    <section className="relative overflow-hidden grain grain-ink" style={{ background: "linear-gradient(168deg, var(--ink-deep) 0%, var(--ink-deep-2) 62%, #0C1424 100%)" }}>
+      {/* One warm light source, low on the right — a horizon, not a blob field */}
+      <div aria-hidden className="pointer-events-none absolute -right-40 top-1/3 h-[520px] w-[720px] rounded-full opacity-[0.22] blur-[120px]" style={{ background: "radial-gradient(circle, #FB923C 0%, #0EA5E9 55%, transparent 72%)" }} />
+      <div aria-hidden className="pointer-events-none absolute -left-52 -top-24 h-[460px] w-[620px] rounded-full opacity-[0.18] blur-[130px]" style={{ background: "radial-gradient(circle, #0EA5E9 0%, transparent 70%)" }} />
 
-      <Container className="relative">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-14">
+      <Container className="relative pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="grid items-start gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
 
-          {/* ── LEFT: copy ───────────────────────────────────────────── */}
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 glass-1 gloss-edge">
-              <LeadkaunMark size={14} />
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">
-                India&apos;s Sales Behaviour OS
-              </span>
-            </div>
+          <div className="rise" style={{ animationDelay: "40ms" }}>
+            <p className="ledger-num on-ink-accent text-[11px] uppercase tracking-[0.24em]">
+              Lead management software · India
+            </p>
 
-            <h1 className="mt-7 font-serif text-[42px] font-medium leading-[1.06] tracking-[-0.015em] text-ink md:text-[60px]">
-              Lead management software that tells every rep{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 45%, #FB923C 100%)" }}
-              >
-                exactly who to call next.
+            <h1 className="display-xl on-ink mt-6 text-[46px] sm:text-[60px] lg:text-[72px]">
+              Your reps have
+              <br />
+              enough leads.
+              <br />
+              <span style={{ background: "linear-gradient(96deg,#7DD3FC 0%,#FDBA74 78%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                They need the order.
               </span>
             </h1>
 
-            <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-ink-soft md:text-[19px]">
-              Leadkaun is the Sales Behaviour OS for Indian B2B teams — it grades every lead A–F,
-              builds each rep&apos;s Priority Queue, and surfaces missed revenue in ₹. Sales CRM and
-              lead tracking in one place.
+            <p className="on-ink-2 mt-7 max-w-xl text-[17px] leading-[1.68] md:text-[18.5px]">
+              Leadkaun is lead management software that grades every lead A–F, ranks one queue per
+              rep, and prices the revenue going cold — so the next call is decided before anyone
+              opens a screen. It runs alongside the CRM you already have.
             </p>
 
-            <ul className="mt-7 space-y-2.5">
-              {[
-                "AI grades every lead A–F, automatically",
-                "A Priority Queue your reps actually follow",
-                "Missed ₹ surfaced before it's gone",
-              ].map((t) => (
-                <li key={t} className="flex items-center gap-2.5 text-[14.5px] text-ink-soft">
-                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-sky-100">
-                    <Check className="h-3 w-3 text-sky-600" strokeWidth={3} />
+            <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
+              {["Graded the moment it lands", "One ranked list per rep", "₹ at risk, surfaced daily", "Live the same day"].map((t) => (
+                <li key={t} className="on-ink-2 flex items-center gap-2.5 text-[14.5px]">
+                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-sky-400/15 ring-1 ring-inset ring-sky-300/30">
+                    <Check className="h-3 w-3 text-sky-300" strokeWidth={3} />
                   </span>
                   {t}
                 </li>
               ))}
             </ul>
 
-            <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-              Grades every lead A–F · Priority Queue · No credit card
-            </p>
-          </div>
-
-          {/* ── RIGHT: signup form (ads landing) ─────────────────────── */}
-          <div className="relative lg:pl-2">
-            <HeroSignupCard />
-          </div>
-
-        </div>
-
-        {/* Activity strip — the system at work (editorial status cards) */}
-        <div className="mt-12 overflow-hidden rounded-2xl glass-2 gloss-edge elevate-1 sm:flex">
-          {[
-            { icon: BarChart3,     label: "Lead graded A" },
-            { icon: ListOrdered,   label: "Added to Priority Queue" },
-            { icon: AlertTriangle, label: "₹ at risk flagged" },
-          ].map(({ icon: Icon, label }, i) => (
-            <div
-              key={label}
-              className={`flex flex-1 items-center gap-3 px-5 py-4 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}
-              style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
-            >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/70 gloss-edge">
-                <Icon className="h-[17px] w-[17px] text-sky-600" strokeWidth={1.9} />
-              </span>
-              <span className="flex-1 text-[13.5px] font-medium text-ink">{label}</span>
-              <span
-                className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
-                style={{ background: "linear-gradient(180deg,#6EE7B7,#10B981)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6)" }}
-              >
-                <Check className="h-3 w-3 text-white" strokeWidth={3} />
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Proof band — folded into the hero block, on the mesh (no seam straddle) */}
-        <div className="mt-16 rounded-3xl glass-2 elevate-2 gloss-edge px-6 py-7 md:mt-20 md:px-10">
-          <p className="text-center font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-            Illustrative model — typical figures for an Indian B2B team, not customer results
-          </p>
-          <dl className="mt-6 grid grid-cols-2 gap-y-5 md:grid-cols-4 md:gap-y-0">
-            {TRUST_STATS.map((s, i) => (
-              <div
-                key={s.label}
-                className={`flex flex-col items-center gap-1 px-4 ${i > 0 ? "md:border-l" : ""}`}
-                style={i > 0 ? { borderColor: "var(--hairline)" } : undefined}
-              >
-                <dt className="font-mono text-[26px] font-semibold leading-none tracking-[-0.025em] text-ink tabular md:text-[30px]">
-                  {s.value}
-                </dt>
-                <dd className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-muted">
-                  {s.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </Container>
-    </SectionGround>
-  )
-}
-
-/* ───────────────────────────────────────────────────────────────────────
-   TRUST STATS — proof metrics rendered in the hero band
-─────────────────────────────────────────────────────────────────────── */
-
-const TRUST_STATS = [
-  { value: "A–F",      label: "every lead graded, in real time" },
-  { value: "3 scores", label: "Fit, Intent, Quality — weights published" },
-  { value: "same day", label: "to first graded lead" },
-  { value: "flat ₹",   label: "priced per account, not per seat" },
-]
-
-/* ───────────────────────────────────────────────────────────────────────
-   EDITORIAL STATEMENT — big serif thesis, folded between hero and problem
-─────────────────────────────────────────────────────────────────────── */
-
-function EditorialStatement() {
-  return (
-    <SectionGround variant="cream" size="lg">
-      <Container>
-        <Reveal className="mx-auto max-w-4xl text-center">
-          <p className="font-serif text-[25px] font-medium leading-[1.4] tracking-[-0.01em] text-ink md:text-[36px] md:leading-[1.38]">
-            Great sales teams aren&apos;t working harder — they&apos;re working the right lead first.{" "}
-            <span className="text-ink-muted">
-              Leadkaun grades every enquiry, builds each rep&apos;s queue, and surfaces the ₹ at risk — so your
-              team spends its hours where the revenue actually is.
-            </span>
-          </p>
-        </Reveal>
-      </Container>
-    </SectionGround>
-  )
-}
-
-/* ───────────────────────────────────────────────────────────────────────
-   PROBLEM — split editorial, glass cards, severity-tinted micro-glows
-─────────────────────────────────────────────────────────────────────── */
-
-const PROBLEMS = [
-  {
-    h: "Leads go cold before anyone notices.",
-    b: "Friday dashboard shows 200 leads this month. Monday, 40 are already ghosted. The CRM did not tell you. Nothing did.",
-    aura: "sky" as const,
-  },
-  {
-    h: "Your CRM measures activity, not behaviour.",
-    b: "Reps hit their call target. Managers read the dashboard. Revenue stays flat. Activity theatre costs ₹50k–₹1.5L per rep, per quarter.",
-    aura: "peach" as const,
-  },
-  {
-    h: "Managers chase reps. Reps chase numbers.",
-    b: "1:1s turn into defensive explanations. Nobody improves. The whole system drifts — until a top rep leaves and the pipeline leaves with them.",
-    aura: "sky" as const,
-  },
-]
-
-function Problem() {
-  return (
-    <SectionGround variant="sky" size="lg">
-      <Container>
-        <Reveal className="grid gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-5">
-            <NumberedTag number="01" label="The Problem" />
-            <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-              Your CRM tells you what happened.<br />
-              Leadkaun tells your team{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}
-              >
-                what to do next.
-              </span>
-            </h2>
-          </div>
-
-          <div className="md:col-span-7">
-            <div className="flex flex-col gap-4">
-              {PROBLEMS.map((p) => (
-                <FloatingCard
-                  key={p.h}
-                  tier="2"
-                  depth="2"
-                  aura={p.aura}
-                  gloss
-                  className="p-6 md:p-7"
-                >
-                  <h3 className="text-[18px] font-semibold text-ink md:text-[20px]">{p.h}</h3>
-                  <p className="mt-2 text-[15px] leading-[1.65] text-ink-soft md:text-[16px]">{p.b}</p>
-                </FloatingCard>
+            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t pt-6 rule-ink">
+              {[["A–F", "every lead graded"], ["3", "published scores"], ["flat ₹", "per account, not per seat"]].map(([v, l]) => (
+                <div key={l}>
+                  <p className="ledger-num on-ink text-[19px] font-semibold">{v}</p>
+                  <p className="on-ink-3 mt-0.5 text-[12px]">{l}</p>
+                </div>
               ))}
             </div>
           </div>
-        </Reveal>
-      </Container>
-    </SectionGround>
-  )
-}
 
-/* ───────────────────────────────────────────────────────────────────────
-   HOW IT WORKS — three deeply-elevated glass cards on cream
-─────────────────────────────────────────────────────────────────────── */
-
-const STEPS = [
-  {
-    n: "01",
-    tag: "GRADE",
-    h: "Every lead scored A–F in real time.",
-    b: "Fit + Intent + Quality — transparent weights, no black box. Runs on every Sheet, CSV, and form.",
-    meta: "Transparent scoring, auditable weights.",
-  },
-  {
-    n: "02",
-    tag: "PRIORITISE",
-    h: "The queue re-ranks itself, live.",
-    b: "As WhatsApp replies land and intent decays overnight, each rep's list re-orders. They just work top-down.",
-    meta: "No 90-minute morning triage. Ever.",
-  },
-  {
-    n: "03",
-    tag: "RECOVER",
-    h: "Missed revenue surfaced in ₹.",
-    b: "Every stale lead gets a rupee value. Monday review opens with the exact ₹ at risk, per rep and source.",
-    meta: "Accountability in money, not activity.",
-  },
-]
-
-const MINI_QUEUE = [
-  { grade: "A", name: "Priya S.", w: "92%" },
-  { grade: "A", name: "Rahul M.", w: "78%" },
-  { grade: "B", name: "Anjali R.", w: "54%" },
-]
-
-function HowItWorks() {
-  return (
-    <SectionGround variant="cream" size="lg">
-      <Container>
-        <Reveal className="mb-12 md:mb-16">
-          <NumberedTag number="02" label="How it works" tone="warm" />
-          <h2 className="mt-5 max-w-2xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            Three moves. That&apos;s it.
-          </h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft md:text-[18px]">
-            From the moment a lead arrives to the moment it closes or gets recovered —
-            Leadkaun does three things, continuously.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
-          {STEPS.map((s) => (
-            <FloatingCard
-              key={s.n}
-              tier="3"
-              depth="3"
-              gloss
-              className="flex flex-col p-7 md:p-8"
-            >
-              <div className="flex items-center justify-between">
-                <span
-                  className="flex h-12 w-12 items-center justify-center rounded-2xl font-mono text-[18px] font-bold text-white"
-                  style={{
-                    background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 16px rgba(14,165,233,0.32)",
-                  }}
-                >
-                  {s.n}
-                </span>
-                <span className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.16em] text-orange-500">
-                  {s.tag}
-                </span>
+          {/* The queue panel — the product's actual artefact, not a screenshot */}
+          <div className="rise lg:pt-6" style={{ animationDelay: "180ms" }}>
+            <div className="overflow-hidden rounded-[20px] border bg-white/[0.045] backdrop-blur-xl rule-ink" style={{ boxShadow: "0 40px 90px -30px rgba(2,6,23,0.85)" }}>
+              <div className="flex items-center justify-between border-b px-5 py-3.5 rule-ink">
+                <p className="ledger-num on-ink-3 text-[10.5px] uppercase tracking-[0.2em]">Priority Queue · R. Iyer</p>
+                <p className="ledger-num on-ink-accent text-[10.5px]">live</p>
               </div>
-              <h3 className="mt-7 text-[20px] font-semibold leading-[1.25] tracking-[-0.01em] text-ink">
-                {s.h}
-              </h3>
-              <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">{s.b}</p>
 
-              {/* live visual — the product, shown */}
-              <div className="mt-6 rounded-2xl border border-white/70 bg-white/55 gloss-edge p-4 md:p-5">
-                {s.n === "01" && <GradeDistribution />}
-                {s.n === "02" && (
-                  <div>
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Today&apos;s queue</p>
-                    <div className="mt-3 space-y-2">
-                      {MINI_QUEUE.map((q) => (
-                        <div key={q.name} className="flex items-center gap-2.5">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg font-mono text-[11px] font-bold text-white" style={{ background: GRADE_BG[q.grade] }}>{q.grade}</span>
-                          <span className="w-16 shrink-0 truncate text-[12px] font-medium text-ink">{q.name}</span>
-                          <span className="h-2 flex-1 overflow-hidden rounded-full bg-sky-100">
-                            <span className="block h-full rounded-full" style={{ width: q.w, background: "linear-gradient(90deg,#7DD3FC,#0EA5E9)" }} />
-                          </span>
-                          <span className="w-9 shrink-0 text-right font-mono text-[11px] tabular-nums text-ink-muted">{q.w}</span>
-                        </div>
-                      ))}
+              <ul className="divide-y" style={{ borderColor: "var(--ink-line)" }}>
+                {QUEUE.map((r, i) => (
+                  <li
+                    key={r.rank}
+                    className="rise grid grid-cols-[auto_1fr_auto] items-center gap-3.5 px-5 py-3.5"
+                    style={{ animationDelay: `${320 + i * 90}ms`, background: i === 0 ? "linear-gradient(90deg, rgba(14,165,233,0.10), transparent 60%)" : undefined }}
+                  >
+                    <span className="ledger-num on-ink-4 w-6 text-[12px]">{r.rank}</span>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <Grade g={r.g} />
+                        <p className="on-ink truncate text-[14.5px] font-medium">{r.who}</p>
+                        <span className="on-ink-4 hidden text-[12px] sm:inline">{r.city}</span>
+                      </div>
+                      <p className="on-ink-3 mt-1 truncate text-[12.5px]">{r.why}</p>
                     </div>
-                  </div>
-                )}
-                {s.n === "03" && <RupeeMeter />}
+                    <span className="ledger-num on-ink-2 shrink-0 text-[13px]">{r.val}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-center justify-between border-t px-5 py-3.5 rule-ink">
+                <p className="on-ink-3 text-[12px]">Illustrative of the ranking mechanism</p>
+                <Link href="/methodology" className="ledger-num on-ink-accent text-[11.5px] underline-offset-4 hover:underline">
+                  how the grade works →
+                </Link>
               </div>
+            </div>
 
-              <p
-                className="mt-auto pt-5 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted"
-                style={{ borderTop: "1px solid var(--hairline)" }}
-              >
-                {s.meta}
-              </p>
-            </FloatingCard>
-          ))}
-        </Reveal>
-      </Container>
-    </SectionGround>
-  )
-}
-
-/* ───────────────────────────────────────────────────────────────────────
-   PRODUCT MODULES — glass mosaic on sky ground
-─────────────────────────────────────────────────────────────────────── */
-
-const MODULES = [
-  { icon: BarChart3,     tag: "Scoring", accent: "mint"  as const, title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in.",        href: "/features/lead-scoring" },
-  { icon: ListOrdered,   tag: "Queue",   accent: "sky"   as const, title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",     href: "/features/priority-queue" },
-  { icon: AlertTriangle, tag: "Revenue", accent: "peach" as const, title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily to every manager.",     href: "/features/missed-opportunity-engine" },
-  { icon: Mail,          tag: "Digest",  accent: "cyan"  as const, title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today. Sets the day.",      href: "/features/morning-brief" },
-  { icon: MessageSquare, tag: "Signal",  accent: "mint"  as const, title: "WhatsApp Tracking",         description: "Most Indian B2B first-contact happens on WhatsApp. 3-tap logging feeds the Intent Score.",         href: "/features/whatsapp-tracking" },
-  { icon: Users,         tag: "Team",    accent: "sky"   as const, title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, follow-up completion — without micromanagement.",   href: "/features/sales-rep-tracking" },
-]
-
-function Modules() {
-  return (
-    <SectionGround variant="sky" size="lg">
-      <Container>
-        <Reveal className="mb-12 md:mb-16">
-          <NumberedTag number="03" label="The Product" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            Twelve live modules. One behaviour system.
-          </h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft md:text-[18px]">
-            Every module works on day one. Every setting is transparent. Every weight is yours to audit.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {MODULES.map((m) => (
-            <FeatureCard
-              key={m.href}
-              icon={m.icon}
-              tag={m.tag}
-              accent={m.accent}
-              title={m.title}
-              description={m.description}
-              href={m.href}
-            />
-          ))}
-        </Reveal>
-
-        <div className="mt-10 flex justify-start">
-          <Link
-            href="/product"
-            className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500"
-          >
-            See all 12 modules
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+            <div className="mt-6 rounded-[20px] border bg-white/[0.04] p-1 backdrop-blur-xl rule-ink" style={{ boxShadow: "0 20px 50px -24px rgba(2,6,23,0.7)" }}>
+              <HeroSignupCard />
+            </div>
+          </div>
         </div>
       </Container>
-    </SectionGround>
+    </section>
   )
 }
 
-/* ───────────────────────────────────────────────────────────────────────
-   NOT A CRM — glass slab compare table
-─────────────────────────────────────────────────────────────────────── */
-
-function NotACRM() {
+/* ─────────────────────────────────────────────────────────────────────────
+   THESIS — one oversized claim on paper. Breathing room after the ink.
+   ───────────────────────────────────────────────────────────────────────── */
+function Thesis() {
   return (
-    <SectionGround variant="cream" size="lg">
-      <Container>
-        <Reveal className="mb-12 md:mb-16">
-          <NumberedTag number="04" label="This is not a CRM" tone="warm" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            What Leadkaun does that your CRM doesn&apos;t.
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-24 md:py-32">
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-ink-muted">The whole idea</p>
+          <p className="display-lg mt-7 text-[30px] text-ink sm:text-[40px] md:text-[50px]">
+            Pipeline problems look like a shortage of leads.
+            <br className="hidden sm:block" />
+            <span className="text-ink-soft"> They are almost always a </span>
+            <span className="relative inline-block">
+              problem of order
+              <span aria-hidden className="absolute -bottom-1.5 left-0 h-[6px] w-full rounded-full" style={{ background: "linear-gradient(90deg,#FDBA74,#0EA5E9)" }} />
+            </span>
+            <span className="text-ink-soft">.</span>
+          </p>
+        </Reveal>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   WHAT BREAKS — ledger rows, not cards. Numbered, ruled, asymmetric.
+   ───────────────────────────────────────────────────────────────────────── */
+function WhatBreaks() {
+  return (
+    <section className="relative bg-bg-pure">
+      <Container className="py-20 md:py-28">
+        <Reveal className="mb-12 max-w-2xl md:mb-16">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">01 · What actually breaks</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
+            Three failures, none of which show up on an activity report.
           </h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-            CRMs record what happened. Leadkaun reshapes what happens next.
+        </Reveal>
+
+        <div className="border-t rule-paper">
+          {BREAKS.map((b, i) => (
+            <Reveal key={b.n} delay={0.06 * i}>
+              <div className="grid gap-4 border-b py-8 rule-paper md:grid-cols-[auto_minmax(0,22rem)_1fr] md:gap-10 md:py-10">
+                <span className="ledger-num text-[13px] text-ink-faint md:pt-1.5">{b.n}</span>
+                <h3 className="display-md text-[21px] text-ink md:text-[25px]">{b.head}</h3>
+                <p className="max-w-2xl text-[15.5px] leading-[1.72] text-ink-soft md:text-[16.5px]">{b.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   THREE MOVES — what the product does, in the order it does it.
+   ───────────────────────────────────────────────────────────────────────── */
+function ThreeMoves() {
+  return (
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-20 md:py-28">
+        <Reveal className="mb-12 max-w-2xl md:mb-16">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">02 · What Leadkaun does</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">Grade it. Rank it. Recover it.</h2>
+        </Reveal>
+
+        <div className="grid gap-px overflow-hidden rounded-2xl md:grid-cols-3" style={{ background: "var(--paper-line)" }}>
+          {MOVES.map((m, i) => (
+            <Reveal key={m.k} delay={0.07 * i} className="h-full">
+              <div className="flex h-full flex-col p-7 md:p-8" style={{ background: "var(--paper)" }}>
+                <span className="ledger-num text-[11px] uppercase tracking-[0.2em] text-sky-600">{m.k}</span>
+                <h3 className="display-md mt-4 text-[20px] text-ink md:text-[23px]">{m.t}</h3>
+                <p className="mt-3.5 text-[15px] leading-[1.7] text-ink-soft">{m.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   THE GRADE — publish the mechanism. Competitors structurally cannot copy
+   this, because doing so means committing to fixed weights.
+   ───────────────────────────────────────────────────────────────────────── */
+function TheGrade() {
+  return (
+    <section className="relative bg-bg-pure">
+      <Container className="py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+          <Reveal>
+            <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">03 · The grade</p>
+            <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
+              We publish the weights. That is the whole argument.
+            </h2>
+            <p className="mt-6 max-w-lg text-[16px] leading-[1.7] text-ink-soft">
+              A grade a rep cannot interrogate is a grade a rep ignores. So the thresholds are
+              fixed, identical for every account, and printed here — which means two managers
+              comparing notes are reading the same scale.
+            </p>
+            <Link href="/methodology" className="mt-7 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-sky-600 hover:text-sky-500">
+              Read the full methodology <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <div className="mt-9 flex flex-wrap gap-2">
+              {["A", "B", "C", "D", "F"].map((g) => (
+                <span key={g} className="flex items-center gap-2 rounded-full border px-3 py-1.5 rule-paper">
+                  <Grade g={g} />
+                  <span className="ledger-num text-[12px] text-ink-soft">grade {g}</span>
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <div className="grid gap-px overflow-hidden rounded-2xl border rule-paper" style={{ background: "var(--paper-line)" }}>
+              {SCORES.map((s) => (
+                <div key={s.tag} className="bg-bg-pure p-6 md:p-7">
+                  <div className="flex items-baseline justify-between">
+                    <p className="ledger-num text-[11px] uppercase tracking-[0.2em] text-sky-600">{s.tag}</p>
+                    <p className="ledger-num text-[12px] text-ink-muted">{s.range}</p>
+                  </div>
+                  <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">{s.body}</p>
+                </div>
+              ))}
+              <div className="bg-bg-pure p-6 md:p-7">
+                <p className="ledger-num text-[11px] uppercase tracking-[0.2em] text-orange-500">Thresholds</p>
+                <dl className="mt-4 space-y-2.5">
+                  {THRESHOLDS.map((t) => (
+                    <div key={t.k} className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                      <dt className="text-[14.5px] font-medium text-ink">{t.k}</dt>
+                      <dd className="ledger-num text-[13px] text-ink-soft">{t.v}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   MODULES — a ledger index, not a card grid.
+   ───────────────────────────────────────────────────────────────────────── */
+function Modules() {
+  return (
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-20 md:py-28">
+        <Reveal className="mb-10 flex flex-wrap items-end justify-between gap-5 md:mb-14">
+          <div className="max-w-2xl">
+            <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">04 · The product</p>
+            <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">Every module reads the same three scores.</h2>
+          </div>
+          <Link href="/product" className="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-sky-600 hover:text-sky-500">
+            See the full product <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
+
+        <div className="grid border-t rule-paper sm:grid-cols-2">
+          {MODULES.map((m, i) => (
+            <Reveal key={m.href} delay={0.04 * i}>
+              <Link
+                href={m.href}
+                className="group flex items-baseline gap-5 border-b py-5 rule-paper transition-colors hover:bg-white/60 sm:px-1"
+              >
+                <span className="ledger-num text-[12px] text-ink-faint">{String(i + 1).padStart(2, "0")}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[17px] font-medium text-ink transition-colors group-hover:text-sky-600 md:text-[18px]">{m.t}</span>
+                  <span className="mt-1 block text-[14.5px] text-ink-soft">{m.d}</span>
+                </span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-ink-faint transition-all group-hover:translate-x-0.5 group-hover:text-sky-600" />
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ALONGSIDE — replaces the old "this is not a CRM" block, which contradicted
+   the positioning and repelled the sales-CRM queries the site targets.
+   ───────────────────────────────────────────────────────────────────────── */
+function Alongside() {
+  return (
+    <section className="relative bg-bg-pure">
+      <Container className="py-20 md:py-28">
+        <Reveal className="mb-10 max-w-2xl md:mb-14">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">05 · Alongside your CRM</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">Keep the system of record. Add the decision layer.</h2>
+          <p className="mt-5 text-[16px] leading-[1.7] text-ink-soft">
+            Nothing here asks you to migrate. Your CRM stays the record of what happened;
+            Leadkaun decides what happens next.
           </p>
         </Reveal>
 
-        <Reveal delay={0.08}><CompareTable
-          rows={[
-            { left: "Records the number of calls your reps made this week.",  right: "Surfaces ₹ at risk per rep, per week — money, not activity." },
-            { left: "Lead scoring is a single black-box number.",             right: "Three transparent scores: Fit, Intent, Quality — auditable weights." },
-            { left: "Grade A leads age out silently. Nobody notices.",        right: "Intent decay auto-drops stale leads. The queue stays honest." },
-            { left: "Priority decided by rep gut feel or recency.",           right: "Priority Queue re-ranks live — rep works top-down, no triage." },
-            { left: "WhatsApp is an integration (paid add-on).",              right: "WhatsApp is a first-class signal. 3-tap logging feeds scoring." },
-            { left: "Monday reviews are activity debates.",                   right: "Monday reviews open with ₹ at risk per rep. Coaching is specific." },
-          ]}
-        /></Reveal>
+        <Reveal delay={0.08} className="overflow-hidden rounded-2xl border rule-paper">
+          <div className="grid grid-cols-2 border-b rule-paper">
+            <p className="ledger-num px-5 py-3 text-[10.5px] uppercase tracking-[0.2em] text-ink-muted md:px-7">Your CRM</p>
+            <p className="ledger-num border-l px-5 py-3 text-[10.5px] uppercase tracking-[0.2em] text-sky-600 rule-paper md:px-7">Leadkaun</p>
+          </div>
+          {ALONGSIDE.map((r, i) => (
+            <div key={r.crm} className={`grid grid-cols-2 ${i < ALONGSIDE.length - 1 ? "border-b rule-paper" : ""}`}>
+              <p className="px-5 py-4 text-[14.5px] text-ink-muted md:px-7 md:py-5">{r.crm}</p>
+              <p className="border-l px-5 py-4 text-[14.5px] font-medium text-ink rule-paper md:px-7 md:py-5">{r.lk}</p>
+            </div>
+          ))}
+        </Reveal>
       </Container>
-    </SectionGround>
+    </section>
   )
 }
-
-/* ───────────────────────────────────────────────────────────────────────
-   INDUSTRIES — glass chips on sky ground
-─────────────────────────────────────────────────────────────────────── */
-
-const INDUSTRIES = [
-  { href: "/use-cases/real-estate",   label: "Real Estate",         meta: "₹5–50L GCV",        icon: Building2 },
-  { href: "/use-cases/edtech",        label: "EdTech",              meta: "Admissions cycles", icon: GraduationCap },
-  { href: "/use-cases/bfsi",          label: "BFSI & Insurance",    meta: "Audit-ready",       icon: ShieldCheck },
-  { href: "/use-cases/saas",          label: "SaaS",                meta: "Trial to paid",     icon: Cloud },
-  { href: "/use-cases/manufacturing", label: "Manufacturing",       meta: "90-day cycles",     icon: Factory },
-  { href: "/use-cases/agencies",      label: "Agencies",            meta: "Multi-client",      icon: Briefcase },
-  { href: "/use-cases/healthcare",    label: "Healthcare",          meta: "DND-compliant",     icon: HeartPulse },
-  { href: "/use-cases",               label: "See all industries",  meta: "12 verticals →",    cta: true },
-]
 
 function Industries() {
   return (
-    <SectionGround variant="sky" size="lg">
-      <Container>
-        <Reveal className="mb-12 md:mb-14">
-          <NumberedTag number="05" label="By Industry" />
-          <h2 className="mt-5 max-w-3xl text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            Built for the Indian sales reality.
-          </h2>
-          <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-            ICP templates, cadence defaults, and copy tuned for 12 Indian B2B verticals. Ship on day one.
-          </p>
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-20 md:py-24">
+        <Reveal className="mb-9 max-w-2xl">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">06 · Where it is used</p>
+          <h2 className="display-md mt-5 text-[28px] text-ink md:text-[36px]">Built for how Indian B2B actually sells.</h2>
         </Reveal>
-
-        <Reveal delay={0.08} className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {INDUSTRIES.map((i) => (
-            <IndustryTile key={i.href} {...i} />
+        <Reveal delay={0.08} className="flex flex-wrap gap-2.5">
+          {INDUSTRIES.map((s) => (
+            <Link key={s.h} href={s.h} className="rounded-full border bg-bg-pure px-4 py-2 text-[14px] text-ink-soft transition-colors rule-paper hover:border-sky-300 hover:text-sky-600">
+              {s.n}
+            </Link>
           ))}
         </Reveal>
       </Container>
-    </SectionGround>
+    </section>
   )
 }
-
-/* ───────────────────────────────────────────────────────────────────────
-   TESTIMONIALS — glass cards on warm cream
-─────────────────────────────────────────────────────────────────────── */
-
-function Testimonials() {
-  return (
-    <SectionGround variant="cream" size="lg">
-      <Container>
-        <Reveal className="mb-12 md:mb-14 max-w-3xl">
-          <NumberedTag number="06" label="What it recovers" tone="warm" />
-          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            The money that slips — and what a queue-first system claws back.
-          </h2>
-          <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            Illustrative scenarios (not customer quotes) — the ₹ at risk when follow-up lags in three common Indian B2B setups.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
-          <TestimonialCard
-            accent="mint"
-            quote="Real estate — a 200-enquiry-a-month desk converting at 3–4%. Grade every enquiry A–F and call the A's inside the hour, and even a few points of lift compounds into lakhs: the ₹ Leadkaun surfaces as at-risk."
-          />
-          <TestimonialCard
-            accent="sky"
-            quote="Insurance / BFSI — a branch that spends days pulling records for an audit can cut it to one export when every call, WhatsApp and follow-up is logged and attributed to a rep, and attribution disputes largely disappear."
-          />
-          <TestimonialCard
-            accent="peach"
-            quote="EdTech admissions — when a counsellor's 30-minute morning triage becomes 2, with every Grade A parent surfaced at 9 AM in the Priority Queue, the recovered hours turn straight into more admissions closed."
-          />
-        </Reveal>
-      </Container>
-    </SectionGround>
-  )
-}
-
-/* ───────────────────────────────────────────────────────────────────────
-   PRICING — three glass tiers, middle elevated with peach gradient ring
-─────────────────────────────────────────────────────────────────────── */
 
 function Pricing() {
   return (
-    <SectionGround variant="sky" size="lg">
-      <GradientBlob color="peach" size="lg" position="top-1/3 left-1/2 -translate-x-1/2" intensity={0.3} delay={3} />
-      <Container className="relative">
-        <Reveal className="mb-12 md:mb-16 max-w-3xl">
-          <NumberedTag number="07" label="Pricing" />
-          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[44px]">
-            Start free. Grow into more sales.
-          </h2>
-          <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            AI scoring, Priority Queue and pipeline free for 14 days — no credit card. Then priced flat
-            by team size and lead volume. Annual billing saves 17%.
+    <section className="relative bg-bg-pure">
+      <Container className="py-20 md:py-28">
+        <Reveal className="mb-10 max-w-2xl md:mb-14">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">07 · Pricing</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">Flat per account. Never per seat.</h2>
+          <p className="mt-5 text-[16px] leading-[1.7] text-ink-soft">
+            Per-seat pricing makes teams ration logins, and rationed logins corrupt the very
+            accountability data the product runs on. So adding a rep does not change the bill.
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="grid gap-6 md:grid-cols-3">
-          <PricingTier
-            name="Starter"
-            description="Small teams getting AI scoring + the queue live for the first time."
-            price="₹2,999"
-            annualNote="₹29,990 billed yearly · save 17%"
-            features={[
-              "Up to 10 users · 5,000 active leads",
-              "AI scoring + Smart Priority Queue",
-              "Unlimited pipeline & CSV imports",
-              "Follow-up engine + team dashboard",
-              "Email support",
-            ]}
-            ctaLabel="Start Starter"
-            ctaHref={APP_URLS.register}
-          />
-          <PricingTier
-            name="Growth"
-            description="Growing teams that can't afford to let a hot lead go cold."
-            price="₹7,999"
-            annualNote="₹79,990 billed yearly · save 17%"
-            features={[
-              "Up to 30 users · 25,000 active leads",
-              "Everything in Starter, plus:",
-              "Missed Opportunity Engine (₹ at risk)",
-              "AI Learning Engine + rep scorecards",
-              "Revenue dashboard + advanced analytics",
-              "Priority support",
-            ]}
-            ctaLabel="Upgrade to Growth"
-            ctaHref={APP_URLS.register}
-            highlighted
-          />
-          <PricingTier
-            name="Scale"
-            description="High-growth companies needing workspaces, API and a CSM."
-            price="₹19,999"
-            annualNote="₹1,99,990 billed yearly · save 17%"
-            features={[
-              "Up to 75 users · unlimited leads",
-              "Everything in Growth, plus:",
-              "Multiple workspaces",
-              "API access + webhooks",
-              "Dedicated success manager + QBRs",
-              "Premium support + SLA",
-            ]}
-            ctaLabel="Scale Faster"
-            ctaHref={APP_URLS.register}
-          />
-        </Reveal>
-
-        <Reveal delay={0.12} className="mt-10 flex flex-col items-center gap-5 text-center">
-          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
-            {["14-day free trial", "No credit card", "Cancel anytime", "All 12 modules, every tier"].map((t) => (
-              <li key={t} className="inline-flex items-center gap-2 text-[13.5px] font-medium text-ink-soft">
-                <span
-                  className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-                  style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)" }}
+        <div className="grid gap-px overflow-hidden rounded-2xl border rule-paper sm:grid-cols-2 lg:grid-cols-4" style={{ background: "var(--paper-line)" }}>
+          {TIERS.map((t, i) => (
+            <Reveal key={t.name} delay={0.05 * i} className="h-full">
+              <div className="flex h-full flex-col bg-bg-pure p-6 md:p-7">
+                <div className="flex items-center gap-2">
+                  <p className="ledger-num text-[11px] uppercase tracking-[0.2em] text-ink-muted">{t.name}</p>
+                  {t.feature && <span className="rounded-full bg-sky-100 px-2 py-0.5 text-[10px] font-semibold text-sky-700">Most teams</span>}
+                </div>
+                <p className="ledger-num mt-4 text-[30px] font-semibold text-ink">{t.price}</p>
+                <p className="mt-1 text-[13px] text-ink-muted">per month</p>
+                <p className="mt-4 text-[14px] leading-[1.6] text-ink-soft">{t.note}</p>
+                <Link
+                  href={t.cta === "Talk to us" ? "/contact" : APP_URLS.register}
+                  className="mt-auto pt-6 text-[14px] font-semibold text-sky-600 hover:text-sky-500"
                 >
-                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                </span>
-                {t}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/pricing"
-            className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500"
-          >
-            See full pricing &amp; comparison
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  {t.cta} →
+                </Link>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.1} className="mt-6">
+          <Link href="/pricing" className="inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-sky-600 hover:text-sky-500">
+            Full pricing and what is in each tier <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </Container>
-    </SectionGround>
+    </section>
   )
 }
 
-/* ───────────────────────────────────────────────────────────────────────
-   FAQ — glass accordion on warm cream
-─────────────────────────────────────────────────────────────────────── */
-
-const HOME_FAQ = [
-  { q: "How is Leadkaun different from a CRM?",            a: "A CRM records what happened. Leadkaun reshapes what happens next — by grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. Most teams run Leadkaun alongside their CRM for 60–90 days, then consolidate." },
-  { q: "How long does setup take?",                         a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP defaults across a range of Indian B2B verticals, so you do not need to define your ICP from scratch." },
-  { q: "Do I need to import all my historical leads?",      a: "No — and we recommend you do not. Import only the live leads (last 90 days of activity). Stale data pollutes the grade distribution. Most teams migrate 40–60% of their CRM data; the rest stays archived." },
-  { q: "Does it handle WhatsApp?",                          a: "Yes — as a first-class signal, not an integration afterthought. Reps log every meaningful WhatsApp exchange in 3 taps (stage + intent + outcome), feeding the Intent Score directly. Works with any WhatsApp account — no Business API needed. BSP integrations (Gupshup, AiSensy, Interakt) for auto-logging are on the roadmap." },
-  { q: "What happens if a rep leaves?",                     a: "One-click handover. Lead records, activity history, WhatsApp logs, follow-up schedules all transfer to the new rep. The pipeline does not leave with the person." },
-  { q: "Is my data secure?",                                a: "Supabase Singapore region (lowest India latency). Row-Level Security enforced at the database level. Encryption in transit and at rest. Full audit trail per lead, exportable on demand. One-click CSV export of everything — your data is your data." },
-]
-
 function FaqBlock() {
   return (
-    <SectionGround variant="cream" size="md">
-      <Container>
-        <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-          <div className="flex justify-center">
-            <NumberedTag number="08" label="FAQ" tone="warm" />
-          </div>
-          <h2 className="mt-5 text-[32px] font-serif font-medium leading-[1.12] tracking-[-0.015em] text-ink md:text-[40px]">
-            Common questions.
-          </h2>
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-20 md:py-28">
+        <Reveal className="mb-10 max-w-2xl md:mb-12">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">08 · Questions</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">The ones we actually get asked.</h2>
         </Reveal>
-
         <Reveal delay={0.08}><Faq items={HOME_FAQ} /></Reveal>
       </Container>
-    </SectionGround>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CLOSE — the second ink anchor, bracketing the page against the hero.
+   ───────────────────────────────────────────────────────────────────────── */
+function CloseBand() {
+  return (
+    <section className="relative overflow-hidden grain grain-ink" style={{ background: "linear-gradient(200deg, var(--ink-deep-2) 0%, var(--ink-deep) 70%)" }}>
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[380px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.20] blur-[120px]" style={{ background: "radial-gradient(circle,#0EA5E9 0%,#FB923C 60%,transparent 75%)" }} />
+      <Container className="relative py-24 text-center md:py-32">
+        <Reveal className="mx-auto max-w-3xl">
+          <p className="ledger-num on-ink-accent text-[11px] uppercase tracking-[0.24em]">09 · Ready when you are</p>
+          <h2 className="display-lg on-ink mt-6 text-[34px] md:text-[52px]">
+            Find out what your pipeline
+            <br />
+            <span style={{ background: "linear-gradient(96deg,#7DD3FC 0%,#FDBA74 80%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+              has been hiding.
+            </span>
+          </h2>
+          <p className="on-ink-2 mx-auto mt-6 max-w-xl text-[16.5px] leading-[1.7]">
+            Import a CSV, watch every lead grade itself, and see the order your team should have
+            been working in. Free tier, no card, live the same day.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3.5">
+            <Link
+              href={APP_URLS.register}
+              className="on-ink inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-transform hover:-translate-y-0.5"
+              style={{ background: "linear-gradient(180deg,#38BDF8,#0284C7)", boxShadow: "0 12px 32px -10px rgba(14,165,233,0.65)" }}
+            >
+              Start free <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="/demo" className="on-ink inline-flex items-center gap-2 rounded-xl border px-6 py-3.5 text-[15px] font-semibold transition-colors rule-ink hover:bg-white/5">
+              Book a walkthrough
+            </Link>
+          </div>
+
+          <p className="ledger-num on-ink-4 mt-8 text-[11.5px] uppercase tracking-[0.18em]">
+            Free ₹0 · Starter ₹2,999 · Growth ₹7,999 · Scale ₹19,999 · flat per account
+          </p>
+        </Reveal>
+      </Container>
+    </section>
   )
 }

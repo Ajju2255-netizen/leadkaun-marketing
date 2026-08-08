@@ -38,7 +38,7 @@ export async function GET() {
     <title>Leadkaun Blog</title>
     <link>${SITE}/blog</link>
     <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml" />
-    <description>Sales-behaviour, lead management and rupee-first analytics for Indian B2B sales teams — from the Leadkaun team.</description>
+    <description>Sales-behaviour, lead management and rupee-first analytics for Indian B2B sales teams, from the Leadkaun team.</description>
     <language>en-IN</language>
     <lastBuildDate>${new Date(posts[0]?.updated ?? posts[0]?.date ?? Date.now()).toUTCString()}</lastBuildDate>
 ${items}

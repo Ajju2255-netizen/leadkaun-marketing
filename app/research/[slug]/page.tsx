@@ -64,7 +64,7 @@ export default async function ResearchReportPage({ params }: Params) {
     description: r.metaDescription,
     url: canonical(`/research/${r.slug}`),
     creator: { "@type": "Organization", name: "Leadkaun" },
-    citation: sources.map((s) => `${s.source} (${s.year}) — ${s.url}`),
+    citation: sources.map((s) => `${s.source} (${s.year}), ${s.url}`),
   }
   const n = createSectionNumbering()
   const schemas = [
@@ -188,7 +188,7 @@ export default async function ResearchReportPage({ params }: Params) {
                 heading="Get the next Leadkaun report first"
                 blurb="We publish new sourced benchmarks on Indian B2B sales periodically. Leave your email and we'll send the next one your way."
                 cta="Send me new reports"
-                doneNote="Done — you'll get the next report when it's out."
+                doneNote="Done, you'll get the next report when it's out."
               />
             </Reveal>
           </Container>

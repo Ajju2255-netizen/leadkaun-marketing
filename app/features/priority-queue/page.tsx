@@ -21,9 +21,9 @@ import { APP_URLS } from "@/lib/urls"
 export const metadata: Metadata = {
   // This page owns the "lead prioritisation software" term — deliberately NOT a
   // separate /features/lead-prioritization route, which would cannibalise it.
-  title: "Lead Prioritization Software — The Priority Queue | Leadkaun",
+  title: "Lead Prioritization Software, The Priority Queue | Leadkaun",
   description:
-    "Leadkaun's lead prioritization software ranks every lead by grade, urgency and freshness into one Priority Queue per rep — re-ranking in real time as signals arrive. No manual sorting, no gut-feel triage.",
+    "Leadkaun's lead prioritization software ranks every lead by grade, urgency and freshness into one Priority Queue per rep, re-ranking in real time as signals arrive. No manual sorting, no gut-feel triage.",
   alternates: { canonical: "/features/priority-queue" },
 }
 
@@ -38,16 +38,16 @@ const RANK_WEIGHTS = [
 ]
 
 const FAQ = [
-  { q: "How is the queue different from a to-do list?", a: "A to-do list is static — whatever the rep added yesterday. A Priority Queue is dynamic — it re-ranks every time a signal arrives. New Grade A enquiry at 11 AM? Top of queue by 11:01. A WhatsApp reply bumps a lead up. Intent decay drops stale leads. The queue always reflects now, not yesterday." },
-  { q: "What if my rep wants to work their own order?", a: "They can pin one lead to the top of the day, but auto-ranking resumes at midnight. Most reps override twice in week one, then stop — working the queue in order consistently beats re-sorting it by gut-feel." },
-  { q: "How fast does the queue update?", a: "React Query polls every 30 seconds by default — fast enough that a new Grade A arrival or WhatsApp reply shows in the queue before the rep finishes their current call." },
+  { q: "How is the queue different from a to-do list?", a: "A to-do list is static, whatever the rep added yesterday. A Priority Queue is dynamic. It re-ranks every time a signal arrives. New Grade A enquiry at 11 AM? Top of queue by 11:01. A WhatsApp reply bumps a lead up. Intent decay drops stale leads. The queue always reflects now, not yesterday." },
+  { q: "What if my rep wants to work their own order?", a: "They can pin one lead to the top of the day, but auto-ranking resumes at midnight. Most reps override twice in week one, then stop, working the queue in order consistently beats re-sorting it by gut-feel." },
+  { q: "How fast does the queue update?", a: "React Query polls every 30 seconds by default, fast enough that a new Grade A arrival or WhatsApp reply shows in the queue before the rep finishes their current call." },
   { q: "What is a 'fatigued' lead?", a: "A lead that has been contacted 6+ times with no positive signal. The queue drops them to rank score -1 (bottom) automatically so the rep doesn't keep burning time. You can manually un-fatigue a lead if circumstances change." },
   { q: "Does the queue work on mobile?", a: "Yes. Mobile-first layout, 3-tap logging, works on patchy 3G. Field reps in manufacturing / real estate use Leadkaun exclusively from phones." },
 ]
 
 const RELATED = [
   { icon: Gauge,         title: "Lead Scoring Engine",        description: "The queue only works if every lead is graded correctly first. See how scoring works.", href: "/features/lead-scoring" },
-  { icon: AlertTriangle, title: "Missed Opportunity Engine",  description: "Stale Grade A leads drop in the queue — and get surfaced with a ₹ value to recover.",    href: "/features/missed-opportunity-engine" },
+  { icon: AlertTriangle, title: "Missed Opportunity Engine",  description: "Stale Grade A leads drop in the queue, and get surfaced with a ₹ value to recover.",    href: "/features/missed-opportunity-engine" },
   { icon: Mail,          title: "Morning Brief",              description: "The queue's top 5 for each rep, emailed at 8:30 AM IST every weekday.",                 href: "/features/morning-brief" },
 ]
 
@@ -62,7 +62,7 @@ export default function PriorityQueuePage() {
         <PageHero
           eyebrow={<><ListOrdered className="h-3 w-3" strokeWidth={2} /> Priority Queue</>}
           h1={<>One ranked list.<br /><span className="hero-accent">One rep. No triage.</span></>}
-          sub="The queue re-ranks itself every time a WhatsApp reply arrives, a call gets logged, or intent decays overnight. Your rep works top-down — the decision is already made."
+          sub="The queue re-ranks itself every time a WhatsApp reply arrives, a call gets logged, or intent decays overnight. Your rep works top-down. The decision is already made."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
         />
@@ -72,7 +72,7 @@ export default function PriorityQueuePage() {
           <Container>
             <QuickAnswer
               question="What is a sales Priority Queue and how does Leadkaun's work?"
-              answer="A Priority Queue is a single, live-ranked list of who each rep should contact next. Leadkaun re-ranks it in real time as signals arrive — a new Grade A lead, a WhatsApp reply, or intent decay — so the rep works top-down instead of guessing. No daily triage; the queue always reflects now, not yesterday."
+              answer="A Priority Queue is a single, live-ranked list of who each rep should contact next. Leadkaun re-ranks it in real time as signals arrive, a new Grade A lead, a WhatsApp reply, or intent decay, so the rep works top-down instead of guessing. No daily triage; the queue always reflects now, not yesterday."
             />
           </Container>
         </SectionGround>
@@ -86,7 +86,7 @@ export default function PriorityQueuePage() {
                 A transparent formula. Not a black box.
               </h2>
               <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                Every lead&apos;s rank score is a combination of grade + urgency + trend + recency. The weights below are fixed and identical for every account — published so a rep can always see why a lead ranks where it does.
+                Every lead&apos;s rank score is a combination of grade + urgency + trend + recency. The weights below are fixed and identical for every account, published so a rep can always see why a lead ranks where it does.
               </p>
             </Reveal>
 
@@ -115,7 +115,7 @@ export default function PriorityQueuePage() {
               </h2>
               <Reveal delay={0.08} className="mt-10 grid gap-5 md:grid-cols-3">
                 {[
-                  { v: "30s",   l: "Queue refresh interval",     h: "Polling via React Query — no realtime overhead per row" },
+                  { v: "30s",   l: "Queue refresh interval",     h: "Polling via React Query, no realtime overhead per row" },
                   { v: "< 2s",  l: "Queue load for 5,000 leads", h: "Paginated 100/page, infinite scroll" },
                   { v: "Real-time", l: "Re-rank latency on signal",  h: "Deterministic TypeScript, no DB triggers" },
                 ].map((m, i) => (

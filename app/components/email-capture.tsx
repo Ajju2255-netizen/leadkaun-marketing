@@ -28,9 +28,9 @@ const inputCls =
 export function EmailCapture({
   source = "newsletter",
   heading = "Get new sales research & product updates",
-  blurb = "Occasional, genuinely useful. No spam — unsubscribe anytime.",
+  blurb = "Occasional, genuinely useful. No spam, unsubscribe anytime.",
   cta = "Keep me posted",
-  doneNote = "You're on the list. We'll be in touch — nothing spammy.",
+  doneNote = "You're on the list. We'll be in touch, nothing spammy.",
   className = "",
   layout = "stack",
 }: Props) {
@@ -59,10 +59,10 @@ export function EmailCapture({
         return
       }
       setStatus("error")
-      setErr("Couldn't sign you up just now — please try again in a moment.")
+      setErr("Couldn't sign you up just now, please try again in a moment.")
     } catch {
       setStatus("error")
-      setErr("Couldn't sign you up just now — please try again in a moment.")
+      setErr("Couldn't sign you up just now, please try again in a moment.")
     }
   }
 

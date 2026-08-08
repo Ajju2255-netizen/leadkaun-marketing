@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const cat = getCategory(category)
   if (!cat) return {}
   return {
-    title: cat.metaTitle ?? `${cat.title} — Leadkaun Blog`,
+    title: cat.metaTitle ?? `${cat.title}, Leadkaun Blog`,
     description: cat.metaDescription ?? cat.description,
     alternates: { canonical: `/blog/categories/${cat.slug}` },
     openGraph: {
-      title: cat.metaTitle ?? `${cat.title} — Leadkaun Blog`,
+      title: cat.metaTitle ?? `${cat.title}, Leadkaun Blog`,
       description: cat.metaDescription ?? cat.description,
       url: canonical(`/blog/categories/${cat.slug}`),
       type: "website",
@@ -62,7 +62,7 @@ export default async function CategoryPage({ params }: Params) {
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: cat.metaTitle ?? `${cat.title} — Leadkaun Blog`,
+      name: cat.metaTitle ?? `${cat.title}, Leadkaun Blog`,
       description: cat.metaDescription ?? cat.description,
       url: canonical(`/blog/categories/${cat.slug}`),
     },
@@ -89,7 +89,7 @@ export default async function CategoryPage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        {/* ── Hero — editorial Field-guide header + Quick-Answer (AIO hook) + CTAs ── */}
+        {/* ── Hero, editorial Field-guide header + Quick-Answer (AIO hook) + CTAs ── */}
         <DetailHero
           breadcrumb={[{ label: "Blog", href: "/blog" }, { label: cat.title }]}
           eyebrow={
@@ -138,7 +138,7 @@ export default async function CategoryPage({ params }: Params) {
               </FloatingCard>
             ) : (
               <div className="space-y-6">
-                {/* Featured — asymmetric, larger */}
+                {/* Featured, asymmetric, larger */}
                 {featured && (
                   <Link href={`/blog/${featured.slug}`} className="block">
                     <FloatingCard
@@ -168,7 +168,7 @@ export default async function CategoryPage({ params }: Params) {
                   </Link>
                 )}
 
-                {/* The rest — 2-up grid */}
+                {/* The rest, 2-up grid */}
                 {rest.length > 0 && (
                   <div className="grid gap-5 md:grid-cols-2 md:gap-6">
                     {rest.map((p, i) => (
@@ -199,7 +199,7 @@ export default async function CategoryPage({ params }: Params) {
               <div className="mb-8 max-w-3xl">
                 <NumberedTag number="02" tone="warm" label="Compare, by job-to-be-done" />
                 <h2 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[30px]">
-                  Already on a CRM? See exactly where Leadkaun fits — and where it doesn&apos;t.
+                  Already on a CRM? See exactly where Leadkaun fits, and where it doesn&apos;t.
                 </h2>
                 <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">
                   Leadkaun is a Sales Behaviour OS, not a like-for-like CRM. These honest side-by-sides show when to switch, when to run it alongside, and when to stay put.
@@ -235,7 +235,7 @@ export default async function CategoryPage({ params }: Params) {
               <div className="mb-8 max-w-3xl">
                 <NumberedTag number="03" label="Common questions" />
                 <h2 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[30px]">
-                  {cat.title} — the questions buyers actually ask.
+                  {cat.title}, the questions buyers actually ask.
                 </h2>
               </div>
               <div className="mx-auto max-w-3xl space-y-3">

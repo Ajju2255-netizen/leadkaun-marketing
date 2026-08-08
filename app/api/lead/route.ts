@@ -105,9 +105,9 @@ export async function POST(req: Request) {
           from,
           to: [to],
           reply_to: payload.email,
-          subject: `New lead (${payload.source}) — ${payload.name ?? payload.email}`,
+          subject: `New lead (${payload.source}), ${payload.name ?? payload.email}`,
           text: Object.entries(payload)
-            .map(([k, v]) => `${k}: ${v ?? "—"}`)
+            .map(([k, v]) => `${k}: ${v ?? "not provided"}`)
             .join("\n"),
         }),
       })

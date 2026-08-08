@@ -101,7 +101,7 @@ export default async function CityPage({ params }: Params) {
           breadcrumb={[{ label: "City" }, { label: cityRec.name }]}
           eyebrow={`${cityRec.state} · Lead Management Software`}
           h1={<>Sales CRM &amp; Lead Management in <span className="hero-accent">{cityRec.name}.</span></>}
-          sub={`Lead management and sales CRM software for ${cityRec.name} B2B teams${cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup the same day.`}
+          sub={`Lead management and sales CRM software for ${cityRec.name} B2B teams${cityRec.notes ? `, ${cityRec.notes.replace(/\.$/, "")}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹, setup the same day.`}
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
@@ -122,12 +122,12 @@ export default async function CityPage({ params }: Params) {
           <Container>
             <QuickAnswer
               question={`Is Leadkaun a good fit for B2B sales teams in ${cityRec.name}?`}
-              answer={`Leadkaun is lead management software for ${cityRec.name} B2B teams. It grades every lead A–F on fit, intent and quality, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads — running alongside your CRM, with same-day setup. It's calibrated for how ${cityRec.name} teams actually sell: Indian phone handling, WhatsApp as a first-class lead signal, and ₹ figures in Indian formatting throughout.`}
+              answer={`Leadkaun is lead management software for ${cityRec.name} B2B teams. It grades every lead A–F on fit, intent and quality, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads, running alongside your CRM, with same-day setup. It's calibrated for how ${cityRec.name} teams actually sell: Indian phone handling, WhatsApp as a first-class lead signal, and ₹ figures in Indian formatting throughout.`}
             />
           </Container>
         </SectionGround>
 
-        {/* ── Local-context fingerprint — real data, so no two city hubs read alike ── */}
+        {/* ── Local-context fingerprint, real data, so no two city hubs read alike ── */}
         <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mb-8 max-w-3xl">
@@ -137,7 +137,7 @@ export default async function CityPage({ params }: Params) {
               </h2>
               <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft md:text-[17px]">
                 Sales teams in {cityRec.name}, {cityRec.state} run on enquiries from calls, WhatsApp and portals
-                {cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}. Leadkaun is the lead management system
+                {cityRec.notes ? `, ${cityRec.notes.replace(/\.$/, "")}` : ""}. Leadkaun is the lead management system
                 for the {served.length} B2B {served.length === 1 ? "sector" : "sectors"} that sell here
                 {served.length > 0 ? `, led by ${served.slice(0, 3).map((i) => i.name).join(", ")}` : ""}: score and grade
                 every lead A–F in real time, build each rep&apos;s priority queue, and surface ₹ at risk before a hot
@@ -204,7 +204,7 @@ export default async function CityPage({ params }: Params) {
           </SectionGround>
         )}
 
-        {/* METHODOLOGY — how the grade is computed */}
+        {/* METHODOLOGY, how the grade is computed */}
         <MethodologyCard number={n.next()} ground="cream" industrySlug={served[0]?.slug} />
 
         <ModulesGrid

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ComparePageLayout } from "@/app/components/compare-layout"
 
 export const metadata: Metadata = {
-  title: "Leadkaun vs Salesforce (2026) — Right-sized for Indian SMBs",
+  title: "Leadkaun vs Salesforce (2026), Right-sized for Indian SMBs",
   description:
     "Salesforce is enterprise-grade; Leadkaun is SMB-grade. Honest side-by-side: feature matrix, ₹ pricing vs USD+admin, switching guide.",
   alternates: { canonical: "/compare/leadkaun-vs-salesforce" },
@@ -12,7 +12,7 @@ export default function VsSalesforce() {
   return (
     <ComparePageLayout
       competitor="Salesforce"
-      tldr="Salesforce is the enterprise standard — irrational at <200 reps. Leadkaun is purpose-built for Indian SMBs (3–50 reps). Below enterprise scale, picking Salesforce is paying 5–10× for admin overhead you don't need. At enterprise scale, Salesforce is still the right answer."
+      tldr="Salesforce is the enterprise standard, irrational at <200 reps. Leadkaun is purpose-built for Indian SMBs (3–50 reps). Below enterprise scale, picking Salesforce is paying 5–10× for admin overhead you don't need. At enterprise scale, Salesforce is still the right answer."
       positioning="Salesforce wins at 200+ reps, regulated enterprise, dedicated admin teams, and 7,000+ AppExchange integrations. Below that, the cost of ownership (₹7,500+/rep + implementation + admin + retraining) dwarfs the payoff. For most Indian SMB sales teams, Salesforce is a Ferrari for a school run."
       strengths={[
         "Unmatched AppExchange ecosystem (7,000+ apps)",
@@ -54,7 +54,7 @@ export default function VsSalesforce() {
         { q: "Our investors like Salesforce. Will switching hurt optics?", a: "Reframe: you're right-sizing, not downgrading. SF at 20 reps is under-utilisation, not sophistication. Investors respect operators who don't over-buy." },
         { q: "We use Salesforce for marketing + service + sales. Can Leadkaun do all that?", a: "No. Leadkaun is focused on sales behaviour. If you need SF for Service Cloud or Marketing Cloud, keep it. Add Leadkaun for sales behaviour alone." },
         { q: "We've invested in Apex customisations. Is switching worth it?", a: "Honest answer: only if those customisations aren't driving outcomes today. If they are, keep SF. If they're gathering dust while reps still work in Excel, switching recovers that ₹." },
-        { q: "What about the AppExchange integrations we rely on?", a: "Leadkaun keeps integrations lean and India-first — CSV import today, with WhatsApp BSP (Gupshup / AiSensy / Interakt) and native Google Sheets sync on the roadmap. We won't match AppExchange breadth — but most Indian SMBs don't need it." },
+        { q: "What about the AppExchange integrations we rely on?", a: "Leadkaun keeps integrations lean and India-first, CSV import today, with WhatsApp BSP (Gupshup / AiSensy / Interakt) and native Google Sheets sync on the roadmap. We won't match AppExchange breadth, but most Indian SMBs don't need it." },
       ]}
       verdict={{
         competitorWins: "Salesforce is the enterprise standard for good reason: unlimited customisation through Apex and Flow, a 7,000-plus app AppExchange, enterprise-grade security and compliance, and reporting that scales to thousands of reps. At 200-plus reps with a dedicated admin team, nothing matches its depth and ecosystem, and Leadkaun does not try to compete on that ground.",

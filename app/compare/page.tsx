@@ -14,28 +14,28 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "CRM Alternatives India — Compare Leadkaun vs Zoho, Salesforce, HubSpot, LeadSquared, Freshsales",
+  title: "CRM Alternatives India, Compare Leadkaun vs Zoho, Salesforce, HubSpot, LeadSquared, Freshsales",
   description:
     "Honest comparisons. See how Leadkaun stacks up against every major CRM for Indian B2B SMB sales teams. Feature matrix, pricing, switching guides.",
   alternates: { canonical: "/compare" },
 }
 
 const COMPARES = [
-  { slug: "leadkaun-vs-zoho-crm",    name: "Zoho CRM",    tagline: "The default Indian SMB CRM — rep adoption is the seam." },
+  { slug: "leadkaun-vs-zoho-crm",    name: "Zoho CRM",    tagline: "The default Indian SMB CRM, rep adoption is the seam." },
   { slug: "leadkaun-vs-leadsquared", name: "LeadSquared", tagline: "India-built. Activity-tracking ≠ behaviour-tracking." },
   { slug: "leadkaun-vs-hubspot",     name: "HubSpot",     tagline: "USD pricing. Marketing-first. Expensive at scale." },
   { slug: "leadkaun-vs-salesforce",  name: "Salesforce",  tagline: "Enterprise-grade. Overkill under 200 reps." },
   { slug: "leadkaun-vs-freshsales",  name: "Freshsales",  tagline: "Clean UI. 'AI' scoring is opaque." },
   { slug: "leadkaun-vs-pipedrive",   name: "Pipedrive",   tagline: "Global pipeline CRM. Per-user USD, WhatsApp is an add-on." },
-  { slug: "leadkaun-vs-zoho-bigin",  name: "Zoho Bigin",  tagline: "Light and cheap — but no real scoring engine." },
+  { slug: "leadkaun-vs-zoho-bigin",  name: "Zoho Bigin",  tagline: "Light and cheap, but no real scoring engine." },
   { slug: "leadkaun-vs-kylas",       name: "Kylas",       tagline: "Flat, unlimited users. Pricey for small teams." },
   { slug: "leadkaun-vs-telecrm",     name: "TeleCRM",     tagline: "Telecalling-first. Great dialer, no intent grading." },
   { slug: "leadkaun-vs-bitrix24",    name: "Bitrix24",    tagline: "All-in-one suite. Broad, complex, USD-priced." },
   { slug: "leadkaun-vs-monday",      name: "monday CRM",  tagline: "No-code Work OS CRM. USD per-seat, build-your-own scoring." },
   { slug: "leadkaun-vs-close",       name: "Close",       tagline: "Inside-sales CRM with native calling. USD + usage." },
   { slug: "leadkaun-vs-selldo",      name: "Sell.Do",     tagline: "Real-estate-specific CRM. Horizontal vs vertical." },
-  { slug: "leadkaun-vs-apollo",      name: "Apollo.io",   tagline: "Prospecting DB — different tool, used together." },
-  { slug: "leadkaun-vs-clay",        name: "Clay",        tagline: "Data enrichment, not a CRM — complementary." },
+  { slug: "leadkaun-vs-apollo",      name: "Apollo.io",   tagline: "Prospecting DB, different tool, used together." },
+  { slug: "leadkaun-vs-clay",        name: "Clay",        tagline: "Data enrichment, not a CRM, complementary." },
 ]
 
 export default function CompareHub() {
@@ -59,7 +59,7 @@ export default function CompareHub() {
         <Container>
           <QuickAnswer
             question="What is the best CRM alternative for Indian SMB sales teams?"
-            answer="For Indian B2B SMBs that want leads graded and prioritised, Leadkaun is a strong alternative — it grades every lead A–F, ranks each rep's queue, and treats WhatsApp as a first-class signal, at flat INR pricing, running alongside your CRM. Zoho, Freshsales and Kylas suit other needs."
+            answer="For Indian B2B SMBs that want leads graded and prioritised, Leadkaun is a strong alternative. It grades every lead A–F, ranks each rep's queue, and treats WhatsApp as a first-class signal, at flat INR pricing, running alongside your CRM. Zoho, Freshsales and Kylas suit other needs."
           />
         </Container>
       </SectionGround>

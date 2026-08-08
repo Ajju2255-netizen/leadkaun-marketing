@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { ComparePageLayout } from "@/app/components/compare-layout"
 
 export const metadata: Metadata = {
-  title: "Leadkaun vs Zoho Bigin (2026) — Which fits your Indian sales team?",
+  title: "Leadkaun vs Zoho Bigin (2026), Which fits your Indian sales team?",
   description:
-    "Honest side-by-side of Leadkaun vs Zoho Bigin for Indian B2B SMBs — pricing model, WhatsApp, lead scoring, and when a lightweight CRM stops being enough.",
+    "Honest side-by-side of Leadkaun vs Zoho Bigin for Indian B2B SMBs, pricing model, WhatsApp, lead scoring, and when a lightweight CRM stops being enough.",
   alternates: { canonical: "/compare/leadkaun-vs-zoho-bigin" },
 }
 
@@ -13,18 +13,18 @@ export default function VsBigin() {
     <ComparePageLayout
       competitor="Zoho Bigin"
       competitorShort="Bigin"
-      tldr="Bigin is Zoho's deliberately lightweight CRM for micro-teams — cheap, easy, and it even ships native WhatsApp. Leadkaun is a different category: a Sales Behaviour OS that grades and ranks leads for you. Bigin records the pipeline; Leadkaun decides who to call next."
-      positioning="Zoho Bigin is a simple, pipeline-first CRM for solopreneurs and very small teams — a low-cost on-ramp before the full Zoho CRM. It's genuinely easy and includes WhatsApp Business from its entry tier. The ceiling appears as B2B sales get more complex: no real lead-scoring engine, basic automation, and per-user pricing that grows with the team."
+      tldr="Bigin is Zoho's deliberately lightweight CRM for micro-teams, cheap, easy, and it even ships native WhatsApp. Leadkaun is a different category: a Sales Behaviour OS that grades and ranks leads for you. Bigin records the pipeline; Leadkaun decides who to call next."
+      positioning="Zoho Bigin is a simple, pipeline-first CRM for solopreneurs and very small teams, a low-cost on-ramp before the full Zoho CRM. It's genuinely easy and includes WhatsApp Business from its entry tier. The ceiling appears as B2B sales get more complex: no real lead-scoring engine, basic automation, and per-user pricing that grows with the team."
       strengths={[
         "Very affordable entry point; among the cheapest paid CRMs",
-        "Extremely easy to adopt — most users productive within a day",
+        "Extremely easy to adopt, most users productive within a day",
         "Native WhatsApp Business integration from the entry tier",
         "Clean upgrade path into the wider Zoho ecosystem",
       ]}
       weaknesses={[
-        "No real lead-scoring engine — leads sit until manually qualified",
+        "No real lead-scoring engine leads sit until manually qualified",
         "Automation is basic; hits a ceiling on multi-step sequences",
-        "Per-user pricing — cost grows with headcount",
+        "Per-user pricing, cost grows with headcount",
         "Deliberately limited for complex/growing B2B sales motions",
         "No auto-ranked Priority Queue or ₹-at-risk framing",
       ]}
@@ -42,7 +42,7 @@ export default function VsBigin() {
       ]}
       pricing={{
         leadkaun:   { tier: "Starter/Growth", price: "₹2,999–₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
-        competitor: { tier: "Express",        price: "from ~₹400 / user / mo", note: "Per user (annual, India). Sources conflict on the India rate — verify current pricing. Grows with headcount." },
+        competitor: { tier: "Express",        price: "from ~₹400 / user / mo", note: "Per user (annual, India). Sources conflict on the India rate, verify current pricing. Grows with headcount." },
       }}
       switching={[
         { title: "Export from Bigin",   body: "Export contacts, pipelines, and activity as CSV from Bigin's data tools." },
@@ -51,16 +51,16 @@ export default function VsBigin() {
         { title: "Decide",              body: "If grading + queueing + ₹-at-risk change how the team spends its day, consolidate. If you only needed a light pipeline, Bigin is fine to keep." },
       ]}
       faqs={[
-        { q: "Doesn't Bigin already have WhatsApp?", a: "Yes — Bigin includes native WhatsApp Business from its entry tier, so this isn't a 'they don't have it' comparison. The difference is how Leadkaun uses WhatsApp: a 3-tap logged reply becomes a ranked Intent signal that can move a lead's grade, not just a chat thread." },
-        { q: "We're a 3-person team — is Leadkaun overkill?", a: "Not necessarily. Leadkaun has a Free tier and flat pricing, so a small team gets grading and a Priority Queue without per-seat cost. If you truly only need a contact list, Bigin is simpler." },
+        { q: "Doesn't Bigin already have WhatsApp?", a: "Yes, Bigin includes native WhatsApp Business from its entry tier, so this isn't a 'they don't have it' comparison. The difference is how Leadkaun uses WhatsApp: a 3-tap logged reply becomes a ranked Intent signal that can move a lead's grade, not just a chat thread." },
+        { q: "We're a 3-person team is Leadkaun overkill?", a: "Not necessarily. Leadkaun has a Free tier and flat pricing, so a small team gets grading and a Priority Queue without per-seat cost. If you truly only need a contact list, Bigin is simpler." },
         { q: "What does Leadkaun do that Bigin can't?", a: "Grade every lead A–F in real time with intent decay, auto-rank each rep's queue in real time, and surface ₹-at-risk daily. Bigin records the pipeline; it doesn't decide priority for you." },
         { q: "Is migration hard?", a: "No. Bigin exports clean CSVs and Leadkaun ingests arbitrary columns as custom fields. The same-day onboarding handles ICP setup." },
-        { q: "Is pricing INR with GST?", a: "Yes — Leadkaun bills flat INR, GST-compliant, per account." },
+        { q: "Is pricing INR with GST?", a: "Yes, Leadkaun bills flat INR, GST-compliant, per account." },
       ]}
       verdict={{
-        competitorWins: "Bigin is one of the cheapest, easiest paid CRMs going, and it earns that reputation. Most micro-teams are productive within a day, it ships native WhatsApp Business from the entry tier, and it opens a clean upgrade path into the wider Zoho ecosystem — a fair on-ramp for a solo founder or a three-person shop.",
-        leadkaunWins: "Leadkaun is a different category — the behaviour layer Bigin does not try to be. It grades every lead A–F with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily, on flat per-account pricing that does not climb with headcount. For a growing Indian B2B team, that is the gap between recording the pipeline and being told who to call next.",
-        bottomLine: "If you only need a light, cheap pipeline to keep contacts tidy, Bigin is genuinely enough and simpler to run. If leads sit un-worked because nothing tells reps which one is hot, Leadkaun adds that decision layer — and its Free tier means even a small team can try it alongside Bigin before consolidating.",
+        competitorWins: "Bigin is one of the cheapest, easiest paid CRMs going, and it earns that reputation. Most micro-teams are productive within a day, it ships native WhatsApp Business from the entry tier, and it opens a clean upgrade path into the wider Zoho ecosystem, a fair on-ramp for a solo founder or a three-person shop.",
+        leadkaunWins: "Leadkaun is a different category. The behaviour layer Bigin does not try to be. It grades every lead A–F with intent decay, auto-ranks each rep's Priority Queue, and surfaces ₹-at-risk daily, on flat per-account pricing that does not climb with headcount. For a growing Indian B2B team, that is the gap between recording the pipeline and being told who to call next.",
+        bottomLine: "If you only need a light, cheap pipeline to keep contacts tidy, Bigin is genuinely enough and simpler to run. If leads sit un-worked because nothing tells reps which one is hot, Leadkaun adds that decision layer, and its Free tier means even a small team can try it alongside Bigin before consolidating.",
       }}
     />
   )

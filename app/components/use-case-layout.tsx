@@ -52,7 +52,7 @@ export function UseCaseLayout({
   const ind = industryLabel.toLowerCase()
   const qa = quickAnswer ?? {
     question: `How does Leadkaun help ${ind} sales teams in India?`,
-    answer: `Leadkaun is a Sales Behaviour OS for ${ind} teams — it grades every lead A–F across Fit, Intent, and Quality in real time, builds a live Priority Queue so reps work the highest-value enquiries first, surfaces missed revenue in rupees, and treats WhatsApp as a first-class signal. Setup happens the same day, with flat INR pricing.`,
+    answer: `Leadkaun is a Sales Behaviour OS for ${ind} teams. It grades every lead A–F across Fit, Intent, and Quality in real time, builds a live Priority Queue so reps work the highest-value enquiries first, surfaces missed revenue in rupees, and treats WhatsApp as a first-class signal. Setup happens the same day, with flat INR pricing.`,
   }
   return (
     <>
@@ -84,7 +84,7 @@ export function UseCaseLayout({
           </Container>
         </SectionGround>
 
-        {/* CONTEXT — 3 stat tiles in glass */}
+        {/* CONTEXT, 3 stat tiles in glass */}
         <SectionGround variant="cream" size="sm">
           <Container>
             <Reveal className="grid gap-4 md:grid-cols-3">
@@ -143,7 +143,7 @@ export function UseCaseLayout({
           </Container>
         </SectionGround>
 
-        {/* HOW IT HELPS — glass-list */}
+        {/* HOW IT HELPS, glass-list */}
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16 max-w-3xl">
@@ -196,7 +196,7 @@ export function UseCaseLayout({
           </SectionGround>
         ) : null}
 
-        {/* PRODUCT — show + sell the product, same bar as the landing page */}
+        {/* PRODUCT, show + sell the product, same bar as the landing page */}
         <ModulesGrid number="03" ground="sky" />
         <PricingCTA number="04" ground="cream" />
 

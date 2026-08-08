@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const ind = (await getIndustry(industry)) as unknown as IndustryEntry | null
   if (!ind) return {}
   return {
-    title: `${ind.name} Lead Management India — ${ind.painH1}`,
+    title: `${ind.name} Lead Management India, ${ind.painH1}`,
     description: ind.heroSub.slice(0, 155),
     alternates: { canonical: `/use-cases/${industry}` },
   }

@@ -19,9 +19,9 @@ import { faqPageSchema, offerSchema, breadcrumbListSchema, jsonLdScript } from "
 import { PricingPlans } from "./pricing-plans"
 
 export const metadata: Metadata = {
-  title: "Lead Management Software Pricing in ₹ — Start Free",
+  title: "Lead Management Software Pricing in ₹, Start Free",
   description:
-    "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 — flat per account, priced by team size and active-lead volume. Save 17% on annual billing.",
+    "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999, flat per account, priced by team size and active-lead volume. Save 17% on annual billing.",
   alternates: { canonical: "/pricing" },
 }
 
@@ -84,13 +84,13 @@ const ADDONS: { name: string; price: string; note?: string }[] = [
 ]
 
 const FAQ = [
-  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 active leads for 14 days — full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
-  { q: "How is Leadkaun priced?", a: "Flat per account, not per seat — priced by team size and active-lead volume. Starter ₹2,999 (10 users, 5,000 active leads), Growth ₹7,999 (30 users, 25,000 active leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
-  { q: "What counts as an 'active lead' — and what happens at the limit?", a: "An active lead is an open one you're still working. When you win, lose, or archive a deal it stops counting, so the limit tracks your live pipeline, not everything you've ever added. If you hit the cap, nothing locks: every existing lead stays fully usable — view, edit, call, close, export. Only adding new leads pauses until you close a few or upgrade. It rewards good CRM hygiene instead of punishing growth." },
+  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 active leads for 14 days, full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
+  { q: "How is Leadkaun priced?", a: "Flat per account, not per seat, priced by team size and active-lead volume. Starter ₹2,999 (10 users, 5,000 active leads), Growth ₹7,999 (30 users, 25,000 active leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
+  { q: "What counts as an 'active lead', and what happens at the limit?", a: "An active lead is an open one you're still working. When you win, lose, or archive a deal it stops counting, so the limit tracks your live pipeline, not everything you've ever added. If you hit the cap, nothing locks: every existing lead stays fully usable, view, edit, call, close, export. Only adding new leads pauses until you close a few or upgrade. It rewards good CRM hygiene instead of punishing growth." },
   { q: "Do you charge in USD?", a: "No. All pricing is in Indian Rupees (INR). Invoices are GST-compliant." },
-  { q: "Is there an annual discount?", a: "Yes — annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },
+  { q: "Is there an annual discount?", a: "Yes, annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },
   { q: "Can I change plans later?", a: "Yes. Upgrade or downgrade anytime; billing adjusts pro-rata. Most teams start on Starter and move to Growth once they feel leads going cold and want the Missed Opportunity Engine + AI Learning." },
-  { q: "What if I need more than 75 users?", a: "That's Enterprise — unlimited users, workspaces and leads on dedicated infrastructure, with custom AI models, private cloud, SSO and a dedicated success manager. Talk to sales for a quote." },
+  { q: "What if I need more than 75 users?", a: "That's Enterprise, unlimited users, workspaces and leads on dedicated infrastructure, with custom AI models, private cloud, SSO and a dedicated success manager. Talk to sales for a quote." },
   { q: "Can I add users or workspaces without upgrading?", a: "Yes. Extra seats are ₹250/mo (Starter) or ₹200/mo (Growth), extra workspaces ₹999/mo, and API access is available as a ₹2,999/mo add-on before Scale." },
 ]
 
@@ -132,7 +132,7 @@ export default function PricingPage() {
             </span>
           </>
         }
-        sub="You're not buying CRM software — you're buying faster follow-ups, fewer cold leads, and AI-driven execution. Start free, upgrade when you're leaving money on the table."
+        sub="You're not buying CRM software, you're buying faster follow-ups, fewer cold leads, and AI-driven execution. Start free, upgrade when you're leaving money on the table."
         primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
         secondary={{ kind: "text", label: "How it works", href: "/how-it-works" }}
       />
@@ -150,7 +150,7 @@ export default function PricingPage() {
         number="01"
         ground="sky"
         title={<>Here&apos;s what you&apos;re paying for.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk in real rupees — the working system, on every tier."
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk in real rupees, the working system, on every tier."
       />
 
       {/* TIERS + toggle (client) */}

@@ -13,9 +13,9 @@ import { getCities } from "@/lib/pseo/lookup"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Leadkaun by City — Sales Behaviour OS for Indian B2B Teams",
+  title: "Leadkaun by City Sales Behaviour OS for Indian B2B Teams",
   description:
-    "Find Leadkaun for your city. Lead scoring, priority queues, and ₹-at-risk recovery for B2B sales teams across 625+ Indian cities — grouped by state.",
+    "Find Leadkaun for your city. Lead scoring, priority queues, and ₹-at-risk recovery for B2B sales teams across 625+ Indian cities, grouped by state.",
   alternates: { canonical: "/city" },
 }
 

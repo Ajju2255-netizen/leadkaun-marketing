@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ComparePageLayout } from "@/app/components/compare-layout"
 
 export const metadata: Metadata = {
-  title: "Leadkaun vs Freshsales (2026) — Transparent scoring vs 'AI'",
+  title: "Leadkaun vs Freshsales (2026), Transparent scoring vs 'AI'",
   description:
     "Freshsales has clean UI and Freddy AI scoring. Leadkaun has transparent 3-dimensional scoring. See the feature matrix, pricing comparison, switching guide.",
   alternates: { canonical: "/compare/leadkaun-vs-freshsales" },
@@ -13,7 +13,7 @@ export default function VsFreshsales() {
     <ComparePageLayout
       competitor="Freshsales"
       tldr="Freshsales has a great UI and 'Freddy AI' scoring. The scoring is a black box. Leadkaun's three independent scores (Fit × Intent × Quality) are transparent and auditable. Where the decisions happen matters more than where the UI is prettier."
-      positioning="Freshsales (by Freshworks, India-origin) lands in the shortlist for Indian SMBs with a modern UI and an AI-branded pitch. Its weakness is decision transparency — you can't see why Freddy AI gave a lead a particular score. For managers who coach reps on why a lead matters, that opacity becomes a real problem over time."
+      positioning="Freshsales (by Freshworks, India-origin) lands in the shortlist for Indian SMBs with a modern UI and an AI-branded pitch. Its weakness is decision transparency. You can't see why Freddy AI gave a lead a particular score. For managers who coach reps on why a lead matters, that opacity becomes a real problem over time."
       strengths={[
         "Clean, modern UI (best-in-class CRM UX)",
         "Unified Freshworks suite (Freshdesk, Freshchat)",
@@ -44,20 +44,20 @@ export default function VsFreshsales() {
         competitor: { tier: "Pro",     price: "₹3,500 / rep / mo", note: "Freddy AI Pro + WhatsApp (Freshchat) extra" },
       }}
       switching={[
-        { title: "Export from Freshsales",       body: "Contacts, deals, activity CSV. Standard Freshworks export path — no surprises." },
+        { title: "Export from Freshsales",       body: "Contacts, deals, activity CSV. Standard Freshworks export path, no surprises." },
         { title: "Keep Freshworks suite if needed", body: "Freshdesk + Freshchat deliver real value for support teams. Keep them. Swap Freshsales for Leadkaun." },
         { title: "Onboard Leadkaun",             body: "Same-day wizard; pre-built ICPs for Indian B2B SMBs. Import your data." },
-        { title: "Audit the scoring",            body: "Open Leadkaun's Grade A queue on day 7. Ask: does this match your gut? Transparent weights make the answer always 'yes' — that's the point." },
+        { title: "Audit the scoring",            body: "Open Leadkaun's Grade A queue on day 7. Ask: does this match your gut? Transparent weights make the answer always 'yes' that's the point." },
       ]}
       faqs={[
         { q: "Freddy AI is 'AI'. Isn't that more sophisticated than rules?", a: "Not for this job. 'AI' that reps don't trust (because they can't explain it) gets ignored. Rule-based scoring with transparent weights (Fit 30/20/20/15/15, Intent decay at −3/day) gets adopted and coached against." },
         { q: "We use Freshchat for WhatsApp. Can Leadkaun replace that?", a: "Different jobs. Freshchat is a messaging platform. Leadkaun's WhatsApp tracking is signal capture for scoring. Keep Freshchat for the conversation; let Leadkaun score the intent." },
-        { q: "Will switching feel like a downgrade in UI?", a: "Leadkaun's UI is deliberately minimal — data-first, no distractions. It's different, not worse. Reps adapt in a week; managers notice better decision-making within the month." },
-        { q: "Freshsales has a mobile app. Does Leadkaun?", a: "Leadkaun is mobile-web first — works on any device, no app install. Performance on 3G is a design priority. Field reps prefer it." },
+        { q: "Will switching feel like a downgrade in UI?", a: "Leadkaun's UI is deliberately minimal, data-first, no distractions. It's different, not worse. Reps adapt in a week; managers notice better decision-making within the month." },
+        { q: "Freshsales has a mobile app. Does Leadkaun?", a: "Leadkaun is mobile-web first, works on any device, no app install. Performance on 3G is a design priority. Field reps prefer it." },
       ]}
       verdict={{
-        competitorWins: "Freshsales is a genuinely polished product — a clean, modern UI, built-in email and phone, and tight ties into the wider Freshworks suite like Freshdesk and Freshchat. For a team that wants one vendor across sales and support, with familiar CRM UX and pricing that is reasonable against global peers, it is a strong and mature choice.",
-        leadkaunWins: "Leadkaun wins where decisions get made rather than where the screen looks nicer. Its Fit, Intent and Quality scores are transparent and auditable, so managers can coach reps on why a lead ranks — something Freddy AI keeps opaque. Add the ₹-at-risk view, the auto-ranked Priority Queue and the morning brief, all calibrated for Indian B2B SMBs.",
+        competitorWins: "Freshsales is a genuinely polished product, a clean, modern UI, built-in email and phone, and tight ties into the wider Freshworks suite like Freshdesk and Freshchat. For a team that wants one vendor across sales and support, with familiar CRM UX and pricing that is reasonable against global peers, it is a strong and mature choice.",
+        leadkaunWins: "Leadkaun wins where decisions get made rather than where the screen looks nicer. Its Fit, Intent and Quality scores are transparent and auditable, so managers can coach reps on why a lead ranks, something Freddy AI keeps opaque. Add the ₹-at-risk view, the auto-ranked Priority Queue and the morning brief, all calibrated for Indian B2B SMBs.",
         bottomLine: "Pick Freshsales if you want one well-designed CRM spanning sales and support. Pick Leadkaun if your reps need transparent prioritisation and a daily ₹-at-risk view your CRM does not surface. Many teams keep Freshdesk or Freshchat and run Leadkaun alongside as the sales-behaviour layer.",
       }}
     />

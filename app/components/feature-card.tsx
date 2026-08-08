@@ -44,7 +44,7 @@ export function FeatureCard({
   const a = ACCENT[accent]
   const inner = (
     <>
-      {/* accent aura — blooms on hover */}
+      {/* accent aura blooms on hover */}
       <span
         aria-hidden
         className="hidden"

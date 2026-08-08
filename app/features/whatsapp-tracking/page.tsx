@@ -19,9 +19,9 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "WhatsApp Sales Tracking — 3 taps, any WhatsApp account",
+  title: "WhatsApp Sales Tracking 3 taps, any WhatsApp account",
   description:
-    "Most Indian B2B first-contact happens on WhatsApp. Leadkaun tracks every exchange in 3 taps — stage, intent, outcome — and feeds the Intent Score directly.",
+    "Most Indian B2B first-contact happens on WhatsApp. Leadkaun tracks every exchange in 3 taps, stage, intent, outcome, and feeds the Intent Score directly.",
   alternates: { canonical: "/features/whatsapp-tracking" },
 }
 
@@ -32,9 +32,9 @@ const TAPS = [
 ]
 
 const FAQ = [
-  { q: "Do I need WhatsApp Business API?", a: "No. 3-tap manual logging works with any WhatsApp account — regular WhatsApp, WhatsApp Business, whatever your reps are already using. That's the point." },
-  { q: "Can it auto-log WhatsApp messages?", a: "Not yet — auto-logging via a WhatsApp Business Service Provider (Gupshup, AiSensy, Interakt) is on our roadmap. Today, 3-tap manual logging works with any WhatsApp account and takes about 10 seconds per conversation, and that's what feeds the Intent Score." },
-  { q: "How long does logging take?", a: "About 10 seconds per exchange. Reps log after each meaningful reply — not every 'hi'. By the end of a morning of calls, logging is muscle memory." },
+  { q: "Do I need WhatsApp Business API?", a: "No. 3-tap manual logging works with any WhatsApp account, regular WhatsApp, WhatsApp Business, whatever your reps are already using. That's the point." },
+  { q: "Can it auto-log WhatsApp messages?", a: "Not yet, auto-logging via a WhatsApp Business Service Provider (Gupshup, AiSensy, Interakt) is on our roadmap. Today, 3-tap manual logging works with any WhatsApp account and takes about 10 seconds per conversation, and that's what feeds the Intent Score." },
+  { q: "How long does logging take?", a: "About 10 seconds per exchange. Reps log after each meaningful reply, not every 'hi'. By the end of a morning of calls, logging is muscle memory." },
   { q: "Does the manager see the message content?", a: "No. Only the aggregated signals (stage + intent + outcome) show up on the manager view. Per-rep WhatsApp activity counts show on the Rep Performance card. No message content without explicit permission." },
   { q: "What feeds the scoring engine?", a: "Intent tap directly: High = +10 pts Intent, Medium = +5, Low = 0, Negative = −10. Stage transitions are logged for reporting. A high-intent reply can push a Grade C lead to Grade A in real time." },
 ]
@@ -56,7 +56,7 @@ export default function WhatsAppTrackingPage() {
         <PageHero
           eyebrow={<><MessageSquare className="h-3 w-3" strokeWidth={2} /> WhatsApp Tracking</>}
           h1={<>WhatsApp is where half<br /><span className="hero-accent">your conversations live.</span></>}
-          sub="Most Indian B2B first-contact happens on WhatsApp. Most CRMs treat it as an integration. Leadkaun treats it as a first-class signal — three taps per exchange, works with any WhatsApp account."
+          sub="Most Indian B2B first-contact happens on WhatsApp. Most CRMs treat it as an integration. Leadkaun treats it as a first-class signal. Three taps per exchange, works with any WhatsApp account."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
         />
@@ -66,7 +66,7 @@ export default function WhatsAppTrackingPage() {
           <Container>
             <QuickAnswer
               question="How does Leadkaun track WhatsApp for sales?"
-              answer="Reps log each WhatsApp exchange in three taps — stage, intent, outcome — from any regular WhatsApp account, no Business API needed. That logged signal feeds the Intent Score in real time, so a high-intent reply can push a Grade C lead to Grade A in real time and move it up the Priority Queue."
+              answer="Reps log each WhatsApp exchange in three taps, stage, intent, outcome, from any regular WhatsApp account, no Business API needed. That logged signal feeds the Intent Score in real time, so a high-intent reply can push a Grade C lead to Grade A in real time and move it up the Priority Queue."
             />
           </Container>
         </SectionGround>
@@ -124,7 +124,7 @@ export default function WhatsAppTrackingPage() {
                 1st
               </p>
               <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                WhatsApp is the first channel most Indian B2B leads reach you on — before email, before phone. Any system that treats it as an afterthought misses the richest signal your team has.
+                WhatsApp is the first channel most Indian B2B leads reach you on, before email, before phone. Any system that treats it as an afterthought misses the richest signal your team has.
               </p>
             </FloatingCard></Reveal>
           </Container>

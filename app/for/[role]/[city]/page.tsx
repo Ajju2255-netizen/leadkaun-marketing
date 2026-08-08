@@ -142,14 +142,14 @@ export default async function RoleCityPage({ params }: Params) {
               </p>
               {r.featuresUsedMost.length > 0 && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  The modules a {r.title.toLowerCase()} leans on most: <strong className="text-ink font-semibold">{r.featuresUsedMost.join(", ")}</strong> — built for how {r.title.toLowerCase()}s in Indian B2B actually work, with WhatsApp as a first-class lead signal and ₹ figures in Indian formatting throughout.
+                  The modules a {r.title.toLowerCase()} leans on most: <strong className="text-ink font-semibold">{r.featuresUsedMost.join(", ")}</strong>, built for how {r.title.toLowerCase()}s in Indian B2B actually work, with WhatsApp as a first-class lead signal and ₹ figures in Indian formatting throughout.
                 </p>
               )}
             </FloatingCard></Reveal>
           </Container>
         </SectionGround>
 
-        {/* METHODOLOGY — how the grade is computed */}
+        {/* METHODOLOGY, how the grade is computed */}
         <MethodologyCard number={n.next()} ground="cream" industrySlug={fitIndustries[0]?.slug} />
 
         {fitIndustries[0] && (

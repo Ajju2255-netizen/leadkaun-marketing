@@ -17,27 +17,27 @@ import { Faq } from "@/app/components/faq"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "How Leadkaun Works — Lead Management From Enquiry to Deal",
+  title: "How Leadkaun Works, Lead Management From Enquiry to Deal",
   description:
     "See exactly how Leadkaun's scoring engine, priority queue, and missed opportunity engine work together to stop deals from dying. Built for Indian B2B sales teams.",
   alternates: { canonical: "/how-it-works" },
 }
 
 const STEPS = [
-  { step: "01", title: "Lead arrives. Any source.",                   body: "Import via CSV upload, manual entry, or a generic webhook — Indian phone formats auto-normalised, duplicates caught on insert, junk flagged before it hits a rep. Native Google Sheets sync, an IndiaMART API and a Facebook Lead Ads webhook are on the roadmap; today those sources come in via CSV export.", detail: "Sources: CSV · Manual · WhatsApp 3-tap · Webhook  (Google Sheets · IndiaMART · FB Lead Ads on roadmap)" },
+  { step: "01", title: "Lead arrives. Any source.",                   body: "Import via CSV upload, manual entry, or a generic webhook, Indian phone formats auto-normalised, duplicates caught on insert, junk flagged before it hits a rep. Native Google Sheets sync, an IndiaMART API and a Facebook Lead Ads webhook are on the roadmap; today those sources come in via CSV export.", detail: "Sources: CSV · Manual · WhatsApp 3-tap · Webhook  (Google Sheets · IndiaMART · FB Lead Ads on roadmap)" },
   { step: "02", title: "Scoring engine runs in real time.",         body: "Three scores computed in parallel: Fit (ICP match), Intent (source + signal events like WhatsApp reply or pricing-page visit), Quality (data completeness + junk detection). Combined into a single A–F grade with decay applied over time.", detail: "Grade A = Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60" },
-  { step: "03", title: "Next-best-action is assigned.",               body: "Based on grade, source, and behavioural signals, the system assigns one of Call Now, WhatsApp, Re-engage, or Nurture. Rep sees it as a single instruction — not a screen of buttons to choose from.", detail: "Action changes dynamically as signals come in" },
-  { step: "04", title: "Priority Queue updates live.",                body: "Rep opens the queue. Leads ranked by grade, overdue follow-ups, callback requests, and recency. No filtering, no guesswork. Log the outcome in three taps — call, WhatsApp, or result.", detail: "Queue refresh: every 30 seconds · Mobile-web parity" },
-  { step: "05", title: "Missed-Opportunity Engine fires daily.",      body: "At 9 AM IST the system surfaces every lead that has gone stale — with its rupee value attached. Manager sees per-rep accountability. Rep sees a recovery path. Not blame. Clarity.", detail: "Not reports. Action." },
-  { step: "06", title: "Morning Brief lands at 8:30 AM.",             body: "Every rep and manager gets a personalised daily brief — Grade A leads that need action today, ₹ at risk this week, and overdue follow-ups. The day starts with a plan, not a scroll through the inbox.", detail: "Delivered Mon – Sat · 8:30 AM IST · Email" },
+  { step: "03", title: "Next-best-action is assigned.",               body: "Based on grade, source, and behavioural signals, the system assigns one of Call Now, WhatsApp, Re-engage, or Nurture. Rep sees it as a single instruction, not a screen of buttons to choose from.", detail: "Action changes dynamically as signals come in" },
+  { step: "04", title: "Priority Queue updates live.",                body: "Rep opens the queue. Leads ranked by grade, overdue follow-ups, callback requests, and recency. No filtering, no guesswork. Log the outcome in three taps. Call, WhatsApp, or result.", detail: "Queue refresh: every 30 seconds · Mobile-web parity" },
+  { step: "05", title: "Missed-Opportunity Engine fires daily.",      body: "At 9 AM IST the system surfaces every lead that has gone stale, with its rupee value attached. Manager sees per-rep accountability. Rep sees a recovery path. Not blame. Clarity.", detail: "Not reports. Action." },
+  { step: "06", title: "Morning Brief lands at 8:30 AM.",             body: "Every rep and manager gets a personalised daily brief, Grade A leads that need action today, ₹ at risk this week, and overdue follow-ups. The day starts with a plan, not a scroll through the inbox.", detail: "Delivered Mon – Sat · 8:30 AM IST · Email" },
 ]
 
 const FAQ = [
-  { q: "What does a rep actually see at 8:30 AM?", a: "An email brief, then the Priority Queue. The brief lists the handful of Grade A leads to act on today, any follow-ups that have gone overdue, and the ₹ at risk this week. Opening the queue, those same leads are already ranked at the top — the rep works down the list and logs each outcome in three taps. No filtering, no deciding who to call first." },
+  { q: "What does a rep actually see at 8:30 AM?", a: "An email brief, then the Priority Queue. The brief lists the handful of Grade A leads to act on today, any follow-ups that have gone overdue, and the ₹ at risk this week. Opening the queue, those same leads are already ranked at the top. The rep works down the list and logs each outcome in three taps. No filtering, no deciding who to call first." },
   { q: "What does a manager see on Monday morning?", a: "Per-rep accountability in rupees, not activity counts. The Missed-Opportunity view shows which Grade A leads went stale under each rep and the ₹ value attached, so a review opens with 'these three deals worth ₹9L aged out last week' instead of 'how many calls did you make'. Coaching becomes specific and factual." },
   { q: "Do I have to configure anything to get started?", a: "No heavy setup. A short onboarding wizard captures your ICP (industries, states, business types, budget bands), you import a CSV of leads, and every lead is graded A–F the same day. Indian phone formats are normalised and duplicates caught on import automatically." },
-  { q: "How does the A–F grade get decided?", a: "Three transparent 0–100 scores — Fit (ICP match), Intent (source and signal events like a WhatsApp reply), and Quality (data completeness and junk detection) — combine into one grade. Grade A means Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60. Intent decays as a lead goes silent, so grades stay honest over time. The weights are fixed and auditable, not a black-box AI score." },
-  { q: "Does this replace my CRM?", a: "No — Leadkaun runs alongside your CRM. Your CRM stays the system of record for what happened; Leadkaun is the behaviour layer that decides what happens next — grading, prioritising, and surfacing the ₹ at risk. Most teams import a CSV and run both in parallel to measure the difference before changing anything." },
+  { q: "How does the A–F grade get decided?", a: "Three transparent 0–100 scores, Fit (ICP match), Intent (source and signal events like a WhatsApp reply), and Quality (data completeness and junk detection), combine into one grade. Grade A means Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60. Intent decays as a lead goes silent, so grades stay honest over time. The weights are fixed and auditable, not a black-box AI score." },
+  { q: "Does this replace my CRM?", a: "No. Leadkaun runs alongside your CRM. Your CRM stays the system of record for what happened; Leadkaun is the behaviour layer that decides what happens next, grading, prioritising, and surfacing the ₹ at risk. Most teams import a CSV and run both in parallel to measure the difference before changing anything." },
 ]
 
 export default function HowItWorksPage() {
@@ -174,7 +174,7 @@ export default function HowItWorksPage() {
       <ProductBlock
         ground="sky"
         title={<>See the system behind the six steps.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the working screen your team opens every morning."
+        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees, the working screen your team opens every morning."
       />
 
       <CTABanner />

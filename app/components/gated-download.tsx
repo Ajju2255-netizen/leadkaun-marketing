@@ -45,7 +45,7 @@ export function GatedDownload({
     return (
       <div className="flex flex-col gap-3">
         <p className="inline-flex items-center gap-2 text-[14px] font-semibold text-ink">
-          <CheckCircle2 className="h-5 w-5 text-emerald-500" strokeWidth={2} /> Unlocked — here's your {type}.
+          <CheckCircle2 className="h-5 w-5 text-emerald-500" strokeWidth={2} /> Unlocked here's your {type}.
         </p>
         <GlossLink variant="primary" size="md" href={downloadUrl} target="_blank" rel="noreferrer" download>
           <Download className="h-4 w-4" /> Download the {type}

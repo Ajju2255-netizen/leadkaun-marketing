@@ -77,7 +77,7 @@ export function MissedRevenueCalculator() {
           <Field label="Uplift from faster follow-up" value={uplift} onChange={setUplift} min={0} max={20} step={1} suffix=" pts" />
         </div>
         <p className="mt-6 text-[12px] leading-[1.6] text-ink-muted">
-          Set the extra conversion points you&apos;d expect from calling every hot lead inside its window — you control
+          Set the extra conversion points you&apos;d expect from calling every hot lead inside its window, you control
           the assumption; nothing is baked in.
         </p>
       </div>
@@ -113,7 +113,7 @@ export function MissedRevenueCalculator() {
           className="mt-7 inline-flex items-center justify-center rounded-full px-6 py-3 text-[14px] font-semibold text-white transition-transform hover:scale-[1.02]"
           style={{ background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 20px rgba(14,165,233,0.32)" }}
         >
-          Stop the leak — start free
+          Stop the leak, start free
         </a>
       </div>
     </div>

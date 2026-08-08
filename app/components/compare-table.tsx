@@ -34,7 +34,7 @@ export function CompareTable({
         className
       )}
     >
-      {/* Header row — dual band */}
+      {/* Header row, dual band */}
       <div className="grid grid-cols-2"
            style={{ borderBottom: "1px solid var(--hairline-strong)" }}>
         <div
@@ -60,7 +60,7 @@ export function CompareTable({
         {rows.map((r, i) => (
           <div key={i} className="grid grid-cols-2"
                style={{ borderColor: "var(--hairline)" }}>
-            {/* Left — desaturated */}
+            {/* Left, desaturated */}
             <div
               className="flex items-start gap-3 px-6 py-5 md:px-8"
               style={{ borderRight: "1px solid var(--hairline)" }}
@@ -75,7 +75,7 @@ export function CompareTable({
                 {r.left}
               </span>
             </div>
-            {/* Right — Leadkaun */}
+            {/* Right, Leadkaun */}
             <div
               className="relative flex items-start gap-3 px-6 py-5 md:px-8"
               style={{

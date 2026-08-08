@@ -32,7 +32,7 @@ export function MethodologyCard({
             How every {contextLabel ? `${contextLabel} ` : ""}lead is graded A–F.
           </h2>
           <p className="mt-4 max-w-2xl text-[16px] leading-[1.55] text-ink-soft">
-            No black box. Each grade is three transparent 0–100 scores combined against fixed, auditable thresholds — and stale leads surface as ₹ at risk before they go cold.
+            No black box. Each grade is three transparent 0–100 scores combined against fixed, auditable thresholds, and stale leads surface as ₹ at risk before they go cold.
           </p>
         </Reveal>
 

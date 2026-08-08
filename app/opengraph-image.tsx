@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "Leadkaun — India's Sales Behaviour OS"
+export const alt = "Leadkaun India's Sales Behaviour OS"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -51,7 +51,7 @@ export default async function OGImage() {
           }}
         />
 
-        {/* Header — mark + wordmark */}
+        {/* Header, mark + wordmark */}
         <div style={{ display: "flex", alignItems: "center", gap: 18, zIndex: 1 }}>
           <svg width="76" height="76" viewBox="0 0 100 100">
             <defs>

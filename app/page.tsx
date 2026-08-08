@@ -13,10 +13,10 @@ import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 export const metadata: Metadata = {
   title: { absolute: "Lead Management Software for Indian B2B Sales Teams | Leadkaun" },
   description:
-    "Leadkaun is lead management software for Indian B2B teams — grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in ₹. Lead scoring, lead tracking and sales CRM in one place. Runs alongside your CRM. Start free.",
+    "Leadkaun is lead management software for Indian B2B teams, grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in ₹. Lead scoring, lead tracking and sales CRM in one place. Runs alongside your CRM. Start free.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Leadkaun — Lead Management Software for Indian B2B Teams",
+    title: "Leadkaun, Lead Management Software for Indian B2B Teams",
     description:
       "Grade every lead A–F, work a live Priority Queue, and recover missed revenue in ₹. Lead management and lead tracking software that tells reps who to call next. Start free.",
     url: "/",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   HOMEPAGE — "THE LEDGER"
+   HOMEPAGE, "THE LEDGER"
 
    The product decides an ORDER: who a rep calls next, ranked A–F, with the
-   rupees at stake. Its native artefact is a register — so the page is built as
+   rupees at stake. Its native artefact is a register, so the page is built as
    one: display serif for authority, monospace for every figure, hairline rules,
    and the grade chip repeating from hero to close.
 
@@ -49,7 +49,7 @@ function Grade({ g }: { g: string }) {
 }
 
 /* Rank, name, grade, why it sits there, rupees at stake. Illustrative of the
-   mechanism — no customer is named and no outcome is claimed. */
+   mechanism. No customer is named and no outcome is claimed. */
 const QUEUE = [
   { rank: "01", who: "Sharma Textiles",    city: "Surat",     g: "A", why: "Replied on WhatsApp · 14 min ago", val: "₹ 6,40,000" },
   { rank: "02", who: "Meridian Interiors", city: "Bengaluru", g: "A", why: "Asked for pricing · 2 h ago",      val: "₹ 4,10,000" },
@@ -72,12 +72,12 @@ const BREAKS = [
   {
     n: "03",
     head: "Monday review argues about effort",
-    body: "Activity reports count calls, so the meeting becomes a debate about how hard people worked. The question worth asking — did we call the right leads first — is not on the sheet.",
+    body: "Activity reports count calls, so the meeting becomes a debate about how hard people worked. The question worth asking did we call the right leads first, is not on the sheet.",
   },
 ]
 
 const MOVES = [
-  { k: "Grade",   t: "Every lead scored the moment it lands", d: "Three independent 0–100 reads — Fit against the customer profile you set, Intent from live signals, Quality from whether the record can be trusted — combine into one letter." },
+  { k: "Grade",   t: "Every lead scored the moment it lands", d: "Three independent 0–100 reads, Fit against the customer profile you set, Intent from live signals, Quality from whether the record can be trusted, combine into one letter." },
   { k: "Rank",    t: "One list per rep, re-ordering itself",  d: "The queue re-ranks as signals arrive and sinks leads whose intent has decayed. A rep opens it and works top-down. There is no triage step." },
   { k: "Recover", t: "The money still on the table, in ₹",    d: "Stale leads carry a rupee value and roll up daily, so a manager opens the morning on a number rather than a feeling." },
 ]
@@ -85,7 +85,7 @@ const MOVES = [
 /* The published mechanism — the site's strongest first-party evidence, because
    committing to fixed weights is something competitors do not do. */
 const SCORES = [
-  { tag: "Fit",     range: "0–100", body: "Industry, state, business type, decision-maker role and budget band — the profile you configure." },
+  { tag: "Fit",     range: "0–100", body: "Industry, state, business type, decision-maker role and budget band, the profile you configure." },
   { tag: "Intent",  range: "0–100", body: "Source strength plus signal events. Decays as a lead goes quiet, floored at where it started." },
   { tag: "Quality", range: "0–100", body: "Phone and email validity, completeness, duplicates. Caps the grade rather than averaging into it." },
 ]
@@ -131,11 +131,11 @@ const TIERS = [
 ]
 
 const HOME_FAQ = [
-  { q: "How is Leadkaun different from a CRM?", a: "A CRM records what happened. Leadkaun decides what happens next — grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. It runs alongside your CRM rather than replacing it, and most teams keep both." },
-  { q: "How long does setup take?", a: "You can go live the same day — from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP defaults across a range of Indian B2B verticals, so you do not need to define your customer profile from scratch." },
-  { q: "Do I need to import all my historical leads?", a: "No — and we recommend you do not. Import only the live leads, roughly the last 90 days of activity. Stale data pollutes the grade distribution, and Leadkaun will tell you what is in a file before you import it." },
-  { q: "Does it handle WhatsApp?", a: "As a first-class signal. Reps open the chat from Leadkaun, have the conversation in their own WhatsApp, then record the outcome in a few taps — which feeds the Intent Score. It is manual capture rather than a Business API integration, and we would rather say so plainly." },
-  { q: "What happens if a rep leaves?", a: "Ownership transfers with the history intact — lead records, logged conversations and follow-up schedules move to the new owner. The pipeline does not leave with the person." },
+  { q: "How is Leadkaun different from a CRM?", a: "A CRM records what happened. Leadkaun decides what happens next, grading every lead, building a Priority Queue that re-ranks in real time, and surfacing missed revenue in rupees. It runs alongside your CRM rather than replacing it, and most teams keep both." },
+  { q: "How long does setup take?", a: "You can go live the same day, from signup to your first Grade A lead in the queue. The onboarding wizard uses pre-configured ICP defaults across a range of Indian B2B verticals, so you do not need to define your customer profile from scratch." },
+  { q: "Do I need to import all my historical leads?", a: "No, and we recommend you do not. Import only the live leads, roughly the last 90 days of activity. Stale data pollutes the grade distribution, and Leadkaun will tell you what is in a file before you import it." },
+  { q: "Does it handle WhatsApp?", a: "As a first-class signal. Reps open the chat from Leadkaun, have the conversation in their own WhatsApp, then record the outcome in a few taps, which feeds the Intent Score. It is manual capture rather than a Business API integration, and we would rather say so plainly." },
+  { q: "What happens if a rep leaves?", a: "Ownership transfers with the history intact, lead records, logged conversations and follow-up schedules move to the new owner. The pipeline does not leave with the person." },
   { q: "Can I see why a lead's grade changed?", a: "Yes. Every score change is written to an append-only timeline with the grade, confidence and all three sub-scores frozen at that moment, so a drop traces back to the event that caused it rather than looking like a glitch." },
 ]
 
@@ -163,7 +163,7 @@ export default function HomePage() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   HERO — ink anchor. The ledger IS the hero image.
+   HERO, ink anchor. The ledger IS the hero image.
    ───────────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
@@ -192,7 +192,7 @@ function Hero() {
 
             <p className="mt-8 max-w-xl text-[17px] leading-[1.7] text-ink-soft md:text-[18px]">
               Leadkaun grades every lead A–F, ranks one queue per rep, and prices the revenue
-              going cold — so the next call is decided before anyone opens a screen. It runs
+              going cold, so the next call is decided before anyone opens a screen. It runs
               alongside the CRM you already have.
             </p>
 
@@ -219,7 +219,7 @@ function Hero() {
             </ul>
           </div>
 
-          {/* The queue panel — the product's actual artefact, on white */}
+          {/* The queue panel, the product's actual artefact, on white */}
           <div className="rise" style={{ animationDelay: "180ms" }}>
             <div className="overflow-hidden rounded-2xl border bg-white rule-paper" style={{ boxShadow: "0 24px 60px -28px rgba(15,23,42,0.22)" }}>
               <div className="flex items-center justify-between border-b px-5 py-3.5 rule-paper" style={{ background: "var(--paper)" }}>
@@ -274,7 +274,7 @@ function Hero() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   THESIS — one oversized claim on paper. Breathing room after the ink.
+   THESIS, one oversized claim on paper. Breathing room after the ink.
    ───────────────────────────────────────────────────────────────────────── */
 function Thesis() {
   return (
@@ -299,7 +299,7 @@ function Thesis() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   WHAT BREAKS — ledger rows, not cards. Numbered, ruled, asymmetric.
+   WHAT BREAKS, ledger rows, not cards. Numbered, ruled, asymmetric.
    ───────────────────────────────────────────────────────────────────────── */
 function WhatBreaks() {
   return (
@@ -329,7 +329,7 @@ function WhatBreaks() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   THREE MOVES — what the product does, in the order it does it.
+   THREE MOVES, what the product does, in the order it does it.
    ───────────────────────────────────────────────────────────────────────── */
 function ThreeMoves() {
   return (
@@ -357,7 +357,7 @@ function ThreeMoves() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   THE GRADE — publish the mechanism. Competitors structurally cannot copy
+   THE GRADE, publish the mechanism. Competitors structurally cannot copy
    this, because doing so means committing to fixed weights.
    ───────────────────────────────────────────────────────────────────────── */
 function TheGrade() {
@@ -372,7 +372,7 @@ function TheGrade() {
             </h2>
             <p className="mt-6 max-w-lg text-[16px] leading-[1.7] text-ink-soft">
               A grade a rep cannot interrogate is a grade a rep ignores. So the thresholds are
-              fixed, identical for every account, and printed here — which means two managers
+              fixed, identical for every account, and printed here, which means two managers
               comparing notes are reading the same scale.
             </p>
             <Link href="/methodology" className="mt-7 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-sky-600 hover:text-sky-500">
@@ -420,7 +420,7 @@ function TheGrade() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   MODULES — a ledger index, not a card grid.
+   MODULES, a ledger index, not a card grid.
    ───────────────────────────────────────────────────────────────────────── */
 function Modules() {
   return (
@@ -459,7 +459,7 @@ function Modules() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   ALONGSIDE — replaces the old anti-CRM block, which contradicted
+   ALONGSIDE replaces the old anti-CRM block, which contradicted
    the positioning and repelled the sales-CRM queries the site targets.
    ───────────────────────────────────────────────────────────────────────── */
 function Alongside() {
@@ -572,7 +572,7 @@ function FaqBlock() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   CLOSE — the second ink anchor, bracketing the page against the hero.
+   CLOSE, the second ink anchor, bracketing the page against the hero.
    ───────────────────────────────────────────────────────────────────────── */
 function CloseBand() {
   return (

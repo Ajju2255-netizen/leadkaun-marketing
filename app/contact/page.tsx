@@ -17,7 +17,7 @@ import { APP_URLS } from "@/lib/urls"
 import { ContactForm } from "@/app/components/contact-form"
 
 export const metadata: Metadata = {
-  title: "Contact Leadkaun — Sales, Support & Partnerships",
+  title: "Contact Leadkaun Sales, Support & Partnerships",
   description:
     "Reach the Leadkaun team for sales questions, product support, or partnership enquiries. We respond within 4 business hours on WhatsApp or email.",
   alternates: { canonical: "/contact" },

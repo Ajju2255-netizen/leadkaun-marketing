@@ -30,7 +30,7 @@ export const MODULES: readonly SpineModule[] = [
   },
   {
     key: "priority-queue", tag: "Queue", title: "Priority Queue",
-    description: "One ranked list per rep. Re-ranks live as signals arrive — so the rep just works top-down.",
+    description: "One ranked list per rep. Re-ranks live as signals arrive, so the rep just works top-down.",
     href: "/features/priority-queue",
     affinity: ["real-estate", "edtech", "bfsi", "healthcare", "retail"],
   },
@@ -54,7 +54,7 @@ export const MODULES: readonly SpineModule[] = [
   },
   {
     key: "sales-rep-tracking", tag: "Team", title: "Sales Rep Tracking",
-    description: "Per-rep ₹ recovered, Grade A response time, follow-up completion — without micromanagement.",
+    description: "Per-rep ₹ recovered, Grade A response time, follow-up completion, without micromanagement.",
     href: "/features/sales-rep-tracking",
     affinity: ["agencies", "saas", "logistics", "manufacturing", "fintech"],
   },
@@ -69,10 +69,10 @@ export const MODULES: readonly SpineModule[] = [
  * site is trying to win.
  */
 export const ALONGSIDE_ROWS: readonly { left: string; right: string }[] = [
-  { left: "Records the number of calls your reps made this week.", right: "Surfaces ₹ at risk per rep, per week — money, not activity." },
-  { left: "Lead scoring is a single black-box number.", right: "Three transparent scores: Fit, Intent, Quality — auditable weights." },
+  { left: "Records the number of calls your reps made this week.", right: "Surfaces ₹ at risk per rep, per week, money, not activity." },
+  { left: "Lead scoring is a single black-box number.", right: "Three transparent scores: Fit, Intent, Quality, auditable weights." },
   { left: "Grade A leads age out silently. Nobody notices.", right: "Intent decay auto-drops stale leads. The queue stays honest." },
-  { left: "Priority decided by rep gut feel or recency.", right: "Priority Queue re-ranks live — rep works top-down, no triage." },
+  { left: "Priority decided by rep gut feel or recency.", right: "Priority Queue re-ranks live, rep works top-down, no triage." },
   { left: "First contact happens on WhatsApp and never gets recorded.", right: "WhatsApp is a first-class signal. 3-tap logging feeds scoring." },
   { left: "Monday reviews are activity debates.", right: "Monday reviews open with ₹ at risk per rep. Coaching is specific." },
 ]

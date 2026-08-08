@@ -230,7 +230,7 @@ export default async function HowToPage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "From playbook to automation" }}
           headline="Want this running automatically?"
-          sub="Leadkaun automates the workflow above the same day — no spreadsheet maintenance, no manual updates, no ops overhead."
+          sub="Leadkaun automates the workflow above the same day, no spreadsheet maintenance, no manual updates, no ops overhead."
         />
         <Footer />
       </main>

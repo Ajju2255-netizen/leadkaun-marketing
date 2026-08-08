@@ -22,9 +22,9 @@ type ResourceEntry = {
 }
 
 export const metadata: Metadata = {
-  title: "Leadkaun Resources — Calculators, Templates, Guides for Indian Sales Teams",
+  title: "Leadkaun Resources Calculators, Templates, Guides for Indian Sales Teams",
   description:
-    "Free calculators, Google Sheet templates, checklists, and frameworks for Indian B2B sales — lead scoring, Morning Brief, ICP definition, ₹ at risk, CRM migration.",
+    "Free calculators, Google Sheet templates, checklists, and frameworks for Indian B2B sales, lead scoring, Morning Brief, ICP definition, ₹ at risk, CRM migration.",
   alternates: { canonical: "/resources" },
 }
 
@@ -57,7 +57,7 @@ export default async function ResourcesHubPage() {
       <PageHero
         eyebrow={`${RESOURCES.length} free resources`}
         h1={<>Sales resources you can <span className="hero-accent">use today.</span></>}
-        sub="Calculators, Google Sheet templates, checklists, and frameworks to help Indian founders and sales managers build better lead systems — with or without Leadkaun. All free. No gating."
+        sub="Calculators, Google Sheet templates, checklists, and frameworks to help Indian founders and sales managers build better lead systems, with or without Leadkaun. All free. No gating."
         center={false}
         primary={undefined}
         meta={
@@ -113,7 +113,7 @@ export default async function ResourcesHubPage() {
       <CTABanner
         tag={{ number: "→", label: "Skip the manual version" }}
         headline="Or just let Leadkaun run it."
-        sub="Everything these resources teach you to build by hand, Leadkaun automates the same day. Scoring, Priority Queue, Morning Brief, ₹ at risk — no spreadsheet maintenance."
+        sub="Everything these resources teach you to build by hand, Leadkaun automates the same day. Scoring, Priority Queue, Morning Brief, ₹ at risk, no spreadsheet maintenance."
       />
       <Footer />
     </main>

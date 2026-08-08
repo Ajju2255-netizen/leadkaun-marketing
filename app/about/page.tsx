@@ -14,7 +14,7 @@ import { Reveal } from "@/app/components/reveal"
 import { breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "About Leadkaun — Built for Indian Sales Teams, Not Silicon Valley",
+  title: "About Leadkaun, Built for Indian Sales Teams, Not Silicon Valley",
   description:
     "Leadkaun was built to solve a specific Indian sales problem: leads going cold, reps working in the wrong order, and managers flying blind on missed ₹.",
   alternates: { canonical: "/about" },
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   {
     title: "India-first, always.",
-    desc: "INR pricing, IST cadence, Indian phone handling, Indian B2B cycles. Not a US product localised for India — built here, for how sales actually runs.",
+    desc: "INR pricing, IST cadence, Indian phone handling, Indian B2B cycles. Not a US product localised for India, built here, for how sales actually runs.",
   },
   {
     title: "Reps use it. Managers trust it.",
-    desc: "A tool reps skip is a tool that fails. We obsess over rep adoption as much as manager analytics — because the dashboards are only as good as what the rep logged at 6:47 PM.",
+    desc: "A tool reps skip is a tool that fails. We obsess over rep adoption as much as manager analytics, because the dashboards are only as good as what the rep logged at 6:47 PM.",
   },
   {
     title: "Rupees over activity.",
-    desc: "We don't count calls. We surface recovery. Every number in Leadkaun rolls up to ₹ — the one metric that decides whether your Friday review feels like progress or cope.",
+    desc: "We don't count calls. We surface recovery. Every number in Leadkaun rolls up to ₹. The one metric that decides whether your Friday review feels like progress or cope.",
   },
 ]
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
             </span>
           </>
         }
-        sub="Most CRM software is designed in the US for US sales teams. Leadkaun is different. Every decision is grounded in how Indian B2B actually runs — WhatsApp as a first-class signal, paid leads from IndiaMART and housing portals, high volume, manual follow-ups, and managers who need ₹ accountability instead of another dashboard."
+        sub="Most CRM software is designed in the US for US sales teams. Leadkaun is different. Every decision is grounded in how Indian B2B actually runs, WhatsApp as a first-class signal, paid leads from IndiaMART and housing portals, high volume, manual follow-ups, and managers who need ₹ accountability instead of another dashboard."
         center={false}
         primary={undefined}
       />
@@ -64,12 +64,12 @@ export default function AboutPage() {
           <Reveal><MetricStrip
             items={[
               { value: "A–F",      label: "Every lead graded, in real time" },
-              { value: "3 scores", label: "Fit, Intent, Quality — weights published" },
+              { value: "3 scores", label: "Fit, Intent, Quality weights published" },
               { value: "same day", label: "Setup to first scored lead" },
               { value: "A–F",      label: "Every lead graded, in real time" },
             ]}
           /></Reveal>
-          <p className="mt-4 text-center font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-muted">Illustrative model — not customer results</p>
+          <p className="mt-4 text-center font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-muted">Illustrative model, not customer results</p>
         </Container>
       </SectionGround>
 
@@ -86,8 +86,8 @@ export default function AboutPage() {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mt-8 p-8 md:p-10">
               <div className="space-y-6 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">
                 <p>
-                  We kept watching the same scene. A manager pays thousands a month for leads — Facebook, IndiaMART,
-                  housing portals, 99acres, Google — and half of them die between the form submission and the
+                  We kept watching the same scene. A manager pays thousands a month for leads, Facebook, IndiaMART,
+                  housing portals, 99acres, Google, and half of them die between the form submission and the
                   third follow-up. Not because the reps were lazy. Because nothing in their stack told them{" "}
                   <em className="text-ink not-italic font-semibold">who to call first</em>.
                 </p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
                   called in 3 days.&quot;</em> That number changes behaviour. That's what Leadkaun was built to surface.
                 </p>
                 <p>
-                  We call the category <strong className="text-ink font-semibold">Sales Behaviour OS</strong> — a layer that
+                  We call the category <strong className="text-ink font-semibold">Sales Behaviour OS</strong>, a layer that
                   runs alongside your CRM and tells your team what to do next. The CRM
                   remembers. Leadkaun acts.
                 </p>
@@ -155,7 +155,7 @@ export default function AboutPage() {
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.65] text-ink-soft">
               We're not trying to build the world's most feature-complete CRM. We're trying to build the one tool
-              that changes what happens to a lead in the first six hours after it comes in — because that's where
+              that changes what happens to a lead in the first six hours after it comes in, because that's where
               Indian B2B revenue actually leaks.
             </p>
             <p className="mt-6">

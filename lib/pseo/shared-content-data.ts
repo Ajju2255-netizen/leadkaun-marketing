@@ -21,7 +21,7 @@ export type Reference =
 export const SHARED_FAQS: readonly Faq[] = [
   {
     q: "Does Leadkaun replace my CRM?",
-    a: "No — Leadkaun runs alongside your CRM. Your CRM stays the system of record for what happened; Leadkaun is the behaviour layer that decides what happens next — grading every lead A–F, ranking each rep's Priority Queue, and surfacing the ₹ at risk. Most teams import a CSV and run both in parallel to measure the difference first.",
+    a: "No. Leadkaun runs alongside your CRM. Your CRM stays the system of record for what happened; Leadkaun is the behaviour layer that decides what happens next, grading every lead A–F, ranking each rep's Priority Queue, and surfacing the ₹ at risk. Most teams import a CSV and run both in parallel to measure the difference first.",
   },
   {
     q: "How much does Leadkaun cost?",
@@ -29,19 +29,19 @@ export const SHARED_FAQS: readonly Faq[] = [
   },
   {
     q: "How does the A–F grade get decided?",
-    a: "Three transparent 0–100 scores — Fit (how well the lead matches the ICP you set), Intent (engagement and signal events), and Quality (data reliability) — combine into a single A–F grade. Intent decays as a lead goes silent, and the weights are fixed and auditable for every account, so a rep can always see exactly why a lead is Grade A.",
+    a: "Three transparent 0–100 scores, Fit (how well the lead matches the ICP you set), Intent (engagement and signal events), and Quality (data reliability), combine into a single A–F grade. Intent decays as a lead goes silent, and the weights are fixed and auditable for every account, so a rep can always see exactly why a lead is Grade A.",
   },
   {
     q: "Does it work with WhatsApp?",
-    a: "Yes — WhatsApp is a first-class signal. Reps log each exchange in three taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score. Automated sending via a BSP is on the roadmap; today the logging is manual.",
+    a: "Yes. WhatsApp is a first-class signal. Reps log each exchange in three taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score. Automated sending via a BSP is on the roadmap; today the logging is manual.",
   },
   {
     q: "How do leads get into Leadkaun?",
-    a: "CSV import or manual entry today, plus a generic webhook — Indian phone formats are normalised and duplicates caught on insert. Native Google Sheets sync and IndiaMART / Facebook Lead Ads connectors are on the roadmap; for now those sources come in via CSV export. Every lead is graded A–F the moment it lands.",
+    a: "CSV import or manual entry today, plus a generic webhook. Indian phone formats are normalised and duplicates caught on insert. Native Google Sheets sync and IndiaMART / Facebook Lead Ads connectors are on the roadmap; for now those sources come in via CSV export. Every lead is graded A–F the moment it lands.",
   },
   {
     q: "How long does it take to get started?",
-    a: "You can be set up the same day. A short onboarding wizard captures your ICP — industries, states, business types, decision-maker roles and budget bands — then you import a CSV and every lead is graded A–F immediately. No implementation project, no dedicated admin.",
+    a: "You can be set up the same day. A short onboarding wizard captures your ICP industries, states, business types, decision-maker roles and budget bands, then you import a CSV and every lead is graded A–F immediately. No implementation project, no dedicated admin.",
   },
   {
     q: "Do I pay extra for each sales rep?",
@@ -64,29 +64,29 @@ export const SCORING_DIMENSIONS: ReadonlyArray<{ tag: string; range: string; bod
   {
     tag: "Fit",
     range: "0–100",
-    body: "How closely the lead matches the ICP you set — industry, state, business type, decision-maker role and budget band. This is the part you shape: you configure who a good customer is, not the maths behind it.",
+    body: "How closely the lead matches the ICP you set, industry, state, business type, decision-maker role and budget band. This is the part you shape: you configure who a good customer is, not the maths behind it.",
   },
   {
     tag: "Intent",
     range: "0–100",
-    body: "Engagement and signal events — source strength, WhatsApp replies, pricing-page visits, callbacks. Intent decays as a lead goes silent, so a hot lead that stops responding cools automatically instead of sitting falsely high.",
+    body: "Engagement and signal events, source strength, WhatsApp replies, pricing-page visits, callbacks. Intent decays as a lead goes silent, so a hot lead that stops responding cools automatically instead of sitting falsely high.",
   },
   {
     tag: "Quality",
     range: "0–100",
-    body: "Data reliability — completeness, phone and email validity, junk and duplicate detection. If Quality is too low the lead is capped down the grades, so bad data can never masquerade as a good lead.",
+    body: "Data reliability, completeness, phone and email validity, junk and duplicate detection. If Quality is too low the lead is capped down the grades, so bad data can never masquerade as a good lead.",
   },
 ]
 
-export const GRADE_A_THRESHOLD = "A lead is Grade A when Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60 — the rest step down through B–F on the same fixed cut-offs. Because the weights are identical for every account, the grade stays explainable and comparable: no per-customer tuning, no hidden model."
+export const GRADE_A_THRESHOLD = "A lead is Grade A when Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60, the rest step down through B–F on the same fixed cut-offs. Because the weights are identical for every account, the grade stays explainable and comparable: no per-customer tuning, no hidden model."
 
 /** Sources / further-reading — internal links + named public benchmarks (E-E-A-T). */
 
 export const REFERENCES: readonly Reference[] = [
   { kind: "internal", label: "Indian B2B sales lead benchmarks (2026)", href: "/research/indian-b2b-sales-lead-benchmarks-2026", note: "Our own benchmark on how fast Indian B2B teams respond and where revenue leaks." },
-  { kind: "internal", label: "How lead scoring works", href: "/learn/lead-scoring", note: "The full A–F methodology — Fit, Intent and Quality explained." },
-  { kind: "external", label: "Harvard Business Review — The Short Life of Online Sales Leads", note: "Firms are far more likely to qualify a lead when they respond within the hour; average response times run much longer." },
-  { kind: "external", label: "Salesforce — State of Sales", note: "Reps spend only a minority of the week actually selling; the rest goes to admin and triage." },
+  { kind: "internal", label: "How lead scoring works", href: "/learn/lead-scoring", note: "The full A–F methodology, Fit, Intent and Quality explained." },
+  { kind: "external", label: "Harvard Business Review, The Short Life of Online Sales Leads", note: "Firms are far more likely to qualify a lead when they respond within the hour; average response times run much longer." },
+  { kind: "external", label: "Salesforce, State of Sales", note: "Reps spend only a minority of the week actually selling; the rest goes to admin and triage." },
 ]
 
 
@@ -100,15 +100,15 @@ export const REFERENCES: readonly Reference[] = [
  * the vocabulary of one industry.
  */
 export const FIT_WORKED_EXAMPLE: Record<string, string> = {
-  "real-estate": "For a real-estate desk, Fit is mostly budget band and locality against your project mix — a ₹2 crore enquiry for a project you don't sell scores low on Fit however keen the buyer sounds.",
+  "real-estate": "For a real-estate desk, Fit is mostly budget band and locality against your project mix, a ₹2 crore enquiry for a project you don't sell scores low on Fit however keen the buyer sounds.",
   edtech: "For admissions, Fit is programme match and the decision-maker: a parent enquiring for a course you run scores differently from a student browsing three institutes.",
-  bfsi: "In BFSI, Fit turns on product line and eligibility band — a motor enquiry reaching a health desk is a Fit problem, not an effort problem.",
+  bfsi: "In BFSI, Fit turns on product line and eligibility band, a motor enquiry reaching a health desk is a Fit problem, not an effort problem.",
   manufacturing: "In manufacturing, Fit is order size against your minimum run and whether the buyer's sector is one you already tool for.",
-  healthcare: "For healthcare, Fit is procedure match and catchment — an out-of-area enquiry for a service you offer scores lower than a local one.",
-  saas: "For SaaS, Fit is company size, sector and the seniority of whoever filled the form — a founder and an intern do not score the same.",
+  healthcare: "For healthcare, Fit is procedure match and catchment, an out-of-area enquiry for a service you offer scores lower than a local one.",
+  saas: "For SaaS, Fit is company size, sector and the seniority of whoever filled the form, a founder and an intern do not score the same.",
   agencies: "For an agency, Fit is retainer band and vertical: a monthly budget below your floor caps the grade regardless of enthusiasm.",
-  retail: "In B2B retail, Fit is order volume and whether the buyer is a dealer, distributor or one-off — repeat-order potential is the signal.",
+  retail: "In B2B retail, Fit is order volume and whether the buyer is a dealer, distributor or one-off, repeat-order potential is the signal.",
   logistics: "In logistics, Fit is lane match and shipment frequency; a one-off consignment on a lane you don't run scores low.",
   hospitality: "For hospitality, Fit is event size and date fit against inventory you actually have.",
-  fintech: "In fintech, Fit is ticket size and regulatory segment — an enquiry outside the segment you're licensed for cannot convert regardless of intent.",
+  fintech: "In fintech, Fit is ticket size and regulatory segment, an enquiry outside the segment you're licensed for cannot convert regardless of intent.",
 }

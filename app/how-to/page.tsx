@@ -48,7 +48,7 @@ export default async function HowToIndexPage() {
       <PageHero
         eyebrow={`${HOW_TOS.length} guides · ${categories.length} categories`}
         h1={<>Step-by-step <span className="hero-accent">playbooks.</span></>}
-        sub="Field-tested workflows for Indian B2B sales — lead scoring rollouts, Priority Queue rituals, Morning Brief cadences, WhatsApp logging, CRM migration. Every guide ends with a live checklist your team can run on Monday."
+        sub="Field-tested workflows for Indian B2B sales, lead scoring rollouts, Priority Queue rituals, Morning Brief cadences, WhatsApp logging, CRM migration. Every guide ends with a live checklist your team can run on Monday."
         center={false}
         primary={undefined}
         meta={

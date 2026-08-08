@@ -170,7 +170,7 @@ export function PricingPlans() {
           const annualNote =
             billing === "annual"
               ? `${inr(p.annual)} billed yearly · save 17%`
-              : `or ${inr(p.annual)}/yr — save 17%`
+              : `or ${inr(p.annual)}/yr, save 17%`
           return (
             <PricingTier
               key={p.name}
@@ -203,7 +203,7 @@ export function PricingPlans() {
             </span>
           </div>
           <p className="mt-1.5 text-[14px] leading-snug text-ink-soft">
-            Unlimited everything — users, workspaces and leads — on dedicated infrastructure, with
+            Unlimited everything users, workspaces and leads, on dedicated infrastructure, with
             custom AI models, private cloud, SSO, a custom SLA and a dedicated CSM.
           </p>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
@@ -230,7 +230,7 @@ export function PricingPlans() {
       </div>
 
       <p className="mt-6 text-center text-[13px] text-ink-muted">
-        Prices in ₹, GST-compliant invoices. Upgrade, downgrade or cancel anytime — billing adjusts
+        Prices in ₹, GST-compliant invoices. Upgrade, downgrade or cancel anytime, billing adjusts
         pro-rata.
       </p>
     </div>

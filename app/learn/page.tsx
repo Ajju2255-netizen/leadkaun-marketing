@@ -14,7 +14,7 @@ import { getPillars } from "@/lib/pseo/lookup"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Learn — Complete Guides to Sales Behaviour, Lead Scoring & More | Leadkaun",
+  title: "Learn, Complete Guides to Sales Behaviour, Lead Scoring & More | Leadkaun",
   description:
     "In-depth topic guides for Indian B2B sales teams: lead scoring, lead management, WhatsApp sales, follow-up & response time, missed revenue, and sales behaviour.",
   alternates: { canonical: "/learn" },
@@ -30,7 +30,7 @@ export default async function LearnHub() {
       <PageHero
         eyebrow={<><BookOpen className="h-3 w-3" strokeWidth={2} /> Learn</>}
         h1={<>The Indian B2B <span className="hero-accent">sales playbook.</span></>}
-        sub="Complete, honest guides to the topics that decide whether your team closes or leaks — each one maps every concept, guide, tool and read in one place."
+        sub="Complete, honest guides to the topics that decide whether your team closes or leaks, each one maps every concept, guide, tool and read in one place."
         primary={undefined}
       />
       <SectionGround variant="cream" size="lg">

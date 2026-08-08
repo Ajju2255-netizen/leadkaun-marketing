@@ -14,7 +14,7 @@ import { getResearch } from "@/lib/pseo/lookup"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Leadkaun Research — Sourced Sales & Lead-Management Data Reports",
+  title: "Leadkaun Research. Sourced Sales & Lead-Management Data Reports",
   description:
     "Original, fully-sourced benchmark reports on B2B sales, lead response time, follow-up, and WhatsApp adoption in India. Every figure cited to its research.",
   alternates: { canonical: "/research" },
@@ -30,7 +30,7 @@ export default async function ResearchHub() {
       <PageHero
         eyebrow={<><BarChart3 className="h-3 w-3" strokeWidth={2} /> Leadkaun Research</>}
         h1={<>Sales data, <span className="hero-accent">honestly sourced.</span></>}
-        sub="Benchmark reports on how B2B sales actually works — lead response time, follow-up discipline, WhatsApp in India, and where reps lose their week. Every figure links to its original research, and we flag anything we couldn't verify."
+        sub="Benchmark reports on how B2B sales actually works, lead response time, follow-up discipline, WhatsApp in India, and where reps lose their week. Every figure links to its original research, and we flag anything we couldn't verify."
         primary={undefined}
       />
       <SectionGround variant="cream" size="lg">

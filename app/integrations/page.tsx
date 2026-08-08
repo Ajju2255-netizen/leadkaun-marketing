@@ -23,7 +23,7 @@ type IntegrationEntry = {
 }
 
 export const metadata: Metadata = {
-  title: "Leadkaun Integrations — Google Sheets, WhatsApp, Gmail & More",
+  title: "Leadkaun Integrations, Google Sheets, WhatsApp, Gmail & More",
   description:
     "Leadkaun integrates with Google Sheets, WhatsApp (manual + Gupshup/AiSensy), Gmail, Calendly, IndiaMART, Facebook Lead Ads, Razorpay, Zapier, and more.",
   alternates: { canonical: "/integrations" },
@@ -93,7 +93,7 @@ export default async function IntegrationsIndexPage() {
       <PageHero
         eyebrow={`${INTEGRATIONS.length} integrations · ${liveCount} live`}
         h1={<>Plug into the stack you <span className="hero-accent">already run.</span></>}
-        sub="Leadkaun connects with the tools Indian B2B sales teams already use — Google Sheets, WhatsApp (manual + BSP), Gmail, Calendly, IndiaMART, Razorpay, Zapier. No rip-and-replace, no broken pipelines."
+        sub="Leadkaun connects with the tools Indian B2B sales teams already use, Google Sheets, WhatsApp (manual + BSP), Gmail, Calendly, IndiaMART, Razorpay, Zapier. No rip-and-replace, no broken pipelines."
         center={false}
         primary={undefined}
         meta={

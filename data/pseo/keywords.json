@@ -6,21 +6,27 @@
     "queryPattern": "{industry} lead management in {city}",
     "benefitH2": "How Leadkaun handles {industry} lead management in {city}",
     "benefitBullets": [
-      "Every enquiry from ads, CSV upload, and manual entry lands in one ranked queue — no lead lost across inboxes",
-      "Indian phone normalisation across +91 / 0-prefixed / spaced formats — no duplicate leads",
+      "Every enquiry from ads, CSV upload, and manual entry lands in one ranked queue, no lead lost across inboxes",
+      "Indian phone normalisation across +91 / 0-prefixed / spaced formats, no duplicate leads",
       "Quality Score catches junk leads before reps waste time on them",
       "Missed Opportunity Engine attaches a ₹ value to every stale {industry} lead",
-      "Every call, WhatsApp, and email logged with a timestamp — a compliance-ready audit trail"
+      "Every call, WhatsApp, and email logged with a timestamp, a compliance-ready audit trail"
     ],
     "featureLink": "/features/lead-scoring",
     "glossaryLink": "/glossary/lead-management",
     "body": [
-      "Lead management is the discipline of moving every enquiry from first touch to a decision without any of them going quiet in an inbox. For most Indian B2B teams the problem isn't a shortage of leads — it's that leads arrive across IndiaMART, JustDial, ad forms, referrals and WhatsApp faster than anyone can triage them, so the ones worth chasing get buried under the ones that never had intent.",
-      "Leadkaun treats that as a prioritisation problem, not a data-entry one. Every lead is graded A–F on Fit, Intent and Quality the moment it lands, deduplicated across +91 phone formats, and dropped into one ranked queue per rep. Stale leads don't just sit there — the Missed Opportunity Engine attaches a rupee value to each, so the cost of ignoring a Grade A enquiry is visible before it's lost."
+      "Lead management is the discipline of moving every enquiry from first touch to a decision without any of them going quiet in an inbox. For most Indian B2B teams the problem isn't a shortage of leads it's that leads arrive across IndiaMART, JustDial, ad forms, referrals and WhatsApp faster than anyone can triage them, so the ones worth chasing get buried under the ones that never had intent.",
+      "Leadkaun treats that as a prioritisation problem, not a data-entry one. Every lead is graded A–F on Fit, Intent and Quality the moment it lands, deduplicated across +91 phone formats, and dropped into one ranked queue per rep. Stale leads don't just sit there, the Missed Opportunity Engine attaches a rupee value to each, so the cost of ignoring a Grade A enquiry is visible before it's lost."
     ],
     "faqs": [
-      { "q": "How is lead management different from a CRM?", "a": "A CRM records what happened to a lead; lead management is about deciding what happens next. Leadkaun runs alongside your CRM as that decision layer — grading, ranking and surfacing the ₹ at risk — rather than replacing your system of record." },
-      { "q": "How does Leadkaun stop leads from being lost?", "a": "Every enquiry from ads, CSV upload and manual entry lands in one ranked queue, deduplicated on insert, with junk flagged by the Quality Score. Nothing sits in a personal inbox, and any lead going stale surfaces with a rupee value attached so it gets chased before it goes cold." }
+      {
+        "q": "How is lead management different from a CRM?",
+        "a": "A CRM records what happened to a lead; lead management is about deciding what happens next. Leadkaun runs alongside your CRM as that decision layer, grading, ranking and surfacing the ₹ at risk, rather than replacing your system of record."
+      },
+      {
+        "q": "How does Leadkaun stop leads from being lost?",
+        "a": "Every enquiry from ads, CSV upload and manual entry lands in one ranked queue, deduplicated on insert, with junk flagged by the Quality Score. Nothing sits in a personal inbox, and any lead going stale surfaces with a rupee value attached so it gets chased before it goes cold."
+      }
     ]
   },
   {
@@ -31,8 +37,8 @@
     "benefitH2": "Lead scoring that works for {industry} teams in {city}",
     "benefitBullets": [
       "Three-dimensional scoring: Fit (ICP), Intent (engagement), Quality (data reliability)",
-      "Transparent weights — every rep can see why a lead is Grade A, not a black-box AI score",
-      "Intent decays automatically when leads go silent — stale grades drop without manager intervention",
+      "Transparent weights. Every rep can see why a lead is Grade A, not a black-box AI score",
+      "Intent decays automatically when leads go silent, stale grades drop without manager intervention",
       "{industry}-specific ICP templates built for Indian market defaults",
       "Grades in real time as each lead lands, so the queue is ready before the rep opens it"
     ],
@@ -40,11 +46,17 @@
     "glossaryLink": "/glossary/lead-scoring",
     "body": [
       "Lead scoring is how a team decides which enquiry to work first when far more arrive than anyone can call. Done well, it replaces gut feel and recency bias with a defensible ranking: the freshest lead isn't automatically the best one, and the lead that's been sitting for a day might be the ₹40-lakh deal about to go cold.",
-      "Leadkaun scores every lead on three transparent 0–100 dimensions — Fit against the ICP you configure, Intent from real engagement signals, and Quality from data reliability — then combines them into an A–F grade. The weights are fixed and identical for every account, so it's never a black box: a rep can always see exactly why a lead is Grade A, and intent decays automatically when a lead goes silent so the grade stays honest over time."
+      "Leadkaun scores every lead on three transparent 0–100 dimensions, Fit against the ICP you configure, Intent from real engagement signals, and Quality from data reliability, then combines them into an A–F grade. The weights are fixed and identical for every account, so it's never a black box: a rep can always see exactly why a lead is Grade A, and intent decays automatically when a lead goes silent so the grade stays honest over time."
     ],
     "faqs": [
-      { "q": "Is the lead scoring a black-box AI model?", "a": "No. The score is three transparent 0–100 components — Fit, Intent and Quality — combined on fixed, published thresholds. The weights are identical for every account, so any rep can see exactly why a lead earned its grade, rather than trusting an opaque AI number." },
-      { "q": "Can I tune the scoring to my kind of business?", "a": "You configure your ICP — the industries, states, business types, decision-maker roles and budget bands that define a good customer — and that drives every Fit score. The underlying weights stay fixed and auditable by design, so the grade remains explainable and comparable across accounts." }
+      {
+        "q": "Is the lead scoring a black-box AI model?",
+        "a": "No. The score is three transparent 0–100 components, Fit, Intent and Quality, combined on fixed, published thresholds. The weights are identical for every account, so any rep can see exactly why a lead earned its grade, rather than trusting an opaque AI number."
+      },
+      {
+        "q": "Can I tune the scoring to my kind of business?",
+        "a": "You configure your ICP, the industries, states, business types, decision-maker roles and budget bands that define a good customer, and that drives every Fit score. The underlying weights stay fixed and auditable by design, so the grade remains explainable and comparable across accounts."
+      }
     ]
   }
 ]

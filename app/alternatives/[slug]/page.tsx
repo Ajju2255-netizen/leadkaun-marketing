@@ -131,7 +131,7 @@ export default async function AlternativesPage({ params }: Params) {
                         {a.url.startsWith("/") ? <Link href={a.url} className="hover:text-sky-600">{a.name}</Link> : a.name}
                       </h3>
                       {a.isLeadkaun && <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-[11px] font-semibold text-sky-700">Our pick</span>}
-                      <span className="text-[14px] text-ink-soft">— {a.tagline}</span>
+                      <span className="text-[14px] text-ink-soft">{a.tagline}</span>
                     </div>
                     <p className="mt-4 text-[15px] leading-[1.6] text-ink-soft"><span className="font-semibold text-ink">Best for:</span> {a.bestFor}</p>
                     <p className="mt-2 flex items-start gap-2 text-[14px] leading-[1.55] text-ink-muted"><Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-400" aria-hidden /><span><span className="font-semibold">Watch-out:</span> {a.watchOut}</span></p>
@@ -147,7 +147,7 @@ export default async function AlternativesPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* RUN ALONGSIDE — the hybrid wedge */}
+        {/* RUN ALONGSIDE, the hybrid wedge */}
         {g.runAlongside && (
           <SectionGround variant="pure" size="md">
             <Container>

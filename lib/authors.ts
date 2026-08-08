@@ -15,7 +15,7 @@ export type Author = {
   type: "Person" | "Organization"
   role?: string // jobTitle (Person) / shown under the name
   bio?: string
-  url?: string // author page / profile — used as schema `url`
+  url?: string // author page / profile, used as schema `url`
   avatar?: string // /authors/<key>.jpg
 }
 
@@ -34,14 +34,14 @@ export const AUTHORS: Record<string, Author> = {
     name: "The Leadkaun editorial team",
     type: "Organization",
     role: "Product & content, Leadkaun",
-    bio: "Written and maintained by the team building Leadkaun, from the shipping product and its published scoring model. Product claims on this site are checked against code — see our methodology.",
+    bio: "Written and maintained by the team building Leadkaun, from the shipping product and its published scoring model. Product claims on this site are checked against code. See our methodology.",
   },
   team: {
     key: "team",
     name: "The Leadkaun Team",
     type: "Organization",
     role: "Operators building India's Sales Behaviour OS",
-    bio: "Written by the Leadkaun team — operators and engineers who've run Indian B2B sales desks and now build the system that tells reps who to call next.",
+    bio: "Written by the Leadkaun team operators and engineers who've run Indian B2B sales desks and now build the system that tells reps who to call next.",
   },
 }
 

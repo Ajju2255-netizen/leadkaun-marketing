@@ -83,7 +83,7 @@ export function CrmCostCalculator() {
         </div>
         <p className="mt-6 text-[12px] leading-[1.6] text-ink-muted">
           Enter what your current per-seat tool charges per user. Leadkaun is priced flat per account, so its cost
-          doesn&apos;t move when you add reps — up to the seat cap of each tier.
+          doesn&apos;t move when you add reps, up to the seat cap of each tier.
         </p>
       </div>
 
@@ -94,7 +94,7 @@ export function CrmCostCalculator() {
             <>
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">Beyond 75 reps</p>
               <p className="mt-3 text-[18px] font-semibold leading-[1.3] text-ink">
-                At {reps} reps you&apos;re in Enterprise territory — Leadkaun is custom-priced (unlimited seats), so talk to
+                At {reps} reps you&apos;re in Enterprise territory. Leadkaun is custom-priced (unlimited seats), so talk to
                 sales for a flat quote. Per-seat tools would bill you {inrCompact(competitorMonthly)}/mo at {reps} × ₹{perUser.toLocaleString("en-IN")}.
               </p>
             </>
@@ -127,7 +127,7 @@ export function CrmCostCalculator() {
           )}
 
           <p className="mt-5 text-[12px] leading-[1.6] text-ink-muted">
-            List-price comparison only — features differ, and Leadkaun is designed to run <span className="font-semibold text-ink-soft">alongside</span> your
+            List-price comparison only features differ, and Leadkaun is designed to run <span className="font-semibold text-ink-soft">alongside</span> your
             CRM, not necessarily replace it. The point: per-seat cost grows with every rep you add; flat pricing doesn&apos;t.
           </p>
         </div>

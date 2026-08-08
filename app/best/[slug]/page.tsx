@@ -141,7 +141,7 @@ export default async function BestGuidePage({ params }: Params) {
                         {p.url.startsWith("/") ? <Link href={p.url} className="hover:text-sky-600">{p.name}</Link> : p.name}
                       </h3>
                       {p.isLeadkaun && <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-[11px] font-semibold text-sky-700">Our pick</span>}
-                      <span className="text-[14px] text-ink-soft">— {p.tagline}</span>
+                      <span className="text-[14px] text-ink-soft">{p.tagline}</span>
                     </div>
                     <p className="mt-4 text-[15px] leading-[1.6] text-ink-soft"><span className="font-semibold text-ink">Best for:</span> {p.bestFor}</p>
                     <p className="mt-1.5 text-[15px] leading-[1.6] text-ink-soft"><span className="font-semibold text-ink">Pricing:</span> {p.pricingNote}</p>
@@ -164,7 +164,7 @@ export default async function BestGuidePage({ params }: Params) {
 
         <MidCta lead="Want to see how Leadkaun grades your own leads?" />
 
-        {/* RANKING METHODOLOGY — Brain 09 §3.7 requires a published method on a
+        {/* RANKING METHODOLOGY, Brain 09 §3.7 requires a published method on a
             buyer guide. Without it a ranking is just an opinion with numbers. */}
         <SectionGround variant="pure" size="md">
           <Container>
@@ -181,7 +181,7 @@ export default async function BestGuidePage({ params }: Params) {
                 <p>
                   Rankings are built from the criteria listed above, applied in the same order to every tool. Pricing is
                   read from each vendor&apos;s public pricing page at the review date on this page, in the currency they
-                  actually charge — not converted to make a comparison flatter. Capability claims come from vendor
+                  actually charge, not converted to make a comparison flatter. Capability claims come from vendor
                   documentation, and where a capability is tier-gated we say so rather than crediting the product as a
                   whole.
                 </p>
@@ -191,7 +191,7 @@ export default async function BestGuidePage({ params }: Params) {
                     lead routing guide {/* lk-gate-ignore:lead-assignment */}
                   </Link>{" "}
                   ranks five competitors and excludes us entirely, because we do not do rules-based routing. Claims we
-                  make about our own product are checked against the shipping code — see{" "}
+                  make about our own product are checked against the shipping code, see{" "}
                   <Link href="/methodology" className="text-sky-600 underline-offset-2 hover:underline">our methodology</Link>.
                 </p>
                 <p>

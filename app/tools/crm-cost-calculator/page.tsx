@@ -12,7 +12,7 @@ import { CrmCostCalculator } from "@/app/components/calculator/crm-cost-calculat
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "CRM Cost Calculator — Per-Seat vs Flat Pricing (India)",
+  title: "CRM Cost Calculator, Per-Seat vs Flat Pricing (India)",
   description:
     "Free calculator: see what a per-user CRM costs as your sales team grows, compared with Leadkaun's flat per-account price. Transparent arithmetic, runs in your browser, no signup.",
   alternates: { canonical: "/tools/crm-cost-calculator" },
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How is the comparison calculated?",
-    a: "Per-seat cost is simply your per-user price × number of reps. Leadkaun's figure is its flat per-account tier for your team size — Starter ₹2,999 (up to 10 seats), Growth ₹7,999 (up to 30), Scale ₹19,999 (up to 75). You enter your own per-user price, so the comparison reflects your actual tool.",
+    a: "Per-seat cost is simply your per-user price × number of reps. Leadkaun's figure is its flat per-account tier for your team size, Starter ₹2,999 (up to 10 seats), Growth ₹7,999 (up to 30), Scale ₹19,999 (up to 75). You enter your own per-user price, so the comparison reflects your actual tool.",
   },
   {
     q: "Why does per-seat pricing get expensive?",
-    a: "With a per-user model, every rep you add raises the bill — a 20-rep team pays 20× the base. Flat per-account pricing charges the same whether you have 3 reps or 30 (within a tier's seat cap), so cost stops scaling with headcount.",
+    a: "With a per-user model, every rep you add raises the bill. A 20-rep team pays 20× the base. Flat per-account pricing charges the same whether you have 3 reps or 30 (within a tier's seat cap), so cost stops scaling with headcount.",
   },
   {
     q: "Is this a claim that Leadkaun replaces my CRM?",
@@ -58,7 +58,7 @@ export default function CrmCostCalculatorPage() {
           breadcrumb={[{ label: "Tools", href: "/tools/crm-cost-calculator" }]}
           eyebrow="Free tool · runs in your browser"
           h1="What does per-seat CRM pricing cost as your team grows?"
-          sub="Per-user tools bill you more with every rep you add. Move the sliders to see the per-seat premium over Leadkaun's flat per-account price — the money that stops scaling with headcount."
+          sub="Per-user tools bill you more with every rep you add. Move the sliders to see the per-seat premium over Leadkaun's flat per-account price. The money that stops scaling with headcount."
         />
 
         <SectionGround variant="cream" size="lg">

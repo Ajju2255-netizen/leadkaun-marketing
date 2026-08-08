@@ -17,7 +17,7 @@ import { createSectionNumbering } from "@/app/components/section-numbering"
 import { breadcrumbListSchema, faqPageSchema, articleSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Methodology — How Leadkaun Scores, Ranks and Verifies | Leadkaun",
+  title: "Methodology. How Leadkaun Scores, Ranks and Verifies | Leadkaun",
   description:
     "The published mechanics behind every Leadkaun claim: the Fit, Intent and Quality inputs, the A–F threshold matrix, intent decay, freshness bands, and how we check marketing copy against the shipping product.",
   alternates: { canonical: "/methodology" },
@@ -40,14 +40,14 @@ const SCORES = [
     tag: "Fit",
     range: "0–100",
     what: "How closely a lead matches the customer profile you configure.",
-    inputs: "Industry, state, business type, decision-maker role and budget band — all set once per account in the onboarding wizard.",
+    inputs: "Industry, state, business type, decision-maker role and budget band, all set once per account in the onboarding wizard.",
     note: "This is the part you shape. You define who a good customer is; the arithmetic on top is fixed.",
   },
   {
     tag: "Intent",
     range: "0–100",
     what: "Live engagement, measured from signal events rather than assumed.",
-    inputs: "Source strength plus events — a logged WhatsApp reply, an answered call, a pricing question, a negotiation. Each carries a published weight.",
+    inputs: "Source strength plus events, a logged WhatsApp reply, an answered call, a pricing question, a negotiation. Each carries a published weight.",
     note: "Intent decays as a lead goes silent and is floored at the source baseline, so a lead never drops below where it started.",
   },
   {
@@ -64,13 +64,13 @@ const GUARDS = [
   { k: "F guard", v: "Quality < 20 forces Grade F, always" },
   { k: "Intent decay", v: "−3 points/day after the engagement threshold (default 28 days)" },
   { k: "Decay floor", v: "Intent never falls below the lead's source baseline" },
-  { k: "Weights", v: "Fixed and identical for every account — not customer-tunable" },
+  { k: "Weights", v: "Fixed and identical for every account, not customer-tunable" },
 ]
 
 const FAQS = [
   {
     q: "Why publish the weights at all?",
-    a: "Because a grade a rep cannot interrogate is a grade a rep ignores. Fixed, published weights mean two managers comparing notes are looking at the same scale, and a rep can always be shown exactly why a lead is Grade A. The cost is that you cannot tune the model per account — that is a deliberate trade, not a missing feature.",
+    a: "Because a grade a rep cannot interrogate is a grade a rep ignores. Fixed, published weights mean two managers comparing notes are looking at the same scale, and a rep can always be shown exactly why a lead is Grade A. The cost is that you cannot tune the model per account. That is a deliberate trade, not a missing feature.",
   },
   {
     q: "Are the numbers on this page the ones the product uses?",
@@ -82,7 +82,7 @@ const FAQS = [
   },
   {
     q: "Do you publish customer results?",
-    a: "Not yet. We do not have consented customer outcomes to publish, so we do not publish any — the figures elsewhere on this site that model recovered revenue are labelled as illustrative models, not results. When real case studies exist they will replace those labels.",
+    a: "Not yet. We do not have consented customer outcomes to publish, so we do not publish any, the figures elsewhere on this site that model recovered revenue are labelled as illustrative models, not results. When real case studies exist they will replace those labels.",
   },
 ]
 
@@ -115,7 +115,7 @@ export default function MethodologyPage() {
           <Container>
             <QuickAnswer
               question="How does Leadkaun decide a lead's grade?"
-              answer="Leadkaun computes three independent 0–100 scores for every lead — Fit (how well it matches the customer profile you configured), Intent (live engagement from signal events, which decays as the lead goes quiet), and Quality (whether the record can be trusted). Those combine into an A–F grade on fixed thresholds: Grade A requires Fit of at least 65, Intent at least 60 and Quality at least 60. A Quality score below 20 forces Grade F regardless of the other two. The weights are identical for every account and are not customer-tunable."
+              answer="Leadkaun computes three independent 0–100 scores for every lead, Fit (how well it matches the customer profile you configured), Intent (live engagement from signal events, which decays as the lead goes quiet), and Quality (whether the record can be trusted). Those combine into an A–F grade on fixed thresholds: Grade A requires Fit of at least 65, Intent at least 60 and Quality at least 60. A Quality score below 20 forces Grade F regardless of the other two. The weights are identical for every account and are not customer-tunable."
             />
           </Container>
         </SectionGround>
@@ -129,7 +129,7 @@ export default function MethodologyPage() {
               </h2>
               <p className="mt-4 text-[16px] leading-[1.6] text-ink-soft">
                 They are kept separate on purpose. One blended number tells a rep a lead is a 62, which is not an
-                instruction. Three tell them it is a strong-fit lead that has gone quiet — which is.
+                instruction. Three tell them it is a strong-fit lead that has gone quiet, which is.
               </p>
             </Reveal>
             <div className="grid gap-5 md:grid-cols-3">
@@ -184,13 +184,13 @@ export default function MethodologyPage() {
                 <p>
                   Marketing sites drift from products. Ours did: for a period this site described rules-based lead
                   routing, round-robin distribution and an unassigned-lead queue. None of those exist. They were not {/* lk-gate-ignore:lead-assignment */}
-                  invented maliciously — a page cited another page, which cited a third, and nothing ever checked the
+                  invented maliciously, a page cited another page, which cited a third, and nothing ever checked the
                   chain against code.
                 </p>
                 <p>
                   So the repository now holds a ledger of every capability, what may honestly be said about it, and the
                   product file paths that prove it. The build fails if a page claims more than the ledger allows, and it
-                  also fails if one of those evidence paths disappears — which forces a fresh audit instead of letting a
+                  also fails if one of those evidence paths disappears, which forces a fresh audit instead of letting a
                   stale claim quietly survive.
                 </p>
                 <p>

@@ -8,7 +8,7 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { FloatingCard } from "@/app/components/floating-card"
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Leadkaun",
+  title: "Terms of Service, Leadkaun",
   description: "Leadkaun's terms of service: your rights and obligations as a subscriber to the Leadkaun platform.",
   alternates: { canonical: "/terms" },
 }

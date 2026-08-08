@@ -7,13 +7,13 @@
     "painPoints": [
       {
         "title": "Property enquiries go cold within the hour",
-        "body": "In real estate, the first team to reach a fresh enquiry usually wins it — interest fades fast once a buyer starts calling around. Most teams call back in 4+ hours, or not at all.",
+        "body": "In real estate, the first team to reach a fresh enquiry usually wins it, interest fades fast once a buyer starts calling around. Most teams call back in 4+ hours, or not at all.",
         "color": "#EF4444",
         "icon": "Clock"
       },
       {
         "title": "One missed site visit = ₹5–₹50L lost",
-        "body": "Property deals are high-value and emotion-driven. A cold lead doesn't just not convert — they go to a competitor who called first.",
+        "body": "Property deals are high-value and emotion-driven. A cold lead doesn't just not convert. They go to a competitor who called first.",
         "color": "#F59E0B",
         "icon": "IndianRupee"
       },
@@ -26,9 +26,9 @@
     ],
     "howItHelps": [
       "Every property enquiry gets Grade A–F based on project fit, location match, and engagement",
-      "Priority Queue surfaces the leads most likely to convert TODAY — not just the newest ones",
+      "Priority Queue surfaces the leads most likely to convert TODAY, not just the newest ones",
       "3-tap logging: rep marks call outcome, WhatsApp stage, and site visit booking in under 10 seconds",
-      "Missed Opportunity Engine shows every stale enquiry with ₹ value — manager sees per-rep accountability",
+      "Missed Opportunity Engine shows every stale enquiry with ₹ value, manager sees per-rep accountability",
       "Morning Brief: '4 Grade A enquiries need callback. ₹12L in site visits at risk today'"
     ],
     "buyerRoles": [
@@ -48,17 +48,17 @@
       "walk-ins"
     ],
     "proofQuote": {
-      "text": "When every enquiry is graded and queued, reps reach the hottest buyers first instead of calling in arrival order — often the difference between booking the site visit and losing it to whoever called back sooner."
+      "text": "When every enquiry is graded and queued, reps reach the hottest buyers first instead of calling in arrival order, often the difference between booking the site visit and losing it to whoever called back sooner."
     },
     "proofStat": "Grade A enquiries surface first, so reps reach them while buying intent is still high",
     "faqs": [
       {
         "q": "Does Leadkaun integrate with 99acres / MagicBricks?",
-        "a": "Not natively in Phase 1 — export their leads to CSV (from 99acres / MagicBricks, or a Google Sheet) and import into Leadkaun; native sheet sync is on the roadmap."
+        "a": "Not natively in Phase 1. Export their leads to CSV (from 99acres / MagicBricks, or a Google Sheet) and import into Leadkaun; native sheet sync is on the roadmap."
       },
       {
         "q": "Can multiple agents share one enquiry?",
-        "a": "Yes — assignment rules handle round-robin or manual handoffs; broker splits are logged."
+        "a": "Yes, assignment rules handle round-robin or manual handoffs; broker splits are logged."
       },
       {
         "q": "Can we set different ICPs per project?",
@@ -66,7 +66,7 @@
       },
       {
         "q": "Does it track site visit outcomes?",
-        "a": "Yes — site visit is a pipeline stage in Leadkaun with booked/no-show/follow-up outcomes."
+        "a": "Yes, site visit is a pipeline stage in Leadkaun with booked/no-show/follow-up outcomes."
       },
       {
         "q": "What if a broker closes the deal outside Leadkaun?",
@@ -95,13 +95,13 @@
     "painPoints": [
       {
         "title": "400 enquiries, one counsellor",
-        "body": "Admissions counsellors carry 200–500 leads each. With no triage, 30 minutes every morning goes to deciding who to call first — instead of calling.",
+        "body": "Admissions counsellors carry 200–500 leads each. With no triage, 30 minutes every morning goes to deciding who to call first, instead of calling.",
         "color": "#EF4444",
         "icon": "Users"
       },
       {
         "title": "Parent threads drop mid-conversation",
-        "body": "Parent says 'discuss with my spouse', disappears, and nobody follows up at the right moment. Most qualified conversations move to WhatsApp — and most CRMs don't see any of it.",
+        "body": "Parent says 'discuss with my spouse', disappears, and nobody follows up at the right moment. Most qualified conversations move to WhatsApp, and most CRMs don't see any of it.",
         "color": "#25D366",
         "icon": "MessageCircle"
       },
@@ -114,7 +114,7 @@
     ],
     "howItHelps": [
       "Every enquiry is graded A–F based on course fit, programme match, and engagement signals from both student and parent",
-      "3-tap WhatsApp logging captures every parent reply — stage, intent, outcome — feeding the Intent Score in real time",
+      "3-tap WhatsApp logging captures every parent reply, stage, intent, outcome, feeding the Intent Score in real time",
       "Priority Queue surfaces the Grade A parents who replied overnight, so the first call by 11 AM hits the hot leads",
       "Intent decay respects admissions cycles: a silent Grade A drops to Grade B over a week, so the queue stays fresh",
       "Morning Brief: '8 Grade A enquiries replied overnight. ₹6L in admissions at risk if not called by 11 AM'"
@@ -135,17 +135,17 @@
       "inbound forms"
     ],
     "proofQuote": {
-      "text": "With overnight enquiries pre-ranked by 9 AM, a counsellor's morning starts with the Grade A parents to call first — not thirty minutes spent deciding who to call."
+      "text": "With overnight enquiries pre-ranked by 9 AM, a counsellor's morning starts with the Grade A parents to call first, not thirty minutes spent deciding who to call."
     },
     "proofStat": "Counsellors spend their time on the highest-intent enquiries when leads are pre-ranked instead of triaged manually",
     "faqs": [
       {
         "q": "Does it handle parent + student dual thread?",
-        "a": "Yes — the lead record has primary + secondary contacts, and WhatsApp tracking logs who replied when."
+        "a": "Yes. The lead record has primary + secondary contacts, and WhatsApp tracking logs who replied when."
       },
       {
         "q": "Can we set different scoring per course?",
-        "a": "Not as separate weightings. The scoring weights are fixed and identical for every account — that is what keeps a grade explainable and comparable between two managers looking at the same scale. What you configure is the ICP: the business types, decision-maker roles and budget bands that define a good enquiry. Programme-level differences come through Fit and Intent rather than a separate model — an engineering enquiry and an arts enquiry that behave differently will grade differently on the same scale."
+        "a": "Not as separate weightings. The scoring weights are fixed and identical for every account. That is what keeps a grade explainable and comparable between two managers looking at the same scale. What you configure is the ICP: the business types, decision-maker roles and budget bands that define a good enquiry. Programme-level differences come through Fit and Intent rather than a separate model, an engineering enquiry and an arts enquiry that behave differently will grade differently on the same scale."
       },
       {
         "q": "Does it integrate with our LMS / SIS?",
@@ -177,12 +177,12 @@
   {
     "slug": "bfsi",
     "name": "BFSI",
-    "painH1": "BFSI Sales, in ₹ — Audit Trail, Assignment, Accountability.",
-    "heroSub": "Insurance branch managers, NBFC sales heads, and wealth RMs across India run regulated sales with compliance pressure and agent-network complexity. Leadkaun gives you grading, assignment, audit trail, and ₹-at-risk — the same day.",
+    "painH1": "BFSI Sales, in ₹, Audit Trail, Assignment, Accountability.",
+    "heroSub": "Insurance branch managers, NBFC sales heads, and wealth RMs across India run regulated sales with compliance pressure and agent-network complexity. Leadkaun gives you grading, assignment, audit trail, and ₹-at-risk, the same day.",
     "painPoints": [
       {
         "title": "Compliance trail gaps at audit",
-        "body": "A rep's 'I called them last week' doesn't show up in the system — and at renewal or claim time, that gap becomes a regulator-visible audit risk.",
+        "body": "A rep's 'I called them last week' doesn't show up in the system, and at renewal or claim time, that gap becomes a regulator-visible audit risk.",
         "color": "#EF4444",
         "icon": "ClipboardList"
       },
@@ -200,10 +200,10 @@
       }
     ],
     "howItHelps": [
-      "Per-product ICP templates — term, health, motor, loans — score each lead by the right criteria for its product line",
+      "Per-product ICP templates, term, health, motor, loans, score each lead by the right criteria for its product line",
       "Every enquiry is graded on product fit before it reaches an agent, so a health lead never looks like a motor lead in the queue",
       "Every call, WhatsApp, and email is logged with a timestamp and exported on demand for IRDAI / RBI audit preparation",
-      "Renewal and cross-sell dates live on the lead record — the Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse",
+      "Renewal and cross-sell dates live on the lead record. The Missed Opportunity Engine surfaces them with ₹ value 30 days before lapse",
       "Branch Manager Morning Brief: '12 Grade A leads unassigned. ₹4L premium at risk today'"
     ],
     "buyerRoles": [
@@ -241,11 +241,11 @@
       },
       {
         "q": "Does it work with aggregator-sourced leads?",
-        "a": "Yes — CSV import of PolicyBazaar/BankBazaar exports (including Google Sheet exports)."
+        "a": "Yes, CSV import of PolicyBazaar/BankBazaar exports (including Google Sheet exports)."
       },
       {
         "q": "Does it support bancassurance cross-sell?",
-        "a": "Yes — same lead can appear in multiple product queues with clear ownership."
+        "a": "Yes, same lead can appear in multiple product queues with clear ownership."
       }
     ],
     "keywords": [
@@ -270,13 +270,13 @@
     "painPoints": [
       {
         "title": "Quote sent. Silence. Deal lost.",
-        "body": "A large share of B2B industrial quotes never get a follow-up within the buyer's SLA — and the vendor who follows up within 24 hours usually wins.",
+        "body": "A large share of B2B industrial quotes never get a follow-up within the buyer's SLA, and the vendor who follows up within 24 hours usually wins.",
         "color": "#EF4444",
         "icon": "FileText"
       },
       {
         "title": "Multi-stakeholder thread loss",
-        "body": "Procurement asked for a quote. Finance is evaluating. Engineering wants a sample. Three conversations, one deal — and nobody on the sales side sees the full thread.",
+        "body": "Procurement asked for a quote. Finance is evaluating. Engineering wants a sample. Three conversations, one deal, and nobody on the sales side sees the full thread.",
         "color": "#F59E0B",
         "icon": "Users2"
       },
@@ -288,11 +288,11 @@
       }
     ],
     "howItHelps": [
-      "Intent Score tracks signals across a 90–180 day cycle with slow decay — a quote sent on day 15 still influences the lead's grade on day 60",
+      "Intent Score tracks signals across a 90–180 day cycle with slow decay, a quote sent on day 15 still influences the lead's grade on day 60",
       "Follow-up cadence defaults are long-B2B-aware: Grade A gets weekly touches, not daily spam",
-      "Mobile-optimised 3-tap logging works on patchy 3G — field reps log a 30-minute factory meeting in 10 seconds",
-      "Quote objects on the lead record carry value, validity, and next-touch date — Missed Opportunity Engine surfaces ₹ at risk per open quote",
-      "Distributor attribution with commission splits — no more credit disputes when a dealer closes an inside-sales-sourced deal"
+      "Mobile-optimised 3-tap logging works on patchy 3G, field reps log a 30-minute factory meeting in 10 seconds",
+      "Quote objects on the lead record carry value, validity, and next-touch date. Missed Opportunity Engine surfaces ₹ at risk per open quote",
+      "Distributor attribution with commission splits, no more credit disputes when a dealer closes an inside-sales-sourced deal"
     ],
     "buyerRoles": [
       "founder",
@@ -309,7 +309,7 @@
       "trade shows"
     ],
     "proofQuote": {
-      "text": "When stale quotes surface with a rupee value attached, follow-up stops slipping — and the vendor who responds inside the buyer's window is usually the one who wins the order."
+      "text": "When stale quotes surface with a rupee value attached, follow-up stops slipping, and the vendor who responds inside the buyer's window is usually the one who wins the order."
     },
     "proofStat": "40% of industrial B2B quotes never receive a follow-up within SLA; first to re-engage wins ~60% of the time",
     "faqs": [
@@ -331,7 +331,7 @@
       },
       {
         "q": "Can multiple team members collaborate on one lead?",
-        "a": "Yes — lead notes, activity timeline, and assignment support multi-rep collaboration."
+        "a": "Yes, lead notes, activity timeline, and assignment support multi-rep collaboration."
       }
     ],
     "keywords": [
@@ -352,7 +352,7 @@
     "slug": "healthcare",
     "name": "Healthcare",
     "painH1": "Healthcare Sales, Without Losing Patients Between Visits.",
-    "heroSub": "Diagnostic chains, clinic groups, health-package sales teams, and pharma field reps run on relationships and repeat visits. Leadkaun grades, tracks, and surfaces missed revenue — with the compliance trail and DND handling Indian healthcare requires.",
+    "heroSub": "Diagnostic chains, clinic groups, health-package sales teams, and pharma field reps run on relationships and repeat visits. Leadkaun grades, tracks, and surfaces missed revenue, with the compliance trail and DND handling Indian healthcare requires.",
     "painPoints": [
       {
         "title": "Corporate tie-up leads get lost",
@@ -374,11 +374,11 @@
       }
     ],
     "howItHelps": [
-      "Patient records double as lead records — repeat-visit continuity with LTV tracking and upsell readiness signals",
-      "Referring-doctor source attribution is baked in — every referred patient is tagged, and monthly doctor reports auto-generate",
-      "Corporate HR tie-ups supported as a business_type — bulk leads triaged by appointment urgency and package value",
+      "Patient records double as lead records, repeat-visit continuity with LTV tracking and upsell readiness signals",
+      "Referring-doctor source attribution is baked in. Every referred patient is tagged, and monthly doctor reports auto-generate",
+      "Corporate HR tie-ups supported as a business_type, bulk leads triaged by appointment urgency and package value",
       "WhatsApp tracking logs appointment confirmations, report-delivery replies, and follow-up requests",
-      "Compliance-ready: every signal is timestamped, every contact is audit-exportable — DND flags respected"
+      "Compliance-ready: every signal is timestamped, every contact is audit-exportable, DND flags respected"
     ],
     "buyerRoles": [
       "founder",
@@ -418,7 +418,7 @@
       },
       {
         "q": "Can we run appointment reminders?",
-        "a": "Yes — follow-up engine includes appointment-due reminder type."
+        "a": "Yes, follow-up engine includes appointment-due reminder type."
       }
     ],
     "keywords": [
@@ -439,7 +439,7 @@
     "slug": "saas",
     "name": "SaaS",
     "painH1": "Stop Losing Trials to Silence.",
-    "heroSub": "Indian B2B SaaS teams run trial-to-paid, PLG-to-sales handoff, and expansion motions — usually on three different tools. Leadkaun unifies the grade, the queue, and the ₹ at risk across every motion.",
+    "heroSub": "Indian B2B SaaS teams run trial-to-paid, PLG-to-sales handoff, and expansion motions, usually on three different tools. Leadkaun unifies the grade, the queue, and the ₹ at risk across every motion.",
     "painPoints": [
       {
         "title": "Trials expire before anyone calls",
@@ -461,10 +461,10 @@
       }
     ],
     "howItHelps": [
-      "Trial signups imported via CSV (including webhook exports and Google Sheet exports) — graded A–F by company size, stack signals, and role as soon as they land",
+      "Trial signups imported via CSV (including webhook exports and Google Sheet exports), graded A–F by company size, stack signals, and role as soon as they land",
       "Intent decay tuned for SaaS: a trial user silent for 10 days is a strong negative signal; someone who invited 3 teammates is a Grade A spike",
       "Expansion-opportunity detection flags existing customers with usage, role-add, or seat-limit signals as separate lead type",
-      "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk — Priya owns 8, Rajesh owns 4'",
+      "Morning Brief: '12 trial users hit day-7 without a sales call. ₹3.2L ARR at risk, Priya owns 8, Rajesh owns 4'",
       "Multi-seat deal threading: an SDR's initial contact flows to an AE's closing thread without losing context"
     ],
     "buyerRoles": [
@@ -526,7 +526,7 @@
     "slug": "agencies",
     "name": "Agencies",
     "painH1": "Run 8 Client Pipelines Without 8 Spreadsheets.",
-    "heroSub": "B2B agencies — performance marketing, BD-as-a-service, SEO, SaaS-for-agency — juggle client pipelines and new business simultaneously. Leadkaun gives you per-client ICP, protected new-business queues, and one-click white-label reports.",
+    "heroSub": "B2B agencies, performance marketing, BD-as-a-service, SEO, SaaS-for-agency, juggle client pipelines and new business simultaneously. Leadkaun gives you per-client ICP, protected new-business queues, and one-click white-label reports.",
     "painPoints": [
       {
         "title": "8 clients, 8 spreadsheets",
@@ -551,8 +551,8 @@
       "Per-client pipelines, each with its own ICP weights",
       "New-business pipeline runs as a separate, protected queue",
       "Account directors see only their clients; founder sees everything via role-based access",
-      "CSV export per client is white-label-ready — branded report in 10 minutes",
-      "Morning Brief per pipeline — BD head sees new-business; each account director sees their client's at-risk ₹"
+      "CSV export per client is white-label-ready, branded report in 10 minutes",
+      "Morning Brief per pipeline. BD head sees new-business; each account director sees their client's at-risk ₹"
     ],
     "buyerRoles": [
       "founder",
@@ -575,7 +575,7 @@
     "faqs": [
       {
         "q": "Can each client have its own ICP?",
-        "a": "Yes — define per-pipeline ICP weights."
+        "a": "Yes, define per-pipeline ICP weights."
       },
       {
         "q": "Is there a client-portal view?",
@@ -583,7 +583,7 @@
       },
       {
         "q": "Can I manage both new-business and client delivery?",
-        "a": "Yes — set up two pipelines (new-business, per-client-delivery)."
+        "a": "Yes. Set up two pipelines (new-business, per-client-delivery)."
       },
       {
         "q": "Does it track retainer renewal dates?",
@@ -591,7 +591,7 @@
       },
       {
         "q": "Can team members see across clients?",
-        "a": "Role-based — account directors see their clients only; agency head sees all."
+        "a": "Role-based, account directors see their clients only; agency head sees all."
       }
     ],
     "keywords": [
@@ -612,11 +612,11 @@
     "slug": "retail",
     "name": "Retail",
     "painH1": "Track Repeat Orders and Dealer Relationships in One Place.",
-    "heroSub": "B2B retail — wholesalers, franchise brands, dealer networks — depends on repeat-order behaviour and dealer coverage. Leadkaun scores every enquiry and surfaces dealers who haven't ordered in 45 days.",
+    "heroSub": "B2B retail, wholesalers, franchise brands, dealer networks, depends on repeat-order behaviour and dealer coverage. Leadkaun scores every enquiry and surfaces dealers who haven't ordered in 45 days.",
     "painPoints": [
       {
         "title": "Repeat-order blindness",
-        "body": "Existing retailer hasn't ordered in 45 days — nobody notices until revenue dips.",
+        "body": "Existing retailer hasn't ordered in 45 days, nobody notices until revenue dips.",
         "color": "#EF4444",
         "icon": "TrendingDown"
       },
@@ -634,7 +634,7 @@
       }
     ],
     "howItHelps": [
-      "Repeat-order cadence tracking on every account — missed cadence triggers missed-opportunity",
+      "Repeat-order cadence tracking on every account, missed cadence triggers missed-opportunity",
       "One named owner per lead, so two reps never chase the same dealer",
       "Field-rep 3-tap logging + mobile-optimised interface",
       "Per-rep ₹ at risk highlights dealer churn risk early",
@@ -658,11 +658,11 @@
     "faqs": [
       {
         "q": "Can I track existing-account order cadence?",
-        "a": "Yes — account level cadence rules; missed cadence → missed-opportunity alert."
+        "a": "Yes, account level cadence rules; missed cadence → missed-opportunity alert."
       },
       {
         "q": "How is territory handled?",
-        "a": "Leadkaun does not route by territory — assignment is manual, one lead at a time, and territory rules belong in your CRM. What Leadkaun adds is grading every enquiry on fit before it is assigned, so whoever picks the owner can already see which dealer is worth the call."
+        "a": "Leadkaun does not route by territory, assignment is manual, one lead at a time, and territory rules belong in your CRM. What Leadkaun adds is grading every enquiry on fit before it is assigned, so whoever picks the owner can already see which dealer is worth the call."
       },
       {
         "q": "Does it work offline for field reps?",
@@ -748,7 +748,7 @@
       },
       {
         "q": "Can sales + AM collaborate on the same account?",
-        "a": "Yes — shared lead record with stage-based ownership transfer."
+        "a": "Yes, shared lead record with stage-based ownership transfer."
       }
     ],
     "keywords": [
@@ -767,8 +767,8 @@
   {
     "slug": "fintech",
     "name": "Fintech",
-    "painH1": "NBFC, Wealth & Payment Sales — With Compliance Baked In.",
-    "heroSub": "Fintech sales — NBFC lending, wealth distribution, payment gateways — operates under compliance pressure and agent-channel complexity. Leadkaun delivers per-agent performance, cross-sell detection, and KYC-stage tracking.",
+    "painH1": "NBFC, Wealth & Payment Sales, With Compliance Baked In.",
+    "heroSub": "Fintech sales, NBFC lending, wealth distribution, payment gateways, operates under compliance pressure and agent-channel complexity. Leadkaun delivers per-agent performance, cross-sell detection, and KYC-stage tracking.",
     "painPoints": [
       {
         "title": "Document-collection drop-off",
@@ -819,7 +819,7 @@
       },
       {
         "q": "Can we use a credit bureau score in scoring?",
-        "a": "You can store it on the lead record and it feeds the Fit score through your ICP configuration. Leadkaun will not route leads on it — assignment is manual — but the grade a rep sees will already reflect it."
+        "a": "You can store it on the lead record and it feeds the Fit score through your ICP configuration. Leadkaun will not route leads on it, assignment is manual, but the grade a rep sees will already reflect it."
       },
       {
         "q": "How is DSA/agent performance tracked?",
@@ -847,7 +847,7 @@
   {
     "slug": "hospitality",
     "name": "Hospitality",
-    "painH1": "MICE, Weddings & Corporate Bookings — Won by Fastest Follow-up.",
+    "painH1": "MICE, Weddings & Corporate Bookings, Won by Fastest Follow-up.",
     "heroSub": "Hotels, banquet venues, MICE sales teams, and wedding planners run on custom quotes and tight event dates. Leadkaun holds the quote thread, tracks deadlines, and surfaces time-sensitive bookings in the Morning Brief.",
     "painPoints": [
       {
@@ -864,7 +864,7 @@
       },
       {
         "title": "Channel-manager leakage",
-        "body": "Lead arrives from aggregator + website + direct enquiry — same prospect, 3 records.",
+        "body": "Lead arrives from aggregator + website + direct enquiry, same prospect, 3 records.",
         "color": "#6366F1",
         "icon": "Merge"
       }
@@ -894,11 +894,11 @@
     "faqs": [
       {
         "q": "Does it handle custom quotes?",
-        "a": "Yes — quote value, items, validity on lead record."
+        "a": "Yes, quote value, items, validity on lead record."
       },
       {
         "q": "Multi-venue / multi-property chains?",
-        "a": "Yes — per-venue pipelines under one account."
+        "a": "Yes, per-venue pipelines under one account."
       },
       {
         "q": "Channel / planner attribution?",

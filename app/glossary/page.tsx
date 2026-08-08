@@ -24,7 +24,7 @@ type GlossaryEntry = {
 export const metadata: Metadata = {
   title: "Sales Glossary for Indian B2B Teams | Leadkaun",
   description:
-    "Definitions for every term in Indian B2B sales — lead scoring, grade A, priority queue, ₹ at risk, Morning Brief, and more. Written for practitioners, not analysts.",
+    "Definitions for every term in Indian B2B sales, lead scoring, grade A, priority queue, ₹ at risk, Morning Brief, and more. Written for practitioners, not analysts.",
   alternates: { canonical: "/glossary" },
 }
 
@@ -64,7 +64,7 @@ export default async function GlossaryIndexPage() {
         <PageHero
           eyebrow={`A–Z · ${GLOSSARY.length} terms`}
           h1={<>The Indian B2B <span className="hero-accent">sales glossary.</span></>}
-          sub="Every word that matters in a modern Indian sales motion — lead scoring, grade A, priority queue, ₹ at risk, Morning Brief, intent decay. Written for practitioners, not analysts."
+          sub="Every word that matters in a modern Indian sales motion, lead scoring, grade A, priority queue, ₹ at risk, Morning Brief, intent decay. Written for practitioners, not analysts."
           center={false}
           primary={undefined}
           meta={

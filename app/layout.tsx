@@ -28,11 +28,11 @@ const fraunces = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
+    default: "Leadkaun Sales Behaviour OS for Indian Sales Teams",
     template: "%s | Leadkaun",
   },
   description:
-    "Leadkaun tells your team exactly who to call, when to call, and where money is being lost — so your team closes more and wastes less. Grade A–F. Priority Queue. Missed ₹ surfaced.",
+    "Leadkaun tells your team exactly who to call, when to call, and where money is being lost, so your team closes more and wastes less. Grade A–F. Priority Queue. Missed ₹ surfaced.",
   keywords: [
     "sales behaviour os india",
     "sales tracking software india",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Leadkaun",
-    title: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
+    title: "Leadkaun Sales Behaviour OS for Indian Sales Teams",
     description:
       "Grade A–F. Priority Queue. Missed ₹ surfaced before it's gone. Built for Indian B2B sales teams.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leadkaun — Sales Behaviour OS for Indian Sales Teams",
+    title: "Leadkaun Sales Behaviour OS for Indian Sales Teams",
     description:
       "Grade A–F. Priority Queue. Missed ₹ surfaced before it's gone.",
   },
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`}>
       <head>
-        {/* Google Tag Manager — placed as high in <head> as possible */}
+        {/* Google Tag Manager, placed as high in <head> as possible */}
         <script
           id="gtm-init"
           dangerouslySetInnerHTML={{
@@ -75,7 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
-        {/* Google tag (gtag.js) — GA4 */}
+        {/* Google tag (gtag.js), GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-YB7279SHGQ" />
         <script
           id="ga4-init"
@@ -94,7 +94,7 @@ gtag('config', 'G-YB7279SHGQ');`,
         <link rel="alternate" type="application/rss+xml" title="Leadkaun Blog" href="/feed.xml" />
       </head>
       <body className="antialiased bg-bg-pure text-ink-soft">
-        {/* Google Tag Manager (noscript) — must be immediately after <body> */}
+        {/* Google Tag Manager (noscript) must be immediately after <body> */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-TV7T9Q5T"

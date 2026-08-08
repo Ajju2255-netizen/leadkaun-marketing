@@ -153,7 +153,7 @@ export function ComparePageLayout(p: CompareProps) {
               <FloatingCard tier="3" depth="3" gloss className="p-8 md:p-10 aura-sky-hover">
                 <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Leadkaun at a glance</p>
                 <p className="mt-4 text-[17px] leading-[1.5] text-ink">
-                  The Sales Behaviour OS built for Indian B2B SMBs. Grades every lead A–F, builds the Priority Queue, and surfaces ₹ at risk — the daily working layer that runs alongside your CRM.
+                  The Sales Behaviour OS built for Indian B2B SMBs. Grades every lead A–F, builds the Priority Queue, and surfaces ₹ at risk, the daily working layer that runs alongside your CRM.
                 </p>
                 <ul className="mt-5 space-y-2.5 text-[14px] leading-[1.55] text-ink-soft">
                   <li className="flex items-center gap-2.5"><MintCheck /> same-day setup</li>
@@ -212,7 +212,7 @@ export function ComparePageLayout(p: CompareProps) {
           </Container>
         </SectionGround>
 
-        {/* HONEST VERDICT — narrative on where each genuinely wins */}
+        {/* HONEST VERDICT, narrative on where each genuinely wins */}
         {p.verdict && (
           <SectionGround variant="pure" size="lg">
             <Container>
@@ -242,7 +242,7 @@ export function ComparePageLayout(p: CompareProps) {
           </SectionGround>
         )}
 
-        {/* PRODUCT — show the live system the competitor lacks */}
+        {/* PRODUCT, show the live system the competitor lacks */}
 
         {/* PRICING */}
         <SectionGround variant="cream" size="lg">
@@ -318,7 +318,7 @@ export function ComparePageLayout(p: CompareProps) {
           </Container>
         </SectionGround>
 
-        {/* COMPARISON METHODOLOGY — Brain 09: a verdict without a published method
+        {/* COMPARISON METHODOLOGY, Brain 09: a verdict without a published method
 
             is an opinion with a table around it. We build one of these tools. */}
 
@@ -350,7 +350,7 @@ export function ComparePageLayout(p: CompareProps) {
 
                   higher tier we say so rather than crediting the product as a whole. Pricing is read from the public
 
-                  pricing page at the review date below, in the currency each vendor actually charges — not converted to
+                  pricing page at the review date below, in the currency each vendor actually charges, not converted to
 
                   make the comparison flatter. Claims about Leadkaun are checked against the shipping code; see{" "}
 

@@ -30,7 +30,7 @@ const WEIGHS: Record<string, string> = {
   "business-development":
     "Is looking for whether this opens an account worth developing, not whether it closes this month.",
   "admissions-counselor":
-    "Is judging urgency against the intake calendar — the same enquiry means different things in and out of season.",
+    "Is judging urgency against the intake calendar. The same enquiry means different things in and out of season.",
   broker:
     "Is deciding whether the requirement matches inventory actually available right now.",
   "relationship-manager":
@@ -90,7 +90,7 @@ const OPENINGS: ReadonlyArray<(c: { subject: string; where: string }) => string>
   (c) => `A ${c.subject} enquiry${c.where} is rarely decided by one person. Two or three read it, and they are not reading it for the same thing.`,
   (c) => `More than one person forms a view on every ${c.subject} enquiry${c.where}, and they weigh it differently.`,
   (c) => `Before a ${c.subject} lead${c.where} gets worked properly, it passes the judgement of two or three people with different stakes in it.`,
-  (c) => `The people who decide what happens to a ${c.subject} enquiry${c.where} are not one audience — each is asking their own question of it.`,
+  (c) => `The people who decide what happens to a ${c.subject} enquiry${c.where} are not one audience. Each is asking their own question of it.`,
 ]
 
 export function committeeOpening(subject: string, cityName: string | undefined, seedKey: string): string {

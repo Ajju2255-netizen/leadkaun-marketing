@@ -15,18 +15,18 @@ import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 export const metadata: Metadata = {
   title: "Lead Management & Lead Scoring Features for Indian B2B Teams",
   description:
-    "Every Leadkaun module in one place: A–F lead scoring, the Priority Queue, the Missed Opportunity Engine, the 8:30 AM Morning Brief, WhatsApp tracking, and sales-rep tracking — built for how Indian B2B teams sell.",
+    "Every Leadkaun module in one place: A–F lead scoring, the Priority Queue, the Missed Opportunity Engine, the 8:30 AM Morning Brief, WhatsApp tracking, and sales-rep tracking, built for how Indian B2B teams sell.",
   alternates: { canonical: "/features" },
 }
 
 const FEATURES = [
-  { icon: BarChart3,     href: "/features/lead-scoring",              title: "Lead Scoring Engine",       description: "Grade every lead A–F in real time on Fit, Intent and Quality. Transparent, fixed weights — a rep can always see why a lead is Grade A." },
+  { icon: BarChart3,     href: "/features/lead-scoring",              title: "Lead Scoring Engine",       description: "Grade every lead A–F in real time on Fit, Intent and Quality. Transparent, fixed weights. A rep can always see why a lead is Grade A." },
   { icon: ListOrdered,   href: "/features/priority-queue",            title: "Priority Queue",            description: "One ranked list per rep that re-ranks live as signals arrive. Reps work top-down instead of triaging their inbox." },
-  { icon: AlertTriangle, href: "/features/missed-opportunity-engine", title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value, so the ₹ at risk becomes a number you can rank and act on — not a feeling." },
+  { icon: AlertTriangle, href: "/features/missed-opportunity-engine", title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value, so the ₹ at risk becomes a number you can rank and act on, not a feeling." },
   { icon: Mail,          href: "/features/morning-brief",             title: "Morning Brief",             description: "An 8:30 AM IST email listing the day's Grade A leads, overdue follow-ups, and ₹ at risk. The day starts with a plan." },
-  { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "WhatsApp as a first-class signal. Log each exchange in three taps from any regular account — it feeds the Intent Score." },
-  { icon: Users,         href: "/features/sales-rep-tracking",        title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, and follow-up completion — behaviour over vanity activity counts." },
-  { icon: FileSearch,   href: "/features/intake-intelligence",        title: "Intake Intelligence",       description: "See what is actually in a lead file before you import it — valid phones, duplicates, missing fields, B2B or not." },
+  { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "WhatsApp as a first-class signal. Log each exchange in three taps from any regular account. It feeds the Intent Score." },
+  { icon: Users,         href: "/features/sales-rep-tracking",        title: "Sales Rep Tracking",        description: "Per-rep ₹ recovered, Grade A response time, and follow-up completion, behaviour over vanity activity counts." },
+  { icon: FileSearch,   href: "/features/intake-intelligence",        title: "Intake Intelligence",       description: "See what is actually in a lead file before you import it, valid phones, duplicates, missing fields, B2B or not." },
   { icon: History,      href: "/features/score-evolution",            title: "Score Evolution",           description: "Every grade change written to an append-only timeline, so a drop traces back to the event that caused it." },
 ]
 
@@ -42,7 +42,7 @@ export default function FeaturesHub() {
 
       <PageHero
         eyebrow="Features · 6 core modules"
-        h1={<>The layer your CRM is missing —<br /><span className="hero-accent">module by module.</span></>}
+        h1={<>The layer your CRM is missing,<br /><span className="hero-accent">module by module.</span></>}
         sub="A CRM records what happened. Leadkaun reshapes what happens next. Here is every behaviour module, and exactly what each one does for an Indian B2B sales team."
         primary={undefined}
       />
@@ -55,7 +55,7 @@ export default function FeaturesHub() {
               Six modules that reshape the day.
             </h2>
             <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-              The jobs a CRM was never designed for — grading, prioritising, alerting, and recovering revenue your team was losing silently.
+              The jobs a CRM was never designed for, grading, prioritising, alerting, and recovering revenue your team was losing silently.
             </p>
           </div>
 

@@ -15,7 +15,7 @@ import { getAlternatives } from "@/lib/pseo/lookup"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "CRM Alternatives (2026) — Honest Alternatives to Every Major CRM | Leadkaun",
+  title: "CRM Alternatives (2026), Honest Alternatives to Every Major CRM | Leadkaun",
   description:
     "Looking for an alternative to Zoho, HubSpot, Salesforce, Pipedrive, LeadSquared, Kylas, TeleCRM and more? Honest, India-fit alternatives for B2B sales teams.",
   alternates: { canonical: "/alternatives" },
@@ -31,7 +31,7 @@ export default async function AlternativesHub() {
       <PageHero
         eyebrow="Alternatives"
         h1={<>Looking for an <span className="hero-accent">alternative?</span></>}
-        sub="Honest, India-fit alternatives to every major CRM — why teams look elsewhere, and which options actually fit Indian B2B sales. We build Leadkaun and tell you where each competitor still wins."
+        sub="Honest, India-fit alternatives to every major CRM, why teams look elsewhere, and which options actually fit Indian B2B sales. We build Leadkaun and tell you where each competitor still wins."
         primary={undefined}
       />
       <SectionGround variant="pure" size="sm">

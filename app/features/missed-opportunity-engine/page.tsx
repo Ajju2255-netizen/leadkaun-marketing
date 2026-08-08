@@ -19,9 +19,9 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Missed Opportunity Engine — See ₹ at risk, per rep, per week",
+  title: "Missed Opportunity Engine. See ₹ at risk, per rep, per week",
   description:
-    "Every stale lead gets a rupee value. The Missed Opportunity Engine translates 'overdue follow-up' into ₹ at risk — the metric every Monday sales review should open with.",
+    "Every stale lead gets a rupee value. The Missed Opportunity Engine translates 'overdue follow-up' into ₹ at risk, the metric every Monday sales review should open with.",
   alternates: { canonical: "/features/missed-opportunity-engine" },
 }
 
@@ -35,15 +35,15 @@ const STALE_WINDOWS = [
 const FAQ = [
   { q: "How is ₹ at risk calculated?", a: "Formula: avg deal value for that grade × grade-specific conversion rate × 1 lead. For a real-estate team with ₹45L avg GCV and 10% Grade A conversion, a single stale Grade A lead = ₹4.5L at risk. Aggregated across stale leads, this becomes your weekly ₹ at risk number." },
   { q: "Where do the avg deal values come from?", a: "Default values are industry benchmarks. On Growth and Scale, you customise per pipeline using your actual last-90-day closed-won data." },
-  { q: "Does it shame reps?", a: "Rep-facing copy is framed as opportunity, not blame. The rep's Morning Brief says '₹1.8L to recover today — top 3: Priya, Rajesh, Mohan' — not 'you missed ₹1.8L'. Same number, different conversation. Managers see per-rep rollups separately." },
-  { q: "What happens when we mark a lead as closed-lost?", a: "It leaves the at-risk bucket and gets logged for Loss Analysis — so over time you see which sources / industries / reps have higher loss rates, and you can coach / retarget accordingly." },
+  { q: "Does it shame reps?", a: "Rep-facing copy is framed as opportunity, not blame. The rep's Morning Brief says '₹1.8L to recover today, top 3: Priya, Rajesh, Mohan', not 'you missed ₹1.8L'. Same number, different conversation. Managers see per-rep rollups separately." },
+  { q: "What happens when we mark a lead as closed-lost?", a: "It leaves the at-risk bucket and gets logged for Loss Analysis, so over time you see which sources / industries / reps have higher loss rates, and you can coach / retarget accordingly." },
   { q: "How does it integrate with Morning Brief?", a: "The top of every Morning Brief email leads with 'Your ₹ at risk today' and lists the top Grade A leads to recover. It's the single metric that sets the rep's day." },
 ]
 
 const RELATED = [
   { icon: Gauge,       title: "Lead Scoring",   description: "Stale leads only matter after they've been graded. See how scoring drives the ₹ at risk number.", href: "/features/lead-scoring" },
-  { icon: ListOrdered, title: "Priority Queue", description: "Recovery actions show up in the rep's queue — with the ₹ value attached.",                       href: "/features/priority-queue" },
-  { icon: Mail,        title: "Morning Brief",  description: "Where the ₹ at risk number lands every weekday at 8:30 AM IST — rep and manager versions.",       href: "/features/morning-brief" },
+  { icon: ListOrdered, title: "Priority Queue", description: "Recovery actions show up in the rep's queue, with the ₹ value attached.",                       href: "/features/priority-queue" },
+  { icon: Mail,        title: "Morning Brief",  description: "Where the ₹ at risk number lands every weekday at 8:30 AM IST, rep and manager versions.",       href: "/features/morning-brief" },
 ]
 
 export default function MissedOpportunityPage() {
@@ -57,7 +57,7 @@ export default function MissedOpportunityPage() {
         <PageHero
           eyebrow={<><AlertTriangle className="h-3 w-3" strokeWidth={2} /> Missed Opportunity Engine</>}
           h1={<>Every stale lead<br /><span className="hero-accent">gets a rupee value.</span></>}
-          sub="The metric that turns Monday reviews from activity debates into money conversations. ₹ at risk per rep, per week — every week."
+          sub="The metric that turns Monday reviews from activity debates into money conversations. ₹ at risk per rep, per week, every week."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Morning Brief", href: "/features/morning-brief" }}
         />
@@ -67,7 +67,7 @@ export default function MissedOpportunityPage() {
           <Container>
             <QuickAnswer
               question="What is Leadkaun's Missed Opportunity Engine?"
-              answer="It puts a rupee value on every lead slipping through the cracks. Each stale or un-contacted high-grade lead is scored by deal size, close probability, and how far past its window it is, then rolled up into a daily ₹-at-risk figure per rep and per source — so managers act before the money is gone."
+              answer="It puts a rupee value on every lead slipping through the cracks. Each stale or un-contacted high-grade lead is scored by deal size, close probability, and how far past its window it is, then rolled up into a daily ₹-at-risk figure per rep and per source, so managers act before the money is gone."
             />
           </Container>
         </SectionGround>
@@ -88,8 +88,8 @@ export default function MissedOpportunityPage() {
               </p>
               <div className="mt-10 grid gap-5 md:grid-cols-3">
                 {[
-                  { lab: "Example — real estate", body: <>₹45L avg deal × 10% Grade A conv. × 1 stale lead = <span className="font-mono font-semibold text-ink">₹4.5L at risk</span> per stale Grade A lead</> },
-                  { lab: "Example — EdTech",      body: <>₹75k avg fee × 22% Grade A conv. × 1 stale lead = <span className="font-mono font-semibold text-ink">₹16,500</span> per stale Grade A lead</> },
+                  { lab: "Example, real estate", body: <>₹45L avg deal × 10% Grade A conv. × 1 stale lead = <span className="font-mono font-semibold text-ink">₹4.5L at risk</span> per stale Grade A lead</> },
+                  { lab: "Example, EdTech",      body: <>₹75k avg fee × 22% Grade A conv. × 1 stale lead = <span className="font-mono font-semibold text-ink">₹16,500</span> per stale Grade A lead</> },
                   { lab: "Typical team baseline", body: <>10-rep Indian B2B SMB:<span className="font-mono font-semibold text-ink"> ₹2–5 L / week</span> steady-state ₹ at risk after 30 days on Leadkaun</> },
                 ].map((c, i) => (
                   <FloatingCard key={c.lab} tier={i === 1 ? "peach" : "sky"} depth="1" className="p-5">
@@ -176,7 +176,7 @@ export default function MissedOpportunityPage() {
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}
-          headline="See your ₹ at risk — week one."
+          headline="See your ₹ at risk, week one."
           sub="Import your leads. Leadkaun grades them, surfaces the stale ones, attaches a rupee value. Free for 14 days."
         />
 

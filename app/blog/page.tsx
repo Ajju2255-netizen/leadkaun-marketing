@@ -15,7 +15,7 @@ import { Reveal } from "@/app/components/reveal"
 import { CATEGORIES, getAllPosts, estimateReadingTime } from "@/lib/blog"
 
 export const metadata: Metadata = {
-  title: "Leadkaun Blog — Sales Behaviour Insights for Indian B2B Teams",
+  title: "Leadkaun Blog Sales Behaviour Insights for Indian B2B Teams",
   description:
     "Practical guides on lead scoring, priority queues, rupee-first analytics, WhatsApp sales, and building accountability in Indian B2B sales teams.",
   alternates: { canonical: "/blog" },
@@ -37,7 +37,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="The Leadkaun Journal"
         h1={<>Sales behaviour insights for <span className="hero-accent">Indian B2B teams.</span></>}
-        sub="Practical field notes from operators — on A–F lead scoring, rupee-first analytics, WhatsApp as a signal, and running sales accountability without micromanagement. Two articles a week. Built for founders, sales heads, and RevOps leaders in 2026-era Indian B2B."
+        sub="Practical field notes from operators, on A–F lead scoring, rupee-first analytics, WhatsApp as a signal, and running sales accountability without micromanagement. Two articles a week. Built for founders, sales heads, and RevOps leaders in 2026-era Indian B2B."
         center={false}
         primary={undefined}
       />
@@ -146,7 +146,7 @@ export default function BlogPage() {
               Ten editorial pillars.
             </h2>
             <p className="mt-4 max-w-2xl text-[16px] leading-[1.65] text-ink-soft">
-              Every article fits inside one of ten topical pillars — pick the one that matches the problem you&apos;re trying to solve this quarter.
+              Every article fits inside one of ten topical pillars. Pick the one that matches the problem you&apos;re trying to solve this quarter.
             </p>
           </Reveal>
 
@@ -184,7 +184,7 @@ export default function BlogPage() {
       <CTABanner
         tag={{ number: "04", label: "Ship behaviour, not dashboards" }}
         headline="Stop reading. Start scoring."
-        sub="Leadkaun grades every lead A–F, ranks the queue, and surfaces missed ₹ — so Monday actually feels like progress."
+        sub="Leadkaun grades every lead A–F, ranks the queue, and surfaces missed ₹, so Monday actually feels like progress."
       />
       <Footer />
     </main>

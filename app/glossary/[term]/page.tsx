@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const entry = list.find((g) => g.slug === term)
   if (!entry) return {}
   return {
-    title: `${entry.term} — Definition & Use in Indian B2B Sales | Leadkaun`,
+    title: `${entry.term}, Definition & Use in Indian B2B Sales | Leadkaun`,
     description: entry.definitionShort.slice(0, 155),
     alternates: { canonical: `/glossary/${entry.slug}` },
   }
@@ -159,7 +159,7 @@ export default async function GlossaryTermPage({ params }: Params) {
           </SectionGround>
         )}
 
-        {/* GUIDE BRIDGE — pillar + buyer guide, so the term feeds the commercial
+        {/* GUIDE BRIDGE, pillar + buyer guide, so the term feeds the commercial
             cluster it belongs to instead of only linking sideways to other terms. */}
         {entry.relatedGuides && entry.relatedGuides.length > 0 && (
           <SectionGround variant="pure" size="md">
@@ -216,7 +216,7 @@ export default async function GlossaryTermPage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "From definitions to doing" }}
           headline="Stop defining. Start scoring."
-          sub="Leadkaun puts these concepts into practice — A–F grading, Priority Queue, Missed ₹. Setup the same day."
+          sub="Leadkaun puts these concepts into practice, A–F grading, Priority Queue, Missed ₹. Setup the same day."
         />
         <Footer />
       </main>

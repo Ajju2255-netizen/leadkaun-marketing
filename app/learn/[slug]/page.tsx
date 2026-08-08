@@ -105,7 +105,7 @@ export default async function PillarPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* ARTICLE BODY — the pillar prose */}
+        {/* ARTICLE BODY, the pillar prose */}
         {p.body && p.body.length > 0 && (
           <SectionGround variant="pure" size="lg">
             <Container>
@@ -125,7 +125,7 @@ export default async function PillarPage({ params }: Params) {
 
         <MidCta lead={`Want this working on your own pipeline?`} />
 
-        {/* CLUSTERS — the topical map */}
+        {/* CLUSTERS, the topical map */}
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-10 md:mb-14 max-w-3xl">

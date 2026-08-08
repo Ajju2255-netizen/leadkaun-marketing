@@ -8,17 +8,17 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { FloatingCard } from "@/app/components/floating-card"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Leadkaun",
+  title: "Privacy Policy, Leadkaun",
   description: "Leadkaun's privacy policy: what data we collect, how we use it, and your rights as a user.",
   alternates: { canonical: "/privacy" },
 }
 
 const SECTIONS: { n: string; title: string; body: string }[] = [
   { n: "01", title: "Data we collect", body: `When you use Leadkaun, we collect:
-• Account information — name, work email, phone number, company name.
-• Lead data — the records you import or create, including names, phone numbers, emails, and custom fields.
-• Usage data — how you interact with the product: pages visited, features used, actions logged.
-• Device data — browser type, IP address, operating system — used for security and analytics.
+• Account information, name, work email, phone number, company name.
+• Lead data. The records you import or create, including names, phone numbers, emails, and custom fields.
+• Usage data, how you interact with the product: pages visited, features used, actions logged.
+• Device data, browser type, IP address, operating system, used for security and analytics.
 
 We do not collect payment card details directly. Payments are processed by Razorpay, subject to their privacy policy.` },
   { n: "02", title: "How we use your data", body: `We use your data to:
@@ -33,10 +33,10 @@ We do not sell your data to third parties.` },
 
 Lead data is logically isolated per account. No other Leadkaun customer can access your lead records.` },
   { n: "04", title: "Third-party services", body: `Leadkaun uses the following third-party services that may process your data:
-• Razorpay — payment processing
-• Cloudflare — infrastructure and security
-• Google Analytics — anonymised usage analytics
-• WhatsApp Business API (optional) — message tracking for opted-in integrations
+• Razorpay, payment processing
+• Cloudflare, infrastructure and security
+• Google Analytics, anonymised usage analytics
+• WhatsApp Business API (optional), message tracking for opted-in integrations
 
 Each provider is subject to their own privacy policy and data-processing terms.` },
   { n: "05", title: "Your rights", body: `You have the right to:
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
       <DetailHero
         eyebrow="Legal · Last updated April 2026"
         h1="Privacy Policy"
-        sub="We take your lead data seriously — because your buyers trusted you with it. This document tells you exactly what we collect, why, and how you keep control."
+        sub="We take your lead data seriously, because your buyers trusted you with it. This document tells you exactly what we collect, why, and how you keep control."
       />
 
       <SectionGround variant="cream" size="lg">

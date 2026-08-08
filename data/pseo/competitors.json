@@ -17,7 +17,7 @@
       "No Priority Queue equivalent",
       "No Missed Opportunity Engine (₹-at-risk)"
     ],
-    "switchingNarrative": "Run Leadkaun alongside Zoho for 60 days — Leadkaun for grading/queue/₹-at-risk; Zoho for long-tail customisation. Consolidate once ROI is proven.",
+    "switchingNarrative": "Run Leadkaun alongside Zoho for 60 days, Leadkaun for grading/queue/₹-at-risk; Zoho for long-tail customisation. Consolidate once ROI is proven.",
     "logoHint": "Zoho red"
   },
   {
@@ -55,7 +55,7 @@
       "Clean reporting UX"
     ],
     "weaknesses": [
-      "USD pricing — Professional tier is 2× Leadkaun Growth for Indian teams",
+      "USD pricing. Professional tier is 2× Leadkaun Growth for Indian teams",
       "Marketing-first bias; sales-behaviour features weaker",
       "No lakhs/crores UI; no native WhatsApp tracking",
       "Complex at Professional/Enterprise tiers (2–6 weeks onboarding)",
@@ -77,10 +77,10 @@
       "Deep reporting at scale"
     ],
     "weaknesses": [
-      "Price: ₹7,500+/rep/month base — 2–7× alternatives",
+      "Price: ₹7,500+/rep/month base 2–7× alternatives",
       "3–12 months consultant-led implementation",
       "Requires dedicated Salesforce admin (₹1–2L/month)",
-      "India localisation partial — US-first product feel",
+      "India localisation partial, US-first product feel",
       "Notoriously low rep adoption in mid-market India"
     ],
     "switchingNarrative": "Salesforce earns its keep at 200+ reps. Below that, Leadkaun (or Zoho/LeadSquared for workflow CRM) is the pragmatic path. Migration is 2–4 weeks for SMBs.",
@@ -98,7 +98,7 @@
       "Reasonable pricing vs global peers"
     ],
     "weaknesses": [
-      "Freddy AI scoring is opaque — no three-dimensional breakdown",
+      "Freddy AI scoring is opaque, no three-dimensional breakdown",
       "Not India-calibrated (generic B2B defaults)",
       "No Missed Opportunity Engine (₹-at-risk)",
       "WhatsApp via Freshchat add-on, not native",

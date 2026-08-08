@@ -53,17 +53,17 @@ export type PseoVariantCtx = {
 // numbers. Selected by hash so a combo always renders the same one.
 export const INTRO_FRAMINGS: ReadonlyArray<(c: PseoVariantCtx) => string> = [
   (c) =>
-    `${c.cityName} ${c.industryLower} teams rarely lose deals because leads are scarce — they lose them because the right lead gets called too late. ${c.keywordLabel} in Leadkaun fixes the order of work: grade every enquiry A–F on fit and intent, then work the queue top-down.`,
+    `${c.cityName} ${c.industryLower} teams rarely lose deals because leads are scarce. They lose them because the right lead gets called too late. ${c.keywordLabel} in Leadkaun fixes the order of work: grade every enquiry A–F on fit and intent, then work the queue top-down.`,
   (c) =>
-    `Ask a ${c.industryLower} sales head in ${c.cityName} where revenue leaks, and it's rarely the top of the funnel — it's the follow-up. Leadkaun's ${c.keywordLower} scores each lead so the priority queue effectively builds itself, and the ₹ at risk is visible before a deal goes cold.`,
+    `Ask a ${c.industryLower} sales head in ${c.cityName} where revenue leaks, and it's rarely the top of the funnel it's the follow-up. Leadkaun's ${c.keywordLower} scores each lead so the priority queue effectively builds itself, and the ₹ at risk is visible before a deal goes cold.`,
   (c) =>
-    `Most ${c.industryLower} desks in ${c.cityName} run on gut feel and the freshest enquiry. ${c.keywordLabel} replaces that with a transparent Grade A–F on every lead — so reps spend their hours on the enquiries most likely to close this week, not just the newest one.`,
+    `Most ${c.industryLower} desks in ${c.cityName} run on gut feel and the freshest enquiry. ${c.keywordLabel} replaces that with a transparent Grade A–F on every lead, so reps spend their hours on the enquiries most likely to close this week, not just the newest one.`,
   (c) =>
-    `In ${c.cityName}, a ${c.industryLower} lead is warmest the moment it lands. Leadkaun's ${c.keywordLower} grades it instantly, drops it into the assigned rep's Priority Queue, and decays stale intent automatically — so nothing quietly ages out of view.`,
+    `In ${c.cityName}, a ${c.industryLower} lead is warmest the moment it lands. Leadkaun's ${c.keywordLower} grades it instantly, drops it into the assigned rep's Priority Queue, and decays stale intent automatically, so nothing quietly ages out of view.`,
   (c) =>
-    `Leadkaun brings ${c.keywordLower} to ${c.industryLower} teams in ${c.cityName} without the enterprise-CRM weight: every lead graded A–F in real time, a live queue that re-ranks as signals arrive, and missed revenue surfaced in rupees — set up the same day.`,
+    `Leadkaun brings ${c.keywordLower} to ${c.industryLower} teams in ${c.cityName} without the enterprise-CRM weight: every lead graded A–F in real time, a live queue that re-ranks as signals arrive, and missed revenue surfaced in rupees. Set up the same day.`,
   (c) =>
-    `The ${c.industryLower} teams that win in ${c.cityName} aren't the ones with the most leads — they're the ones that call the right lead first. ${c.keywordLabel} makes "the right lead" explicit: a grade, a reason, and a queue position, on every enquiry.`,
+    `The ${c.industryLower} teams that win in ${c.cityName} aren't the ones with the most leads, they're the ones that call the right lead first. ${c.keywordLabel} makes "the right lead" explicit: a grade, a reason, and a queue position, on every enquiry.`,
 ]
 
 export function keywordIntro(ctx: PseoVariantCtx, seed: number): string {

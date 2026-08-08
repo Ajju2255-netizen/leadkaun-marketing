@@ -5,7 +5,7 @@ import { RupeeMeter } from "@/app/components/viz/rupee-meter"
 
 /* The heavy, purely-decorative product visuals. Rendered client-side only
    (loaded via showcase-visuals-lazy with ssr:false) so the Cloudflare Worker
-   doesn't pay the SSR cost on every cold PSEO render. No SEO value here — the
+   doesn't pay the SSR cost on every cold PSEO render. No SEO value here, the
    ranking content is the page's localized text, which stays server-rendered. */
 
 const GRADE_BG: Record<string, string> = {

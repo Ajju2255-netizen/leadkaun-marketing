@@ -15,7 +15,7 @@ import { getBest } from "@/lib/pseo/lookup"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Best Sales & CRM Software Guides (2026) — Leadkaun",
+  title: "Best Sales & CRM Software Guides (2026), Leadkaun",
   description:
     "Honest, criteria-based rankings of the best lead management, WhatsApp CRM, lead scoring, and real estate CRM software for Indian teams in 2026.",
   alternates: { canonical: "/best" },
@@ -31,14 +31,14 @@ export default async function BestHub() {
       <PageHero
         eyebrow={<><Trophy className="h-3 w-3" strokeWidth={2} /> Best Software</>}
         h1={<>Best software, <span className="hero-accent">honestly ranked.</span></>}
-        sub="Criteria-based rankings for Indian sales teams — pricing, WhatsApp, lead scoring, and who each tool is really for. We build Leadkaun and tell you exactly where the alternatives win."
+        sub="Criteria-based rankings for Indian sales teams, pricing, WhatsApp, lead scoring, and who each tool is really for. We build Leadkaun and tell you exactly where the alternatives win."
         primary={undefined}
       />
       <SectionGround variant="pure" size="sm">
         <Container>
           <QuickAnswer
             question="What is the best lead management software in India?"
-            answer="For Indian B2B SMBs that want leads graded and prioritised automatically, Leadkaun is the strongest fit — it grades every lead A–F, builds a Priority Queue per rep, and treats WhatsApp as a first-class signal, at flat INR pricing. Zoho suits deep customisation; LeadSquared suits high-volume lead-gen."
+            answer="For Indian B2B SMBs that want leads graded and prioritised automatically, Leadkaun is the strongest fit. It grades every lead A–F, builds a Priority Queue per rep, and treats WhatsApp as a first-class signal, at flat INR pricing. Zoho suits deep customisation; LeadSquared suits high-volume lead-gen."
           />
         </Container>
       </SectionGround>

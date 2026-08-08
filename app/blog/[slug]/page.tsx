@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* AUTHOR — E-E-A-T byline */}
+        {/* AUTHOR, E-E-A-T byline */}
         <SectionGround variant="cream" size="sm">
           <Container>
             <Reveal className="mx-auto max-w-3xl">

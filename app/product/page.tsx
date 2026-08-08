@@ -23,15 +23,15 @@ import { APP_URLS } from "@/lib/urls"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Lead Management Software — Product Tour | Leadkaun",
+  title: "Lead Management Software, Product Tour | Leadkaun",
   description:
-    "Leadkaun grades every lead A–F, surfaces a Priority Queue, tracks missed ₹, and sends managers a Morning Brief — all built for Indian B2B sales teams. 12 live modules.",
+    "Leadkaun grades every lead A–F, surfaces a Priority Queue, tracks missed ₹, and sends managers a Morning Brief, all built for Indian B2B sales teams. 12 live modules.",
   alternates: { canonical: "/product" },
 }
 
 const CORE_MODULES = [
   { icon: BarChart3,     href: "/features/lead-scoring",              title: "Lead Scoring Engine",       description: "Grade A–F in real time. Fit + Intent + Quality, transparent weights, decay baked in." },
-  { icon: ListOrdered,   href: "/features/priority-queue",            title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive — rep works top-down." },
+  { icon: ListOrdered,   href: "/features/priority-queue",            title: "Priority Queue",            description: "One ranked list per rep. Re-ranks live as signals arrive, rep works top-down." },
   { icon: AlertTriangle, href: "/features/missed-opportunity-engine", title: "Missed Opportunity Engine", description: "Every stale lead gets a rupee value. Aggregate ₹ at risk surfaced daily." },
   { icon: Mail,          href: "/features/morning-brief",             title: "Morning Brief",             description: "8:30 AM IST email. Top Grade A leads, overdue follow-ups, ₹ at risk today." },
   { icon: MessageSquare, href: "/features/whatsapp-tracking",         title: "WhatsApp Tracking",         description: "Most Indian B2B first-contact happens on WhatsApp. 3-tap logging feeds scoring." },
@@ -41,23 +41,23 @@ const CORE_MODULES = [
 const SUPPORTING_MODULES = [
   { icon: Settings, title: "Onboarding & ICP",        description: "6-step wizard. First graded lead in the queue the same day you sign up." },
   { icon: Database, title: "Lead Ingestion",          description: "CSV import and manual entry (Google Sheets sync on the roadmap). Indian phone normalisation + dedup built in." },
-  { icon: Inbox,    title: "Pipeline & Lead Records", description: "Kanban pipeline, contact records, call log — the workspace your reps act in, alongside your CRM." },
+  { icon: Inbox,    title: "Pipeline & Lead Records", description: "Kanban pipeline, contact records, call log, the workspace your reps act in, alongside your CRM." },
   { icon: FileText, title: "Lead Quality Analysis",   description: "Junk detection, source reliability scoring, phone + email validity." },
   { icon: Workflow, title: "Follow-up Engine",        description: "Grade-aware cadence. Per-rep Follow-up Score shows consistency at a glance." },
   { icon: UserCog,  title: "Team & Admin Management", description: "Admin / Manager / Rep roles, per-workspace separation, full audit export." },
 ]
 
 const HOW_IT_WORKS = [
-  { n: "01", title: "Import your leads.",            body: "CSV upload (10k rows / 60s) or manual entry — Indian phones normalised, duplicates deduped. A Google Sheets connector is on the roadmap." },
+  { n: "01", title: "Import your leads.",            body: "CSV upload (10k rows / 60s) or manual entry, Indian phones normalised, duplicates deduped. A Google Sheets connector is on the roadmap." },
   { n: "02", title: "Leads grade in real time.",      body: "Every new lead scored A–F across Fit, Intent, Quality. Weights are yours to audit. No black box." },
   { n: "03", title: "Reps work the Queue top-down.", body: "Re-ranks in real time as WhatsApp replies arrive and intent decays. Decision made. No triage." },
   { n: "04", title: "Managers see ₹ accountability.", body: "Morning Brief at 8:30 AM IST. Monday review opens with ₹ at risk per rep. Coaching becomes specific." },
 ]
 
 const FAQ = [
-  { q: "Is Leadkaun a CRM?", a: "No — it's a Sales Behaviour OS that runs alongside your CRM. Your CRM records what happened; Leadkaun grades every lead A–F, ranks each rep's queue, and surfaces the ₹ at risk so reps know what to do next." },
-  { q: "How does the lead scoring work?", a: "Every lead gets three transparent 0–100 scores — Fit (ICP match), Intent (engagement, which decays as leads go silent) and Quality (data reliability) — combined into an A–F grade. Weights are auditable, not a black-box AI score." },
-  { q: "Does it work with WhatsApp?", a: "Yes — WhatsApp is a first-class signal. Reps log each exchange in 3 taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score." },
+  { q: "Is Leadkaun a CRM?", a: "No it's a Sales Behaviour OS that runs alongside your CRM. Your CRM records what happened; Leadkaun grades every lead A–F, ranks each rep's queue, and surfaces the ₹ at risk so reps know what to do next." },
+  { q: "How does the lead scoring work?", a: "Every lead gets three transparent 0–100 scores, Fit (ICP match), Intent (engagement, which decays as leads go silent) and Quality (data reliability), combined into an A–F grade. Weights are auditable, not a black-box AI score." },
+  { q: "Does it work with WhatsApp?", a: "Yes. WhatsApp is a first-class signal. Reps log each exchange in 3 taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score." },
   { q: "How do leads get into Leadkaun?", a: "CSV import or manual entry today, plus a generic webhook. IndiaMART/Facebook connectors and native Google Sheets sync are on the roadmap. Every lead is graded A–F the moment it lands." },
   { q: "How much does Leadkaun cost?", a: "Flat per account, not per seat: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Adding reps doesn't raise the bill within a tier." },
 ]
@@ -72,7 +72,7 @@ export default function ProductPage() {
         eyebrow="Product · 12 live modules"
         h1={
           <>
-            The layer your CRM is missing —<br />
+            The layer your CRM is missing,<br />
             <span
               className="hero-accent"
             >
@@ -80,7 +80,7 @@ export default function ProductPage() {
             </span>
           </>
         }
-        sub="CRMs record what happened. Leadkaun reshapes what happens next — twelve modules that grade, prioritise, alert, and recover revenue your team was losing silently."
+        sub="CRMs record what happened. Leadkaun reshapes what happens next, twelve modules that grade, prioritise, alert, and recover revenue your team was losing silently."
         primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
         secondary={{ kind: "glass", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
       />
@@ -89,7 +89,7 @@ export default function ProductPage() {
         <Container>
           <QuickAnswer
             question="What is Leadkaun?"
-            answer="Leadkaun is a Sales Behaviour OS for Indian SMB sales teams. It grades every lead A–F on Fit, Intent and Quality, builds each rep a Priority Queue of who to call next, and surfaces the ₹ at risk from stale leads — running alongside your CRM, not replacing it."
+            answer="Leadkaun is a Sales Behaviour OS for Indian SMB sales teams. It grades every lead A–F on Fit, Intent and Quality, builds each rep a Priority Queue of who to call next, and surfaces the ₹ at risk from stale leads, running alongside your CRM, not replacing it."
           />
         </Container>
       </SectionGround>
@@ -147,7 +147,7 @@ export default function ProductPage() {
               The six modules that reshape the day.
             </h2>
             <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-              These are the differentiators — the jobs a CRM was never designed for.
+              These are the differentiators. The jobs a CRM was never designed for.
             </p>
           </Reveal>
 
@@ -159,7 +159,7 @@ export default function ProductPage() {
         </Container>
       </SectionGround>
 
-      {/* METHODOLOGY — how the A–F grade is actually computed */}
+      {/* METHODOLOGY, how the A–F grade is actually computed */}
       <SectionGround variant="pure" size="lg">
         <Container>
           <Reveal className="mb-10 md:mb-14 max-w-3xl">
@@ -168,15 +168,15 @@ export default function ProductPage() {
               How the A–F grade is actually computed.
             </h2>
             <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-              No black box. Every grade is three transparent 0–100 scores combined against fixed, auditable thresholds — a rep can always see exactly why a lead is Grade A.
+              No black box. Every grade is three transparent 0–100 scores combined against fixed, auditable thresholds. A rep can always see exactly why a lead is Grade A.
             </p>
           </Reveal>
 
           <div className="grid gap-5 md:grid-cols-3 md:gap-6">
             {[
-              { tag: "Fit", range: "0–100", body: "How closely the lead matches the ICP you set at onboarding — industry, state, business type, decision-maker role and budget band. This is the one part you shape: you configure who a good customer is, not the maths behind it." },
-              { tag: "Intent", range: "0–100", body: "Engagement and signal events — source strength, WhatsApp replies, pricing-page visits, callbacks. Intent decays as a lead goes silent, so a hot lead that stops responding cools automatically instead of sitting falsely high." },
-              { tag: "Quality", range: "0–100", body: "Data reliability — completeness, phone and email validity, junk and duplicate detection. If Quality falls below 20 the lead is capped at Grade F, so bad data can never masquerade as a good lead." },
+              { tag: "Fit", range: "0–100", body: "How closely the lead matches the ICP you set at onboarding, industry, state, business type, decision-maker role and budget band. This is the one part you shape: you configure who a good customer is, not the maths behind it." },
+              { tag: "Intent", range: "0–100", body: "Engagement and signal events, source strength, WhatsApp replies, pricing-page visits, callbacks. Intent decays as a lead goes silent, so a hot lead that stops responding cools automatically instead of sitting falsely high." },
+              { tag: "Quality", range: "0–100", body: "Data reliability, completeness, phone and email validity, junk and duplicate detection. If Quality falls below 20 the lead is capped at Grade F, so bad data can never masquerade as a good lead." },
             ].map((s) => (
               <Reveal key={s.tag} delay={0.04}><FloatingCard tier="3" depth="3" gloss className="h-full p-7 md:p-8">
                 <div className="flex items-baseline justify-between">
@@ -192,7 +192,7 @@ export default function ProductPage() {
             <FloatingCard tier="1" depth="1" gloss className="p-7 md:p-8">
               <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">The threshold</p>
               <p className="mt-3 text-[16px] leading-[1.6] text-ink">
-                A lead is <span className="font-semibold">Grade A</span> when Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60 — the rest step down through B–F on the same fixed cut-offs. Because the weights are identical for every account, the grade stays explainable and comparable: no per-customer tuning, no hidden model.
+                A lead is <span className="font-semibold">Grade A</span> when Fit ≥ 65, Intent ≥ 60 and Quality ≥ 60, the rest step down through B–F on the same fixed cut-offs. Because the weights are identical for every account, the grade stays explainable and comparable: no per-customer tuning, no hidden model.
               </p>
             </FloatingCard>
           </Reveal>
@@ -208,7 +208,7 @@ export default function ProductPage() {
               Plus everything a CRM would do.
             </h2>
             <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-              Ingestion, onboarding, data quality, follow-ups, team admin — the tablestakes, built once, working from day one.
+              Ingestion, onboarding, data quality, follow-ups, team admin, the tablestakes, built once, working from day one.
             </p>
           </Reveal>
 
@@ -226,12 +226,12 @@ export default function ProductPage() {
         </Container>
       </SectionGround>
 
-      {/* PRODUCT — show the live system, then differentiate + price */}
+      {/* PRODUCT, show the live system, then differentiate + price */}
       <ProductShowcase
         number="05"
         ground="cream"
         title={<>See the whole system in one screen.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and ₹ at risk surfaced in real rupees — the working surface your team opens every morning."
+        sub="Every lead graded A–F, a live Priority Queue per rep, and ₹ at risk surfaced in real rupees, the working surface your team opens every morning."
       />
       {/* FAQ */}
       <SectionGround variant="cream" size="md">

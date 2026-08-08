@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!ind || !cityRec) return {}
   const canonicalCity = canonicalCityResolved ?? city
   return {
-    title: `${ind.name} CRM & Lead Management in ${cityRec.name} — Leadkaun`,
+    title: `${ind.name} CRM & Lead Management in ${cityRec.name}, Leadkaun`,
     description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup the same day.`,
     alternates: { canonical: `/${industry}/${canonicalCity}` },
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
@@ -202,13 +202,13 @@ export default async function IndustryCityPage({ params }: Params) {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{cityRec.name} context</p>
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
-                {/* City tier + population are intentionally not published here — they made these
+                {/* City tier + population are intentionally not published here. They made these
                     pages rank for encyclopedia queries instead of lead-management ones. */}
                 <span className="font-semibold text-ink">{ind.name}</span> teams in {cityRec.name}, {cityRec.state} typically source leads from {ind.channels.slice(0, 3).join(", ")}. {cityRec.notes ? `${cityRec.notes}. ` : ""}All of those channels flow into Leadkaun via CSV upload or manual entry in minutes (a Google Sheets connector is on the roadmap), where every enquiry is scored and graded A–F before it reaches a rep.
               </p>
               {cityRec.districts && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  Commercial activity in {cityRec.name} clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null} — the areas a {ind.name.toLowerCase()} pipeline here most often draws from.
+                  Commercial activity in {cityRec.name} clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null}, the areas a {ind.name.toLowerCase()} pipeline here most often draws from.
                 </p>
               )}
             </FloatingCard></Reveal>
@@ -226,7 +226,7 @@ export default async function IndustryCityPage({ params }: Params) {
           </SectionGround>
         )}
 
-        {/* METHODOLOGY — how the grade is computed */}
+        {/* METHODOLOGY, how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
         <BuyingCommittee
@@ -246,7 +246,7 @@ export default async function IndustryCityPage({ params }: Params) {
           tone="warm"
           eyebrow="What a team here uses most"
           title={<>The modules {ind.name.toLowerCase()} teams in {cityRec.name} lean on.</>}
-          sub={`Chosen for how ${ind.name.toLowerCase()} teams sell — not a full tour.`}
+          sub={`Chosen for how ${ind.name.toLowerCase()} teams sell, not a full tour.`}
           modules={modules}
         />
 

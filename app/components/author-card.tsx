@@ -3,7 +3,8 @@ import type { Author } from "@/lib/authors"
 
 /**
  * Byline/author block for content pages (E-E-A-T). Renders the author's name,
- * role and bio; links out when a profile URL is set.
+ * role; links out when a profile URL is set. The bio is deliberately not
+ * rendered: it repeated the review-stamp sentence that was removed sitewide.
  */
 export function AuthorCard({ author, updated }: { author: Author; updated?: string }) {
   const initials = author.name
@@ -32,7 +33,6 @@ export function AuthorCard({ author, updated }: { author: Author; updated?: stri
           <p className="text-[15px] font-semibold text-ink">{author.name}</p>
         )}
         {author.role && <p className="text-[12.5px] text-ink-muted">{author.role}</p>}
-        {author.bio && <p className="mt-2 text-[13.5px] leading-[1.6] text-ink-soft">{author.bio}</p>}
         {updated && (
           <p className="mt-2 font-mono text-[11px] text-ink-muted">
             Last updated {updated}

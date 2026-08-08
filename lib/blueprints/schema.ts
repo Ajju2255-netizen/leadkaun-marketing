@@ -29,7 +29,7 @@ export const EVIDENCE_TIERS = [
   "customer-result",     // a real, consented customer outcome  (blocked today)
   "named-source",        // a named primary source (IBEF, RBI, HBR…)
   "verified-fact",       // a checkable fact about our own product (pricing, tiers)
-  "product-mechanism",   // published mechanics — weights, thresholds, decay
+  "product-mechanism",   // published mechanics weights, thresholds, decay
   "illustrative-model",  // explicitly labelled model, never a result
 ] as const
 

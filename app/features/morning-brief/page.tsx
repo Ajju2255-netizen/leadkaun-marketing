@@ -19,23 +19,23 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Morning Brief — The 8:30 AM email that sets the sales day",
+  title: "Morning Brief. The 8:30 AM email that sets the sales day",
   description:
     "Every weekday at 8:30 AM IST, each rep and manager gets an email with ₹ at risk today, top Grade A leads, and overdue follow-ups. The ritual that makes scoring a habit.",
   alternates: { canonical: "/features/morning-brief" },
 }
 
 const FAQ = [
-  { q: "Why 8:30 AM IST?", a: "It hits before stand-up, before coffee, before anyone opens a dashboard. By the time the team gathers, everyone is looking at the same numbers — and by 11 AM, Grade A leads from overnight are contacted or on a recovery path." },
+  { q: "Why 8:30 AM IST?", a: "It hits before stand-up, before coffee, before anyone opens a dashboard. By the time the team gathers, everyone is looking at the same numbers, and by 11 AM, Grade A leads from overnight are contacted or on a recovery path." },
   { q: "What does a rep see vs what a manager sees?", a: "Rep brief: top 5 Grade A leads, ₹ at risk today, overdue follow-ups, one primary CTA. Manager brief: per-rep rollup of ₹ at risk, Grade A count, follow-up score, top stale leads. Same underlying data, different framing." },
   { q: "Does it send on Sundays or Saturdays?", a: "Monday through Saturday by default. Sunday is off. Per-user toggle for rep teams that work Sundays (real estate site visits, etc.)." },
   { q: "What if a rep is on leave?", a: "Toggle 'out of office' in settings. Brief pauses for them; their leads roll up to the assigned backup or the manager dashboard." },
-  { q: "Can I customise what's in the brief?", a: "Reps see the same shape (brand-enforced consistency). Managers can pick which per-rep metrics appear — ₹ at risk, Grade A count, follow-up score, response-time average, etc." },
+  { q: "Can I customise what's in the brief?", a: "Reps see the same shape (brand-enforced consistency). Managers can pick which per-rep metrics appear, ₹ at risk, Grade A count, follow-up score, response-time average, etc." },
 ]
 
 const RELATED = [
   { icon: Gauge,         title: "Lead Scoring",     description: "The Brief's Grade A list comes straight from the scoring engine. Every morning.", href: "/features/lead-scoring" },
-  { icon: ListOrdered,   title: "Priority Queue",   description: "The rep's first 5 items are the top of their queue — now in their inbox.",          href: "/features/priority-queue" },
+  { icon: ListOrdered,   title: "Priority Queue",   description: "The rep's first 5 items are the top of their queue, now in their inbox.",          href: "/features/priority-queue" },
   { icon: AlertTriangle, title: "Missed Opportunity", description: "The ₹ at risk number in the Brief comes from the Missed Opportunity Engine.",     href: "/features/missed-opportunity-engine" },
 ]
 
@@ -50,7 +50,7 @@ export default function MorningBriefPage() {
         <PageHero
           eyebrow={<><Mail className="h-3 w-3" strokeWidth={2} /> Morning Brief</>}
           h1={<>8:30 AM IST.<br /><span className="hero-accent">Monday–Saturday. The day is set.</span></>}
-          sub="The ritual that makes lead scoring a daily habit. Rep and manager get the same numbers, different framing — and by 11 AM, the queue is already being worked."
+          sub="The ritual that makes lead scoring a daily habit. Rep and manager get the same numbers, different framing, and by 11 AM, the queue is already being worked."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}
         />
@@ -60,7 +60,7 @@ export default function MorningBriefPage() {
           <Container>
             <QuickAnswer
               question="What is the Leadkaun Morning Brief?"
-              answer="An email sent to each rep and manager at 8:30 AM IST. It leads with the ₹ at risk today, the top Grade A leads to call, and overdue follow-ups — ranked, not a data dump. It answers 'what do I do first?' in the first five lines, before the day's noise buries the hot leads."
+              answer="An email sent to each rep and manager at 8:30 AM IST. It leads with the ₹ at risk today, the top Grade A leads to call, and overdue follow-ups, ranked, not a data dump. It answers 'what do I do first?' in the first five lines, before the day's noise buries the hot leads."
             />
           </Container>
         </SectionGround>
@@ -85,7 +85,7 @@ export default function MorningBriefPage() {
                     background: "linear-gradient(180deg, rgba(186,230,253,0.30) 0%, transparent 100%)",
                   }}
                 >
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-sky-600">REP BRIEF — 8:30 AM IST</span>
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-sky-600">REP BRIEF, 8:30 AM IST</span>
                   <Mail className="h-4 w-4 text-sky-500" />
                 </div>
                 <div className="p-6 space-y-5">
@@ -108,7 +108,7 @@ export default function MorningBriefPage() {
                     </ul>
                   </div>
                   <div className="pt-4 text-[12px] text-ink-muted" style={{ borderTop: "1px solid var(--hairline)" }}>
-                    2 follow-ups overdue from Friday. Start with Suresh — 22 min fresh reply.
+                    2 follow-ups overdue from Friday. Start with Suresh, 22 min fresh reply.
                   </div>
                 </div>
               </FloatingCard>
@@ -122,7 +122,7 @@ export default function MorningBriefPage() {
                     background: "linear-gradient(180deg, rgba(254,215,170,0.30) 0%, transparent 100%)",
                   }}
                 >
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-orange-500">MANAGER BRIEF — 8:30 AM IST</span>
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-orange-500">MANAGER BRIEF, 8:30 AM IST</span>
                   <Mail className="h-4 w-4 text-orange-400" />
                 </div>
                 <div className="p-6 space-y-5">
@@ -147,7 +147,7 @@ export default function MorningBriefPage() {
                     ))}
                   </div>
                   <div className="pt-4 text-[12px] text-ink-muted" style={{ borderTop: "1px solid var(--hairline)" }}>
-                    Last week: ₹3.1L. Up ₹1.1L — likely two overdue real-estate enquiries from Priya&apos;s territory.
+                    Last week: ₹3.1L. Up ₹1.1L, likely two overdue real-estate enquiries from Priya&apos;s territory.
                   </div>
                 </div>
               </FloatingCard>

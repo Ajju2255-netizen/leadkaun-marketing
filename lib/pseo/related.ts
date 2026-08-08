@@ -50,7 +50,7 @@ const DEFAULT_GUIDE = { slug: "lead-management-software-india", label: "Best lea
 
 const PILLARS: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/learn/lead-management",  label: "Lead management: the complete guide" },
-  { href: "/learn/lead-scoring",     label: "How lead scoring works — the A–F method" },
+  { href: "/learn/lead-scoring",     label: "How lead scoring works, the A–F method" },
   { href: "/learn/sales-follow-up",  label: "Sales follow-up & response time" },
   { href: "/learn/missed-revenue",   label: "Missed revenue & ₹ at risk, explained" },
   { href: "/learn/whatsapp-sales",   label: "WhatsApp sales: tracking that actually sticks" },
@@ -58,9 +58,9 @@ const PILLARS: ReadonlyArray<{ href: string; label: string }> = [
 ]
 
 const FEATURES: ReadonlyArray<{ href: string; label: string }> = [
-  { href: "/features/lead-scoring",              label: "Lead scoring software — grade A–F in real time" },
-  { href: "/features/priority-queue",            label: "Lead prioritisation — the Priority Queue" },
-  { href: "/features/missed-opportunity-engine", label: "Lead tracking — the Missed Opportunity Engine" },
+  { href: "/features/lead-scoring",              label: "Lead scoring software, grade A–F in real time" },
+  { href: "/features/priority-queue",            label: "Lead prioritisation, the Priority Queue" },
+  { href: "/features/missed-opportunity-engine", label: "Lead tracking, the Missed Opportunity Engine" },
   { href: "/features/whatsapp-tracking",         label: "WhatsApp lead tracking" },
   { href: "/features/sales-rep-tracking",        label: "Sales rep tracking & accountability" },
   { href: "/features/morning-brief",             label: "The 8:30 AM Morning Brief" },
@@ -85,7 +85,7 @@ export function commercialLinks(seedKey: string, industrySlug?: string): Related
     { href: pillar.href, label: pillar.label, kind: "commercial-pillar" },
     { href: feature.href, label: feature.label, kind: "commercial-feature" },
     { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
-    { href: "/pricing", label: "Leadkaun pricing in ₹ — flat per account", kind: "commercial-pricing" },
+    { href: "/pricing", label: "Leadkaun pricing in ₹, flat per account", kind: "commercial-pricing" },
     { href: "/demo", label: "Book a walkthrough", kind: "commercial-demo" },
   ]
 }

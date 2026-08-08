@@ -29,7 +29,7 @@ export default function NotFound() {
               This page went cold.
             </h1>
             <p className="mt-5 text-[17px] leading-[1.6] text-ink-soft">
-              The link you followed doesn&apos;t exist — or moved. Leadkaun is the Sales Behaviour OS for Indian B2B teams; here are the pages people usually want.
+              The link you followed doesn&apos;t exist, or moved. Leadkaun is the Sales Behaviour OS for Indian B2B teams; here are the pages people usually want.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-2.5">
               {LINKS.map((l) => (

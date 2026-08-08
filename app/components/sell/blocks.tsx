@@ -34,7 +34,7 @@ type Ground = "pure" | "cream" | "sky" | "mesh"
  */
 export const TRUST_STATS = [
   { value: "A–F",      label: "every lead graded, in real time" },
-  { value: "3 scores", label: "Fit, Intent and Quality — published weights" },
+  { value: "3 scores", label: "Fit, Intent and Quality, published weights" },
   { value: "same day", label: "to first graded lead" },
   { value: "flat ₹",   label: "priced per account, not per seat" },
 ]
@@ -114,7 +114,7 @@ export function ProductShowcase({
 export function ProductBlock({
   eyebrow = "See it in Leadkaun",
   title = <>This is the product behind the page.</>,
-  sub = "Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — set up the same day.",
+  sub = "Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees. Set up the same day.",
   ground = "cream",
 }: {
   eyebrow?: string
@@ -249,7 +249,7 @@ export function PricingCTA({
           <NumberedTag number={number} label="Pricing" tone="warm" />
           <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">{lead}</h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            Flat pricing per team — premium features unlock by tier. 14-day free trial, no credit card. Setup the same day.
+            Flat pricing per team, premium features unlock by tier. 14-day free trial, no credit card. Setup the same day.
           </p>
           <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
             {["14-day free trial", "No credit card", "Cancel anytime"].map((t) => (

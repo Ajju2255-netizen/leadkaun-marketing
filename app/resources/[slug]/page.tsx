@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const r = list.find((x) => x.slug === slug)
   if (!r) return {}
   return {
-    title: `${r.name} — Free ${r.type} | Leadkaun`,
+    title: `${r.name}, Free ${r.type} | Leadkaun`,
     description: r.tagline.slice(0, 155),
     alternates: { canonical: `/resources/${r.slug}` },
   }
@@ -245,7 +245,7 @@ export default async function ResourcePage({ params }: Params) {
         <CTABanner
           tag={{ number: "→", label: "Or let Leadkaun run it" }}
           headline="Skip the manual version."
-          sub="Everything this resource teaches, Leadkaun automates the same day — scoring, Priority Queue, Morning Brief, ₹ at risk. No spreadsheet to maintain."
+          sub="Everything this resource teaches, Leadkaun automates the same day, scoring, Priority Queue, Morning Brief, ₹ at risk. No spreadsheet to maintain."
         />
         <Footer />
       </main>

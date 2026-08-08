@@ -4,8 +4,8 @@
     "name": "Google Sheets",
     "partnerUrl": "https://workspace.google.com/products/sheets/",
     "category": "data-source",
-    "tagline": "Planned: auto-sync leads from a Google Sheet into Leadkaun. On our roadmap — use CSV import today.",
-    "description": "Most Indian SMBs capture leads in Google Sheets — from ad agencies, website forms, or manual entry. Leadkaun's planned Google Sheets connector will poll your sheet and bring in new rows as leads, auto-graded A–F on arrival.\n\nThis is on our roadmap. Until it ships, a Google Sheet export imports in seconds via CSV upload — same result, one extra step.",
+    "tagline": "Planned: auto-sync leads from a Google Sheet into Leadkaun. On our roadmap. Use CSV import today.",
+    "description": "Most Indian SMBs capture leads in Google Sheets, from ad agencies, website forms, or manual entry. Leadkaun's planned Google Sheets connector will poll your sheet and bring in new rows as leads, auto-graded A–F on arrival. This is on our roadmap. Until it ships, a Google Sheet export imports in seconds via CSV upload, same result, one extra step.",
     "setupSteps": [
       {
         "heading": "Export your Google Sheet to CSV",
@@ -91,7 +91,7 @@
       },
       {
         "q": "Does it dedupe?",
-        "a": "Yes — phone normalisation + fuzzy match on name. Existing leads get merged with new source tag logged."
+        "a": "Yes, phone normalisation + fuzzy match on name. Existing leads get merged with new source tag logged."
       },
       {
         "q": "Can I undo?",
@@ -113,8 +113,8 @@
     "name": "WhatsApp (Manual Logging)",
     "partnerUrl": "https://www.whatsapp.com/business",
     "category": "messaging",
-    "tagline": "Track every WhatsApp conversation in 3 taps — works with any WhatsApp account, no API required.",
-    "description": "Most Indian B2B first-contact happens on WhatsApp. Instead of requiring the WhatsApp Business API (which most SMBs don't have), Leadkaun uses 3-tap manual logging: rep reads the WhatsApp reply, taps stage + intent + outcome in Leadkaun, done in 10 seconds.\n\nThis is deliberate India-first design — every team can track WhatsApp without the BSP stack.",
+    "tagline": "Track every WhatsApp conversation in 3 taps works with any WhatsApp account, no API required.",
+    "description": "Most Indian B2B first-contact happens on WhatsApp. Instead of requiring the WhatsApp Business API (which most SMBs don't have), Leadkaun uses 3-tap manual logging: rep reads the WhatsApp reply, taps stage + intent + outcome in Leadkaun, done in 10 seconds. This is deliberate India-first design. Every team can track WhatsApp without the BSP stack.",
     "setupSteps": [
       {
         "heading": "No setup needed",
@@ -141,11 +141,11 @@
       },
       {
         "q": "WhatsApp Business API support?",
-        "a": "Partner integrations with Gupshup / AiSensy / Interakt on roadmap — auto-logging via BSP."
+        "a": "Partner integrations with Gupshup / AiSensy / Interakt on roadmap, auto-logging via BSP."
       },
       {
         "q": "Can a manager see the logs?",
-        "a": "Yes — per-rep WhatsApp activity shows on the Rep Performance card. Aggregate only; no message content."
+        "a": "Yes, per-rep WhatsApp activity shows on the Rep Performance card. Aggregate only; no message content."
       }
     ],
     "relatedIntegrations": [
@@ -164,7 +164,7 @@
     "partnerUrl": "https://www.gupshup.io/",
     "category": "messaging",
     "tagline": "Auto-log every WhatsApp Business API message as a Leadkaun signal.",
-    "description": "Gupshup is India's largest WhatsApp Business Service Provider. For teams already on WhatsApp Business API through Gupshup, Leadkaun integrates via webhook to auto-log inbound and outbound messages — feeding Intent Score without rep taps.",
+    "description": "Gupshup is India's largest WhatsApp Business Service Provider. For teams already on WhatsApp Business API through Gupshup, Leadkaun integrates via webhook to auto-log inbound and outbound messages, feeding Intent Score without rep taps.",
     "setupSteps": [
       {
         "heading": "Obtain Gupshup API credentials",
@@ -209,8 +209,8 @@
     "name": "AiSensy",
     "partnerUrl": "https://www.aisensy.com/",
     "category": "messaging",
-    "tagline": "WhatsApp Business Platform integration — auto-log AiSensy-sent and received messages into Leadkaun.",
-    "description": "AiSensy is a WhatsApp Business Platform focused on SMBs. Leadkaun's webhook integration captures every message your team sends or receives through AiSensy as a signal — stage, intent, outcome derived from message content and template tags.",
+    "tagline": "WhatsApp Business Platform integration, auto-log AiSensy-sent and received messages into Leadkaun.",
+    "description": "AiSensy is a WhatsApp Business Platform focused on SMBs. Leadkaun's webhook integration captures every message your team sends or receives through AiSensy as a signal, stage, intent, outcome derived from message content and template tags.",
     "setupSteps": [
       {
         "heading": "Install AiSensy webhook",
@@ -232,7 +232,7 @@
     "faqs": [
       {
         "q": "Do I need a separate AiSensy plan?",
-        "a": "Yes — AiSensy is a separate subscription. Leadkaun adds signal capture on top."
+        "a": "Yes. AiSensy is a separate subscription. Leadkaun adds signal capture on top."
       }
     ],
     "relatedIntegrations": [
@@ -250,7 +250,7 @@
     "name": "Interakt",
     "partnerUrl": "https://www.interakt.shop/",
     "category": "messaging",
-    "tagline": "Interakt WhatsApp Business API integration — auto-sync conversations as Leadkaun intent signals.",
+    "tagline": "Interakt WhatsApp Business API integration, auto-sync conversations as Leadkaun intent signals.",
     "description": "Interakt is a WhatsApp Business Platform favoured by Indian D2C brands and mid-market teams. Leadkaun's webhook integration mirrors every Interakt conversation into the relevant lead record.",
     "setupSteps": [
       {
@@ -287,7 +287,7 @@
     "name": "Gmail",
     "partnerUrl": "https://workspace.google.com/products/gmail/",
     "category": "email",
-    "tagline": "Sync Gmail threads to Leadkaun lead records — email becomes an intent signal alongside calls and WhatsApp.",
+    "tagline": "Sync Gmail threads to Leadkaun lead records, email becomes an intent signal alongside calls and WhatsApp.",
     "description": "For teams running B2B email outbound, Gmail integration links every thread to the matching Leadkaun lead. A rep's email open, reply, or meeting-booking increments the Intent Score automatically.",
     "setupSteps": [
       {
@@ -332,7 +332,7 @@
     "partnerUrl": "https://resend.com/",
     "category": "email",
     "tagline": "Transactional email delivery for Morning Brief, alerts, and notifications.",
-    "description": "Leadkaun uses Resend for all outbound email — the daily Morning Brief at 8:30 AM IST, SQL-crossing alerts, weekly digests. Resend's React Email templates keep the design consistent and the deliverability clean.",
+    "description": "Leadkaun uses Resend for all outbound email, the daily Morning Brief at 8:30 AM IST, SQL-crossing alerts, weekly digests. Resend's React Email templates keep the design consistent and the deliverability clean.",
     "setupSteps": [
       {
         "heading": "Set up your Resend account",
@@ -419,7 +419,7 @@
     "partnerUrl": "https://calendly.com/",
     "category": "calendar",
     "tagline": "Every Calendly booking auto-creates or updates a lead with +25 Intent.",
-    "description": "Calendly is the standard demo-booking tool. Leadkaun's webhook integration fires on every Calendly booking — creates the lead if new, or adds +25 Intent if existing. Rep gets an instant notification to prep.",
+    "description": "Calendly is the standard demo-booking tool. Leadkaun's webhook integration fires on every Calendly booking creates the lead if new, or adds +25 Intent if existing. Rep gets an instant notification to prep.",
     "setupSteps": [
       {
         "heading": "Copy Leadkaun webhook URL",
@@ -442,7 +442,7 @@
     "faqs": [
       {
         "q": "Does it cancel lead if booking is cancelled?",
-        "a": "No — cancellation logs as a 'stage: cancelled' signal with −10 Intent."
+        "a": "No, cancellation logs as a 'stage: cancelled' signal with −10 Intent."
       }
     ],
     "relatedIntegrations": [
@@ -459,7 +459,7 @@
     "name": "Razorpay",
     "partnerUrl": "https://razorpay.com/",
     "category": "payments",
-    "tagline": "Payment-completion signals on proposals and deals — a paid invoice is the clearest 'won' signal.",
+    "tagline": "Payment-completion signals on proposals and deals. A paid invoice is the clearest 'won' signal.",
     "description": "For teams selling via Razorpay payment links or invoices, integration auto-marks a lead as 'closed-won' when the invoice is paid. Conversion data flows to the Source Truth card automatically.",
     "setupSteps": [
       {
@@ -500,7 +500,7 @@
     "name": "Zapier",
     "partnerUrl": "https://zapier.com/",
     "category": "other",
-    "tagline": "Connect Leadkaun to 5,000+ apps via Zapier — for the long tail of integrations we don't support natively.",
+    "tagline": "Connect Leadkaun to 5,000+ apps via Zapier, for the long tail of integrations we don't support natively.",
     "description": "Zapier integration is the universal escape hatch. If a tool isn't in Leadkaun's native list, chances are Zapier connects it. Triggers: lead created, grade changed, signal logged, deal won. Actions: create lead, update lead, log signal.",
     "setupSteps": [
       {
@@ -541,7 +541,7 @@
     "name": "IndiaMART",
     "partnerUrl": "https://www.indiamart.com/",
     "category": "data-source",
-    "tagline": "Import industrial B2B enquiries from IndiaMART directly — the dominant B2B lead source for Indian manufacturers.",
+    "tagline": "Import industrial B2B enquiries from IndiaMART directly, the dominant B2B lead source for Indian manufacturers.",
     "description": "For B2B manufacturers, IndiaMART is the #1 lead source. Today the reliable path is CSV: export your IndiaMART enquiries and import them into Leadkaun, where each is graded A–F on arrival and dropped into the Priority Queue. A direct IndiaMART API integration and native Google Sheets sync are on the roadmap for Growth+ tiers.",
     "setupSteps": [
       {
@@ -554,14 +554,14 @@
       }
     ],
     "useCases": [
-      "B2B manufacturing — machinery, spares, MRO",
+      "B2B manufacturing, machinery, spares, MRO",
       "Industrial goods suppliers",
       "Wholesale trade"
     ],
     "faqs": [
       {
         "q": "Direct API support?",
-        "a": "On roadmap — Phase 2 partner integration."
+        "a": "On roadmap, Phase 2 partner integration."
       }
     ],
     "relatedIntegrations": [
@@ -616,7 +616,7 @@
     "name": "Google Ads",
     "partnerUrl": "https://ads.google.com/",
     "category": "data-source",
-    "tagline": "Track Google Ads lead conversions with cost attribution — the Source Truth card shows ₹ won per campaign.",
+    "tagline": "Track Google Ads lead conversions with cost attribution. The Source Truth card shows ₹ won per campaign.",
     "description": "Google Ads campaigns drop leads into your forms, which flow to Leadkaun. Once cost data is synced (manual weekly upload or Google Ads API on roadmap), the Source Truth card shows ₹ won ÷ ₹ spent per campaign. Kill bad campaigns fast.",
     "setupSteps": [
       {
@@ -654,7 +654,7 @@
     "partnerUrl": null,
     "category": "other",
     "tagline": "POST to Leadkaun's webhook URL to create or update leads from any source.",
-    "description": "If you have a custom system — internal CRM, proprietary form builder, legacy database — the generic webhook is your path in. Every Leadkaun account has a unique webhook URL; POST JSON with standard fields, and leads flow in graded A–F.",
+    "description": "If you have a custom system, internal CRM, proprietary form builder, legacy database, the generic webhook is your path in. Every Leadkaun account has a unique webhook URL; POST JSON with standard fields, and leads flow in graded A–F.",
     "setupSteps": [
       {
         "heading": "Copy webhook URL",
@@ -681,7 +681,7 @@
       },
       {
         "q": "Idempotency?",
-        "a": "Include an 'external_id' field — Leadkaun dedupes on it."
+        "a": "Include an 'external_id' field, Leadkaun dedupes on it."
       }
     ],
     "relatedIntegrations": [
@@ -721,7 +721,7 @@
     "faqs": [
       {
         "q": "Can individual reps get DMs?",
-        "a": "Yes — configure per-rep DM instead of channel post."
+        "a": "Yes, configure per-rep DM instead of channel post."
       }
     ],
     "relatedIntegrations": [

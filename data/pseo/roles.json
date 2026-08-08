@@ -43,7 +43,7 @@
       "fintech",
       "hospitality"
     ],
-    "dailyStruggle": "You run the company. Sales is a black box. You pay ₹X lakh/month in reps and don't know what's happening. The numbers in Zoho look okay, but your revenue is flat. You're about to hire rep #10 and have no data to justify it — or reject it.",
+    "dailyStruggle": "You run the company. Sales is a black box. You pay ₹X lakh/month in reps and don't know what's happening. The numbers in Zoho look okay, but your revenue is flat. You're about to hire rep #10 and have no data to justify it, or reject it.",
     "leadkaunAngle": "Rep-level ₹ accountability, with the money at risk from stale leads surfaced daily rather than discovered at month end. Pipeline visible in one page. You don't need to hire a VP Sales to understand sales anymore.",
     "featuresUsedMost": [
       "missed-opportunity-engine",
@@ -68,7 +68,7 @@
       "hospitality"
     ],
     "dailyStruggle": "You carry a phone all day. You juggle 200 open leads. Your CRM takes 6 clicks to log a call. WhatsApp is where half your conversations happen, but nothing gets tracked. By Friday, you don't remember which Grade A lead you forgot on Tuesday.",
-    "leadkaunAngle": "Your Priority Queue tells you who to call next — decision made. 3-tap logging works on any phone. WhatsApp replies log in 10 seconds. The queue re-ranks when signals change. You stop guessing and start closing.",
+    "leadkaunAngle": "Your Priority Queue tells you who to call next, decision made. 3-tap logging works on any phone. WhatsApp replies log in 10 seconds. The queue re-ranks when signals change. You stop guessing and start closing.",
     "featuresUsedMost": [
       "priority-queue",
       "whatsapp-tracking",
@@ -115,7 +115,7 @@
       "fintech"
     ],
     "dailyStruggle": "You run the top-of-funnel. LinkedIn, email, WhatsApp outreach. Your pipeline lives in a Google Sheet that nobody else respects. Every time a delivery client flares up, your BD pipeline goes untouched for a week.",
-    "leadkaunAngle": "A protected new-business queue that doesn't collapse when account work gets loud. Intent Score tracks engagement across long cycles. Morning Brief for BD alone — separate from account-delivery chaos.",
+    "leadkaunAngle": "A protected new-business queue that doesn't collapse when account work gets loud. Intent Score tracks engagement across long cycles. Morning Brief for BD alone, separate from account-delivery chaos.",
     "featuresUsedMost": [
       "priority-queue",
       "missed-opportunity-engine",
@@ -150,7 +150,7 @@
       "fintech"
     ],
     "dailyStruggle": "You work on commission. You represent a builder / insurance brand / loan aggregator. Your enquiries come from portals and paid ads. You lose leads because the first call didn't happen within the SLA window. Every missed site visit is ₹5–50L in lost commission.",
-    "leadkaunAngle": "Grade A enquiries need a callback fast, while the enquiry is hot — you see them first, you call first, you close first. Missed Opportunity Engine shows ₹ you can still recover from stale enquiries. Attribution clear — no commission disputes.",
+    "leadkaunAngle": "Grade A enquiries need a callback fast, while the enquiry is hot. You see them first, you call first, you close first. Missed Opportunity Engine shows ₹ you can still recover from stale enquiries. Attribution clear, no commission disputes.",
     "featuresUsedMost": [
       "priority-queue",
       "missed-opportunity-engine",
@@ -166,8 +166,8 @@
       "bfsi",
       "fintech"
     ],
-    "dailyStruggle": "You run a book of 100–300 clients. Each has a different product mix — term, health, mutual funds, loans. Cross-sell opportunities slip because you don't see the signal. Renewals lapse because the reminder comes too late. Audit prep takes a week per quarter.",
-    "leadkaunAngle": "Cross-product flagging — loan applicant surfaces as wealth prospect. Renewal dates on every record with Missed Opportunity alerts 30 days before lapse. Every contact timestamped and audit-exportable.",
+    "dailyStruggle": "You run a book of 100–300 clients. Each has a different product mix, term, health, mutual funds, loans. Cross-sell opportunities slip because you don't see the signal. Renewals lapse because the reminder comes too late. Audit prep takes a week per quarter.",
+    "leadkaunAngle": "Cross-product flagging, loan applicant surfaces as wealth prospect. Renewal dates on every record with Missed Opportunity alerts 30 days before lapse. Every contact timestamped and audit-exportable.",
     "featuresUsedMost": [
       "missed-opportunity-engine",
       "sales-rep-tracking",

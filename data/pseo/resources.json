@@ -4,7 +4,7 @@
     "name": "Missed Revenue Calculator",
     "type": "calculator",
     "tagline": "Calculate how much ₹ your team is leaving on the table each week from stale leads.",
-    "description": "Enter your team size, avg deal value per industry, grade distribution, and weekly stale-lead count. The calculator returns your ₹ at risk — the same metric Leadkaun surfaces automatically every Monday for teams running the system.\n\nUse it once, and you'll understand why ₹-at-risk is the metric most sales reviews should open with.",
+    "description": "Enter your team size, avg deal value per industry, grade distribution, and weekly stale-lead count. The calculator returns your ₹ at risk. The same metric Leadkaun surfaces automatically every Monday for teams running the system. Use it once, and you'll understand why ₹-at-risk is the metric most sales reviews should open with.",
     "inside": [
       "Avg deal value benchmarks across 6 Indian B2B industries",
       "Grade-weighted conversion rates (Grade A, B, C)",
@@ -14,9 +14,9 @@
     "howToUse": [
       "Open the calculator (embedded below).",
       "Enter team size, avg deal value, weekly stale-lead estimate.",
-      "See the ₹ at risk — bring this number to Monday's sales review."
+      "See the ₹ at risk, bring this number to Monday's sales review."
     ],
-    "whyItMatters": "Most Indian SMB sales teams lose ₹2–5 lakh per week to stale leads and don't see it. The calculator translates 'stale lead' from operations speak into business speak — one number your CFO and sales manager will both track.",
+    "whyItMatters": "Most Indian SMB sales teams lose ₹2–5 lakh per week to stale leads and don't see it. The calculator translates 'stale lead' from operations speak into business speak, one number your CFO and sales manager will both track.",
     "downloadUrl": null,
     "embedCode": null,
     "relatedResources": [
@@ -34,8 +34,8 @@
     "slug": "lead-scoring-template",
     "name": "Lead Scoring Google Sheet Template",
     "type": "template",
-    "tagline": "A plug-and-play Google Sheet for grading leads A–F manually — start with 50 leads, expand as needed.",
-    "description": "The fastest way to adopt lead scoring is to start manual. This template ships with Fit/Intent/Quality columns, a grade matrix formula, a rank score column, and a priority-queue tab — ready to use with your own lead list.\n\nAfter 2 weeks of manual use, you'll have recovered ₹1–3 lakh and be ready to automate with Leadkaun.",
+    "tagline": "A plug-and-play Google Sheet for grading leads A–F manually. Start with 50 leads, expand as needed.",
+    "description": "The fastest way to adopt lead scoring is to start manual. This template ships with Fit/Intent/Quality columns, a grade matrix formula, a rank score column, and a priority-queue tab, ready to use with your own lead list. After 2 weeks of manual use, you'll have recovered ₹1–3 lakh and be ready to automate with Leadkaun.",
     "inside": [
       "Fit/Intent/Quality scoring columns (0–100 each)",
       "Grade matrix formula (auto-assigns A–F)",
@@ -46,7 +46,7 @@
     "howToUse": [
       "Make a copy of the Google Sheet (open in your own Drive).",
       "Paste your own open leads into the Leads tab.",
-      "Score each by hand — 50 leads takes ~90 minutes first time.",
+      "Score each by hand 50 leads takes ~90 minutes first time.",
       "Work the Priority Queue top-down every morning for 2 weeks.",
       "Measure ₹ recovered vs baseline."
     ],
@@ -70,7 +70,7 @@
     "slug": "morning-brief-email-template",
     "name": "Morning Brief Email Template",
     "type": "template",
-    "tagline": "A ready-to-edit email template for your 8:30 AM IST sales brief — per rep, per manager.",
+    "tagline": "A ready-to-edit email template for your 8:30 AM IST sales brief, per rep, per manager.",
     "description": "If you're not using Leadkaun yet but want to build the Morning Brief ritual, this template covers both the rep version and the manager version. Adapt the merge tags to your own stack.",
     "inside": [
       "Rep-version template (₹ at risk today, top 5 Grade A leads, overdue follow-ups)",
@@ -84,7 +84,7 @@
       "Schedule for 8:25–8:35 AM IST, Monday–Saturday.",
       "Iterate copy for 2 weeks based on open/click metrics."
     ],
-    "whyItMatters": "The Morning Brief is what turns lead scoring into a daily habit. Even without Leadkaun, you can run a simplified version in a day — the behaviour change is worth more than the tool.",
+    "whyItMatters": "The Morning Brief is what turns lead scoring into a daily habit. Even without Leadkaun, you can run a simplified version in a day. The behaviour change is worth more than the tool.",
     "downloadUrl": "/downloads/morning-brief-email-template.txt",
     "embedCode": null,
     "relatedResources": [
@@ -103,7 +103,7 @@
     "name": "ICP Definition Worksheet",
     "type": "template",
     "tagline": "A structured worksheet to define your Ideal Customer Profile in under 90 minutes.",
-    "description": "Most Indian SMBs can't articulate their ICP beyond 'B2B' or 'Indian companies'. This worksheet walks through the 5 dimensions that matter most — industry, geography, company size, role, budget — with prompts that force specificity.\n\nThe output is a 1-page ICP doc your whole sales team can use to grade leads consistently.",
+    "description": "Most Indian SMBs can't articulate their ICP beyond 'B2B' or 'Indian companies'. This worksheet walks through the 5 dimensions that matter most, industry, geography, company size, role, budget, with prompts that force specificity. The output is a 1-page ICP doc your whole sales team can use to grade leads consistently.",
     "inside": [
       "5-dimension ICP framework (Industry, Geography, Size, Role, Budget)",
       "Prompt questions that surface hidden assumptions",
@@ -114,7 +114,7 @@
     "howToUse": [
       "Set aside 90 minutes with founder + sales lead.",
       "Work through the 5 dimensions one by one, with examples.",
-      "Validate against last 10 closed-won deals — does your ICP match them?",
+      "Validate against last 10 closed-won deals does your ICP match them?",
       "Share the 1-page output with your sales team."
     ],
     "whyItMatters": "Without an ICP, 'qualified lead' is a gut feel. With an ICP, it's a repeatable decision. Every rep grading the same lead arrives at the same grade.",
@@ -136,7 +136,7 @@
     "slug": "weekly-sales-review-template",
     "name": "Weekly Sales Review Template",
     "type": "template",
-    "tagline": "A 30-minute Monday-morning review structure — anchored on ₹ at risk and ₹ recovered, not activity.",
+    "tagline": "A 30-minute Monday-morning review structure, anchored on ₹ at risk and ₹ recovered, not activity.",
     "description": "Most sales reviews are activity theatre. This template restructures them around money: open with ₹ at risk, per-rep rollup, identify stuck leads, end with specific ₹ recovery commitments for the week.\n\nTeams that adopt this rhythm shift to behaviour-based accountability in 8–12 weeks.",
     "inside": [
       "30-minute agenda (opening, per-rep, escalations, coaching, commitment)",
@@ -170,7 +170,7 @@
     "slug": "whatsapp-sales-templates-pack",
     "name": "WhatsApp B2B Sales Templates Pack",
     "type": "template",
-    "tagline": "25 ready-to-copy WhatsApp message templates by stage × industry — calibrated for Indian B2B.",
+    "tagline": "25 ready-to-copy WhatsApp message templates by stage × industry, calibrated for Indian B2B.",
     "description": "Reps spend too much time composing WhatsApp messages from scratch. This pack has 25 templates organised by sales stage (first reply, asking questions, objection, re-engagement, meeting booked) and industry (real estate, EdTech, BFSI, B2B SaaS, manufacturing).\n\nCopy, customise the merge tags, send.",
     "inside": [
       "5 first-reply templates × 5 industries = 25 total",
@@ -217,7 +217,7 @@
       "Each Friday, each rep updates their tab.",
       "Monday 10 AM review uses the rollup."
     ],
-    "whyItMatters": "Manual trackers teach the discipline. Once the team runs on ₹-at-risk conversations for 4 weeks, automating with Leadkaun is a same-day switch — same behaviour, less typing.",
+    "whyItMatters": "Manual trackers teach the discipline. Once the team runs on ₹-at-risk conversations for 4 weeks, automating with Leadkaun is a same-day switch, same behaviour, less typing.",
     "downloadUrl": "/downloads/rep-performance-tracker.csv",
     "embedCode": null,
     "relatedResources": [
@@ -250,7 +250,7 @@
       "Each enquiry gets a row: source, arrival time, first-contact time, grade, rep.",
       "Friday review: which reps hit the SLA? Which enquiries missed the window?"
     ],
-    "whyItMatters": "Real-estate teams that pair lead grading with response-time measurement tend to see the biggest ROI — the gap between reaching a Grade A lead fast and reaching it hours later is where the deals are won or lost.",
+    "whyItMatters": "Real-estate teams that pair lead grading with response-time measurement tend to see the biggest ROI, the gap between reaching a Grade A lead fast and reaching it hours later is where the deals are won or lost.",
     "downloadUrl": "/downloads/response-time-tracker.csv",
     "embedCode": null,
     "relatedResources": [
@@ -280,7 +280,7 @@
     ],
     "howToUse": [
       "Read the industry section that matches your vertical.",
-      "Compare your numbers to the benchmark — where are you above/below?",
+      "Compare your numbers to the benchmark, where are you above/below?",
       "Share the gap analysis with your founder and VP Sales."
     ],
     "whyItMatters": "Without a benchmark, 'our conversion is 4%' is just a number. With a benchmark, it's either 'we're outperforming' or 'we're leaving 5× on the table'. Benchmarks turn numbers into decisions.",
@@ -301,7 +301,7 @@
     "slug": "crm-migration-checklist",
     "name": "CRM Migration Checklist",
     "type": "checklist",
-    "tagline": "A 2–4 week checklist for migrating off Zoho, LeadSquared, HubSpot, or Salesforce cleanly — without losing pipeline.",
+    "tagline": "A 2–4 week checklist for migrating off Zoho, LeadSquared, HubSpot, or Salesforce cleanly, without losing pipeline.",
     "description": "Most CRM migrations lose a quarter of pipeline because the team skips the audit step. This checklist is a week-by-week plan: export, audit, onboard Leadkaun, parallel-run, cutover, archive.\n\nUsed by teams making the switch with 0% pipeline loss.",
     "inside": [
       "Week 1: Export + audit (what to keep, what to drop)",
@@ -316,7 +316,7 @@
       "Check off weekly at the Friday all-hands.",
       "Day 90: make the cancellation decision based on measured ROI."
     ],
-    "whyItMatters": "Migration is not the hard part; psychology is. A checklist removes the ambiguity — everyone knows what happens when. No team-wide panic at week 3.",
+    "whyItMatters": "Migration is not the hard part; psychology is. A checklist removes the ambiguity, everyone knows what happens when. No team-wide panic at week 3.",
     "downloadUrl": "/downloads/crm-migration-checklist.csv",
     "embedCode": null,
     "relatedResources": [
@@ -334,12 +334,12 @@
     "slug": "priority-queue-playbook",
     "name": "Priority Queue Implementation Playbook",
     "type": "guide",
-    "tagline": "A 10-page playbook for implementing a priority queue system — manual first, automated second.",
+    "tagline": "A 10-page playbook for implementing a priority queue system, manual first, automated second.",
     "description": "The playbook version of our priority-queue blog. Deeper examples, formulas you can copy, template queries for Google Sheets, and common pitfalls. Made for teams that want to implement without buying Leadkaun yet.",
     "inside": [
       "The 4-signal rank formula (grade + urgency + trend + recency)",
       "Grade weights that work for Indian B2B SMBs",
-      "Fatigue penalty — when to push a lead to the bottom",
+      "Fatigue penalty, when to push a lead to the bottom",
       "Google Sheets formula appendix",
       "Manual-to-automated transition criteria (200 leads, 3+ reps)"
     ],
@@ -365,14 +365,14 @@
   },
   {
     "slug": "smb-sales-setup-90-day-plan",
-    "name": "SMB Sales Ops Setup — 90-Day Plan",
+    "name": "SMB Sales Ops Setup, 90-Day Plan",
     "type": "framework",
-    "tagline": "A founder's 90-day plan for setting up sales ops from scratch — first hire, first tools, first playbook.",
+    "tagline": "A founder's 90-day plan for setting up sales ops from scratch, first hire, first tools, first playbook.",
     "description": "For Indian founders making their first 2 sales hires. Week-by-week for 90 days: the sales motion to run, the tools to buy (and avoid), the playbook to write, the metrics to track.\n\nAssumes <₹10L/month in sales budget; skips enterprise-grade tooling until later.",
     "inside": [
       "Week 1–2: Hire profile + compensation structure",
-      "Week 3–4: Tools — what to buy on day 1 (Google Workspace, WhatsApp, Leadkaun) and what to skip (Salesforce, full HubSpot stack)",
-      "Week 5–8: First playbook — pipeline stages, ICP, qualification gates",
+      "Week 3–4: Tools, what to buy on day 1 (Google Workspace, WhatsApp, Leadkaun) and what to skip (Salesforce, full HubSpot stack)",
+      "Week 5–8: First playbook, pipeline stages, ICP, qualification gates",
       "Week 9–12: Metrics + accountability system (weekly review, Morning Brief, rep scorecards)"
     ],
     "howToUse": [
@@ -380,7 +380,7 @@
       "Adapt to your industry (the framework is vertical-agnostic).",
       "Execute week-by-week; don't jump ahead."
     ],
-    "whyItMatters": "Most founders over-buy tools in month 1 and under-build process in month 3. The plan inverts that — minimal tools, maximum process clarity.",
+    "whyItMatters": "Most founders over-buy tools in month 1 and under-build process in month 3. The plan inverts that, minimal tools, maximum process clarity.",
     "downloadUrl": "/downloads/smb-sales-setup-90-day-plan.txt",
     "embedCode": null,
     "relatedResources": [

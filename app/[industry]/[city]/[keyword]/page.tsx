@@ -85,7 +85,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
     ]),
     localBusinessSchema({ name: `Leadkaun ${kw.label} for ${ind.name} in ${cityRec.name}`, city: cityRec.name, state: cityRec.state, industry: ind.name, url: `/${industry}/${cityRec.slug}/${keyword}`, description: `${kw.label} built for ${ind.name.toLowerCase()} sales teams in ${cityRec.name}.` }),
     placeSchema({ city: cityRec.name, state: cityRec.state, lat: cityRec.lat, lng: cityRec.lng }),
-    offerSchema({ name: `Leadkaun Growth — ${kw.label} for ${ind.name} teams`, priceInr: 7999, url: "/pricing" }),
+    offerSchema({ name: `Leadkaun Growth, ${kw.label} for ${ind.name} teams`, priceInr: 7999, url: "/pricing" }),
     faqPageSchema(faqs),
   ]
 
@@ -104,7 +104,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           ]}
           eyebrow={kw.label}
           h1={<>{kw.label} for {ind.name} Teams in <span className="hero-accent">{cityRec.name}.</span></>}
-          sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell — Indian phone handling, WhatsApp as a first-class lead signal, ₹ figures in Indian formatting throughout.`}
+          sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell, Indian phone handling, WhatsApp as a first-class lead signal, ₹ figures in Indian formatting throughout.`}
           tldr={{ label: "In short", body: intro, tone: "sky" }}
           cta={
             <>
@@ -187,26 +187,26 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{ind.name} in {cityRec.name}</p>
               <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">
-                In {cityRec.name}, {ind.name.toLowerCase()} teams typically work leads from <strong className="text-ink font-semibold">{ind.channels.slice(0, 3).join(", ")}</strong> — with deal sizes in the <strong className="text-ink font-semibold">{ind.ticketBand}</strong> range and sales cycles of <strong className="text-ink font-semibold">{ind.salesCycle}</strong>. Leadkaun&apos;s {kw.label.toLowerCase()} is calibrated for those realities, not a generic US B2B default.
+                In {cityRec.name}, {ind.name.toLowerCase()} teams typically work leads from <strong className="text-ink font-semibold">{ind.channels.slice(0, 3).join(", ")}</strong>, with deal sizes in the <strong className="text-ink font-semibold">{ind.ticketBand}</strong> range and sales cycles of <strong className="text-ink font-semibold">{ind.salesCycle}</strong>. Leadkaun&apos;s {kw.label.toLowerCase()} is calibrated for those realities, not a generic US B2B default.
               </p>
               <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                In {cityRec.name}, {cityRec.state}, B2B demand concentrates in {cityRec.industries.slice(0, 3).join(", ").replace(/-/g, " ")}. Leadkaun grades and queues every enquiry here on fit, intent and quality — so a {cityRec.name} rep works the highest-probability leads first.
+                In {cityRec.name}, {cityRec.state}, B2B demand concentrates in {cityRec.industries.slice(0, 3).join(", ").replace(/-/g, " ")}. Leadkaun grades and queues every enquiry here on fit, intent and quality, so a {cityRec.name} rep works the highest-probability leads first.
               </p>
               {cityRec.notes && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  {cityRec.notes.replace(/\.$/, "")} — context Leadkaun&apos;s grading accounts for when it ranks a {cityRec.name} {ind.name.toLowerCase()} pipeline.
+                  {cityRec.notes.replace(/\.$/, "")}, context Leadkaun&apos;s grading accounts for when it ranks a {cityRec.name} {ind.name.toLowerCase()} pipeline.
                 </p>
               )}
               {cityRec.districts && (
                 <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">
-                  Commercial activity clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null} — the areas a {cityRec.name} {ind.name.toLowerCase()} pipeline most often draws from. Leadkaun grades and queues those enquiries so the highest-intent ones surface first, wherever they land.
+                  Commercial activity clusters around <strong className="text-ink font-semibold">{cityRec.districts}</strong>{cityRec.localBiz ? <>, with the local economy built on {cityRec.localBiz}</> : null}, the areas a {cityRec.name} {ind.name.toLowerCase()} pipeline most often draws from. Leadkaun grades and queues those enquiries so the highest-intent ones surface first, wherever they land.
                 </p>
               )}
             </FloatingCard></Reveal>
           </Container>
         </SectionGround>
 
-        {/* METHODOLOGY — how the grade is computed */}
+        {/* METHODOLOGY, how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
         <BuyingCommittee

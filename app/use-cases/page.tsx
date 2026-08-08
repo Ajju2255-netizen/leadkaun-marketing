@@ -10,7 +10,7 @@ import { NumberedTag } from "@/app/components/numbered-tag"
 import { IndustryTile } from "@/app/components/industry-tile"
 
 export const metadata: Metadata = {
-  title: "Use Cases — By Industry",
+  title: "Use Cases, By Industry",
   description:
     "See how Leadkaun works across real estate, EdTech, BFSI, agencies, manufacturing, healthcare, and SaaS sales teams in India. Industry-specific ICP templates, cadences, and proof.",
   alternates: { canonical: "/use-cases" },
@@ -38,7 +38,7 @@ export default function UseCasesHub() {
       <PageHero
         eyebrow="Use Cases"
         h1={<>Built for the Indian<br /><span className="hero-accent">sales reality.</span></>}
-        sub="ICP templates, cadence defaults, and copy tuned for eleven Indian B2B verticals. Every setting is a starting point — not a locked path."
+        sub="ICP templates, cadence defaults, and copy tuned for eleven Indian B2B verticals. Every setting is a starting point, not a locked path."
         primary={undefined}
       />
 

@@ -54,11 +54,11 @@ export function ContactForm({ source = "contact" }: { source?: string }) {
       setErr(
         body?.error && body.error !== "not_configured"
           ? body.error
-          : "We couldn't send that just now — please email sales@leadkaun.com and we'll jump on it.",
+          : "We couldn't send that just now, please email sales@leadkaun.com and we'll jump on it.",
       )
     } catch {
       setStatus("error")
-      setErr("We couldn't send that just now — please email sales@leadkaun.com and we'll jump on it.")
+      setErr("We couldn't send that just now, please email sales@leadkaun.com and we'll jump on it.")
     }
   }
 
@@ -67,7 +67,7 @@ export function ContactForm({ source = "contact" }: { source?: string }) {
       <FloatingCard tier="3" depth="3" gloss className="mt-8 flex items-start gap-4 p-6 md:p-8">
         <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-500" strokeWidth={2} />
         <div>
-          <p className="text-[16px] font-semibold text-ink">Got it — thank you.</p>
+          <p className="text-[16px] font-semibold text-ink">Got it, thank you.</p>
           <p className="mt-1.5 text-[14px] leading-[1.6] text-ink-soft">
             We read every message and reply within 4 business hours (Mon–Sat, 9 AM–7 PM IST). Prefer to move faster?{" "}
             <Link href={APP_URLS.register} className="font-semibold text-sky-600 underline-offset-4 hover:underline">

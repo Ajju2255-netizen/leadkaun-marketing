@@ -20,7 +20,7 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Sales Rep Tracking — Behaviour over activity",
+  title: "Sales Rep Tracking, Behaviour over activity",
   description:
     "Per-rep ₹ recovered, Grade A response time, follow-up completion rate, Intent-signal generation. Rep performance without micromanagement.",
   alternates: { canonical: "/features/sales-rep-tracking" },
@@ -37,10 +37,10 @@ const METRICS = [
 
 const FAQ = [
   { q: "Isn't this just a rep surveillance tool?", a: "No. Every metric is outcome-focused, not activity-focused. We do not measure calls-per-day or minutes-on-phone. We measure ₹ recovered, Grade A response time, follow-up completion. Reps keep autonomy; managers get outcome visibility." },
-  { q: "What if a rep's number is low?", a: "Diagnose before discipline. Low Grade A response time — push alerts set up wrong? Low ₹ recovered — bad source quality? Low follow-up score — cadence too tight for their industry? Most 'performance issues' are process issues in disguise." },
-  { q: "Do reps see their own dashboards?", a: "Yes — their own metrics, framed as opportunity ('₹1.8L to recover today'). They don't see other reps' numbers; managers see the full rollup." },
+  { q: "What if a rep's number is low?", a: "Diagnose before discipline. Low Grade A response time, push alerts set up wrong? Low ₹ recovered, bad source quality? Low follow-up score, cadence too tight for their industry? Most 'performance issues' are process issues in disguise." },
+  { q: "Do reps see their own dashboards?", a: "Yes, their own metrics, framed as opportunity ('₹1.8L to recover today'). They don't see other reps' numbers; managers see the full rollup." },
   { q: "How often are metrics updated?", a: "Continuously. The dashboard polls at 60s intervals. Weekly rollups auto-generate every Monday at 8:30 AM IST in the manager Morning Brief." },
-  { q: "Can I compare rep performance?", a: "Managers can view per-rep comparisons on any metric over any time window. Reps only see their own view — intentionally. Public shaming is a rep-churn multiplier; the tool discourages it." },
+  { q: "Can I compare rep performance?", a: "Managers can view per-rep comparisons on any metric over any time window. Reps only see their own view, intentionally. Public shaming is a rep-churn multiplier; the tool discourages it." },
 ]
 
 const RELATED = [
@@ -60,7 +60,7 @@ export default function SalesRepTrackingPage() {
         <PageHero
           eyebrow={<><Users className="h-3 w-3" strokeWidth={2} /> Sales Rep Tracking</>}
           h1={<>Behaviour. Not activity.<br /><span className="hero-accent">₹ recovered. Not calls made.</span></>}
-          sub="Per-rep metrics that measure outcomes — ₹ recovered, Grade A response time, follow-up completion — so coaching becomes specific, not a volume debate."
+          sub="Per-rep metrics that measure outcomes, ₹ recovered, Grade A response time, follow-up completion, so coaching becomes specific, not a volume debate."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}
         />
@@ -70,7 +70,7 @@ export default function SalesRepTrackingPage() {
           <Container>
             <QuickAnswer
               question="What does Leadkaun's sales rep tracking measure?"
-              answer="It measures behaviour, not vanity activity: per-rep ₹ recovered, Grade A response time, and follow-up completion. Because logging takes three taps, the data stays complete without micromanaging — so managers coach on specific, measurable signals like slow Grade A response instead of raw call counts."
+              answer="It measures behaviour, not vanity activity: per-rep ₹ recovered, Grade A response time, and follow-up completion. Because logging takes three taps, the data stays complete without micromanaging, so managers coach on specific, measurable signals like slow Grade A response instead of raw call counts."
             />
           </Container>
         </SectionGround>
@@ -127,7 +127,7 @@ export default function SalesRepTrackingPage() {
                 >
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-sky-600">AFTER</p>
                   <p className="mt-3 text-[16px] leading-[1.55] text-ink">
-                    &ldquo;Your Grade A response time slipped from 3 to 9 hours this week. The queue is re-ranking correctly — are your push alerts firing on your phone? Let&apos;s check before tomorrow&apos;s Brief.&rdquo;
+                    &ldquo;Your Grade A response time slipped from 3 to 9 hours this week. The queue is re-ranking correctly, are your push alerts firing on your phone? Let&apos;s check before tomorrow&apos;s Brief.&rdquo;
                   </p>
                 </FloatingCard>
               </Reveal>
@@ -135,7 +135,7 @@ export default function SalesRepTrackingPage() {
           </Container>
         </SectionGround>
 
-        {/* ADOPTION — measured, with its limit stated */}
+        {/* ADOPTION, measured, with its limit stated */}
 
         <SectionGround variant="pure" size="lg">
 
@@ -167,7 +167,7 @@ export default function SalesRepTrackingPage() {
 
                   If first contacts consistently come from the top of the queue, the ranking is being used. If they come
 
-                  from far down it, either the rep does not trust it or the ranking is wrong — and both are worth
+                  from far down it, either the rep does not trust it or the ranking is wrong, and both are worth
 
                   discovering before a bad quarter gets blamed on effort.
 

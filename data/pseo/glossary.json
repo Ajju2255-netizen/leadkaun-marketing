@@ -3,7 +3,7 @@
     "slug": "lead-scoring",
     "term": "Lead Scoring",
     "definitionShort": "A system that ranks every lead by how likely they are to convert, typically across three dimensions: Fit (ICP match), Intent (engagement), Quality (data reliability).",
-    "definitionLong": "Lead scoring assigns every lead a grade based on structured signals — firmographic match, engagement behaviour, and data completeness. Modern scoring uses three independent scores (Fit, Intent, Quality), each 0–100, which combine into a Grade A–F. Unlike qualification (a one-time yes/no gate), scoring is continuous — the score updates every time a signal arrives (a call, a WhatsApp reply, a website re-visit) and decays when leads go silent.",
+    "definitionLong": "Lead scoring assigns every lead a grade based on structured signals, firmographic match, engagement behaviour, and data completeness. Modern scoring uses three independent scores (Fit, Intent, Quality), each 0–100, which combine into a Grade A–F. Unlike qualification (a one-time yes/no gate), scoring is continuous, the score updates every time a signal arrives (a call, a WhatsApp reply, a website re-visit) and decays when leads go silent.",
     "examples": [
       "A Grade A lead matches your ICP, has recent engagement, and complete data.",
       "A Grade F lead has a Quality Score below 20 (junk phone, fake email)."
@@ -40,7 +40,7 @@
     "slug": "grade-a",
     "term": "Grade A",
     "definitionShort": "The highest-priority lead grade. In Leadkaun, a Grade A requires Fit ≥ 65, Intent ≥ 60, and Quality ≥ 60. Rep SLA: call within 24 hours.",
-    "definitionLong": "Grade A represents the hottest, most qualified leads in your pipeline. A Grade A lead matches your Ideal Customer Profile, has shown recent buying intent, and has reliable data. Grade A leads should be worked first every day — they close at materially higher rates than lower grades. Response time matters: Grade A leads contacted within the hour are far more likely to convert than day-later callbacks (HBR).",
+    "definitionLong": "Grade A represents the hottest, most qualified leads in your pipeline. A Grade A lead matches your Ideal Customer Profile, has shown recent buying intent, and has reliable data. Grade A leads should be worked first every day. They close at materially higher rates than lower grades. Response time matters: Grade A leads contacted within the hour are far more likely to convert than day-later callbacks (HBR).",
     "examples": [
       "Real estate enquiry from a Tier-1 city with clear budget + recent WhatsApp engagement.",
       "EdTech parent who filled a form and booked a counsellor call."
@@ -75,7 +75,7 @@
   {
     "slug": "grade-b",
     "term": "Grade B",
-    "definitionShort": "The second-highest lead grade — a strong lead that needs nurture. Fit ≥ 55, Intent ≥ 40, Quality ≥ 50. Rep SLA: follow up within 48 hours.",
+    "definitionShort": "The second-highest lead grade. A strong lead that needs nurture. Fit ≥ 55, Intent ≥ 40, Quality ≥ 50. Rep SLA: follow up within 48 hours.",
     "definitionLong": "Grade B leads are qualified and interested but not quite hot. They might have a longer sales cycle, partial fit data, or paused engagement. Grade B leads become Grade A when Intent spikes (e.g. a WhatsApp reply) or Fit improves (e.g. budget signal confirmed). Grade B leads should be worked within 48 hours and nurtured on a weekly cadence.",
     "examples": [
       "A lead who had a great first call but is now comparing options.",
@@ -111,7 +111,7 @@
     "slug": "grade-c",
     "term": "Grade C",
     "definitionShort": "A nurture-cadence lead. Fit ≥ 40, Intent ≥ 25, Quality ≥ 35. Weekly touches; not daily priority.",
-    "definitionLong": "Grade C leads are qualified but early-stage. They might be researching, not ready to buy, or partially aligned with your ICP. Grade C leads should be on a weekly nurture cadence — not ignored, but not consuming rep time that should go to Grade A. A Grade C can jump to Grade B or A when engagement signals improve.",
+    "definitionLong": "Grade C leads are qualified but early-stage. They might be researching, not ready to buy, or partially aligned with your ICP. Grade C leads should be on a weekly nurture cadence, not ignored, but not consuming rep time that should go to Grade A. A Grade C can jump to Grade B or A when engagement signals improve.",
     "examples": [
       "Early-stage B2B SaaS lead who downloaded a whitepaper.",
       "Real estate enquiry from a 2nd-tier city with partial contact info."
@@ -133,7 +133,7 @@
     ],
     "category": "scoring",
     "selfCheck": {
-      "lead": "Low priority is a scheduling decision, not a verdict — check that yours is reversible.",
+      "lead": "Low priority is a scheduling decision, not a verdict. Check that yours is reversible.",
       "checks": [
         "Find leads you deprioritised last quarter that later came back and converted.",
         "Ask what surfaced them: a rep's memory, a chance call, or a system.",
@@ -145,7 +145,7 @@
     "slug": "grade-f",
     "term": "Grade F",
     "definitionShort": "Junk leads. Quality Score below 20. Test strings, fake phones, or unusable data. Discard.",
-    "definitionLong": "Grade F marks leads whose data is unusable. Phone doesn't match Indian carrier formats. Email fails MX check. Company name reads 'asdfghjkl'. Working a Grade F lead is actively worse than skipping it — it burns rep time that should go to real leads. Leadkaun automatically marks Quality < 20 leads as Grade F; reps don't see them in the Priority Queue.",
+    "definitionLong": "Grade F marks leads whose data is unusable. Phone doesn't match Indian carrier formats. Email fails MX check. Company name reads 'asdfghjkl'. Working a Grade F lead is actively worse than skipping it. It burns rep time that should go to real leads. Leadkaun automatically marks Quality < 20 leads as Grade F; reps don't see them in the Priority Queue.",
     "examples": [
       "Form submission with phone number '9999999999'.",
       "Enquiry text that says only 'call me'."
@@ -179,7 +179,7 @@
     "slug": "fit-score",
     "term": "Fit Score",
     "definitionShort": "A 0–100 score measuring how well a lead matches your Ideal Customer Profile. Weights: industry (30) + geography (20) + business type (20) + role (15) + budget (15).",
-    "definitionLong": "Fit Score is the static component of lead scoring — it tells you whether a lead is a good match for your product, independent of how engaged they are. Leadkaun's default weights favour industry match (30%) and geography (20%), reflecting the reality that Indian B2B sales often gates on vertical expertise and regional presence. The weights are fixed and transparent, so every rep can see why a lead is Grade A; your ICP — the industries, geographies, roles and budget bands that define your best customers — is configured once per account.",
+    "definitionLong": "Fit Score is the static component of lead scoring. It tells you whether a lead is a good match for your product, independent of how engaged they are. Leadkaun's default weights favour industry match (30%) and geography (20%), reflecting the reality that Indian B2B sales often gates on vertical expertise and regional presence. The weights are fixed and transparent, so every rep can see why a lead is Grade A; your ICP, the industries, geographies, roles and budget bands that define your best customers, is configured once per account.",
     "examples": [
       "A real-estate team in Bengaluru matches 'industry=real-estate' (30) + 'geography=tier-1' (20) + 'business-type=agency' (20) = 70 Fit."
     ],
@@ -213,11 +213,11 @@
   {
     "slug": "intent-score",
     "term": "Intent Score",
-    "definitionShort": "A 0–100 score measuring how engaged a lead is, with time-based decay. Source baseline + call (+15) + WhatsApp reply (+10) + meeting (+25) — minus 3 points/day after engagement threshold.",
-    "definitionLong": "Intent Score captures buying readiness. Unlike a static score, Intent rises when leads engage (replies, meetings, website revisits) and decays when they go silent. The decay is critical — it's what makes 'stale Grade A' automatically drop to Grade B without manager intervention. Intent Score floor is the source baseline (a referral starts higher than a cold ad click).",
+    "definitionShort": "A 0–100 score measuring how engaged a lead is, with time-based decay. Source baseline + call (+15) + WhatsApp reply (+10) + meeting (+25) minus 3 points/day after engagement threshold.",
+    "definitionLong": "Intent Score captures buying readiness. Unlike a static score, Intent rises when leads engage (replies, meetings, website revisits) and decays when they go silent. The decay is critical, it's what makes 'stale Grade A' automatically drop to Grade B without manager intervention. Intent Score floor is the source baseline (a referral starts higher than a cold ad click).",
     "examples": [
       "A lead who replies to WhatsApp gains +10. If silent for 5 days, drops −15.",
-      "A meeting-booked signal is +25 — often enough to push Grade C to Grade A."
+      "A meeting-booked signal is +25, often enough to push Grade C to Grade A."
     ],
     "relatedTerms": [
       "lead-scoring",
@@ -240,7 +240,7 @@
       "lead": "Intent should be measured by what a lead did, not by how keen they sounded.",
       "checks": [
         "Pick ten leads your reps described as hot last month.",
-        "For each, write down the concrete action behind that description — a reply, a callback, a pricing question, a site visit.",
+        "For each, write down the concrete action behind that description, a reply, a callback, a pricing question, a site visit.",
         "Any that have no action behind them were graded on tone of voice."
       ]
     }
@@ -248,7 +248,7 @@
   {
     "slug": "quality-score",
     "term": "Quality Score",
-    "definitionShort": "A 0–100 score measuring how reliable a lead's data is. Valid phone (30) + email (15) + company (15) + inquiry clarity (20) + source reliability (10) — minus junk penalties.",
+    "definitionShort": "A 0–100 score measuring how reliable a lead's data is. Valid phone (30) + email (15) + company (15) + inquiry clarity (20) + source reliability (10) minus junk penalties.",
     "definitionLong": "Quality Score is the gate against junk. A lead with a valid Indian phone number (E.164 format, correct carrier range) and a real company name scores high. A lead with test strings or obvious bad data scores low. Leads under 20 Quality are marked Grade F and excluded from the Priority Queue automatically.",
     "examples": [
       "Complete form: phone valid + email valid + company 'Reliance Retail' + inquiry 'looking for 500 seats of CRM' → Quality 95.",
@@ -283,7 +283,7 @@
   {
     "slug": "intent-decay",
     "term": "Intent Decay",
-    "definitionShort": "The automatic drop in a lead's Intent Score over time with no engagement — typically −3 points per day after an engagement threshold.",
+    "definitionShort": "The automatic drop in a lead's Intent Score over time with no engagement, typically −3 points per day after an engagement threshold.",
     "definitionLong": "Intent Decay is what keeps the Priority Queue honest. Without decay, old hot leads stay at Grade A forever. With decay, a lead that hit Grade A a week ago but hasn't engaged since automatically drops to Grade B or C, without any manager intervention. When the lead re-engages, Intent spikes back up. Decay floors at the source baseline so a referral never drops below a cold ad click.",
     "examples": [
       "Grade A lead goes silent 5 days → Intent −15 → drops to Grade B.",
@@ -318,8 +318,8 @@
   {
     "slug": "priority-queue",
     "term": "Priority Queue",
-    "definitionShort": "A ranked list of leads per rep, re-ranked in real time as signals arrive — telling the rep exactly who to call next.",
-    "definitionLong": "The Priority Queue is what replaces 'which lead should I call first?' with a decisive answer. It ranks every open lead by a composite score: grade + overdue callbacks + engagement trend + recency. A new Grade A arrival instantly moves to the top. Intent decay pushes stale leads down. Reps don't decide — they work top-down. Managers stop micromanaging because the queue is the plan.",
+    "definitionShort": "A ranked list of leads per rep, re-ranked in real time as signals arrive, telling the rep exactly who to call next.",
+    "definitionLong": "The Priority Queue is what replaces 'which lead should I call first?' with a decisive answer. It ranks every open lead by a composite score: grade + overdue callbacks + engagement trend + recency. A new Grade A arrival instantly moves to the top. Intent decay pushes stale leads down. Reps don't decide. They work top-down. Managers stop micromanaging because the queue is the plan.",
     "examples": [
       "Rep opens the app at 9:30 AM; top of queue is 'Priya, Grade A, site visit due today, ₹5L GCV'.",
       "WhatsApp reply at 11 AM re-ranks that lead to #1 instantly."
@@ -353,11 +353,11 @@
   {
     "slug": "missed-opportunity",
     "term": "Missed Opportunity",
-    "definitionShort": "A stale lead that passed its grade-appropriate SLA with a rupee value attached — 'Grade A, 48 hours stale, ₹12L at risk'.",
-    "definitionLong": "Missed Opportunity translates 'overdue follow-up' into a rupee number. A Grade A lead with no contact in 24+ hours carries an expected loss based on industry average deal value × grade conversion rate. Aggregated across open leads, this becomes '₹ at risk this week' — the single number that drives every Monday manager review in Leadkaun-running teams.",
+    "definitionShort": "A stale lead that passed its grade-appropriate SLA with a rupee value attached, 'Grade A, 48 hours stale, ₹12L at risk'.",
+    "definitionLong": "Missed Opportunity translates 'overdue follow-up' into a rupee number. A Grade A lead with no contact in 24+ hours carries an expected loss based on industry average deal value × grade conversion rate. Aggregated across open leads, this becomes '₹ at risk this week', the single number that drives every Monday manager review in Leadkaun-running teams.",
     "examples": [
       "8 Grade A real estate leads stale 48h × ₹4.5L each = ₹36L at risk.",
-      "Rep Morning Brief: '₹1.8L to recover today — call Priya, Rajesh, Mohan'."
+      "Rep Morning Brief: '₹1.8L to recover today. Call Priya, Rajesh, Mohan'."
     ],
     "relatedTerms": [
       "rupee-at-risk",
@@ -388,7 +388,7 @@
   {
     "slug": "rupee-at-risk",
     "term": "₹ at Risk",
-    "definitionShort": "The total rupee value of stale leads across your pipeline — the leading indicator of revenue leakage.",
+    "definitionShort": "The total rupee value of stale leads across your pipeline, the leading indicator of revenue leakage.",
     "definitionLong": "₹ at Risk is the aggregate cost of every stale lead in your pipeline. Computed as (avg deal value × grade-specific conversion rate) summed across all overdue Grade A, B, and C leads. For a typical 10-rep Indian B2B SMB, baseline ₹ at Risk sits at ₹2–5 lakh/week once Leadkaun has been running for 30 days. When a team first sees the number, it's often ₹8–15 lakh because backlog has accumulated.",
     "examples": [
       "10-rep EdTech team, 40 Grade A stale at ₹16.5k each = ₹6.6L at risk this week.",
@@ -422,7 +422,7 @@
   {
     "slug": "morning-brief",
     "term": "Morning Brief",
-    "definitionShort": "A daily 8:30 AM IST email to each rep and manager — ₹ at risk today, top Grade A leads, overdue follow-ups.",
+    "definitionShort": "A daily 8:30 AM IST email to each rep and manager, ₹ at risk today, top Grade A leads, overdue follow-ups.",
     "definitionLong": "The Morning Brief is the ritual that turns lead scoring into a daily habit. Every weekday at 8:30 AM IST, each rep receives an email listing their top 5 Grade A leads, ₹ at risk today, and overdue follow-ups. Managers get a parallel brief with per-rep rollups. The Brief sets the day before stand-up, coffee, or any other tool. By 11 AM, the hot leads from overnight are contacted or on recovery paths.",
     "examples": [
       "Rep brief: '4 Grade A enquiries replied overnight. ₹6L in admissions at risk if not called by 11 AM.'",
@@ -457,8 +457,8 @@
   {
     "slug": "sql",
     "term": "SQL (Sales-Qualified Lead)",
-    "definitionShort": "A lead whose Intent Score has crossed the sales-ready threshold — typically triggering an immediate alert to the assigned rep.",
-    "definitionLong": "A Sales-Qualified Lead (SQL) is a lead that has demonstrated enough buying intent to warrant immediate sales engagement. In Leadkaun, SQL is the moment Intent Score crosses a configurable threshold — typically when a lead hits Grade A combined with a recent meaningful signal (meeting booked, concrete question). When the SQL threshold is crossed, the rep gets an alert within 60 seconds. This closes the response-time gap that kills most hot leads.",
+    "definitionShort": "A lead whose Intent Score has crossed the sales-ready threshold, typically triggering an immediate alert to the assigned rep.",
+    "definitionLong": "A Sales-Qualified Lead (SQL) is a lead that has demonstrated enough buying intent to warrant immediate sales engagement. In Leadkaun, SQL is the moment Intent Score crosses a configurable threshold, typically when a lead hits Grade A combined with a recent meaningful signal (meeting booked, concrete question). When the SQL threshold is crossed, the rep gets an alert within 60 seconds. This closes the response-time gap that kills most hot leads.",
     "examples": [
       "Grade B lead books a demo call → Intent +25 → crosses SQL threshold → rep alert within 60s.",
       "WhatsApp reply 'I want to buy' triggers intent-specific rule → SQL."
@@ -486,7 +486,7 @@
       "checks": [
         "Take twenty recent leads and have sales and marketing independently mark which were sales-ready.",
         "Compare the two lists.",
-        "Disagreement here is why handoff arguments recur every month — the definition is not shared, only assumed."
+        "Disagreement here is why handoff arguments recur every month. The definition is not shared, only assumed."
       ]
     }
   },
@@ -494,10 +494,10 @@
     "slug": "mql",
     "term": "MQL (Marketing-Qualified Lead)",
     "definitionShort": "A lead qualified by marketing behaviour (downloads, webinar signups) but not yet sales-ready.",
-    "definitionLong": "An MQL has engaged with marketing (content downloads, webinar attendance, pricing page visits) enough to warrant nurture, but hasn't shown direct buying intent. In the B2B funnel, MQL is upstream of SQL. For Indian B2B SMBs with thin marketing motions, MQL may be a smaller category — most leads arrive through paid ads, referrals, or aggregators with clearer intent signals.",
+    "definitionLong": "An MQL has engaged with marketing (content downloads, webinar attendance, pricing page visits) enough to warrant nurture, but hasn't shown direct buying intent. In the B2B funnel, MQL is upstream of SQL. For Indian B2B SMBs with thin marketing motions, MQL may be a smaller category, most leads arrive through paid ads, referrals, or aggregators with clearer intent signals.",
     "examples": [
-      "Downloaded an ROI calculator — MQL.",
-      "Booked a demo call — SQL (beyond MQL)."
+      "Downloaded an ROI calculator, MQL.",
+      "Booked a demo call, SQL (beyond MQL)."
     ],
     "relatedTerms": [
       "sql",
@@ -518,7 +518,7 @@
     "selfCheck": {
       "lead": "Marketing-qualified usually means someone showed interest, which is a weaker claim than it sounds.",
       "checks": [
-        "Look at what action makes a lead qualified in your setup — often a download or a form.",
+        "Look at what action makes a lead qualified in your setup, often a download or a form.",
         "Check how many leads with that action ever spoke to a rep.",
         "If most did not, the qualification step is measuring attention, not demand."
       ]
@@ -562,7 +562,7 @@
   {
     "slug": "sales-behaviour-os",
     "term": "Sales Behaviour OS",
-    "definitionShort": "A new category of sales software that shapes rep behaviour in real time — not just records activity. Leadkaun is a Sales Behaviour OS built for India.",
+    "definitionShort": "A new category of sales software that shapes rep behaviour in real time, not just records activity. Leadkaun is a Sales Behaviour OS built for India.",
     "definitionLong": "A Sales Behaviour Operating System sits between lead arrival and deal closure and actively reshapes what reps do next. Unlike a CRM (which records what happened) or a sales engagement tool (which automates outbound), a Sales Behaviour OS combines grading + priority queueing + ₹-at-risk surfacing + daily rituals (Morning Brief) to change the rep's day-to-day decisions. The focus is behaviour change, not data capture.",
     "examples": [
       "CRM: 'rep logged 30 calls this week'.",
@@ -598,7 +598,7 @@
     "slug": "crm",
     "term": "CRM (Customer Relationship Management)",
     "definitionShort": "Software that records interactions between a sales team and its leads/customers. Focus is on data capture, not behaviour change.",
-    "definitionLong": "A CRM centralises the record of every interaction with every lead — calls, emails, meetings, notes, deal stages. Popular CRMs in India include Zoho CRM, LeadSquared, HubSpot, Salesforce, Freshsales. CRMs are excellent at recording; they are not designed to reshape what reps do next. That job is what a Sales Behaviour OS fills. Most teams run CRM + Sales Behaviour OS as complementary layers.",
+    "definitionLong": "A CRM centralises the record of every interaction with every lead calls, emails, meetings, notes, deal stages. Popular CRMs in India include Zoho CRM, LeadSquared, HubSpot, Salesforce, Freshsales. CRMs are excellent at recording; they are not designed to reshape what reps do next. That job is what a Sales Behaviour OS fills. Most teams run CRM + Sales Behaviour OS as complementary layers.",
     "examples": [
       "Zoho CRM: comprehensive customisation, weak on rep adoption.",
       "Salesforce: enterprise-grade, overkill for Indian SMBs."
@@ -631,8 +631,8 @@
   {
     "slug": "whatsapp-intent",
     "term": "WhatsApp Intent Signal",
-    "definitionShort": "A buying-readiness signal captured from a WhatsApp reply — most Indian B2B leads first make contact on WhatsApp, making it the primary intent channel.",
-    "definitionLong": "WhatsApp is the dominant first-contact channel for Indian B2B sales. Treating WhatsApp replies as first-class intent signals — not as an integration afterthought — is essential. In Leadkaun, reps log WhatsApp interactions in 3 taps (stage + intent + outcome), which feeds the Intent Score in real time. A high-intent WhatsApp reply can push a Grade C lead to Grade A in real time.",
+    "definitionShort": "A buying-readiness signal captured from a WhatsApp reply, most Indian B2B leads first make contact on WhatsApp, making it the primary intent channel.",
+    "definitionLong": "WhatsApp is the dominant first-contact channel for Indian B2B sales. Treating WhatsApp replies as first-class intent signals, not as an integration afterthought, is essential. In Leadkaun, reps log WhatsApp interactions in 3 taps (stage + intent + outcome), which feeds the Intent Score in real time. A high-intent WhatsApp reply can push a Grade C lead to Grade A in real time.",
     "examples": [
       "Parent WhatsApps 'can you send brochure?' at 9 PM → logged as 'asking questions + high intent' → +10 Intent.",
       "Silent for 5 days → Intent decays −15."
@@ -665,10 +665,10 @@
   {
     "slug": "3-tap-logging",
     "term": "3-Tap Logging",
-    "definitionShort": "The design rule that every lead interaction — call, WhatsApp, meeting — must be logged in 3 taps or less, without typing.",
+    "definitionShort": "The design rule that every lead interaction, call, WhatsApp, meeting, must be logged in 3 taps or less, without typing.",
     "definitionLong": "3-Tap Logging is the adoption hack that keeps Indian field reps using the tool. Most CRMs require 4–6 clicks and a modal to log a call. Leadkaun's 3-tap logging is: tap stage (first-reply, asking-questions, objection, meeting-booked, ghosted), tap intent (high/medium/low/negative), tap outcome (progressed/stuck/closed). Total time: 10 seconds. Reps don't break flow. Data capture rates rise sharply because reps actually log in-flow.",
     "examples": [
-      "Rep finishes a call, taps 'Progressed + High intent + Meeting booked' — 8 seconds.",
+      "Rep finishes a call, taps 'Progressed + High intent + Meeting booked' 8 seconds.",
       "WhatsApp reply logged with 3 taps mid-conversation."
     ],
     "relatedTerms": [
@@ -699,11 +699,11 @@
   {
     "slug": "zero-input-mode",
     "term": "Zero-Input Mode",
-    "definitionShort": "The product-design principle that Leadkaun must be useful from day one with zero rep logging — grading and queueing work on ingested data alone.",
-    "definitionLong": "Zero-Input Mode is the India-first design constraint that says: our product must deliver value even if reps log nothing. The scoring engine, Priority Queue, and Missed Opportunity Engine all run on ingested lead data (from CSV, Google Sheet exports, or web forms) without requiring rep input. Rep logging then layers on top to make it better — but it's not a prerequisite for value. This is how Leadkaun aims for far higher rep adoption than a typical CRM, which reps often abandon.",
+    "definitionShort": "The product-design principle that Leadkaun must be useful from day one with zero rep logging, grading and queueing work on ingested data alone.",
+    "definitionLong": "Zero-Input Mode is the India-first design constraint that says: our product must deliver value even if reps log nothing. The scoring engine, Priority Queue, and Missed Opportunity Engine all run on ingested lead data (from CSV, Google Sheet exports, or web forms) without requiring rep input. Rep logging then layers on top to make it better, but it's not a prerequisite for value. This is how Leadkaun aims for far higher rep adoption than a typical CRM, which reps often abandon.",
     "examples": [
-      "Day 1 after onboarding: 600 leads imported via CSV (exported from a Google Sheet), all graded A–F, Priority Queue populated — rep has their day planned without logging anything.",
-      "Rep starts logging calls in week 2 — scores refine further."
+      "Day 1 after onboarding: 600 leads imported via CSV (exported from a Google Sheet), all graded A–F, Priority Queue populated, rep has their day planned without logging anything.",
+      "Rep starts logging calls in week 2, scores refine further."
     ],
     "relatedTerms": [
       "3-tap-logging",
@@ -733,8 +733,8 @@
   {
     "slug": "sales-automation",
     "term": "Sales Automation",
-    "definitionShort": "Software features that automate repetitive sales tasks — lead grading, follow-up scheduling, alerting — without removing human touch.",
-    "definitionLong": "Sales automation in the Leadkaun context means: automatic lead grading on arrival, automatic Priority Queue re-ranking as signals arrive, automatic follow-up cadence generation per grade, automatic alerts on SQL crossings. It does NOT include automated outbound calling or automated WhatsApp sending — those remain human actions. Automation handles the decisions; humans handle the conversations.",
+    "definitionShort": "Software features that automate repetitive sales tasks, lead grading, follow-up scheduling, alerting, without removing human touch.",
+    "definitionLong": "Sales automation in the Leadkaun context means: automatic lead grading on arrival, automatic Priority Queue re-ranking as signals arrive, automatic follow-up cadence generation per grade, automatic alerts on SQL crossings. It does NOT include automated outbound calling or automated WhatsApp sending, those remain human actions. Automation handles the decisions; humans handle the conversations.",
     "examples": [
       "New lead arrives → graded A–F in real time, automatically.",
       "Grade A stale 24h → alert fires to rep automatically."
@@ -767,8 +767,8 @@
   {
     "slug": "nurture-cadence",
     "term": "Nurture Cadence",
-    "definitionShort": "A grade-aware follow-up schedule — Grade A gets 3 touches in week 1; Grade B gets weekly; Grade C gets 2-week nurture.",
-    "definitionLong": "Nurture Cadence is the schedule of touches applied to a lead based on grade. Leadkaun auto-generates the cadence when a lead is graded, and rep sees the next touch in the Priority Queue with the reason ('Follow-up 2 of 3 — Grade A, first call 3 days ago'). Completing a touch logs the outcome and schedules the next. Missing a touch drops the Follow-up Score and triggers manager visibility.",
+    "definitionShort": "A grade-aware follow-up schedule. Grade A gets 3 touches in week 1; Grade B gets weekly; Grade C gets 2-week nurture.",
+    "definitionLong": "Nurture Cadence is the schedule of touches applied to a lead based on grade. Leadkaun auto-generates the cadence when a lead is graded, and rep sees the next touch in the Priority Queue with the reason ('Follow-up 2 of 3, Grade A, first call 3 days ago'). Completing a touch logs the outcome and schedules the next. Missing a touch drops the Follow-up Score and triggers manager visibility.",
     "examples": [
       "Grade A real estate: T+0 call, T+6h WA, T+24h call.",
       "Grade C B2B SaaS: 2-week nurture with product content."
@@ -835,11 +835,11 @@
   {
     "slug": "source-truth",
     "term": "Source Truth Card",
-    "definitionShort": "An Analytics Dashboard card ranking every lead source by ₹ won — not by lead count — so agencies that send junk get dethroned by ones that send Grade A.",
+    "definitionShort": "An Analytics Dashboard card ranking every lead source by ₹ won, not by lead count, so agencies that send junk get dethroned by ones that send Grade A.",
     "definitionLong": "Source Truth is the dashboard card that answers 'which agency/channel is actually worth paying for?'. Instead of ranking sources by lead volume (which rewards junk senders), Source Truth ranks by ₹ won from that source over the last 90 days. The top-ranked source might send 50 leads a month (not 500), but they're Grade A + close at 15%. Managers use this monthly to kill bad spend fast.",
     "examples": [
       "'99acres: ₹3.2Cr closed last quarter'.",
-      "'Agency X: 500 leads sent, ₹0 closed — kill the spend'."
+      "'Agency X: 500 leads sent, ₹0 closed, kill the spend'."
     ],
     "relatedTerms": [
       "lead-quality",
@@ -869,8 +869,8 @@
   {
     "slug": "loss-analysis",
     "term": "Loss Analysis",
-    "definitionShort": "An Analytics card showing stale leads by ₹ value and by rep — manager's 1:1 prep material.",
-    "definitionLong": "Loss analysis asks why deals died, and it is only as good as what was recorded at the moment they did. Most teams reconstruct the answer weeks later from memory, which produces a tidy list of reasons that are mostly wrong — price is over-reported because it is the easiest thing to say. In Leadkaun, marking a deal won or lost freezes the lead's entire scoring state at that instant: the grade, all three sub-scores, the confidence reading and the recorded reason. Because the snapshot is taken at decision time rather than recomputed afterwards, you can go back and ask the question that actually matters — did the grades predict the outcomes? Systematic disagreement, such as a run of won deals that scored B or C, points at the customer profile rather than at the reps. It is also what keeps the analytics honest, since calibration is measured against state as it was, not as it looks now.",
+    "definitionShort": "An Analytics card showing stale leads by ₹ value and by rep manager's 1:1 prep material.",
+    "definitionLong": "Loss analysis asks why deals died, and it is only as good as what was recorded at the moment they did. Most teams reconstruct the answer weeks later from memory, which produces a tidy list of reasons that are mostly wrong, price is over-reported because it is the easiest thing to say. In Leadkaun, marking a deal won or lost freezes the lead's entire scoring state at that instant: the grade, all three sub-scores, the confidence reading and the recorded reason. Because the snapshot is taken at decision time rather than recomputed afterwards, you can go back and ask the question that actually matters, did the grades predict the outcomes? Systematic disagreement, such as a run of won deals that scored B or C, points at the customer profile rather than at the reps. It is also what keeps the analytics honest, since calibration is measured against state as it was, not as it looks now.",
     "examples": [
       "A deal marked lost at Grade A with high confidence is an execution question; the same loss at Grade C is a targeting one.",
       "Comparing frozen grades against six months of closed deals shows whether the ICP still describes your customer."
@@ -903,8 +903,8 @@
   {
     "slug": "lead-quality",
     "term": "Lead Quality",
-    "definitionShort": "How reliable and complete a lead's data is — measured as a 0–100 Quality Score covering completeness, phone and email validity, and junk or duplicate detection.",
-    "definitionLong": "Lead quality is the third leg of lead scoring, alongside Fit and Intent, and the one most teams skip. It asks a narrower question than 'is this a good lead?' — it asks 'can we trust this record?' A lead with a fake phone number, a disposable email, or three missing fields cannot be worked no matter how well it matches the ICP. In Leadkaun, Quality is scored 0–100 on completeness, phone and email validity, and duplicate/junk detection, and it acts as a cap: if Quality is too low the lead is graded down regardless of Fit and Intent, so bad data can never masquerade as a hot lead. Tracking quality by source is usually the fastest way to find which channel is quietly wasting rep hours.",
+    "definitionShort": "How reliable and complete a lead's data is, measured as a 0–100 Quality Score covering completeness, phone and email validity, and junk or duplicate detection.",
+    "definitionLong": "Lead quality is the third leg of lead scoring, alongside Fit and Intent, and the one most teams skip. It asks a narrower question than 'is this a good lead?'. It asks 'can we trust this record?' A lead with a fake phone number, a disposable email, or three missing fields cannot be worked no matter how well it matches the ICP. In Leadkaun, Quality is scored 0–100 on completeness, phone and email validity, and duplicate/junk detection, and it acts as a cap: if Quality is too low the lead is graded down regardless of Fit and Intent, so bad data can never masquerade as a hot lead. Tracking quality by source is usually the fastest way to find which channel is quietly wasting rep hours.",
     "examples": [
       "A lead with a valid 10-digit Indian mobile, a work email and a named company scores high on Quality.",
       "A form fill with 'asdf' as the company name and a disposable email is capped at Grade F on Quality alone."
@@ -940,8 +940,8 @@
   {
     "slug": "junk-lead",
     "term": "Junk Lead",
-    "definitionShort": "A lead that can never convert because the record itself is invalid — fake contact details, a test submission, a bot fill, or a duplicate of an existing lead.",
-    "definitionLong": "A junk lead is different from a bad-fit lead. A bad-fit lead is a real person who is not your buyer; a junk lead is not a workable record at all. Junk arrives from bot form fills, mistyped or deliberately fake phone numbers, test submissions, and duplicate entries created when the same enquiry lands through two channels. The cost is rarely the lead itself — it is the rep time spent discovering it is junk, and the way junk inflates every conversion metric that uses total leads as a denominator. Leadkaun detects junk on insert: Indian phone formats are normalised and validated, duplicates are caught before they reach a rep, and junk is graded F so it never enters a Priority Queue.",
+    "definitionShort": "A lead that can never convert because the record itself is invalid, fake contact details, a test submission, a bot fill, or a duplicate of an existing lead.",
+    "definitionLong": "A junk lead is different from a bad-fit lead. A bad-fit lead is a real person who is not your buyer; a junk lead is not a workable record at all. Junk arrives from bot form fills, mistyped or deliberately fake phone numbers, test submissions, and duplicate entries created when the same enquiry lands through two channels. The cost is rarely the lead itself. It is the rep time spent discovering it is junk, and the way junk inflates every conversion metric that uses total leads as a denominator. Leadkaun detects junk on insert: Indian phone formats are normalised and validated, duplicates are caught before they reach a rep, and junk is graded F so it never enters a Priority Queue.",
     "examples": [
       "The same enquiry submitted through a website form and a WhatsApp message becomes one lead, not two.",
       "A 10-digit number that fails Indian mobile validation is flagged before a rep dials it."
@@ -967,7 +967,7 @@
     "selfCheck": {
       "lead": "Junk is worth measuring precisely because it is paid for.",
       "checks": [
-        "Take one week of enquiries and mark the ones that were never contactable — wrong numbers, tests, bots.",
+        "Take one week of enquiries and mark the ones that were never contactable, wrong numbers, tests, bots.",
         "Trace them back to where they came from.",
         "That is spend with a known destination, and it usually concentrates in one or two places."
       ]
@@ -976,8 +976,8 @@
   {
     "slug": "assignment-rules",
     "term": "Assignment Rules",
-    "definitionShort": "The logic that decides which rep owns a new lead — by territory, industry, source, round-robin or grade. A CRM concept; Leadkaun does not implement it.",
-    "definitionLong": "Assignment rules are lead routing made explicit. Without them, leads get claimed by whoever is watching the inbox, which concentrates the best enquiries on the fastest rep rather than the right one, and leaves the rest to age. Rules typically route on territory, industry, source, deal-size band, round-robin or grade — often in combination, with a fallback for anything unmatched. The rule that matters most is that fallback: every lead needs an owner quickly, because an unowned lead is functionally an ignored one. Leadkaun does not implement assignment rules. Assignment here is manual — an admin or manager assigns one lead at a time to a named rep — and imported leads arrive unassigned until someone picks an owner. If you need rules-based routing, it belongs in your CRM. What Leadkaun adds is what happens after ownership: the lead is already graded A–F on arrival, and once owned it takes a ranked position in that rep's Priority Queue.",
+    "definitionShort": "The logic that decides which rep owns a new lead, by territory, industry, source, round-robin or grade. A CRM concept; Leadkaun does not implement it.",
+    "definitionLong": "Assignment rules are lead routing made explicit. Without them, leads get claimed by whoever is watching the inbox, which concentrates the best enquiries on the fastest rep rather than the right one, and leaves the rest to age. Rules typically route on territory, industry, source, deal-size band, round-robin or grade, often in combination, with a fallback for anything unmatched. The rule that matters most is that fallback: every lead needs an owner quickly, because an unowned lead is functionally an ignored one. Leadkaun does not implement assignment rules. Assignment here is manual, an admin or manager assigns one lead at a time to a named rep, and imported leads arrive unassigned until someone picks an owner. If you need rules-based routing, it belongs in your CRM. What Leadkaun adds is what happens after ownership: the lead is already graded A–F on arrival, and once owned it takes a ranked position in that rep's Priority Queue.",
     "examples": [
       "A CRM routes real-estate enquiries above ₹1 crore to the senior closer and distributes the rest evenly.",
       "In Leadkaun the same lead arrives already graded, and a manager assigns it by hand."
@@ -1015,8 +1015,8 @@
   {
     "slug": "team-admin",
     "term": "Team Admin",
-    "definitionShort": "The controls for who is on the sales team and what each person can see and do — roles, permissions and lead ownership.",
-    "definitionLong": "Team admin is the layer that makes a sales tool safe to give an entire team. It covers adding and removing people, setting roles (Admin, Manager, Rep), scoping what each role can see — reps their own leads, managers the whole team — and moving ownership when someone leaves or goes on leave. The reassignment path is the part teams discover too late: when a rep departs, their pipeline should transfer with grades and history intact, not reset to blank records. In Leadkaun, ownership changes are made by an admin or manager one lead at a time, and because pricing is flat per account rather than per seat there is no cost incentive to share logins — which is what keeps the accountability data honest in the first place.",
+    "definitionShort": "The controls for who is on the sales team and what each person can see and do, roles, permissions and lead ownership.",
+    "definitionLong": "Team admin is the layer that makes a sales tool safe to give an entire team. It covers adding and removing people, setting roles (Admin, Manager, Rep), scoping what each role can see, reps their own leads, managers the whole team, and moving ownership when someone leaves or goes on leave. The reassignment path is the part teams discover too late: when a rep departs, their pipeline should transfer with grades and history intact, not reset to blank records. In Leadkaun, ownership changes are made by an admin or manager one lead at a time, and because pricing is flat per account rather than per seat there is no cost incentive to share logins, which is what keeps the accountability data honest in the first place.",
     "examples": [
       "A manager sees the whole team's Priority Queues; a rep sees only their own.",
       "A departing rep's 40 open leads are reassigned with grades and logged history intact."
@@ -1050,8 +1050,8 @@
   {
     "slug": "sales-rep-tracking",
     "term": "Sales Rep Tracking",
-    "definitionShort": "Measuring what reps actually do — calls made, follow-ups completed, response time, leads worked — rather than only what they close.",
-    "definitionLong": "Sales rep tracking measures leading indicators instead of lagging ones. Revenue tells you what happened last quarter; behaviour tells you what will happen next. The useful metrics are the ones a rep controls day to day: how fast they respond to a new Grade A lead, how many committed follow-ups they actually complete, how many leads they let go stale, and how much of their queue they work top-down. Tracked well, this is a coaching instrument, not surveillance — it shows a manager which specific habit is costing a specific rep deals. Tracked badly, it becomes an activity-count leaderboard that reps learn to game. The distinction is whether the metrics are tied to lead grade and outcome, or just to volume.",
+    "definitionShort": "Measuring what reps actually do, calls made, follow-ups completed, response time, leads worked, rather than only what they close.",
+    "definitionLong": "Sales rep tracking measures leading indicators instead of lagging ones. Revenue tells you what happened last quarter; behaviour tells you what will happen next. The useful metrics are the ones a rep controls day to day: how fast they respond to a new Grade A lead, how many committed follow-ups they actually complete, how many leads they let go stale, and how much of their queue they work top-down. Tracked well, this is a coaching instrument, not surveillance. It shows a manager which specific habit is costing a specific rep deals. Tracked badly, it becomes an activity-count leaderboard that reps learn to game. The distinction is whether the metrics are tied to lead grade and outcome, or just to volume.",
     "examples": [
       "A rep with high call volume but a 6-hour response time on Grade A leads has a triage problem, not an effort problem.",
       "Follow-up completion rate against committed follow-ups is more predictive than total calls."
@@ -1087,8 +1087,8 @@
   {
     "slug": "analytics-dashboard",
     "term": "Analytics Dashboard",
-    "definitionShort": "The single view of pipeline health — grade distribution, ₹ at risk, source performance, response times, and rep behaviour — in one place.",
-    "definitionLong": "A sales analytics dashboard is only useful if it answers a decision. Most report totals — leads this month, calls made, deals won — which describe the past without suggesting an action. The versions worth opening daily report distributions and money: how leads split across Grades A–F, how much revenue is at risk from stale leads right now, which sources produce Grade A versus junk, and where response time is slipping by rep. Reporting in rupees rather than percentages matters here, because a manager can act on '₹18 lakh at risk in Grade A' in a way they cannot act on 'conversion down 4%'. In Leadkaun this feeds the Morning Brief, so the numbers arrive rather than waiting to be looked up.",
+    "definitionShort": "The single view of pipeline health, grade distribution, ₹ at risk, source performance, response times, and rep behaviour, in one place.",
+    "definitionLong": "A sales analytics dashboard is only useful if it answers a decision. Most report totals, leads this month, calls made, deals won, which describe the past without suggesting an action. The versions worth opening daily report distributions and money: how leads split across Grades A–F, how much revenue is at risk from stale leads right now, which sources produce Grade A versus junk, and where response time is slipping by rep. Reporting in rupees rather than percentages matters here, because a manager can act on '₹18 lakh at risk in Grade A' in a way they cannot act on 'conversion down 4%'. In Leadkaun this feeds the Morning Brief, so the numbers arrive rather than waiting to be looked up.",
     "examples": [
       "Source performance by grade shows which channel produces buyers and which produces volume.",
       "₹ at risk by rep shows where a manager's next coaching hour should go."
@@ -1124,10 +1124,10 @@
   {
     "slug": "confidence-score",
     "term": "Confidence Score",
-    "definitionShort": "A 0–100 read of how much is actually known about a lead — separate from its grade, which says how good the lead is.",
-    "definitionLong": "Confidence answers a different question from the grade. The grade says how good a lead looks; confidence says how much information that judgement rests on. A lead with a company, a designation, a location and a budget can be graded with some assurance. A lead with a first name and a mobile number might be the best opportunity in the pipeline, and the honest position is that there is not yet enough to say — scoring it low would claim it is weak, which is a different and less truthful statement than admitting ignorance. Leadkaun computes confidence from eight weighted fields and returns a prioritised list of what to ask for next, so a rep with a thin lead knows exactly which two questions would move it. It is computed on demand rather than stored, and snapshotted onto the score timeline whenever a grade changes.",
+    "definitionShort": "A 0–100 read of how much is actually known about a lead, separate from its grade, which says how good the lead is.",
+    "definitionLong": "Confidence answers a different question from the grade. The grade says how good a lead looks; confidence says how much information that judgement rests on. A lead with a company, a designation, a location and a budget can be graded with some assurance. A lead with a first name and a mobile number might be the best opportunity in the pipeline, and the honest position is that there is not yet enough to say, scoring it low would claim it is weak, which is a different and less truthful statement than admitting ignorance. Leadkaun computes confidence from eight weighted fields and returns a prioritised list of what to ask for next, so a rep with a thin lead knows exactly which two questions would move it. It is computed on demand rather than stored, and snapshotted onto the score timeline whenever a grade changes.",
     "examples": [
-      "A lead with only a name and phone number can still be Grade B, but at low confidence — the next call is a qualifying call.",
+      "A lead with only a name and phone number can still be Grade B, but at low confidence. The next call is a qualifying call.",
       "Adding company and designation typically moves confidence more than any other two fields."
     ],
     "relatedTerms": [
@@ -1160,8 +1160,8 @@
   {
     "slug": "data-freshness",
     "term": "Data Freshness",
-    "definitionShort": "How old a lead record is, expressed in ageing bands that keep moving — so a list bought six months ago never presents as new work.",
-    "definitionLong": "Freshness is the difference between a lead that arrived this morning and one that was collected eight months ago and imported today. On import they look identical, and that is precisely the failure that makes bought lists disappointing: the contact has no memory of the enquiry, has often changed roles, and treats the call as an intrusion rather than a follow-up. Leadkaun bands every lead by age and keeps ageing it, so the distinction stays visible in the queue instead of being discovered one call at a time. Where the original collection date is unknown, the band is inferred from the import date and flagged as inferred — an honest approximation rather than false precision. Measuring connect rate by freshness band is usually the fastest way to find out whether a list purchase was worth it.",
+    "definitionShort": "How old a lead record is, expressed in ageing bands that keep moving, so a list bought six months ago never presents as new work.",
+    "definitionLong": "Freshness is the difference between a lead that arrived this morning and one that was collected eight months ago and imported today. On import they look identical, and that is precisely the failure that makes bought lists disappointing: the contact has no memory of the enquiry, has often changed roles, and treats the call as an intrusion rather than a follow-up. Leadkaun bands every lead by age and keeps ageing it, so the distinction stays visible in the queue instead of being discovered one call at a time. Where the original collection date is unknown, the band is inferred from the import date and flagged as inferred, an honest approximation rather than false precision. Measuring connect rate by freshness band is usually the fastest way to find out whether a list purchase was worth it.",
     "examples": [
       "A list collected six months before import starts in a late band, so reps calibrate rather than assume it is warm.",
       "Connect rate by band turns a list-buying decision into evidence instead of a hunch."
@@ -1197,9 +1197,9 @@
     "slug": "data-readiness",
     "term": "Data Readiness",
     "definitionShort": "A High / Medium / Low verdict on an uploaded lead file, produced before import from format validity, completeness, duplicates and business context.",
-    "definitionLong": "The most expensive moment in a bad import is the hour afterwards, when reps start dialling. Readiness is what you can learn before that point, and it is nearly free. Leadkaun profiles a sample of the file and answers plain questions: how many rows carry a valid Indian mobile, how many companies look like businesses rather than individuals, how many rows duplicate each other, which fields are systematically missing, and whether this is a B2B or B2C dataset at all. None of it needs a model — it is arithmetic on formats and completeness, and a rule you can read is easier to trust than one you cannot. The result is reported as a band rather than a number, because a band is a decision and a number is a debate. The point is not to reject files; it is to know what you are importing while you still have the option not to.",
+    "definitionLong": "The most expensive moment in a bad import is the hour afterwards, when reps start dialling. Readiness is what you can learn before that point, and it is nearly free. Leadkaun profiles a sample of the file and answers plain questions: how many rows carry a valid Indian mobile, how many companies look like businesses rather than individuals, how many rows duplicate each other, which fields are systematically missing, and whether this is a B2B or B2C dataset at all. None of it needs a model. It is arithmetic on formats and completeness, and a rule you can read is easier to trust than one you cannot. The result is reported as a band rather than a number, because a band is a decision and a number is a debate. The point is not to reject files; it is to know what you are importing while you still have the option not to.",
     "examples": [
-      "A file where a third of the phone numbers fail Indian mobile validation reads Low — the problem is the file, not rep effort.",
+      "A file where a third of the phone numbers fail Indian mobile validation reads Low. The problem is the file, not rep effort.",
       "A clean export from a trade portal usually reads High and can be imported as-is."
     ],
     "relatedTerms": [
@@ -1232,7 +1232,7 @@
     "slug": "score-evolution",
     "term": "Score Evolution",
     "definitionShort": "An append-only timeline of every score change on a lead, with grade, confidence and all three sub-scores frozen as they were at that moment.",
-    "definitionLong": "Scores that move without explanation are scores nobody trusts. If a rep opens a lead that was Grade A yesterday and finds it Grade C today, the useful response is not reassurance — it is showing them what happened. Leadkaun writes every score change to a timeline that is only ever appended to, freezing the grade, the confidence reading and all three sub-scores at each event. A drop traces back to its cause: intent decayed after a fortnight of silence, a duplicate was detected, or the customer profile changed and the whole book was re-graded. This is also the honest answer to the question buyers ask and vendors usually dodge — what happens if your scoring is wrong. A frozen history is what lets you go back and check whether the grades predicted the outcomes.",
+    "definitionLong": "Scores that move without explanation are scores nobody trusts. If a rep opens a lead that was Grade A yesterday and finds it Grade C today, the useful response is not reassurance. It is showing them what happened. Leadkaun writes every score change to a timeline that is only ever appended to, freezing the grade, the confidence reading and all three sub-scores at each event. A drop traces back to its cause: intent decayed after a fortnight of silence, a duplicate was detected, or the customer profile changed and the whole book was re-graded. This is also the honest answer to the question buyers ask and vendors usually dodge, what happens if your scoring is wrong. A frozen history is what lets you go back and check whether the grades predicted the outcomes.",
     "examples": [
       "A Grade A lead drops to B after two weeks of silence; the timeline shows intent decay, not a scoring error.",
       "After an ICP change, the timeline shows which leads were re-graded and by how much."

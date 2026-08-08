@@ -20,14 +20,14 @@ import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const metadata: Metadata = {
-  title: "Lead Scoring Software India — Grade A–F in real time",
+  title: "Lead Scoring Software India, Grade A–F in real time",
   description:
     "Leadkaun's scoring engine grades every lead A–F across Fit, Intent, and Quality in real time. Transparent weights, intent decay, calibrated for Indian B2B.",
   alternates: { canonical: "/features/lead-scoring" },
 }
 
 const SCORES = [
-  { name: "Fit Score",     description: "How well the lead matches your ICP. Static — changes only when new firmographic info arrives.", weights: [
+  { name: "Fit Score",     description: "How well the lead matches your ICP. Static changes only when new firmographic info arrives.", weights: [
     { label: "Industry match",        pts: "30 pts" }, { label: "Geography",            pts: "20 pts" },
     { label: "Business type",         pts: "20 pts" }, { label: "Role / decision-maker", pts: "15 pts" },
     { label: "Budget signal",         pts: "15 pts" },
@@ -53,17 +53,17 @@ const GRADES = [
 ]
 
 const FAQ = [
-  { q: "What is lead scoring, in simple terms?", a: "Lead scoring ranks every lead by how likely they are to convert. Leadkaun scores across three independent dimensions — Fit (ICP match), Intent (engagement), Quality (data reliability) — and combines them into a Grade A–F. Your rep works Grade A first, always." },
-  { q: "How is this different from my CRM's lead scoring?", a: "Most CRM scoring is a single points-based number — a black box. Leadkaun uses three transparent scores with weights you can audit. Intent decays automatically when leads go silent, so stale Grade A leads drop to B or C on their own — no manager intervention." },
+  { q: "What is lead scoring, in simple terms?", a: "Lead scoring ranks every lead by how likely they are to convert. Leadkaun scores across three independent dimensions, Fit (ICP match), Intent (engagement), Quality (data reliability), and combines them into a Grade A–F. Your rep works Grade A first, always." },
+  { q: "How is this different from my CRM's lead scoring?", a: "Most CRM scoring is a single points-based number, a black box. Leadkaun uses three transparent scores with weights you can audit. Intent decays automatically when leads go silent, so stale Grade A leads drop to B or C on their own, no manager intervention." },
   { q: "How fast is it?", a: "In real time, per lead. When a new lead arrives or a signal is logged, the scoring engine runs immediately and propagates the grade change to every rep's Priority Queue in real time." },
-  { q: "Can I configure the scoring for my business?", a: "You configure your ICP — the industries, geographies, roles, budget bands and business types that define your best customers, set once per account. That drives the Fit score. The scoring weights themselves are fixed and transparent (identical for every account), so a rep can always see exactly why a lead is Grade A — no black box, no per-account drift." },
+  { q: "Can I configure the scoring for my business?", a: "You configure your ICP, the industries, geographies, roles, budget bands and business types that define your best customers, set once per account. That drives the Fit score. The scoring weights themselves are fixed and transparent (identical for every account), so a rep can always see exactly why a lead is Grade A, no black box, no per-account drift." },
   { q: "What about junk leads?", a: "Quality Score catches them. Phone normalisation (Indian carrier ranges), email MX validation, company name checks, and inquiry text patterns combine into a Quality score. Anything under 20 is marked Grade F and excluded from the queue automatically." },
 ]
 
 const RELATED = [
-  { icon: ListOrdered,   title: "Priority Queue",            description: "Works hand-in-hand with scoring — rank the graded leads and serve them top-down.", href: "/features/priority-queue" },
+  { icon: ListOrdered,   title: "Priority Queue",            description: "Works hand-in-hand with scoring, rank the graded leads and serve them top-down.", href: "/features/priority-queue" },
   { icon: AlertTriangle, title: "Missed Opportunity Engine", description: "Stale Grade A leads get a rupee value. ₹ at risk rolled up per rep and per source.", href: "/features/missed-opportunity-engine" },
-  { icon: Filter,        title: "Lead Quality Analysis",     description: "The Quality Score, deeper — per-source reliability, junk detection, deduplication.", href: "/features/whatsapp-tracking" },
+  { icon: Filter,        title: "Lead Quality Analysis",     description: "The Quality Score, deeper, per-source reliability, junk detection, deduplication.", href: "/features/whatsapp-tracking" },
 ]
 
 export default function LeadScoringPage() {
@@ -77,7 +77,7 @@ export default function LeadScoringPage() {
         <PageHero
           eyebrow={<><Gauge className="h-3 w-3" strokeWidth={2} /> Lead Scoring Engine</>}
           h1={<>Grade A–F. In real time.<br /><span className="hero-accent">Three scores. One answer.</span></>}
-          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions — Fit, Intent, Quality — in real time. Your rep always knows who to call first."
+          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions, Fit, Intent, Quality, in real time. Your rep always knows who to call first."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Priority Queue", href: "/features/priority-queue" }}
         />
@@ -87,7 +87,7 @@ export default function LeadScoringPage() {
           <Container>
             <QuickAnswer
               question="What is lead scoring and how does Leadkaun's engine work?"
-              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in real time across three independent scores — Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
+              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in real time across three independent scores, Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
             />
           </Container>
         </SectionGround>
@@ -214,7 +214,7 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* CONFIDENCE — the axis nobody else markets */}
+        {/* CONFIDENCE, the axis nobody else markets */}
 
         <SectionGround variant="pure" size="lg">
 
@@ -236,7 +236,7 @@ export default function LeadScoringPage() {
 
                   A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low,
 
-                  which says the lead is weak. That is a claim, and it is usually wrong — the honest position is that
+                  which says the lead is weak. That is a claim, and it is usually wrong. The honest position is that
 
                   there is not enough here to judge yet.
 
@@ -246,7 +246,7 @@ export default function LeadScoringPage() {
 
                   So Leadkaun keeps two readings apart. The grade says how good a lead looks. Confidence says how much we
 
-                  actually know about it — a weighted read across eight fields, with a prioritised list of what to ask
+                  actually know about it, a weighted read across eight fields, with a prioritised list of what to ask
 
                   for next. A rep with a thin lead sees exactly which two questions would move it, which turns a shrug
 
@@ -268,9 +268,9 @@ export default function LeadScoringPage() {
 
                 <p>
 
-                  Both are visible on the lead, and both are frozen into the score timeline whenever a grade changes —
+                  Both are visible on the lead, and both are frozen into the score timeline whenever a grade changes.
 
-                  see <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">the
+                  See <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">the
 
                   full guide to lead data trust</Link>.
 

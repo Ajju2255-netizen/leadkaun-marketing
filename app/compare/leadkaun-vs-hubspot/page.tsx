@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ComparePageLayout } from "@/app/components/compare-layout"
 
 export const metadata: Metadata = {
-  title: "Leadkaun vs HubSpot (2026) — Which fits Indian B2B SMBs better?",
+  title: "Leadkaun vs HubSpot (2026), Which fits Indian B2B SMBs better?",
   description:
     "HubSpot is USD-billed and marketing-first. Leadkaun is INR-priced and sales-behaviour-first. See the feature matrix, pricing comparison, and switching guide.",
   alternates: { canonical: "/compare/leadkaun-vs-hubspot" },
@@ -12,8 +12,8 @@ export default function VsHubSpot() {
   return (
     <ComparePageLayout
       competitor="HubSpot"
-      tldr="HubSpot is marketing-automation-first with a sales layer bolted on. Leadkaun is sales-behaviour-first, priced in rupees. Most Indian SMBs use HubSpot Free for marketing + Leadkaun for the sales layer — together costing less than HubSpot Professional alone."
-      positioning="HubSpot built a phenomenal marketing automation platform that grew a sales hub. The seams show in USD pricing, per-contact pricing that scales badly on 50k cold leads, and 2–6 week Professional-tier onboarding. For Indian B2B SMBs selling to SMBs, the marketing-first bias costs — literally and in focus."
+      tldr="HubSpot is marketing-automation-first with a sales layer bolted on. Leadkaun is sales-behaviour-first, priced in rupees. Most Indian SMBs use HubSpot Free for marketing + Leadkaun for the sales layer, together costing less than HubSpot Professional alone."
+      positioning="HubSpot built a phenomenal marketing automation platform that grew a sales hub. The seams show in USD pricing, per-contact pricing that scales badly on 50k cold leads, and 2–6 week Professional-tier onboarding. For Indian B2B SMBs selling to SMBs, the marketing-first bias costs, literally and in focus."
       strengths={[
         "Best-in-class marketing automation",
         "Smooth product-led freemium onboarding",
@@ -53,13 +53,13 @@ export default function VsHubSpot() {
       faqs={[
         { q: "We use HubSpot for marketing automation. Can Leadkaun replace it?", a: "Not in Phase 1. Keep HubSpot (Free tier is often enough for SMB marketing). Add Leadkaun for the sales-behaviour layer. Combined cost is typically lower than HubSpot Sales Pro alone." },
         { q: "HubSpot is billed in USD. Is Leadkaun different?", a: "Leadkaun bills in INR. All invoices GST-compliant. Predictable monthly spend; no exchange-rate swings." },
-        { q: "Our contacts list is 80,000 leads. What happens in HubSpot?", a: "HubSpot charges per-contact over bands. 80k contacts push you into enterprise tiers. Leadkaun is per-rep with no contact limits — the 80k make no difference to your bill." },
+        { q: "Our contacts list is 80,000 leads. What happens in HubSpot?", a: "HubSpot charges per-contact over bands. 80k contacts push you into enterprise tiers. Leadkaun is per-rep with no contact limits, the 80k make no difference to your bill." },
         { q: "Will reps find Leadkaun easier than HubSpot Sales?", a: "Yes. 3-tap WhatsApp logging + auto-ranked Priority Queue beats HubSpot's form-heavy workflow for Indian SMB reps." },
       ]}
       verdict={{
         competitorWins: "HubSpot is a genuinely excellent platform. Its marketing automation, content and landing-page builders, reporting UX and vast integrations marketplace are best-in-class, and the strong free tier plus product-led onboarding are hard to beat for a growing team. If marketing automation is the centre of your stack, HubSpot earns its place.",
-        leadkaunWins: "Leadkaun is sales-behaviour-first and priced in rupees. It grades every lead A–F with intent decay, builds each rep an auto-ranked Priority Queue, and surfaces ₹ at risk — depth the HubSpot sales hub lacks. Its flat per-account pricing also sidesteps the per-contact bands that scale badly on large cold-lead databases.",
-        bottomLine: "These two are complementary, not either-or. Keep HubSpot — often the free tier — for marketing automation, and add Leadkaun as the sales-behaviour layer, a combination that frequently costs less than HubSpot Sales Professional alone. Reach for HubSpot Professional only when you truly need its deep marketing and reporting suite in one place.",
+        leadkaunWins: "Leadkaun is sales-behaviour-first and priced in rupees. It grades every lead A–F with intent decay, builds each rep an auto-ranked Priority Queue, and surfaces ₹ at risk, depth the HubSpot sales hub lacks. Its flat per-account pricing also sidesteps the per-contact bands that scale badly on large cold-lead databases.",
+        bottomLine: "These two are complementary, not either-or. Keep HubSpot, often the free tier, for marketing automation, and add Leadkaun as the sales-behaviour layer, a combination that frequently costs less than HubSpot Sales Professional alone. Reach for HubSpot Professional only when you truly need its deep marketing and reporting suite in one place.",
       }}
     />
   )

@@ -12,7 +12,7 @@ import { MissedRevenueCalculator } from "@/app/components/calculator/missed-reve
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "Missed Revenue Calculator — What Slow Lead Follow-Up Costs You",
+  title: "Missed Revenue Calculator. What Slow Lead Follow-Up Costs You",
   description:
     "Free calculator: estimate the ₹ your B2B sales team leaves on the table every month from slow lead follow-up, and what faster response could recover. Transparent formula, runs in your browser, no signup.",
   alternates: { canonical: "/tools/missed-revenue-calculator" },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How is the missed revenue calculated?",
-    a: "Leads per month × (improved conversion rate − current conversion rate) × average deal value. You set both conversion numbers yourself, so the estimate reflects your business — there is no baked-in multiplier.",
+    a: "Leads per month × (improved conversion rate − current conversion rate) × average deal value. You set both conversion numbers yourself, so the estimate reflects your business. There is no baked-in multiplier.",
   },
   {
     q: "Why does follow-up speed change conversion?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "How does Leadkaun help recover this?",
-    a: "Leadkaun grades every lead A–F, puts the highest-intent ones at the top of each rep's Priority Queue, and surfaces the ₹ at risk when a lead goes cold — so the recoverable revenue this calculator shows actually gets recovered.",
+    a: "Leadkaun grades every lead A–F, puts the highest-intent ones at the top of each rep's Priority Queue, and surfaces the ₹ at risk when a lead goes cold, so the recoverable revenue this calculator shows actually gets recovered.",
   },
   {
     q: "Is my data stored?",
@@ -58,7 +58,7 @@ export default function MissedRevenueCalculatorPage() {
           breadcrumb={[{ label: "Tools", href: "/tools/missed-revenue-calculator" }]}
           eyebrow="Free tool · runs in your browser"
           h1="What is slow lead follow-up costing you?"
-          sub="Most Indian B2B teams lose more to cold leads than to lost deals. Move the sliders to see the ₹ you could recover every month — the exact number Leadkaun surfaces as “₹ at risk.”"
+          sub="Most Indian B2B teams lose more to cold leads than to lost deals. Move the sliders to see the ₹ you could recover every month. The exact number Leadkaun surfaces as “₹ at risk.”"
         />
 
         <SectionGround variant="cream" size="lg">

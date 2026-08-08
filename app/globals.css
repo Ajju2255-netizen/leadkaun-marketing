@@ -781,3 +781,57 @@ h1 { font-variation-settings: "opsz" 110, "SOFT" 18, "WONK" 1; letter-spacing: -
    headings — a warm/cool clash that fought the paper palette. One colour, same
    emphasis, and it stays legible when a heading wraps. */
 .hero-accent { color: #0877B8; }
+
+/* ============================================================================
+   THE LEDGER — surface treatment (2026-08)
+   ----------------------------------------------------------------------------
+   The visionOS glass look (blur, gloss sweeps, coloured auras) is what still
+   made non-homepage pages read as a different site. The ledger aesthetic is
+   flat paper: white panels, a hairline rule, one honest shadow.
+
+   Overriding the primitives rather than editing ~50 route files means every
+   page inherits it, and the class names stay valid so nothing breaks.
+   ========================================================================== */
+
+.glass-1, .glass-2, .glass-3 {
+  background: #FFFFFF;
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  border: 1px solid var(--paper-line);
+  box-shadow: none;
+}
+.glass-2 { box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); }
+.glass-3 { box-shadow: 0 10px 30px -18px rgba(15, 23, 42, 0.22); }
+
+/* The gloss sweep and coloured auras were the most "app UI" part of the old
+   look. Neutralised, not deleted — the classes stay in ~50 files. */
+.gloss-edge::before { display: none; }
+[class*="aura-"]::after, [class*="aura-"]::before { display: none; }
+.glass-peach, .glass-mint, .glass-sky { background: #FFFFFF; border: 1px solid var(--paper-line); box-shadow: none; }
+
+.elevate-1 { box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); }
+.elevate-2 { box-shadow: 0 10px 30px -18px rgba(15, 23, 42, 0.20); }
+
+/* Hover: a hairline that warms toward the accent, not a lift-and-glow. */
+.lift { transition: border-color 200ms ease, background-color 200ms ease; }
+.lift:hover { transform: none; border-color: rgba(8, 119, 184, 0.35); }
+
+/* Section eyebrows read as ledger row numbers — mono, wide, quiet. */
+.numbered-tag, [data-numbered-tag] {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  letter-spacing: 0.2em;
+}
+
+/* The coloured hover glows (sky/peach/mint) were the last of the app-UI look. */
+.aura-sky-hover:hover, .aura-peach-hover:hover, .aura-mint-hover:hover,
+.aura-cyan-hover:hover {
+  box-shadow: 0 10px 30px -18px rgba(15, 23, 42, 0.22);
+  border-color: rgba(8, 119, 184, 0.35);
+}
+
+/* Section grounds on one warm scale. `sky` and `mist` used to be cool tints
+   (#F0F9FF / #F8FAFC) which clashed with warm paper; all three now step through
+   the same family so alternation reads without a temperature shift. */
+.bg-ground-sky  { background-color: var(--paper); }
+.bg-ground-mist { background-color: var(--paper); }
+.bg-ground-cream{ background-color: var(--paper-2); }

@@ -25,7 +25,7 @@ export function QuickAnswer({ question, answer, label = "Quick answer" }: QuickA
     speakable: { "@type": "SpeakableSpecification", cssSelector: [".quick-answer-q", ".quick-answer-a"] },
   }
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl glass-1 gloss-edge p-6 md:p-7" data-quick-answer>
+    <div className="mx-auto max-w-3xl rounded-2xl border bg-white p-6 md:p-7" style={{ borderColor: "var(--paper-line)" }} data-quick-answer>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakable) }} />
       <div className="flex items-center gap-2">
         <Sparkles className="h-4 w-4 text-sky-500" aria-hidden />

@@ -47,7 +47,7 @@ export function FeatureCard({
       {/* accent aura — blooms on hover */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
+        className="hidden"
         style={{ background: a.aura }}
       />
       <div className="relative flex items-start justify-between gap-4">

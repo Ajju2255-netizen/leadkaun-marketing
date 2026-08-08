@@ -31,8 +31,12 @@ const SIZE_CLASS: Record<Size, string> = {
 }
 
 /**
- * One <section> wrapper that owns the background tone + ambient blobs.
- * The page's tonal rhythm (cool → warm → cool…) flows from this.
+ * One <section> wrapper owning the background tone.
+ *
+ * The tonal rhythm used to be cool→warm→cool with a coloured blob bleeding into
+ * each section. It is now a single warm scale — white → paper → paper-2 — so the
+ * alternation still reads but nothing competes with the content. `ambient` is
+ * kept as a no-op prop because ~50 route files pass it.
  */
 export function SectionGround({
   variant = "pure",
@@ -53,23 +57,7 @@ export function SectionGround({
       )}
       {...rest}
     >
-      {ambient && variant === "sky" && (
-        <GradientBlob
-          color="sky"
-          size="xl"
-          position="-top-40 -right-40"
-          intensity={0.55}
-        />
-      )}
-      {ambient && variant === "cream" && (
-        <GradientBlob
-          color="peach"
-          size="xl"
-          position="-top-40 -left-40"
-          intensity={0.55}
-        />
-      )}
-      {ambient && variant === "mist" && (
+                  {ambient && variant === "mist" && (
         <GradientBlob
           color="sky"
           size="lg"

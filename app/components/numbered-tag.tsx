@@ -11,22 +11,26 @@ type Props = {
 }
 
 /**
- * Section-leading marker — renders as a glass chip:  [ 01 — THE PRODUCT ]
+ * Section-leading marker:  01 · THE PRODUCT
+ *
+ * Was a glass chip with a blur and a gloss sweep. Now a plain monospace line,
+ * matching the ledger eyebrows the homepage uses — the marker should read as a
+ * row number in a register, not as a floating UI pill. Same props, so ~50 route
+ * files needed no changes.
  */
 export function NumberedTag({ number, label, tone = "default", className }: Props) {
-  const accent = tone === "warm" ? "text-orange-500" : "text-sky-600"
-  const dotBg  = tone === "warm" ? "bg-orange-400/40" : "bg-sky-400/40"
+  const accent = tone === "warm" ? "text-orange-500" : "text-sky-700"
   return (
-    <div
+    <p
       className={cn(
-        "inline-flex items-center gap-3 rounded-full px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] glass-1 gloss-edge",
+        "ledger-num inline-flex items-baseline gap-2 text-[11px] font-semibold uppercase tracking-[0.2em]",
         accent,
         className
       )}
     >
       <span className="tabular">{number}</span>
-      <span className={cn("h-px w-5", dotBg)} />
+      <span aria-hidden className="opacity-50">·</span>
       <span>{label}</span>
-    </div>
+    </p>
   )
 }

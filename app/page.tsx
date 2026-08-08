@@ -200,11 +200,11 @@ function Hero() {
               <Link
                 href={APP_URLS.register}
                 className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5"
-                style={{ background: "#0B6FA8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
+                style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
               >
                 Start free <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+              <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)", color: "var(--ink)" }}>
                 Book a walkthrough
               </Link>
             </div>
@@ -597,11 +597,11 @@ function CloseBand() {
             <Link
               href={APP_URLS.register}
               className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5"
-              style={{ background: "#0B6FA8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
+              style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
             >
               Start free <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+            <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)", color: "var(--ink)" }}>
               Book a walkthrough
             </Link>
           </div>

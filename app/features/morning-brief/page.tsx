@@ -4,6 +4,8 @@ import { Mail, Gauge, ListOrdered, AlertTriangle } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -214,6 +216,15 @@ export default function MorningBriefPage() {
           title={<>See the system the Brief reports on.</>}
           sub="The Brief is the 8:30 AM summary of a live system — every lead graded A–F, a Priority Queue per rep, and the ₹ at risk in real rupees."
         />
+
+        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="semi-annually" />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

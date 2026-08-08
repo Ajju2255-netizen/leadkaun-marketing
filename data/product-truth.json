@@ -227,7 +227,7 @@
       "deny": [
         "customis(e|able)[^.\\n]{0,25}weights",
         "tune[^.\\n]{0,15}(the\\s+)?weights",
-        "weights[^.\\n]{0,25}\\b(tune|customis(e|able)|adjust)\\b"
+        "weights[^.\\n]{0,80}\\b(tune|tunea?ble|customis(e|able)|adjust)\\b"
       ],
       "allowFiles": [
         "alternatives.json",

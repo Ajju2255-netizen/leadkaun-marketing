@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const h = list.find((x) => x.slug === slug)
   if (!h) return {}
   return {
-    title: `${h.title} | Leadkaun`,
+    title: h.title,
     description: h.tldr.slice(0, 155),
     alternates: { canonical: `/how-to/${h.slug}` },
   }

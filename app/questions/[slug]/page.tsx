@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const q = list.find((x) => x.slug === slug)
   if (!q) return {}
   return {
-    title: `${q.question} — Leadkaun`,
+    title: q.question,
     description: q.answerShort.slice(0, 155),
     alternates: { canonical: `/questions/${q.slug}` },
   }

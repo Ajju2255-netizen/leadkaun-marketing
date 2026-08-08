@@ -4,6 +4,8 @@ import { AlertTriangle, Gauge, ListOrdered, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -27,7 +29,7 @@ export const metadata: Metadata = {
 const STALE_WINDOWS = [
   { grade: "A", color: "#10B981", window: "24 hours", reason: "Hottest leads cool fastest" },
   { grade: "B", color: "#0EA5E9", window: "48 hours", reason: "Nurture window closes by week 2" },
-  { grade: "C", color: "#FB923C", window: "7 days",   reason: "Industry-dependent; tuneable per pipeline" },
+  { grade: "C", color: "#FB923C", window: "7 days",   reason: "Industry-dependent; fixed per grade" },
   { grade: "D", color: "#F97316", window: "30 days",  reason: "Long-tail; low-priority recovery" },
 ]
 
@@ -175,6 +177,15 @@ export default function MissedOpportunityPage() {
           title={<>See the ₹ at risk, surfaced daily.</>}
           sub="Every lead graded A–F, ranked in a live Priority Queue, with stale revenue surfaced as a rupee figure your managers act on every morning."
         />
+
+        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="semi-annually" />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

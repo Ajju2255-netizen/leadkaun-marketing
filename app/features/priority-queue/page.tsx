@@ -4,6 +4,8 @@ import { ListOrdered, Gauge, AlertTriangle, Mail } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
+import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -85,7 +87,7 @@ export default function PriorityQueuePage() {
                 A transparent formula. Not a black box.
               </h2>
               <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                Every lead&apos;s rank score is a combination of grade + urgency + trend + recency. The weights below are Leadkaun&apos;s defaults — tuneable on Growth and Scale.
+                Every lead&apos;s rank score is a combination of grade + urgency + trend + recency. The weights below are fixed and identical for every account — published so a rep can always see why a lead ranks where it does.
               </p>
             </Reveal>
 
@@ -163,6 +165,15 @@ export default function PriorityQueuePage() {
           title={<>See the Priority Queue rank itself.</>}
           sub="Every lead graded A–F, re-ranked live as signals arrive, with the ₹ at risk surfaced in real rupees — so reps just work top-down."
         />
+
+        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="semi-annually" />
+
+        <SectionGround variant="pure" size="sm">
+
+          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
+
+        </SectionGround>
+
 
         <CTABanner
           tag={{ number: "05", label: "Ready when you are" }}

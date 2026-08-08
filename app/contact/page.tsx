@@ -5,7 +5,7 @@ import { Mail, MessageCircle, Briefcase } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
+import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -116,11 +116,6 @@ export default function ContactPage() {
       </SectionGround>
 
       <ProofBand />
-      <ProductBlock
-        eyebrow="See it in Leadkaun"
-        title={<>While you&apos;re here — see the product.</>}
-        sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees. Set up the same day."
-      />
 
       <CTABanner />
       <Footer />

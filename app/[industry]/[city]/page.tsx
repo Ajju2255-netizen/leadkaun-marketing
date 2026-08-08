@@ -18,7 +18,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { TestimonialCard } from "@/app/components/testimonial-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
-import { ModulesGrid, ProductShowcase } from "@/app/components/sell/blocks"
+import { ModulesGrid } from "@/app/components/sell/blocks"
 
 import { hubIndexable } from "@/lib/pseo/indexable"
 import { stableHash } from "@/lib/pseo/variation"
@@ -229,14 +229,6 @@ export default async function IndustryCityPage({ params }: Params) {
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
-        <ProductShowcase
-          number={n.next()}
-          ground="sky"
-          eyebrow="See it work"
-          title={<>See Leadkaun work for {ind.name.toLowerCase()} teams.</>}
-          sub={`The Priority Queue, lead grades A–F, and the ₹-at-risk view your ${cityRec.name} ${ind.name.toLowerCase()} team opens every morning — so reps work the highest-value lead first, not the most recent.`}
-        />
-
         <ModulesGrid
           number={n.next()}
           ground="cream"
@@ -293,7 +285,6 @@ export default async function IndustryCityPage({ params }: Params) {
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
 
         </SectionGround>
-
 
         <CTABanner />
         <Footer />

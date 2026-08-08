@@ -6,7 +6,7 @@ import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
 import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
 import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
-import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
+import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -160,11 +160,6 @@ export default function WhatsAppTrackingPage() {
         </SectionGround>
 
         <ProofBand />
-        <ProductBlock
-          eyebrow="See it in Leadkaun"
-          title={<>See a WhatsApp reply become a ranked lead.</>}
-          sub="Three-tap logging feeds the score, the lead graded A–F lands in a live Priority Queue, and the ₹ at risk surfaces in real rupees."
-        />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="semi-annually" />
 
@@ -173,7 +168,6 @@ export default function WhatsAppTrackingPage() {
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
 
         </SectionGround>
-
 
         <CTABanner
           tag={{ number: "04", label: "Ready when you are" }}

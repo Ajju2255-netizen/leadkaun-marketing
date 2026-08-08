@@ -18,7 +18,7 @@ import { IndustryTile } from "@/app/components/industry-tile"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { ModulesGrid, ProductShowcase, ProofBand } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProofBand } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
@@ -208,14 +208,6 @@ export default async function CityPage({ params }: Params) {
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="cream" industrySlug={served[0]?.slug} />
 
-        <ProductShowcase
-          number={n.next()}
-          ground="sky"
-          eyebrow="See it work"
-          title={<>See Leadkaun work for {cityRec.name} sales teams.</>}
-          sub={`Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees — the screen ${cityRec.name} B2B teams open every morning.`}
-        />
-
         <ModulesGrid
           number={n.next()}
           ground="cream"
@@ -271,7 +263,6 @@ export default async function CityPage({ params }: Params) {
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
 
         </SectionGround>
-
 
         <CTABanner />
         <Footer />

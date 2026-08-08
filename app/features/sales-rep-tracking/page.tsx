@@ -7,7 +7,7 @@ import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
 import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
 import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
-import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
+import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -144,7 +144,7 @@ export default function SalesRepTrackingPage() {
 
             <Reveal className="mx-auto max-w-3xl">
 
-              <NumberedTag number="05" label="Adoption" />
+              <NumberedTag number="03" label="Adoption" />
 
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
 
@@ -194,12 +194,11 @@ export default function SalesRepTrackingPage() {
 
         </SectionGround>
 
-
         {/* FAQ */}
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="03" tone="warm" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="04" tone="warm" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Rep tracking questions.
               </h2>
@@ -212,7 +211,7 @@ export default function SalesRepTrackingPage() {
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mb-10">
-              <NumberedTag number="04" label="Works with" />
+              <NumberedTag number="05" label="Works with" />
               <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Rep metrics only work if the pipeline is graded correctly.
               </h2>
@@ -224,11 +223,6 @@ export default function SalesRepTrackingPage() {
         </SectionGround>
 
         <ProofBand />
-        <ProductBlock
-          eyebrow="See it in Leadkaun"
-          title={<>See behaviour and ₹ recovered per rep.</>}
-          sub="Behaviour tracking sits on a live system — every lead graded A–F, a Priority Queue per rep, and the ₹ at risk surfaced in real rupees."
-        />
 
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="semi-annually" />
 
@@ -238,9 +232,8 @@ export default function SalesRepTrackingPage() {
 
         </SectionGround>
 
-
         <CTABanner
-          tag={{ number: "05", label: "Ready when you are" }}
+          tag={{ number: "06", label: "Ready when you are" }}
           headline="See per-rep ₹ recovered by Monday."
           sub="Import your leads today. By Monday's Brief, every rep has a scorecard. Coaching becomes specific."
         />

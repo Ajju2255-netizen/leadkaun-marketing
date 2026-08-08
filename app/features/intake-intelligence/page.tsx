@@ -5,7 +5,7 @@ import { FileSearch, ShieldAlert, Copy, Gauge } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ProofBand, ProductBlock } from "@/app/components/sell/blocks"
+import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -142,7 +142,6 @@ export default function IntakeIntelligencePage() {
         </SectionGround>
 
         <ProofBand />
-        <ProductBlock />
         <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
         <SectionGround variant="pure" size="sm">
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>

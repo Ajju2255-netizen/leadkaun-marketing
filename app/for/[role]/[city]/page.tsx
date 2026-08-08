@@ -19,7 +19,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { ModulesGrid, ProductShowcase, ProofBand } from "@/app/components/sell/blocks"
+import { ModulesGrid, ProofBand } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
@@ -152,14 +152,6 @@ export default async function RoleCityPage({ params }: Params) {
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="cream" industrySlug={fitIndustries[0]?.slug} />
 
-        <ProductShowcase
-          number={n.next()}
-          ground="sky"
-          eyebrow={`How a ${r.title.toLowerCase()} works the queue`}
-          title={<>The screen a {r.title.toLowerCase()} opens every morning.</>}
-          sub={`No dashboards to read. Leadkaun grades every lead A–F, ranks each rep's Priority Queue, and shows the ₹ at risk today — so a ${r.title.toLowerCase()} in ${cityRec.name} knows exactly who to call next.`}
-        />
-
         <ModulesGrid
           number={n.next()}
           ground="cream"
@@ -219,7 +211,6 @@ export default async function RoleCityPage({ params }: Params) {
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
 
         </SectionGround>
-
 
         <CTABanner />
         <Footer />

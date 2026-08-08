@@ -21,7 +21,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { ModulesGrid, ProductShowcase } from "@/app/components/sell/blocks"
+import { ModulesGrid } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
@@ -209,14 +209,6 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
 
-        <ProductShowcase
-          number={n.next()}
-          ground="sky"
-          eyebrow="See it work"
-          title={<>{kw.label} for {ind.name.toLowerCase()} teams — in action.</>}
-          sub={`This is the screen ${cityRec.name} ${ind.name.toLowerCase()} teams work from: every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees.`}
-        />
-
         <ModulesGrid
           number={n.next()}
           ground="cream"
@@ -273,7 +265,6 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
 
         </SectionGround>
-
 
         <CTABanner />
         <Footer />

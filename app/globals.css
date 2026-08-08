@@ -835,3 +835,18 @@ h1 { font-variation-settings: "opsz" 110, "SOFT" 18, "WONK" 1; letter-spacing: -
 .bg-ground-sky  { background-color: var(--paper); }
 .bg-ground-mist { background-color: var(--paper); }
 .bg-ground-cream{ background-color: var(--paper-2); }
+
+/* Every remaining blur surface. The earlier override only caught glass-1/2/3,
+   so the tinted variants and the glass button kept their backdrop-filter and a
+   handful still read as frosted app UI on otherwise flat pages. */
+.glass-peach, .glass-sky, .glass-mint, .btn-gloss-glass {
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+}
+.btn-gloss-glass {
+  background: #FFFFFF;
+  border: 1px solid var(--paper-line-2);
+  box-shadow: none;
+  color: var(--ink);
+}
+.btn-gloss-glass:hover { background: var(--paper); border-color: rgba(8, 119, 184, 0.35); }

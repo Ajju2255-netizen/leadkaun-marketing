@@ -14,8 +14,6 @@ import "./globals.css"
 import { rootSchemas, jsonLdScript } from "@/lib/seo"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import ScrollToTop from "@/app/components/scroll-to-top"
-import { StickyCTA } from "@/app/components/sticky-cta"
-import { ConversionPopup } from "@/app/components/conversion-popup"
 
 const geistSans = GeistSans
 const geistMono = GeistMono
@@ -110,8 +108,6 @@ gtag('config', 'G-YB7279SHGQ');`,
         <TooltipProvider>
           {children}
         </TooltipProvider>
-        <StickyCTA />
-        <ConversionPopup />
       </body>
     </html>
   )

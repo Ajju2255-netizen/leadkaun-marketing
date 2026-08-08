@@ -5,7 +5,6 @@ import { ArrowRight, Check } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
-import { HeroSignupCard } from "@/app/components/hero-signup"
 import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
 import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
 import { SectionGround } from "@/app/components/section-ground"
@@ -147,7 +146,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-bg-pure">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([faqPageSchema(HOME_FAQ)]) }} />
-      <Navbar tone="ink" />
+      <Navbar />
 
       <Hero />
       <Thesis />
@@ -176,95 +175,104 @@ export default function HomePage() {
    ───────────────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden grain grain-ink" style={{ background: "linear-gradient(168deg, var(--ink-deep) 0%, var(--ink-deep-2) 62%, #0C1424 100%)" }}>
-      {/* One warm light source, low on the right — a horizon, not a blob field */}
-      <div aria-hidden className="pointer-events-none absolute -right-40 top-1/3 h-[520px] w-[720px] rounded-full opacity-[0.22] blur-[120px]" style={{ background: "radial-gradient(circle, #FB923C 0%, #0EA5E9 55%, transparent 72%)" }} />
-      <div aria-hidden className="pointer-events-none absolute -left-52 -top-24 h-[460px] w-[620px] rounded-full opacity-[0.18] blur-[130px]" style={{ background: "radial-gradient(circle, #0EA5E9 0%, transparent 70%)" }} />
+    <section className="relative overflow-hidden border-b rule-paper" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%)" }}>
+      {/* A single soft wash, low-saturation. No competing colour fields. */}
+      <div aria-hidden className="pointer-events-none absolute -right-32 -top-24 h-[460px] w-[620px] rounded-full opacity-[0.30] blur-[130px]" style={{ background: "radial-gradient(circle, #BAE6FD 0%, transparent 70%)" }} />
 
-      <Container className="relative pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="grid items-start gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
+      <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
 
           <div className="rise" style={{ animationDelay: "40ms" }}>
-            <p className="ledger-num on-ink-accent text-[11px] uppercase tracking-[0.24em]">
+            <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">
               Lead management software · India
             </p>
 
-            <h1 className="display-xl on-ink mt-6 text-[46px] sm:text-[60px] lg:text-[72px]">
+            <h1 className="display-xl mt-6 text-[42px] text-ink sm:text-[54px] lg:text-[64px]">
               Your reps have
               <br />
               enough leads.
               <br />
-              <span style={{ background: "linear-gradient(96deg,#7DD3FC 0%,#FDBA74 78%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+              <span className="relative inline-block text-sky-600">
                 They need the order.
+                <span aria-hidden className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-sky-200" />
               </span>
             </h1>
 
-            <p className="on-ink-2 mt-7 max-w-xl text-[17px] leading-[1.68] md:text-[18.5px]">
-              Leadkaun is lead management software that grades every lead A–F, ranks one queue per
-              rep, and prices the revenue going cold — so the next call is decided before anyone
-              opens a screen. It runs alongside the CRM you already have.
+            <p className="mt-8 max-w-xl text-[17px] leading-[1.7] text-ink-soft md:text-[18px]">
+              Leadkaun grades every lead A–F, ranks one queue per rep, and prices the revenue
+              going cold — so the next call is decided before anyone opens a screen. It runs
+              alongside the CRM you already have.
             </p>
 
-            <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
-              {["Graded the moment it lands", "One ranked list per rep", "₹ at risk, surfaced daily", "Live the same day"].map((t) => (
-                <li key={t} className="on-ink-2 flex items-center gap-2.5 text-[14.5px]">
-                  <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-sky-400/15 ring-1 ring-inset ring-sky-300/30">
-                    <Check className="h-3 w-3 text-sky-300" strokeWidth={3} />
-                  </span>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Link
+                href={APP_URLS.register}
+                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-sky-600"
+                style={{ boxShadow: "0 10px 26px -12px rgba(14,165,233,0.55)" }}
+              >
+                Start free <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors rule-paper hover:border-sky-300">
+                Book a walkthrough
+              </Link>
+            </div>
+
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5">
+              {["Live the same day", "Free tier, no card", "Runs alongside your CRM"].map((t) => (
+                <li key={t} className="flex items-center gap-2 text-[14px] text-ink-soft">
+                  <Check className="h-3.5 w-3.5 text-sky-500" strokeWidth={3} />
                   {t}
                 </li>
               ))}
             </ul>
-
-            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t pt-6 rule-ink">
-              {[["A–F", "every lead graded"], ["3", "published scores"], ["flat ₹", "per account, not per seat"]].map(([v, l]) => (
-                <div key={l}>
-                  <p className="ledger-num on-ink text-[19px] font-semibold">{v}</p>
-                  <p className="on-ink-3 mt-0.5 text-[12px]">{l}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* The queue panel — the product's actual artefact, not a screenshot */}
-          <div className="rise lg:pt-6" style={{ animationDelay: "180ms" }}>
-            <div className="overflow-hidden rounded-[20px] border bg-white/[0.045] backdrop-blur-xl rule-ink" style={{ boxShadow: "0 40px 90px -30px rgba(2,6,23,0.85)" }}>
-              <div className="flex items-center justify-between border-b px-5 py-3.5 rule-ink">
-                <p className="ledger-num on-ink-3 text-[10.5px] uppercase tracking-[0.2em]">Priority Queue · R. Iyer</p>
-                <p className="ledger-num on-ink-accent text-[10.5px]">live</p>
+          {/* The queue panel — the product's actual artefact, on white */}
+          <div className="rise" style={{ animationDelay: "180ms" }}>
+            <div className="overflow-hidden rounded-2xl border bg-white rule-paper" style={{ boxShadow: "0 24px 60px -28px rgba(15,23,42,0.22)" }}>
+              <div className="flex items-center justify-between border-b px-5 py-3.5 rule-paper" style={{ background: "var(--paper)" }}>
+                <p className="ledger-num text-[10.5px] uppercase tracking-[0.18em] text-ink-muted">Priority Queue · R. Iyer</p>
+                <span className="flex items-center gap-1.5 text-[10.5px] font-medium text-sky-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky-500" /> live
+                </span>
               </div>
 
-              <ul className="divide-y" style={{ borderColor: "var(--ink-line)" }}>
+              <ul className="divide-y" style={{ borderColor: "var(--paper-line)" }}>
                 {QUEUE.map((r, i) => (
                   <li
                     key={r.rank}
                     className="rise grid grid-cols-[auto_1fr_auto] items-center gap-3.5 px-5 py-3.5"
-                    style={{ animationDelay: `${320 + i * 90}ms`, background: i === 0 ? "linear-gradient(90deg, rgba(14,165,233,0.10), transparent 60%)" : undefined }}
+                    style={{ animationDelay: `${320 + i * 80}ms`, background: i === 0 ? "rgba(240,249,255,0.7)" : undefined }}
                   >
-                    <span className="ledger-num on-ink-4 w-6 text-[12px]">{r.rank}</span>
+                    <span className="ledger-num w-5 text-[12px] text-ink-faint">{r.rank}</span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
                         <Grade g={r.g} />
-                        <p className="on-ink truncate text-[14.5px] font-medium">{r.who}</p>
-                        <span className="on-ink-4 hidden text-[12px] sm:inline">{r.city}</span>
+                        <p className="truncate text-[14.5px] font-medium text-ink">{r.who}</p>
+                        <span className="hidden text-[12px] text-ink-muted sm:inline">{r.city}</span>
                       </div>
-                      <p className="on-ink-3 mt-1 truncate text-[12.5px]">{r.why}</p>
+                      <p className="mt-0.5 truncate text-[12.5px] text-ink-muted">{r.why}</p>
                     </div>
-                    <span className="ledger-num on-ink-2 shrink-0 text-[13px]">{r.val}</span>
+                    <span className="ledger-num shrink-0 text-[13px] text-ink-soft">{r.val}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="flex items-center justify-between border-t px-5 py-3.5 rule-ink">
-                <p className="on-ink-3 text-[12px]">Illustrative of the ranking mechanism</p>
-                <Link href="/methodology" className="ledger-num on-ink-accent text-[11.5px] underline-offset-4 hover:underline">
+              <div className="flex items-center justify-between border-t px-5 py-3.5 rule-paper" style={{ background: "var(--paper)" }}>
+                <p className="text-[12px] text-ink-muted">Illustrative of the ranking mechanism</p>
+                <Link href="/methodology" className="text-[12px] font-medium text-sky-600 underline-offset-4 hover:underline">
                   how the grade works →
                 </Link>
               </div>
             </div>
 
-            <div className="mt-6 rounded-[20px] border bg-white/[0.04] p-1 backdrop-blur-xl rule-ink" style={{ boxShadow: "0 20px 50px -24px rgba(2,6,23,0.7)" }}>
-              <HeroSignupCard />
+            <div className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-3 rounded-2xl border bg-white px-5 py-4 rule-paper">
+              {[["A–F", "every lead graded"], ["3", "published scores"], ["flat ₹", "per account"]].map(([v, l]) => (
+                <div key={l}>
+                  <p className="ledger-num text-[17px] font-semibold text-ink">{v}</p>
+                  <p className="mt-0.5 text-[12px] text-ink-muted">{l}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -576,37 +584,37 @@ function FaqBlock() {
    ───────────────────────────────────────────────────────────────────────── */
 function CloseBand() {
   return (
-    <section className="relative overflow-hidden grain grain-ink" style={{ background: "linear-gradient(200deg, var(--ink-deep-2) 0%, var(--ink-deep) 70%)" }}>
-      <div aria-hidden className="pointer-events-none absolute left-1/2 top-0 h-[380px] w-[820px] -translate-x-1/2 rounded-full opacity-[0.20] blur-[120px]" style={{ background: "radial-gradient(circle,#0EA5E9 0%,#FB923C 60%,transparent 75%)" }} />
+    <section className="relative overflow-hidden border-t rule-paper" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)" }}>
       <Container className="relative py-24 text-center md:py-32">
         <Reveal className="mx-auto max-w-3xl">
-          <p className="ledger-num on-ink-accent text-[11px] uppercase tracking-[0.24em]">09 · Ready when you are</p>
-          <h2 className="display-lg on-ink mt-6 text-[34px] md:text-[52px]">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">09 · Ready when you are</p>
+          <h2 className="display-lg mt-6 text-[32px] text-ink md:text-[48px]">
             Find out what your pipeline
             <br />
-            <span style={{ background: "linear-gradient(96deg,#7DD3FC 0%,#FDBA74 80%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+            <span className="relative inline-block text-sky-600">
               has been hiding.
+              <span aria-hidden className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-sky-200" />
             </span>
           </h2>
-          <p className="on-ink-2 mx-auto mt-6 max-w-xl text-[16.5px] leading-[1.7]">
+          <p className="mx-auto mt-7 max-w-xl text-[16.5px] leading-[1.7] text-ink-soft">
             Import a CSV, watch every lead grade itself, and see the order your team should have
             been working in. Free tier, no card, live the same day.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3.5">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href={APP_URLS.register}
-              className="on-ink inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-transform hover:-translate-y-0.5"
-              style={{ background: "linear-gradient(180deg,#38BDF8,#0284C7)", boxShadow: "0 12px 32px -10px rgba(14,165,233,0.65)" }}
+              className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-sky-600"
+              style={{ boxShadow: "0 10px 26px -12px rgba(14,165,233,0.55)" }}
             >
               Start free <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/demo" className="on-ink inline-flex items-center gap-2 rounded-xl border px-6 py-3.5 text-[15px] font-semibold transition-colors rule-ink hover:bg-white/5">
+            <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors rule-paper hover:border-sky-300">
               Book a walkthrough
             </Link>
           </div>
 
-          <p className="ledger-num on-ink-4 mt-8 text-[11.5px] uppercase tracking-[0.18em]">
+          <p className="ledger-num mt-9 text-[11.5px] uppercase tracking-[0.16em] text-ink-muted">
             Free ₹0 · Starter ₹2,999 · Growth ₹7,999 · Scale ₹19,999 · flat per account
           </p>
         </Reveal>

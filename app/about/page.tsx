@@ -98,8 +98,8 @@ export default function AboutPage() {
                   called in 3 days.&quot;</em> That number changes behaviour. That's what Leadkaun was built to surface.
                 </p>
                 <p>
-                  We call the category <strong className="text-ink font-semibold">Sales Behaviour OS</strong> — not
-                  a CRM replacement, but the layer that sits on top and tells your team what to do next. The CRM
+                  We call the category <strong className="text-ink font-semibold">Sales Behaviour OS</strong> — a layer that
+                  runs alongside your CRM and tells your team what to do next. The CRM
                   remembers. Leadkaun acts.
                 </p>
               </div>

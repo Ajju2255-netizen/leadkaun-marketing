@@ -77,7 +77,7 @@ Here's the shape of it.
 
 **Dedup built in.** The same buyer across three portals collapses into one record with three source tags. One owner. Honest pipeline.
 
-**WhatsApp logging in 3 taps.** When a rep messages a buyer on WhatsApp — the channel Indian property buyers actually reply on — logging it takes three taps, not a CRM form nobody fills. So the activity history is real, and the next person who touches the lead knows what was said.
+**WhatsApp logging in 3 taps.** When a rep messages a buyer on WhatsApp — the channel Indian property buyers actually reply on — logging it takes three taps rather than a long form nobody fills. So the activity history is real, and the next person who touches the lead knows what was said.
 
 **The Missed Opportunity Engine, in rupees.** Anything that slipped — a Grade A that aged past its window, a site visit nobody followed up — surfaces with the ₹ at risk attached. Not "you have 12 overdue tasks." Instead: "₹2.4Cr in Grade A enquiries went un-contacted past the first hour this week." That's a number a sales head acts on before lunch. See exactly how that works in the [Missed Opportunity Engine](/features/missed-opportunity-engine).
 

@@ -1051,7 +1051,7 @@
       },
       {
         "q": "How do you reshape rep behaviour without adding more admin?",
-        "a": "By removing decisions instead of adding data entry. The rep doesn't scan lists or update a form to figure out priority — the Priority Queue ranks the graded leads and serves the most valuable un-contacted one on top. Logging a call or WhatsApp outcome is three taps, not a CRM form, so the record stays complete without extra work. The behaviour changes because the right next action is already in front of the rep, not because they were told to be more disciplined."
+        "a": "By removing decisions instead of adding data entry. The rep doesn't scan lists or update a form to figure out priority — the Priority Queue ranks the graded leads and serves the most valuable un-contacted one on top. Logging a call or WhatsApp outcome is three taps rather than a long form, so the record stays complete without extra work. The behaviour changes because the right next action is already in front of the rep, not because they were told to be more disciplined."
       }
     ],
     "relatedPillars": [

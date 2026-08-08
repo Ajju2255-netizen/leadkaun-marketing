@@ -18,12 +18,12 @@ faqs:
   - q: "Is AI scoring better than rule-based scoring?"
     a: "Not automatically. AI scoring tends to be a black box — you can't see why a lead is Grade A, and you can't tune it per market. Rule-based scoring with transparent weights (Fit: 30 pts industry, 20 pts geography, etc.) is auditable, explainable to your reps, and customisable to Indian B2B reality. Most Indian SMBs do better with transparent rules than with AI opacity."
   - q: "How fast does a scoring system need to run?"
-    a: "Under 500 milliseconds per lead. Scoring that takes seconds breaks the user experience — reps won't wait, and the queue can't re-rank in real time. Leadkaun's scoring engine runs in under 500ms on every signal event."
+    a: "Under 500 milliseconds per lead. Scoring that takes seconds breaks the user experience — reps won't wait, and the queue can't re-rank in real time. Leadkaun's scoring engine runs in real time on every signal event."
 ---
 
 Your rep walks into work on Tuesday with 200 open leads. They have 7 productive hours. If they call them all, they give each lead 2 minutes, which isn't enough for anyone. If they cherry-pick, they pick wrong — because humans pick by recency, not by potential. If they ask their manager, their manager picks by whichever lead made the most noise last week.
 
-This is the problem lead scoring solves. Done right, it tells your rep — in under a second per lead — exactly who to call first, second, and third today.
+This is the problem lead scoring solves. Done right, it tells your rep — in real time per lead — exactly who to call first, second, and third today.
 
 ## TL;DR
 
@@ -118,7 +118,7 @@ Scoring is the priority signal on top of those tools. It says "of everything in 
 
 Most US CRMs ship scoring defaults that are calibrated for North American B2B. Swapping in Indian reality requires changes:
 
-1. **WhatsApp as first-class signal.** A US CRM would track email open and email reply. In India, 70% of B2B first-contact happens on WhatsApp. Any scoring model that doesn't treat WhatsApp replies as a primary intent signal will under-weight your warmest leads.
+1. **WhatsApp as first-class signal.** A US CRM would track email open and email reply. In India, most B2B first-contact happens on WhatsApp. Any scoring model that doesn't treat WhatsApp replies as a primary intent signal will under-weight your warmest leads.
 2. **Phone normalisation.** Scoring Quality based on phone validity only works if the phone normaliser understands Indian formats — with/without +91, with leading 0, with spaces.
 3. **Industry-specific decay windows.** A real estate enquiry cools in 24–48 hours. An industrial B2B quote cools in 30+ days. One-size-fits-all decay is wrong for multi-industry teams.
 4. **Lakh-denominated pricing in Quality's budget signal.** A lead mentioning "20k/month" is a small deal; "2L/month" is a real deal. Quality + Intent should weight the implied budget in Indian scale, not translate everything to USD.
@@ -132,10 +132,10 @@ Pick 50 open leads. Score each one by hand on Fit, Intent, Quality. Use a Google
 Train the whole team on Grade A / B / C vocabulary. Every stand-up, every 1:1, every deal review uses the same grades. This alone drops response times — reps self-prioritise when the vocabulary is consistent.
 
 ### Week 3 — automate
-If the behaviour change holds, automate it. The manual version breaks at scale (nobody updates Google Sheets religiously past week 3). A purpose-built scoring engine runs on every new lead and every signal event, in under 500ms, with transparent weights you control. See [how Leadkaun's scoring engine works](/features/lead-scoring).
+If the behaviour change holds, automate it. The manual version breaks at scale (nobody updates Google Sheets religiously past week 3). A purpose-built scoring engine runs on every new lead and every signal event, in real time, with transparent weights you control. See [how Leadkaun's scoring engine works](/features/lead-scoring).
 
 ## The bottom line
 
-Lead scoring is how your rep stops guessing who to call next. The good versions are three-dimensional (Fit + Intent + Quality), transparent (you can see why a lead is Grade A), fast (under 500ms), and decay-aware (silence matters). The bad versions are AI black boxes that no one trusts.
+Lead scoring is how your rep stops guessing who to call next. The good versions are three-dimensional (Fit + Intent + Quality), transparent (you can see why a lead is Grade A), fast (in real time), and decay-aware (silence matters). The bad versions are AI black boxes that no one trusts.
 
 Start manual. Prove the behaviour. Automate when it holds.

@@ -14,9 +14,9 @@ faqs:
   - q: "What should I move to after a sales spreadsheet?"
     a: "Not necessarily a heavy CRM. Match the next tool to your actual pain: if it's 'record-keeping at scale', a light CRM like Zoho Bigin or Freshsales; if it's 'reps don't know who to call next and leads go cold', a Sales Behaviour OS like Leadkaun that grades leads A–F and builds a priority queue. Avoid jumping straight to Salesforce — that's enterprise weight for an SMB problem."
   - q: "What does a sales spreadsheet actually cost me?"
-    a: "Mostly in missed revenue you never see. With no scoring or priority, reps work the loudest lead, not the best one. With no reminders, hot leads cool past the 47-minute window. With no shared source of truth, two reps call the same lead and none calls the rest. For a team doing even ₹50L/month in pipeline, a 10–15% leak from these gaps is ₹5–7.5L every month — far more than any tool costs."
+    a: "Mostly in missed revenue you never see. With no scoring or priority, reps work the loudest lead, not the best one. With no reminders, hot leads cool past the the first hour window. With no shared source of truth, two reps call the same lead and none calls the rest. For a team doing even ₹50L/month in pipeline, a 10–15% leak from these gaps is ₹5–7.5L every month — far more than any tool costs."
   - q: "Can I import my spreadsheet into Leadkaun?"
-    a: "Yes. Leadkaun ingests CSV and Google Sheets directly, so your existing columns map across in minutes — no data migration project. It then grades each lead A–F automatically and builds your reps' priority queues from day one. Setup is about 60 minutes."
+    a: "Yes. Leadkaun ingests CSV and Google Sheets directly, so your existing columns map across in minutes — no data migration project. It then grades each lead A–F automatically and builds your reps' priority queues from day one. Setup is a single sitting."
 ---
 
 Every Indian sales team starts in a spreadsheet. That's not a mistake — it's the correct first tool. A spreadsheet is free, flexible, and instantly understood. The mistake is staying in it three quarters too long, while it quietly leaks revenue you never see on any report.
@@ -66,7 +66,7 @@ De-duping, re-sorting, colour-coding, chasing reps to update their tabs. When ma
 The spreadsheet's price isn't ₹0 — it's just invisible, because the cost is in **pipeline that leaks**:
 
 - **No scoring/priority** → reps work loud leads over good leads. Conversion drifts down.
-- **No reminders** → hot leads cool past the response window. The [47-minute window](/features/priority-queue) closes unnoticed.
+- **No reminders** → hot leads cool past the response window. The [the first hour window](/features/priority-queue) closes unnoticed.
 - **No source of truth** → duplicate calls, ignored leads, no accountability.
 
 Put a number on it. A team running even ₹50L/month in pipeline that leaks 10–15% to these gaps is losing **₹5–7.5L every month** — many times the cost of any tool. The spreadsheet feels free precisely because the loss never appears as a line item. That's what makes it dangerous.
@@ -79,7 +79,7 @@ The instinct is to "get a CRM." The better move is to name the pain and buy the 
 A light CRM — **Zoho Bigin**, **Freshsales** — gives you a shared pipeline, contact history, and basic stages without enterprise weight. Cheap, quick, enough.
 
 ### Pain: "reps don't know who to call next and leads go cold"
-This isn't a record-keeping problem — it's a **behaviour** problem, and a record-keeping CRM won't fix it. This is where a **Sales Behaviour OS** fits: [Leadkaun](/product) grades every lead A–F in under 500ms via its [scoring engine](/features/lead-scoring), builds each rep's [priority queue](/features/priority-queue) automatically, and surfaces missed revenue in rupees through the [Missed Opportunity Engine](/features/missed-opportunity-engine). It imports your existing sheet (CSV or Google Sheets) directly, so the graduation takes about 60 minutes — not a migration project.
+This isn't a record-keeping problem — it's a **behaviour** problem, and a record-keeping CRM won't fix it. This is where a **Sales Behaviour OS** fits: [Leadkaun](/product) grades every lead A–F in real time via its [scoring engine](/features/lead-scoring), builds each rep's [priority queue](/features/priority-queue) automatically, and surfaces missed revenue in rupees through the [Missed Opportunity Engine](/features/missed-opportunity-engine). It imports your existing sheet (CSV or Google Sheets) directly, so the graduation takes a single sitting — not a migration project.
 
 ### Pain: "we're a 200-rep regulated enterprise"
 Then, and mostly only then, Salesforce earns its cost. If that's not you yet, see [why Indian companies leave Salesforce](/blog/why-indian-companies-leave-salesforce) before you sign — buying enterprise software to fix a spreadsheet problem is the classic overcorrection.

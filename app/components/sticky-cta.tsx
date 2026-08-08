@@ -11,6 +11,20 @@ import { GlossLink } from "@/app/components/gloss-button"
  * past the fold, and automatically hides when the footer scrolls into view — so
  * it never overlaps the footer — or when dismissed for the session.
  */
+const DISMISS_KEY = "lk_sticky_dismissed_at"
+const DISMISS_DAYS = 30
+
+/** Dismissal persists for 30 days, across sessions and tabs. */
+function stickyDismissedRecently(): boolean {
+  try {
+    const raw = localStorage.getItem(DISMISS_KEY)
+    if (!raw) return false
+    return Date.now() - Number(raw) < DISMISS_DAYS * 864e5
+  } catch {
+    return false
+  }
+}
+
 export function StickyCTA() {
   const [scrolled, setScrolled] = useState(false)
   const [nearFooter, setNearFooter] = useState(false)
@@ -22,11 +36,11 @@ export function StickyCTA() {
     // to happen in an effect. A useSyncExternalStore version was tried and
     // reverted: with a no-op subscribe it kept the server snapshot after
     // hydration and the card never appeared (verified in a browser).
-    if (sessionStorage.getItem("lk_sticky_dismissed") === "1") return
+    if (stickyDismissedRecently()) return
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setDismissed(false)
 
-    const onScroll = () => setScrolled(window.scrollY > 900)
+    const onScroll = () => setScrolled(window.scrollY > 2200)
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
 
@@ -60,7 +74,7 @@ export function StickyCTA() {
   function dismiss() {
     setDismissed(true)
     try {
-      sessionStorage.setItem("lk_sticky_dismissed", "1")
+      localStorage.setItem(DISMISS_KEY, String(Date.now()))
     } catch {
       /* private mode — ignore */
     }

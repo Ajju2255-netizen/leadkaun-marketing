@@ -16,10 +16,10 @@ faqs:
   - q: "Why don't sales reps log WhatsApp conversations?"
     a: "Friction. The chat happens on the phone; the CRM lives on a laptop with a 6-field form. By the time the rep is back at their desk, three more chats have come in and the detail is gone. It's not laziness — the logging cost is higher than the perceived payoff. Cut the cost to 3 taps and reps log."
   - q: "Does logged WhatsApp data actually change what reps do next?"
-    a: "Yes, if the tool acts on it. In Leadkaun, a logged thread is graded A–F in under 500ms and dropped into the Priority Queue. A Grade A lead surfaces at the top with the ₹ at risk attached. Reps work the queue top-down instead of guessing — Grade A leads convert when contacted within about 47 minutes."
+    a: "Yes, if the tool acts on it. In Leadkaun, a logged thread is graded A–F in real time and dropped into the Priority Queue. A Grade A lead surfaces at the top with the ₹ at risk attached. Reps work the queue top-down instead of guessing — Grade A leads convert when contacted within the first hour."
 ---
 
-Around 70% of Indian B2B leads first make contact on WhatsApp — not a form, not a call, a message. "Bhai, pricing kya hai?" at 9:47 PM. That single line carries stage, intent, and urgency. And in most sales teams, it dies in the rep's chat list, never logged anywhere a manager or a scoring engine can see it.
+Most Indian B2B leads first make contact on WhatsApp — not a form, not a call, a message. "Bhai, pricing kya hai?" at 9:47 PM. That single line carries stage, intent, and urgency. And in most sales teams, it dies in the rep's chat list, never logged anywhere a manager or a scoring engine can see it.
 
 If you want to log WhatsApp sales conversations and actually keep them — without turning your reps into data-entry clerks — the problem isn't discipline. It's friction. This post breaks down why the logging never happens, what that silence costs you in ₹, and the 3-tap method that captures the signal in seconds.
 
@@ -28,7 +28,7 @@ If you want to log WhatsApp sales conversations and actually keep them — witho
 - Reps skip WhatsApp logging because the chat lives on the phone and the CRM lives on a laptop behind a 6-field form — the cost of logging is higher than the perceived payoff.
 - Unlogged WhatsApp threads carry the strongest buying signal you'll get all week, and they evaporate within hours. That's intent you paid for, lost.
 - The fix is **3-tap logging on the thread itself**: stage, intent, outcome. A few seconds, no app-switching, no typing.
-- A logged thread gets graded A–F in under 500ms and dropped into the [Priority Queue](/features/priority-queue) — so the hottest lead surfaces with ₹ at risk attached.
+- A logged thread gets graded A–F in real time and dropped into the [Priority Queue](/features/priority-queue) — so the hottest lead surfaces with ₹ at risk attached.
 - Capture the **signal**, not the transcript. Stage, intent, outcome — never the full chat, never personal messages.
 
 ## Why reps don't log WhatsApp (and it isn't laziness)
@@ -43,7 +43,7 @@ Blame the situation, not the rep. The logging cost was set higher than the payof
 
 An unlogged WhatsApp thread isn't a missing diary entry. It's a buying signal you already paid for — through ads, referrals, IndiaMART, your SDR's time — and then dropped on the floor.
 
-Run the math on a single hot enquiry. A buyer pings on WhatsApp asking for pricing on a ₹4 lakh order. That's a Grade A signal: explicit need, named budget band, active right now. Grade A leads convert when contacted within about 47 minutes. If that thread never gets logged, it never gets graded, never enters anyone's priority list, and the rep gets to it tomorrow — if at all. The buyer, meanwhile, pinged two competitors at the same time.
+Run the math on a single hot enquiry. A buyer pings on WhatsApp asking for pricing on a ₹4 lakh order. That's a Grade A signal: explicit need, named budget band, active right now. Grade A leads convert when contacted within the first hour. If that thread never gets logged, it never gets graded, never enters anyone's priority list, and the rep gets to it tomorrow — if at all. The buyer, meanwhile, pinged two competitors at the same time.
 
 Now multiply. A 10-rep team fielding even five WhatsApp enquiries each per day is 50 conversations daily, 250 a week. If a third of those carry real intent and a fraction slip through unlogged, you're losing track of dozens of warm deals a month. At an average ticket of a few lakhs, the ₹ at risk runs into tens of lakhs of pipeline you can't see and therefore can't work. The Missed Opportunity Engine exists precisely because this leak is invisible until someone puts a number on it.
 
@@ -65,9 +65,9 @@ The difference in adoption is not subtle. Desktop-form CRMs at Indian SMBs see l
 
 Logging is only worth doing if the data does something. A note that sits in a record nobody reads is just a slower version of forgetting.
 
-Here's what happens the moment a WhatsApp thread is logged. The stage-intent-outcome signal feeds the scoring engine, which grades the lead A–F in under 500ms. Grade A means high intent, fits your ideal buyer, active now. That grade isn't decoration — it sets the lead's position in the [Priority Queue](/features/priority-queue), which re-ranks in real time. The hottest WhatsApp enquiry from ten minutes ago floats to the top of the rep's list with the ₹ at risk shown next to it.
+Here's what happens the moment a WhatsApp thread is logged. The stage-intent-outcome signal feeds the scoring engine, which grades the lead A–F in real time. Grade A means high intent, fits your ideal buyer, active now. That grade isn't decoration — it sets the lead's position in the [Priority Queue](/features/priority-queue), which re-ranks in real time. The hottest WhatsApp enquiry from ten minutes ago floats to the top of the rep's list with the ₹ at risk shown next to it.
 
-So the rep stops guessing which of 40 open threads to chase. They open the queue, see the Grade A enquiry at the top with "₹4L — respond within 47 min" attached, and work down. The manager, instead of asking "what happened with the 200-unit enquiry," sees it logged, graded, and either being worked or flagged by the Missed Opportunity Engine as slipping past its window. The conversation that used to evaporate is now a tracked, prioritised, measurable deal.
+So the rep stops guessing which of 40 open threads to chase. They open the queue, see the Grade A enquiry at the top with "₹4L — respond within the hour" attached, and work down. The manager, instead of asking "what happened with the 200-unit enquiry," sees it logged, graded, and either being worked or flagged by the Missed Opportunity Engine as slipping past its window. The conversation that used to evaporate is now a tracked, prioritised, measurable deal.
 
 That's the full loop: a 3-tap log on WhatsApp becomes a graded lead, becomes a queue position, becomes a response inside the window where ₹ converts.
 
@@ -79,7 +79,7 @@ Do not copy the chat transcript into the record. Do not screenshot the thread. D
 
 The discipline is narrow on purpose: stage, intent, outcome. "Quote sent for ₹4L, wants delivery by Friday, awaiting confirmation" is a perfect log. The full back-and-forth that produced it stays in WhatsApp where it belongs. This keeps the data clean enough to score, light enough to log in seconds, and respectful of the fact that a customer's chat thread is theirs, not a database column.
 
-Keep it tight and the system stays fast — both the rep's three taps and the sub-500ms grade depend on capturing signal, not archiving chatter.
+Keep it tight and the system stays fast — both the rep's three taps and the sub-real time grade depend on capturing signal, not archiving chatter.
 
 ## See it work on your own pipeline
 

@@ -29,7 +29,7 @@ Most insurance branches still measure agents on activity: calls made, leads touc
 - Measure three things instead: **₹ premium recovered per agent**, **response time on Grade A/B leads**, and **follow-up plus renewal completion**.
 - A high-grade lead worth ₹2L premium that waits 5 hours usually buys elsewhere. Speed on the right leads is the metric, not speed on all leads.
 - A timestamped, per-agent audit trail (calls + WhatsApp) makes 1:1s fair and keeps you compliance-ready without reconstructing anything at quarter-end.
-- Leadkaun's Sales Rep Tracking does this per agent across 10–40 reps. ₹999–₹2,999 per rep/month.
+- Leadkaun's Sales Rep Tracking does this per agent across 10–40 reps. ₹999–₹2,999 per account per month.
 
 ## Why call counts measure the wrong thing
 
@@ -57,7 +57,7 @@ Those three together answer the only question that matters at a branch: did this
 
 You cannot measure response time on high-grade leads if nothing grades the leads. That is where most branches stall — the manager wants to track speed on the good prospects but has no objective definition of "good".
 
-Leadkaun grades every incoming lead A through F in under 500ms — on source, product fit, premium band, declared intent, and behaviour. A ₹2L health enquiry from a buyer who opened the quote twice grades A. A six-week-old cold form grades E. The Priority Queue then orders each agent's day by that grade, so the floater buyer surfaces above the tyre-kicker automatically. The agent isn't guessing what to work first, and you are no longer measuring them on a queue they had to sort by gut.
+Leadkaun grades every incoming lead A through F in real time — on source, product fit, premium band, declared intent, and behaviour. A ₹2L health enquiry from a buyer who opened the quote twice grades A. A six-week-old cold form grades E. The Priority Queue then orders each agent's day by that grade, so the floater buyer surfaces above the tyre-kicker automatically. The agent isn't guessing what to work first, and you are no longer measuring them on a queue they had to sort by gut.
 
 The Missed Opportunity Engine puts a rupee figure on what slipped: a Grade A lead untouched past its window shows up as, say, ₹2L at risk this week, attributed to the agent and the lead. That is not a scolding metric. It is the manager's early-warning system — money you can still recover if someone calls today instead of finding out at month-end that it lapsed.
 

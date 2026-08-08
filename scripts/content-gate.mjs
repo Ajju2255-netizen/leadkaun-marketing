@@ -323,6 +323,10 @@ const honestyTargets = [
   ...walk(join(ROOT, "app")),
   ...walk(join(ROOT, "components")),
   ...walk(join(ROOT, "lib")), // content generators (variation.ts etc.) live here too
+  // Blog markdown was NEVER honesty-linted — only checked for AI-slop phrasing
+  // and near-duplication. That gap let live posts carry "under 500ms",
+  // "₹999–₹2,999/rep/month" and "not a CRM" long after all three were banned.
+  ...(existsSync(BLOG) ? readdirSync(BLOG).filter((f) => f.endsWith(".md")).map((f) => join(BLOG, f)) : []),
   join(ROOT, "public", "llms.txt"),
   join(ROOT, "public", "ai-context.json"),
   // lead-magnet downloads carry Leadkaun copy too

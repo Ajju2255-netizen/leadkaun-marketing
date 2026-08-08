@@ -135,7 +135,7 @@ Doing this manually works for 50 leads. At 500+ leads, you need the calculation 
 - Staleness windows are grade-sensitive (A=24h, B=48h, C=7d) — manual bucketing breaks.
 - Per-rep rollups need to update continuously.
 
-[Leadkaun's Missed Opportunity Engine](/features/missed-opportunity-engine) runs this calculation continuously, surfaces it on a per-rep dashboard, and includes it in the daily Morning Brief email. Setup time: 60 minutes. First ₹-at-risk number visible within the first day of data.
+[Leadkaun's Missed Opportunity Engine](/features/missed-opportunity-engine) runs this calculation continuously, surfaces it on a per-rep dashboard, and includes it in the daily Morning Brief email. Setup time: the same day. First ₹-at-risk number visible within the first day of data.
 
 ## Framing traps to avoid
 

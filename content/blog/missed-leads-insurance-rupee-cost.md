@@ -39,7 +39,7 @@ The decay is steep. Put real rupees on it. A ₹40,000 annual motor premium lead
 
 Now stop blaming the agent. The agent didn't ignore the lead on purpose. The situation set them up to fail: 40 fresh leads landed in a shared inbox with no order, no grades, no signal about which one is a ₹2L term buyer and which is a tyre-kicker. The agent worked top-to-bottom, the high-value lead sat at position 31, and by the time anyone reached it the window had closed. That's a process failure wearing a performance-review costume.
 
-Grade the inflow and the math changes. Leadkaun scores every incoming lead A through F in under 500ms and drops it into a Priority Queue that re-ranks in real time. The ₹2L term buyer surfaces at the top, the agent calls it inside the window, and the ₹12,000 of expected premium stays on the table instead of leaking to ₹4,000.
+Grade the inflow and the math changes. Leadkaun scores every incoming lead A through F in real time and drops it into a Priority Queue that re-ranks in real time. The ₹2L term buyer surfaces at the top, the agent calls it inside the window, and the ₹12,000 of expected premium stays on the table instead of leaking to ₹4,000.
 
 ## Leak two: renewals lapsing unnoticed
 

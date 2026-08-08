@@ -10,7 +10,7 @@ tags: ["salesforce", "crm-alternatives", "india", "smb"]
 readingTime: "8 min read"
 faqs:
   - q: "Why are Indian SMBs leaving Salesforce?"
-    a: "Three reasons dominate: (1) Cost — ₹7,500+/rep/month base, which is 2–7× most Indian alternatives; (2) Complexity — 3–12 months of consultant-led implementation, requires a dedicated Salesforce admin; (3) Low rep adoption — the interface is built for sales ops, not for a field rep who needs to log a call in 10 seconds."
+    a: "Three reasons dominate: (1) Cost — ₹7,500+ per account per month base, which is 2–7× most Indian alternatives; (2) Complexity — 3–12 months of consultant-led implementation, requires a dedicated Salesforce admin; (3) Low rep adoption — the interface is built for sales ops, not for a field rep who needs to log a call in 10 seconds."
   - q: "What's the right size of team for Salesforce vs alternatives?"
     a: "Salesforce becomes rational at ~200+ reps, multi-region enterprise, or regulatory complexity that requires heavy customisation. Below that, simpler Indian-market tools almost always win on adoption, speed, and ROI. Most SMBs that bought Salesforce 'to grow into it' end up with a tool that's 80% unused for 3–5 years."
   - q: "What are Indian teams switching to?"
@@ -36,14 +36,14 @@ This article is not a takedown. It is a pragmatic look at why the switch is happ
 ### 1. Price
 Salesforce's Sales Cloud Professional tier lists at ~$80/user/month — about ₹6,700 at recent exchange rates. Add Inbox, Einstein AI, or higher tiers and the effective per-seat cost climbs to ₹8,000–₹15,000. For a 20-rep team, that's ₹1.6 lakh–₹3 lakh per month in licences alone, before implementation, admin salary, or consulting.
 
-Indian SMB alternatives sit at ₹1,000–₹3,000/rep/month. For the same 20-rep team, that's ₹20k–₹60k/month. The licence delta alone is ₹15 lakh+ per year.
+Indian SMB alternatives sit at ₹1,000–₹3,000 per account per month. For the same 20-rep team, that's ₹20k–₹60k/month. The licence delta alone is ₹15 lakh+ per year.
 
 The question SMBs start asking around year 2 is: "Are we getting ₹15 lakh more value from Salesforce than from a cheaper option?" For most SMBs, honestly audited, the answer is no.
 
 ### 2. Implementation complexity
 Salesforce requires configuration. Not a little — a lot. Most Indian SMBs that bought it ended up in a 3–6 month implementation cycle with a consulting partner. The consulting fees are often a multiple of the licence cost.
 
-Alternatives ship with India-default templates: Zoho has them, LeadSquared has them, Leadkaun onboards in 60 minutes with Indian B2B SMB defaults baked in. The gap between "bought" and "useful" is the gap between "months" and "hours".
+Alternatives ship with India-default templates: Zoho has them, LeadSquared has them, Leadkaun onboards the same day with Indian B2B SMB defaults baked in. The gap between "bought" and "useful" is the gap between "months" and "hours".
 
 ### 3. Rep adoption
 This is the one that kills most Salesforce installs. The Salesforce UI is built for a full-time ops user. The Indian B2B sales rep has a phone, 30 minutes between meetings, and a WhatsApp tab open. When logging a call takes 6 clicks and a drop-down, reps don't log calls. When they don't log calls, the manager has no visibility. When the manager has no visibility, they demand more logging. Reps dig in. The tool becomes a compliance exercise.
@@ -66,13 +66,13 @@ If you are an Indian SMB with 3–50 reps and a single market focus, Salesforce 
 The migration conversation should start with the job your sales team needs done, not the brand name.
 
 ### Job: "CRM with workflow customisation"
-Zoho CRM, LeadSquared. Zoho is the incumbent; LeadSquared is better for India-specific verticals (EdTech, BFSI). Both are ~₹1,200–₹3,000/rep/month. Both handle the "record what happened" job at 1/5th the cost of Salesforce.
+Zoho CRM, LeadSquared. Zoho is the incumbent; LeadSquared is better for India-specific verticals (EdTech, BFSI). Both are ~₹1,200–₹3,000 per account per month. Both handle the "record what happened" job at 1/5th the cost of Salesforce.
 
 ### Job: "Marketing-sales unified"
 HubSpot. Still USD-priced, still 2× the cost of Zoho, but marketing automation is strongest in class. For SMBs where marketing drives pipeline heavily, it's often the right call.
 
 ### Job: "Sales Behaviour Operating System — change what reps do, not just record it"
-Leadkaun. Not a CRM replacement — a different category entirely. Grade A–F lead scoring in under 500ms, Priority Queue that re-ranks in real time, Missed Opportunity Engine with ₹ at risk, Morning Brief at 8:30 AM IST. Usually runs alongside Zoho/LeadSquared for 60–90 days, then consolidates if the behaviour-layer ROI is proven. ₹999–₹2,999/rep/month. Setup in 60 minutes. See [how Leadkaun differs](/compare/leadkaun-vs-salesforce).
+Leadkaun. A decision layer that runs alongside your CRM rather than replacing it. Grade A–F lead scoring in real time, a Priority Queue that re-ranks as signals arrive, a Missed Opportunity Engine with ₹ at risk, and a Morning Brief at 8:30 AM IST. Usually runs alongside Zoho or LeadSquared for 60–90 days while the team compares. Pricing is flat per account, from Free — not per rep. Live the same day. See [how Leadkaun differs](/compare/leadkaun-vs-salesforce).
 
 ### Job: "Free or nearly-free"
 HubSpot Starter (free tier), Bitrix24 (free for up to 12 users). Works for sub-5-rep teams. Breaks at scale.
@@ -116,7 +116,7 @@ Reframe: you are not downgrading. You are **rightsizing**. Salesforce is the rig
 
 The most successful Indian B2B SMBs I've watched make this switch report two things at the 6-month mark:
 1. Sales velocity went up (faster response, higher adoption, clearer priorities).
-2. Leadership regained confidence in the data (because 80% of leads were actually being logged, not 30%).
+2. Leadership regained confidence in the data (because far more leads were actually being logged, not 30%).
 
 ## The bottom line
 

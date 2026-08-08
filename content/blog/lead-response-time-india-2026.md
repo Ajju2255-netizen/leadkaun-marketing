@@ -10,7 +10,7 @@ tags: ["lead-response-time", "sla", "india", "benchmarks"]
 readingTime: "7 min read"
 faqs:
   - q: "What's the ideal lead response time for Indian B2B teams?"
-    a: "It depends on the industry and lead grade. Real estate: 47 minutes for Grade A. EdTech: 2 hours. BFSI: 4 hours. B2B SaaS: 6 hours. B2B manufacturing: 24 hours. The shorter the response window, the larger the multiplier on conversion."
+    a: "It depends on the industry and lead grade. Real estate: the first hour for Grade A. EdTech: 2 hours. BFSI: 4 hours. B2B SaaS: 6 hours. B2B manufacturing: 24 hours. The shorter the response window, the larger the multiplier on conversion."
   - q: "Why does response time matter so much?"
     a: "Two reasons. First, intent decays fast — a hot lead at 11 AM is a lukewarm one by 5 PM and cold by the next day. Second, competitors are often working the same lead. Whoever calls first frames the buyer's mental model. Late callbacks are usually just validation for a decision already made."
   - q: "How do most Indian SMBs compare to the benchmarks?"
@@ -24,18 +24,18 @@ Every minute between lead arrival and first contact costs you conversion. The co
 ## TL;DR
 
 - **Grade A leads contacted within 6 hours convert at ~4× the rate of 24-hour callbacks** (Indian B2B averages, 2026).
-- Response time benchmarks by industry (for Grade A): real estate 47 min, EdTech 2 hr, BFSI 4 hr, SaaS 6 hr, manufacturing 24 hr.
+- Response time benchmarks by industry (for Grade A): real estate under an hour, EdTech 2 hr, BFSI 4 hr, SaaS 6 hr, manufacturing 24 hr.
 - Most Indian SMBs sit at 4–24 hours — well off benchmark.
 - The fix is three behaviours: instant alert on Grade A, auto-re-ranking queue, Morning Brief at 8:30 AM IST.
 - Teams implementing these three behaviours move from 24-hour response to under 6-hour response in about two weeks, with no hiring change.
 
 ## The 2026 benchmark table
 
-Response time targets are grade-sensitive. A Grade A lead is a fire-alarm. A Grade C lead can reasonably wait a week. The table below shows **Grade A** response targets by industry in Indian B2B sales. These come from a blend of MIT's classic lead response research (globally) and Leadkaun customer data across 50+ Indian B2B teams.
+Response time targets are grade-sensitive. A Grade A lead is a fire-alarm. A Grade C lead can reasonably wait a week. The table below shows **Grade A** response targets by industry in Indian B2B sales. These come from a blend of MIT's classic lead response research (globally) and Leadkaun customer data across Indian B2B teams.
 
 | Industry | Grade A target | 24-hour conversion | Late-callback conversion | Multiplier |
 |---|---|---|---|---|
-| Real estate | 47 min | 10–12% | 2–3% | 5× |
+| Real estate | under an hour | 10–12% | 2–3% | 5× |
 | EdTech (admissions) | 2 hr | 20–25% | 6–9% | 3× |
 | BFSI (insurance, NBFC) | 4 hr | 25–30% | 9–13% | 3× |
 | B2B SaaS (Indian SMB) | 6 hr | 18–24% | 5–8% | 4× |
@@ -44,7 +44,7 @@ Response time targets are grade-sensitive. A Grade A lead is a fire-alarm. A Gra
 | B2B agencies | 12 hr | 25–32% | 10–16% | 2.5× |
 | Hospitality (MICE) | 24 hr | 35–42% | 15–22% | 2× |
 
-The "multiplier" column is the signal. A real estate team that moves from 4-hour response to 47-minute response is not converting 10% more — they are converting 5× more. For a team taking 200 enquiries a month at ₹50 lakh average GCV, that's the difference between ₹10 crore and ₹50 crore in a quarter.
+The "multiplier" column is the signal. A real estate team that moves from 4-hour response to the first hour response is not converting 10% more — they are converting 5× more. For a team taking 200 enquiries a month at ₹50 lakh average GCV, that's the difference between ₹10 crore and ₹50 crore in a quarter.
 
 ## Why response time has this shape
 
@@ -113,11 +113,11 @@ By the end of week 2, most teams move their Grade A response time from 24 hours 
 
 The manual version works for 50 leads. It breaks at 500. If you have 10+ reps and 1,000+ leads a month, you want the three behaviours running automatically:
 
-- Grade assignment in under 500ms per lead.
+- Grade assignment in real time per lead.
 - Priority Queue that re-ranks in real time.
 - Morning Brief email auto-sent at 8:30 AM IST with ₹ at risk.
 
-That's what [Leadkaun's scoring engine](/features/lead-scoring), [Priority Queue](/features/priority-queue), and [Morning Brief](/features/morning-brief) do. Setup takes 60 minutes. First scored lead in the queue within the first hour.
+That's what [Leadkaun's scoring engine](/features/lead-scoring), [Priority Queue](/features/priority-queue), and [Morning Brief](/features/morning-brief) do. Setup takes a single sitting. First scored lead in the queue within the first hour.
 
 ## The bottom line
 

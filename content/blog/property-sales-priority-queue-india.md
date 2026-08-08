@@ -14,9 +14,9 @@ faqs:
   - q: "Which scoring inputs matter most for booking a site visit?"
     a: "Five carry the most weight: budget fit against your project's GCV band, location serviceability, configuration match (2BHK vs 3BHK vs villa), portal behaviour (price-page views, brochure downloads, EMI-calculator use), and WhatsApp reply speed. A reply inside the hour is the single strongest near-term intent signal in the Indian market — stronger than form completeness or call duration."
   - q: "How does the queue re-rank when a new signal arrives?"
-    a: "Each new signal — a WhatsApp reply, a repeat portal visit, a budget confirmation — feeds back into the Grade A–F score in under 500ms. If a lead replies 'yes, Saturday works,' it can jump from Grade C to Grade A and move to the top of the queue mid-shift. Leadkaun's Priority Queue does this re-rank in real time, so no rep has to manually re-sort."
+    a: "Each new signal — a WhatsApp reply, a repeat portal visit, a budget confirmation — feeds back into the Grade A–F score in real time. If a lead replies 'yes, Saturday works,' it can jump from Grade C to Grade A and move to the top of the queue mid-shift. Leadkaun's Priority Queue does this re-rank in real time, so no rep has to manually re-sort."
   - q: "Why rank leads instead of calling them in arrival order?"
-    a: "Arrival order assumes every enquiry is equally likely to convert. It isn't. In real estate, Grade A leads convert when contacted within roughly 47 minutes — and a chronological list buries them behind cold portal scrapes. Working the queue top-down means your first three calls of the day go to the three leads most likely to book a site visit, which is where the ₹ at risk is highest."
+    a: "Arrival order assumes every enquiry is equally likely to convert. It isn't. In real estate, Grade A leads convert when contacted within the first hour — and a chronological list buries them behind cold portal scrapes. Working the queue top-down means your first three calls of the day go to the three leads most likely to book a site visit, which is where the ₹ at risk is highest."
 ---
 
 A property lead replies on WhatsApp at 11:40 AM — "Is the 3BHK still available? Can I see it this weekend?" Your rep doesn't see it until 4 PM, because they were working the enquiry list top to bottom and that lead came in at position 38. By then the buyer has booked a site visit with the project down the road. A ₹1.4 Cr deal, gone, not because the rep was lazy — because the list was sorted by arrival time instead of by intent.
@@ -29,7 +29,7 @@ A **real estate priority queue** fixes exactly this. Instead of a chronological 
 - Five inputs carry the score: budget fit (against your GCV band), location serviceability, configuration match, portal behaviour, and WhatsApp reply speed.
 - The queue must re-rank in real time — a WhatsApp "yes" should move a lead from Grade C to Grade A inside the same shift.
 - Reps work it top-down: first three calls of the day go to the three leads most likely to convert, not the three oldest.
-- Grade A property leads convert when contacted within roughly 47 minutes. A queue exists to protect that window.
+- Grade A property leads convert when contacted within the first hour. A queue exists to protect that window.
 
 ## Why arrival order quietly loses deals
 
@@ -53,7 +53,7 @@ A property lead's score should answer one question: how likely is this person to
 
 **5. WhatsApp reply speed.** In the Indian market this is the sharpest near-term signal there is. A buyer who replies inside the hour is in active decision mode. One who leaves your message on a single grey tick for two days has cooled, whatever their budget. Reply speed often outranks form completeness.
 
-These map onto a Grade A–F score. Leadkaun computes it across three dimensions — **Fit** (budget, location, configuration), **Intent** (portal behaviour, reply speed), and **Quality** (data completeness, channel) — in under 500ms per lead. You don't need Leadkaun's exact thresholds to start; you need the discipline of scoring every lead on these five before anyone picks up the phone.
+These map onto a Grade A–F score. Leadkaun computes it across three dimensions — **Fit** (budget, location, configuration), **Intent** (portal behaviour, reply speed), and **Quality** (data completeness, channel) — in real time per lead. You don't need Leadkaun's exact thresholds to start; you need the discipline of scoring every lead on these five before anyone picks up the phone.
 
 ## How the queue re-ranks as new signals land
 
@@ -74,7 +74,7 @@ The behaviour change is the whole point, and it's smaller than people fear. Reps
 - **Mid-shift:** when a new signal pushes a lead to the top, the rep gets it next — not at 4 PM when they finally scroll down.
 - **End of shift:** the Missed Opportunity Engine flags any Grade A lead that didn't get touched, so it's first thing tomorrow.
 
-The reason this matters in numbers: Grade A property leads convert when contacted within roughly 47 minutes. A queue exists to make sure the 47-minute lead is the one your rep calls at minute 5 — not the one buried at position 38 while they work through cold form-fills. For more on the cadence after that first call, see our guide to [real estate lead follow-up best practices](/blog/real-estate-lead-follow-up-best-practices-india).
+The reason this matters in numbers: Grade A property leads convert when contacted within the first hour. A queue exists to make sure the the first hour lead is the one your rep calls at minute 5 — not the one buried at position 38 while they work through cold form-fills. For more on the cadence after that first call, see our guide to [real estate lead follow-up best practices](/blog/real-estate-lead-follow-up-best-practices-india).
 
 ## Building yours in four steps
 

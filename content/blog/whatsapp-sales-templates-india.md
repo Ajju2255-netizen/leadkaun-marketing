@@ -12,7 +12,7 @@ faqs:
   - q: "Do WhatsApp sales templates need to be personalised every time?"
     a: "Yes — change at least the name, the company, and one specific detail from the last conversation. A template is the skeleton, not the message. The reps who hit 30–40% reply rates personalise the first line; the ones who paste raw templates get ignored or blocked. The whole point of a template is to free up the 20 seconds you'd waste on the boilerplate so you can spend it on the one line that proves you remember who this person is."
   - q: "What's the right time to send the first WhatsApp to a new lead?"
-    a: "Inside the 24-hour customer-care window, and ideally inside the first hour. Grade A leads in Leadkaun convert when contacted within ~47 minutes — wait till the next morning and a chunk of that intent is gone, and the ₹ that lead was worth is at risk of going to whoever replied first. Speed beats polish for the first message."
+    a: "Inside the 24-hour customer-care window, and ideally inside the first hour. Grade A leads in Leadkaun convert when contacted within ~the first hour — wait till the next morning and a chunk of that intent is gone, and the ₹ that lead was worth is at risk of going to whoever replied first. Speed beats polish for the first message."
   - q: "Can I send promotional WhatsApp templates without consent?"
     a: "Not safely. If the lead messaged you first, you have a 24-hour service window to reply freely. Outside that window, or for cold outreach, you need an opt-in and an approved template message through the Business API, or you risk reports and a blocked number. The templates here are written for leads who already raised a hand — an enquiry, a form fill, a missed call."
   - q: "How many follow-ups before I stop?"
@@ -25,7 +25,7 @@ This page fixes that. Below are WhatsApp sales templates built for Indian SMBs �
 
 ## TL;DR
 
-- The fastest reply wins. Send the first WhatsApp inside the hour — Grade A leads convert within ~47 minutes, and a slow reply hands that ₹ to a competitor.
+- The fastest reply wins. Send the first WhatsApp inside the hour — Grade A leads convert within ~the first hour, and a slow reply hands that ₹ to a competitor.
 - A template is a skeleton. Personalise the first line every single time or you get ignored.
 - Reply inside WhatsApp's 24-hour service window freely; outside it, you need an opt-in and an approved template.
 - Three to four spaced follow-ups, then one honest re-engagement — not seven messages in a week.
@@ -101,6 +101,6 @@ The re-engagement message has one job: get a yes or a no, and respect both. The 
 
 Good templates get you faster, more consistent messages. They don't tell you *who to message first* on a morning with 40 unread chats, and they don't stop a closed deal from vanishing when the rep who owned it resigns.
 
-That's the gap [Leadkaun](/product) fills. Log any WhatsApp interaction in 3 taps so the thread lives in the system, not one phone. Every lead gets a Grade A–F so you work the hot ones first, and the Priority Queue tells each rep exactly who to message now — because Grade A leads convert within ~47 minutes, and a queue is how you actually hit that window instead of just believing in it. See how the [WhatsApp tracking](/features/whatsapp-tracking) works, or read the deeper playbook on [WhatsApp for B2B sales in India](/blog/whatsapp-for-b2b-sales-india-best-practices).
+That's the gap [Leadkaun](/product) fills. Log any WhatsApp interaction in 3 taps so the thread lives in the system, not one phone. Every lead gets a Grade A–F so you work the hot ones first, and the Priority Queue tells each rep exactly who to message now — because Grade A leads convert within ~the first hour, and a queue is how you actually hit that window instead of just believing in it. See how the [WhatsApp tracking](/features/whatsapp-tracking) works, or read the deeper playbook on [WhatsApp for B2B sales in India](/blog/whatsapp-for-b2b-sales-india-best-practices).
 
 Templates make each message better. A system makes sure the right message reaches the right lead while the ₹ is still on the table. [Book a 15-minute demo](/demo) and we'll show you both, on your own leads.

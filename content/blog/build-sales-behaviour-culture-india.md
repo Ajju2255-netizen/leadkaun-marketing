@@ -43,7 +43,7 @@ This is not a motivation problem. It is a design problem. The behaviours that bu
 
 If you want a behaviour culture, you have to make the behaviour countable and then put a spotlight on it. Three metrics do most of the work for an Indian SMB sales desk.
 
-**Response time to Grade A leads.** A Grade A lead contacted in the first 47 minutes converts at a dramatically higher rate than the same lead touched six hours later. So measure minutes-to-first-contact, by rep, every day. When a rep answers a Grade A enquiry in 9 minutes, that is the moment that deserves the callout — not three weeks later when the deal closes.
+**Response time to Grade A leads.** A Grade A lead contacted within the first hour converts at a dramatically higher rate than the same lead touched six hours later. So measure minutes-to-first-contact, by rep, every day. When a rep answers a Grade A enquiry in 9 minutes, that is the moment that deserves the callout — not three weeks later when the deal closes.
 
 **₹ recovered.** Every week, leads slip toward cold: the quote went out and nobody followed up, the demo happened and the thread died. A lead worth ₹4 lakh that was about to go silent, then got pulled back with a well-timed call, is recovered ₹. Total it. Put a number on the wall: "₹18 lakh recovered this week." That number tells the team that saving a slipping deal is as honoured as landing a new one.
 

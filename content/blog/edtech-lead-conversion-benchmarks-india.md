@@ -13,7 +13,7 @@ faqs:
     a: "Directionally, ₹5–₹12 of every ₹100 leads that enter the funnel end up enrolled — so a 5–12% end-to-end conversion is a common range for Indian EdTech selling courses in the ₹15k–₹2L band. High-ticket programmes (₹2L–₹15L) often sit lower, at 2–6%, because the buying decision involves family and financing. These are industry-directional ranges, not guarantees — your own number depends on lead source, ticket size, and how fast you call."
     a_note: "directional"
   - q: "Where does the EdTech funnel leak the most?"
-    a: "Two places dominate. First, lead→connected: 30–50% of leads are never actually spoken to, usually because the first call lands hours or days late. Second, demo→enrolled: even strong demos lose 40–60% of prospects to slow follow-up and unaddressed financing questions. The connect stage is where the cheapest recovery sits, because it's a speed problem, not a persuasion problem."
+    a: "Two places dominate. First, lead→connected: a large share of leads are never actually spoken to, usually because the first call lands hours or days late. Second, demo→enrolled: even strong demos lose 40–60% of prospects to slow follow-up and unaddressed financing questions. The connect stage is where the cheapest recovery sits, because it's a speed problem, not a persuasion problem."
   - q: "How much does response time change EdTech conversion?"
     a: "A lot, directionally. A lead contacted within minutes connects far more often than one called the next morning, because intent decays fast — a student comparing five institutes on Shiksha or Collegedunia moves on. Industry-directional ranges suggest sub-5-minute first contact can roughly double connect rates versus a multi-hour delay. The leak isn't the rep being lazy; it's the lead sitting unassigned while the counsellor is mid-demo with someone else."
   - q: "How do I calculate my own ₹ at risk from these benchmarks?"
@@ -27,9 +27,9 @@ Two cautions before the numbers. These are directional industry ranges, not guar
 ## TL;DR
 
 - End-to-end edtech lead conversion in India runs roughly ₹5–₹12 enrolled per ₹100 leads for mid-ticket courses; **2–6%** for high-ticket programmes. Directional, not a promise.
-- The two biggest leaks: **lead→connected** (30–50% of leads never spoken to) and **demo→enrolled** (40–60% lost after a good demo).
+- The two biggest leaks: **lead→connected** (many leads never spoken to) and **demo→enrolled** (40–60% lost after a good demo).
 - Most of the connect-stage leak is a **speed problem**, not a persuasion problem. Intent decays in minutes on Shiksha and Collegedunia.
-- A Grade A lead that's worked fast tends to convert quickly — in Leadkaun's framing, within roughly **47 minutes** of being contacted.
+- A Grade A lead that's worked fast tends to convert quickly — in Leadkaun's framing, within roughly **the first hour** of being contacted.
 - You can compute your own **₹ at risk** by multiplying your weakest-stage gap by your average enrolment value. The number is usually larger than the team guesses.
 
 ## The four-stage admissions funnel, with directional benchmarks
@@ -53,7 +53,7 @@ When you stack the stages, two leaks dominate. They are not evenly sized, and th
 
 ### Leak one: lead → connected
 
-This is the quiet killer. Across Indian EdTech teams, 30–50% of leads are never actually spoken to. Not rejected — never reached. The voicemail, the unanswered ring, the "I'll call back after this demo" that becomes tomorrow.
+This is the quiet killer. Across Indian EdTech teams, a large share of leads are never actually spoken to. Not rejected — never reached. The voicemail, the unanswered ring, the "I'll call back after this demo" that becomes tomorrow.
 
 Here's why it's not a rep problem. A counsellor handling 60 leads a day cannot tell, by looking at a list, which three of those 60 are about to enrol and which 40 were idle form-fills. So they work top-to-bottom, or newest-first, and the hot lead that came in at 11:14 AM gets called at 4:30 PM — by which time the student has already booked a demo with the institute that called at 11:17.
 
@@ -71,7 +71,7 @@ Speed is the single lever that touches the whole funnel, and it touches the conn
 
 A student filling a form on Collegedunia at 9 PM is comparing institutes. They've submitted to four or five. Intent is at its peak in the minutes after they hit submit, and it decays fast. Directional ranges suggest a sub-5-minute first contact can roughly double connect rates versus a call that lands a few hours later. By the next morning the lead is cold not because the offering is weak but because someone else got there first.
 
-This is exactly the gap a Sales Behaviour OS is built to close. Leadkaun grades every incoming lead A–F in under 500ms, then puts the Grade A leads at the top of a live Priority Queue so the counsellor calls the ₹60,000 lead before the idle form-fill. In Leadkaun's framing, a Grade A lead tends to convert within roughly 47 minutes of contact — which only happens if the rep knows it's Grade A in the first 47 seconds. The grading isn't magic; it's a way of turning a flat list of 60 names into an ordered queue of intent.
+This is exactly the gap a Sales Behaviour OS is built to close. Leadkaun grades every incoming lead A–F in real time, then puts the Grade A leads at the top of a live Priority Queue so the counsellor calls the ₹60,000 lead before the idle form-fill. In Leadkaun's framing, a Grade A lead tends to convert within the first hour of contact — which only happens if the rep knows it's Grade A in the first 47 seconds. The grading isn't magic; it's a way of turning a flat list of 60 names into an ordered queue of intent.
 
 For a deeper walk-through of the workflow, see [how Indian EdTech teams manage student leads](/blog/edtech-student-lead-management-india).
 

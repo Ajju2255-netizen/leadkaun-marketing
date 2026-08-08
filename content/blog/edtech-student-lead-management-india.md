@@ -10,13 +10,13 @@ tags: ["edtech", "lead-management", "admissions", "india"]
 readingTime: "8 min read"
 faqs:
   - q: "How do you prioritise 300 student leads a day without missing the good ones?"
-    a: "You stop reading the list top-to-bottom. Score every enquiry on intent (downloaded brochure, asked about fees, parent on the call) and fit (target grade, location, budget band) the moment it lands. A Grade A lead — parent asking about the next batch start date — gets a call inside the hour. A Grade D lead — a 'just browsing' form fill with no phone pickup — goes into a slower nurture track. Leadkaun grades every lead A–F in under 500ms so the counsellor's first 30 minutes go to the 20 enquiries that actually enrol, not the 280 that don't."
+    a: "You stop reading the list top-to-bottom. Score every enquiry on intent (downloaded brochure, asked about fees, parent on the call) and fit (target grade, location, budget band) the moment it lands. A Grade A lead — parent asking about the next batch start date — gets a call inside the hour. A Grade D lead — a 'just browsing' form fill with no phone pickup — goes into a slower nurture track. Leadkaun grades every lead A–F in real time so the counsellor's first 30 minutes go to the 20 enquiries that actually enrol, not the 280 that don't."
   - q: "Is WhatsApp a serious channel for EdTech admissions, or just chat?"
     a: "It's the channel. Parents and students send their first message on WhatsApp far more often than they fill a form or answer an unknown call. A parent asking 'fees kitni hai aur EMI option hai?' at 9 PM is a buying signal worth ₹15k–₹15L over the enrolment. The problem is that signal sits in one counsellor's personal phone with no record. Leadkaun's WhatsApp 3-tap logging pulls that thread into the lead record so the enquiry gets scored, queued, and followed up instead of forgotten."
   - q: "What does an un-followed-up enquiry actually cost an EdTech business?"
     a: "Take a coaching institute with a ₹1.2L annual fee and 400 enquiries a day during admissions season. If 8% of leads are Grade A and you fail to call 30 of them before a competitor does, that's roughly ₹36L of pipeline going cold in a single day. Across a 10-week admissions cycle the leakage runs into crores. Missed Opportunity Engine surfaces exactly which enquiries are slipping and the ₹ attached, so a manager can reassign before the lead enrols elsewhere."
   - q: "How long does it take an admissions team to get started?"
-    a: "Setup is 60 minutes. You connect your lead sources (ad forms, WhatsApp, website enquiries), set your fee bands and target grades, and the scoring runs from the first lead in. No three-month rollout, no admin hire. Counsellors keep working their leads the same day."
+    a: "Setup is a single sitting. You connect your lead sources (ad forms, WhatsApp, website enquiries), set your fee bands and target grades, and the scoring runs from the first lead in. No three-month rollout, no admin hire. Counsellors keep working their leads the same day."
 ---
 
 By 8:15 AM the ad spend from last night has already done its job. The Meta campaign for the JEE batch, the Google search ads for "best NEET coaching near me", the YouTube pre-roll for the study-abroad webinar — together they've dropped 340 student enquiries into the system overnight. By the time the admissions team logs in, there are 340 names, 340 phone numbers, and zero indication of which ten are about to pay and which 300 were filling time on Instagram. This is the daily reality of edtech lead management in India, and the list, sorted newest-first, tells you nothing.
@@ -27,7 +27,7 @@ The counsellor who opens that list and starts dialling from the top is the couns
 
 - EdTech admissions teams routinely take **200–500 leads per day** during peak season, from ad platforms plus inbound WhatsApp — and most of it is noise around a small core of buyers.
 - Calling the list top-to-bottom wastes the **first 30 minutes** on low-intent enquiries while Grade A parents go to competitors.
-- **Intent + fit scoring** (brochure downloaded, fee question asked, parent on the line, target grade and budget band) separates the 8% that enrol from the 92% that don't — in under 500ms per lead.
+- **Intent + fit scoring** (brochure downloaded, fee question asked, parent on the line, target grade and budget band) separates the 8% that enrol from the 92% that don't — in real time per lead.
 - **Parent WhatsApp threads are real buying signal**, not chat. A 9 PM "fees kitni hai?" is worth ₹15k–₹15L and belongs in the lead record, not on one counsellor's personal phone.
 - An un-followed-up Grade A enquiry at a ₹1.2L fee band can mean **₹36L of pipeline cold in a day** — the urgency is rupees, not vibes.
 
@@ -55,7 +55,7 @@ A grade is only useful if it reflects both halves of the buying question: does t
 
 **Fit signals** are static: target grade and stream, city and travel distance to the centre, and budget band against your fee. An institute with a ₹1.2L annual fee should grade a parent asking "do you have a ₹40k course?" lower on fit — not because the family doesn't matter, but because the counsellor's scarce morning hour shouldn't go there first. A study-abroad consultancy with a ₹6–15L program treats fit very differently from a ₹15k–₹30k upskilling course; the bands are the whole point.
 
-[Leadkaun's scoring](/use-cases/edtech) combines both into a single Grade A–F in under 500ms, the instant the lead lands. Grade A enquiries — high intent, high fit — convert fastest when contacted quickly; in Leadkaun's data, Grade A leads convert when contacted within about 47 minutes. That window is the difference between your counsellor reaching the parent first and reaching them after they've paid elsewhere. The [Priority Queue](/features/priority-queue) re-ranks the whole desk in real time as new leads score and old ones age, so the next call is always the most valuable one available right now.
+[Leadkaun's scoring](/use-cases/edtech) combines both into a single Grade A–F in real time, the instant the lead lands. Grade A enquiries — high intent, high fit — convert fastest when contacted quickly; in Leadkaun's data, Grade A leads convert when contacted within the first hour. That window is the difference between your counsellor reaching the parent first and reaching them after they've paid elsewhere. The [Priority Queue](/features/priority-queue) re-ranks the whole desk in real time as new leads score and old ones age, so the next call is always the most valuable one available right now.
 
 ## Parent WhatsApp threads are the signal everyone ignores
 
@@ -77,8 +77,8 @@ The [Missed Opportunity Engine](/features/priority-queue) puts a rupee figure on
 
 An admissions desk on this system works differently from day one. Leads land from every source — ad forms, website, WhatsApp — and get graded A–F before the counsellor sees them. At 8:30 AM the Morning Brief hands each counsellor a ranked shortlist, not a wall of 340 names. The Priority Queue keeps the next-best call at the top all day. WhatsApp threads from parents become first-class, scored leads in three taps. And the manager watches ₹ at risk in real time, with [Sales Rep Tracking](/use-cases/edtech) showing which counsellor is clearing their Grade A queue and which one is letting it age.
 
-Setup takes 60 minutes — connect sources, set fee bands and target grades, and the scoring runs from the first lead. No three-month rollout, no Salesforce admin, no quarter lost to implementation. At ₹999–₹2,999 per rep per month, the cost of the system is a fraction of one lost Grade A enrolment.
+Setup takes a single sitting — connect sources, set fee bands and target grades, and the scoring runs from the first lead. No three-month rollout, no Salesforce admin, no quarter lost to implementation. At ₹999–₹2,999 per rep per month, the cost of the system is a fraction of one lost Grade A enrolment.
 
 The leads were never the problem. EdTech marketing in India is good at generating volume. The problem is what happens in the 30 minutes after they land — and that's the part you can fix this week.
 
-See it on your own admissions desk: [book a demo](/demo) and we'll grade a real day of your leads, show you the ₹ at risk in your current follow-up, and walk through the 60-minute setup.
+See it on your own admissions desk: [book a demo](/demo) and we'll grade a real day of your leads, show you the ₹ at risk in your current follow-up, and walk through the the same day setup.

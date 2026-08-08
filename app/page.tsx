@@ -5,9 +5,6 @@ import { ArrowRight, Check } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
-import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
-import { SectionGround } from "@/app/components/section-ground"
 import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
 import { APP_URLS } from "@/lib/urls"
@@ -160,11 +157,6 @@ export default function HomePage() {
       <FaqBlock />
       <CloseBand />
 
-      <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
-      <SectionGround variant="pure" size="sm">
-        <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
-      </SectionGround>
-
       <Footer />
     </main>
   )
@@ -207,12 +199,12 @@ function Hero() {
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link
                 href={APP_URLS.register}
-                className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-sky-600"
-                style={{ boxShadow: "0 10px 26px -12px rgba(14,165,233,0.55)" }}
+                className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5"
+                style={{ background: "#0B6FA8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
               >
                 Start free <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors rule-paper hover:border-sky-300">
+              <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
                 Book a walkthrough
               </Link>
             </div>
@@ -467,7 +459,7 @@ function Modules() {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   ALONGSIDE — replaces the old "this is not a CRM" block, which contradicted
+   ALONGSIDE — replaces the old anti-CRM block, which contradicted
    the positioning and repelled the sales-CRM queries the site targets.
    ───────────────────────────────────────────────────────────────────────── */
 function Alongside() {
@@ -604,12 +596,12 @@ function CloseBand() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <Link
               href={APP_URLS.register}
-              className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-sky-600"
-              style={{ boxShadow: "0 10px 26px -12px rgba(14,165,233,0.55)" }}
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5"
+              style={{ background: "#0B6FA8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}
             >
               Start free <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors rule-paper hover:border-sky-300">
+            <Link href="/demo" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
               Book a walkthrough
             </Link>
           </div>

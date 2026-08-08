@@ -100,9 +100,9 @@
         "learns (from|over time)",
         "gets smarter",
         "self[\\s-]?(learning|tuning|improving)",
-        "retrains?",
         "improves (its )?(recommendations?|scoring|accuracy) over time",
-        "the more you use it,? the better"
+        "the more you use it,? the better",
+        "retrains?\\s+(the\\s+)?(model|scoring|weights|engine)"
       ],
       "allowIfNear": [
         "does not",

@@ -43,7 +43,7 @@ The precise definition has three parts, multiplied together for every open high-
 - **Close probability** is tied to the grade. A Grade A lead might carry a 38% historical close rate; Grade C, 9%. This is where the [Grade A–F scoring](/features/sales-rep-tracking) earns its place — it gives you a probability anchored in behaviour, not a salesperson's optimism.
 - **Recoverability** is the part everyone forgets. A lead that's two hours past its window is 90% recoverable. The same lead at day 4 might be 30% recoverable. By day 8 it's effectively gone — the buyer has talked to two competitors and made up their mind.
 
-A worked example. A Grade A real estate enquiry, deal band ₹35 lakh, close probability 36%, currently three days past its 47-minute contact window so recoverability has decayed to roughly 45%. That single lead contributes ₹35,00,000 × 0.36 × 0.45 = **₹5.67 lakh** to your ₹ at risk total. Sum that across every aging high-grade lead on a 10-rep desk and the weekly number is rarely small. ₹12–₹20 lakh at risk in a single week is common for teams that aren't watching it.
+A worked example. A Grade A real estate enquiry, deal band ₹35 lakh, close probability 36%, currently three days past its the first hour contact window so recoverability has decayed to roughly 45%. That single lead contributes ₹35,00,000 × 0.36 × 0.45 = **₹5.67 lakh** to your ₹ at risk total. Sum that across every aging high-grade lead on a 10-rep desk and the weekly number is rarely small. ₹12–₹20 lakh at risk in a single week is common for teams that aren't watching it.
 
 ## Why it beats activity counts and conversion %
 

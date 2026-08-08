@@ -12,11 +12,11 @@ faqs:
   - q: "What is insurance lead management in India and why is it different from generic CRM?"
     a: "Insurance lead management in India has to handle three things a generic CRM ignores: premium bands that range from ₹8,000 to ₹2 lakh (so a Grade A ₹2L term lead can't sit in the same queue as a ₹8k motor renewal), renewal cycles that decide most of your revenue, and IRDAI-grade audit trails proving who contacted which lead, when, and what was said. A branch running 10–40 agents needs per-agent ₹ accountability, not just a list of contacts."
   - q: "How do you stop insurance leads from PolicyBazaar and BankBazaar going cold?"
-    a: "Aggregator leads from PolicyBazaar and BankBazaar are time-sensitive — the same lead is sold to multiple insurers, so the first agent to call usually wins. Grade the lead by premium band and intent in under 500ms the moment it lands, push the high-value ones to the top of a Priority Queue, and surface any lead that crosses its contact window in a Missed Opportunity Engine that shows the exact ₹ premium at risk. A ₹1.4L health lead sitting un-worked for 3 hours is not a 'to-do' — it's revenue walking to a competitor."
+    a: "Aggregator leads from PolicyBazaar and BankBazaar are time-sensitive — the same lead is sold to multiple insurers, so the first agent to call usually wins. Grade the lead by premium band and intent in real time the moment it lands, push the high-value ones to the top of a Priority Queue, and surface any lead that crosses its contact window in a Missed Opportunity Engine that shows the exact ₹ premium at risk. A ₹1.4L health lead sitting un-worked for 3 hours is not a 'to-do' — it's revenue walking to a competitor."
   - q: "How does a branch manager track per-agent performance without micromanaging?"
     a: "Stop counting calls and start counting ₹ recovered per agent. Sales Rep Tracking attributes recovered premium to the agent who closed it, builds a compliance-ready audit trail of every touch, and rolls it into a Morning Brief at 8:30 AM IST so the manager sees who's working high-value leads and who's burning the day on ₹8k motor renewals while a ₹2L term lead goes cold. Activity dashboards lie. ₹ recovered per agent doesn't."
   - q: "How long does it take to set up insurance lead management for a branch?"
-    a: "Setup runs about 60 minutes — connect your lead sources, set premium bands for grading, and assign agents. Pricing is ₹999, ₹1,999, or ₹2,999 per agent per month depending on tier. A 20-agent branch on the mid tier runs ₹39,980/month — recover one ₹2L term policy that would otherwise have lapsed and the month pays for itself five times over."
+    a: "Setup runs a single sitting — connect your lead sources, set premium bands for grading, and assign agents. Pricing is ₹999, ₹1,999, or ₹2,999 per agent per month depending on tier. A 20-agent branch on the mid tier runs ₹39,980/month — recover one ₹2L term policy that would otherwise have lapsed and the month pays for itself five times over."
 ---
 
 A branch manager in Pune runs 22 agents. Last quarter, 11 of them missed renewal reminders on policies worth a combined ₹6.8 lakh in premium, because the reminders lived in a spreadsheet nobody opened after 6 PM. Three of those policies lapsed. Two went to a rival who called first. That is insurance lead management in India as it actually works at the branch level — not the version in the vendor demo.
@@ -27,7 +27,7 @@ The problem is rarely the agents. It's the situation they're put in: leads arriv
 
 - A branch running 10–40 agents loses most revenue not to bad selling but to **un-worked leads and missed renewals** that no system flags in ₹ terms.
 - Aggregator leads from PolicyBazaar/BankBazaar are sold to multiple insurers — **first contact wins**, so a 3-hour delay on a ₹1.4L health lead is money handed to a competitor.
-- Grade every lead **A–F in under 500ms** by premium band and intent, then run a **Priority Queue** so a ₹2L term lead never sits behind a ₹8k motor renewal.
+- Grade every lead **A–F in real time** by premium band and intent, then run a **Priority Queue** so a ₹2L term lead never sits behind a ₹8k motor renewal.
 - A **Missed Opportunity Engine** should show the exact ₹ premium at risk from un-worked leads and slipping renewals — not a vague "follow up" badge.
 - Track **₹ recovered per agent** with a compliance-ready audit trail, surfaced in a **Morning Brief at 8:30 AM IST** — because activity counts lie and IRDAI audits don't accept "we think we called them."
 
@@ -41,7 +41,7 @@ Then there's the renewal blind spot. In Indian life and health insurance, renewa
 
 ## Grade leads by premium band, not by arrival time
 
-The first fix is to stop treating leads as a queue and start treating them as graded inventory. Every lead that lands — aggregator, referral, or repeat — gets a Grade A–F in under 500ms, scored on premium band and buying intent together.
+The first fix is to stop treating leads as a queue and start treating them as graded inventory. Every lead that lands — aggregator, referral, or repeat — gets a Grade A–F in real time, scored on premium band and buying intent together.
 
 A ₹2 lakh term-life lead from PolicyBazaar with a completed quote and a stated need is a Grade A. A ₹8,000 motor renewal with no urgency signal is a Grade D. They are not the same job, and they should never appear next to each other. The [Priority Queue](/features/missed-opportunity-engine) re-ranks in real time, so when that ₹2L lead arrives at 4 PM, it jumps the line ahead of the ₹8k task an agent was about to start.
 
@@ -75,8 +75,8 @@ No log-in, no report-building, no waiting for an analyst. A manager running 30 a
 
 ## The branch that runs on ₹, not activity
 
-Insurance lead management in India isn't a CRM problem; it's an accountability and timing problem dressed up as one. The leads are there. The premium is there. What's missing is a system that grades by value in under 500ms, queues by ₹, surfaces what's at risk before it lapses, and proves — agent by agent, in an audit-ready trail — who actually recovered the money.
+Insurance lead management in India is an accountability and timing problem dressed up as a software problem. The leads are there. The premium is there. What's missing is a system that grades by value in real time, queues by ₹, surfaces what's at risk before it lapses, and proves — agent by agent, in an audit-ready trail — who actually recovered the money.
 
-Setup takes about 60 minutes for a branch. Pricing runs ₹999 to ₹2,999 per agent per month, so a 20-agent branch lands between ₹19,980 and ₹59,980 a month — less than the premium on a single ₹2 lakh term policy you'd otherwise let lapse.
+Setup takes a single sitting for a branch. Pricing runs ₹999 to ₹2,999 per agent per month, so a 20-agent branch lands between ₹19,980 and ₹59,980 a month — less than the premium on a single ₹2 lakh term policy you'd otherwise let lapse.
 
 If your branch is losing renewals it never logged and aggregator leads it called too late, [book a demo](/demo) and we'll show you, on your numbers, exactly how much premium is sitting at risk right now.

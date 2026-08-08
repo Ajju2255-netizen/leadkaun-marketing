@@ -16,7 +16,7 @@ faqs:
   - q: "What's the difference between accountability and surveillance for a sales team?"
     a: "Surveillance asks 'what did you do today?' and counts activity. Accountability asks 'what moved, what's at risk, and what's the plan?' and counts outcomes. Surveillance makes the rep defensive. Accountability — when it runs off the same numbers the rep sees every morning — makes the rep self-correct before the 1:1 even happens. Same data, opposite relationship."
   - q: "How does Leadkaun support accountability without micromanagement?"
-    a: "Leadkaun makes the numbers visible to everyone, so accountability stops being one person watching another. The Morning Brief lands at 8:30 AM IST with each rep's queue and ₹ at risk. Sales Rep Tracking shows per-rep ₹ recovered, Grade A response time, and follow-up completion. The manager coaches off the same data the rep already saw — no surprise audits, no activity policing. Setup takes 60 minutes."
+    a: "Leadkaun makes the numbers visible to everyone, so accountability stops being one person watching another. The Morning Brief lands at 8:30 AM IST with each rep's queue and ₹ at risk. Sales Rep Tracking shows per-rep ₹ recovered, Grade A response time, and follow-up completion. The manager coaches off the same data the rep already saw — no surprise audits, no activity policing. Setup takes a single sitting."
 ---
 
 Every sales manager in India has been told to "hold the team accountable." Almost no one is told the difference between accountability and standing behind a rep's chair counting their calls. So most default to the second one — and watch their best people quit. This is about sales team accountability in India that actually works: built on outcomes a rep can see, not surveillance they resent.
@@ -45,7 +45,7 @@ The deeper cost is data. When logging exists only to satisfy a hovering manager,
 
 Here's the uncomfortable part. Most "accountability" in Indian SMB sales teams is activity accounting: calls made, emails sent, hours in the CRM, leads "touched." None of it is wrong to know. All of it is the wrong thing to manage on.
 
-A rep who makes 40 calls and lets a Grade A lead sit for nine hours has had a bad day that looks great on the activity report. A rep who made 12 calls but contacted every hot lead inside 47 minutes and closed two follow-ups has had an excellent day that looks lazy on the same report. If you reward the first and question the second, you are training the wrong behaviour.
+A rep who makes 40 calls and lets a Grade A lead sit for nine hours has had a bad day that looks great on the activity report. A rep who made 12 calls but contacted every hot lead inside the hour and closed two follow-ups has had an excellent day that looks lazy on the same report. If you reward the first and question the second, you are training the wrong behaviour.
 
 Activity is easy to count, which is exactly why managers fall back on it — and exactly why it's the wrong lever. The thing that moves money is harder to see, so it needs a system that surfaces it.
 
@@ -55,7 +55,7 @@ Drop the activity theatre. Manage on three outcomes, all of them tied to revenue
 
 **₹ recovered per rep.** This is money the rep saved from going cold. Leadkaun's [Missed Opportunity Engine](/features/missed-opportunity-engine) puts a rupee figure on every lead that's slipping — a Grade A enterprise lead untouched for six hours isn't "a follow-up," it's ₹3L at risk. When a rep clears those, that's ₹ recovered. One number tells you whether they're protecting pipeline or leaking it. A rep who recovered ₹14L last month and another who recovered ₹2L are having two completely different months — and no call count would have told you that.
 
-**Grade A response time.** Leadkaun grades every lead A–F in under 500 milliseconds and queues the A's first. Grade A leads convert when contacted within roughly 47 minutes; after that, conversion falls off a cliff. So the metric isn't "how fast do you answer everything" — it's "how fast do you answer the leads worth answering." A rep averaging 35 minutes on Grade A is winning. One averaging four hours is leaking ₹ regardless of how busy they look.
+**Grade A response time.** Leadkaun grades every lead A–F in under 500 milliseconds and queues the A's first. Grade A leads convert when contacted within the first hour; after that, conversion falls off a cliff. So the metric isn't "how fast do you answer everything" — it's "how fast do you answer the leads worth answering." A rep averaging 35 minutes on Grade A is winning. One averaging four hours is leaking ₹ regardless of how busy they look.
 
 **Follow-up completion rate.** Most lost SMB deals in India die in follow-up, not first contact — the second and third touch that never happens. A rep completing 90% of scheduled follow-ups is reliable. One at 50% is a slow leak you can see and coach, instead of a mystery you discover at quarter-end.
 
@@ -83,6 +83,6 @@ Across a team, the rollups also kill the worst micromanagement instinct: treatin
 
 Stop watching what reps do. Start making what matters visible to them first. Micromanagement is a manager trying to be the system through sheer willpower and a lot of check-in calls. It doesn't scale past about five reps, it burns out the manager, and it teaches the team to perform activity instead of producing outcomes.
 
-A real system — leads graded in under 500ms, a Priority Queue, ₹ at risk surfaced daily, a Morning Brief at 8:30, per-rep outcome tracking — does the watching so you don't have to. The manager's job changes from policing to coaching. The rep's job changes from looking busy to clearing real ₹. And the team keeps its best people, because the best people don't quit good systems — they quit being watched.
+A real system — leads graded in real time, a Priority Queue, ₹ at risk surfaced daily, a Morning Brief at 8:30, per-rep outcome tracking — does the watching so you don't have to. The manager's job changes from policing to coaching. The rep's job changes from looking busy to clearing real ₹. And the team keeps its best people, because the best people don't quit good systems — they quit being watched.
 
-Want to see what accountability without surveillance looks like on your own team's numbers? [Book a demo](/demo) — setup takes 60 minutes, and you'll see per-rep ₹ recovered, response time, and follow-up completion the same day.
+Want to see what accountability without surveillance looks like on your own team's numbers? [Book a demo](/demo) — Setup takes a single sitting, and you'll see per-rep ₹ recovered, response time, and follow-up completion the same day.

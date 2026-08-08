@@ -91,7 +91,7 @@ Grade A is the combination of all three being high. Grade F is quality below the
 
 A priority queue is not a to-do list. A to-do list stays the same all day. A priority queue shifts every time something happens: a WhatsApp reply arrives, a call gets logged, intent decays overnight. Every rep should open their queue in the morning and see the top five leads that are most likely to close today — not the ones they added last.
 
-The re-ranking logic combines grade, recency of the last signal, overdue follow-ups, and engagement trend. Done well, the queue tells the rep exactly what to do for the next 60 minutes without the rep making a single decision.
+The re-ranking logic combines grade, recency of the last signal, overdue follow-ups, and engagement trend. Done well, the queue tells the rep exactly what to do for the next hour without the rep making a single decision.
 
 ### 3. Attach a rupee value to every stale lead
 
@@ -116,6 +116,6 @@ You do not need to adopt a new tool to start. You need to adopt a new ritual.
 
 Leads going cold is not a rep problem. It is a system problem. The fix is not more discipline, more training, or more pressure. It is three behaviours running continuously: grade, rank, rupee-ify.
 
-If you want this running automatically — with a 60-minute setup, Indian phone handling, WhatsApp logging in three taps, and a Morning Brief email that surfaces ₹ at risk at 8:30 AM every weekday — [see how Leadkaun works](/product). Teams on Leadkaun recover ₹18 lakh on average in the first 30 days, most of it from leads their old CRM was already tracking.
+If you want this running automatically — with a the same day setup, Indian phone handling, WhatsApp logging in three taps, and a Morning Brief email that surfaces ₹ at risk at 8:30 AM every weekday — [see how Leadkaun works](/product). Teams on Leadkaun recover ₹18 lakh on average in the first 30 days, most of it from leads their old CRM was already tracking.
 
 Start with the behaviours. Upgrade to the system when the behaviours prove their worth.

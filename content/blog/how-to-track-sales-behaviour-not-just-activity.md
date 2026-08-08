@@ -10,13 +10,13 @@ tags: ["sales-behaviour", "sales-management", "accountability", "india"]
 readingTime: "7 min read"
 faqs:
   - q: "What's the difference between sales activity tracking and sales behaviour tracking?"
-    a: "Activity tracking counts outputs — 80 calls, 120 emails, 45 WhatsApp messages a day. It tells you a rep was busy. Behaviour tracking measures the decisions inside that activity: did the Grade A lead get called within 47 minutes, or did the rep burn the morning on three Grade D leads that were never going to close? Activity is volume. Behaviour is judgement. Only one of them predicts revenue."
+    a: "Activity tracking counts outputs — 80 calls, 120 emails, 45 WhatsApp messages a day. It tells you a rep was busy. Behaviour tracking measures the decisions inside that activity: did the Grade A lead get called within the first hour, or did the rep burn the morning on three Grade D leads that were never going to close? Activity is volume. Behaviour is judgement. Only one of them predicts revenue."
   - q: "Why do activity dashboards mislead Indian sales managers?"
     a: "Because a rep can hit every activity target and still lose the month. 90 dials, all to stale leads. A full inbox, none of it to the ₹8L deal that came in at 11 AM and went cold by 2 PM. The dashboard turns green, the manager relaxes, and the pipeline quietly leaks. Activity numbers reward motion, not the right motion — so reps optimise for looking busy instead of working the lead that matters next."
   - q: "How do you measure sales behaviour without micromanaging reps?"
     a: "You measure outcomes of behaviour, not keystrokes. Three signals do most of the work: response time on Grade A leads, follow-up completion rate, and whether the rep worked the highest-value lead next. Leadkaun's Sales Rep Tracking surfaces these as ₹ recovered per rep — so coaching is a conversation about money saved, not a stopwatch over someone's shoulder."
   - q: "What behaviour signals actually predict whether a deal closes?"
-    a: "First-response time is the strongest. Grade A leads convert far more often when contacted within ~47 minutes — past that window the same lead goes cold. After that: follow-up discipline (did the second and third touch happen on schedule) and lead-selection (did the rep work the right lead next, or the easy one). These three explain more closed revenue than total call volume ever will."
+    a: "First-response time is the strongest. Grade A leads convert far more often when contacted within ~the first hour — past that window the same lead goes cold. After that: follow-up discipline (did the second and third touch happen on schedule) and lead-selection (did the rep work the right lead next, or the easy one). These three explain more closed revenue than total call volume ever will."
 ---
 
 Your top rep made 78 calls yesterday. The dashboard is green. And you still lost a ₹9L deal because the lead that came in at 11:40 AM didn't get called until the next morning. This is the gap that **sales behaviour tracking** closes — and it's the gap most Indian sales teams can't even see, because their reports only count how much happened, never whether the right thing happened.
@@ -27,7 +27,7 @@ Activity dashboards are comforting. They are also, most of the time, lying to yo
 
 - Activity tracking counts calls, emails, and WhatsApp messages — it measures effort, not judgement, and effort doesn't close deals.
 - Behaviour tracking measures the decisions inside the activity: response time, follow-up discipline, and whether the rep worked the right lead next.
-- A rep can hit every activity target and still lose the month — busy on Grade D leads while a Grade A deal goes cold past the ~47-minute window.
+- A rep can hit every activity target and still lose the month — busy on Grade D leads while a Grade A deal goes cold past the ~the first hour window.
 - Three behaviour signals predict revenue better than any call count: first-response time on hot leads, follow-up completion, and lead-selection.
 - Coach on behaviour by framing it as [₹ recovered per rep](/features/sales-rep-tracking), not keystrokes watched — accountability without the stopwatch.
 
@@ -59,7 +59,7 @@ It buries the misses. Activity dashboards count what happened. They are structur
 
 Strip away the vanity counts and three behaviours do almost all the predictive work.
 
-**First-response time on hot leads.** This is the single strongest signal we see. Grade A leads — the ones our scoring engine flags on Fit, Intent, and Quality in under 500ms — convert dramatically more often when a rep makes contact within roughly 47 minutes. Past that, the same lead behaves like a Grade C. Not because the lead got worse, but because three competitors also got the enquiry and one of them called back in 12 minutes. Response time is not a nice-to-have. It is the deal.
+**First-response time on hot leads.** This is the single strongest signal we see. Grade A leads — the ones our scoring engine flags on Fit, Intent, and Quality in real time — convert dramatically more often when a rep makes contact within the first hour. Past that, the same lead behaves like a Grade C. Not because the lead got worse, but because three competitors also got the enquiry and one of them called back in 12 minutes. Response time is not a nice-to-have. It is the deal.
 
 **Follow-up discipline.** Most B2B deals in India close on the third to fifth touch, not the first. The rep who logs one call and waits for the buyer to come back loses to the rep who runs a disciplined second touch at 48 hours and a third at day five. An activity dashboard can't tell these two reps apart — both "made calls." A behaviour view shows one completing follow-up sequences and the other abandoning them after touch one.
 

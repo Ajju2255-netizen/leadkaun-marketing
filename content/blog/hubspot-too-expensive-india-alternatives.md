@@ -75,7 +75,7 @@ Don't replace HubSpot with "another HubSpot." Replace the *job*.
 **HubSpot Free CRM + a Sales Behaviour OS.** Keep HubSpot's free tier as your contact store and use a ₹-priced behaviour layer for the part HubSpot doesn't do well — telling reps who to call next and surfacing ₹ at risk. Often cheaper than one HubSpot Professional seat.
 
 ### Job: change what reps do, not just record it
-**Leadkaun.** This is a different category — a Sales Behaviour Operating System. It grades every lead A–F in under 500ms with our [lead scoring engine](/features/lead-scoring), builds each rep's [priority queue](/features/priority-queue) in real time, and surfaces missed revenue in rupees through the [Missed Opportunity Engine](/features/missed-opportunity-engine). ₹999–₹2,999/seat/month, India-priced, 60-minute setup. The full contrast is on [Leadkaun vs HubSpot](/compare/leadkaun-vs-hubspot).
+**Leadkaun.** This is a different category — a Sales Behaviour Operating System. It grades every lead A–F in real time with our [lead scoring engine](/features/lead-scoring), builds each rep's [priority queue](/features/priority-queue) in real time, and surfaces missed revenue in rupees through the [Missed Opportunity Engine](/features/missed-opportunity-engine). ₹999–₹2,999/seat/month, India-priced, the same day setup. The full contrast is on [Leadkaun vs HubSpot](/compare/leadkaun-vs-hubspot).
 
 ### Job: free or nearly free
 HubSpot Free CRM (sub-5 reps), or Zoho Bigin (₹ entry-level). Fine until you need automation or real reporting.

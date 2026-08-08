@@ -14,7 +14,7 @@ faqs:
   - q: "Why is a daily brief better than a weekly sales dashboard for changing behaviour?"
     a: "A weekly dashboard tells you what already happened — by the time you read it, the Grade A lead has gone cold and the ₹ is lost. A daily brief lands before the day starts and changes what the rep does in the next two hours, while it still matters. Behaviour changes when feedback is same-day and tied to a specific action ('call these 3 leads now'), not when it arrives as a Friday report on last week's misses."
   - q: "What should a rep see the moment they open the morning brief?"
-    a: "Three things, ranked: (1) the ₹ at risk today — deals that go cold if nobody acts; (2) the top Grade A leads, scored in under 500ms, because Grade A converts within roughly 47 minutes of contact; (3) overdue follow-ups, with the original commitment date. Everything else — pipeline totals, vanity counts — sits below the fold. The brief answers 'what do I do first?' in the first five lines."
+    a: "Three things, ranked: (1) the ₹ at risk today — deals that go cold if nobody acts; (2) the top Grade A leads, scored in real time, because Grade A converts within the first hour of contact; (3) overdue follow-ups, with the original commitment date. Everything else — pipeline totals, vanity counts — sits below the fold. The brief answers 'what do I do first?' in the first five lines."
   - q: "Does the morning brief replace the CRM?"
     a: "No. The brief is a behaviour layer on top of whatever system holds your records. The CRM stores what happened; the morning brief decides what happens next and in what order. Most teams run Leadkaun's Morning Brief and Priority Queue alongside their existing CRM — the brief reads from the graded lead data and surfaces the day's ₹ at risk, while the CRM keeps being the system of record."
 ---
@@ -27,7 +27,7 @@ A **sales morning brief** closes that gap. It lands at 8:30 AM IST, half an hour
 
 - A weekly dashboard tells reps what already happened; a daily **sales morning brief** changes what they do in the next two hours.
 - The brief at 8:30 AM IST ranks three things: ₹ at risk today, top Grade A leads, and overdue follow-ups — in that order, above the fold.
-- Grade A–F scoring runs in under 500ms, and Grade A leads convert when contacted within roughly 47 minutes — so the brief surfaces them before the day's noise buries them.
+- Grade A–F scoring runs in real time, and Grade A leads convert when contacted within the first hour — so the brief surfaces them before the day's noise buries them.
 - "Inbox chaos at 9 AM" sorts work by who shouted last; a ranked brief sorts by ₹ at risk, which is the only ranking that maps to revenue.
 - Behaviour changes from same-day, action-specific feedback ("call these 3 now"), not from a Friday report on last week's misses.
 
@@ -43,7 +43,7 @@ A good sales morning brief is brutally short. Five lines that matter, then every
 
 **Line one — ₹ at risk today.** This is the [Missed Opportunity Engine](/features/morning-brief) doing its job: a rupee figure for deals that go cold if nobody acts in the next several hours. "₹4.2L at risk across 6 leads" is a sentence that moves a rep off WhatsApp and onto the phone. "You have 6 pending leads" is not. The difference is the rupee number. Urgency that isn't tied to money is just nagging, and reps tune out nagging by day three.
 
-**Line two — top Grade A leads.** Every lead is graded A–F in under 500ms as it enters the system. Grade A is the small set that fits your ICP, showed buying signals, and is fresh. The brief lifts the day's Grade A leads to the top because the data is unforgiving: a Grade A lead contacted within roughly 47 minutes converts at a rate that collapses the longer you wait. By 9:45 AM, when the rep finally digs them out of the CRM, they are not Grade A anymore — they are a Grade A lead that went cold, which is just a Grade C with a story attached.
+**Line two — top Grade A leads.** Every lead is graded A–F in real time as it enters the system. Grade A is the small set that fits your ICP, showed buying signals, and is fresh. The brief lifts the day's Grade A leads to the top because the data is unforgiving: a Grade A lead contacted within the first hour converts at a rate that collapses the longer you wait. By 9:45 AM, when the rep finally digs them out of the CRM, they are not Grade A anymore — they are a Grade A lead that went cold, which is just a Grade C with a story attached.
 
 **Line three — overdue follow-ups.** Not "you have follow-ups" — the specific ones, with the commitment date attached. "Promised Sharma ji a quote by Tuesday. It is Thursday." The brief blames the situation, not the rep: the follow-up slipped because Tuesday had four fires and no system held the thread. The fix is the brief holding it, so Thursday morning it is line three instead of a deal you quietly lost.
 
@@ -57,7 +57,7 @@ A dashboard reports the past. By the time "23 leads went uncontacted last week" 
 
 A daily brief reports the next two hours. It is not "you missed 23 leads last week" — it is "here are 3 leads going cold today, call them now." Same data engine underneath; completely different effect. One produces guilt, the other produces calls. Behaviour changes when the feedback loop is same-day and the requested action is specific. This is the whole logic behind tracking what reps do rather than counting what they touched — a point worth its own read on [how to track sales behaviour, not just activity](/blog/how-to-track-sales-behaviour-not-just-activity). The morning brief is that philosophy compressed into one email a day.
 
-Consider a 10-rep team. If a ranked brief moves each rep to contact even two more Grade A leads per day before they cool, and Grade A leads carry an average deal size of ₹1.2L at a conversion rate that doubles inside the 47-minute window, the recovered pipeline runs into several lakhs a week. That is not a productivity nicety. That is ₹ that was leaving the building at 9 AM every day and now isn't.
+Consider a 10-rep team. If a ranked brief moves each rep to contact even two more Grade A leads per day before they cool, and Grade A leads carry an average deal size of ₹1.2L at a conversion rate that doubles inside the the first hour window, the recovered pipeline runs into several lakhs a week. That is not a productivity nicety. That is ₹ that was leaving the building at 9 AM every day and now isn't.
 
 ## How the brief and the queue work together
 
@@ -69,6 +69,6 @@ This matters because the day does not hold still. A static morning list goes sta
 
 Teams that switch from dashboard-checking to a daily brief notice the same pattern, usually inside two weeks. The 9 AM scramble shrinks, because the agenda was set at 8:30. Grade A response times drop — the leads that used to sit until afternoon now get a call before 10 AM. And the "I forgot to follow up" excuse disappears, not because reps got more disciplined overnight, but because the brief carries the thread the rep's memory used to drop.
 
-The behaviour shift is real and it is fast, because nothing about it asks the rep to try harder. It asks them to read five lines and start at the top. The system does the ranking, the rep does the selling. Setup takes about 60 minutes, the brief lands the next morning, and plans run ₹999, ₹1,999, or ₹2,999 per rep per month depending on the depth of tracking you want.
+The behaviour shift is real and it is fast, because nothing about it asks the rep to try harder. It asks them to read five lines and start at the top. The system does the ranking, the rep does the selling. Setup takes a single sitting, the brief lands the next morning, and plans run ₹999, ₹1,999, or ₹2,999 per rep per month depending on the depth of tracking you want.
 
 The teams winning in Indian B2B are not the ones with the most data. They are the ones who read the right five lines first. Want to see exactly what your reps would open at 8:30 AM — the ₹ at risk, the Grade A leads, the overdue threads, all ranked? [Book a demo](/demo) and we'll build a sample brief from your own pipeline shape so you can see the order your day should be in.

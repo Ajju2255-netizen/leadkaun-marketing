@@ -14,7 +14,7 @@ faqs:
   - q: "How is a Priority Queue different from a to-do list?"
     a: "A to-do list is static — it's what the rep added yesterday. A Priority Queue is dynamic — it re-ranks every time something changes. A new Grade A enquiry at 11 AM jumps to the top of the queue by 11:01. A WhatsApp reply from a Grade B lead boosts its Intent Score and moves it up. A lead that's been silent for 5 days drops. The queue is always right now's picture, not yesterday's."
   - q: "Do I need software to run a prioritization system?"
-    a: "You can start manual — a Google Sheet with grade, last-touch date, and a ranked column. That works for 50 leads. Past 200 leads or 3+ reps, the manual version falls apart because nobody updates the rank column fast enough. At scale, you want a scoring engine that ranks automatically in under 500ms per lead."
+    a: "You can start manual — a Google Sheet with grade, last-touch date, and a ranked column. That works for 50 leads. Past 200 leads or 3+ reps, the manual version falls apart because nobody updates the rank column fast enough. At scale, you want a scoring engine that ranks automatically in real time per lead."
   - q: "What's the biggest mistake teams make when setting up prioritization?"
     a: "Treating it as 'prioritise by recency'. The newest lead is not the most likely to close — that's why queues exist. The biggest leakage is when reps call fresh low-grade leads while Grade A leads from yesterday go cold. The system must explicitly override 'newest first' with 'grade + recency + ₹ at risk'."
 ---
@@ -116,12 +116,12 @@ This is what makes the case for automation. Without the baseline, you can't meas
 
 The manual sheet breaks at about 200 leads. The rank column becomes stale within hours because intent decay and new signals arrive faster than humans update. At that scale, you need an engine that:
 
-- Scores every new lead within 500ms.
+- Scores every new lead within real time.
 - Re-ranks the queue when any signal arrives — call logged, WA reply, meeting booked, intent decay.
 - Shows each rep their queue, re-ranked, every time they open the app.
 - Attaches ₹ at risk to every stale Grade A lead visibly.
 
-[Leadkaun's Priority Queue](/features/priority-queue) runs this formula by default, tuned for Indian B2B SMBs, with every weight customisable per ICP. Setup time: 60 minutes. First queue built for your team within the first hour.
+[Leadkaun's Priority Queue](/features/priority-queue) runs this formula by default, tuned for Indian B2B SMBs, with every weight customisable per ICP. Setup time: the same day. First queue built for your team within the first hour.
 
 ## Integrating with existing tools
 

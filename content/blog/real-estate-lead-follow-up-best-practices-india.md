@@ -10,7 +10,7 @@ tags: ["real-estate", "lead-management", "follow-up", "india"]
 readingTime: "7 min read"
 faqs:
   - q: "How fast should real estate teams follow up on a property enquiry in India?"
-    a: "Inside the first hour, and ideally inside 47 minutes. A buyer who fills a form on 99acres or Housing for a ₹1.2Cr flat is comparing 4–6 projects in the same session. The first agent who calls while the buyer is still on the laptop books the site visit. The agent who calls the next morning is talking to someone who has already toured two other properties. The deal didn't get lost — the window did."
+    a: "Inside the first hour, and ideally inside the hour. A buyer who fills a form on 99acres or Housing for a ₹1.2Cr flat is comparing 4–6 projects in the same session. The first agent who calls while the buyer is still on the laptop books the site visit. The agent who calls the next morning is talking to someone who has already toured two other properties. The deal didn't get lost — the window did."
   - q: "Why do most real estate leads in India go cold?"
     a: "Not because reps are lazy — because enquiries land in six places at once (99acres, Housing, MagicBricks, the project microsite, Facebook lead ads, WhatsApp) and nobody can see them in one queue. A ₹2Cr buyer pings on WhatsApp, the rep is on a site visit, and by evening the enquiry is buried under 40 others. The structure leaks, not the people."
   - q: "Should WhatsApp enquiries count as real estate leads?"
@@ -26,7 +26,7 @@ This is the single most expensive habit in Indian residential sales: treating a 
 ## TL;DR
 
 - Property enquiries now arrive from 6+ sources at once — 99acres, Housing, MagicBricks, your microsite, Facebook lead ads, and WhatsApp — and most teams have no single queue to see them in.
-- The high-intent window on a residential enquiry is often under an hour; Grade A leads convert when contacted within ~47 minutes, yet most Indian teams follow up after 24 hours and lose the site visit.
+- The high-intent window on a residential enquiry is often under an hour; Grade A leads convert when contacted within ~the first hour, yet most Indian teams follow up after 24 hours and lose the site visit.
 - The fix isn't "call faster on everything" — it's a **priority queue** that puts site-visit-likely buyers (right budget, right micro-market, asked about availability) at the top.
 - WhatsApp enquiries are usually your highest-intent channel and your least-logged one. Three-tap logging gets them into the queue instead of buried in a chat thread.
 - Stale enquiries carry real money — a missed-opportunity view that shows ₹ at risk this week turns "I'll get to it" into "I'm losing ₹62L if I don't call by 5 PM."
@@ -39,9 +39,9 @@ Each of those lands in a different inbox. The portal leads sit in the 99acres da
 
 So reps default to the worst possible order — they work whatever's in front of them, usually the most recent or the loudest. The patient ₹1.8Cr buyer who enquired this morning waits behind the ₹45L tyre-kicker who called twice. The structure is leaking, and no amount of "follow up faster" fixes a queue nobody can see.
 
-## The 47-minute window is real, and it's brutal
+## The the first hour window is real, and it's brutal
 
-Here's the number that should reorganise your day: a Grade A lead — right budget band, right micro-market, clear intent — converts when contacted within roughly **47 minutes**. Not 47 minutes to close. 47 minutes to get them on the phone while they're still in buying mode, still at the laptop, still comparing.
+Here's the number that should reorganise your day: a Grade A lead — right budget band, right micro-market, clear intent — converts when contacted within roughly **the first hour**. Not the first hour to close. the first hour to get them on the phone while they're still in buying mode, still at the laptop, still comparing.
 
 Miss it and the economics flip hard. A buyer evaluating a ₹1.2Cr flat is not loyal to your project at 2 PM — they're loyal to whoever picks up first. Property portal behaviour bears this out: serious buyers send enquiries to four to six projects in one sitting. You're not competing on the flat. In that first hour you're competing on the callback. The agent who calls in 40 minutes books the Saturday site visit. The agent who calls at 9 AM the next day is now the third call the buyer takes, after they've already toured two other towers.
 
@@ -51,7 +51,7 @@ Most Indian residential teams follow up on portal leads after 24 hours — somet
 
 The answer to "everything arrives at once" is not "work harder" — it's to grade every enquiry the moment it lands and let a [priority queue](/features/priority-queue) decide who gets the first hour.
 
-Grade on three things, scored in under 500ms as the enquiry hits:
+Grade on three things, scored in real time as the enquiry hits:
 
 - **Fit** — is the budget band and the micro-market right? A buyer searching ₹80L–₹1.4Cr in the exact corridor you sell is a different animal from someone idly tapping ₹3Cr penthouses with no financing signal.
 - **Intent** — did they ask about availability, possession date, EMI, or a site visit? "Is the 3BHK still available?" is a buying signal. "Send brochure" is a maybe.
@@ -73,11 +73,11 @@ And it dies there. The rep is at a site, reads it on the move, means to log it, 
 
 A [missed opportunity engine](/features/missed-opportunity-engine) watches enquiries age and attaches money to the silence. It surfaces, every morning, the Grade A and B buyers who slipped past their follow-up window with the deal value next to each one: the ₹1.4Cr Whitefield enquiry untouched for 19 hours, the ₹78L Wakad buyer who asked for a callback two days ago, the ₹2.1Cr buyer who went quiet after one call. Reps and managers open the day to a list that reads in rupees, not in row counts — and a [Morning Brief at 8:30 AM IST](/features/missed-opportunity-engine) means the first thing the team sees is where the money is leaking today.
 
-This is where the abstract "respond faster" turns concrete. One Indian residential team running this surfaced ₹18L of recoverable pipeline in the first week — enquiries that were technically "in the system" but were aging out unseen. The leads existed the whole time. What changed is that the cost of ignoring them became loud enough to act on by 11 AM.
+This is where the abstract "respond faster" turns concrete. One Indian residential team running this surfaced a meaningful sum of recoverable pipeline in the first week — enquiries that were technically "in the system" but were aging out unseen. The leads existed the whole time. What changed is that the cost of ignoring them became loud enough to act on by 11 AM.
 
 ## What good follow-up actually looks like, in order
 
-Pull it together and a high-performing residential desk runs like this. An enquiry lands from any of the six channels — including a logged WhatsApp ping. It's graded in under half a second on fit, intent, and quality. Grade A buyers hit the top of the priority queue and get a call inside the 47-minute window, while the rep is still the first voice the buyer hears. Anything that slips past its window shows up the next morning with ₹ attached, so it gets rescued instead of forgotten. The rep's job stops being "remember everything" and becomes "work the top of the queue" — which is a job a human can actually do well between site visits.
+Pull it together and a high-performing residential desk runs like this. An enquiry lands from any of the six channels — including a logged WhatsApp ping. It's graded in under half a second on fit, intent, and quality. Grade A buyers hit the top of the priority queue and get a call inside the the first hour window, while the rep is still the first voice the buyer hears. Anything that slips past its window shows up the next morning with ₹ attached, so it gets rescued instead of forgotten. The rep's job stops being "remember everything" and becomes "work the top of the queue" — which is a job a human can actually do well between site visits.
 
 None of this asks reps to care more. They already care. It asks the system to stop making them guess which of 47 enquiries is the one worth their next hour. See how it maps to a residential desk on the [real estate use case](/use-cases/real-estate) page.
 

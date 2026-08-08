@@ -47,7 +47,7 @@ Notice what is not on that list: a recurring call. The call was how a manager wi
 
 In a single office, lead assignment happens by feel. A good enquiry comes in, the manager calls out a name, done. Across six cities, that informal dispatch turns into a bottleneck — you become the person every rep waits on, and a Grade A lead in Indore sits unassigned because you were in a meeting.
 
-The fix is to let the system rank and route. Leadkaun grades every incoming lead A–F in under 500ms and drops it into a shared Priority Queue. A rep in Jaipur opens the queue and sees, in order, what to call now — the Grade A enquiry that came in 40 minutes ago sits at the top, not buried under 30 stale leads. The manager is out of the loop for routine assignment, which is exactly where the manager should be.
+The fix is to let the system rank and route. Leadkaun grades every incoming lead A–F in real time and drops it into a shared Priority Queue. A rep in Jaipur opens the queue and sees, in order, what to call now — the Grade A enquiry that came in 40 minutes ago sits at the top, not buried under 30 stale leads. The manager is out of the loop for routine assignment, which is exactly where the manager should be.
 
 This matters more for distributed teams than office teams, because the cost of a wrong priority is higher. When everyone shares a room, a mis-ranked lead gets corrected by overhearing. When your reps are spread across four states, a Grade A lead that a rep deprioritised by mistake is money that simply leaks out — quietly, with no one in the room to catch it.
 
@@ -65,7 +65,7 @@ The old remote-team playbook is surveillance: screenshots, login timestamps, "sh
 
 The better model: make logging an outcome so frictionless that it happens by default, then judge on the log. A rep closes a call and logs it in 3 taps. A WhatsApp conversation — which for most Indian B2B sales is where the real selling happens — gets logged just as fast, because WhatsApp is a first-class sales channel here, not a side toy. The footprint a remote rep leaves becomes identical to an office rep's.
 
-And when something slips, blame the situation, not the person. "This Grade A lead went cold because the follow-up fell past the 47-minute window while you were driving between two site visits" is a conversation a rep can act on. "Why aren't you working harder" is not. The first one fixes the system — maybe that rep's territory has too much windshield time and needs a queue that front-loads calls before the drive. The second one just teaches the rep to hide the gap. We go deeper on this in [holding sales reps accountable without micromanaging](/blog/hold-sales-reps-accountable-without-micromanaging).
+And when something slips, blame the situation, not the person. "This Grade A lead went cold because the follow-up fell past the the first hour window while you were driving between two site visits" is a conversation a rep can act on. "Why aren't you working harder" is not. The first one fixes the system — maybe that rep's territory has too much windshield time and needs a queue that front-loads calls before the drive. The second one just teaches the rep to hide the gap. We go deeper on this in [holding sales reps accountable without micromanaging](/blog/hold-sales-reps-accountable-without-micromanaging).
 
 ## Onboarding a remote rep fast: pre-decide the priorities
 

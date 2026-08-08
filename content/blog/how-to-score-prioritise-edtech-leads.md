@@ -14,7 +14,7 @@ faqs:
   - q: "Why does intent decay matter for student leads?"
     a: "Admissions run on deadlines. A parent who watched a demo on Monday is far hotter than one who watched the same demo three weeks ago and went quiet — even though both 'watched a demo'. As enrolment deadlines approach, stale intent should drop a lead's grade fast, because the ₹15k–₹15L fee is about to go to whichever institute called back in time. Leadkaun's scoring decays intent over time so your queue reflects reality, not history."
   - q: "How do you handle 300 leads a day with a small counselling team?"
-    a: "You don't call all 300. You score every lead in under 500ms as it arrives, then work a Priority Queue that surfaces only the 8–10 most likely to enrol right now. The rest stay graded and ranked — when a B lead replies on WhatsApp, it re-ranks up automatically. The team's hours go to the leads where the fee is genuinely winnable today."
+    a: "You don't call all 300. You score every lead in real time as it arrives, then work a Priority Queue that surfaces only the 8–10 most likely to enrol right now. The rest stay graded and ranked — when a B lead replies on WhatsApp, it re-ranks up automatically. The team's hours go to the leads where the fee is genuinely winnable today."
   - q: "Is WhatsApp activity a real scoring signal for admissions?"
     a: "Yes. For Indian edtech, WhatsApp is often the primary channel — parents and students reply there when they ignore calls and email. A two-way WhatsApp thread is one of the strongest intent signals you have. A counsellor can log it in three taps, and that reply pushes the lead up the queue."
 ---
@@ -27,7 +27,7 @@ That gap is not a staffing problem. It's a ranking problem. **EdTech lead scorin
 
 - Score every student lead on three things: **fit** (programme, location, budget match), **intent** (demo watched, WhatsApp replies, repeat visits), and **quality** (real number, complete data).
 - **Intent decays.** A demo watched today outranks one watched three weeks ago — and near a deadline, stale intent should drop a grade fast.
-- The output is a **Grade A–F**, computed in under 500ms as the lead lands, so the first call goes to the right parent.
+- The output is a **Grade A–F**, computed in real time as the lead lands, so the first call goes to the right parent.
 - Don't call all 300. Work a **Priority Queue** of the 8–10 highest-likelihood leads; the rest stay ranked and re-sort when they act.
 - WhatsApp replies are a first-class intent signal — log them in three taps and watch the lead climb.
 
@@ -76,7 +76,7 @@ Low-quality leads don't get deleted. They get graded down, so a counsellor isn't
 
 ## How the inputs become a Grade A–F
 
-The three inputs combine into a single grade — A through F — computed in under 500ms the moment a lead lands. Blame the situation here, not the counsellor: nobody can eyeball fit, intent, and quality across 300 rows by hand and stay accurate past lead number twenty. The scoring engine does it on every lead, every time, without fatigue.
+The three inputs combine into a single grade — A through F — computed in real time the moment a lead lands. Blame the situation here, not the counsellor: nobody can eyeball fit, intent, and quality across 300 rows by hand and stay accurate past lead number twenty. The scoring engine does it on every lead, every time, without fatigue.
 
 A **Grade A** lead is high fit, high recent intent, clean data — a parent in your city, right budget band, watched the demo this morning, replying on WhatsApp. That's your next call, full stop. A **Grade F** is a fake number or a programme you don't even offer. The grades in between rank everyone else.
 

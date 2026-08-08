@@ -16,7 +16,7 @@ faqs:
   - q: "What should I track on day one without building enterprise bloat?"
     a: "Five fields, no more: lead source, ₹ deal size, stage, last-contacted date, owner. That's it. Skip custom objects, skip 14-stage pipelines, skip lead-scoring formulas you'll never maintain. The ₹ deal size and last-contacted date together tell you the one thing that matters early — how much money is going cold and who let it."
   - q: "How much does a lightweight sales-ops stack cost for a 3-rep Indian startup?"
-    a: "Under ₹10k a month if you're disciplined. A free Google Workspace tier or Sheet for storage, WhatsApp for the actual selling, and a behaviour layer like Leadkaun at ₹999–₹2,999 per rep/month for scoring and prioritisation. For 3 reps on the Growth plan that's ₹5,997/month — less than one missed ₹6 lakh deal."
+    a: "Under ₹10k a month if you're disciplined. A free Google Workspace tier or Sheet for storage, WhatsApp for the actual selling, and a behaviour layer like Leadkaun at ₹999–₹2,999 per account per month for scoring and prioritisation. For 3 reps on the Growth plan that's ₹5,997/month — less than one missed ₹6 lakh deal."
 ---
 
 Most Indian startup founders build their sales operations setup twice. The first time is by accident — a Google Sheet, a WhatsApp group, and the founder's memory. The second time is in a panic, after a ₹6 lakh enquiry sat unanswered for three days because nobody owned it and nobody noticed.
@@ -61,9 +61,9 @@ That's the graduation trigger — not headcount, not revenue, not a funding roun
 2. **Visibility lags.** You find out a lead went cold on Friday's review, four days after it actually went cold. The ₹5 lakh was already gone by Tuesday.
 3. **Follow-up depends on memory.** "I'll call them tomorrow" is the most expensive sentence in early sales, because tomorrow there are new leads and the old ones quietly rot.
 
-This is where a behaviour layer earns its keep — not a heavyweight CRM, a tool that does the three things above and nothing it doesn't need to. [Leadkaun](/product) grades each lead A–F in under 500ms the moment it lands, so a rep opening their morning sees a Priority Queue, not a flat list. The Missed Opportunity Engine puts a rupee figure on what's going cold — ₹12 lakh in Grade A leads untouched for 48 hours is a sentence that changes behaviour, where "you have pending follow-ups" never did.
+This is where a behaviour layer earns its keep — not a heavyweight CRM, a tool that does the three things above and nothing it doesn't need to. [Leadkaun](/product) grades each lead A–F in real time the moment it lands, so a rep opening their morning sees a Priority Queue, not a flat list. The Missed Opportunity Engine puts a rupee figure on what's going cold — ₹12 lakh in Grade A leads untouched for 48 hours is a sentence that changes behaviour, where "you have pending follow-ups" never did.
 
-And the logging has to survive the field. The reason reps abandon CRMs is that logging a call takes six clicks between two meetings, so they don't, and your data becomes 30% of reality. Leadkaun's 3-tap WhatsApp logging treats WhatsApp as the first-class sales channel it actually is in India — the rep finishes the chat, logs it in three taps, and the founder's visibility stays honest. Importing your existing sheet takes one CSV upload, and setup runs about 60 minutes start to finish.
+And the logging has to survive the field. The reason reps abandon CRMs is that logging a call takes six clicks between two meetings, so they don't, and your data becomes a fraction of reality. Leadkaun's 3-tap WhatsApp logging treats WhatsApp as the first-class sales channel it actually is in India — the rep finishes the chat, logs it in three taps, and the founder's visibility stays honest. Importing your existing sheet takes one CSV upload, and setup runs about a single sitting start to finish.
 
 Don't build a 14-stage pipeline because the tool allows one. Keep the three stages from your sheet. The system's job in days 30–60 is prioritisation and discipline, not process theatre.
 
@@ -87,7 +87,7 @@ Here's the entire sales operations setup for a 3-rep Indian startup at the end o
 - **The selling channel** — WhatsApp, logged in 3 taps, not bolted on as an afterthought.
 - **Prioritisation + reporting** — Grade A–F scoring, Priority Queue, Missed Opportunity Engine, Morning Brief.
 
-On Leadkaun's pricing, that's ₹999 per rep/month on Starter, ₹1,999 on Growth, or ₹2,999 on Scale. Three reps on Growth is ₹5,997/month — see [the full pricing](/pricing) for what each tier includes. Put that next to one missed ₹6 lakh deal and the maths isn't close. The stack pays for itself the first time it catches a Grade A lead before it goes cold.
+On Leadkaun's pricing, that's ₹999 per account per month on Starter, ₹1,999 on Growth, or ₹2,999 on Scale. Three reps on Growth is ₹5,997/month — see [the full pricing](/pricing) for what each tier includes. Put that next to one missed ₹6 lakh deal and the maths isn't close. The stack pays for itself the first time it catches a Grade A lead before it goes cold.
 
 What's deliberately not in this stack: a marketing automation suite, a 14-stage pipeline, custom dashboards, a RevOps hire. Those are real tools for real problems you don't have at 3 reps. Adding them now is how startups end up with software that's 80% unused and a setup they'll rip out at 30 reps.
 

@@ -205,7 +205,8 @@ export function ModulesGrid({
   )
 }
 
-/** WhyNotCRM — the "this is not a CRM" comparison ledger. */
+/** WhyNotCRM — the alongside-your-CRM comparison ledger. Named for history;
+ *  the framing is "alongside", never "not a CRM" (Brain 02 hybrid wedge). */
 export function WhyNotCRM({
   title = <>What Leadkaun does that your CRM doesn&apos;t.</>,
   sub = "CRMs record what happened. Leadkaun reshapes what happens next.",
@@ -221,7 +222,7 @@ export function WhyNotCRM({
     <SectionGround variant={ground} size="lg">
       <Container>
         <Reveal className="mb-12 md:mb-16">
-          <NumberedTag number={number} label="This is not a CRM" />
+          <NumberedTag number={number} label="Alongside your CRM" />
           <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">{title}</h2>
           <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">{sub}</p>
         </Reveal>

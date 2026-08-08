@@ -16,7 +16,7 @@ faqs:
   - q: "Can you keep both percentage and rupee metrics?"
     a: "Yes, and you should. Use rupees as the headline (what to act on today) and percentages as the diagnostic underneath (why the rupee number moved). A ₹ dashboard that shows ₹14L at risk, then breaks it down into a 22% follow-up gap, gives the manager both the urgency and the cause. The mistake is leading with the percentage and burying the rupees."
   - q: "How does Leadkaun put rupees on every metric?"
-    a: "Leadkaun grades every lead A–F in under 500ms and attaches a deal-value band to it, so every queue position carries a rupee figure. The Missed Opportunity Engine totals the ₹ at risk from leads that slipped past their response window, and the Morning Brief leads with that number at 8:30 AM IST. Reps and managers see money, not abstract ratios."
+    a: "Leadkaun grades every lead A–F in real time and attaches a deal-value band to it, so every queue position carries a rupee figure. The Missed Opportunity Engine totals the ₹ at risk from leads that slipped past their response window, and the Morning Brief leads with that number at 8:30 AM IST. Reps and managers see money, not abstract ratios."
 ---
 
 Two sales managers walk into a Monday review. Both report a 12% conversion rate for the month. One of them is having a great quarter. The other is about to lose his job. The dashboard cannot tell them apart, because a percentage threw away the only piece of information that mattered: how much money was on the table.
@@ -100,7 +100,7 @@ You do not need to throw away your CRM's ratios. You need to attach a value to t
 3. **Make ₹ at risk the headline.** The first thing a rep and a manager see each morning should be the rupee figure that needs action today — not a conversion percentage from last month.
 4. **Keep percentages as the second layer.** When the rupee number moves, the ratio explains why.
 
-This is the entire premise behind the [Missed Opportunity Engine](/features/missed-opportunity-engine): it does not tell you that follow-up "could be better". It totals the exact rupees walking out the door from leads that crossed their response window, ranks them, and surfaces them in the Morning Brief at 8:30 AM IST. Grading runs in under 500ms, so the value band is attached the moment a lead lands, and the Priority Queue re-ranks by money, not by arrival order.
+This is the entire premise behind the [Missed Opportunity Engine](/features/missed-opportunity-engine): it does not tell you that follow-up "could be better". It totals the exact rupees walking out the door from leads that crossed their response window, ranks them, and surfaces them in the Morning Brief at 8:30 AM IST. Grading runs in real time, so the value band is attached the moment a lead lands, and the Priority Queue re-ranks by money, not by arrival order.
 
 A rep who opens their day to "₹14.2L at risk, top three leads listed" behaves differently from a rep who opens their day to "68% follow-up rate". The first one knows exactly which call to make. The second one shrugs and checks WhatsApp.
 
@@ -108,6 +108,6 @@ A rep who opens their day to "₹14.2L at risk, top three leads listed" behaves 
 
 If your team reports in percentages today, run one experiment: take last month's conversion rate and re-state every lead you lost in rupees. Most Indian teams are shocked by the gap between the percentage they reported and the money they actually let slip.
 
-Leadkaun does that translation automatically — every lead graded and valued in under 500ms, every metric surfaced in rupees, the day's ₹ at risk waiting for each rep in the Morning Brief. Plans run ₹999 / ₹1,999 / ₹2,999 per rep per month; see [pricing](/pricing) for what fits your team size.
+Leadkaun does that translation automatically — every lead graded and valued in real time, every metric surfaced in rupees, the day's ₹ at risk waiting for each rep in the Morning Brief. Plans run ₹999 / ₹1,999 / ₹2,999 per rep per month; see [pricing](/pricing) for what fits your team size.
 
 [Book a 15-minute demo](/demo) and bring last month's dashboard. We will re-state it in rupees on the call and show you exactly how much your percentages were hiding.

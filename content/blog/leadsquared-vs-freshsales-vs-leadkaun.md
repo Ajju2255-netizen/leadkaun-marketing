@@ -12,9 +12,9 @@ faqs:
   - q: "LeadSquared vs Freshsales — which is better for Indian teams?"
     a: "LeadSquared is built in India and is strongest in high-volume verticals like EdTech and BFSI, with deep workflow customisation — but it can take 2–8 weeks to configure and leans activity-heavy. Freshsales has a cleaner UI and faster setup, with built-in phone and email, but its Freddy AI scoring is opaque and not specifically calibrated for the Indian market. Choose LeadSquared for heavy vertical workflows, Freshsales for clean general-purpose CRM."
   - q: "Where does Leadkaun fit against LeadSquared and Freshsales?"
-    a: "Leadkaun isn't a like-for-like CRM — it's a Sales Behaviour OS. Where LeadSquared and Freshsales record activity and store records, Leadkaun grades every lead A–F transparently, builds each rep's priority queue in real time, and surfaces ₹ at risk daily. Many teams run Leadkaun alongside LeadSquared/Freshsales for 60–90 days, then decide whether to consolidate onto Leadkaun's built-in CRM."
+    a: "Leadkaun isn't a like-for-like CRM — it's a Sales Behaviour OS. Where LeadSquared and Freshsales record activity and store records, Leadkaun grades every lead A–F transparently, builds each rep's priority queue in real time, and surfaces ₹ at risk daily. Many teams run Leadkaun alongside LeadSquared/Freshsales for 60–90 days, then decide whether to consolidate onto Leadkaun's A CRM you already run."
   - q: "How do their prices compare?"
-    a: "All three are India-affordable relative to Salesforce/HubSpot. LeadSquared and Freshsales typically land ₹1,500–₹4,000/seat/month depending on tier and add-ons; Leadkaun is ₹999–₹2,999/seat/month. The bigger cost difference is time-to-value: LeadSquared's configuration can take weeks, Freshsales days, Leadkaun about 60 minutes with Indian SMB defaults."
+    a: "All three are India-affordable relative to Salesforce/HubSpot. LeadSquared and Freshsales typically land ₹1,500–₹4,000/seat/month depending on tier and add-ons; Leadkaun is ₹999–₹2,999/seat/month. The bigger cost difference is time-to-value: LeadSquared's configuration can take weeks, Freshsales days, Leadkaun about a single sitting with Indian SMB defaults."
   - q: "Which has the best lead scoring?"
     a: "LeadSquared and Freshsales both score leads, but the logic is either heavily manual (LeadSquared rules) or a black box (Freshsales Freddy AI). Leadkaun's scoring is transparent and three-dimensional — Fit, Intent, and Quality combine into a Grade A–F you can explain to a rep in one sentence, which is what drives adoption."
 ---
@@ -48,7 +48,7 @@ The real cost gap is **time-to-value**, not sticker price (below).
 ### Setup time
 - **LeadSquared** — 2–8 weeks. The power is in configuration, which means configuration is required.
 - **Freshsales** — days. Sensible defaults, quick to start.
-- **Leadkaun** — ~60 minutes, with Indian B2B SMB defaults (ICP weights, stages, grade thresholds) baked in.
+- **Leadkaun** — ~a single sitting, with Indian B2B SMB defaults (ICP weights, stages, grade thresholds) baked in.
 
 For an SMB without a dedicated ops hire, weeks-to-value is a real cost: it's a quarter where the tool isn't earning.
 
@@ -63,7 +63,7 @@ This is where the three diverge most.
 The metric that decides whether any CRM pays off.
 
 - **LeadSquared / Freshsales** — adoption depends on how much logging you demand. The more fields, the less reps log.
-- **Leadkaun** — designed around low-friction reality: **3-tap WhatsApp logging**, a [priority queue](/features/priority-queue) that removes the "who do I call next" decision, and [WhatsApp tracking](/features/whatsapp-tracking) treating WhatsApp as a first-class channel — because 70% of Indian B2B leads first-contact there.
+- **Leadkaun** — designed around low-friction reality: **3-tap WhatsApp logging**, a [priority queue](/features/priority-queue) that removes the "who do I call next" decision, and [WhatsApp tracking](/features/whatsapp-tracking) treating WhatsApp as a first-class channel — because most Indian B2B leads first-contact there.
 
 ### WhatsApp
 - **LeadSquared / Freshsales** — WhatsApp via integrations/add-ons, generally bolted on.

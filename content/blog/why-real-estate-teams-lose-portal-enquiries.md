@@ -12,22 +12,22 @@ faqs:
   - q: "Why do real estate teams lose so many portal enquiries?"
     a: "Enquiries arrive across 6+ channels — 99acres, Housing, MagicBricks, the website form, Facebook lead ads, walk-in WhatsApp — and land in separate inboxes nobody owns end to end. A ₹1.2Cr enquiry that came in at 9 PM sits unseen until the next morning, by which time the buyer has already booked a site visit with the builder who picked up first. The loss isn't a lazy rep; it's a routing gap. No single screen shows every enquiry, ranked, with the money at stake."
   - q: "How does real estate enquiry management work across multiple portals?"
-    a: "The fix is one inbox that pulls every portal, form, and WhatsApp thread into a single feed, then scores each enquiry A–F by budget fit, location intent, and project match in under 500ms. A Priority Queue puts the ₹40L–₹3Cr-ready buyers at the top, and source attribution stays attached so you know whether 99acres or Housing actually paid back its subscription. One screen, ranked by rupees at risk — not 6 tabs nobody reads."
+    a: "The fix is one inbox that pulls every portal, form, and WhatsApp thread into a single feed, then scores each enquiry A–F by budget fit, location intent, and project match in real time. A Priority Queue puts the ₹40L–₹3Cr-ready buyers at the top, and source attribution stays attached so you know whether 99acres or Housing actually paid back its subscription. One screen, ranked by rupees at risk — not 6 tabs nobody reads."
   - q: "What is the right first-response time for a real estate portal enquiry?"
-    a: "Minutes, not hours. Grade A enquiries — budget-qualified, project-matched, ready to visit — convert when contacted within roughly 47 minutes. A portal buyer fills the same form on three listings at once, so the developer who calls first usually wins the site visit. If your first response is the next morning, you're paying portal subscription fees to warm up leads for whoever answers faster."
+    a: "Minutes, not hours. Grade A enquiries — budget-qualified, project-matched, ready to visit — convert when contacted within the first hour. A portal buyer fills the same form on three listings at once, so the developer who calls first usually wins the site visit. If your first response is the next morning, you're paying portal subscription fees to warm up leads for whoever answers faster."
   - q: "Do duplicate enquiries across portals hurt the sales process?"
     a: "Badly. The same buyer enquires on 99acres, Housing and MagicBricks within the same hour. Without dedup, three reps call the same person, the buyer feels chased, and your team logs three 'leads' against one real opportunity — inflating the pipeline and wasting two reps' time. A unified inbox merges them into one record with all three source tags, so one rep owns the buyer and the attribution stays honest."
 ---
 
 A ₹1.8Cr enquiry for a 3BHK in Whitefield came in on 99acres at 8:42 PM on a Saturday. The buyer filled the same form on Housing eleven minutes later, and on MagicBricks before bed. By Monday morning, two of your reps had called — one from the 99acres lead, one from the Housing lead — both leaving the same voicemail. The buyer had already booked a site visit on Sunday with the developer who texted back within the hour. That deal is gone, and you paid three portal subscriptions to lose it.
 
-This is what real estate enquiry management in India actually looks like once volume crosses a few hundred enquiries a month. Not a CRM problem. A routing-and-speed problem dressed up as one.
+This is what real estate enquiry management in India actually looks like once volume crosses a few hundred enquiries a month. It is a routing-and-speed problem dressed up as a software problem.
 
 ## TL;DR
 
 - Enquiries scatter across 6+ sources — 99acres, Housing, MagicBricks, the site form, Facebook lead ads, WhatsApp walk-ins — each in its own inbox nobody owns end to end.
 - The same buyer enquires on three portals in one hour; without dedup, three reps chase one person and your pipeline count lies.
-- First response decides the site visit. Grade A buyers convert within ~47 minutes; the developer who calls first usually books the visit.
+- First response decides the site visit. Grade A buyers convert within ~the first hour; the developer who calls first usually books the visit.
 - No source attribution means you can't tell whether 99acres or Housing earned its subscription — so you renew on guesswork.
 - A unified, scored, queued inbox — every channel in one feed, graded A–F, ranked by ₹ at risk — fixes the leak without ripping out your CRM.
 
@@ -59,7 +59,7 @@ Source attribution that survives all the way to "booked / lost" turns renewal fr
 
 A portal buyer who enquired on three listings is, right now, being called by three developers. The site visit goes to whoever gets there first with a real human voice and a relevant project. This is not a personality contest. It's a clock.
 
-Grade A enquiries — budget that fits your inventory, location intent that matches your project, a buyer ready to visit — convert when someone reaches them within roughly 47 minutes. After that the curve falls off a cliff. If your enquiries sit in six separate inboxes until a rep happens to check, your average first response is measured in hours, not minutes, and the hot ones cool while the junk gets called first because it happened to be at the top of one tab.
+Grade A enquiries — budget that fits your inventory, location intent that matches your project, a buyer ready to visit — convert when someone reaches them within the first hour. After that the curve falls off a cliff. If your enquiries sit in six separate inboxes until a rep happens to check, your average first response is measured in hours, not minutes, and the hot ones cool while the junk gets called first because it happened to be at the top of one tab.
 
 The leak here is pure rupees. Every Grade A enquiry that waits four hours instead of forty minutes is a ₹40L–₹3Cr opportunity you've handed to a faster competitor. The portal didn't fail you. The subscription worked. The handoff after it failed.
 
@@ -71,7 +71,7 @@ Here's the shape of it.
 
 **One feed, every source.** 99acres, Housing, MagicBricks, website form, Facebook lead ads, WhatsApp — all land in a single inbox. No tab-switching. No 9 PM blind spot.
 
-**Graded A–F in under 500ms.** Each enquiry is scored the moment it arrives, on budget fit, location intent, and project match. A ₹1.8Cr-ready buyer for your live Whitefield project is Grade A. A ₹20L enquiry against ₹80L inventory is Grade D, and it stops eating your best reps' mornings.
+**Graded A–F in real time.** Each enquiry is scored the moment it arrives, on budget fit, location intent, and project match. A ₹1.8Cr-ready buyer for your live Whitefield project is Grade A. A ₹20L enquiry against ₹80L inventory is Grade D, and it stops eating your best reps' mornings.
 
 **A Priority Queue that re-ranks live.** The top of the list is always the highest ₹-at-risk enquiry that hasn't been contacted yet. Reps don't decide who to call — the queue does, and it's right, because it's ranked by money and freshness, not by which tab loaded first.
 
@@ -79,14 +79,14 @@ Here's the shape of it.
 
 **WhatsApp logging in 3 taps.** When a rep messages a buyer on WhatsApp — the channel Indian property buyers actually reply on — logging it takes three taps, not a CRM form nobody fills. So the activity history is real, and the next person who touches the lead knows what was said.
 
-**The Missed Opportunity Engine, in rupees.** Anything that slipped — a Grade A that aged past its window, a site visit nobody followed up — surfaces with the ₹ at risk attached. Not "you have 12 overdue tasks." Instead: "₹2.4Cr in Grade A enquiries went un-contacted past 47 minutes this week." That's a number a sales head acts on before lunch. See exactly how that works in the [Missed Opportunity Engine](/features/missed-opportunity-engine).
+**The Missed Opportunity Engine, in rupees.** Anything that slipped — a Grade A that aged past its window, a site visit nobody followed up — surfaces with the ₹ at risk attached. Not "you have 12 overdue tasks." Instead: "₹2.4Cr in Grade A enquiries went un-contacted past the first hour this week." That's a number a sales head acts on before lunch. See exactly how that works in the [Missed Opportunity Engine](/features/missed-opportunity-engine).
 
-This is the difference between recording what happened and changing what happens. Your CRM stays where it is for contracts and reporting. The behaviour layer makes sure the ₹1.8Cr enquiry on a Saturday night gets called in 47 minutes, by the right rep, before the buyer books elsewhere.
+This is the difference between recording what happened and changing what happens. Your CRM stays where it is for contracts and reporting. The behaviour layer makes sure the ₹1.8Cr enquiry on a Saturday night gets called in the first hour, by the right rep, before the buyer books elsewhere.
 
-Setup runs about 60 minutes — connect your portals, set your inventory bands, point your WhatsApp number, and the queue starts ranking. No three-month implementation. See it applied to property teams on the [real estate use case](/use-cases/real-estate), and once the inbox is unified, tighten the part most teams still get wrong with these [real estate lead follow-up best practices for India](/blog/real-estate-lead-follow-up-best-practices-india).
+Setup runs a single sitting — connect your portals, set your inventory bands, point your WhatsApp number, and the queue starts ranking. No three-month implementation. See it applied to property teams on the [real estate use case](/use-cases/real-estate), and once the inbox is unified, tighten the part most teams still get wrong with these [real estate lead follow-up best practices for India](/blog/real-estate-lead-follow-up-best-practices-india).
 
 ## Stop paying portals to warm up leads for the competition
 
-Three subscriptions, six inboxes, and a buyer who books with whoever calls first — that's the current setup, and it leaks ₹ every weekend. The enquiries are fine. The portals are doing their job. What's missing is the one screen that pulls them together, scores them, and tells the rep which ₹40L–₹3Cr buyer to call in the next 47 minutes.
+Three subscriptions, six inboxes, and a buyer who books with whoever calls first — that's the current setup, and it leaks ₹ every weekend. The enquiries are fine. The portals are doing their job. What's missing is the one screen that pulls them together, scores them, and tells the rep which ₹40L–₹3Cr buyer to call in the next the first hour.
 
 See your own enquiries unified, graded, and queued — [book a demo](/demo) and watch a Saturday-night ₹1.8Cr enquiry get to the right rep before the buyer's coffee goes cold.

@@ -99,7 +99,7 @@ export default function Footer() {
             <div className="mt-5 inline-flex items-center gap-2 rounded-full px-3 py-1 glass-peach gloss-edge">
               <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-orange-500">
-                Not a CRM
+                Runs alongside your CRM
               </span>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Leadkaun · Built for Indian sales teams
           </p>
           <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-faint">
-            Revenue Execution System · Not a CRM
+            Sales Behaviour OS · Runs alongside your CRM
           </p>
         </div>
       </Container>

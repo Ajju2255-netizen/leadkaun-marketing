@@ -50,7 +50,7 @@ Zoho's biggest structural issue is that logging a call takes 4–6 clicks. Open 
 When logging takes more than 10 seconds, reps stop logging during calls and try to batch at end-of-day. End-of-day batching collapses into end-of-week batching, which collapses into "I'll log it when I have time", which collapses into stops logging entirely.
 
 Adoption data we see across Zoho installs at 10–50 rep Indian SMBs:
-- ~30% of leads logged in real time
+- only a fraction of leads logged in real time
 - ~25% logged at end-of-day (partial)
 - ~45% never logged at all
 
@@ -62,14 +62,14 @@ Your dashboards are built on that 30–55% partial data. The other 45% of what a
 
 Zoho treats WhatsApp as a paid add-on — Zoho CRM integrates with WhatsApp Business, or with Zoho Marketing Hub, or via third-party BSPs. It's an integration, not a native concept.
 
-For Indian B2B sales, that is backwards. 70% of B2B leads first-contact on WhatsApp. The scoring model, the priority queue, the follow-up cadence — all of it should treat WhatsApp as a primary signal, not a secondary one.
+For Indian B2B sales, that is backwards. Most B2B leads first-contact on WhatsApp. The scoring model, the priority queue, the follow-up cadence — all of it should treat WhatsApp as a primary signal, not a secondary one.
 
 What happens in practice:
 - Reps use WhatsApp outside Zoho because logging WA messages into Zoho is friction.
 - Intent signals from WA replies never feed the CRM's scoring.
 - The CRM's lead score is based on calls + emails — badly under-weighting the warmest leads.
 
-**Fix:** a tool that treats WhatsApp as first-class. Either configure Zoho's WhatsApp integration heavily (possible, expensive, brittle), or use a Sales Behaviour layer that has 3-tap WhatsApp logging built in.
+**Fix:** a tool that treats WhatsApp as first-class. Either configure Zoho's WhatsApp integration heavily (possible, expensive, brittle), or use a Sales Behaviour layer that has 3-tap WhatsApp logging built in. <!-- lk-gate-ignore:whatsapp-logging describes a competitor product -->
 
 ### Seam 3 — No behaviour-level tracking (grading, queue, ₹-at-risk)
 

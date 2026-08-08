@@ -7,8 +7,7 @@ import {
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
-import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
+
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -248,14 +247,7 @@ export default function ProductPage() {
       <WhyNotCRM number="07" ground="sky" />
       <PricingCTA number="08" ground="cream" />
 
-      <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
-
-      <SectionGround variant="pure" size="sm">
-
-        <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
-
-      </SectionGround>
-
+      
 
       <CTABanner />
       <Footer />

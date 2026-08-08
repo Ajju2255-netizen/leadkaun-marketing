@@ -12,7 +12,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { Faq } from "@/app/components/faq"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+
 import { createSectionNumbering } from "@/app/components/section-numbering"
 import { breadcrumbListSchema, faqPageSchema, articleSchema, jsonLdScript } from "@/lib/seo"
 
@@ -221,10 +221,7 @@ export default function MethodologyPage() {
           </Container>
         </SectionGround>
 
-        <ReviewStamp updated="August 2026" reviewedBy="the Leadkaun product team" cadence="quarterly" />
-        <SectionGround variant="pure" size="sm">
-          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
-        </SectionGround>
+        
 
         <CTABanner />
         <Footer />

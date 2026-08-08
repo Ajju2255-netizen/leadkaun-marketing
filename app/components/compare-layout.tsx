@@ -4,8 +4,7 @@ import { Check, X, Minus } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import CTABanner from "@/app/components/cta-banner"
-import { ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
-import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
+
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -375,13 +374,7 @@ export function ComparePageLayout(p: CompareProps) {
 
         </SectionGround>
 
-        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
-
-        <SectionGround variant="pure" size="sm">
-
-          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
-
-        </SectionGround>
+        
 
         <CTABanner
           tag={{ number: "06", label: "Ready when you are" }}

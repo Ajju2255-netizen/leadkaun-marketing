@@ -15,9 +15,9 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { MidCta, ReviewStamp, AuthorLine } from "@/app/components/page-blocks"
+import { MidCta } from "@/app/components/page-blocks"
 import { createSectionNumbering } from "@/app/components/section-numbering"
-import { CONTENT_REVIEWED, CONTENT_REVIEWER } from "@/lib/content-meta"
+
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -142,10 +142,7 @@ export default function IntakeIntelligencePage() {
         </SectionGround>
 
         <ProofBand />
-        <ReviewStamp updated={CONTENT_REVIEWED} reviewedBy={CONTENT_REVIEWER} cadence="quarterly" />
-        <SectionGround variant="pure" size="sm">
-          <Container><Reveal className="mx-auto max-w-3xl"><AuthorLine /></Reveal></Container>
-        </SectionGround>
+        
         <CTABanner />
         <Footer />
       </main>

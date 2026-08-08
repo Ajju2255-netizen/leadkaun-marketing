@@ -30,7 +30,7 @@ export default async function AlternativesHub() {
       <Navbar />
       <PageHero
         eyebrow="Alternatives"
-        h1={<>Looking for an <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>alternative?</span></>}
+        h1={<>Looking for an <span className="hero-accent">alternative?</span></>}
         sub="Honest, India-fit alternatives to every major CRM — why teams look elsewhere, and which options actually fit Indian B2B sales. We build Leadkaun and tell you where each competitor still wins."
         primary={undefined}
       />

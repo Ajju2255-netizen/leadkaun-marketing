@@ -29,7 +29,7 @@ export default async function ResearchHub() {
       <Navbar />
       <PageHero
         eyebrow={<><BarChart3 className="h-3 w-3" strokeWidth={2} /> Leadkaun Research</>}
-        h1={<>Sales data, <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>honestly sourced.</span></>}
+        h1={<>Sales data, <span className="hero-accent">honestly sourced.</span></>}
         sub="Benchmark reports on how B2B sales actually works — lead response time, follow-up discipline, WhatsApp in India, and where reps lose their week. Every figure links to its original research, and we flag anything we couldn't verify."
         primary={undefined}
       />

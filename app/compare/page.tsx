@@ -50,7 +50,7 @@ export default function CompareHub() {
 
       <PageHero
         eyebrow="CRM Alternatives"
-        h1={<>Leadkaun vs <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>every major CRM.</span></>}
+        h1={<>Leadkaun vs <span className="hero-accent">every major CRM.</span></>}
         sub="Honest, feature-by-feature. Named weak points for Leadkaun where they exist. No trash talk, no unverifiable claims."
         primary={undefined}
       />

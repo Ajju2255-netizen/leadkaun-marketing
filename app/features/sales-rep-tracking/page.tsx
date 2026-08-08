@@ -60,7 +60,7 @@ export default function SalesRepTrackingPage() {
 
         <PageHero
           eyebrow={<><Users className="h-3 w-3" strokeWidth={2} /> Sales Rep Tracking</>}
-          h1={<>Behaviour. Not activity.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>₹ recovered. Not calls made.</span></>}
+          h1={<>Behaviour. Not activity.<br /><span className="hero-accent">₹ recovered. Not calls made.</span></>}
           sub="Per-rep metrics that measure outcomes — ₹ recovered, Grade A response time, follow-up completion — so coaching becomes specific, not a volume debate."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}

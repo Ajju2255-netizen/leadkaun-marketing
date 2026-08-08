@@ -101,7 +101,7 @@ export default async function CityPage({ params }: Params) {
         <DetailHero
           breadcrumb={[{ label: "City" }, { label: cityRec.name }]}
           eyebrow={`${cityRec.state} · Lead Management Software`}
-          h1={<>Sales CRM &amp; Lead Management in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
+          h1={<>Sales CRM &amp; Lead Management in <span className="hero-accent">{cityRec.name}.</span></>}
           sub={`Lead management and sales CRM software for ${cityRec.name} B2B teams${cityRec.notes ? ` — ${cityRec.notes.replace(/\.$/, "")}` : ""}. Grade every lead A–F, build a Priority Queue, surface missed ₹ — setup the same day.`}
           cta={
             <>

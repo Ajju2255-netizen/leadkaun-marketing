@@ -63,7 +63,7 @@ export default async function GlossaryIndexPage() {
 
         <PageHero
           eyebrow={`A–Z · ${GLOSSARY.length} terms`}
-          h1={<>The Indian B2B <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>sales glossary.</span></>}
+          h1={<>The Indian B2B <span className="hero-accent">sales glossary.</span></>}
           sub="Every word that matters in a modern Indian sales motion — lead scoring, grade A, priority queue, ₹ at risk, Morning Brief, intent decay. Written for practitioners, not analysts."
           center={false}
           primary={undefined}

@@ -75,8 +75,7 @@ export default function ProductPage() {
           <>
             The layer your CRM is missing —<br />
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #06B6D4 50%, #FB923C 100%)" }}
+              className="hero-accent"
             >
               a system that changes how your team sells.
             </span>

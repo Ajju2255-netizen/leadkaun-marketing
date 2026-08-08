@@ -2,7 +2,6 @@ import { ReactNode } from "react"
 import Link from "next/link"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { GradientBlob } from "@/app/components/gradient-blob"
 import { Eyebrow } from "@/app/components/eyebrow"
 import { FloatingCard } from "@/app/components/floating-card"
 import { PillarLink } from "@/app/components/pillar-link"
@@ -31,9 +30,8 @@ type Props = {
  */
 export function DetailHero({ breadcrumb, eyebrow, badges, h1, sub, tldr, cta, pillar }: Props) {
   return (
-    <SectionGround variant="mesh" size="md" ambient={false} className="pt-32 md:pt-40">
-      <GradientBlob color="sky"   size="xl" position="-top-32 -left-40"     intensity={0.40} />
-      <GradientBlob color="peach" size="lg" position="-bottom-20 -right-20" intensity={0.40} delay={3} />
+    <SectionGround variant="pure" size="md" ambient={false} className="relative overflow-hidden pt-32 md:pt-40" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%)" }}>
+
 
       <Container className="relative">
         <div className="mx-auto max-w-3xl">
@@ -60,7 +58,7 @@ export function DetailHero({ breadcrumb, eyebrow, badges, h1, sub, tldr, cta, pi
               {badges}
             </div>
           )}
-          <h1 className="mt-6 text-[32px] font-semibold leading-[1.1] tracking-[-0.035em] text-ink md:text-[52px]">
+          <h1 className="display-lg mt-6 text-[30px] text-ink md:text-[46px]">
             {h1}
           </h1>
           {sub && (

@@ -92,7 +92,7 @@ export default async function RoleCityPage({ params }: Params) {
         <DetailHero
           breadcrumb={[{ label: "For" }, { label: `${r.title}s` }, { label: cityRec.name }]}
           eyebrow={`For ${r.title}s in ${cityRec.name}`}
-          h1={<>Sales software built for the way <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{r.title.toLowerCase()}s work.</span></>}
+          h1={<>Sales software built for the way <span className="hero-accent">{r.title.toLowerCase()}s work.</span></>}
           sub={r.dailyStruggle}
           cta={
             <>

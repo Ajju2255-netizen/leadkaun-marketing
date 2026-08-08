@@ -77,7 +77,7 @@ export default function LeadScoringPage() {
 
         <PageHero
           eyebrow={<><Gauge className="h-3 w-3" strokeWidth={2} /> Lead Scoring Engine</>}
-          h1={<>Grade A–F. In real time.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>Three scores. One answer.</span></>}
+          h1={<>Grade A–F. In real time.<br /><span className="hero-accent">Three scores. One answer.</span></>}
           sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions — Fit, Intent, Quality — in real time. Your rep always knows who to call first."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Priority Queue", href: "/features/priority-queue" }}

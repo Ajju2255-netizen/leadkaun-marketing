@@ -36,7 +36,7 @@ export default function BlogPage() {
 
       <PageHero
         eyebrow="The Leadkaun Journal"
-        h1={<>Sales behaviour insights for <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>Indian B2B teams.</span></>}
+        h1={<>Sales behaviour insights for <span className="hero-accent">Indian B2B teams.</span></>}
         sub="Practical field notes from operators — on A–F lead scoring, rupee-first analytics, WhatsApp as a signal, and running sales accountability without micromanagement. Two articles a week. Built for founders, sales heads, and RevOps leaders in 2026-era Indian B2B."
         center={false}
         primary={undefined}

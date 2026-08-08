@@ -37,7 +37,7 @@ export default function UseCasesHub() {
 
       <PageHero
         eyebrow="Use Cases"
-        h1={<>Built for the Indian<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>sales reality.</span></>}
+        h1={<>Built for the Indian<br /><span className="hero-accent">sales reality.</span></>}
         sub="ICP templates, cadence defaults, and copy tuned for eleven Indian B2B verticals. Every setting is a starting point — not a locked path."
         primary={undefined}
       />

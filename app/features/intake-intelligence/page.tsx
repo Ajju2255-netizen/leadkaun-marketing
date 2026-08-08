@@ -59,7 +59,7 @@ export default function IntakeIntelligencePage() {
         <Navbar />
         <PageHero
           eyebrow="Feature · Intake Intelligence"
-          h1={<>Know what is in the list <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>before you import it.</span></>}
+          h1={<>Know what is in the list <span className="hero-accent">before you import it.</span></>}
           sub="You bought a file six months ago. Before a single row reaches a rep, Leadkaun tells you how much of it is real."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "glass", label: "See pricing", href: "/pricing" }}

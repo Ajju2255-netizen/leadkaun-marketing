@@ -42,7 +42,7 @@ export default function FeaturesHub() {
 
       <PageHero
         eyebrow="Features · 6 core modules"
-        h1={<>The layer your CRM is missing —<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>module by module.</span></>}
+        h1={<>The layer your CRM is missing —<br /><span className="hero-accent">module by module.</span></>}
         sub="A CRM records what happened. Leadkaun reshapes what happens next. Here is every behaviour module, and exactly what each one does for an Indian B2B sales team."
         primary={undefined}
       />

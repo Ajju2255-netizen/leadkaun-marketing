@@ -92,7 +92,7 @@ export default async function IntegrationsIndexPage() {
 
       <PageHero
         eyebrow={`${INTEGRATIONS.length} integrations · ${liveCount} live`}
-        h1={<>Plug into the stack you <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>already run.</span></>}
+        h1={<>Plug into the stack you <span className="hero-accent">already run.</span></>}
         sub="Leadkaun connects with the tools Indian B2B sales teams already use — Google Sheets, WhatsApp (manual + BSP), Gmail, Calendly, IndiaMART, Razorpay, Zapier. No rip-and-replace, no broken pipelines."
         center={false}
         primary={undefined}

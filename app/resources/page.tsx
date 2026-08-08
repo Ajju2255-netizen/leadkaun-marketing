@@ -56,7 +56,7 @@ export default async function ResourcesHubPage() {
 
       <PageHero
         eyebrow={`${RESOURCES.length} free resources`}
-        h1={<>Sales resources you can <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>use today.</span></>}
+        h1={<>Sales resources you can <span className="hero-accent">use today.</span></>}
         sub="Calculators, Google Sheet templates, checklists, and frameworks to help Indian founders and sales managers build better lead systems — with or without Leadkaun. All free. No gating."
         center={false}
         primary={undefined}

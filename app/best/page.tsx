@@ -30,7 +30,7 @@ export default async function BestHub() {
       <Navbar />
       <PageHero
         eyebrow={<><Trophy className="h-3 w-3" strokeWidth={2} /> Best Software</>}
-        h1={<>Best software, <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>honestly ranked.</span></>}
+        h1={<>Best software, <span className="hero-accent">honestly ranked.</span></>}
         sub="Criteria-based rankings for Indian sales teams — pricing, WhatsApp, lead scoring, and who each tool is really for. We build Leadkaun and tell you exactly where the alternatives win."
         primary={undefined}
       />

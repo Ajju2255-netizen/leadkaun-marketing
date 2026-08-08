@@ -3,7 +3,6 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { GradientBlob } from "@/app/components/gradient-blob"
 import { Eyebrow } from "@/app/components/eyebrow"
 import { GlossLink, GlossNavLink } from "@/app/components/gloss-button"
 import { APP_URLS } from "@/lib/urls"
@@ -51,11 +50,11 @@ export function PageHero({
   bare = false,
 }: Props) {
   return (
-    <SectionGround variant="mesh" size="lg" ambient={false} className="pt-32 md:pt-40">
+    <SectionGround variant="pure" size="lg" ambient={false} className="relative overflow-hidden pt-32 md:pt-40" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%)" }}>
+      <div aria-hidden className="pointer-events-none absolute -right-32 -top-20 h-[420px] w-[560px] rounded-full opacity-[0.28] blur-[130px]" style={{ background: "radial-gradient(circle, #BAE6FD 0%, transparent 70%)" }} />
       {!bare && (
         <>
-          <GradientBlob color="sky"   size="xl" position="-top-32 -left-40"     intensity={0.55} />
-          <GradientBlob color="peach" size="lg" position="-bottom-20 -right-20" intensity={0.50} delay={3} />
+
         </>
       )}
 
@@ -66,7 +65,7 @@ export function PageHero({
               <Eyebrow dot={eyebrowDot}>{eyebrow}</Eyebrow>
             </div>
           )}
-          <h1 className="mt-7 text-[40px] font-semibold leading-[1.05] tracking-[-0.04em] text-ink md:text-[64px]">
+          <h1 className="display-lg mt-7 text-[38px] text-ink md:text-[58px]">
             {h1}
           </h1>
           {sub && (

@@ -62,7 +62,7 @@ export default function PriorityQueuePage() {
 
         <PageHero
           eyebrow={<><ListOrdered className="h-3 w-3" strokeWidth={2} /> Priority Queue</>}
-          h1={<>One ranked list.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>One rep. No triage.</span></>}
+          h1={<>One ranked list.<br /><span className="hero-accent">One rep. No triage.</span></>}
           sub="The queue re-ranks itself every time a WhatsApp reply arrives, a call gets logged, or intent decays overnight. Your rep works top-down — the decision is already made."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}

@@ -47,8 +47,7 @@ export default function AboutPage() {
           <>
             Built for the Indian sales rep.{" "}
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}
+              className="hero-accent"
             >
               Not the Silicon Valley playbook.
             </span>

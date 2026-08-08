@@ -57,7 +57,7 @@ export default function MissedOpportunityPage() {
 
         <PageHero
           eyebrow={<><AlertTriangle className="h-3 w-3" strokeWidth={2} /> Missed Opportunity Engine</>}
-          h1={<>Every stale lead<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #FB923C 0%, #0EA5E9 100%)" }}>gets a rupee value.</span></>}
+          h1={<>Every stale lead<br /><span className="hero-accent">gets a rupee value.</span></>}
           sub="The metric that turns Monday reviews from activity debates into money conversations. ₹ at risk per rep, per week — every week."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Morning Brief", href: "/features/morning-brief" }}
@@ -85,7 +85,7 @@ export default function MissedOpportunityPage() {
 
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="p-8 md:p-12">
               <p className="font-mono text-[20px] md:text-[28px] font-semibold leading-relaxed text-center text-ink tabular">
-                <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>₹ at risk</span> = avg deal value × grade conversion rate × stale lead count
+                <span className="hero-accent">₹ at risk</span> = avg deal value × grade conversion rate × stale lead count
               </p>
               <div className="mt-10 grid gap-5 md:grid-cols-3">
                 {[

@@ -127,8 +127,7 @@ export default function PricingPage() {
           <>
             Start free.<br />
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}
+              className="hero-accent"
             >
               Grow into more sales.
             </span>

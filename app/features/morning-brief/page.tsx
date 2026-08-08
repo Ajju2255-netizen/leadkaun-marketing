@@ -50,7 +50,7 @@ export default function MorningBriefPage() {
 
         <PageHero
           eyebrow={<><Mail className="h-3 w-3" strokeWidth={2} /> Morning Brief</>}
-          h1={<>8:30 AM IST.<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>Monday–Saturday. The day is set.</span></>}
+          h1={<>8:30 AM IST.<br /><span className="hero-accent">Monday–Saturday. The day is set.</span></>}
           sub="The ritual that makes lead scoring a daily habit. Rep and manager get the same numbers, different framing — and by 11 AM, the queue is already being worked."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See ₹ at risk", href: "/features/missed-opportunity-engine" }}

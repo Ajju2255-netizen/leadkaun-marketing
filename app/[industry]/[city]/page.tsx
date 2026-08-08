@@ -91,7 +91,7 @@ export default async function IndustryCityPage({ params }: Params) {
         <DetailHero
           breadcrumb={[{ label: ind.name, href: `/use-cases/${ind.slug}` }, { label: cityRec.name }]}
           eyebrow={`${ind.name} · ${cityRec.name}`}
-          h1={<>{ind.name} Lead Management in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
+          h1={<>{ind.name} Lead Management in <span className="hero-accent">{cityRec.name}.</span></>}
           sub={`${cityRec.name}-based ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build each rep's Priority Queue, and surface missed revenue in rupees. Setup the same day.`}
           cta={
             <>

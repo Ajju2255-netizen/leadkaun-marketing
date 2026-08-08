@@ -64,7 +64,7 @@ export default async function QuestionsIndexPage() {
 
       <PageHero
         eyebrow={`${QUESTIONS.length} answers · ${sortedCategories.length} categories`}
-        h1={<>Questions Indian sales teams <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>actually ask.</span></>}
+        h1={<>Questions Indian sales teams <span className="hero-accent">actually ask.</span></>}
         sub="Plain-English answers about lead scoring, priority queues, ₹ at risk, CRM alternatives, and how Leadkaun fits into a real sales motion. Each answer links to the product surface that solves it."
         center={false}
         primary={undefined}

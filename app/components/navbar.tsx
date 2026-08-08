@@ -22,7 +22,7 @@ function Wordmark() {
   return (
     <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center gap-2.5">
       <LeadkaunMark size={26} gloss className="transition-transform group-hover:scale-[1.06]" />
-      <span className="font-semibold text-[17px] tracking-[-0.035em] leading-none text-ink">
+      <span className="font-display text-[19px] font-medium tracking-[-0.02em] leading-none text-ink">
         Leadkaun
       </span>
     </Link>
@@ -59,12 +59,12 @@ export default function Navbar() {
         // 66px jump + flicker on scroll). Force fixed to win.
         "!fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "glass-2 gloss-edge shadow-[0_8px_24px_-12px_rgba(15,23,42,0.10)]"
+          ? "shadow-[0_6px_20px_-14px_rgba(15,23,42,0.22)]"
           : "glass-1"
       )}
       style={
         scrolled
-          ? { borderBottom: "1px solid rgba(125,211,252,0.45)" }
+          ? { borderBottom: "1px solid var(--paper-line-2)", background: "rgba(252,250,246,0.92)", backdropFilter: "saturate(180%) blur(14px)" }
           : { borderBottom: "1px solid transparent" }
       }
     >

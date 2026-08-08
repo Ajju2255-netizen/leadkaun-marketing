@@ -24,10 +24,9 @@ export default function CTABanner({
   secondaryHref = APP_URLS.register,
 }: Props) {
   return (
-    <SectionGround variant="mesh" size="xl" ambient={false}>
+    <SectionGround variant="pure" size="xl" ambient={false} className="relative overflow-hidden" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)" }}>
       {/* Stronger blobs to bookend the page with the hero */}
-      <GradientBlob color="sky"    size="xl" position="-top-40 -left-40"   intensity={0.65} />
-      <GradientBlob color="peach"  size="xl" position="-bottom-40 -right-40" intensity={0.75} delay={3} />
+
       <GradientBlob color="cyan"   size="lg" position="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" intensity={0.30} delay={5} />
 
       <Container className="relative">

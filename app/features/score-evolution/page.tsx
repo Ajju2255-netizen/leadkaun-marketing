@@ -58,7 +58,7 @@ export default function ScoreEvolutionPage() {
         <Navbar />
         <PageHero
           eyebrow="Feature · Score Evolution"
-          h1={<>A grade that changes should <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>say why.</span></>}
+          h1={<>A grade that changes should <span className="hero-accent">say why.</span></>}
           sub="Scores that move without explanation are scores nobody trusts. Every change is written to a timeline that freezes the state as it was."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "glass", label: "See the model", href: "/methodology" }}

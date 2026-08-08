@@ -36,7 +36,7 @@ export default function SecurityPage() {
 
       <PageHero
         eyebrow={<><Lock className="h-3 w-3" strokeWidth={2} /> Security</>}
-        h1={<>Your sales data, <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>handled carefully.</span></>}
+        h1={<>Your sales data, <span className="hero-accent">handled carefully.</span></>}
         sub="Leadkaun holds your leads, contacts, and pipeline — so we treat that data with the care it deserves. Here's how we protect it, in plain language."
         primary={{ kind: "primary", label: "Talk to us about security", href: "/contact" }}
         secondary={{ kind: "glass", label: "Read the Privacy Policy", href: "/privacy" }}

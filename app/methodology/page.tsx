@@ -107,7 +107,7 @@ export default function MethodologyPage() {
 
         <PageHero
           eyebrow="Methodology"
-          h1={<>How Leadkaun scores, ranks and <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>verifies.</span></>}
+          h1={<>How Leadkaun scores, ranks and <span className="hero-accent">verifies.</span></>}
           sub="Every threshold on this page is the one the product applies. We publish the mechanism because a grade nobody can interrogate is a grade nobody trusts."
         />
 

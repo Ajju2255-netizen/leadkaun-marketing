@@ -29,7 +29,7 @@ export default async function LearnHub() {
       <Navbar />
       <PageHero
         eyebrow={<><BookOpen className="h-3 w-3" strokeWidth={2} /> Learn</>}
-        h1={<>The Indian B2B <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>sales playbook.</span></>}
+        h1={<>The Indian B2B <span className="hero-accent">sales playbook.</span></>}
         sub="Complete, honest guides to the topics that decide whether your team closes or leaks — each one maps every concept, guide, tool and read in one place."
         primary={undefined}
       />

@@ -52,8 +52,7 @@ export default function HowItWorksPage() {
           <>
             From a lead landing to{" "}
             <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}
+              className="hero-accent"
             >
               ₹ recovered.
             </span>

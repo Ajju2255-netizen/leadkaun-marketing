@@ -103,7 +103,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
             { label: kw.label },
           ]}
           eyebrow={kw.label}
-          h1={<>{kw.label} for {ind.name} Teams in <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>{cityRec.name}.</span></>}
+          h1={<>{kw.label} for {ind.name} Teams in <span className="hero-accent">{cityRec.name}.</span></>}
           sub={`Leadkaun's ${kw.label.toLowerCase()} is built for how ${cityRec.name}-based ${ind.name.toLowerCase()} teams actually sell — Indian phone handling, WhatsApp as a first-class lead signal, ₹ figures in Indian formatting throughout.`}
           tldr={{ label: "In short", body: intro, tone: "sky" }}
           cta={

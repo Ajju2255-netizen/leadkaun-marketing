@@ -56,7 +56,7 @@ export default function WhatsAppTrackingPage() {
 
         <PageHero
           eyebrow={<><MessageSquare className="h-3 w-3" strokeWidth={2} /> WhatsApp Tracking</>}
-          h1={<>WhatsApp is where half<br /><span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(95deg, #0EA5E9 0%, #FB923C 100%)" }}>your conversations live.</span></>}
+          h1={<>WhatsApp is where half<br /><span className="hero-accent">your conversations live.</span></>}
           sub="Most Indian B2B first-contact happens on WhatsApp. Most CRMs treat it as an integration. Leadkaun treats it as a first-class signal — three taps per exchange, works with any WhatsApp account."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "See Lead Scoring", href: "/features/lead-scoring" }}
@@ -120,8 +120,7 @@ export default function WhatsAppTrackingPage() {
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-10 md:p-12 text-center">
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">India-specific context</p>
               <p
-                className="mt-4 font-mono text-[64px] md:text-[96px] font-bold leading-none tracking-[-0.04em] tabular bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #0EA5E9 0%, #FB923C 100%)" }}
+                className="mt-4 font-mono text-[64px] md:text-[96px] font-bold leading-none tracking-[-0.04em] tabular hero-accent"
               >
                 1st
               </p>

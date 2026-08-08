@@ -733,3 +733,51 @@ a { color: inherit; text-decoration: none; }
   .rise { animation: none; }
 }
 
+
+/* ============================================================================
+   THE LEDGER — sitewide rollout (2026-08)
+   ----------------------------------------------------------------------------
+   The homepage direction applied to every page, via shared primitives rather
+   than per-route edits. Three moves:
+     1. Fraunces on h1/h2 everywhere (prose keeps sans — see below)
+     2. Warm paper replaces the old cream ground
+     3. One CTA blue, at the contrast the label actually needs
+   ========================================================================== */
+
+/* 1. Display face on headings. Unlayered, so it beats Tailwind's font utilities.
+      `.prose-leadkaun :where(h1,h2,h3,h4)` already pins article bodies to sans
+      and is more specific, so blog and long-form prose are untouched. */
+h1, h2 {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 72, "SOFT" 14, "WONK" 0;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+}
+h1 { font-variation-settings: "opsz" 110, "SOFT" 18, "WONK" 1; letter-spacing: -0.024em; }
+
+/* 2. Warm paper. The old cream (#FFFBF5) was nearly white and read as a seam
+      rather than a section; paper gives the alternation something to do. */
+.bg-ground-cream { background-color: var(--paper); }
+
+/* 3. One CTA treatment sitewide. The old gradient sat at 2.77:1 against its own
+      white label — below the 4.5:1 that 13–15px semibold needs. Flat #0877B8 is
+      the lightest blue that clears it. */
+.btn-gloss-primary {
+  background: #0877B8;
+  color: #FFFFFF;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 1px 2px rgba(15, 23, 42, 0.10),
+    0 8px 20px -10px rgba(15, 23, 42, 0.35);
+}
+.btn-gloss-primary:hover { background: #0A6A9E; filter: none; }
+
+/* Buttons and their inner spans must not inherit body colour — `a { color:
+   inherit }` is unlayered here and beats Tailwind's text utilities. */
+.btn-gloss-primary, .btn-gloss-primary span { color: #FFFFFF; }
+.btn-gloss-glass, .btn-gloss-glass span { color: var(--ink); }
+
+/* Headline accent. Replaces the blue-to-peach gradient fill that ran across 35
+   headings — a warm/cool clash that fought the paper palette. One colour, same
+   emphasis, and it stays legible when a heading wraps. */
+.hero-accent { color: #0877B8; }

@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { Container } from "@/app/components/container"
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
-import { GradientBlob } from "@/app/components/gradient-blob"
 import { EmailCapture } from "@/app/components/email-capture"
 import { APP_URLS } from "@/lib/urls"
 
@@ -79,9 +78,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ground-cream">
-      <GradientBlob color="peach" size="xl" position="-bottom-40 -right-40" intensity={0.45} />
-      <GradientBlob color="sky"   size="lg" position="-top-32  -left-32"   intensity={0.30} delay={6} />
+    <footer className="relative overflow-hidden border-t" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)", borderColor: "var(--paper-line)" }}>
 
       <Container as="div" className="relative pt-20 pb-12">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_repeat(5,1fr)]">
@@ -89,7 +86,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center gap-2.5">
               <LeadkaunMark size={26} gloss className="transition-transform group-hover:scale-[1.06]" />
-              <span className="font-semibold text-[17px] tracking-[-0.035em] leading-none text-ink">
+              <span className="font-display text-[19px] font-medium tracking-[-0.02em] leading-none text-ink">
                 Leadkaun
               </span>
             </Link>
@@ -125,13 +122,13 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 rounded-2xl glass-1 gloss-edge p-6 md:p-8">
+        <div className="mt-14 rounded-2xl border bg-white p-6 md:p-8" style={{ borderColor: "var(--paper-line)" }}>
           <EmailCapture source="footer-newsletter" layout="split" />
         </div>
 
         <div
           className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-6"
-          style={{ borderTop: "1px solid var(--hairline)" }}
+          style={{ borderTop: "1px solid var(--paper-line)" }}
         >
           <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
             © {new Date().getFullYear()} Leadkaun · Built for Indian sales teams

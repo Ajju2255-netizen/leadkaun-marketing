@@ -10,7 +10,15 @@
       "how-is-leadkaun-different-from-crm",
       "what-is-priority-queue"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "The category matters less than what your tools decide for you today.",
+      "checks": [
+        "Write down what your current system tells a rep to do tomorrow morning.",
+        "Separate that from what it records about yesterday.",
+        "If the first list is empty, the deciding is being done in someone's head and leaves when they do."
+      ]
+    }
   },
   {
     "slug": "what-is-lead-scoring",
@@ -26,7 +34,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Find out whether the order you work in already predicts anything.",
+      "checks": [
+        "Take last quarter's wins and note where each sat in the list on the day it arrived.",
+        "Compare wins from leads worked on day one against those worked a week later.",
+        "No relationship between the two means the working order is currently arbitrary."
+      ]
+    }
   },
   {
     "slug": "what-is-grade-a",
@@ -42,7 +58,15 @@
     "relatedFeatures": [
       "lead-scoring",
       "priority-queue"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Check whether your idea of a top lead is scarce enough to act on.",
+      "checks": [
+        "Count how many of last month's leads you would have called your best.",
+        "Compare that with how many your team can genuinely call in a day.",
+        "If the first far exceeds the second, the label is not helping anyone choose."
+      ]
+    }
   },
   {
     "slug": "what-is-fit-score",
@@ -57,7 +81,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Separate the deals you lost from the deals you could never have won.",
+      "checks": [
+        "List last year's engaged-but-lost deals.",
+        "Mark the ones outside your usual size, sector or budget from the first message.",
+        "Those were never a follow-up problem, and treating them as one costs real hours."
+      ]
+    }
   },
   {
     "slug": "what-is-intent-score",
@@ -72,7 +104,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Test whether your team's read on intent survives contact with evidence.",
+      "checks": [
+        "Pick ten leads described as hot last month.",
+        "Write down the action behind each description — a reply, a callback, a pricing question.",
+        "Any without one were assessed on tone."
+      ]
+    }
   },
   {
     "slug": "what-is-quality-score",
@@ -88,7 +128,15 @@
     "relatedFeatures": [
       "lead-scoring",
       "lead-quality"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Establish your ceiling before optimising anything below it.",
+      "checks": [
+        "Take one week of enquiries and count those with a reachable number, a real source and a stated requirement.",
+        "Call a sample of the incomplete ones.",
+        "What you cannot reach at all bounds everything downstream, whatever else you improve."
+      ]
+    }
   },
   {
     "slug": "what-is-priority-queue",
@@ -103,7 +151,15 @@
     ],
     "relatedFeatures": [
       "priority-queue"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "A queue is real only if it survives being handed to someone else.",
+      "checks": [
+        "Have two reps independently rank tomorrow's leads.",
+        "Compare their top five.",
+        "Divergence means the ranking cannot be reviewed, taught or covered when someone is away."
+      ]
+    }
   },
   {
     "slug": "what-is-missed-opportunity-engine",
@@ -117,7 +173,15 @@
     ],
     "relatedFeatures": [
       "missed-opportunity-engine"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Measure what is currently ageing out unobserved.",
+      "checks": [
+        "Find open leads once thought promising with no contact attempt in the last month.",
+        "Value them at your own conversion rate and average deal size.",
+        "Check whether that figure appears in any report you receive today."
+      ]
+    }
   },
   {
     "slug": "what-is-rupee-at-risk",
@@ -132,7 +196,15 @@
     "relatedFeatures": [
       "missed-opportunity-engine",
       "morning-brief"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Split your pipeline into moving and stalled before valuing it.",
+      "checks": [
+        "Take open deals and separate those that progressed this month from those that did not.",
+        "Price the stalled group using your own average deal size.",
+        "Track that number weekly; the direction matters more than the level."
+      ]
+    }
   },
   {
     "slug": "what-is-morning-brief",
@@ -146,7 +218,15 @@
     ],
     "relatedFeatures": [
       "morning-brief"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Audit how the first hour of the day actually gets allocated.",
+      "checks": [
+        "For one week, record what each rep worked first and why.",
+        "Count how often it was the newest enquiry rather than the most valuable open one.",
+        "Recency winning most days is a routing problem you can fix without hiring."
+      ]
+    }
   },
   {
     "slug": "how-is-leadkaun-different-from-crm",
@@ -158,7 +238,15 @@
       "what-is-a-sales-behaviour-os",
       "can-i-replace-my-crm-with-leadkaun"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Test your CRM on the one question a rep asks every morning.",
+      "checks": [
+        "Open it and try to answer who to call first today.",
+        "Count the filters and clicks needed.",
+        "Anything beyond a glance means that answer is being rebuilt by hand daily, by each rep separately."
+      ]
+    }
   },
   {
     "slug": "can-i-replace-my-crm-with-leadkaun",
@@ -170,7 +258,15 @@
       "how-is-leadkaun-different-from-crm",
       "how-to-migrate-from-zoho"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Decide what your CRM is genuinely load-bearing for before changing anything.",
+      "checks": [
+        "List what depends on it today: invoicing, contracts, support history, compliance records.",
+        "Mark which of those you would have to rebuild elsewhere.",
+        "Whatever remains on that list is the reason to run a second layer alongside rather than replace."
+      ]
+    }
   },
   {
     "slug": "how-to-migrate-from-zoho",
@@ -182,7 +278,15 @@
       "can-i-replace-my-crm-with-leadkaun",
       "how-long-does-leadkaun-onboarding-take"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Most migration pain is data pain, and it is visible before you start.",
+      "checks": [
+        "Export your leads and check three things: duplicate phone numbers, missing sources, unusable number formats.",
+        "Count the rows failing any of them.",
+        "Fix those in the export, not after the import, where every error multiplies."
+      ]
+    }
   },
   {
     "slug": "how-long-does-leadkaun-onboarding-take",
@@ -196,7 +300,15 @@
     ],
     "relatedFeatures": [
       "onboarding-icp"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Setup time is mostly determined by your data, not the tool.",
+      "checks": [
+        "Check whether you can produce a clean export of your current leads today.",
+        "Check whether your team agrees, in writing, on who your best customer is.",
+        "Where either is missing, that is the real first task regardless of which system you choose."
+      ]
+    }
   },
   {
     "slug": "what-is-icp",
@@ -210,7 +322,15 @@
     ],
     "relatedFeatures": [
       "onboarding-icp"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "An unwritten profile is not shared, however obvious it seems.",
+      "checks": [
+        "Ask three people who own revenue to describe your best customer in one sentence, separately.",
+        "Compare on size, sector and budget.",
+        "Every difference is a different filter being applied to incoming leads right now."
+      ]
+    }
   },
   {
     "slug": "does-leadkaun-support-whatsapp",
@@ -224,7 +344,15 @@
     ],
     "relatedFeatures": [
       "whatsapp-tracking"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "First find out how much of your selling already happens there.",
+      "checks": [
+        "Ask reps what share of last week's real conversations were on WhatsApp rather than call or email.",
+        "Check how many left a trace anywhere in your system.",
+        "The gap is the part of your pipeline that cannot currently be reviewed by anyone but the rep."
+      ]
+    }
   },
   {
     "slug": "how-to-track-whatsapp-sales",
@@ -238,7 +366,15 @@
     ],
     "relatedFeatures": [
       "whatsapp-tracking"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Decide what you need out of the conversation before choosing how to capture it.",
+      "checks": [
+        "Ask whether you need the full transcript or just the fact and outcome of an exchange.",
+        "For most teams the second is enough and far cheaper to sustain.",
+        "Time how long logging one exchange takes today; anything slow will quietly stop happening."
+      ]
+    }
   },
   {
     "slug": "how-to-build-lead-priority-system",
@@ -253,7 +389,15 @@
     "relatedFeatures": [
       "priority-queue",
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Start from the disagreement, not from a tool.",
+      "checks": [
+        "Have two reps rank the same twenty leads independently.",
+        "Look at where they disagree and ask each why.",
+        "Those reasons are your first scoring criteria, and they are already in the building."
+      ]
+    }
   },
   {
     "slug": "how-to-calculate-missed-lead-cost",
@@ -267,7 +411,15 @@
     ],
     "relatedFeatures": [
       "missed-opportunity-engine"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "You can compute this today with figures you already hold.",
+      "checks": [
+        "Count leads that went a month with no contact attempt.",
+        "Multiply by your own conversion rate and average deal size.",
+        "Do it for two consecutive months; whether the number is rising matters more than the number itself."
+      ]
+    }
   },
   {
     "slug": "what-is-lead-response-time-india",
@@ -282,7 +434,15 @@
     "relatedFeatures": [
       "morning-brief",
       "priority-queue"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Measure your own distribution before comparing against anyone else's.",
+      "checks": [
+        "Take a month of leads and compute the time from arrival to first genuine contact attempt.",
+        "Look at the slowest quarter rather than the average, which hides the problem.",
+        "Check whether the slow ones cluster at nights, weekends or handover gaps — those are fixable without more effort."
+      ]
+    }
   },
   {
     "slug": "what-does-leadkaun-cost",
@@ -294,7 +454,15 @@
       "can-i-replace-my-crm-with-leadkaun",
       "how-long-does-leadkaun-onboarding-take"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Compare against the cost of the current arrangement, not against zero.",
+      "checks": [
+        "Add up what you spend on lead generation in a month.",
+        "Estimate what share never gets a second contact attempt.",
+        "That is the figure any tooling decision should be weighed against."
+      ]
+    }
   },
   {
     "slug": "is-leadkaun-better-than-zoho",
@@ -306,7 +474,15 @@
       "how-is-leadkaun-different-from-crm",
       "can-i-replace-my-crm-with-leadkaun"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Better depends entirely on which problem you are solving.",
+      "checks": [
+        "Write down the one thing that is going wrong: recording deals, or deciding what to work.",
+        "A recording problem is a CRM problem, and a mature CRM will beat a newer tool at it.",
+        "A deciding problem is not solved by a bigger CRM, which is the distinction worth being honest about."
+      ]
+    }
   },
   {
     "slug": "what-is-sql",
@@ -321,7 +497,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "A handoff definition works only if both sides apply it identically.",
+      "checks": [
+        "Have sales and marketing independently mark which of twenty recent leads were sales-ready.",
+        "Compare the lists.",
+        "The disagreement is the actual source of the recurring monthly argument."
+      ]
+    }
   },
   {
     "slug": "what-is-mql",
@@ -335,7 +519,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Check whether your qualification step measures demand or merely attention.",
+      "checks": [
+        "Identify the action that makes a lead qualified in your setup.",
+        "Count how many leads with that action ever reached a conversation with a rep.",
+        "If most did not, the threshold is measuring interest, which is a much weaker claim."
+      ]
+    }
   },
   {
     "slug": "what-is-intent-decay",
@@ -349,7 +541,15 @@
     ],
     "relatedFeatures": [
       "lead-scoring"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "Find the point where your own leads stop responding.",
+      "checks": [
+        "Sort open leads by last inbound signal, not last outbound attempt.",
+        "Find where replies effectively cease.",
+        "Everything older is still counted in your pipeline and should not be."
+      ]
+    }
   },
   {
     "slug": "can-leadkaun-handle-10000-leads",
@@ -361,7 +561,15 @@
       "how-long-does-leadkaun-onboarding-take",
       "what-does-leadkaun-cost"
     ],
-    "relatedFeatures": []
+    "relatedFeatures": [],
+    "selfCheck": {
+      "lead": "Volume questions are usually really questions about attention.",
+      "checks": [
+        "Divide your open lead count by the number of reps.",
+        "Compare that against how many any one person can genuinely work in a week.",
+        "Past that point the constraint is not storage but the order the list is worked in."
+      ]
+    }
   },
   {
     "slug": "why-does-my-lead-have-a-low-grade",
@@ -377,6 +585,14 @@
       "what-is-lead-scoring",
       "what-is-fit-score",
       "what-is-quality-score"
-    ]
+    ],
+    "selfCheck": {
+      "lead": "A low grade usually has one dominant cause, and it is identifiable.",
+      "checks": [
+        "Check the record first: is there a reachable number, a source and a stated requirement?",
+        "If the record is complete, ask whether the lead matches who you sell to at all.",
+        "If it does, check when they last did something — silence is the third and most common cause."
+      ]
+    }
   }
 ]

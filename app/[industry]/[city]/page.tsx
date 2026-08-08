@@ -24,9 +24,10 @@ import { hubIndexable } from "@/lib/pseo/indexable"
 import { stableHash } from "@/lib/pseo/variation"
 import { buildLeafFaqs } from "@/lib/pseo/shared-content"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { BuyingCommittee } from "@/app/components/pseo/buying-committee"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { getIndustry, getCity, resolveCitySlug } from "@/lib/pseo/lookup"
+import { getIndustry, getCity, getRoles, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCity } from "@/lib/pseo/related"
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function IndustryCityPage({ params }: Params) {
   const { industry, city } = await params
-  const [ind, cityRec] = await Promise.all([getIndustry(industry), getCity(city)])
+  const [ind, cityRec, allRoles] = await Promise.all([getIndustry(industry), getCity(city), getRoles()])
   if (!ind || !cityRec) notFound()
 
   const related = await relatedForIndustryCity(industry, cityRec.slug)
@@ -228,6 +229,17 @@ export default async function IndustryCityPage({ params }: Params) {
 
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
+
+        <BuyingCommittee
+          number={n.next()}
+          ground="sky"
+          subject={ind.name}
+          cityName={cityRec.name}
+          citySlug={cityRec.slug}
+          buyerRoles={ind.buyerRoles}
+          roles={allRoles}
+          seedKey={`${industry}:${cityRec.slug}`}
+        />
 
         <ModulesGrid
           number={n.next()}

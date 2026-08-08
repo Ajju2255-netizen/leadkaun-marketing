@@ -23,9 +23,10 @@ import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { ModulesGrid } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { BuyingCommittee } from "@/app/components/pseo/buying-committee"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
-import { getIndustry, getCity, getKeyword, resolveCitySlug } from "@/lib/pseo/lookup"
+import { getIndustry, getCity, getKeyword, getRoles, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCityKeyword } from "@/lib/pseo/related"
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function IndustryCityKeywordPage({ params }: Params) {
   const { industry, city, keyword } = await params
-  const [ind, cityRec, kw] = await Promise.all([getIndustry(industry), getCity(city), getKeyword(keyword)])
+  const [ind, cityRec, kw, allRoles] = await Promise.all([getIndustry(industry), getCity(city), getKeyword(keyword), getRoles()])
   if (!ind || !cityRec || !kw) notFound()
 
   const related = await relatedForIndustryCityKeyword(industry, cityRec.slug, keyword)
@@ -208,6 +209,17 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
 
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="pure" contextLabel={ind.name.toLowerCase()} industrySlug={industry} />
+
+        <BuyingCommittee
+          number={n.next()}
+          ground="sky"
+          subject={ind.name}
+          cityName={cityRec.name}
+          citySlug={cityRec.slug}
+          buyerRoles={ind.buyerRoles}
+          roles={allRoles}
+          seedKey={`${industry}:${cityRec.slug}:${kw.slug}`}
+        />
 
         <ModulesGrid
           number={n.next()}

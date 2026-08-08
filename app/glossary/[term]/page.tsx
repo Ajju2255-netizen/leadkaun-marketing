@@ -13,6 +13,8 @@ import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { DetailHero } from "@/app/components/detail-hero"
 import { NumberedTag } from "@/app/components/numbered-tag"
+import { createSectionNumbering } from "@/app/components/section-numbering"
+import { SelfCheckBlock, type SelfCheck } from "@/app/components/pseo/self-check"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Reveal } from "@/app/components/reveal"
 
@@ -26,6 +28,8 @@ type GlossaryEntry = {
   examples?: string[]; relatedTerms?: string[]; relatedFeature?: string | null; category?: string
   /** Pillar + buyer-guide bridge, so a term is never a dead end in the graph. */
   relatedGuides?: { label: string; href: string }[]
+  /** Authored per term — a diagnostic the reader can run on their own data. */
+  selfCheck?: SelfCheck
 }
 
 export async function generateStaticParams() {
@@ -62,6 +66,7 @@ export default async function GlossaryTermPage({ params }: Params) {
     .filter((e): e is GlossaryEntry => e !== undefined)
     .slice(0, 6)
   const pillar = await pillarForHref(`/glossary/${entry.slug}`)
+  const n = createSectionNumbering()
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Glossary", url: "/glossary" }, { name: entry.term }]),
@@ -87,7 +92,7 @@ export default async function GlossaryTermPage({ params }: Params) {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="01" tone="warm" label="In practice" />
+              <NumberedTag number={n.next()} tone="warm" label="In practice" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
                 How teams actually use it.
               </h2>
@@ -103,7 +108,7 @@ export default async function GlossaryTermPage({ params }: Params) {
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="02" label="Worked examples" />
+                <NumberedTag number={n.next()} label="Worked examples" />
                 <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
                   Three ways it shows up.
                 </h2>
@@ -183,11 +188,15 @@ export default async function GlossaryTermPage({ params }: Params) {
         )}
 
         {/* RELATED TERMS */}
+        {entry.selfCheck && (
+          <SelfCheckBlock number={n.next()} selfCheck={entry.selfCheck} ground="cream" />
+        )}
+
         {related.length > 0 && (
           <SectionGround variant="sky" size="md">
             <Container>
               <Reveal className="mb-8">
-                <NumberedTag number="03" label="Related terms" />
+                <NumberedTag number={n.next()} label="Related terms" />
                 <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
                   Neighbours in the glossary.
                 </h2>

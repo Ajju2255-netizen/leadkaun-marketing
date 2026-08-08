@@ -21,11 +21,12 @@ import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { ModulesGrid, ProofBand } from "@/app/components/sell/blocks"
 import { MethodologyCard } from "@/app/components/pseo/methodology-card"
+import { BuyingCommittee } from "@/app/components/pseo/buying-committee"
 import { ReferencesBlock } from "@/app/components/pseo/references-block"
 
 import { stableHash, pickN } from "@/lib/pseo/variation"
 import { SHARED_FAQS } from "@/lib/pseo/shared-content"
-import { getCities, getCity, getRole, getIndustries, resolveCitySlug } from "@/lib/pseo/lookup"
+import { getCities, getCity, getRole, getIndustries, getRoles, resolveCitySlug } from "@/lib/pseo/lookup"
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForRoleCity } from "@/lib/pseo/related"
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function RoleCityPage({ params }: Params) {
   const { role, city } = await params
-  const [r, cityRec, allCities, industries] = await Promise.all([getRole(role), getCity(city), getCities(), getIndustries()])
+  const [r, cityRec, allCities, industries, allRoles] = await Promise.all([getRole(role), getCity(city), getCities(), getIndustries(), getRoles()])
   if (!r || !cityRec) notFound()
 
   // Role × city fit: which local B2B sectors this role most often sells into.
@@ -151,6 +152,20 @@ export default async function RoleCityPage({ params }: Params) {
 
         {/* METHODOLOGY — how the grade is computed */}
         <MethodologyCard number={n.next()} ground="cream" industrySlug={fitIndustries[0]?.slug} />
+
+        {fitIndustries[0] && (
+          <BuyingCommittee
+            number={n.next()}
+            ground="sky"
+            subject={fitIndustries[0].name}
+            cityName={cityRec.name}
+            citySlug={cityRec.slug}
+            buyerRoles={fitIndustries[0].buyerRoles}
+            roles={allRoles}
+            seedKey={`role:${role}:${cityRec.slug}`}
+            exclude={r.slug}
+          />
+        )}
 
         <ModulesGrid
           number={n.next()}

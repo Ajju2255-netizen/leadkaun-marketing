@@ -850,3 +850,17 @@ h1 { font-variation-settings: "opsz" 110, "SOFT" 18, "WONK" 1; letter-spacing: -
   color: var(--ink);
 }
 .btn-gloss-glass:hover { background: var(--paper); border-color: rgba(8, 119, 184, 0.35); }
+
+/* The product demo renders the app, not the marketing site. The sitewide rule
+   that sets h1/h2 in Fraunces made its headings serif, which the app never is,
+   so inside the demo frame every heading falls back to the UI sans. */
+.app-demo h1,
+.app-demo h2,
+.app-demo h3,
+.app-demo h4,
+.app-demo h5,
+.app-demo h6 {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-variation-settings: normal;
+  letter-spacing: -0.02em;
+}

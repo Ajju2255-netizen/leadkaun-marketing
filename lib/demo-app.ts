@@ -14,7 +14,9 @@
  */
 
 export type Grade = "A" | "B" | "C" | "D" | "E" | "F"
-export type Stage = "New" | "Contacted" | "Qualified" | "Proposal" | "Won" | "Lost"
+export type Stage =
+  | "New Inquiry" | "Contacted" | "Qualified" | "Proposal Sent"
+  | "Negotiation" | "Follow-up" | "Won" | "Lost"
 
 /** Copied from the product. Post-execution thresholds; F is a hard veto. */
 export function assignGrade(fit: number, intent: number, quality: number): Grade {
@@ -56,7 +58,31 @@ export const WA_OUTCOMES = [
   { value: "WA_TAG_NOT_SERIOUS", label: "Not serious", tone: "cold" },
 ] as const
 
-export const STAGES: Stage[] = ["New", "Contacted", "Qualified", "Proposal", "Won", "Lost"]
+export const STAGES: Stage[] = [
+  "New Inquiry", "Contacted", "Qualified", "Proposal Sent", "Negotiation", "Follow-up", "Won", "Lost",
+]
+
+/** Colour per stage, matching the funnel dots in the product. */
+export const STAGE_DOT: Record<Stage, string> = {
+  "New Inquiry": "bg-sky-400", Contacted: "bg-cyan-400", Qualified: "bg-violet-400",
+  "Proposal Sent": "bg-orange-400", Negotiation: "bg-amber-400", "Follow-up": "bg-pink-400",
+  Won: "bg-emerald-400", Lost: "bg-slate-300",
+}
+
+/**
+ * The product shows each dimension as its weighted contribution to the /100
+ * score: Fit out of 40, Intent out of 30, Quality out of 30. The dimensions
+ * themselves are 0-100 internally, which is what the grade matrix reads.
+ */
+export const WEIGHTS = { fit: 40, intent: 30, quality: 30 } as const
+
+export function contribution(value: number, of: number): number {
+  return Math.round((value / 100) * of)
+}
+
+export function totalScore(l: { fit: number; intent: number; quality: number }): number {
+  return contribution(l.fit, WEIGHTS.fit) + contribution(l.intent, WEIGHTS.intent) + contribution(l.quality, WEIGHTS.quality)
+}
 
 export type TimelineEntry = { id: string; label: string; at: string; delta?: number }
 
@@ -119,12 +145,12 @@ export const SEED_LEADS: DemoLead[] = [
   lead("l2",  "Rahul Mehta",   "Apex Capital",        2_800_000, 76, 68, 71, "Qualified", "Google Ads",   "Replied, wants a walkthrough",  22,   "today",   0),
   lead("l3",  "Vikram Desai",  "Deccan Motors",       1_500_000, 64, 52, 66, "Contacted", "Website form", "Booked a site visit",           60,   "today",   1, "Meera Shah"),
   lead("l4",  "Anjali Rao",    "BrightEdu Institute",   900_000, 58, 44, 62, "Contacted", "Facebook Ads", "Downloaded the brochure twice", 120,  null,      2, "Meera Shah"),
-  lead("l5",  "Arjun Nair",    "Kochi Exports",         650_000, 47, 34, 55, "New",       "Referral",     "Opened the quote, no reply",    300,  "overdue", 6, "Karan Bedi"),
-  lead("l6",  "Neha Kulkarni", "Sahyadri Clinics",      120_000, 44, 31, 48, "New",       "Listings",     "Enquiry from a listing site",   540,  null,      3, "Karan Bedi"),
-  lead("l7",  "Imran Khan",    "Metro Logistics",       300_000, 36, 18, 40, "New",       "Trade fair",   "No response in nine days",      2880, "overdue", 9, "Divya Pillai"),
-  lead("l8",  "Sneha Patil",   "Pune Interiors",         85_000, 30, 12, 14, "New",       "Bulk import",  "Number unreachable",            8640, null,      6, "Divya Pillai"),
-  lead("l9",  "Rohit Iyer",    "Nashik Agro",         2_200_000, 78, 66, 74, "Proposal",  "Referral",     "Went quiet after the first reply", 44640, "overdue", 31, "Meera Shah"),
-  lead("l10", "Kavita Menon",  "Trivandrum Homes",    1_700_000, 71, 62, 68, "Proposal",  "Website form", "Site visit booked, no follow-up", 34560, "overdue", 24, "Aditya Rane"),
+  lead("l5",  "Arjun Nair",    "Kochi Exports",         650_000, 47, 34, 55, "New Inquiry",       "Referral",     "Opened the quote, no reply",    300,  "overdue", 6, "Karan Bedi"),
+  lead("l6",  "Neha Kulkarni", "Sahyadri Clinics",      120_000, 44, 31, 48, "New Inquiry",       "Listings",     "Enquiry from a listing site",   540,  null,      3, "Karan Bedi"),
+  lead("l7",  "Imran Khan",    "Metro Logistics",       300_000, 36, 18, 40, "New Inquiry",       "Trade fair",   "No response in nine days",      2880, "overdue", 9, "Divya Pillai"),
+  lead("l8",  "Sneha Patil",   "Pune Interiors",         85_000, 30, 12, 14, "New Inquiry",       "Bulk import",  "Number unreachable",            8640, null,      6, "Divya Pillai"),
+  lead("l9",  "Rohit Iyer",    "Nashik Agro",         2_200_000, 78, 66, 74, "Proposal Sent",  "Referral",     "Went quiet after the first reply", 44640, "overdue", 31, "Meera Shah"),
+  lead("l10", "Kavita Menon",  "Trivandrum Homes",    1_700_000, 71, 62, 68, "Proposal Sent",  "Website form", "Site visit booked, no follow-up", 34560, "overdue", 24, "Aditya Rane"),
   lead("l11", "Sameer Joshi",  "Indore Plastics",     1_100_000, 62, 46, 58, "Qualified", "Google Ads",   "Asked for a revised quote",     27360, "overdue", 19, "Karan Bedi"),
   lead("l12", "Farah Sheikh",  "Hyderabad Tutors",      800_000, 59, 42, 54, "Contacted", "Facebook Ads", "Two replies, then silence",     23040, "overdue", 16, "Divya Pillai"),
 ]
@@ -249,7 +275,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
           activeMinutesAgo: 0,
           staleDays: 0,
           followUp: delta > 0 ? "today" : null,
-          stage: l.stage === "New" ? "Contacted" : l.stage,
+          stage: l.stage === "New Inquiry" ? "Contacted" : l.stage,
           signal: action.label,
           timeline: [
             {
@@ -353,7 +379,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
         const quality = 35 + ((i * 11) % 55)
         return lead(
           `imp${seq}-${i}`, name, company, 200_000 + i * 350_000,
-          fit, intent, quality, "New", action.source, "Imported, awaiting first contact",
+          fit, intent, quality, "New Inquiry", action.source, "Imported, awaiting first contact",
           i, null, 0, "Unassigned",
         )
       })

@@ -10,11 +10,11 @@ import {
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
 import { cn } from "@/lib/utils"
 import {
-  CALL_OUTCOMES, WA_OUTCOMES, activeAgo, demoReducer, formatRupee, gradeOf,
-  INITIAL_STATE, nextAction,
+  CALL_OUTCOMES, WA_OUTCOMES, WEIGHTS, activeAgo, contribution, demoReducer,
+  formatRupee, gradeOf, INITIAL_STATE, nextAction, totalScore,
 } from "@/lib/demo-app"
 import {
-  Avatar, Btn, DemoCtx, GradeBadge, NEXT_TONE, ScoreBar, useDemo,
+  Avatar, Btn, Card, DemoCtx, GradeBadge, ScoreCell, useDemo,
 } from "@/app/components/demo/primitives"
 import {
   ActivityView, AnalyticsView, DashboardView, FollowUpsView, ImportView, LeadsView,
@@ -36,34 +36,16 @@ type View =
   | "queue" | "follow-ups" | "pipeline" | "leads" | "import"
   | "dashboard" | "activity" | "analytics" | "rep" | "learning" | "missed" | "notifications"
 
-const NAV_GROUPS: { label: string | null; items: { view: View; label: string; icon: LucideIcon }[] }[] = [
-  {
-    label: "Execute",
-    items: [
-      { view: "queue", label: "Priority Queue", icon: Zap },
-      { view: "follow-ups", label: "Follow-ups", icon: CalendarCheck },
-      { view: "pipeline", label: "Pipeline", icon: Columns2 },
-    ],
-  },
-  {
-    label: "Leads",
-    items: [
-      { view: "leads", label: "All Leads", icon: Users },
-      { view: "import", label: "Import Leads", icon: Upload },
-    ],
-  },
-  {
-    label: "Insights",
-    items: [
-      { view: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-      { view: "activity", label: "Activity", icon: ActivityIcon },
-      { view: "analytics", label: "Analytics", icon: BarChart2 },
-      { view: "rep", label: "Rep Tracking", icon: Trophy },
-      { view: "learning", label: "Learning", icon: Brain },
-      { view: "missed", label: "Missed Opps", icon: AlertTriangle },
-    ],
-  },
-  { label: null, items: [{ view: "notifications", label: "Notifications", icon: Bell }] },
+const NAV: { view: View; label: string; icon: LucideIcon }[] = [
+  { view: "queue", label: "Priority Queue", icon: Zap },
+  { view: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { view: "leads", label: "All Leads", icon: Users },
+  { view: "pipeline", label: "Pipeline", icon: Columns2 },
+  { view: "follow-ups", label: "Follow-ups", icon: CalendarCheck },
+  { view: "analytics", label: "Analytics", icon: BarChart2 },
+  { view: "rep", label: "Rep Tracking", icon: Trophy },
+  { view: "missed", label: "Missed Opps", icon: AlertTriangle },
+  { view: "notifications", label: "Notifications", icon: Bell },
 ]
 
 const VIEW_TITLE: Record<View, string> = {
@@ -123,7 +105,7 @@ function LeadPanel({ leadId, onClose }: { leadId: string; onClose: () => void })
           <div className="relative mt-3.5 flex items-end justify-between gap-3">
             <div className="flex flex-wrap items-center gap-1.5">
               <GradeBadge grade={grade} />
-              <span className={cn("inline-flex h-7 items-center rounded-full px-3 text-[12px] font-semibold", NEXT_TONE[grade])}>
+              <span className="inline-flex h-7 items-center rounded-full bg-sky-50 px-3 text-[12px] font-semibold text-sky-700">
                 {nextAction(grade)}
               </span>
               <span className="text-[11.5px] text-slate-400">{activeAgo(lead.activeMinutesAgo)}</span>
@@ -186,11 +168,23 @@ function LeadPanel({ leadId, onClose }: { leadId: string; onClose: () => void })
 
           <div className="border-t border-slate-50 px-5 py-4">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.08em] text-slate-400">Lead score</p>
-            <div className="space-y-3">
-              <ScoreBar label="Fit" value={lead.fit} threshold={65} />
-              <ScoreBar label="Intent" value={lead.intent} threshold={60} />
-              <ScoreBar label="Quality" value={lead.quality} threshold={60} />
+            <div className="grid grid-cols-3 gap-4">
+              <div>
+                <p className="mb-1.5 text-[11.5px] text-slate-500">Fit</p>
+                <ScoreCell value={contribution(lead.fit, WEIGHTS.fit)} of={WEIGHTS.fit} tone="fit" />
+              </div>
+              <div>
+                <p className="mb-1.5 text-[11.5px] text-slate-500">Intent</p>
+                <ScoreCell value={contribution(lead.intent, WEIGHTS.intent)} of={WEIGHTS.intent} tone="intent" />
+              </div>
+              <div>
+                <p className="mb-1.5 text-[11.5px] text-slate-500">Quality</p>
+                <ScoreCell value={contribution(lead.quality, WEIGHTS.quality)} of={WEIGHTS.quality} tone="quality" />
+              </div>
             </div>
+            <p className="mt-3 text-[13px] text-slate-600">
+              Total score <span className="font-bold tabular-nums text-slate-900">{totalScore(lead)}</span>/100
+            </p>
             <p className="mt-3 text-[11.5px] leading-relaxed text-slate-400">
               The line on each bar is the Grade A threshold. Quality below 20 forces F whatever the other two say.
             </p>
@@ -269,7 +263,7 @@ export function AppReplica() {
   return (
     <DemoCtx.Provider value={ctxValue}>
       <div
-        className="overflow-hidden rounded-[20px] bg-white"
+        className="app-demo overflow-hidden rounded-[20px] bg-white"
         style={{ border: "1px solid var(--paper-line-2)", boxShadow: "0 30px 60px -40px rgba(15,23,42,0.45)" }}
       >
         {/* Frame bar */}
@@ -309,81 +303,66 @@ export function AppReplica() {
             everything below it on the page. */}
         <div
           className="relative flex h-[560px] gap-3 overflow-hidden p-3 md:h-[660px]"
-          style={{ background: "#F1F5F9" }}
+          style={{ background: "#F6F8FB" }}
         >
-          <aside className="hidden w-[224px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white md:flex">
-            <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-200/70 px-4">
-              <LeadkaunMark size={24} gloss />
-              <span className="text-[15px] font-semibold leading-none tracking-[-0.025em] text-slate-900">Leadkaun</span>
+          <aside className="hidden w-[236px] shrink-0 flex-col overflow-hidden rounded-2xl bg-white md:flex">
+            <div className="flex h-[62px] shrink-0 items-center gap-2.5 border-b border-slate-100 px-4">
+              <span
+                className="grid h-8 w-8 place-items-center rounded-lg text-[15px] font-bold text-white"
+                style={{ background: "linear-gradient(180deg, #7DD3FC 0%, #38BDF8 100%)" }}
+              >
+                A
+              </span>
+              <span className="text-[16px] font-bold leading-none tracking-[-0.02em] text-slate-800">Leadkaun</span>
             </div>
 
-            <div className="border-b border-slate-200/70 px-3 py-2.5">
-              <p className="mb-1.5 px-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">Workspace</p>
-              <div className="flex h-9 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3">
-                <Layers className="h-3.5 w-3.5 shrink-0 text-sky-500" />
-                <span className="truncate text-[13px] font-medium text-slate-900">Sunrise Group</span>
-              </div>
-            </div>
-
-            <nav className="flex-1 overflow-y-auto px-2 pb-2 pt-3">
-              {NAV_GROUPS.map((group, gi) => (
-                <div
-                  key={group.label ?? "utility"}
-                  className={gi === 0 ? "" : group.label ? "mt-4" : "mt-3 border-t border-slate-200/70 pt-3"}
-                >
-                  {group.label && (
-                    <p className="mb-1 select-none px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                      {group.label}
-                    </p>
-                  )}
-                  <div className="space-y-0.5">
-                    {group.items.map((item) => {
-                      const active = item.view === view
-                      const Icon = item.icon
-                      const badge = item.view === "missed" ? missedCount : item.view === "notifications" ? unread : 0
-                      return (
-                        <button
-                          key={item.view}
-                          type="button"
-                          onClick={() => go(item.view)}
-                          aria-current={active ? "page" : undefined}
-                          className={cn(
-                            "relative flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[13px] transition-all duration-150",
-                            active
-                              ? "bg-sky-50/80 font-semibold text-sky-700 before:absolute before:bottom-1.5 before:left-0 before:top-1.5 before:w-[3px] before:rounded-r-full before:bg-sky-500"
-                              : "font-medium text-slate-600 hover:bg-sky-50/40 hover:text-sky-600"
-                          )}
+            <nav className="flex-1 overflow-y-auto px-3 py-3">
+              <div className="space-y-0.5">
+                {NAV.map((item) => {
+                  const active = item.view === view
+                  const Icon = item.icon
+                  const badge = item.view === "missed" ? missedCount : item.view === "notifications" ? unread : 0
+                  return (
+                    <button
+                      key={item.view}
+                      type="button"
+                      onClick={() => go(item.view)}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13.5px] transition-colors",
+                        active
+                          ? "bg-sky-50 font-semibold text-sky-700 before:absolute before:bottom-1.5 before:left-0 before:top-1.5 before:w-[3px] before:rounded-r-full before:bg-sky-500"
+                          : "font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                      )}
+                    >
+                      <Icon className={cn("h-[17px] w-[17px] shrink-0", active ? "text-sky-500" : "text-slate-400")} strokeWidth={2} />
+                      {item.label}
+                      {badge > 0 && (
+                        <span
+                          className="ml-auto inline-flex h-[20px] min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10.5px] font-bold text-white"
+                          style={{
+                            background: item.view === "missed"
+                              ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
+                              : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
+                          }}
                         >
-                          <Icon className={cn("h-[15px] w-[15px] shrink-0", active ? "text-sky-500" : "text-slate-400")} strokeWidth={active ? 2.5 : 2} />
-                          {item.label}
-                          {badge > 0 && (
-                            <span
-                              className="ml-auto inline-flex h-[18px] min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-bold text-white"
-                              style={{
-                                background: item.view === "missed"
-                                  ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
-                                  : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                              }}
-                            >
-                              {badge}
-                            </span>
-                          )}
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-              ))}
+                          {badge}
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
             </nav>
 
-            <div className="border-t border-slate-200/70 px-3 py-3">
+            <div className="border-t border-slate-100 px-3 py-3.5">
               <div className="flex items-center gap-2.5">
-                <Avatar name="Aditya Rane" />
+                <Avatar name="Ajsal Work" size={32} single={false} />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12px] font-semibold leading-tight text-slate-900">Aditya Rane</p>
-                  <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.10em] text-slate-400">Manager</p>
+                  <p className="truncate text-[12.5px] font-bold leading-tight text-slate-800">Ajsal Work</p>
+                  <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.1em] text-slate-400">Admin</p>
                 </div>
-                <LogOut className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={2} />
+                <LogOut className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} />
               </div>
             </div>
           </aside>
@@ -408,7 +387,7 @@ export function AppReplica() {
 
             {/* The sidebar is hidden on small screens, so views need another way across */}
             <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1 md:hidden">
-              {NAV_GROUPS.flatMap((g) => g.items).map((item) => (
+              {NAV.map((item) => (
                 <button
                   key={item.view}
                   type="button"
@@ -423,13 +402,13 @@ export function AppReplica() {
               ))}
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto p-1">
+            <div className="min-h-0 flex-1 overflow-y-auto rounded-2xl bg-white p-5 md:p-6">
               {view === "queue" && <QueueView onImport={() => go("import")} />}
               {view === "leads" && <LeadsView onImport={() => go("import")} />}
               {view === "follow-ups" && <FollowUpsView />}
               {view === "pipeline" && <PipelineView />}
               {view === "import" && <ImportView onDone={() => go("queue")} />}
-              {view === "dashboard" && <DashboardView />}
+              {view === "dashboard" && <DashboardView onImport={() => go("import")} />}
               {view === "activity" && <ActivityView />}
               {view === "analytics" && <AnalyticsView />}
               {view === "rep" && <RepTrackingView />}

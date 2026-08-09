@@ -283,7 +283,9 @@ export function AppReplica() {
       // Sized so the section lands on roughly one screenful while the app stays
       // legible. Shrinking any further to guarantee a perfect fit would push the
       // text under 9px, which is worse than a little scrolling.
-      const maxH = Math.max(420, Math.min(window.innerHeight - 210, 780))
+      // Measured overhead above and around the window (heading, padding, chrome
+      // bar) is ~330px, so budget from the viewport minus that.
+      const maxH = Math.max(400, Math.min(window.innerHeight - 335, 760))
       const contentH = app.scrollHeight || 1
       const scale = Math.min(availW / baseW, maxH / contentH, 1)
       setFit({

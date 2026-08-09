@@ -733,6 +733,15 @@ a { color: inherit; text-decoration: none; }
   .rise { animation: none; }
 }
 
+/* The dwell hairline under the active voice in the testimonial register */
+@keyframes voice-dwell { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.voice-dwell { animation: voice-dwell 8s linear forwards; }
+.voice-dwell.paused { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-dwell { animation: none; transform: scaleX(1); }
+}
+
 
 /* ============================================================================
    THE LEDGER — sitewide rollout (2026-08)

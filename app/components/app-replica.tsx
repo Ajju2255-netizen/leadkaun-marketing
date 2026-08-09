@@ -484,7 +484,7 @@ export function AppReplica() {
               {view === "follow-ups" && <FollowUpsView />}
               {view === "pipeline" && <PipelineView />}
               {view === "import" && <ImportView onDone={() => go("queue")} />}
-              {view === "dashboard" && <DashboardView />}
+              {view === "dashboard" && <DashboardView onImport={() => setView("import")} />}
               {view === "activity" && <ActivityView />}
               {view === "analytics" && <AnalyticsView />}
               {view === "rep" && <RepTrackingView />}

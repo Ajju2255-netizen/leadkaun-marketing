@@ -134,20 +134,23 @@ export function StatCard({
 
 /** Dashboard/pipeline KPI card. `rounded-2xl`, 26px value, delta line. */
 export function KpiCard({
-  label, value, icon: Icon, tintBg, tintFg, delta, invertDelta, spark, suffix, caption,
+  label, value, icon: Icon, tintBg, tintFg, delta, invertDelta, spark, suffix, caption, iconRight,
 }: {
   label: string; value: ReactNode; icon?: LucideIcon; tintBg?: string; tintFg?: string
   delta?: number | null; invertDelta?: boolean; spark?: number[]; suffix?: string; caption?: string
+  iconRight?: boolean
 }) {
+  const tile = Icon && (
+    <span className={cn("grid h-8 w-8 shrink-0 place-items-center rounded-lg", tintBg, tintFg)}>
+      <Icon className="h-4 w-4" strokeWidth={2} />
+    </span>
+  )
   return (
     <div className="rounded-2xl border border-slate-200/70 bg-white p-4">
-      <div className="flex min-w-0 items-center gap-2">
-        {Icon && (
-          <span className={cn("grid h-8 w-8 shrink-0 place-items-center rounded-lg", tintBg, tintFg)}>
-            <Icon className="h-4 w-4" strokeWidth={2} />
-          </span>
-        )}
+      <div className={cn("flex min-w-0 items-center gap-2", iconRight && "justify-between")}>
+        {!iconRight && tile}
         <p className="text-[12px] font-medium leading-tight text-slate-600">{label}</p>
+        {iconRight && tile}
       </div>
       <div className="mt-3 text-[26px] font-bold leading-none tabular-nums text-slate-900">
         {value}{suffix}

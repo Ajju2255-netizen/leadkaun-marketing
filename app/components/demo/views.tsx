@@ -5,8 +5,9 @@ import {
   Upload, Search, ChevronRight, Inbox, Flame, PhoneCall, IndianRupee, Trophy, Zap,
   AlertTriangle, Activity as ActivityIcon, Check, Clock, Users, CalendarClock,
   CheckCircle2, Gauge, Snowflake, TrendingDown, Brain, Bell, RotateCcw, X, Target,
-  ArrowUpRight, Columns2, ChevronLeft, MessageCircle, SlidersHorizontal, Download,
-  LayoutDashboard, Users2, KanbanSquare, BarChart3, User, AlertCircle,
+  ArrowUpRight, Columns2, ChevronLeft, MessageCircle, SlidersHorizontal, Download, TrendingUp,
+  LayoutDashboard, Users2, KanbanSquare, BarChart3, User, AlertCircle, Phone, Lock,
+  Shield, Trophy as TrophyIcon, ArrowLeftRight, CloudUpload, ChevronDown, ArrowRight, Plus,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -217,7 +218,7 @@ export function QueueView({ onImport }: { onImport: () => void }) {
                 <Th className="pl-5">Lead</Th>
                 <Th className="hidden @3xl:table-cell">Signal</Th>
                 <Th className="text-right">Value</Th>
-                <Th>Grade</Th>
+                <Th className="uppercase tracking-[0.06em]">Grade</Th>
                 <Th className="hidden @xl:table-cell">Next action</Th>
                 <Th className="hidden @4xl:table-cell">Source</Th>
                 <Th className="hidden @5xl:table-cell">Last active</Th>
@@ -307,7 +308,7 @@ const FUNNEL_COLORS = [
 ]
 const FUNNEL_STAGES: Stage[] = ["New Inquiry", "Contacted", "Qualified", "Proposal Sent", "Negotiation", "Follow-up", "Won"]
 
-export function DashboardView() {
+export function DashboardView({ onImport }: { onImport: () => void }) {
   const { state } = useDemo()
   const won = state.leads.filter((l) => l.stage === "Won")
   const entered = state.leads.length
@@ -323,6 +324,9 @@ export function DashboardView() {
     return [...m.entries()].sort((a, b) => b[1] - a[1])
   }, [state.leads])
 
+  const healthyPct = Math.round(
+    (state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length / Math.max(state.leads.length, 1)) * 100
+  )
   const health = [
     { label: "Healthy", n: state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length, icon: ActivityIcon, tone: "text-emerald-600", bar: "bg-emerald-400" },
     { label: "At risk", n: state.leads.filter((l) => gradeOf(l) === "C").length, icon: AlertTriangle, tone: "text-orange-500", bar: "bg-orange-400" },
@@ -335,6 +339,12 @@ export function DashboardView() {
       <PageHead icon={LayoutDashboard}
         title="Sales Behaviour Pulse"
         sub="Today's revenue radar. What your team did, what's slipping, and where the next ₹ is hiding."
+        action={
+          <>
+            <Btn><CalendarClock className="h-4 w-4" /> This month</Btn>
+            <Btn tone="primary" onClick={onImport}><Plus className="h-4 w-4" /> Import leads</Btn>
+          </>
+        }
       />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
@@ -362,7 +372,8 @@ export function DashboardView() {
         </Card>
 
         <Card title="Top Performing Reps" action={<span className="text-[12px] font-semibold text-sky-600">View all →</span>}>
-          <div className="space-y-4">
+          {won.length === 0 && <p className="py-10 text-center text-[13px] text-slate-400">No wins yet this month.</p>}
+          <div className={cn("space-y-4", won.length === 0 && "hidden")}>
             {REPS.map((r, i) => (
               <div key={r.name}>
                 <div className="flex items-baseline justify-between gap-2">
@@ -391,6 +402,9 @@ export function DashboardView() {
               </div>
             ))}
           </div>
+          <div className="mt-4 border-t border-slate-100 pt-3 text-center">
+            <span className="text-[12.5px] font-semibold text-sky-600">View all leads →</span>
+          </div>
         </Card>
 
         <Card title="Recent Activity">
@@ -411,20 +425,40 @@ export function DashboardView() {
         </Card>
 
         <Card title="Behaviour Health">
-          <div className="space-y-3">
+          {/* the product shows a ring, then the bands, then an attention note */}
+          <div className="grid place-items-center py-2">
+            <div className="relative grid h-[118px] w-[118px] place-items-center">
+              <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
+                <circle cx="50" cy="50" r="43" fill="none" stroke="#E2E8F0" strokeWidth="9" />
+                <circle cx="50" cy="50" r="43" fill="none" stroke="#34D399" strokeWidth="9" strokeLinecap="round"
+                        strokeDasharray={`${(healthyPct / 100) * 270} 270`} />
+              </svg>
+              <div className="text-center">
+                <p className="text-[24px] font-bold leading-none tabular-nums text-slate-900">{healthyPct}%</p>
+                <p className="text-[11px] text-slate-400">healthy</p>
+                {healthyPct < 50 && <p className="mt-0.5 text-[11px] font-semibold text-rose-500">At risk</p>}
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 space-y-2">
             {health.map((h) => (
-              <div key={h.label}>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="flex items-center gap-1.5 text-[12.5px] text-slate-600">
-                    <h.icon className={cn("h-3.5 w-3.5", h.tone)} strokeWidth={2.5} /> {h.label}
-                  </span>
-                  <span className="text-[12.5px] font-semibold tabular-nums text-slate-900">{h.n}</span>
-                </div>
-                <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                  <div className={cn("h-full rounded-full", h.bar)} style={{ width: `${(h.n / Math.max(entered, 1)) * 100}%` }} />
-                </div>
+              <div key={h.label} className="flex items-center justify-between gap-2">
+                <span className="flex items-center gap-2 text-[12.5px] text-slate-600">
+                  <h.icon className={cn("h-3.5 w-3.5", h.tone)} strokeWidth={2.5} /> {h.label}
+                </span>
+                <span className="text-[12.5px] tabular-nums text-slate-900">
+                  <span className="font-semibold">{h.n}</span>{" "}
+                  <span className="text-slate-400">({Math.round((h.n / Math.max(entered, 1)) * 100)}%)</span>
+                </span>
               </div>
             ))}
+          </div>
+          <div className="mt-4 flex items-start gap-2 rounded-xl bg-amber-50/70 px-3 py-2.5">
+            <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-500" />
+            <p className="text-[12px] text-slate-700">
+              {state.leads.filter((l) => l.staleDays >= 14).length} leads need attention. Open{" "}
+              <span className="font-semibold text-sky-600">Missed Opps</span>.
+            </p>
           </div>
         </Card>
       </div>
@@ -503,47 +537,20 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
         ))}
       </div>
 
-      <div className="mt-4 grid gap-3 @2xl:grid-cols-3">
-        <StatCard icon={Zap} label="Scoring Speed" value="< 1s" tintBg="bg-sky-50" tintFg="text-sky-600" caption="per lead on import" />
-        <Card pad="p-3.5">
-          <p className="text-[12px] font-medium text-slate-600">Score Breakdown</p>
-          <div className="mt-3 space-y-1.5">
-            {(["A", "B", "C", "D", "F"] as const).map((gr) => {
-              const n = state.leads.filter((l) => gradeOf(l) === gr).length
-              return (
-                <div key={gr} className="flex items-center gap-2">
-                  <GradeBadge grade={gr} size="sm" />
-                  <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
-                    <span className="block h-full rounded-full bg-sky-400" style={{ width: `${(n / Math.max(state.leads.length, 1)) * 100}%` }} />
-                  </span>
-                  <span className="w-5 text-right text-[11.5px] font-semibold tabular-nums text-slate-700">{n}</span>
-                </div>
-              )
-            })}
-          </div>
-        </Card>
-        <Card pad="p-3.5">
-          <p className="text-[12px] font-medium text-slate-600">Score Decay</p>
-          <p className="mt-3 text-[23px] font-bold leading-none tabular-nums text-slate-900">
-            {state.leads.filter((l) => l.staleDays >= 28).length}
-          </p>
-          <p className="mt-2 text-[11.5px] text-slate-400">past 28 days, losing 3 intent a day</p>
-        </Card>
-      </div>
-
       <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white">
         <table className="w-full border-collapse">
           <thead className="border-b border-slate-100 bg-slate-50/60">
             <tr>
-              <Th className="pl-5">Lead</Th>
-              <Th className="text-right">Score</Th>
-              <Th>Grade</Th>
-              <Th className="hidden @5xl:table-cell">Fit</Th>
-              <Th className="hidden @5xl:table-cell">Intent</Th>
-              <Th className="hidden @5xl:table-cell">Quality</Th>
-              <Th>Stage</Th>
-              <Th className="hidden @4xl:table-cell">Rep</Th>
-              <Th className="pr-5 text-right">Last activity</Th>
+              <Th className="w-9 pl-5"><input type="checkbox" aria-label="Select all leads" className="h-3.5 w-3.5 accent-sky-600" /></Th>
+              <Th className="uppercase tracking-[0.06em]">Lead</Th>
+              <Th className="text-right uppercase tracking-[0.06em]">Score</Th>
+              <Th className="uppercase tracking-[0.06em]">Grade</Th>
+              <Th className="hidden uppercase tracking-[0.06em] @5xl:table-cell">Fit</Th>
+              <Th className="hidden uppercase tracking-[0.06em] @5xl:table-cell">Intent</Th>
+              <Th className="hidden uppercase tracking-[0.06em] @5xl:table-cell">Quality</Th>
+              <Th className="uppercase tracking-[0.06em]">Stage</Th>
+              <Th className="hidden uppercase tracking-[0.06em] @4xl:table-cell">Rep</Th>
+              <Th className="pr-5 text-right uppercase tracking-[0.06em]">Last activity</Th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -551,10 +558,11 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
               const score = totalScore(l)
               return (
                 <tr key={l.id} className="transition-colors hover:bg-sky-50/40">
-                  <td className="py-3.5 pl-5 pr-3">
+                  <td className="py-3.5 pl-5"><input type="checkbox" aria-label={`Select ${l.name}`} className="h-3.5 w-3.5 accent-sky-600" /></td>
+                  <td className="py-3.5 pr-3">
                     <button type="button" onClick={() => openLead(l.id)} className="text-left">
                       <span className="block text-[13.5px] font-semibold text-slate-900">{l.name}</span>
-                      <span className="mt-0.5 block text-[12px] text-slate-400">{l.company}</span>
+                      <span className="mt-0.5 block text-[12px] text-slate-400">{l.company} · {CITY_OF[l.id.charCodeAt(1) % CITY_OF.length]}</span>
                     </button>
                   </td>
                   <td className="px-3 text-right">
@@ -580,7 +588,7 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
               )
             })}
             {rows.length === 0 && (
-              <tr><td colSpan={9} className="px-5 py-10 text-center text-[13px] text-slate-400">No leads match that.</td></tr>
+              <tr><td colSpan={10} className="px-5 py-10 text-center text-[13px] text-slate-400">No leads match that.</td></tr>
             )}
 
           </tbody>
@@ -593,7 +601,27 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
 // ── Pipeline ──────────────────────────────────────────────────────────────────
 
 /** The product scrolls a board of every stage, not a four-up grid. */
+const CITY_OF = ["Mumbai", "Bengaluru", "Hyderabad", "Noida", "Pune", "Gurgaon"]
+
 const BOARD: Stage[] = ["New Inquiry", "Contacted", "Qualified", "Proposal Sent", "Negotiation", "Follow-up", "Won"]
+
+function PipelineKpi({ dot, rule, label, value, delta }: { dot: string; rule: string; label: string; value: string; delta?: string }) {
+  return (
+    <div className="flex flex-col rounded-2xl border border-slate-200/70 bg-white p-4">
+      <p className="flex items-center gap-2 text-[12.5px] font-medium text-slate-600">
+        <span className={cn("h-2 w-2 rounded-full", dot)} /> {label}
+      </p>
+      <div className="mt-2.5 flex items-baseline gap-2">
+        <span className="text-[28px] font-bold leading-none tabular-nums text-slate-900">{value}</span>
+        {delta
+          ? <span className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-emerald-600"><TrendingUp className="h-3 w-3" />{delta}</span>
+          : <span className="text-[11.5px] text-slate-400">— 0%</span>}
+      </div>
+      <p className="mt-2 text-[11.5px] text-slate-400">vs last month</p>
+      <div className={cn("mt-4 h-[2px] w-full rounded-full", rule)} />
+    </div>
+  )
+}
 
 type PipelineDialog = { kind: "move" | "won" | "lost"; leadId: string } | null
 
@@ -613,11 +641,11 @@ export function PipelineView() {
       />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
-        <KpiCard label="Total Deals" value={state.leads.length} icon={Columns2} tintBg="bg-sky-50"     tintFg="text-sky-600"     spark={[4, 6, 5, 8, 7, 9, 12]} />
-        <KpiCard label="Open Deals"  value={open}               icon={Zap}     tintBg="bg-violet-50"  tintFg="text-violet-500"  spark={[8, 7, 9, 6, 8, 7, 9]} />
-        <KpiCard label="Won Deals"   value={won}                icon={Trophy}  tintBg="bg-emerald-50" tintFg="text-emerald-600" spark={[1, 2, 1, 3, 2, 4, 5]} />
-        <KpiCard label="Lost Deals"  value={lost}               icon={X}       tintBg="bg-orange-50"  tintFg="text-orange-500"  spark={[2, 1, 3, 2, 1, 2, 1]} invertDelta />
-        <KpiCard label="Win Rate"    value={Math.round((won / Math.max(won + lost, 1)) * 100)} suffix="%" icon={Target} tintBg="bg-sky-50" tintFg="text-sky-600" spark={[3, 5, 4, 7, 5, 8, 9]} />
+        <PipelineKpi dot="bg-sky-400"     rule="bg-sky-400"     label="Total Deals" value={String(state.leads.length)} delta="100.0%" />
+        <PipelineKpi dot="bg-violet-400"  rule="bg-violet-400"  label="Open Deals"  value={String(open)}              delta="100.0%" />
+        <PipelineKpi dot="bg-emerald-400" rule="bg-emerald-400" label="Won Deals"   value={String(won)} />
+        <PipelineKpi dot="bg-orange-400"  rule="bg-orange-400"  label="Lost Deals"  value={String(lost)} />
+        <PipelineKpi dot="bg-sky-400"     rule="bg-sky-400"     label="Win Rate"    value={`${Math.round((won / Math.max(won + lost, 1)) * 100)}%`} />
       </div>
 
       <div className="-mx-1 mt-4 flex gap-3 overflow-x-auto px-1 pb-4">
@@ -626,13 +654,20 @@ export function PipelineView() {
           const next = STAGES[STAGES.indexOf(stage) + 1]
           return (
             <div key={stage} className="w-[260px] shrink-0 rounded-2xl border border-slate-200/70 bg-white p-4">
-              <div className="flex items-center justify-between">
-                <p className="flex items-center gap-2 text-[13px] font-semibold text-slate-900">
-                  <span className={cn("h-2 w-2 rounded-full", FUNNEL_COLORS[si].swatch)} /> {stage}
+              {/* name · count on the left, value on the right, one row */}
+              <div className="flex items-center justify-between gap-2">
+                <p className="flex min-w-0 items-center gap-2 text-[13px] font-semibold text-slate-900">
+                  <span className={cn("h-2 w-2 shrink-0 rounded-full", FUNNEL_COLORS[si].swatch)} />
+                  <span className="truncate">{stage}</span>
+                  <span className="text-[12px] font-normal text-slate-400">{inStage.length}</span>
                 </p>
-                <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[11px] font-bold tabular-nums text-slate-600">{inStage.length}</span>
+                <span className="shrink-0 text-[12px] font-medium tabular-nums text-slate-500">
+                  {formatRupee(inStage.reduce((s, l) => s + l.value, 0))}
+                </span>
               </div>
-              <p className="mt-2 text-[12px] tabular-nums text-slate-400">{formatRupee(inStage.reduce((s, l) => s + l.value, 0))}</p>
+              <div className="mt-2.5 h-[3px] overflow-hidden rounded-full bg-slate-100">
+                <div className={cn("h-full rounded-full", FUNNEL_COLORS[si].bar)} style={{ width: `${Math.max(8, (inStage.length / Math.max(state.leads.length, 1)) * 100)}%` }} />
+              </div>
 
               <div className="mt-4 space-y-3">
                 {inStage.map((l) => (
@@ -687,6 +722,15 @@ export function PipelineView() {
             </div>
           )
         })}
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-center gap-3 rounded-2xl border border-slate-200/70 bg-white px-4 py-3 text-[12px]">
+        <span className="flex items-center gap-2 font-semibold text-slate-800">
+          <span className="h-2 w-2 rounded-full bg-rose-500" /> Lost this account: {lost}
+        </span>
+        <span className="text-slate-400">·</span>
+        <span className="text-slate-500">Audit reasons in Analytics → Why You&apos;re Losing</span>
+        <span className="ml-auto font-semibold text-sky-600">View →</span>
       </div>
 
       {dialog && dialogLead && (
@@ -762,7 +806,15 @@ export function FollowUpsView() {
 
   return (
     <>
-      <PageHead title="Follow-ups" sub="Work top to bottom, overdue first." />
+      <PageHead
+        title="Follow-ups"
+        sub="Work top to bottom, overdue first."
+        action={
+          <select aria-label="Filter by rep" className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-600 outline-none">
+            {["All reps", ...REPS.map((r) => r.name)].map((r) => <option key={r}>{r}</option>)}
+          </select>
+        }
+      />
 
       <Card className="mt-4" pad="p-4 sm:p-5">
         <h2 className="mb-3.5 text-[14px] font-semibold text-slate-900">Quick stats</h2>
@@ -775,37 +827,56 @@ export function FollowUpsView() {
         </div>
       </Card>
 
-      <Card title="Your follow-up list" className="mt-4" action={<span className="text-[12px] text-slate-400">{due.length} outstanding</span>}>
-        {due.length === 0 ? (
-          <p className="py-10 text-center text-[13px] text-slate-400">All caught up. Nothing scheduled.</p>
-        ) : (
-          <div className="divide-y divide-slate-100">
+      {/* The product lists follow-ups as a table, with per-row quick actions. */}
+      <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
+        <table className="w-full border-collapse">
+          <thead className="border-b border-slate-100">
+            <tr>
+              <Th className="pl-5">Lead</Th>
+              <Th>Task</Th>
+              <Th>Due</Th>
+              <Th className="text-right">Value</Th>
+              <Th className="pr-5" />
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
             {due.map((l) => (
-              <div key={l.id} className="flex flex-wrap items-center gap-3 py-3 first:pt-0 last:pb-0">
-                <button type="button" onClick={() => openLead(l.id)} className="flex min-w-[170px] flex-1 items-center gap-3 text-left">
-                  <Avatar name={l.name} />
-                  <span className="min-w-0">
-                    <span className="block truncate text-[13.5px] font-semibold text-slate-900">{l.name}</span>
-                    <span className="block truncate text-[12px] text-slate-400">{l.company}</span>
+              <tr key={l.id} className="transition-colors hover:bg-sky-50/30">
+                <td className="py-3 pl-5 pr-3">
+                  <button type="button" onClick={() => openLead(l.id)} className="flex items-center gap-3 text-left">
+                    <GradeBadge grade={gradeOf(l)} size="sm" />
+                    <span>
+                      <span className="block text-[13px] font-semibold text-slate-900">{l.name}</span>
+                      <span className="block text-[11.5px] text-slate-400">{l.company}</span>
+                    </span>
+                  </button>
+                </td>
+                <td className="px-3 text-[13px] text-slate-600">Call follow-up</td>
+                <td className="px-3">
+                  <span className={cn(
+                    "inline-flex h-6 items-center rounded-full px-2.5 text-[11.5px] font-medium",
+                    l.followUp === "overdue" ? "bg-rose-50 text-rose-600" : "bg-sky-50 text-sky-700"
+                  )}>
+                    {l.followUp === "overdue" ? `Overdue ${l.staleDays}d` : "Due today"}
                   </span>
-                </button>
-                <span className={cn(
-                  "inline-flex h-7 items-center rounded-full px-3 text-[12px] font-semibold",
-                  l.followUp === "overdue" ? "bg-rose-50 text-rose-600" : "bg-sky-50 text-sky-700"
-                )}>
-                  {l.followUp === "overdue" ? `${l.staleDays}d overdue` : "Due today"}
-                </span>
-                <GradeBadge grade={gradeOf(l)} />
-                <span className="w-[62px] text-right text-[13px] font-semibold tabular-nums text-slate-900">{formatRupee(l.value)}</span>
-                <span className="flex gap-1.5">
-                  <Btn size="sm" tone="soft" onClick={() => dispatch({ type: "COMPLETE_FOLLOWUP", leadId: l.id })}><Check className="h-3.5 w-3.5" /> Done</Btn>
-                  {l.followUp === "overdue" && <Btn size="sm" onClick={() => dispatch({ type: "SNOOZE_FOLLOWUP", leadId: l.id })}>Today</Btn>}
-                </span>
-              </div>
+                </td>
+                <td className="px-3 text-right text-[13px] font-semibold tabular-nums text-slate-900">{formatRupee(l.value)}</td>
+                <td className="py-3 pl-3 pr-5">
+                  <div className="flex items-center justify-end gap-3 text-slate-400">
+                    <button type="button" aria-label={`Call ${l.name}`} onClick={() => openLead(l.id)} className="hover:text-sky-600"><Phone className="h-4 w-4" /></button>
+                    <button type="button" aria-label={`WhatsApp ${l.name}`} onClick={() => openLead(l.id)} className="hover:text-emerald-600"><MessageCircle className="h-4 w-4" /></button>
+                    <button type="button" aria-label={`Complete ${l.name}`} onClick={() => dispatch({ type: "COMPLETE_FOLLOWUP", leadId: l.id })} className="hover:text-emerald-600"><Check className="h-4 w-4" /></button>
+                    <button type="button" aria-label={`Snooze ${l.name}`} onClick={() => dispatch({ type: "SNOOZE_FOLLOWUP", leadId: l.id })} className="hover:text-slate-700"><Clock className="h-4 w-4" /></button>
+                  </div>
+                </td>
+              </tr>
             ))}
-          </div>
-        )}
-      </Card>
+            {due.length === 0 && (
+              <tr><td colSpan={5} className="px-5 py-12 text-center text-[13px] text-slate-400">All caught up. Nothing scheduled.</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </>
   )
 }
@@ -862,10 +933,13 @@ export function AnalyticsView() {
               Most of it is recoverable. The pattern below says where it is going.
             </p>
           </div>
-          <div className="shrink-0 rounded-xl border border-slate-200/70 p-4 @3xl:w-[220px]">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">Recoverable now</p>
-            <p className="mt-2 text-[26px] font-bold leading-none tabular-nums text-emerald-600">{formatRupee(recoverable)}</p>
-            <p className="mt-2 text-[12px] text-slate-400">overdue follow-ups →</p>
+          <div className="flex shrink-0 flex-col justify-center rounded-xl bg-emerald-50 p-4 @3xl:w-[240px]">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-700">Recoverable now</p>
+            <p className="mt-2 text-[26px] font-bold leading-none tabular-nums text-emerald-700">{formatRupee(recoverable)}</p>
+            <p className="mt-1.5 text-[12px] text-emerald-700/70">{missed.filter((l) => ["A", "B"].includes(gradeOf(l))).length} A/B leads sitting idle</p>
+            <button type="button" className="mt-3 inline-flex w-fit items-center gap-1 rounded-full bg-emerald-600 px-3 py-1.5 text-[12px] font-semibold text-white hover:bg-emerald-700">
+              Recover it <ArrowRight className="h-3 w-3" />
+            </button>
           </div>
         </div>
       </Card>
@@ -899,7 +973,8 @@ export function AnalyticsView() {
         </div>
       </Card>
 
-      <div className="mt-4 grid gap-4 @5xl:grid-cols-[1.5fr_1fr]">
+      <SectionLabel>Where you&rsquo;re losing</SectionLabel>
+      <div className="mt-3 grid gap-4 @5xl:grid-cols-[1.5fr_1fr]">
         <Card title="Why You're Losing" action={<span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">{missed.length} leads · {formatRupee(missedValue)}</span>}>
           <div className="space-y-3">
             {losses.map((l) => (
@@ -927,17 +1002,15 @@ export function AnalyticsView() {
         </Card>
 
         <div className="space-y-4">
-          <Card title="Missed by grade">
-            <div className="space-y-2.5">
+          <Card title="Missed by Grade">
+            <div className="grid grid-cols-4 gap-2">
               {(["A", "B", "C", "D"] as const).map((gr) => {
-                const n = missed.filter((l) => gradeOf(l) === gr).length
+                const rows = missed.filter((l) => gradeOf(l) === gr)
                 return (
-                  <div key={gr} className="flex items-center gap-3">
-                    <GradeBadge grade={gr} size="sm" />
-                    <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
-                      <span className="block h-full rounded-full bg-rose-400" style={{ width: `${(n / Math.max(missed.length, 1)) * 100}%` }} />
-                    </span>
-                    <span className="w-6 text-right text-[12.5px] font-semibold tabular-nums text-slate-900">{n}</span>
+                  <div key={gr} className="rounded-xl border border-slate-200/70 px-2 py-3 text-center">
+                    <span className="flex justify-center"><GradeBadge grade={gr} size="sm" /></span>
+                    <p className="mt-2 text-[17px] font-bold leading-none tabular-nums text-slate-900">{rows.length}</p>
+                    <p className="mt-1 text-[11px] tabular-nums text-slate-400">{formatRupee(rows.reduce((t, l) => t + l.value, 0))}</p>
                   </div>
                 )
               })}
@@ -972,23 +1045,33 @@ export function AnalyticsView() {
       <Card title="Lead Playbook" meta={<span className="text-[11.5px] text-slate-400">Recommended first touch by grade</span>} className="mt-4">
         <div className="grid gap-3 @2xl:grid-cols-2 @5xl:grid-cols-4">
           {[
-            { g: "A" as const, when: "Within the hour", how: "Call. If unanswered, WhatsApp the same day." },
-            { g: "B" as const, when: "Same day", how: "Call once, then a scheduled follow-up." },
-            { g: "C" as const, when: "Within the week", how: "Nurture. Templates, not calls." },
-            { g: "D" as const, when: "When capacity allows", how: "Light touch, or park it." },
+            { g: "A" as const, channel: "Call", icon: Phone, when: "Call within 2h", how: "If unanswered, WhatsApp the same day.", benchmark: "1h 10m" },
+            { g: "B" as const, channel: "WhatsApp", icon: MessageCircle, when: "Reach out same day", how: "Message first, call once they reply.", benchmark: null },
+            { g: "C" as const, channel: "WhatsApp", icon: MessageCircle, when: "Within the week", how: "Nurture with templates, not calls.", benchmark: null },
+            { g: "D" as const, channel: "WhatsApp", icon: MessageCircle, when: "When capacity allows", how: "Light touch, or park it.", benchmark: null },
           ].map((r) => (
             <div key={r.g} className="rounded-xl border border-slate-200/70 p-3.5">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-between gap-2">
                 <GradeBadge grade={r.g} size="sm" />
-                <span className="text-[12.5px] font-semibold text-slate-900">{r.when}</span>
+                <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-400">
+                  <r.icon className="h-3 w-3" /> {r.channel}
+                </span>
               </div>
-              <p className="mt-2 text-[12px] leading-relaxed text-slate-500">{r.how}</p>
+              <p className="mt-2.5 text-[13px] font-semibold text-slate-900">{r.when}</p>
+              <p className="mt-1 text-[12px] leading-relaxed text-slate-500">{r.how}</p>
+              <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-2.5">
+                <span className="text-[11px] text-slate-400">Your won avg</span>
+                <span className={cn("text-[11.5px] font-semibold tabular-nums", r.benchmark ? "text-emerald-600" : "text-slate-300")}>
+                  {r.benchmark ?? "No data"}
+                </span>
+              </div>
             </div>
           ))}
         </div>
       </Card>
 
-      <div className="mt-4 grid gap-4 @4xl:grid-cols-2">
+      <SectionLabel>Team &amp; sources</SectionLabel>
+      <div className="mt-3 grid gap-4 @4xl:grid-cols-2">
         <Card title="Source Quality">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
@@ -1013,7 +1096,7 @@ export function AnalyticsView() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse">
               <thead className="border-b border-slate-100">
-                <tr><Th>Rep</Th><Th className="text-right">A-rate</Th><Th className="text-right">Missed</Th><Th className="text-right">Conv%</Th></tr>
+                <tr><Th className="uppercase tracking-[0.06em]">Rep</Th><Th className="text-right">A-rate</Th><Th className="text-right">Missed</Th><Th className="text-right">Conv%</Th></tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {REPS.map((r, i) => (
@@ -1038,20 +1121,48 @@ export function AnalyticsView() {
   )
 }
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="mt-6 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">{children}</p>
+  )
+}
+
 // ── Rep Tracking ──────────────────────────────────────────────────────────────
 
 export function RepTrackingView() {
   const recovered = REPS.reduce((s, r) => s + r.won, 0)
+  const top = [...REPS].sort((a, b) => b.won - a.won)[0]
   return (
     <>
       <PageHead icon={User} title="Sales Rep Tracking" sub="Per-rep ₹ recovered, Grade A response time, follow-up completion." />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @3xl:grid-cols-4">
-        <KpiCard label="₹ Recovered"             value={formatRupee(recovered)} icon={IndianRupee}  tintBg="bg-emerald-50" tintFg="text-emerald-600" delta={110} />
-        <KpiCard label="Grade A Response Time"   value="3h 3m"                  icon={Clock}        tintBg="bg-sky-50"     tintFg="text-sky-600" />
-        <KpiCard label="Follow-up Completion"    value="86%"                    icon={CheckCircle2} tintBg="bg-violet-50"  tintFg="text-violet-500" />
-        <KpiCard label="Recommendation Adoption" value="72%"                    icon={Target}       tintBg="bg-orange-50"  tintFg="text-orange-500" />
+        <KpiCard iconRight label="₹ Recovered"             value={formatRupee(recovered)} icon={IndianRupee}  tintBg="bg-emerald-50" tintFg="text-emerald-600" delta={110} />
+        <KpiCard iconRight label="Grade A Response Time"   value="3h 3m"                  icon={Clock}        tintBg="bg-sky-50"     tintFg="text-sky-600"     caption="target under 2h" />
+        <KpiCard iconRight label="Follow-up Completion"    value="86%"                    icon={CheckCircle2} tintBg="bg-violet-50"  tintFg="text-violet-500"  caption="tasks closed on time" />
+        <KpiCard iconRight label="Recommendation Adoption" value="72%"                    icon={Target}       tintBg="bg-orange-50"  tintFg="text-orange-500"  caption="acted on the next action" />
       </div>
+
+      {top && (
+        <Card className="mt-4" pad="p-5">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-amber-50 text-amber-500">
+              <Trophy className="h-5 w-5" />
+            </span>
+            <div className="min-w-[200px] flex-1">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-amber-600">Top performer</p>
+              <p className="mt-1 text-[15px] font-semibold text-slate-900">{top.name}</p>
+              <p className="text-[12.5px] text-slate-500">
+                ₹{top.won.toLocaleString("en-IN")} recovered · {top.completion}% follow-ups closed
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-[26px] font-bold leading-none tabular-nums text-slate-900">{Math.round(top.completion * 0.6)}</p>
+              <p className="mt-1 text-[11px] text-slate-400">rep score</p>
+            </div>
+          </div>
+        </Card>
+      )}
 
       <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
         <div className="border-b border-slate-100 p-5">
@@ -1096,8 +1207,21 @@ export function RepTrackingView() {
                       <div className={cn("h-full rounded-full", r.completion >= 80 ? "bg-emerald-400" : "bg-sky-400")} style={{ width: `${r.completion}%` }} />
                     </div>
                   </td>
-                  <td className="px-3 pr-5 text-right">
-                    <span className="text-[15px] font-bold tabular-nums text-slate-900">{Math.round(r.completion * 0.6)}</span>
+                  <td className="px-3 pr-5">
+                    <div className="flex items-center justify-end gap-2.5">
+                      <div className="relative grid h-11 w-11 place-items-center">
+                        <svg viewBox="0 0 40 40" className="absolute inset-0 -rotate-90" aria-hidden>
+                          <circle cx="20" cy="20" r="17" fill="none" stroke="#E2E8F0" strokeWidth="4" />
+                          <circle cx="20" cy="20" r="17" fill="none" strokeWidth="4" strokeLinecap="round"
+                                  stroke={r.completion >= 80 ? "#34D399" : r.completion >= 60 ? "#38BDF8" : "#FB923C"}
+                                  strokeDasharray={`${(Math.round(r.completion * 0.6) / 100) * 107} 107`} />
+                        </svg>
+                        <span className="text-[12px] font-bold tabular-nums text-slate-900">{Math.round(r.completion * 0.6)}</span>
+                      </div>
+                      <span className="inline-flex items-center gap-0.5 text-[11.5px] font-medium text-slate-400">
+                        Why <ChevronDown className="h-3 w-3" />
+                      </span>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -1118,86 +1242,103 @@ export function MissedView() {
   const { state, dispatch, openLead } = useDemo()
   const missed = state.leads.filter((l) => l.staleDays >= 14).sort((a, b) => b.value - a.value)
   const atRisk = missed.reduce((s, l) => s + l.value, 0)
+  const topRep = REPS.map((r) => ({ name: r.name, v: missed.filter((l) => l.rep === r.name).reduce((s, l) => s + l.value, 0) }))
+    .sort((a, b) => b.v - a.v)[0]
 
   return (
     <>
-      <PageHead icon={AlertCircle} tint="bg-amber-50 text-amber-600" title="Missed Opportunities" sub="Stale leads, valued by ₹ at risk, recover them before they're gone." />
+      <PageHead icon={AlertCircle} tint="bg-amber-50 text-amber-600" title="Missed Opportunities"
+                sub="Stale leads, valued by ₹ at risk, recover them before they're gone." />
 
-      <div className="mt-4 grid grid-cols-2 gap-3 @3xl:grid-cols-4">
-        <KpiCard label="At risk today"  value={formatRupee(atRisk)} icon={IndianRupee} tintBg="bg-rose-50" tintFg="text-rose-500" caption={`${missed.length} stale leads in the pool`} />
+      <div className="mt-4 grid gap-3 @2xl:grid-cols-2 @4xl:grid-cols-4">
         <Card pad="p-4">
-          <p className="flex items-center gap-1.5 text-[12px] font-medium text-slate-600">
-            <TrendingDown className="h-3.5 w-3.5 text-rose-500" /> 7-day trend
+          <p className="flex items-center gap-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+            <IndianRupee className="h-3.5 w-3.5 text-rose-500" /> At risk today
           </p>
-          <div className="mt-4 h-[2px] w-full rounded-full bg-gradient-to-r from-rose-200 to-rose-500" />
-          <p className="mt-4 text-right text-[11.5px] text-slate-400">Need 7+ days</p>
+          <p className="mt-2.5 text-[26px] font-bold leading-none tabular-nums text-rose-500">{formatRupee(atRisk)}</p>
+          <p className="mt-2 text-[11.5px] text-slate-400">{missed.length} stale</p>
         </Card>
-        <KpiCard label="Recovered · 7d" value={state.leads.filter((l) => l.contactedToday && l.staleDays === 0).length} icon={Trophy} tintBg="bg-emerald-50" tintFg="text-emerald-600" caption="A/B leads won" />
         <Card pad="p-4">
-          <p className="flex items-center gap-1.5 text-[12px] font-medium text-slate-600">
-            <Users className="h-3.5 w-3.5 text-sky-500" /> By rep
+          <p className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">7-day trend</p>
+          <div className="mt-2.5 flex items-center gap-3">
+            <p className="text-[26px] font-bold leading-none tabular-nums text-slate-900">0%</p>
+            <span className="h-px flex-1 bg-rose-300" />
+          </div>
+          <p className="mt-2 text-[11.5px] text-slate-400">₹ at risk, 7 days</p>
+        </Card>
+        <Card pad="p-4">
+          <p className="flex items-center gap-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+            <TrophyIcon className="h-3.5 w-3.5 text-emerald-600" /> Recovered · 7d
           </p>
-          <div className="mt-3 space-y-1.5">
-            {REPS.slice(0, 3).map((r) => (
-              <div key={r.name} className="flex items-center justify-between gap-2">
-                <span className="truncate text-[12px] text-slate-600">{r.name}</span>
-                <span className="text-[12px] font-semibold tabular-nums text-slate-900">
-                  {missed.filter((l) => l.rep === r.name).length}
-                </span>
-              </div>
-            ))}
+          <p className="mt-2.5 text-[26px] font-bold leading-none tabular-nums text-slate-900">
+            {formatRupee(state.leads.filter((l) => l.contactedToday && l.staleDays === 0).reduce((s, l) => s + l.value, 0))}
+          </p>
+          <p className="mt-2 text-[11.5px] text-slate-400">A/B leads won</p>
+        </Card>
+        <Card pad="p-4">
+          <p className="flex items-center gap-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+            <Users className="h-3.5 w-3.5 text-sky-500" /> Top stale by rep
+          </p>
+          <div className="mt-3 flex items-baseline justify-between text-[12.5px]">
+            <span className="text-slate-700">{topRep?.name.split(" ")[0]}</span>
+            <span className="font-semibold tabular-nums text-rose-500">{formatRupee(topRep?.v ?? 0)}</span>
+          </div>
+          <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-slate-100">
+            <div className="h-full rounded-full bg-rose-400" style={{ width: "100%" }} />
           </div>
         </Card>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 p-5">
-          <div>
-            <h2 className="text-[15px] font-semibold text-slate-900">High-value missed opportunities</h2>
-            <p className="mt-0.5 text-[11.5px] text-slate-400">Sorted by ₹ at risk · highest first</p>
-          </div>
-          <span className="text-[12px] text-slate-400">Total ₹ at risk <span className="font-semibold text-slate-900">{formatRupee(atRisk)}</span></span>
+        <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
+          <h2 className="flex items-center gap-2 text-[15px] font-semibold text-slate-900">
+            High-value missed opportunities
+            <span className="grid h-5 min-w-[20px] place-items-center rounded-full bg-rose-500 px-1.5 text-[11px] font-bold text-white">{missed.length}</span>
+          </h2>
+          <Btn tone="primary" onClick={() => missed[0] && openLead(missed[0].id)}>
+            <Phone className="h-3.5 w-3.5" /> Call top-value lead
+          </Btn>
         </div>
-        {missed.length === 0 ? (
-          <p className="py-12 text-center text-[13px] text-slate-400">No missed leads. Everything worth working has been touched.</p>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead className="bg-slate-50/60">
-                <tr>
-                  <Th className="pl-5">Lead</Th>
-                  <Th>Last activity</Th>
-                  <Th>Status</Th>
-                  <Th className="text-right">₹ at risk</Th>
-                  <Th className="pr-5" />
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                {missed.map((m) => (
-                  <tr key={m.id} className="hover:bg-rose-50/30">
-                    <td className="py-3.5 pl-5 pr-3">
-                      <button type="button" onClick={() => openLead(m.id)} className="flex items-center gap-3 text-left">
-                        <Avatar name={m.name} />
-                        <span>
-                          <span className="block text-[13.5px] font-semibold text-slate-900">{m.name}</span>
-                          <span className="block text-[12px] text-slate-400">{m.company}</span>
-                        </span>
-                      </button>
-                    </td>
-                    <td className="px-3 text-[12.5px] text-slate-500">{m.staleDays} days ago</td>
-                    <td className="px-3">
-                      <span className="inline-flex h-7 items-center rounded-full bg-rose-50 px-3 text-[12px] font-semibold text-rose-600">Going cold</span>
-                    </td>
-                    <td className="px-3 text-right text-[14px] font-bold tabular-nums text-rose-500">{formatRupee(m.value)}</td>
-                    <td className="px-3 pr-5 text-right">
-                      <Btn size="sm" tone="soft" onClick={() => dispatch({ type: "COMPLETE_FOLLOWUP", leadId: m.id })}>Recover</Btn>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+        <table className="w-full border-collapse">
+          <thead className="border-y border-slate-100">
+            <tr><Th className="pl-5">Lead</Th><Th>Last activity</Th><Th>Status</Th><Th className="text-right">₹ at risk</Th><Th className="pr-5" /></tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {missed.map((m) => (
+              <tr key={m.id} className="transition-colors hover:bg-rose-50/30">
+                <td className="py-3.5 pl-5 pr-3">
+                  <button type="button" onClick={() => openLead(m.id)} className="flex items-center gap-3 text-left">
+                    <Avatar name={m.company} size={34} />
+                    <span>
+                      <span className="block text-[13.5px] font-semibold text-slate-900">{m.company}</span>
+                      <span className="block text-[11.5px] text-slate-400">{m.name}</span>
+                      <span className="block text-[11.5px] text-slate-400">Owner · {m.rep.split(" ")[0]}</span>
+                    </span>
+                  </button>
+                </td>
+                <td className="px-3 text-[12.5px] text-slate-500">{m.staleDays} days ago</td>
+                <td className="px-3">
+                  <span className="inline-flex h-6 items-center gap-1.5 rounded-full bg-rose-50 px-2.5 text-[11.5px] font-medium text-rose-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-rose-500" /> Stale · {gradeOf(m)}
+                  </span>
+                </td>
+                <td className="px-3 text-right text-[13.5px] font-bold tabular-nums text-rose-500">₹{m.value.toLocaleString("en-IN")}</td>
+                <td className="px-3 pr-5 text-right">
+                  <button type="button" aria-label={`Recover ${m.name}`} onClick={() => dispatch({ type: "COMPLETE_FOLLOWUP", leadId: m.id })}
+                          className="text-slate-400 hover:text-sky-600"><ArrowLeftRight className="h-4 w-4" /></button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          {missed.length > 0 && (
+            <tfoot>
+              <tr className="bg-rose-50/60">
+                <td colSpan={3} className="py-3.5 pl-5 text-[13px] font-semibold text-slate-800">Total ₹ at risk</td>
+                <td colSpan={2} className="py-3.5 pr-5 text-right text-[15px] font-bold tabular-nums text-rose-600">₹{atRisk.toLocaleString("en-IN")}</td>
+              </tr>
+            </tfoot>
+          )}
+        </table>
       </div>
     </>
   )
@@ -1223,7 +1364,9 @@ export function NotificationsView() {
     <>
       <PageHead icon={Bell}
         title="Notifications"
-        sub={`${unread.length} unread · ${state.notifications.length} total · last 7 days`}
+        sub={unread.length === 0
+          ? "You're all caught up · last 7 days"
+          : `${unread.length} unread · ${state.notifications.length} total · last 7 days`}
         action={<Btn onClick={() => dispatch({ type: "MARK_ALL_READ" })}><Check className="h-4 w-4" /> Mark all read</Btn>}
       />
 
@@ -1304,136 +1447,160 @@ export function NotificationsView() {
 
 // ── Import ────────────────────────────────────────────────────────────────────
 
+function Step({ n, children }: { n: number; children: React.ReactNode }) {
+  return (
+    <h2 className="mb-4 flex items-center gap-2.5 text-[15px] font-semibold text-slate-900">
+      <span className="grid h-6 w-6 place-items-center rounded-full bg-sky-50 text-[11px] font-bold text-sky-600">{n}</span>
+      {children}
+    </h2>
+  )
+}
+
 export function ImportView({ onDone }: { onDone: () => void }) {
   const { dispatch } = useDemo()
-  const [batch, setBatch] = useState("August portal export")
+  const [batch, setBatch] = useState("")
   const [source, setSource] = useState("Website form")
   const [stage, setStage] = useState<Stage>("New Inquiry")
-  const [mode, setMode] = useState<"CSV" | "Google Sheet" | "Manual Entry">("CSV")
+  const [age, setAge] = useState("Not sure / recent")
   const [done, setDone] = useState(false)
-
-  if (done) {
-    return (
-      <>
-        <PageHead icon={Download} title="Lead Ingestion" sub="Ingestion summary" />
-        <Card className="mt-4">
-          <h2 className="mb-4 text-[15px] font-semibold text-slate-900">Ingestion summary</h2>
-          <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
-            <StatCard icon={Inbox}       label="Total Rows"         value={6}    tintBg="bg-slate-100"  tintFg="text-slate-500" />
-            <StatCard icon={Users}       label="New Leads"          value={6}    tintBg="bg-sky-50"     tintFg="text-sky-600" />
-            <StatCard icon={X}           label="Duplicates Removed" value={0}    tintBg="bg-orange-50"  tintFg="text-orange-500" />
-            <StatCard icon={Flame}       label="Hot Leads (A/B)"    value={2}    tintBg="bg-rose-50"    tintFg="text-rose-500" />
-            <StatCard icon={IndianRupee} label="Pipeline Value"     value="₹13L" tintBg="bg-emerald-50" tintFg="text-emerald-600" />
-          </div>
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Btn tone="primary" onClick={onDone}>See them in the queue</Btn>
-            <Btn onClick={() => setDone(false)}><RotateCcw className="h-3.5 w-3.5" /> Import another</Btn>
-          </div>
-        </Card>
-      </>
-    )
-  }
 
   return (
     <>
-      <PageHead icon={Download} title="Lead Ingestion" sub="Set the batch details, then bring the rows in." />
-      <Card className="mt-4 max-w-3xl" pad="p-5 sm:p-6">
-        <h2 className="mb-4 text-[15px] font-semibold text-slate-900">Set the batch details</h2>
-        <div className="grid gap-4 @2xl:grid-cols-3">
-          <label className="block">
-            <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Batch Name</span>
-            <input value={batch} onChange={(e) => setBatch(e.target.value)}
-                   className="h-9 w-full rounded-lg border border-slate-200 px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400" />
-          </label>
-          <label className="block">
-            <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Lead Source</span>
-            <select value={source} onChange={(e) => setSource(e.target.value)} aria-label="Lead source"
-                    className="h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
-              {["Website form", "Google Ads", "Facebook Ads", "Referral", "Trade fair", "Bulk import"].map((s) => <option key={s}>{s}</option>)}
-            </select>
-          </label>
-          <label className="block">
-            <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Initial Stage</span>
-            <select value={stage} onChange={(e) => setStage(e.target.value as Stage)} aria-label="Initial stage"
-                    className="h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
-              {STAGES.slice(0, 4).map((s) => <option key={s}>{s}</option>)}
-            </select>
-          </label>
-        </div>
+      <PageHead icon={Download} title="Lead Ingestion"
+                sub="Import from CSV, Google Sheets, or add manually. Indian phone normalisation and dedup built in." />
 
-        <h2 className="mb-3 mt-6 text-[15px] font-semibold text-slate-900">Upload your file</h2>
-        <div className="mb-3 flex flex-wrap gap-1.5">
-          {(["CSV", "Google Sheet", "Manual Entry"] as const).map((m) => (
-            <button
-              key={m}
-              type="button"
-              onClick={() => setMode(m)}
-              className={cn(
-                "h-9 rounded-lg px-3 text-[12.5px] font-semibold transition-colors",
-                mode === m ? "bg-sky-50 text-sky-700" : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-              )}
-            >
-              {m}
-            </button>
-          ))}
-          <span className="ml-auto inline-flex h-9 items-center gap-1.5 text-[12.5px] font-medium text-sky-600">
-            <Download className="h-3.5 w-3.5" /> Download the template
-          </span>
-        </div>
-
-        {mode === "CSV" && (
-          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50/60 px-4 py-10 text-center">
-            <Upload className="mx-auto h-6 w-6 text-slate-400" />
-            <p className="mt-2 text-[13px] font-medium text-slate-700">Drop a CSV here, or browse</p>
-            <p className="mt-0.5 text-[12px] text-slate-400">leads-august.csv · 6 rows ready</p>
-          </div>
-        )}
-        {mode === "Google Sheet" && (
-          <div className="rounded-xl border border-slate-200 p-4">
-            <label className="block">
-              <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Paste your Google Sheet URL</span>
-              <input
-                defaultValue="https://docs.google.com/spreadsheets/d/1AbC…/edit"
-                aria-label="Google Sheet URL"
-                className="h-9 w-full rounded-lg border border-slate-200 px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400"
-              />
+      <Card className="mt-4">
+        <Step n={1}>Set the batch details</Step>
+        <div className="grid gap-4 @2xl:grid-cols-2 @5xl:grid-cols-4">
+          {[
+            { label: "Batch name", node: <input value={batch} onChange={(e) => setBatch(e.target.value)} placeholder="e.g. MagicBricks April" aria-label="Batch name"
+                       className="h-10 w-full rounded-lg border border-slate-200 px-3 text-[13px] text-slate-900 outline-none placeholder:text-slate-400 focus:border-sky-400" /> },
+            { label: "Lead source", node: <select value={source} onChange={(e) => setSource(e.target.value)} aria-label="Lead source"
+                       className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
+                       {["Website form", "Google Ads", "Facebook Ads", "Referral", "Trade fair", "Bulk import"].map((o) => <option key={o}>{o}</option>)}</select> },
+            { label: "Initial stage", node: <select value={stage} onChange={(e) => setStage(e.target.value as Stage)} aria-label="Initial stage"
+                       className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
+                       {STAGES.slice(0, 4).map((o) => <option key={o}>{o}</option>)}</select> },
+            { label: "How old is this list?", node: <select value={age} onChange={(e) => setAge(e.target.value)} aria-label="How old is this list"
+                       className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
+                       {["Not sure / recent", "Under a month", "1 to 3 months", "Over 3 months"].map((o) => <option key={o}>{o}</option>)}</select> },
+          ].map((f) => (
+            <label key={f.label} className="block">
+              <span className="mb-1.5 block font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-400">{f.label}</span>
+              {f.node}
             </label>
-            <p className="mt-2 text-[11.5px] text-slate-400">The sheet must be viewable by anyone with the link.</p>
-          </div>
-        )}
-        {mode === "Manual Entry" && (
-          <div className="grid gap-3 rounded-xl border border-slate-200 p-4 @2xl:grid-cols-2">
-            <Field label="Name" value="" />
-            <Field label="Phone" value="" />
-            <Field label="Company" value="" />
-            <Field label="Expected value" value="" />
-          </div>
-        )}
+          ))}
+        </div>
 
-        <Btn tone="primary" className="mt-5" onClick={() => { dispatch({ type: "IMPORT", count: 6, source, batch }); setDone(true) }}>
+        <div className="mt-6">
+          <Step n={2}>Upload your file</Step>
+          <div className="rounded-xl border-2 border-dashed border-slate-200 px-4 py-12 text-center">
+            <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-sky-50 text-sky-500"><CloudUpload className="h-6 w-6" /></span>
+            <p className="mt-3 text-[15px] font-semibold text-slate-800">Drag &amp; drop your CSV here</p>
+            <p className="mt-1 text-[12.5px] text-slate-400">
+              or <span className="font-semibold text-sky-600">browse files</span> · CSV, max 10 MB
+            </p>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <button type="button" className="inline-flex items-center gap-1.5 text-[13px] font-medium text-sky-600 hover:text-sky-700">
+              <Download className="h-3.5 w-3.5" /> Download sample template
+            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[12.5px] text-slate-400">Other ways:</span>
+              <Btn size="sm"><Download className="h-3.5 w-3.5" /> Google Sheets</Btn>
+              <Btn size="sm"><Users className="h-3.5 w-3.5" /> Add manually</Btn>
+            </div>
+          </div>
+
+          <p className="mt-4 text-[12px] leading-relaxed text-slate-400">
+            <span className="font-semibold text-slate-600">Required:</span> name, phone.{" "}
+            <span className="font-semibold text-slate-600">Optional:</span>{" "}email, company, designation, city, state,
+            pincode, budget, interest level (High/Medium/Low), last contact days, notes. Column names are matched
+            automatically, so &ldquo;Mobile No&rdquo;, &ldquo;Full Name&rdquo; and the like all work.
+          </p>
+        </div>
+
+        <Btn tone="primary" className="mt-5" onClick={() => { dispatch({ type: "IMPORT", count: 6, source, batch: batch || "August portal export" }); setDone(true) }}>
           Import and grade 6 leads
         </Btn>
       </Card>
 
-      <Card title="Import history" className="mt-4 max-w-3xl">
-        <table className="w-full border-collapse">
-          <thead className="border-b border-slate-100">
-            <tr><Th>Batch</Th><Th>Source</Th><Th className="text-right">Rows</Th><Th className="text-right">When</Th></tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100">
+      {done && (
+        <Card title="Ingestion summary" className="mt-4">
+          <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
             {[
-              ["July portal export", "Website form", 240, "3 weeks ago"],
-              ["Trade fair, Pune", "Trade fair", 86, "last month"],
-            ].map(([b, src, rows, when]) => (
-              <tr key={String(b)}>
-                <td className="py-3 text-[13px] font-medium text-slate-800">{b}</td>
-                <td className="px-3 text-[13px] text-slate-600">{src}</td>
-                <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{rows}</td>
-                <td className="px-3 text-right text-[12.5px] text-slate-400">{when}</td>
-              </tr>
+              { icon: Users, label: "Total Rows", value: "6", bg: "bg-sky-50", fg: "text-sky-600" },
+              { icon: CheckCircle2, label: "New Leads", value: "6", bg: "bg-emerald-50", fg: "text-emerald-600" },
+              { icon: Shield, label: "Duplicates Removed", value: "0", bg: "bg-orange-50", fg: "text-orange-500" },
+              { icon: Flame, label: "Hot Leads (A/B)", value: "2", bg: "bg-violet-50", fg: "text-violet-500" },
+              { icon: IndianRupee, label: "Pipeline Value", value: "₹13L", bg: "bg-emerald-50", fg: "text-emerald-600" },
+            ].map((c) => (
+              <div key={c.label} className="rounded-xl border border-slate-200/70 p-4 text-center">
+                <span className={cn("mx-auto grid h-10 w-10 place-items-center rounded-full", c.bg, c.fg)}><c.icon className="h-4 w-4" /></span>
+                <p className="mt-3 text-[12px] text-slate-500">{c.label}</p>
+                <p className="mt-1 text-[22px] font-bold leading-none tabular-nums text-slate-900">{c.value}</p>
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </Card>
+      )}
+
+      <Card className="mt-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-violet-50 text-violet-500"><RotateCcw className="h-4 w-4" /></span>
+          <div className="min-w-[200px] flex-1">
+            <p className="text-[13.5px] font-semibold text-slate-900">Regrade all leads</p>
+            <p className="text-[12.5px] text-slate-500">Re-run scoring on every lead with the latest grade thresholds</p>
+          </div>
+          <Btn onClick={onDone}>Run regrade</Btn>
+        </div>
+      </Card>
+
+      <Card title="Import history" className="mt-4">
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead className="border-b border-slate-100">
+              <tr>
+                <Th className="uppercase tracking-[0.06em]">Batch</Th>
+                <Th className="uppercase tracking-[0.06em]">Date</Th>
+                <Th className="uppercase tracking-[0.06em]">Status</Th>
+                <Th className="text-right uppercase tracking-[0.06em]">Added</Th>
+                <Th className="text-right uppercase tracking-[0.06em]">Hot</Th>
+                <Th className="text-right uppercase tracking-[0.06em]">Value</Th>
+                <Th className="text-right uppercase tracking-[0.06em]">Dupes</Th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {[
+                { b: "Import · 02 Aug 2026 · Website form", f: "leadkaun-import.csv", d: "02 Aug, 07:57 am", st: "Complete", a: 28, h: 1, v: "₹12.8Cr", du: 2 },
+                { b: "Import · 19 Jun 2026 · Google Ads", f: "test-leads.csv", d: "19 Jun, 06:41 pm", st: "Complete", a: 0, h: null, v: "—", du: 35 },
+                { b: "Import · 19 Jun 2026 · Google Ads", f: "test-leads.csv", d: "19 Jun, 06:40 pm", st: "Processing", a: 0, h: null, v: "—", du: 10 },
+                { b: "Import · 14 Apr 2026 · Trade fair", f: "leads_v17.csv", d: "14 Apr, 03:11 pm", st: "Complete", a: 8, h: null, v: "₹25.1L", du: null },
+              ].map((r, i) => (
+                <tr key={i}>
+                  <td className="py-3.5 pr-3">
+                    <p className={cn("text-[13px] font-semibold", r.st === "Processing" ? "text-sky-600" : "text-slate-900")}>{r.b}</p>
+                    <p className="text-[11.5px] text-slate-400">{r.f}</p>
+                  </td>
+                  <td className="px-3 text-[12.5px] text-slate-500">{r.d}</td>
+                  <td className="px-3">
+                    <span className={cn(
+                      "inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[11.5px] font-medium",
+                      r.st === "Complete" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"
+                    )}>
+                      {r.st === "Complete" ? <CheckCircle2 className="h-3 w-3" /> : <Clock className="h-3 w-3" />} {r.st}
+                    </span>
+                  </td>
+                  <td className="px-3 text-right text-[13px] font-semibold tabular-nums text-emerald-600">{r.a}</td>
+                  <td className="px-3 text-right text-[13px] tabular-nums text-violet-500">{r.h ?? "—"}</td>
+                  <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{r.v}</td>
+                  <td className="px-3 text-right text-[13px] tabular-nums text-orange-500">{r.du ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Card>
     </>
   )
@@ -1441,25 +1608,167 @@ export function ImportView({ onDone }: { onDone: () => void }) {
 
 // ── Activity ──────────────────────────────────────────────────────────────────
 
+const ACTIVITY_TABS = ["Activity", "Compliance", "Recovery", "Performance"] as const
+
 export function ActivityView() {
   const { state } = useDemo()
+  const [tab, setTab] = useState<(typeof ACTIVITY_TABS)[number]>("Activity")
+  const missed = state.leads.filter((l) => l.staleDays >= 14)
+  const atRisk = missed.reduce((s, l) => s + l.value, 0)
+  const TAB_ICON = { Activity: ActivityIcon, Compliance: Shield, Recovery: TrendingDown, Performance: TrophyIcon }
+
   return (
     <>
-      <PageHead icon={ActivityIcon} title="Activity" sub="How the team is doing, what they did, whether they hit SLAs, what they recovered." />
-      <Card className="mt-4">
-        <ol className="relative space-y-0 border-l border-slate-200 pl-5">
-          {state.activity.map((a) => (
-            <li key={a.id} className="relative py-2.5">
-              <span className="absolute -left-[23px] top-4 h-2 w-2 rounded-full bg-sky-400 ring-4 ring-white" />
-              <p className="text-[13px] text-slate-700">
-                <span className="font-semibold text-slate-900">{a.who}</span> {a.what}
-                {a.lead && <> on <span className="font-medium text-slate-900">{a.lead}</span></>}
+      <PageHead
+        icon={ActivityIcon}
+        title="Activity"
+        sub="How the team is doing, what they did, whether they hit SLAs, what they recovered, and who's performing."
+        action={
+          <select aria-label="Filter by rep" className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-600 outline-none">
+            {["All reps", ...REPS.map((r) => r.name)].map((r) => <option key={r}>{r}</option>)}
+          </select>
+        }
+      />
+
+      {/* The product splits this screen across four tabs. */}
+      <div className="mt-4 inline-flex items-center gap-1 rounded-xl bg-slate-100/70 p-1">
+        {ACTIVITY_TABS.map((t) => {
+          const Icon = TAB_ICON[t]
+          return (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTab(t)}
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-[13px] font-medium transition-colors",
+                tab === t ? "bg-white text-sky-700 shadow-sm" : "text-slate-500 hover:text-slate-700"
+              )}
+            >
+              <Icon className="h-3.5 w-3.5" /> {t}
+            </button>
+          )
+        })}
+      </div>
+
+      {tab === "Activity" && (
+        <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
+          <div className="divide-y divide-slate-100">
+            {state.activity.map((a) => (
+              <div key={a.id} className="flex items-center gap-3 px-5 py-3">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-orange-50 text-orange-500">
+                  <Upload className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-[13px] text-slate-800">
+                    <span className="font-semibold">{a.who} {a.what}</span>
+                    {a.lead && <span className="text-slate-400"> · {a.lead}</span>}
+                  </p>
+                  <p className="text-[11.5px] text-slate-400">System · {a.at}</p>
+                </div>
+                <GradeBadge grade="E" size="sm" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {tab === "Compliance" && (
+        <>
+          <div className="mt-4 grid gap-3 @2xl:grid-cols-3">
+            {[
+              { k: "Overall compliance", v: "100%", c: "On track" },
+              { k: "Response SLA", v: "100%", c: `${state.leads.filter((l) => l.contactedToday).length} leads this month` },
+              { k: "Follow-up adherence", v: "100%", c: "0 escalations" },
+            ].map((r) => (
+              <Card key={r.k} pad="p-5">
+                <p className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">{r.k}</p>
+                <p className="mt-2 text-[28px] font-bold leading-none tabular-nums text-slate-900">{r.v}</p>
+                <p className="mt-2 text-[12px] text-slate-400">{r.c}</p>
+              </Card>
+            ))}
+          </div>
+          <Card className="mt-4">
+            <div className="grid place-items-center py-12 text-center">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-400"><Shield className="h-5 w-5" /></span>
+              <p className="mt-3 text-[14px] font-semibold text-slate-800">No compliance data yet</p>
+              <p className="mt-1 max-w-[340px] text-[12.5px] text-slate-400">
+                Once leads are assigned and follow-ups scheduled this month, adherence appears here.
               </p>
-              <p className="mt-0.5 text-[11.5px] text-slate-400">{a.at}</p>
-            </li>
-          ))}
-        </ol>
-      </Card>
+            </div>
+          </Card>
+        </>
+      )}
+
+      {tab === "Recovery" && (
+        <>
+          <div className="mt-4 grid gap-3 @2xl:grid-cols-3">
+            {[
+              { k: "Recovered this week", v: "₹0", c: "" },
+              { k: "At risk now", v: formatRupee(atRisk), c: `${missed.length} missed leads` },
+              { k: "7-day pool change", v: "0%", c: "" },
+            ].map((r) => (
+              <Card key={r.k} pad="p-5">
+                <p className="font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">{r.k}</p>
+                <p className="mt-2 text-[28px] font-bold leading-none tabular-nums text-slate-900">{r.v}</p>
+                {r.c && <p className="mt-2 text-[12px] text-slate-400">{r.c}</p>}
+              </Card>
+            ))}
+          </div>
+          <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
+            <table className="w-full border-collapse">
+              <thead className="border-b border-slate-100">
+                <tr><Th className="pl-5">Rep</Th><Th className="text-right">Missed leads</Th><Th className="pr-5 text-right">Value at risk</Th></tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {REPS.map((r) => {
+                  const mine = missed.filter((l) => l.rep === r.name)
+                  if (mine.length === 0) return null
+                  return (
+                    <tr key={r.name}>
+                      <td className="py-3.5 pl-5">
+                        <div className="flex items-center gap-2.5">
+                          <Avatar name={r.name} size={28} />
+                          <span className="text-[13px] font-semibold text-slate-900">{r.name}</span>
+                        </div>
+                      </td>
+                      <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{mine.length}</td>
+                      <td className="px-3 pr-5 text-right text-[13px] font-semibold tabular-nums text-rose-500">
+                        {formatRupee(mine.reduce((s, l) => s + l.value, 0))}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {tab === "Performance" && (
+        <Card className="mt-4">
+          <div className="divide-y divide-slate-100">
+            {REPS.map((r, i) => (
+              <div key={r.name} className="flex items-center gap-4 py-3.5 first:pt-0 last:pb-0">
+                <span className="w-4 text-[13px] tabular-nums text-slate-400">{i + 1}</span>
+                <Avatar name={r.name} size={38} />
+                <div className="min-w-0 flex-1">
+                  <p className="flex flex-wrap items-center gap-2 text-[13.5px] font-semibold text-slate-900">
+                    {r.name}
+                    {i === 0 && <span className="inline-flex h-[18px] items-center rounded-full bg-amber-50 px-1.5 text-[9px] font-bold uppercase tracking-[0.06em] text-amber-700">Leader</span>}
+                  </p>
+                  <p className="mt-0.5 text-[12px] text-slate-400">{formatRupee(r.won)} won · {r.completion}% follow-ups</p>
+                </div>
+                <div className="w-[150px] shrink-0">
+                  <p className="mb-1 text-right text-[12px] text-slate-500">Score <span className="font-bold text-slate-900">{Math.round(r.completion * 0.7)}</span></p>
+                  <span className="block h-1.5 overflow-hidden rounded-full bg-slate-100">
+                    <span className="block h-full rounded-full bg-emerald-400" style={{ width: `${r.completion}%` }} />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
     </>
   )
 }
@@ -1467,42 +1776,82 @@ export function ActivityView() {
 // ── Learning ──────────────────────────────────────────────────────────────────
 
 export function LearningView() {
+  const { state } = useDemo()
+  const decided = state.leads.filter((l) => ["Won", "Lost"].includes(l.stage)).length
+
+  const accuracy = (["A", "B", "C", "D", "E"] as const).map((g, i) => ({
+    g, pct: [77, 50, 50, 67, 100][i], n: [13, 2, 2, 3, 1][i],
+  }))
+  const locked = [
+    { title: "Win rate by segment", need: "Need 8 decided leads in a segment to unlock this pattern." },
+    { title: "Evolve your ICP", need: "Need a high-win segment that isn't already in your ICP to unlock this pattern." },
+    { title: "Best time to reach leads", need: "Need 20 more replies or answered calls logged to unlock this pattern." },
+    { title: "Rep coaching", need: "Need more reps working recommended leads to unlock this pattern." },
+  ]
+
   return (
     <>
-      <PageHead icon={Brain} title="Learning Engine" sub="Patterns the account has enough data to state." />
-      <Card title="Patterns unlocked" className="mt-4">
-        <div className="divide-y divide-slate-100">
-          {LEARNING_PATTERNS.map((p) => (
-            <div key={p.pattern} className="flex flex-wrap items-center gap-3 py-3.5 first:pt-0 last:pb-0">
-              <Brain className="h-4 w-4 shrink-0 text-violet-400" />
-              <p className="min-w-[200px] flex-1 text-[13px] text-slate-700">{p.pattern}</p>
-              <span className={cn(
-                "inline-flex h-6 items-center rounded-full px-2.5 text-[11px] font-semibold",
-                p.confidence === "High" ? "bg-emerald-50 text-emerald-700"
-                  : p.confidence === "Medium" ? "bg-amber-50 text-amber-700" : "bg-slate-100 text-slate-500"
-              )}>
-                {p.confidence} confidence
-              </span>
-              <span className="text-[11.5px] tabular-nums text-slate-400">{p.sample}</span>
-            </div>
-          ))}
+      <PageHead
+        icon={Brain}
+        title="Learning Engine"
+        sub={`Leadkaun is learning your business, 2 of 6 patterns unlocked, from ${state.leads.length} leads (${decided} decided).`}
+      />
+
+      <Card className="mt-4" pad="p-4">
+        <div className="flex items-baseline justify-between">
+          <span className="text-[13px] font-semibold text-slate-800">Patterns unlocked</span>
+          <span className="text-[13px] font-bold tabular-nums text-violet-600">2 / 6</span>
+        </div>
+        <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-slate-100">
+          <div className="h-full rounded-full bg-violet-400" style={{ width: "33%" }} />
         </div>
       </Card>
 
-      <Card title="Still learning" className="mt-4">
-        <div className="divide-y divide-slate-100">
-          {[
-            { pattern: "Which follow-up interval works best per grade", need: "needs 60 more logged touches" },
-            { pattern: "Whether trade-fair leads justify their cost", need: "needs a full quarter" },
-          ].map((p) => (
-            <div key={p.pattern} className="flex flex-wrap items-center gap-3 py-3.5 first:pt-0 last:pb-0">
-              <Clock className="h-4 w-4 shrink-0 text-slate-300" />
-              <p className="min-w-[200px] flex-1 text-[13px] text-slate-500">{p.pattern}</p>
-              <span className="text-[11.5px] text-slate-400">{p.need}</span>
-            </div>
-          ))}
-        </div>
-      </Card>
+      <div className="mt-4 grid gap-4 @4xl:grid-cols-2">
+        <Card>
+          <p className="flex items-center gap-2 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+            <span className="grid h-7 w-7 place-items-center rounded-lg bg-violet-50 text-violet-500"><Target className="h-3.5 w-3.5" /></span>
+            Scoring accuracy
+          </p>
+          <p className="mt-3 text-[15px] font-semibold text-slate-900">Your grades match the outcome 63% of the time</p>
+          <p className="mt-1 text-[12.5px] text-slate-500">63% of graded leads ended the way the grade predicted, across {decided} decided leads.</p>
+          <div className="mt-4 space-y-2">
+            {accuracy.map((r) => (
+              <div key={r.g} className="flex items-center gap-3">
+                <span className="w-3 text-[12px] font-semibold text-slate-500">{r.g}</span>
+                <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+                  <span className="block h-full rounded-full bg-emerald-400" style={{ width: `${r.pct}%` }} />
+                </span>
+                <span className="w-16 text-right text-[11.5px] tabular-nums text-slate-500">{r.pct}% · {r.n}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card>
+          <p className="flex items-center gap-2 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+            <span className="grid h-7 w-7 place-items-center rounded-lg bg-violet-50 text-violet-500"><Clock className="h-3.5 w-3.5" /></span>
+            Close time by grade
+          </p>
+          <p className="mt-3 text-[15px] font-semibold text-slate-900">A-grade leads close in ~55 days</p>
+          <p className="mt-1 text-[12.5px] text-slate-500">Median days from import to won.</p>
+          <div className="mt-4 flex items-baseline justify-between border-t border-slate-100 pt-3">
+            <span className="text-[13px] text-slate-600">A-grade</span>
+            <span className="text-[13px] tabular-nums text-slate-500">~55 days <span className="text-slate-400">(10)</span></span>
+          </div>
+        </Card>
+
+        {locked.map((l) => (
+          <Card key={l.title} className="opacity-70">
+            <p className="flex items-center gap-2 font-mono text-[10.5px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+              <span className="grid h-7 w-7 place-items-center rounded-lg bg-slate-100 text-slate-400"><Lock className="h-3.5 w-3.5" /></span>
+              {l.title}
+            </p>
+            <p className="mt-3 text-[14px] font-semibold text-slate-500">Still learning</p>
+            <p className="mt-1 text-[12.5px] text-slate-400">{l.need}</p>
+          </Card>
+        ))}
+      </div>
     </>
   )
 }

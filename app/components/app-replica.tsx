@@ -304,7 +304,13 @@ export function AppReplica() {
         </div>
 
         {/* App canvas */}
-        <div className="relative flex gap-3 p-3" style={{ background: "#F1F5F9", minHeight: 620 }}>
+        {/* A fixed viewport, mirroring the app's own h-screen shell. Without it
+            the frame grew and shrank as you moved between views, which shifts
+            everything below it on the page. */}
+        <div
+          className="relative flex h-[560px] gap-3 overflow-hidden p-3 md:h-[660px]"
+          style={{ background: "#F1F5F9" }}
+        >
           <aside className="hidden w-[224px] shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white md:flex">
             <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-200/70 px-4">
               <LeadkaunMark size={24} gloss />
@@ -382,7 +388,7 @@ export function AppReplica() {
             </div>
           </aside>
 
-          <div className="min-w-0 flex-1">
+          <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
             {/* Mobile top bar, as in the product */}
             <div className="mb-3 flex h-12 items-center justify-between rounded-xl border border-slate-200/70 bg-white px-3 md:hidden">
               <Menu className="h-5 w-5 text-slate-700" strokeWidth={2.25} />
@@ -417,7 +423,7 @@ export function AppReplica() {
               ))}
             </div>
 
-            <div className="p-1">
+            <div className="min-h-0 flex-1 overflow-y-auto p-1">
               {view === "queue" && <QueueView onImport={() => go("import")} />}
               {view === "leads" && <LeadsView onImport={() => go("import")} />}
               {view === "follow-ups" && <FollowUpsView />}

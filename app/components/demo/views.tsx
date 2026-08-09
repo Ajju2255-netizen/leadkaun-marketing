@@ -5,7 +5,7 @@ import {
   Upload, Search, ChevronRight, Inbox, Flame, PhoneCall, IndianRupee, Trophy, Zap,
   AlertTriangle, Activity as ActivityIcon, Check, Clock, Users, CalendarClock,
   CheckCircle2, Gauge, Snowflake, TrendingDown, Brain, Bell, RotateCcw, X, Target,
-  ArrowUpRight, Columns2, ChevronLeft, MessageCircle,
+  ArrowUpRight, Columns2, ChevronLeft, MessageCircle, SlidersHorizontal, Download,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -49,12 +49,18 @@ export function QueueView({ onImport }: { onImport: () => void }) {
   const { state, openLead } = useDemo()
   const [tab, setTab] = useState("all")
   const [q, setQ] = useState("")
+  const [hideContacted, setHideContacted] = useState(false)
+  const [rep, setRep] = useState("All reps")
+  const [source, setSource] = useState("All sources")
 
   const ranked = useMemo(() => [...state.leads].sort((a, b) => rankScore(b) - rankScore(a)), [state.leads])
   const matching = ranked
     .filter((l) => tab === "all" || gradeOf(l) === tab)
     .filter((l) => `${l.name} ${l.company}`.toLowerCase().includes(q.toLowerCase()))
-  const PAGE = 4
+    .filter((l) => (hideContacted ? !l.contactedToday : true))
+    .filter((l) => (rep === "All reps" ? true : l.rep === rep))
+    .filter((l) => (source === "All sources" ? true : l.source === source))
+  const PAGE = 8
   const rows = matching.slice(0, PAGE)
 
   const high = state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length
@@ -96,6 +102,36 @@ export function QueueView({ onImport }: { onImport: () => void }) {
             />
             {q && <button type="button" onClick={() => setQ("")} aria-label="Clear search"><X className="h-3.5 w-3.5 text-slate-400" /></button>}
           </label>
+
+          {/* The product's queue filters: rep, source, and hide-contacted. */}
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setHideContacted((v) => !v)}
+              className={cn(
+                "inline-flex h-9 items-center gap-1.5 rounded-lg border px-3 text-[12.5px] font-medium transition-colors",
+                hideContacted ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              )}
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" /> Hide leads contacted today
+            </button>
+            <select
+              aria-label="Filter by rep"
+              value={rep}
+              onChange={(e) => setRep(e.target.value)}
+              className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[12.5px] text-slate-600 outline-none hover:border-slate-300"
+            >
+              {["All reps", ...REPS.map((r) => r.name)].map((r) => <option key={r}>{r}</option>)}
+            </select>
+            <select
+              aria-label="Filter by source"
+              value={source}
+              onChange={(e) => setSource(e.target.value)}
+              className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[12.5px] text-slate-600 outline-none hover:border-slate-300"
+            >
+              {["All sources", "Website form", "Google Ads", "Facebook Ads", "Referral", "Listings", "Trade fair", "Bulk import"].map((r) => <option key={r}>{r}</option>)}
+            </select>
+          </div>
 
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
             {GRADE_TABS.map((t) => {
@@ -287,6 +323,53 @@ export function DashboardView() {
         </Card>
       </div>
 
+      <div className="mt-4 grid gap-4 @3xl:grid-cols-3">
+        <Card title="Active Sources">
+          <div className="space-y-3">
+            {sources.map(([src, n]) => (
+              <div key={src} className="flex items-center justify-between gap-2">
+                <span className="truncate text-[13px] text-slate-700">{src}</span>
+                <span className="text-[12.5px] tabular-nums text-slate-400"><span className="font-semibold text-slate-900">{n}</span> leads</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card title="Recent Activity">
+          <div className="space-y-3.5">
+            {state.activity.slice(0, 6).map((a) => (
+              <div key={a.id} className="flex items-start gap-2.5">
+                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-orange-50 text-orange-500">
+                  <ActivityIcon className="h-3.5 w-3.5" strokeWidth={2.5} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-[12.5px] font-semibold text-slate-900">{a.who} {a.what}</p>
+                  <p className="truncate text-[11.5px] text-slate-400">{a.lead}</p>
+                </div>
+                <span className="shrink-0 text-[11px] text-slate-400">{a.at}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card title="Behaviour Health">
+          <div className="space-y-3">
+            {health.map((h) => (
+              <div key={h.label}>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="flex items-center gap-1.5 text-[12.5px] text-slate-600">
+                    <h.icon className={cn("h-3.5 w-3.5", h.tone)} strokeWidth={2.5} /> {h.label}
+                  </span>
+                  <span className="text-[12.5px] font-semibold tabular-nums text-slate-900">{h.n}</span>
+                </div>
+                <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                  <div className={cn("h-full rounded-full", h.bar)} style={{ width: `${(h.n / Math.max(entered, 1)) * 100}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
     </>
   )
 }
@@ -302,14 +385,19 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
     const hay = `${l.name} ${l.company} ${l.source} ${l.phone}`.toLowerCase()
     return hay.includes(q.toLowerCase()) && (stage === "All" || l.stage === stage)
   })
-  const rows = matching.slice(0, 5)
+  const rows = matching
 
   return (
     <>
       <PageHead
         title="All Leads"
         sub={`${state.leads.length} leads`}
-        action={<Btn tone="primary" onClick={onImport}><Upload className="h-4 w-4" /> Import</Btn>}
+        action={
+          <>
+            <Btn><Download className="h-4 w-4" /> Export CSV</Btn>
+            <Btn tone="primary" onClick={onImport}><Upload className="h-4 w-4" /> Import</Btn>
+          </>
+        }
       />
 
       <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -385,9 +473,7 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
             {rows.length === 0 && (
               <tr><td colSpan={9} className="px-5 py-10 text-center text-[13px] text-slate-400">No leads match that.</td></tr>
             )}
-            {matching.length > 5 && (
-              <tr><td colSpan={9} className="px-5 py-3 text-center text-[12px] text-slate-400">Showing 5 of {matching.length} · page 1</td></tr>
-            )}
+
           </tbody>
         </table>
       </div>
@@ -435,7 +521,7 @@ export function PipelineView() {
               <p className="mt-2 text-[12px] tabular-nums text-slate-400">{formatRupee(inStage.reduce((s, l) => s + l.value, 0))}</p>
 
               <div className="mt-4 space-y-3">
-                {inStage.slice(0, 2).map((l) => (
+                {inStage.map((l) => (
                   <div key={l.id} className="rounded-xl border border-slate-200/70 p-3">
                     <button type="button" onClick={() => openLead(l.id)} className="flex w-full items-start gap-2 text-left">
                       <GradeBadge grade={gradeOf(l)} size="sm" />
@@ -463,9 +549,7 @@ export function PipelineView() {
                     </div>
                   </div>
                 ))}
-                {inStage.length > 2 && (
-                  <p className="pt-1 text-center text-[11.5px] text-slate-400">+{inStage.length - 2} more</p>
-                )}
+
                 {inStage.length === 0 && (
                   <div className="grid h-20 place-items-center rounded-xl border border-dashed border-slate-200 text-[12px] text-slate-300">
                     Drag a deal here
@@ -511,7 +595,7 @@ export function FollowUpsView() {
           <p className="py-10 text-center text-[13px] text-slate-400">All caught up. Nothing scheduled.</p>
         ) : (
           <div className="divide-y divide-slate-100">
-            {due.slice(0, 4).map((l) => (
+            {due.map((l) => (
               <div key={l.id} className="flex flex-wrap items-center gap-3 py-3 first:pt-0 last:pb-0">
                 <button type="button" onClick={() => openLead(l.id)} className="flex min-w-[170px] flex-1 items-center gap-3 text-left">
                   <Avatar name={l.name} />
@@ -612,6 +696,75 @@ export function AnalyticsView() {
         </div>
       </Card>
 
+      <div className="mt-4 grid gap-4 @5xl:grid-cols-[1.5fr_1fr]">
+        <Card title="Why You're Losing" action={<span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">{missed.length} leads · {formatRupee(missedValue)}</span>}>
+          <div className="space-y-3">
+            {losses.map((l) => (
+              <div key={l.label} className="rounded-xl border border-slate-200/70 p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[13.5px] font-semibold text-slate-900">{l.label}</p>
+                    <p className="text-[12px] text-slate-400">{l.n} leads</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[16px] font-bold tabular-nums text-rose-500">{formatRupee(l.value)}</p>
+                    <p className="text-[11.5px] text-slate-400">{l.pct}% of losses</p>
+                  </div>
+                </div>
+                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                  <div className={cn("h-full rounded-full", l.tone)} style={{ width: `${l.pct}%` }} />
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg bg-sky-50/70 px-3 py-2.5">
+                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-sky-600">Fix</span>
+                  <p className="min-w-[180px] flex-1 text-[12.5px] text-slate-700">{l.fix}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <div className="space-y-4">
+          <Card title="Missed by grade">
+            <div className="space-y-2.5">
+              {(["A", "B", "C", "D"] as const).map((gr) => {
+                const n = missed.filter((l) => gradeOf(l) === gr).length
+                return (
+                  <div key={gr} className="flex items-center gap-3">
+                    <GradeBadge grade={gr} size="sm" />
+                    <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+                      <span className="block h-full rounded-full bg-rose-400" style={{ width: `${(n / Math.max(missed.length, 1)) * 100}%` }} />
+                    </span>
+                    <span className="w-6 text-right text-[12.5px] font-semibold tabular-nums text-slate-900">{n}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </Card>
+          <Card title="Speed to First Contact">
+            <div className="space-y-3">
+              {[
+                { label: "Won leads", value: "1h 10m", pct: 100, bar: "bg-emerald-500" },
+                { label: "Missed leads", value: "3h", pct: 68, bar: "bg-rose-400" },
+              ].map((r) => (
+                <div key={r.label}>
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-[12.5px] text-slate-500">{r.label}</span>
+                    <span className="text-[13px] font-semibold text-slate-900">{r.value}</span>
+                  </div>
+                  <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-slate-100">
+                    <div className={cn("h-full rounded-full", r.bar)} style={{ width: `${r.pct}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+          <Card title="Recovery Simulation">
+            <p className="text-[12.5px] leading-relaxed text-slate-400">
+              Simulation appears when average response time exceeds 3h.
+            </p>
+          </Card>
+        </div>
+      </div>
     </>
   )
 }
@@ -731,7 +884,7 @@ export function MissedView() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {missed.slice(0, 4).map((m) => (
+                {missed.map((m) => (
                   <tr key={m.id} className="hover:bg-rose-50/30">
                     <td className="py-3.5 pl-5 pr-3">
                       <button type="button" onClick={() => openLead(m.id)} className="flex items-center gap-3 text-left">
@@ -798,7 +951,7 @@ export function NotificationsView() {
 
       <Card className="mt-4">
         <div className="divide-y divide-slate-100">
-          {state.notifications.slice(0, 4).map((n) => {
+          {state.notifications.map((n) => {
             const Icon = n.kind === "sql" ? AlertTriangle : n.kind === "overdue" ? Clock : Bell
             return (
               <div key={n.id} className={cn("flex items-start gap-3 py-3.5 first:pt-0 last:pb-0", n.read && "opacity-55")}>
@@ -812,7 +965,12 @@ export function NotificationsView() {
                   <p className="text-[13.5px] font-semibold text-slate-900">{n.title}</p>
                   <p className="mt-0.5 text-[12.5px] text-slate-500">{n.body}</p>
                 </div>
-                {!n.read && <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Read</Btn>}
+                {!n.read && (
+                  <span className="flex shrink-0 gap-1.5">
+                    <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Already handled</Btn>
+                    <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Not relevant</Btn>
+                  </span>
+                )}
               </div>
             )
           })}
@@ -829,6 +987,7 @@ export function ImportView({ onDone }: { onDone: () => void }) {
   const [batch, setBatch] = useState("August portal export")
   const [source, setSource] = useState("Website form")
   const [stage, setStage] = useState<Stage>("New Inquiry")
+  const [mode, setMode] = useState<"CSV" | "Google Sheet" | "Manual Entry">("CSV")
   const [done, setDone] = useState(false)
 
   if (done) {
@@ -881,11 +1040,53 @@ export function ImportView({ onDone }: { onDone: () => void }) {
         </div>
 
         <h2 className="mb-3 mt-6 text-[15px] font-semibold text-slate-900">Upload your file</h2>
-        <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50/60 px-4 py-10 text-center">
-          <Upload className="mx-auto h-6 w-6 text-slate-400" />
-          <p className="mt-2 text-[13px] font-medium text-slate-700">Drop a CSV here, or browse</p>
-          <p className="mt-0.5 text-[12px] text-slate-400">leads-august.csv · 6 rows ready</p>
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {(["CSV", "Google Sheet", "Manual Entry"] as const).map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMode(m)}
+              className={cn(
+                "h-9 rounded-lg px-3 text-[12.5px] font-semibold transition-colors",
+                mode === m ? "bg-sky-50 text-sky-700" : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              )}
+            >
+              {m}
+            </button>
+          ))}
+          <span className="ml-auto inline-flex h-9 items-center gap-1.5 text-[12.5px] font-medium text-sky-600">
+            <Download className="h-3.5 w-3.5" /> Download the template
+          </span>
         </div>
+
+        {mode === "CSV" && (
+          <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50/60 px-4 py-10 text-center">
+            <Upload className="mx-auto h-6 w-6 text-slate-400" />
+            <p className="mt-2 text-[13px] font-medium text-slate-700">Drop a CSV here, or browse</p>
+            <p className="mt-0.5 text-[12px] text-slate-400">leads-august.csv · 6 rows ready</p>
+          </div>
+        )}
+        {mode === "Google Sheet" && (
+          <div className="rounded-xl border border-slate-200 p-4">
+            <label className="block">
+              <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Paste your Google Sheet URL</span>
+              <input
+                defaultValue="https://docs.google.com/spreadsheets/d/1AbC…/edit"
+                aria-label="Google Sheet URL"
+                className="h-9 w-full rounded-lg border border-slate-200 px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400"
+              />
+            </label>
+            <p className="mt-2 text-[11.5px] text-slate-400">The sheet must be viewable by anyone with the link.</p>
+          </div>
+        )}
+        {mode === "Manual Entry" && (
+          <div className="grid gap-3 rounded-xl border border-slate-200 p-4 @2xl:grid-cols-2">
+            <Field label="Name" value="" />
+            <Field label="Phone" value="" />
+            <Field label="Company" value="" />
+            <Field label="Expected value" value="" />
+          </div>
+        )}
 
         <Btn tone="primary" className="mt-5" onClick={() => { dispatch({ type: "IMPORT", count: 6, source, batch }); setDone(true) }}>
           Import and grade 6 leads
@@ -904,7 +1105,7 @@ export function ActivityView() {
       <PageHead title="Activity" sub="Everything the team logged, newest first." />
       <Card className="mt-4">
         <ol className="relative space-y-0 border-l border-slate-200 pl-5">
-          {state.activity.slice(0, 5).map((a) => (
+          {state.activity.map((a) => (
             <li key={a.id} className="relative py-2.5">
               <span className="absolute -left-[23px] top-4 h-2 w-2 rounded-full bg-sky-400 ring-4 ring-white" />
               <p className="text-[13px] text-slate-700">
@@ -928,7 +1129,7 @@ export function LearningView() {
       <PageHead title="Learning Engine" sub="Patterns the account has enough data to state." />
       <Card title="Patterns unlocked" className="mt-4">
         <div className="divide-y divide-slate-100">
-          {LEARNING_PATTERNS.slice(0, 4).map((p) => (
+          {LEARNING_PATTERNS.map((p) => (
             <div key={p.pattern} className="flex flex-wrap items-center gap-3 py-3.5 first:pt-0 last:pb-0">
               <Brain className="h-4 w-4 shrink-0 text-violet-400" />
               <p className="min-w-[200px] flex-1 text-[13px] text-slate-700">{p.pattern}</p>
@@ -1149,7 +1350,7 @@ const SETTINGS_NAV = [
 
 type SettingsTab = (typeof SETTINGS_NAV)[number]
 
-function Field({ label, value, hint }: { label: string; value: string; hint?: string }) {
+export function Field({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <label className="block">
       <span className="mb-1.5 block text-[12px] font-medium text-slate-600">{label}</span>

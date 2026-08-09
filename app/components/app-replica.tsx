@@ -291,7 +291,7 @@ export function AppReplica() {
       // which read as the app zooming when you moved off the queue.
       const scale = Math.min(availW / baseW, 1)
       const designH = window.innerWidth < 768 ? 900 : 980
-      setFit({ scale, height: Math.round(Math.max(designH, app.scrollHeight || 0) * scale), offset: 0 })
+      setFit({ scale, height: Math.round(designH * scale), offset: 0 })
     }
 
     const ro = new ResizeObserver(measure)
@@ -340,9 +340,10 @@ export function AppReplica() {
         >
           <div
             ref={appRef}
-            className="absolute left-0 top-0 flex items-stretch gap-3 p-3"
+            className="absolute left-0 top-0 flex items-stretch gap-3 overflow-hidden p-3"
             style={{
               width: baseWidth,
+              height: typeof window !== "undefined" && window.innerWidth < 768 ? 900 : 980,
               transform: `scale(${fit.scale})`,
               transformOrigin: "top left",
             }}
@@ -437,7 +438,7 @@ export function AppReplica() {
             </div>
           </aside>
 
-          <div className="flex min-w-0 flex-1 flex-col">
+          <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
             {/* Mobile top bar, as in the product */}
             <div className="mb-3 flex h-12 items-center justify-between rounded-xl border border-slate-200/70 bg-white px-3 md:hidden">
               <Menu className="h-5 w-5 text-slate-700" strokeWidth={2.25} />
@@ -475,7 +476,7 @@ export function AppReplica() {
             {/* @container: the demo pane is much narrower than a real browser
                 window, so table columns must hide on the pane's width rather
                 than the viewport's, or the last column is cut off. */}
-            <div className="@container min-w-0 flex-1 rounded-2xl bg-white p-5 md:p-6">
+            <div className="@container min-h-0 flex-1 overflow-y-auto rounded-2xl bg-white p-5 md:p-6">
               {view === "queue" && <QueueView onImport={() => go("import")} />}
               {view === "leads" && <LeadsView onImport={() => go("import")} />}
               {view === "follow-ups" && <FollowUpsView />}

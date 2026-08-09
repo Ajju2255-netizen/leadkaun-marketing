@@ -257,7 +257,7 @@ const IMPORT_NAMES = [
 
 export function demoReducer(state: DemoState, action: DemoAction): DemoState {
   const seq = state.seq + 1
-  const toast = (text: string) => [...state.toasts, { id: `t${seq}`, text }].slice(-3)
+  const toast = (text: string) => [...state.toasts, { id: `tst-${seq}`, text }].slice(-3)
 
   switch (action.type) {
     case "LOG_OUTCOME": {
@@ -293,7 +293,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
       const changed = after && before && gradeOf(after) !== before
       const notifications = changed && after
         ? [{
-            id: `n${seq}`,
+            id: `ntf-${seq}`,
             kind: (gradeOf(after) < before! ? "sql" : "drop") as Notification["kind"],
             title: `${after.name} moved from Grade ${before} to ${gradeOf(after)}`,
             body: `Intent ${delta > 0 ? "+" : ""}${delta} from the signal you just logged.`,
@@ -307,7 +307,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
         leads,
         notifications,
         activity: [
-          { id: `a${seq}`, who: "You", what: `logged a ${action.channel === "call" ? "call" : "WhatsApp reply"}, ${action.label.toLowerCase()}`, lead: after?.name ?? "", at: "just now" },
+          { id: `act-${seq}`, who: "You", what: `logged a ${action.channel === "call" ? "call" : "WhatsApp reply"}, ${action.label.toLowerCase()}`, lead: after?.name ?? "", at: "just now" },
           ...state.activity,
         ],
         toasts: toast(
@@ -331,7 +331,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
       })
       return {
         ...state, seq, leads,
-        activity: [{ id: `a${seq}`, who: "You", what: `moved to ${action.stage}`, lead: name, at: "just now" }, ...state.activity],
+        activity: [{ id: `act-${seq}`, who: "You", what: `moved to ${action.stage}`, lead: name, at: "just now" }, ...state.activity],
         toasts: toast(`${name} moved to ${action.stage}.`),
       }
     }
@@ -348,7 +348,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
       })
       return {
         ...state, seq, leads,
-        activity: [{ id: `a${seq}`, who: "You", what: "completed a follow-up", lead: name, at: "just now" }, ...state.activity],
+        activity: [{ id: `act-${seq}`, who: "You", what: "completed a follow-up", lead: name, at: "just now" }, ...state.activity],
         toasts: toast(`Follow-up cleared for ${name}.`),
       }
     }
@@ -386,7 +386,7 @@ export function demoReducer(state: DemoState, action: DemoAction): DemoState {
       return {
         ...state, seq,
         leads: [...added, ...state.leads],
-        activity: [{ id: `a${seq}`, who: "You", what: `imported ${added.length} leads from ${action.source}`, lead: action.batch, at: "just now" }, ...state.activity],
+        activity: [{ id: `act-${seq}`, who: "You", what: `imported ${added.length} leads from ${action.source}`, lead: action.batch, at: "just now" }, ...state.activity],
         toasts: toast(`${added.length} leads imported and graded.`),
       }
     }

@@ -54,7 +54,7 @@ export function QueueView({ onImport }: { onImport: () => void }) {
   const matching = ranked
     .filter((l) => tab === "all" || gradeOf(l) === tab)
     .filter((l) => `${l.name} ${l.company}`.toLowerCase().includes(q.toLowerCase()))
-  const PAGE = 5
+  const PAGE = 4
   const rows = matching.slice(0, PAGE)
 
   const high = state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length
@@ -72,7 +72,7 @@ export function QueueView({ onImport }: { onImport: () => void }) {
 
       <Card className="mt-4" pad="p-4 sm:p-5">
         <h2 className="mb-3.5 text-[14px] font-semibold text-slate-900">Quick stats</h2>
-        <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @6xl:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-6">
           <StatCard icon={Inbox}       label="Total leads"     value={state.leads.length}    tintBg="bg-slate-100"  tintFg="text-slate-500"   caption="in your queue" />
           <StatCard icon={Flame}       label="High priority"   value={high}                  tintBg="bg-rose-50"    tintFg="text-rose-500"    caption="grade A and B" />
           <StatCard icon={Zap}         label="Hot right now"   value={hot}                   tintBg="bg-amber-50"   tintFg="text-amber-500"   caption="live signals" />
@@ -243,7 +243,7 @@ export function DashboardView() {
         sub="Today's revenue radar. What your team did, what's slipping, and where the next ₹ is hiding."
       />
 
-      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @6xl:grid-cols-5">
+      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
         <KpiCard label="New Leads"            value={state.leads.length} icon={Users}        tintBg="bg-sky-50"     tintFg="text-sky-600" />
         <KpiCard label="First Contacts Made"  value={state.leads.filter((l) => l.stage !== "New Inquiry").length} icon={PhoneCall} tintBg="bg-orange-50" tintFg="text-orange-500" delta={100} />
         <KpiCard label="Follow-ups Completed" value={state.leads.filter((l) => l.contactedToday).length} icon={CheckCircle2} tintBg="bg-violet-50" tintFg="text-violet-500" />
@@ -412,7 +412,7 @@ export function PipelineView() {
         sub="Auto-stage tracker for every deal in motion. Moves when calls and WhatsApp signals land."
       />
 
-      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @6xl:grid-cols-5">
+      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
         <KpiCard label="Total Deals" value={state.leads.length} icon={Columns2} tintBg="bg-sky-50"     tintFg="text-sky-600"     spark={[4, 6, 5, 8, 7, 9, 12]} />
         <KpiCard label="Open Deals"  value={open}               icon={Zap}     tintBg="bg-violet-50"  tintFg="text-violet-500"  spark={[8, 7, 9, 6, 8, 7, 9]} />
         <KpiCard label="Won Deals"   value={won}                icon={Trophy}  tintBg="bg-emerald-50" tintFg="text-emerald-600" spark={[1, 2, 1, 3, 2, 4, 5]} />
@@ -497,7 +497,7 @@ export function FollowUpsView() {
 
       <Card className="mt-4" pad="p-4 sm:p-5">
         <h2 className="mb-3.5 text-[14px] font-semibold text-slate-900">Quick stats</h2>
-        <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @6xl:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
           <StatCard icon={AlertTriangle} label="Overdue"         value={overdue.length}      tintBg="bg-rose-50"    tintFg="text-rose-500"    caption="need action now" />
           <StatCard icon={CalendarClock} label="Due today"       value={pending.length}      tintBg="bg-sky-50"     tintFg="text-sky-600"     caption="on schedule" />
           <StatCard icon={IndianRupee}   label="At risk"         value={formatRupee(atRisk)} tintBg="bg-amber-50"   tintFg="text-amber-500"   caption="overdue value" />
@@ -837,7 +837,7 @@ export function ImportView({ onDone }: { onDone: () => void }) {
         <PageHead title="Lead Ingestion" sub="Ingestion summary" />
         <Card className="mt-4">
           <h2 className="mb-4 text-[15px] font-semibold text-slate-900">Ingestion summary</h2>
-          <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @6xl:grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
             <StatCard icon={Inbox}       label="Total Rows"         value={6}    tintBg="bg-slate-100"  tintFg="text-slate-500" />
             <StatCard icon={Users}       label="New Leads"          value={6}    tintBg="bg-sky-50"     tintFg="text-sky-600" />
             <StatCard icon={X}           label="Duplicates Removed" value={0}    tintBg="bg-orange-50"  tintFg="text-orange-500" />

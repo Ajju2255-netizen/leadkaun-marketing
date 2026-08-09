@@ -277,24 +277,13 @@ export function AppReplica() {
     const measure = () => {
       const availW = box.clientWidth
       if (!availW) return
-      // Below md the app renders its own mobile layout, so it is laid out
-      // narrow rather than shrunk to an unreadable fraction.
+      // Below md the app lays itself out narrow rather than being shrunk.
       const baseW = window.innerWidth < 768 ? 430 : 1440
-      // Sized so the section lands on roughly one screenful while the app stays
-      // legible. Shrinking any further to guarantee a perfect fit would push the
-      // text under 9px, which is worse than a little scrolling.
-      // Measured overhead above and around the window (heading, padding, chrome
-      // bar) is ~330px, so budget from the viewport minus that.
-      const maxH = Math.max(400, Math.min(window.innerHeight - 335, 760))
-      const contentH = app.scrollHeight || 1
-      const scale = Math.min(availW / baseW, maxH / contentH, 1)
-      setFit({
-        scale,
-        // Pinned to the window height so the frame never changes size between
-        // screens; a short screen just leaves a little canvas below it.
-        height: Math.round(maxH),
-        offset: Math.max(0, (availW - baseW * scale) / 2),
-      })
+      // Width-derived only. A height-derived scale changed between screens,
+      // which read as the app zooming when you moved off the queue.
+      const scale = Math.min(availW / baseW, 1)
+      const designH = window.innerWidth < 768 ? 900 : 980
+      setFit({ scale, height: Math.round(Math.max(designH, app.scrollHeight || 0) * scale), offset: 0 })
     }
 
     const ro = new ResizeObserver(measure)
@@ -332,54 +321,10 @@ export function AppReplica() {
   return (
     <DemoCtx.Provider value={ctxValue}>
       <div
-        className="app-demo overflow-hidden rounded-[20px] bg-white"
+        className="app-demo overflow-hidden rounded-2xl bg-white"
         style={{ border: "1px solid var(--paper-line-2)", boxShadow: "0 30px 60px -40px rgba(15,23,42,0.45)" }}
       >
-        {/* Browser chrome */}
-        <div
-          className="flex items-center gap-3 px-4 py-3"
-          style={{ borderBottom: "1px solid var(--paper-line)", background: "var(--paper-2)" }}
-        >
-          <span className="flex shrink-0 gap-2">
-            <span className="h-3 w-3 rounded-full" style={{ background: "#FF5F57" }} />
-            <span className="h-3 w-3 rounded-full" style={{ background: "#FEBC2E" }} />
-            <span className="h-3 w-3 rounded-full" style={{ background: "#28C840" }} />
-          </span>
-          <span className="hidden shrink-0 items-center gap-3 text-ink-muted sm:flex">
-            <ChevronLeft className="h-4 w-4" strokeWidth={2} />
-            <ChevronRight className="h-4 w-4" strokeWidth={2} />
-            <RotateCw className="h-3.5 w-3.5" strokeWidth={2} />
-          </span>
-
-          <span
-            className="mx-auto flex h-8 min-w-0 max-w-[420px] flex-1 items-center justify-center gap-1.5 rounded-lg bg-white px-3"
-            style={{ border: "1px solid var(--paper-line)" }}
-          >
-            <Lock className="h-3 w-3 shrink-0 text-emerald-600" strokeWidth={2.5} />
-            <span className="ledger-num truncate text-[11.5px] text-ink-muted">
-              app.leadkaun.com/<span className="text-ink">{view}</span>
-            </span>
-          </span>
-
-          <span className="flex shrink-0 items-center gap-2">
-            <button
-              type="button"
-              onClick={() => { dispatch({ type: "RESET" }); go("queue") }}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-white px-2.5 py-1.5 text-[11.5px] font-medium text-ink-muted transition-colors hover:text-sky-700"
-              style={{ border: "1px solid var(--paper-line)" }}
-            >
-              <RotateCcw className="h-3 w-3" /> Reset
-            </button>
-            <span
-              className="hidden rounded-lg bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted sm:inline"
-              style={{ border: "1px solid var(--paper-line)" }}
-            >
-              Sample data
-            </span>
-          </span>
-        </div>
-
-        {/* App canvas: a fixed-height window; the app inside is scaled to fit it. */}
+        {/* The app, scaled to the frame's width. */}
         <div
           ref={boxRef}
           className="relative overflow-hidden"
@@ -390,7 +335,7 @@ export function AppReplica() {
             className="absolute left-0 top-0 flex items-stretch gap-3 p-3"
             style={{
               width: baseWidth,
-              transform: `translateX(${fit.offset}px) scale(${fit.scale})`,
+              transform: `scale(${fit.scale})`,
               transformOrigin: "top left",
             }}
           >

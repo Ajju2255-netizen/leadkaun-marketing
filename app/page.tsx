@@ -284,8 +284,8 @@ function Thesis() {
    ───────────────────────────────────────────────────────────────────────── */
 function ProductDemo() {
   return (
-    <section className="relative bg-bg-pure">
-      <Container className="py-10 md:py-14">
+    <section className="relative bg-bg-pure py-10 md:py-14">
+      <Container>
         <Reveal className="mx-auto mb-5 max-w-3xl text-center md:mb-6">
           <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">The product</p>
           <h2 className="display-md mt-4 text-[27px] text-ink md:text-[34px]">
@@ -296,11 +296,13 @@ function ProductDemo() {
             the sidebar. Every name and rupee figure is invented for the demo.
           </p>
         </Reveal>
+      </Container>
 
+      <div className="mx-auto w-full max-w-[1360px] px-6 md:px-8">
         <Reveal delay={0.08}>
           <AppReplica />
         </Reveal>
-      </Container>
+      </div>
     </section>
   )
 }

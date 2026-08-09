@@ -430,9 +430,9 @@ export function AppReplica() {
 
             <div className="border-t border-slate-100 px-3 py-3">
               <button type="button" onClick={() => go("settings")} className="flex w-full items-center gap-2.5 rounded-lg text-left transition-colors hover:text-sky-700">
-                <Avatar name="Ajsal Work" size={32} />
+                <Avatar name="Nikhil Verma" size={32} />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12px] font-semibold leading-tight text-slate-900">Ajsal Work</p>
+                  <p className="truncate text-[12px] font-semibold leading-tight text-slate-900">Nikhil Verma</p>
                   <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.10em] text-slate-400">Admin</p>
                 </div>
                 <LogOut className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={2} />

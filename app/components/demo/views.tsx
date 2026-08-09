@@ -2101,9 +2101,9 @@ export function SettingsView() {
             <div className="space-y-4">
               <Card title="Personal info">
                 <div className="grid gap-4 @2xl:grid-cols-2">
-                  <Field label="First name" value="Ajsal" />
-                  <Field label="Last name" value="Work" />
-                  <Field label="Email address" value="ajsal@sunrisegroup.in" />
+                  <Field label="First name" value="Nikhil" />
+                  <Field label="Last name" value="Verma" />
+                  <Field label="Email address" value="nikhil@sunrisegroup.in" />
                   <Field label="Role" value="Admin" />
                 </div>
               </Card>

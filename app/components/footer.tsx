@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Container } from "@/app/components/container"
-import { LeadkaunMark } from "@/app/components/leadkaun-mark"
+import { LeadkaunLogo } from "@/app/components/leadkaun-logo"
 import { EmailCapture } from "@/app/components/email-capture"
 import { APP_URLS } from "@/lib/urls"
 
@@ -84,11 +84,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_repeat(5,1fr)]">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center gap-2.5">
-              <LeadkaunMark size={26} gloss className="transition-transform group-hover:scale-[1.06]" />
-              <span className="font-display text-[19px] font-medium tracking-[-0.02em] leading-none text-ink">
-                Leadkaun
-              </span>
+            <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center">
+              <LeadkaunLogo height={30} className="transition-transform group-hover:scale-[1.04]" />
             </Link>
             <p className="mt-4 max-w-[240px] text-[13.5px] leading-[1.6] text-ink-soft">
               The Sales Behaviour OS for Indian B2B SMBs. Grade every lead, build a Priority Queue, surface missed ₹.

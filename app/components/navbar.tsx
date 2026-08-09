@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { Menu, X, Search, ChevronDown } from "lucide-react"
 import { APP_URLS } from "@/lib/urls"
-import { LeadkaunMark } from "@/app/components/leadkaun-mark"
+import { LeadkaunLogo } from "@/app/components/leadkaun-logo"
 import { GlossLink } from "@/app/components/gloss-button"
 import { cn } from "@/lib/utils"
 
@@ -87,11 +87,8 @@ const NAV: NavEntry[] = [
 
 function Wordmark() {
   return (
-    <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center gap-2.5">
-      <LeadkaunMark size={26} gloss className="transition-transform group-hover:scale-[1.06]" />
-      <span className="font-display text-[19px] font-medium tracking-[-0.02em] leading-none text-ink">
-        Leadkaun
-      </span>
+    <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center">
+      <LeadkaunLogo height={30} className="transition-transform group-hover:scale-[1.04]" />
     </Link>
   )
 }

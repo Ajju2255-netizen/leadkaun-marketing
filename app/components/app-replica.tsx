@@ -36,16 +36,34 @@ type View =
   | "queue" | "follow-ups" | "pipeline" | "leads" | "import"
   | "dashboard" | "activity" | "analytics" | "rep" | "learning" | "missed" | "notifications"
 
-const NAV: { view: View; label: string; icon: LucideIcon }[] = [
-  { view: "queue", label: "Priority Queue", icon: Zap },
-  { view: "dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { view: "leads", label: "All Leads", icon: Users },
-  { view: "pipeline", label: "Pipeline", icon: Columns2 },
-  { view: "follow-ups", label: "Follow-ups", icon: CalendarCheck },
-  { view: "analytics", label: "Analytics", icon: BarChart2 },
-  { view: "rep", label: "Rep Tracking", icon: Trophy },
-  { view: "missed", label: "Missed Opps", icon: AlertTriangle },
-  { view: "notifications", label: "Notifications", icon: Bell },
+const NAV_GROUPS: { label: string | null; items: { view: View; label: string; icon: LucideIcon }[] }[] = [
+  {
+    label: "Execute",
+    items: [
+      { view: "queue", label: "Priority Queue", icon: Zap },
+      { view: "follow-ups", label: "Follow-ups", icon: CalendarCheck },
+      { view: "pipeline", label: "Pipeline", icon: Columns2 },
+    ],
+  },
+  {
+    label: "Leads",
+    items: [
+      { view: "leads", label: "All Leads", icon: Users },
+      { view: "import", label: "Import Leads", icon: Upload },
+    ],
+  },
+  {
+    label: "Insights",
+    items: [
+      { view: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+      { view: "activity", label: "Activity", icon: ActivityIcon },
+      { view: "analytics", label: "Analytics", icon: BarChart2 },
+      { view: "rep", label: "Rep Tracking", icon: Trophy },
+      { view: "learning", label: "Learning", icon: Brain },
+      { view: "missed", label: "Missed Opps", icon: AlertTriangle },
+    ],
+  },
+  { label: null, items: [{ view: "notifications", label: "Notifications", icon: Bell }] },
 ]
 
 const VIEW_TITLE: Record<View, string> = {
@@ -298,76 +316,103 @@ export function AppReplica() {
         </div>
 
         {/* App canvas */}
-        {/* A fixed viewport, mirroring the app's own h-screen shell. Without it
-            the frame grew and shrank as you moved between views, which shifts
-            everything below it on the page. */}
+        {/* Grows to fit whichever screen is open, so nothing is ever cut off.
+            The trade is that the page below shifts when you change screens. */}
         <div
-          className="relative flex h-[560px] gap-3 overflow-hidden p-3 md:h-[660px]"
+          className="relative flex min-h-[560px] items-stretch gap-3 p-3"
           style={{ background: "#F6F8FB" }}
         >
-          <aside className="hidden w-[236px] shrink-0 flex-col overflow-hidden rounded-2xl bg-white md:flex">
-            <div className="flex h-[62px] shrink-0 items-center gap-2.5 border-b border-slate-100 px-4">
-              <span
-                className="grid h-8 w-8 place-items-center rounded-lg text-[15px] font-bold text-white"
-                style={{ background: "linear-gradient(180deg, #7DD3FC 0%, #38BDF8 100%)" }}
-              >
-                A
-              </span>
-              <span className="text-[16px] font-bold leading-none tracking-[-0.02em] text-slate-800">Leadkaun</span>
+          <aside className="hidden w-[224px] shrink-0 flex-col self-stretch overflow-hidden rounded-2xl border border-slate-200/70 bg-white md:flex">
+            <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-100 px-4">
+              <LeadkaunMark size={26} gloss />
+              <span className="text-[16px] font-semibold leading-none tracking-[-0.025em] text-slate-900">Leadkaun</span>
             </div>
 
-            <nav className="flex-1 overflow-y-auto px-3 py-3">
-              <div className="space-y-0.5">
-                {NAV.map((item) => {
-                  const active = item.view === view
-                  const Icon = item.icon
-                  const badge = item.view === "missed" ? missedCount : item.view === "notifications" ? unread : 0
-                  return (
-                    <button
-                      key={item.view}
-                      type="button"
-                      onClick={() => go(item.view)}
-                      aria-current={active ? "page" : undefined}
-                      className={cn(
-                        "relative flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[13.5px] transition-colors",
-                        active
-                          ? "bg-sky-50 font-semibold text-sky-700 before:absolute before:bottom-1.5 before:left-0 before:top-1.5 before:w-[3px] before:rounded-r-full before:bg-sky-500"
-                          : "font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-700"
-                      )}
-                    >
-                      <Icon className={cn("h-[17px] w-[17px] shrink-0", active ? "text-sky-500" : "text-slate-400")} strokeWidth={2} />
-                      {item.label}
-                      {badge > 0 && (
-                        <span
-                          className="ml-auto inline-flex h-[20px] min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10.5px] font-bold text-white"
-                          style={{
-                            background: item.view === "missed"
-                              ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
-                              : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                          }}
-                        >
-                          {badge}
-                        </span>
-                      )}
-                    </button>
-                  )
-                })}
+            {/* Workspace switcher, as the product's shell has it. */}
+            <div className="border-b border-slate-100 px-3 py-2.5">
+              <p className="mb-1.5 px-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">Workspace</p>
+              <div className="flex h-9 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3">
+                <Layers className="h-3.5 w-3.5 shrink-0 text-sky-500" />
+                <span className="truncate text-[13px] font-medium text-slate-900">Sunrise Group</span>
               </div>
+            </div>
+
+            <nav className="flex-1 overflow-y-auto px-2 pb-2 pt-3">
+              {NAV_GROUPS.map((group, gi) => (
+                <div
+                  key={group.label ?? "utility"}
+                  className={gi === 0 ? "" : group.label ? "mt-4" : "mt-3 border-t border-slate-100 pt-3"}
+                >
+                  {group.label && (
+                    <p className="mb-1 select-none px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                      {group.label}
+                    </p>
+                  )}
+                  <div className="space-y-0.5">
+                    {group.items.map((item) => {
+                      const active = item.view === view
+                      const Icon = item.icon
+                      const badge = item.view === "missed" ? missedCount : item.view === "notifications" ? unread : 0
+                      return (
+                        <button
+                          key={item.view}
+                          type="button"
+                          onClick={() => go(item.view)}
+                          aria-current={active ? "page" : undefined}
+                          className={cn(
+                            "relative flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[13px] transition-all duration-150",
+                            active
+                              ? "bg-sky-50/80 font-semibold text-sky-700 before:absolute before:bottom-1.5 before:left-0 before:top-1.5 before:w-[3px] before:rounded-r-full before:bg-sky-500"
+                              : "font-medium text-slate-500 hover:bg-sky-50/40 hover:text-sky-600"
+                          )}
+                        >
+                          <Icon className={cn("h-[15px] w-[15px] shrink-0", active ? "text-sky-500" : "text-slate-400")} strokeWidth={active ? 2.5 : 2} />
+                          {item.label}
+                          {badge > 0 && (
+                            <span
+                              className="ml-auto inline-flex h-[18px] min-w-[20px] items-center justify-center rounded-full px-1.5 text-[10px] font-bold text-white"
+                              style={{
+                                background: item.view === "missed"
+                                  ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
+                                  : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
+                              }}
+                            >
+                              {badge}
+                            </span>
+                          )}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
             </nav>
 
-            <div className="border-t border-slate-100 px-3 py-3.5">
+            {/* Plan usage, added to the shell in the billing work. */}
+            <div className="mx-3 mb-3 rounded-xl border border-slate-200/70 p-3">
+              <div className="flex items-baseline justify-between">
+                <span className="text-[11px] font-semibold text-slate-700">Growth plan</span>
+                <span className="text-[10.5px] tabular-nums text-slate-400">{state.leads.length}/500</span>
+              </div>
+              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                <div className="h-full rounded-full bg-sky-400" style={{ width: `${Math.min(100, (state.leads.length / 500) * 100)}%` }} />
+              </div>
+              <p className="mt-2 text-[10.5px] text-slate-400">leads used this month</p>
+            </div>
+
+            <div className="border-t border-slate-100 px-3 py-3">
               <div className="flex items-center gap-2.5">
-                <Avatar name="Ajsal Work" size={32} single={false} />
+                <Avatar name="Ajsal Work" size={32} />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12.5px] font-bold leading-tight text-slate-800">Ajsal Work</p>
-                  <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.1em] text-slate-400">Admin</p>
+                  <p className="truncate text-[12px] font-semibold leading-tight text-slate-900">Ajsal Work</p>
+                  <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.10em] text-slate-400">Admin</p>
                 </div>
-                <LogOut className="h-4 w-4 shrink-0 text-slate-400" strokeWidth={2} />
+                <LogOut className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={2} />
               </div>
             </div>
           </aside>
 
-          <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <div className="flex min-w-0 flex-1 flex-col">
             {/* Mobile top bar, as in the product */}
             <div className="mb-3 flex h-12 items-center justify-between rounded-xl border border-slate-200/70 bg-white px-3 md:hidden">
               <Menu className="h-5 w-5 text-slate-700" strokeWidth={2.25} />
@@ -387,7 +432,7 @@ export function AppReplica() {
 
             {/* The sidebar is hidden on small screens, so views need another way across */}
             <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1 md:hidden">
-              {NAV.map((item) => (
+              {NAV_GROUPS.flatMap((g) => g.items).map((item) => (
                 <button
                   key={item.view}
                   type="button"
@@ -402,13 +447,16 @@ export function AppReplica() {
               ))}
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto rounded-2xl bg-white p-5 md:p-6">
+            {/* @container: the demo pane is much narrower than a real browser
+                window, so table columns must hide on the pane's width rather
+                than the viewport's, or the last column is cut off. */}
+            <div className="@container min-w-0 flex-1 rounded-2xl bg-white p-5 md:p-6">
               {view === "queue" && <QueueView onImport={() => go("import")} />}
               {view === "leads" && <LeadsView onImport={() => go("import")} />}
               {view === "follow-ups" && <FollowUpsView />}
               {view === "pipeline" && <PipelineView />}
               {view === "import" && <ImportView onDone={() => go("queue")} />}
-              {view === "dashboard" && <DashboardView onImport={() => go("import")} />}
+              {view === "dashboard" && <DashboardView />}
               {view === "activity" && <ActivityView />}
               {view === "analytics" && <AnalyticsView />}
               {view === "rep" && <RepTrackingView />}

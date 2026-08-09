@@ -173,8 +173,26 @@ function Hero() {
       {/* A single soft wash, low-saturation. No competing colour fields. */}
       <div aria-hidden className="pointer-events-none absolute -right-32 -top-24 h-[460px] w-[620px] rounded-full opacity-[0.30] blur-[130px]" style={{ background: "radial-gradient(circle, #BAE6FD 0%, transparent 70%)" }} />
 
+      {/* Hero banner — sits on the right half. Only a narrow left edge is
+          feathered into the cream ground so the photo stays crisp and full;
+          gentle top/bottom fades melt it into the section. Decorative. */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-1/2 overflow-hidden lg:block">
+        <img
+          src="/brand/hero-portrait.webp"
+          alt=""
+          className="h-full w-full object-cover object-[78%_42%]"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.85) 13%, #000 28%)",
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.85) 13%, #000 28%)",
+          }}
+        />
+        {/* gentle feathering into the white section top and the paper bottom */}
+        <div className="absolute inset-x-0 top-0 h-16" style={{ background: "linear-gradient(to bottom, #FFFFFF 0%, rgba(255,255,255,0) 100%)" }} />
+        <div className="absolute inset-x-0 bottom-0 h-20" style={{ background: "linear-gradient(to top, var(--paper) 0%, rgba(252,250,246,0) 100%)" }} />
+      </div>
+
       <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="relative z-10 max-w-2xl lg:max-w-[500px] xl:max-w-[560px]">
 
           <div className="rise" style={{ animationDelay: "40ms" }}>
             <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">
@@ -221,53 +239,12 @@ function Hero() {
             </ul>
           </div>
 
-          {/* The queue panel, the product's actual artefact, on white */}
-          <div className="rise" style={{ animationDelay: "180ms" }}>
-            <div className="overflow-hidden rounded-2xl border bg-white rule-paper" style={{ boxShadow: "0 24px 60px -28px rgba(15,23,42,0.22)" }}>
-              <div className="flex items-center justify-between border-b px-5 py-3.5 rule-paper" style={{ background: "var(--paper)" }}>
-                <p className="ledger-num text-[10.5px] uppercase tracking-[0.18em] text-ink-muted">Priority Queue · R. Iyer</p>
-                <span className="flex items-center gap-1.5 text-[10.5px] font-medium text-sky-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-500" /> live
-                </span>
-              </div>
-
-              <ul className="divide-y" style={{ borderColor: "var(--paper-line)" }}>
-                {QUEUE.map((r, i) => (
-                  <li
-                    key={r.rank}
-                    className="rise grid grid-cols-[auto_1fr_auto] items-center gap-3.5 px-5 py-3.5"
-                    style={{ animationDelay: `${320 + i * 80}ms`, background: i === 0 ? "rgba(240,249,255,0.7)" : undefined }}
-                  >
-                    <span className="ledger-num w-5 text-[12px] text-ink-faint">{r.rank}</span>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <Grade g={r.g} />
-                        <p className="truncate text-[14.5px] font-medium text-ink">{r.who}</p>
-                        <span className="hidden text-[12px] text-ink-muted sm:inline">{r.city}</span>
-                      </div>
-                      <p className="mt-0.5 truncate text-[12.5px] text-ink-muted">{r.why}</p>
-                    </div>
-                    <span className="ledger-num shrink-0 text-[13px] text-ink-soft">{r.val}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="flex items-center justify-between border-t px-5 py-3.5 rule-paper" style={{ background: "var(--paper)" }}>
-                <p className="text-[12px] text-ink-muted">Illustrative of the ranking mechanism</p>
-                <Link href="/methodology" className="text-[12px] font-medium text-sky-600 underline-offset-4 hover:underline">
-                  how the grade works →
-                </Link>
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-3 rounded-2xl border bg-white px-5 py-4 rule-paper">
-              {[["A–F", "every lead graded"], ["3", "published scores"], ["flat ₹", "per account"]].map(([v, l]) => (
-                <div key={l}>
-                  <p className="ledger-num text-[17px] font-semibold text-ink">{v}</p>
-                  <p className="mt-0.5 text-[12px] text-ink-muted">{l}</p>
-                </div>
-              ))}
-            </div>
+          {/* Banner image on mobile — a blended card beneath the copy, since the
+              full-bleed desktop version is hidden below lg. */}
+          <div className="rise relative mt-12 overflow-hidden rounded-2xl lg:hidden" style={{ animationDelay: "180ms", boxShadow: "0 26px 60px -34px rgba(15,23,42,0.28)" }}>
+            <img src="/brand/hero-portrait.webp" alt="" className="h-60 w-full object-cover object-[68%_45%] sm:h-72" />
+            <div aria-hidden className="absolute inset-x-0 bottom-0 h-20" style={{ background: "linear-gradient(to top, var(--paper) 0%, rgba(252,250,246,0) 100%)" }} />
+            <div aria-hidden className="absolute inset-0 opacity-[0.12] mix-blend-soft-light" style={{ background: "linear-gradient(115deg, #0EA5E9 0%, transparent 55%, #FB923C 100%)" }} />
           </div>
         </div>
       </Container>

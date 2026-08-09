@@ -30,14 +30,15 @@ import {
 
 // ── Priority Queue ────────────────────────────────────────────────────────────
 
+/** Labels and colours copied from components/queue/QueueGradeTabs.tsx. */
 const GRADE_TABS = [
-  { key: "all", label: "All", dot: "", active: "bg-slate-800" },
-  { key: "A", label: "Grade A", dot: "bg-emerald-400", active: "bg-emerald-500" },
-  { key: "B", label: "Grade B", dot: "bg-sky-400", active: "bg-sky-500" },
-  { key: "C", label: "Grade C", dot: "bg-orange-400", active: "bg-orange-500" },
-  { key: "D", label: "Grade D", dot: "bg-orange-500", active: "bg-orange-600" },
-  { key: "E", label: "Grade E", dot: "bg-rose-400", active: "bg-rose-500" },
-  { key: "F", label: "Grade F", dot: "bg-slate-400", active: "bg-slate-500" },
+  { key: "all", label: "All", dot: "", active: "bg-sky-600" },
+  { key: "A", label: "A", dot: "bg-emerald-500", active: "bg-emerald-500" },
+  { key: "B", label: "B", dot: "bg-sky-500", active: "bg-sky-600" },
+  { key: "C", label: "C", dot: "bg-orange-400", active: "bg-orange-500" },
+  { key: "D", label: "D", dot: "bg-amber-500", active: "bg-amber-500" },
+  { key: "E", label: "E", dot: "bg-rose-500", active: "bg-rose-500" },
+  { key: "F", label: "F", dot: "bg-slate-400", active: "bg-slate-500" },
 ]
 
 const NEXT_TONE: Record<string, string> = {
@@ -50,6 +51,8 @@ export function QueueView({ onImport }: { onImport: () => void }) {
   const [tab, setTab] = useState("all")
   const [q, setQ] = useState("")
   const [hideContacted, setHideContacted] = useState(false)
+  const [filtersOpen, setFiltersOpen] = useState(false)
+  const [channels, setChannels] = useState<string[]>([])
   const [rep, setRep] = useState("All reps")
   const [source, setSource] = useState("All sources")
 
@@ -60,7 +63,7 @@ export function QueueView({ onImport }: { onImport: () => void }) {
     .filter((l) => (hideContacted ? !l.contactedToday : true))
     .filter((l) => (rep === "All reps" ? true : l.rep === rep))
     .filter((l) => (source === "All sources" ? true : l.source === source))
-  const PAGE = 8
+  const PAGE = 12
   const rows = matching.slice(0, PAGE)
 
   const high = state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length
@@ -90,74 +93,119 @@ export function QueueView({ onImport }: { onImport: () => void }) {
 
       {/* Search, grade tabs and the table share one panel, as the product does. */}
       <section className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
-        <div className="border-b border-slate-100 p-4 sm:p-5">
-          <label className="flex h-9 w-full items-center gap-2 rounded-lg border border-slate-200 px-3 focus-within:border-sky-400">
-            <Search className="h-4 w-4 shrink-0 text-slate-400" />
+        {/* Toolbar: one row, as the product has it since the filter-bar fix. */}
+        <div className="flex flex-wrap items-center gap-2 px-4 py-3 sm:px-5">
+          <div className="relative min-w-[170px] flex-1">
+            <Search className="pointer-events-none absolute left-3.5 top-1/2 z-10 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search leads, company…"
               aria-label="Search queue"
-              className="w-full bg-transparent text-[13px] text-slate-900 outline-none placeholder:text-slate-400"
+              className="h-9 w-full rounded-full border border-slate-200 bg-slate-50 pl-9 pr-8 text-[13px] text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-500/25"
             />
-            {q && <button type="button" onClick={() => setQ("")} aria-label="Clear search"><X className="h-3.5 w-3.5 text-slate-400" /></button>}
-          </label>
-
-          {/* The product's queue filters: rep, source, and hide-contacted. */}
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setHideContacted((v) => !v)}
-              className={cn(
-                "inline-flex h-9 items-center gap-1.5 rounded-lg border px-3 text-[12.5px] font-medium transition-colors",
-                hideContacted ? "border-sky-300 bg-sky-50 text-sky-700" : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-              )}
-            >
-              <SlidersHorizontal className="h-3.5 w-3.5" /> Hide leads contacted today
-            </button>
-            <select
-              aria-label="Filter by rep"
-              value={rep}
-              onChange={(e) => setRep(e.target.value)}
-              className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[12.5px] text-slate-600 outline-none hover:border-slate-300"
-            >
-              {["All reps", ...REPS.map((r) => r.name)].map((r) => <option key={r}>{r}</option>)}
-            </select>
-            <select
-              aria-label="Filter by source"
-              value={source}
-              onChange={(e) => setSource(e.target.value)}
-              className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[12.5px] text-slate-600 outline-none hover:border-slate-300"
-            >
-              {["All sources", "Website form", "Google Ads", "Facebook Ads", "Referral", "Listings", "Trade fair", "Bulk import"].map((r) => <option key={r}>{r}</option>)}
-            </select>
+            {q && (
+              <button type="button" onClick={() => setQ("")} aria-label="Clear search"
+                      className="absolute right-3 top-1/2 z-10 -translate-y-1/2 text-slate-400 hover:text-slate-700">
+                <X className="h-3 w-3" />
+              </button>
+            )}
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center gap-1.5">
-            {GRADE_TABS.map((t) => {
-              const count = t.key === "all" ? ranked.length : ranked.filter((l) => gradeOf(l) === t.key).length
-              if (t.key !== "all" && count === 0) return null
-              const active = tab === t.key
-              return (
-                <button
-                  key={t.key}
-                  type="button"
-                  onClick={() => setTab(t.key)}
-                  className={cn(
-                    "inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[12px] font-semibold transition-all",
-                    active
-                      ? cn(t.active, "text-white shadow-[0_1px_2px_rgba(15,23,42,0.18)]")
-                      : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-                  )}
-                >
-                  {t.dot && !active && <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", t.dot)} />}
-                  {t.label}
-                  <span className={cn("rounded-full px-1.5 py-0.5 text-[11px] font-bold tabular-nums", active ? "bg-white/25 text-white" : "bg-slate-100 text-slate-600")}>
-                    {count}
-                  </span>
-                </button>
-              )
-            })}
+          <span className="mx-1 hidden h-6 w-px shrink-0 bg-slate-200 lg:block" aria-hidden />
+
+          {GRADE_TABS.map((t) => {
+            const count = t.key === "all" ? ranked.length : ranked.filter((l) => gradeOf(l) === t.key).length
+            if (t.key !== "all" && count === 0) return null
+            const active = tab === t.key
+            return (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => setTab(t.key)}
+                className={cn(
+                  "inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[12px] font-semibold transition-all",
+                  active
+                    ? cn(t.active, "text-white shadow-[0_1px_2px_rgba(15,23,42,0.18),inset_0_1px_0_rgba(255,255,255,0.45)]")
+                    : "border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
+                )}
+              >
+                {t.dot && !active && <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", t.dot)} />}
+                {t.label}
+                <span className={cn("rounded-full px-1.5 py-0.5 text-[11px] font-bold tabular-nums", active ? "bg-white/25 text-white" : "bg-slate-100 text-slate-600")}>
+                  {count}
+                </span>
+              </button>
+            )
+          })}
+
+          <select
+            aria-label="Filter by rep"
+            value={rep}
+            onChange={(e) => setRep(e.target.value)}
+            className="h-9 max-w-[118px] rounded-full border border-slate-200 bg-white px-2.5 text-[12px] text-slate-700 outline-none hover:bg-slate-50"
+          >
+            {["All reps", ...REPS.map((r) => r.name)].map((r) => <option key={r}>{r}</option>)}
+          </select>
+          <select
+            aria-label="Filter by source"
+            value={source}
+            onChange={(e) => setSource(e.target.value)}
+            className="h-9 max-w-[118px] rounded-full border border-slate-200 bg-white px-2.5 text-[12px] text-slate-700 outline-none hover:bg-slate-50"
+          >
+            {["All sources", "Website form", "Google Ads", "Facebook Ads", "Referral", "Listings", "Trade fair", "Bulk import"].map((r) => <option key={r}>{r}</option>)}
+          </select>
+          {/* Filters opens a panel, as components/queue/QueueFilters.tsx does. */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setFiltersOpen((o) => !o)}
+              className={cn(
+                "inline-flex h-9 items-center gap-1.5 rounded-full border px-3 text-[12.5px] font-semibold transition-all",
+                hideContacted || channels.length > 0
+                  ? "border-sky-200 bg-sky-50 text-sky-700"
+                  : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+              )}
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" /> Filters
+              {(hideContacted || channels.length > 0) && (
+                <span className="ml-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-600 text-[10px] font-bold tabular-nums text-white">
+                  {channels.length + (hideContacted ? 1 : 0)}
+                </span>
+              )}
+            </button>
+
+            {filtersOpen && (
+              <div className="absolute right-0 top-11 z-30 w-[248px] rounded-xl border border-slate-200 bg-white p-3.5 shadow-lg">
+                <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-400">Activity</p>
+                <label className="flex cursor-pointer items-center gap-2 text-[13px] text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={hideContacted}
+                    onChange={(e) => setHideContacted(e.target.checked)}
+                    className="h-3.5 w-3.5 accent-sky-600"
+                  />
+                  Hide leads contacted today
+                </label>
+
+                <p className="mb-2 mt-4 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-400">Channel activity</p>
+                <div className="space-y-1.5">
+                  {(["phone", "whatsapp"] as const).map((c) => (
+                    <label key={c} className="flex cursor-pointer items-center gap-2 text-[13px] capitalize text-slate-700">
+                      <input
+                        type="checkbox"
+                        checked={channels.includes(c)}
+                        onChange={(e) =>
+                          setChannels((prev) => (e.target.checked ? [...prev, c] : prev.filter((x) => x !== c)))
+                        }
+                        className="h-3.5 w-3.5 accent-sky-600"
+                      />
+                      {c === "whatsapp" ? "WhatsApp" : "Phone"}
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -170,7 +218,7 @@ export function QueueView({ onImport }: { onImport: () => void }) {
                 <Th className="text-right">Value</Th>
                 <Th>Grade</Th>
                 <Th className="hidden @xl:table-cell">Next action</Th>
-                <Th className="hidden @6xl:table-cell">Source</Th>
+                <Th className="hidden @4xl:table-cell">Source</Th>
                 <Th className="hidden @5xl:table-cell">Last active</Th>
                 <Th className="pr-5"><span className="sr-only">Open</span></Th>
               </tr>
@@ -180,39 +228,39 @@ export function QueueView({ onImport }: { onImport: () => void }) {
                 const g = gradeOf(l)
                 return (
                   <tr key={l.id} onClick={() => openLead(l.id)} className="group cursor-pointer transition-colors hover:bg-sky-50/40">
-                    <td className="py-3 pl-5 pr-3 align-middle">
-                      <div className="flex min-w-0 items-center gap-3">
-                        <Avatar name={l.name} />
+                    <td className="py-2 pl-5 pr-3 align-middle">
+                      <div className="flex min-w-0 items-center gap-2.5">
+                        <Avatar name={l.name} size={28} />
                         <div className="min-w-0">
                           <div className="flex min-w-0 items-center gap-2">
-                            <span className="truncate text-[13.5px] font-semibold text-slate-900 group-hover:text-sky-700">{l.name}</span>
+                            <span className="truncate text-[13px] font-semibold text-slate-900 group-hover:text-sky-700">{l.name}</span>
                             {i === 0 && tab === "all" && !q && (
                               <span className="inline-flex h-[18px] shrink-0 items-center rounded-full bg-sky-100 px-1.5 text-[9px] font-bold uppercase tracking-[0.06em] text-sky-700">Next</span>
                             )}
                           </div>
-                          <p className="mt-0.5 truncate text-[12px] text-slate-400">{l.company}</p>
+                          <p className="truncate text-[11.5px] leading-tight text-slate-400">{l.company}</p>
                         </div>
                       </div>
                     </td>
-                    <td className="hidden px-3 py-3 align-middle @3xl:table-cell">
+                    <td className="hidden px-3 py-2 align-middle @3xl:table-cell">
                       <p className="max-w-[220px] truncate text-[13px] text-slate-600">{l.signal}</p>
                     </td>
-                    <td className="px-3 py-3 text-right align-middle">
+                    <td className="px-3 py-2 text-right align-middle">
                       <span className="text-[13.5px] font-semibold tabular-nums text-slate-900">{formatRupee(l.value)}</span>
                     </td>
-                    <td className="px-3 py-3 align-middle"><GradeBadge grade={g} /></td>
-                    <td className="hidden px-3 py-3 align-middle @xl:table-cell">
-                      <span className={cn("inline-flex h-7 items-center whitespace-nowrap rounded-full px-3 text-[12px] font-semibold", NEXT_TONE[g])}>
+                    <td className="px-3 py-2 align-middle"><GradeBadge grade={g} size="sm" /></td>
+                    <td className="hidden px-3 py-2 align-middle @xl:table-cell">
+                      <span className={cn("inline-flex h-6 items-center whitespace-nowrap rounded-full px-2.5 text-[11.5px] font-semibold", NEXT_TONE[g])}>
                         {nextAction(g)}
                       </span>
                     </td>
-                    <td className="hidden px-3 py-3 align-middle @6xl:table-cell">
+                    <td className="hidden px-3 py-2 align-middle @4xl:table-cell">
                       <span className="whitespace-nowrap text-[12.5px] text-slate-400">{l.source}</span>
                     </td>
-                    <td className="hidden px-3 py-3 align-middle @5xl:table-cell">
+                    <td className="hidden px-3 py-2 align-middle @5xl:table-cell">
                       <span className="whitespace-nowrap text-[12.5px] text-slate-400">{activeAgo(l.activeMinutesAgo)}</span>
                     </td>
-                    <td className="py-3 pl-3 pr-5 text-right align-middle">
+                    <td className="py-2 pl-3 pr-5 text-right align-middle">
                       <ChevronRight className="ml-auto h-4 w-4 text-slate-300 group-hover:text-sky-500" />
                     </td>
                   </tr>
@@ -221,15 +269,24 @@ export function QueueView({ onImport }: { onImport: () => void }) {
               {rows.length === 0 && (
                 <tr><td colSpan={8} className="px-5 py-10 text-center text-[13px] text-slate-400">Nothing matches that.</td></tr>
               )}
-              {matching.length > PAGE && (
-                <tr>
-                  <td colSpan={8} className="px-5 py-3 text-center text-[12px] text-slate-400">
-                    Showing {PAGE} of {matching.length} · page 1
-                  </td>
-                </tr>
-              )}
+
             </tbody>
           </table>
+        </div>
+
+        {/* Footer: count + pagination, as the product has it */}
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-4 py-3.5 sm:px-5">
+          <p className="text-[12.5px] tabular-nums text-slate-400">
+            Showing {rows.length === 0 ? 0 : 1}&ndash;{rows.length} of {matching.length} lead{matching.length === 1 ? "" : "s"}
+          </p>
+          <div className="flex items-center gap-1">
+            <span className="grid h-8 w-8 place-items-center rounded-lg text-slate-300"><ChevronLeft className="h-4 w-4" /></span>
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-sky-600 text-[13px] font-semibold text-white">1</span>
+            <span className="grid h-8 w-8 place-items-center rounded-lg text-[13px] text-slate-600">2</span>
+            <span className="w-8 text-center text-[13px] text-slate-400">…</span>
+            <span className="grid h-8 w-8 place-items-center rounded-lg text-[13px] text-slate-600">8</span>
+            <span className="grid h-8 w-8 place-items-center rounded-lg text-slate-500"><ChevronRight className="h-4 w-4" /></span>
+          </div>
         </div>
       </section>
     </>

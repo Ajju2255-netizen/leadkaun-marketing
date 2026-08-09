@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "r
 import {
   LayoutDashboard, Zap, Users, Columns2, CalendarCheck, BarChart2, AlertTriangle,
   Trophy, Activity as ActivityIcon, Bell, Upload, LogOut, Layers, Brain, Menu,
-  Phone, MessageCircle, X, RotateCcw, RotateCw, ChevronLeft, ChevronRight, Lock,
+  Phone, MessageCircle, X, RotateCcw, RotateCw, ChevronLeft, ChevronRight, Lock, Check,
   type LucideIcon,
 } from "lucide-react"
 
@@ -415,15 +415,17 @@ export function AppReplica() {
             </nav>
 
             {/* Plan usage, added to the shell in the billing work. */}
-            <div className="mx-3 mb-3 rounded-xl border border-slate-200/70 p-3">
-              <div className="flex items-baseline justify-between">
-                <span className="text-[11px] font-semibold text-slate-700">Growth plan</span>
-                <span className="text-[10.5px] tabular-nums text-slate-400">{state.leads.length}/500</span>
-              </div>
-              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-sky-400" style={{ width: `${Math.min(100, (state.leads.length / 500) * 100)}%` }} />
-              </div>
-              <p className="mt-2 text-[10.5px] text-slate-400">leads used this month</p>
+            {/* PlanUsageCard: the product's green plan tile. */}
+            <div
+              className="mx-3 mb-3 rounded-xl px-3 py-2.5 text-white"
+              style={{ background: "linear-gradient(135deg, #059669 0%, #047857 100%)" }}
+            >
+              <p className="flex items-center gap-1.5 text-[12px] font-semibold">
+                <Zap className="h-3.5 w-3.5" strokeWidth={2.5} /> Scale
+              </p>
+              <p className="mt-1 flex items-center gap-1 text-[11px] text-emerald-50">
+                <Check className="h-3 w-3" strokeWidth={3} /> Unlimited active leads
+              </p>
             </div>
 
             <div className="border-t border-slate-100 px-3 py-3">

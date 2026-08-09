@@ -123,10 +123,10 @@ export function StatCard({
 
 /** Dashboard/pipeline KPI card. `rounded-2xl`, 26px value, delta line. */
 export function KpiCard({
-  label, value, icon: Icon, tintBg, tintFg, delta, invertDelta, spark, suffix,
+  label, value, icon: Icon, tintBg, tintFg, delta, invertDelta, spark, suffix, caption,
 }: {
   label: string; value: ReactNode; icon?: LucideIcon; tintBg?: string; tintFg?: string
-  delta?: number | null; invertDelta?: boolean; spark?: number[]; suffix?: string
+  delta?: number | null; invertDelta?: boolean; spark?: number[]; suffix?: string; caption?: string
 }) {
   return (
     <div className="rounded-2xl border border-slate-200/70 bg-white p-4">
@@ -143,11 +143,11 @@ export function KpiCard({
       </div>
       <div className="mt-2 flex min-h-[16px] items-center gap-1.5">
         {delta == null ? (
-          <span className="text-[11.5px] text-slate-400">vs last month</span>
+          <span className="text-[11.5px] text-slate-400">{caption ?? "vs last month"}</span>
         ) : (
           <>
             <DeltaChip delta={delta} invert={invertDelta} />
-            <span className="text-[11.5px] text-slate-400">vs last month</span>
+            <span className="text-[11.5px] text-slate-400">{caption ?? "vs last month"}</span>
           </>
         )}
       </div>

@@ -422,6 +422,34 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
         </select>
       </div>
 
+      <div className="mt-4 grid gap-3 @2xl:grid-cols-3">
+        <StatCard icon={Zap} label="Scoring Speed" value="< 1s" tintBg="bg-sky-50" tintFg="text-sky-600" caption="per lead on import" />
+        <Card pad="p-3.5">
+          <p className="text-[12px] font-medium text-slate-600">Score Breakdown</p>
+          <div className="mt-3 space-y-1.5">
+            {(["A", "B", "C", "D", "F"] as const).map((gr) => {
+              const n = state.leads.filter((l) => gradeOf(l) === gr).length
+              return (
+                <div key={gr} className="flex items-center gap-2">
+                  <GradeBadge grade={gr} size="sm" />
+                  <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-100">
+                    <span className="block h-full rounded-full bg-sky-400" style={{ width: `${(n / Math.max(state.leads.length, 1)) * 100}%` }} />
+                  </span>
+                  <span className="w-5 text-right text-[11.5px] font-semibold tabular-nums text-slate-700">{n}</span>
+                </div>
+              )
+            })}
+          </div>
+        </Card>
+        <Card pad="p-3.5">
+          <p className="text-[12px] font-medium text-slate-600">Score Decay</p>
+          <p className="mt-3 text-[23px] font-bold leading-none tabular-nums text-slate-900">
+            {state.leads.filter((l) => l.staleDays >= 28).length}
+          </p>
+          <p className="mt-2 text-[11.5px] text-slate-400">past 28 days, losing 3 intent a day</p>
+        </Card>
+      </div>
+
       <div className="mt-4 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white">
         <table className="w-full border-collapse">
           <thead className="border-b border-slate-100 bg-slate-50/60">
@@ -485,8 +513,12 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
 
 const BOARD: Stage[] = ["New Inquiry", "Contacted", "Qualified", "Proposal Sent"]
 
+type PipelineDialog = { kind: "move" | "won" | "lost"; leadId: string } | null
+
 export function PipelineView() {
   const { state, dispatch, openLead } = useDemo()
+  const [dialog, setDialog] = useState<PipelineDialog>(null)
+  const dialogLead = dialog ? state.leads.find((l) => l.id === dialog.leadId) : undefined
   const won = state.leads.filter((l) => l.stage === "Won").length
   const lost = state.leads.filter((l) => l.stage === "Lost").length
   const open = state.leads.length - won - lost
@@ -540,12 +572,26 @@ export function PipelineView() {
                       {next && (
                         <button
                           type="button"
-                          onClick={() => dispatch({ type: "SET_STAGE", leadId: l.id, stage: next })}
+                          onClick={() => setDialog({ kind: "move", leadId: l.id })}
                           className="inline-flex h-6 items-center gap-1 rounded-full bg-sky-50 px-2 text-[11px] font-semibold text-sky-700 transition-colors hover:bg-sky-100"
                         >
-                          Move to {next}
+                          Move Stage
                         </button>
                       )}
+                      <button
+                        type="button"
+                        onClick={() => setDialog({ kind: "won", leadId: l.id })}
+                        className="inline-flex h-6 items-center gap-1 rounded-full bg-emerald-50 px-2 text-[11px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-100"
+                      >
+                        Mark as Won
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setDialog({ kind: "lost", leadId: l.id })}
+                        className="inline-flex h-6 items-center gap-1 rounded-full bg-rose-50 px-2 text-[11px] font-semibold text-rose-700 transition-colors hover:bg-rose-100"
+                      >
+                        Mark as Lost
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -560,6 +606,63 @@ export function PipelineView() {
           )
         })}
       </div>
+
+      {dialog && dialogLead && (
+        <div className="absolute inset-0 z-40 flex items-center justify-center bg-slate-900/55 p-4 backdrop-blur-sm" onClick={() => setDialog(null)}>
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={dialog.kind === "move" ? "Move Stage" : dialog.kind === "won" ? "Mark as Won" : "Mark as Lost"}
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-sm space-y-4 rounded-2xl border border-slate-200/70 bg-white p-6"
+          >
+            <h2 className="text-[15px] font-semibold text-slate-900">
+              {dialog.kind === "move" ? "Move Stage" : dialog.kind === "won" ? "Mark as Won" : "Mark as Lost"}
+            </h2>
+            <p className="text-[13px] text-slate-600">{dialogLead.name} · {formatRupee(dialogLead.value)}</p>
+
+            {dialog.kind === "move" && (
+              <label className="block">
+                <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Move to</span>
+                <select
+                  aria-label="Move to stage"
+                  defaultValue={STAGES[Math.min(STAGES.indexOf(dialogLead.stage) + 1, STAGES.length - 1)]}
+                  onChange={(e) => dispatch({ type: "SET_STAGE", leadId: dialogLead.id, stage: e.target.value as Stage })}
+                  className="h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400"
+                >
+                  {STAGES.map((st) => <option key={st}>{st}</option>)}
+                </select>
+              </label>
+            )}
+            {dialog.kind === "lost" && (
+              <label className="block">
+                <span className="mb-1.5 block text-[12px] font-medium text-slate-600">Loss reason</span>
+                <select aria-label="Loss reason" className="h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400">
+                  {["Price", "Went with a competitor", "No budget", "Went quiet", "Not a fit"].map((r) => <option key={r}>{r}</option>)}
+                </select>
+              </label>
+            )}
+
+            <div className="flex justify-end gap-2">
+              <Btn onClick={() => setDialog(null)}>Cancel</Btn>
+              <Btn
+                tone={dialog.kind === "lost" ? "danger" : "primary"}
+                onClick={() => {
+                  if (dialog.kind === "won") dispatch({ type: "SET_STAGE", leadId: dialogLead.id, stage: "Won" })
+                  if (dialog.kind === "lost") dispatch({ type: "SET_STAGE", leadId: dialogLead.id, stage: "Lost" })
+                  if (dialog.kind === "move") {
+                    const nxt = STAGES[Math.min(STAGES.indexOf(dialogLead.stage) + 1, STAGES.length - 1)]
+                    dispatch({ type: "SET_STAGE", leadId: dialogLead.id, stage: nxt })
+                  }
+                  setDialog(null)
+                }}
+              >
+                Confirm
+              </Btn>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -577,7 +680,7 @@ export function FollowUpsView() {
 
   return (
     <>
-      <PageHead title="Follow-ups" sub="What you promised to do, and when it was due." />
+      <PageHead title="Follow-ups" sub="Work top to bottom, overdue first." />
 
       <Card className="mt-4" pad="p-4 sm:p-5">
         <h2 className="mb-3.5 text-[14px] font-semibold text-slate-900">Quick stats</h2>
@@ -635,6 +738,23 @@ export function AnalyticsView() {
   const trend = [42, 26, 55, 55, 30, 78, 61]
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
+  const sourceQuality = useMemo(() => {
+    const m = new Map<string, { leads: number; missed: number }>()
+    state.leads.forEach((l) => {
+      const cur = m.get(l.source) ?? { leads: 0, missed: 0 }
+      m.set(l.source, { leads: cur.leads + 1, missed: cur.missed + (l.staleDays >= 14 ? 1 : 0) })
+    })
+    return [...m.entries()]
+      .map(([source, v]) => ({
+        source,
+        leads: v.leads,
+        win: Math.round(((v.leads - v.missed) / Math.max(v.leads, 1)) * 100 * 0.3),
+        miss: Math.round((v.missed / Math.max(v.leads, 1)) * 100),
+      }))
+      .sort((a, b) => b.leads - a.leads)
+      .slice(0, 5)
+  }, [state.leads])
+
   const losses = [
     { label: "Engaged but went cold", n: missed.filter((l) => l.intent >= 40).length, value: Math.round(missedValue * 0.67), pct: 67, tone: "bg-amber-400", fix: "Add a re-engagement follow-up within 24h of every signal" },
     { label: "Never contacted", n: missed.filter((l) => l.intent < 40).length, value: Math.round(missedValue * 0.33), pct: 33, tone: "bg-orange-400", fix: "Assign an owner the moment a lead lands" },
@@ -642,7 +762,7 @@ export function AnalyticsView() {
 
   return (
     <>
-      <PageHead title="Analytics" sub="Find what's slowing your pipeline. See loss patterns, recovery potential, and one-click fixes." />
+      <PageHead title="Analytics" sub="Find what's slowing your pipeline, loss patterns, recovery potential, and where to act." />
 
       {/* Headline-insight hero, the shape the August redesign introduced. */}
       <Card className="mt-4" pad="p-5 sm:p-6">
@@ -765,6 +885,72 @@ export function AnalyticsView() {
           </Card>
         </div>
       </div>
+
+      <Card title="Lead Playbook" meta={<span className="text-[11.5px] text-slate-400">Recommended first touch by grade</span>} className="mt-4">
+        <div className="grid gap-3 @2xl:grid-cols-2 @5xl:grid-cols-4">
+          {[
+            { g: "A" as const, when: "Within the hour", how: "Call. If unanswered, WhatsApp the same day." },
+            { g: "B" as const, when: "Same day", how: "Call once, then a scheduled follow-up." },
+            { g: "C" as const, when: "Within the week", how: "Nurture. Templates, not calls." },
+            { g: "D" as const, when: "When capacity allows", how: "Light touch, or park it." },
+          ].map((r) => (
+            <div key={r.g} className="rounded-xl border border-slate-200/70 p-3.5">
+              <div className="flex items-center gap-2">
+                <GradeBadge grade={r.g} size="sm" />
+                <span className="text-[12.5px] font-semibold text-slate-900">{r.when}</span>
+              </div>
+              <p className="mt-2 text-[12px] leading-relaxed text-slate-500">{r.how}</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <div className="mt-4 grid gap-4 @4xl:grid-cols-2">
+        <Card title="Source Quality">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead className="border-b border-slate-100">
+                <tr><Th>Source</Th><Th className="text-right">Leads</Th><Th className="text-right">Win%</Th><Th className="text-right">Miss%</Th></tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {sourceQuality.map((r) => (
+                  <tr key={r.source}>
+                    <td className="py-2.5 text-[13px] text-slate-700">{r.source}</td>
+                    <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{r.leads}</td>
+                    <td className="px-3 text-right text-[13px] font-semibold tabular-nums text-emerald-600">{r.win}%</td>
+                    <td className="px-3 text-right text-[13px] font-semibold tabular-nums text-rose-500">{r.miss}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        <Card title="Rep Performance">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead className="border-b border-slate-100">
+                <tr><Th>Rep</Th><Th className="text-right">A-rate</Th><Th className="text-right">Missed</Th><Th className="text-right">Conv%</Th></tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {REPS.map((r, i) => (
+                  <tr key={r.name}>
+                    <td className="py-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <Avatar name={r.name} size={26} />
+                        <span className="text-[13px] font-medium text-slate-800">{r.name}</span>
+                      </div>
+                    </td>
+                    <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{34 - i * 5}%</td>
+                    <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{missed.filter((l) => l.rep === r.name).length}</td>
+                    <td className="px-3 text-right text-[13px] font-semibold tabular-nums text-slate-900">{18 - i * 3}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      </div>
     </>
   )
 }
@@ -852,13 +1038,33 @@ export function MissedView() {
 
   return (
     <>
-      <PageHead title="Missed Opportunity Engine" sub="Every stale lead gets a rupee value. Aggregate ₹ at risk, surfaced daily." />
+      <PageHead title="Missed Opportunities" sub="Stale leads, valued by ₹ at risk, recover them before they're gone." />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @3xl:grid-cols-4">
-        <KpiCard label="At risk today"  value={formatRupee(atRisk)} icon={IndianRupee}   tintBg="bg-rose-50"    tintFg="text-rose-500" />
-        <KpiCard label="Stale leads"    value={missed.length}       icon={AlertTriangle} tintBg="bg-orange-50"  tintFg="text-orange-500" />
-        <KpiCard label="Recovered · 7d" value={state.leads.filter((l) => l.contactedToday && l.staleDays === 0).length} icon={Trophy} tintBg="bg-emerald-50" tintFg="text-emerald-600" />
-        <KpiCard label="Grade A stale"  value={missed.filter((l) => gradeOf(l) === "A").length} icon={Flame} tintBg="bg-amber-50" tintFg="text-amber-500" />
+        <KpiCard label="At risk today"  value={formatRupee(atRisk)} icon={IndianRupee} tintBg="bg-rose-50" tintFg="text-rose-500" caption={`${missed.length} stale leads in the pool`} />
+        <Card pad="p-4">
+          <p className="flex items-center gap-1.5 text-[12px] font-medium text-slate-600">
+            <TrendingDown className="h-3.5 w-3.5 text-rose-500" /> 7-day trend
+          </p>
+          <div className="mt-4 h-[2px] w-full rounded-full bg-gradient-to-r from-rose-200 to-rose-500" />
+          <p className="mt-4 text-right text-[11.5px] text-slate-400">Need 7+ days</p>
+        </Card>
+        <KpiCard label="Recovered · 7d" value={state.leads.filter((l) => l.contactedToday && l.staleDays === 0).length} icon={Trophy} tintBg="bg-emerald-50" tintFg="text-emerald-600" caption="A/B leads won" />
+        <Card pad="p-4">
+          <p className="flex items-center gap-1.5 text-[12px] font-medium text-slate-600">
+            <Users className="h-3.5 w-3.5 text-sky-500" /> By rep
+          </p>
+          <div className="mt-3 space-y-1.5">
+            {REPS.slice(0, 3).map((r) => (
+              <div key={r.name} className="flex items-center justify-between gap-2">
+                <span className="truncate text-[12px] text-slate-600">{r.name}</span>
+                <span className="text-[12px] font-semibold tabular-nums text-slate-900">
+                  {missed.filter((l) => l.rep === r.name).length}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Card>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
@@ -918,7 +1124,10 @@ export function MissedView() {
 
 export function NotificationsView() {
   const { state, dispatch } = useDemo()
+  const [filter, setFilter] = useState<"all" | "unread" | "high">("all")
   const unread = state.notifications.filter((n) => !n.read)
+  const high = state.notifications.filter((n) => n.kind === "sql")
+  const shown = filter === "unread" ? unread : filter === "high" ? high : state.notifications
 
   const KINDS = [
     { key: "sql", label: "At risk", n: state.notifications.filter((n) => n.kind === "sql").length, bg: "bg-rose-50", fg: "text-rose-500", icon: AlertTriangle },
@@ -949,9 +1158,39 @@ export function NotificationsView() {
         ))}
       </div>
 
+      {high.length > 0 && (
+        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-rose-100 bg-gradient-to-r from-white to-rose-50/60 px-4 py-3.5">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-rose-50 text-rose-500">
+            <AlertTriangle className="h-4 w-4" strokeWidth={2.5} />
+          </span>
+          <div className="min-w-[200px] flex-1">
+            <p className="text-[13.5px] font-semibold text-slate-900">{high.length} high-priority alerts, act now</p>
+            <p className="text-[12.5px] text-slate-500">These leads are at risk of being lost.</p>
+          </div>
+          <Btn tone="primary" onClick={() => setFilter("high")}>See high</Btn>
+        </div>
+      )}
+
+      <div className="mt-4 flex flex-wrap items-center gap-1.5">
+        {([["all", "All", state.notifications.length], ["unread", "Unread", unread.length], ["high", "High", high.length]] as const).map(([k, label, n]) => (
+          <button
+            key={k}
+            type="button"
+            onClick={() => setFilter(k)}
+            className={cn(
+              "inline-flex h-9 items-center gap-1.5 rounded-full px-3.5 text-[12.5px] font-semibold transition-colors",
+              filter === k ? "bg-sky-100 text-sky-700" : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+            )}
+          >
+            {label}
+            <span className={cn("rounded-full px-1.5 text-[11px] font-bold tabular-nums", filter === k ? "bg-white/70" : "bg-white")}>{n}</span>
+          </button>
+        ))}
+      </div>
+
       <Card className="mt-4">
         <div className="divide-y divide-slate-100">
-          {state.notifications.map((n) => {
+          {shown.map((n) => {
             const Icon = n.kind === "sql" ? AlertTriangle : n.kind === "overdue" ? Clock : Bell
             return (
               <div key={n.id} className={cn("flex items-start gap-3 py-3.5 first:pt-0 last:pb-0", n.read && "opacity-55")}>
@@ -1092,6 +1331,27 @@ export function ImportView({ onDone }: { onDone: () => void }) {
           Import and grade 6 leads
         </Btn>
       </Card>
+
+      <Card title="Import history" className="mt-4 max-w-3xl">
+        <table className="w-full border-collapse">
+          <thead className="border-b border-slate-100">
+            <tr><Th>Batch</Th><Th>Source</Th><Th className="text-right">Rows</Th><Th className="text-right">When</Th></tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {[
+              ["July portal export", "Website form", 240, "3 weeks ago"],
+              ["Trade fair, Pune", "Trade fair", 86, "last month"],
+            ].map(([b, src, rows, when]) => (
+              <tr key={String(b)}>
+                <td className="py-3 text-[13px] font-medium text-slate-800">{b}</td>
+                <td className="px-3 text-[13px] text-slate-600">{src}</td>
+                <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{rows}</td>
+                <td className="px-3 text-right text-[12.5px] text-slate-400">{when}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Card>
     </>
   )
 }
@@ -1102,7 +1362,7 @@ export function ActivityView() {
   const { state } = useDemo()
   return (
     <>
-      <PageHead title="Activity" sub="Everything the team logged, newest first." />
+      <PageHead title="Activity" sub="How the team is doing, what they did, whether they hit SLAs, what they recovered." />
       <Card className="mt-4">
         <ol className="relative space-y-0 border-l border-slate-200 pl-5">
           {state.activity.map((a) => (
@@ -1141,6 +1401,21 @@ export function LearningView() {
                 {p.confidence} confidence
               </span>
               <span className="text-[11.5px] tabular-nums text-slate-400">{p.sample}</span>
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card title="Still learning" className="mt-4">
+        <div className="divide-y divide-slate-100">
+          {[
+            { pattern: "Which follow-up interval works best per grade", need: "needs 60 more logged touches" },
+            { pattern: "Whether trade-fair leads justify their cost", need: "needs a full quarter" },
+          ].map((p) => (
+            <div key={p.pattern} className="flex flex-wrap items-center gap-3 py-3.5 first:pt-0 last:pb-0">
+              <Clock className="h-4 w-4 shrink-0 text-slate-300" />
+              <p className="min-w-[200px] flex-1 text-[13px] text-slate-500">{p.pattern}</p>
+              <span className="text-[11.5px] text-slate-400">{p.need}</span>
             </div>
           ))}
         </div>

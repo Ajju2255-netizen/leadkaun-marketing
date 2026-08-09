@@ -51,9 +51,11 @@ export function QueueView({ onImport }: { onImport: () => void }) {
   const [q, setQ] = useState("")
 
   const ranked = useMemo(() => [...state.leads].sort((a, b) => rankScore(b) - rankScore(a)), [state.leads])
-  const rows = ranked
+  const matching = ranked
     .filter((l) => tab === "all" || gradeOf(l) === tab)
     .filter((l) => `${l.name} ${l.company}`.toLowerCase().includes(q.toLowerCase()))
+  const PAGE = 5
+  const rows = matching.slice(0, PAGE)
 
   const high = state.leads.filter((l) => ["A", "B"].includes(gradeOf(l))).length
   const hot = state.leads.filter((l) => l.activeMinutesAgo < 180).length
@@ -183,6 +185,13 @@ export function QueueView({ onImport }: { onImport: () => void }) {
               {rows.length === 0 && (
                 <tr><td colSpan={8} className="px-5 py-10 text-center text-[13px] text-slate-400">Nothing matches that.</td></tr>
               )}
+              {matching.length > PAGE && (
+                <tr>
+                  <td colSpan={8} className="px-5 py-3 text-center text-[12px] text-slate-400">
+                    Showing {PAGE} of {matching.length} · page 1
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -278,53 +287,6 @@ export function DashboardView() {
         </Card>
       </div>
 
-      <div className="mt-4 grid gap-4 @4xl:grid-cols-3">
-        <Card title="Active Sources">
-          <div className="space-y-3">
-            {sources.map(([src, n]) => (
-              <div key={src} className="flex items-center justify-between gap-2">
-                <span className="truncate text-[13px] text-slate-700">{src}</span>
-                <span className="text-[12.5px] tabular-nums text-slate-400"><span className="font-semibold text-slate-900">{n}</span> leads</span>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        <Card title="Recent Activity">
-          <div className="space-y-3.5">
-            {state.activity.slice(0, 5).map((a) => (
-              <div key={a.id} className="flex items-start gap-2.5">
-                <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-orange-50 text-orange-500">
-                  <ActivityIcon className="h-3.5 w-3.5" strokeWidth={2.5} />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12.5px] font-semibold text-slate-900">{a.who} {a.what}</p>
-                  <p className="truncate text-[11.5px] text-slate-400">{a.lead}</p>
-                </div>
-                <span className="shrink-0 text-[11px] text-slate-400">{a.at}</span>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        <Card title="Behaviour Health">
-          <div className="space-y-3">
-            {health.map((h) => (
-              <div key={h.label}>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="flex items-center gap-1.5 text-[12.5px] text-slate-600">
-                    <h.icon className={cn("h-3.5 w-3.5", h.tone)} strokeWidth={2.5} /> {h.label}
-                  </span>
-                  <span className="text-[12.5px] font-semibold tabular-nums text-slate-900">{h.n}</span>
-                </div>
-                <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                  <div className={cn("h-full rounded-full", h.bar)} style={{ width: `${(h.n / Math.max(entered, 1)) * 100}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
     </>
   )
 }
@@ -336,10 +298,11 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
   const [q, setQ] = useState("")
   const [stage, setStage] = useState<"All" | Stage>("All")
 
-  const rows = state.leads.filter((l) => {
+  const matching = state.leads.filter((l) => {
     const hay = `${l.name} ${l.company} ${l.source} ${l.phone}`.toLowerCase()
     return hay.includes(q.toLowerCase()) && (stage === "All" || l.stage === stage)
   })
+  const rows = matching.slice(0, 5)
 
   return (
     <>
@@ -422,6 +385,9 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
             {rows.length === 0 && (
               <tr><td colSpan={9} className="px-5 py-10 text-center text-[13px] text-slate-400">No leads match that.</td></tr>
             )}
+            {matching.length > 5 && (
+              <tr><td colSpan={9} className="px-5 py-3 text-center text-[12px] text-slate-400">Showing 5 of {matching.length} · page 1</td></tr>
+            )}
           </tbody>
         </table>
       </div>
@@ -469,7 +435,7 @@ export function PipelineView() {
               <p className="mt-2 text-[12px] tabular-nums text-slate-400">{formatRupee(inStage.reduce((s, l) => s + l.value, 0))}</p>
 
               <div className="mt-4 space-y-3">
-                {inStage.map((l) => (
+                {inStage.slice(0, 2).map((l) => (
                   <div key={l.id} className="rounded-xl border border-slate-200/70 p-3">
                     <button type="button" onClick={() => openLead(l.id)} className="flex w-full items-start gap-2 text-left">
                       <GradeBadge grade={gradeOf(l)} size="sm" />
@@ -497,6 +463,9 @@ export function PipelineView() {
                     </div>
                   </div>
                 ))}
+                {inStage.length > 2 && (
+                  <p className="pt-1 text-center text-[11.5px] text-slate-400">+{inStage.length - 2} more</p>
+                )}
                 {inStage.length === 0 && (
                   <div className="grid h-20 place-items-center rounded-xl border border-dashed border-slate-200 text-[12px] text-slate-300">
                     Drag a deal here
@@ -542,7 +511,7 @@ export function FollowUpsView() {
           <p className="py-10 text-center text-[13px] text-slate-400">All caught up. Nothing scheduled.</p>
         ) : (
           <div className="divide-y divide-slate-100">
-            {due.map((l) => (
+            {due.slice(0, 4).map((l) => (
               <div key={l.id} className="flex flex-wrap items-center gap-3 py-3 first:pt-0 last:pb-0">
                 <button type="button" onClick={() => openLead(l.id)} className="flex min-w-[170px] flex-1 items-center gap-3 text-left">
                   <Avatar name={l.name} />
@@ -622,19 +591,19 @@ export function AnalyticsView() {
       </div>
 
       <Card title="Daily Miss Trend" action={<span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">₹ missed per day</span>} className="mt-4" pad="p-6">
-        <div className="relative h-[180px] w-full">
-          <svg viewBox="0 0 700 160" preserveAspectRatio="none" className="h-full w-full" aria-hidden>
+        <div className="relative h-[132px] w-full">
+          <svg viewBox="0 0 700 132" preserveAspectRatio="none" className="h-full w-full" aria-hidden>
             <defs>
               <linearGradient id="missFill" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#F43F5E" stopOpacity="0.18" />
                 <stop offset="100%" stopColor="#F43F5E" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <polygon fill="url(#missFill)" points={trend.map((v, i) => `${(i / 6) * 650 + 25},${140 - (v / 100) * 115}`).join(" ") + " 675,140 25,140"} />
+            <polygon fill="url(#missFill)" points={trend.map((v, i) => `${(i / 6) * 650 + 25},${112 - (v / 100) * 92}`).join(" ") + " 675,112 25,112"} />
             <polyline fill="none" stroke="#F43F5E" strokeWidth="2" vectorEffect="non-scaling-stroke"
-                      points={trend.map((v, i) => `${(i / 6) * 650 + 25},${140 - (v / 100) * 115}`).join(" ")} />
+                      points={trend.map((v, i) => `${(i / 6) * 650 + 25},${112 - (v / 100) * 92}`).join(" ")} />
             {trend.map((v, i) => (
-              <circle key={i} cx={(i / 6) * 650 + 25} cy={140 - (v / 100) * 115} r="4" fill={i === 6 ? "#F43F5E" : "#fff"} stroke="#F43F5E" strokeWidth="2" />
+              <circle key={i} cx={(i / 6) * 650 + 25} cy={112 - (v / 100) * 92} r="4" fill={i === 6 ? "#F43F5E" : "#fff"} stroke="#F43F5E" strokeWidth="2" />
             ))}
           </svg>
           <div className="absolute inset-x-0 bottom-0 flex justify-between px-3">
@@ -643,59 +612,6 @@ export function AnalyticsView() {
         </div>
       </Card>
 
-      <div className="mt-4 grid gap-4 @5xl:grid-cols-[1.5fr_1fr]">
-        <Card title="Why You're Losing" action={<span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">{missed.length} leads · {formatRupee(missedValue)}</span>}>
-          <div className="space-y-3">
-            {losses.map((l) => (
-              <div key={l.label} className="rounded-xl border border-slate-200/70 p-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-[13.5px] font-semibold text-slate-900">{l.label}</p>
-                    <p className="text-[12px] text-slate-400">{l.n} leads</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[16px] font-bold tabular-nums text-rose-500">{formatRupee(l.value)}</p>
-                    <p className="text-[11.5px] text-slate-400">{l.pct}% of losses</p>
-                  </div>
-                </div>
-                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-100">
-                  <div className={cn("h-full rounded-full", l.tone)} style={{ width: `${l.pct}%` }} />
-                </div>
-                <div className="mt-3 flex flex-wrap items-center gap-3 rounded-lg bg-sky-50/70 px-3 py-2.5">
-                  <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-sky-600">Fix</span>
-                  <p className="min-w-[180px] flex-1 text-[12.5px] text-slate-700">{l.fix}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        <div className="space-y-4">
-          <Card title="Speed to First Contact">
-            <div className="space-y-3">
-              {[
-                { label: "Won leads", value: "1h 10m", pct: 100, bar: "bg-emerald-500" },
-                { label: "Missed leads", value: "3h", pct: 68, bar: "bg-rose-400" },
-              ].map((r) => (
-                <div key={r.label}>
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-[12.5px] text-slate-500">{r.label}</span>
-                    <span className="text-[13px] font-semibold text-slate-900">{r.value}</span>
-                  </div>
-                  <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-slate-100">
-                    <div className={cn("h-full rounded-full", r.bar)} style={{ width: `${r.pct}%` }} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <Card title="Recovery Simulation">
-            <p className="text-[12.5px] leading-relaxed text-slate-400">
-              Simulation appears when average response time exceeds 3h.
-            </p>
-          </Card>
-        </div>
-      </div>
     </>
   )
 }
@@ -815,7 +731,7 @@ export function MissedView() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {missed.map((m) => (
+                {missed.slice(0, 4).map((m) => (
                   <tr key={m.id} className="hover:bg-rose-50/30">
                     <td className="py-3.5 pl-5 pr-3">
                       <button type="button" onClick={() => openLead(m.id)} className="flex items-center gap-3 text-left">
@@ -882,7 +798,7 @@ export function NotificationsView() {
 
       <Card className="mt-4">
         <div className="divide-y divide-slate-100">
-          {state.notifications.map((n) => {
+          {state.notifications.slice(0, 4).map((n) => {
             const Icon = n.kind === "sql" ? AlertTriangle : n.kind === "overdue" ? Clock : Bell
             return (
               <div key={n.id} className={cn("flex items-start gap-3 py-3.5 first:pt-0 last:pb-0", n.read && "opacity-55")}>
@@ -988,7 +904,7 @@ export function ActivityView() {
       <PageHead title="Activity" sub="Everything the team logged, newest first." />
       <Card className="mt-4">
         <ol className="relative space-y-0 border-l border-slate-200 pl-5">
-          {state.activity.map((a) => (
+          {state.activity.slice(0, 5).map((a) => (
             <li key={a.id} className="relative py-2.5">
               <span className="absolute -left-[23px] top-4 h-2 w-2 rounded-full bg-sky-400 ring-4 ring-white" />
               <p className="text-[13px] text-slate-700">
@@ -1012,7 +928,7 @@ export function LearningView() {
       <PageHead title="Learning Engine" sub="Patterns the account has enough data to state." />
       <Card title="Patterns unlocked" className="mt-4">
         <div className="divide-y divide-slate-100">
-          {LEARNING_PATTERNS.map((p) => (
+          {LEARNING_PATTERNS.slice(0, 4).map((p) => (
             <div key={p.pattern} className="flex flex-wrap items-center gap-3 py-3.5 first:pt-0 last:pb-0">
               <Brain className="h-4 w-4 shrink-0 text-violet-400" />
               <p className="min-w-[200px] flex-1 text-[13px] text-slate-700">{p.pattern}</p>

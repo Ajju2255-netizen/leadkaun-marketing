@@ -285,27 +285,20 @@ function Thesis() {
 function ProductDemo() {
   return (
     <section className="relative bg-bg-pure">
-      <Container className="py-20 md:py-28">
-        <Reveal className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+      <Container className="py-10 md:py-14">
+        <Reveal className="mx-auto mb-5 max-w-3xl text-center md:mb-6">
           <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">The product</p>
-          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
+          <h2 className="display-md mt-4 text-[27px] text-ink md:text-[34px]">
             This is the whole thing. Have a look around.
           </h2>
-          <p className="mt-5 text-[17px] leading-[1.6] text-ink-soft">
-            The screens below are the ones you sign in to, running on sample data. Move between
-            the Priority Queue, your leads, the dashboard and missed opportunities using the sidebar.
+          <p className="mt-3 text-[15.5px] leading-[1.6] text-ink-soft">
+            The screens below are the ones you sign in to, on sample data. Move between them with
+            the sidebar. Every name and rupee figure is invented for the demo.
           </p>
         </Reveal>
 
         <Reveal delay={0.08}>
           <AppReplica />
-        </Reveal>
-
-        <Reveal delay={0.12} className="mx-auto mt-6 max-w-3xl text-center">
-          <p className="text-[14px] text-ink-muted">
-            Every name, company and rupee figure above is invented for the demo. Your own numbers
-            appear the same day you import a list.
-          </p>
         </Reveal>
       </Container>
     </section>

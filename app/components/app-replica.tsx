@@ -1,10 +1,11 @@
 "use client"
 
-import { useCallback, useEffect, useMemo, useReducer, useState } from "react"
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react"
 import {
   LayoutDashboard, Zap, Users, Columns2, CalendarCheck, BarChart2, AlertTriangle,
   Trophy, Activity as ActivityIcon, Bell, Upload, LogOut, Layers, Brain, Menu,
-  Phone, MessageCircle, X, RotateCcw, type LucideIcon,
+  Phone, MessageCircle, X, RotateCcw, RotateCw, ChevronLeft, ChevronRight, Lock,
+  type LucideIcon,
 } from "lucide-react"
 
 import { LeadkaunMark } from "@/app/components/leadkaun-mark"
@@ -259,6 +260,54 @@ export function AppReplica() {
   const [view, setView] = useState<View>("queue")
   const [openId, setOpenId] = useState<string | null>(null)
 
+  // ── Scale to fit ──────────────────────────────────────────────────────────
+  // The app is rendered at a real desktop width so its own layout rules apply
+  // (six stat cards abreast, every table column present), then the whole thing
+  // is scaled down to sit inside one screenful. Nothing is cut and nothing
+  // scrolls; dense screens simply render smaller.
+  const boxRef = useRef<HTMLDivElement>(null)
+  const appRef = useRef<HTMLDivElement>(null)
+  const [fit, setFit] = useState({ scale: 1, height: 640, offset: 0 })
+
+  useEffect(() => {
+    const box = boxRef.current
+    const app = appRef.current
+    if (!box || !app) return
+
+    const measure = () => {
+      const availW = box.clientWidth
+      if (!availW) return
+      // Below md the app renders its own mobile layout, so it is laid out
+      // narrow rather than shrunk to an unreadable fraction.
+      const baseW = window.innerWidth < 768 ? 430 : 1440
+      // Sized so the section lands on roughly one screenful while the app stays
+      // legible. Shrinking any further to guarantee a perfect fit would push the
+      // text under 9px, which is worse than a little scrolling.
+      const maxH = Math.max(420, Math.min(window.innerHeight - 210, 780))
+      const contentH = app.scrollHeight || 1
+      const scale = Math.min(availW / baseW, maxH / contentH, 1)
+      setFit({
+        scale,
+        // Pinned to the window height so the frame never changes size between
+        // screens; a short screen just leaves a little canvas below it.
+        height: Math.round(maxH),
+        offset: Math.max(0, (availW - baseW * scale) / 2),
+      })
+    }
+
+    const ro = new ResizeObserver(measure)
+    ro.observe(box)
+    ro.observe(app)
+    window.addEventListener("resize", measure)
+    measure()
+    return () => {
+      ro.disconnect()
+      window.removeEventListener("resize", measure)
+    }
+  }, [])
+
+  const baseWidth = typeof window !== "undefined" && window.innerWidth < 768 ? 430 : 1440
+
   const openLead = useCallback((id: string) => setOpenId(id), [])
   const ctxValue = useMemo(() => ({ state, dispatch, openLead }), [state, openLead])
 
@@ -284,30 +333,43 @@ export function AppReplica() {
         className="app-demo overflow-hidden rounded-[20px] bg-white"
         style={{ border: "1px solid var(--paper-line-2)", boxShadow: "0 30px 60px -40px rgba(15,23,42,0.45)" }}
       >
-        {/* Frame bar */}
+        {/* Browser chrome */}
         <div
-          className="flex items-center gap-3 px-4 py-2.5"
+          className="flex items-center gap-3 px-4 py-3"
           style={{ borderBottom: "1px solid var(--paper-line)", background: "var(--paper-2)" }}
         >
-          <span className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-            <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-            <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+          <span className="flex shrink-0 gap-2">
+            <span className="h-3 w-3 rounded-full" style={{ background: "#FF5F57" }} />
+            <span className="h-3 w-3 rounded-full" style={{ background: "#FEBC2E" }} />
+            <span className="h-3 w-3 rounded-full" style={{ background: "#28C840" }} />
           </span>
-          <span className="ledger-num truncate text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-            app.leadkaun.com/{view}
+          <span className="hidden shrink-0 items-center gap-3 text-ink-muted sm:flex">
+            <ChevronLeft className="h-4 w-4" strokeWidth={2} />
+            <ChevronRight className="h-4 w-4" strokeWidth={2} />
+            <RotateCw className="h-3.5 w-3.5" strokeWidth={2} />
           </span>
-          <span className="ml-auto flex shrink-0 items-center gap-2">
+
+          <span
+            className="mx-auto flex h-8 min-w-0 max-w-[420px] flex-1 items-center justify-center gap-1.5 rounded-lg bg-white px-3"
+            style={{ border: "1px solid var(--paper-line)" }}
+          >
+            <Lock className="h-3 w-3 shrink-0 text-emerald-600" strokeWidth={2.5} />
+            <span className="ledger-num truncate text-[11.5px] text-ink-muted">
+              app.leadkaun.com/<span className="text-ink">{view}</span>
+            </span>
+          </span>
+
+          <span className="flex shrink-0 items-center gap-2">
             <button
               type="button"
               onClick={() => { dispatch({ type: "RESET" }); go("queue") }}
-              className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted transition-colors hover:text-sky-700"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white px-2.5 py-1.5 text-[11.5px] font-medium text-ink-muted transition-colors hover:text-sky-700"
               style={{ border: "1px solid var(--paper-line)" }}
             >
               <RotateCcw className="h-3 w-3" /> Reset
             </button>
             <span
-              className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-muted"
+              className="hidden rounded-lg bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted sm:inline"
               style={{ border: "1px solid var(--paper-line)" }}
             >
               Sample data
@@ -315,13 +377,21 @@ export function AppReplica() {
           </span>
         </div>
 
-        {/* App canvas */}
-        {/* Grows to fit whichever screen is open, so nothing is ever cut off.
-            The trade is that the page below shifts when you change screens. */}
+        {/* App canvas: a fixed-height window; the app inside is scaled to fit it. */}
         <div
-          className="relative flex min-h-[560px] items-stretch gap-3 p-3"
-          style={{ background: "#F6F8FB" }}
+          ref={boxRef}
+          className="relative overflow-hidden"
+          style={{ background: "#F6F8FB", height: fit.height }}
         >
+          <div
+            ref={appRef}
+            className="absolute left-0 top-0 flex items-stretch gap-3 p-3"
+            style={{
+              width: baseWidth,
+              transform: `translateX(${fit.offset}px) scale(${fit.scale})`,
+              transformOrigin: "top left",
+            }}
+          >
           <aside className="hidden w-[224px] shrink-0 flex-col self-stretch overflow-hidden rounded-2xl border border-slate-200/70 bg-white md:flex">
             <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-100 px-4">
               <LeadkaunMark size={26} gloss />
@@ -466,6 +536,10 @@ export function AppReplica() {
             </div>
           </div>
 
+          </div>
+
+          {/* The panel and the toasts sit outside the scaled layer, so they stay
+              legible however far the app behind them has been shrunk. */}
           {openId && <LeadPanel leadId={openId} onClose={() => setOpenId(null)} />}
 
           <div className="pointer-events-none absolute bottom-4 right-4 z-40 flex flex-col gap-2">

@@ -7,6 +7,7 @@ import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
 import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
+import { AppReplica } from "@/app/components/app-replica"
 import { APP_URLS } from "@/lib/urls"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 
@@ -147,6 +148,7 @@ export default function HomePage() {
 
       <Hero />
       <Thesis />
+      <ProductDemo />
       <WhatBreaks />
       <ThreeMoves />
       <TheGrade />
@@ -291,6 +293,41 @@ function Thesis() {
               <span aria-hidden className="absolute -bottom-1.5 left-0 h-[6px] w-full rounded-full" style={{ background: "linear-gradient(90deg,#FDBA74,#0EA5E9)" }} />
             </span>
             <span className="text-ink-soft">.</span>
+          </p>
+        </Reveal>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   THE PRODUCT ITSELF. Not a screenshot and not an illustration: the real
+   app's shell, sidebar and screens, rebuilt with sample data so a visitor
+   can click through what they would actually sign in to.
+   ───────────────────────────────────────────────────────────────────────── */
+function ProductDemo() {
+  return (
+    <section className="relative bg-bg-pure">
+      <Container className="py-20 md:py-28">
+        <Reveal className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">The product</p>
+          <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
+            This is the whole thing. Have a look around.
+          </h2>
+          <p className="mt-5 text-[17px] leading-[1.6] text-ink-soft">
+            The screens below are the ones you sign in to, running on sample data. Move between
+            the Priority Queue, your leads, the dashboard and missed opportunities using the sidebar.
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.08}>
+          <AppReplica />
+        </Reveal>
+
+        <Reveal delay={0.12} className="mx-auto mt-6 max-w-3xl text-center">
+          <p className="text-[14px] text-ink-muted">
+            Every name, company and rupee figure above is invented for the demo. Your own numbers
+            appear the same day you import a list.
           </p>
         </Reveal>
       </Container>

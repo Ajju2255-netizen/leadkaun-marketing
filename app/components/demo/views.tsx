@@ -6,6 +6,7 @@ import {
   AlertTriangle, Activity as ActivityIcon, Check, Clock, Users, CalendarClock,
   CheckCircle2, Gauge, Snowflake, TrendingDown, Brain, Bell, RotateCcw, X, Target,
   ArrowUpRight, Columns2, ChevronLeft, MessageCircle, SlidersHorizontal, Download,
+  LayoutDashboard, Users2, KanbanSquare, BarChart3, User, AlertCircle,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -331,7 +332,7 @@ export function DashboardView() {
 
   return (
     <>
-      <PageHead
+      <PageHead icon={LayoutDashboard}
         title="Sales Behaviour Pulse"
         sub="Today's revenue radar. What your team did, what's slipping, and where the next ₹ is hiding."
       />
@@ -437,46 +438,69 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
   const { state, dispatch, openLead } = useDemo()
   const [q, setQ] = useState("")
   const [stage, setStage] = useState<"All" | Stage>("All")
+  const [gradeFilter, setGradeFilter] = useState("All grades")
+  const [sourceFilter, setSourceFilter] = useState("All sources")
+  const [repFilter, setRepFilter] = useState("All reps")
+  const [dateFilter, setDateFilter] = useState("Any time")
 
   const matching = state.leads.filter((l) => {
     const hay = `${l.name} ${l.company} ${l.source} ${l.phone}`.toLowerCase()
-    return hay.includes(q.toLowerCase()) && (stage === "All" || l.stage === stage)
+    return hay.includes(q.toLowerCase())
+      && (stage === "All" || l.stage === stage)
+      && (gradeFilter === "All grades" || gradeOf(l) === gradeFilter.replace("Grade ", ""))
+      && (sourceFilter === "All sources" || l.source === sourceFilter)
+      && (repFilter === "All reps" || l.rep === repFilter)
   })
   const rows = matching
 
   return (
     <>
-      <PageHead
+      <PageHead icon={Users2}
         title="All Leads"
         sub={`${state.leads.length} leads`}
         action={
           <>
-            <Btn><Download className="h-4 w-4" /> Export CSV</Btn>
-            <Btn tone="primary" onClick={onImport}><Upload className="h-4 w-4" /> Import</Btn>
+            <button type="button" className="inline-flex h-9 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-4 text-[12px] font-semibold text-slate-700 transition-all hover:text-slate-900">
+              <Download className="h-3.5 w-3.5" /> Export CSV
+            </button>
+            <button type="button" onClick={onImport} className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-sky-600 px-4 text-[12px] font-semibold text-white transition-colors hover:bg-sky-700 active:scale-[0.98]">
+              <span className="text-[14px] font-bold leading-none">+</span> Import
+            </button>
           </>
         }
       />
 
+      {/* Filter bar: search pill + chip dropdowns, as the product has it. */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
-        <label className="flex h-9 min-w-[220px] flex-1 items-center gap-2 rounded-lg border border-slate-200 px-3 focus-within:border-sky-400">
-          <Search className="h-4 w-4 shrink-0 text-slate-400" />
+        <div className="relative">
+          <Search className="pointer-events-none absolute left-3 top-1/2 z-10 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search name, phone, company…"
             aria-label="Search leads"
-            className="w-full bg-transparent text-[13px] text-slate-900 outline-none placeholder:text-slate-400"
+            className="h-9 w-60 rounded-full border border-slate-200 bg-white pl-9 pr-3 text-[12px] text-slate-900 outline-none transition-all placeholder:text-slate-400 focus:border-sky-400 focus:ring-2 focus:ring-sky-500/30"
           />
-          {q && <button type="button" onClick={() => setQ("")} aria-label="Clear search"><X className="h-3.5 w-3.5 text-slate-400" /></button>}
-        </label>
-        <select
-          value={stage}
-          onChange={(e) => setStage(e.target.value as "All" | Stage)}
-          aria-label="Filter by stage"
-          className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-[13px] text-slate-700 outline-none hover:border-slate-300"
-        >
-          {(["All", ...STAGES] as const).map((s) => <option key={s}>{s}</option>)}
-        </select>
+        </div>
+        {[
+          { label: "Grade", value: gradeFilter, set: setGradeFilter, opts: ["All grades", "Grade A", "Grade B", "Grade C", "Grade D", "Grade E", "Grade F"] },
+          { label: "Stage", value: stage, set: (v: string) => setStage(v as "All" | Stage), opts: ["All", ...STAGES] },
+          { label: "Source", value: sourceFilter, set: setSourceFilter, opts: ["All sources", "Website form", "Google Ads", "Facebook Ads", "Referral", "Listings", "Trade fair", "Bulk import"] },
+          { label: "Rep", value: repFilter, set: setRepFilter, opts: ["All reps", ...REPS.map((r) => r.name)] },
+          { label: "Date added", value: dateFilter, set: setDateFilter, opts: ["Any time", "Today", "This week", "This month"] },
+        ].map((f) => (
+          <label key={f.label} className="inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600">
+            <span className="text-slate-500">{f.label}</span>
+            <select
+              aria-label={`Filter by ${f.label.toLowerCase()}`}
+              value={f.value}
+              onChange={(e) => f.set(e.target.value)}
+              className="cursor-pointer bg-transparent text-[12px] font-semibold text-slate-700 outline-none"
+            >
+              {f.opts.map((o) => <option key={o}>{o}</option>)}
+            </select>
+          </label>
+        ))}
       </div>
 
       <div className="mt-4 grid gap-3 @2xl:grid-cols-3">
@@ -568,7 +592,8 @@ export function LeadsView({ onImport }: { onImport: () => void }) {
 
 // ── Pipeline ──────────────────────────────────────────────────────────────────
 
-const BOARD: Stage[] = ["New Inquiry", "Contacted", "Qualified", "Proposal Sent"]
+/** The product scrolls a board of every stage, not a four-up grid. */
+const BOARD: Stage[] = ["New Inquiry", "Contacted", "Qualified", "Proposal Sent", "Negotiation", "Follow-up", "Won"]
 
 type PipelineDialog = { kind: "move" | "won" | "lost"; leadId: string } | null
 
@@ -582,7 +607,7 @@ export function PipelineView() {
 
   return (
     <>
-      <PageHead
+      <PageHead icon={KanbanSquare}
         title="Pipeline"
         sub="Auto-stage tracker for every deal in motion. Moves when calls and WhatsApp signals land."
       />
@@ -595,12 +620,12 @@ export function PipelineView() {
         <KpiCard label="Win Rate"    value={Math.round((won / Math.max(won + lost, 1)) * 100)} suffix="%" icon={Target} tintBg="bg-sky-50" tintFg="text-sky-600" spark={[3, 5, 4, 7, 5, 8, 9]} />
       </div>
 
-      <div className="mt-4 grid gap-3 @2xl:grid-cols-2 @5xl:grid-cols-4">
+      <div className="-mx-1 mt-4 flex gap-3 overflow-x-auto px-1 pb-4">
         {BOARD.map((stage, si) => {
           const inStage = state.leads.filter((l) => l.stage === stage)
           const next = STAGES[STAGES.indexOf(stage) + 1]
           return (
-            <div key={stage} className="rounded-2xl border border-slate-200/70 bg-white p-4">
+            <div key={stage} className="w-[260px] shrink-0 rounded-2xl border border-slate-200/70 bg-white p-4">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 text-[13px] font-semibold text-slate-900">
                   <span className={cn("h-2 w-2 rounded-full", FUNNEL_COLORS[si].swatch)} /> {stage}
@@ -819,7 +844,7 @@ export function AnalyticsView() {
 
   return (
     <>
-      <PageHead title="Analytics" sub="Find what's slowing your pipeline, loss patterns, recovery potential, and where to act." />
+      <PageHead icon={BarChart3} title="Analytics" sub="Find what's slowing your pipeline, loss patterns, recovery potential, and where to act." />
 
       {/* Headline-insight hero, the shape the August redesign introduced. */}
       <Card className="mt-4" pad="p-5 sm:p-6">
@@ -845,10 +870,11 @@ export function AnalyticsView() {
         </div>
       </Card>
 
-      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-3">
-        <KpiCard label="Speed-to-Win avg"  value="—"  icon={Clock}        tintBg="bg-sky-50"    tintFg="text-sky-600" />
-        <KpiCard label="Speed-to-Miss avg" value="3h" icon={Clock}        tintBg="bg-orange-50" tintFg="text-orange-500" />
-        <KpiCard label="Loss rate"         value={`${Math.round((missed.length / Math.max(state.leads.length, 1)) * 100)}%`} icon={TrendingDown} tintBg="bg-rose-50" tintFg="text-rose-500" />
+      <div className="mt-4 grid grid-cols-2 gap-3 @2xl:grid-cols-4">
+        <KpiCard label="Speed-to-Win avg"  value="—"  icon={Clock}        tintBg="bg-sky-50"     tintFg="text-sky-600"     caption="not enough data" />
+        <KpiCard label="Speed-to-Miss avg" value="3h" icon={Clock}        tintBg="bg-orange-50"  tintFg="text-orange-500"  caption="for missed leads" />
+        <KpiCard label="7-Day Trend"       value="Improving" icon={TrendingDown} tintBg="bg-emerald-50" tintFg="text-emerald-600" caption={`${formatRupee(missedValue)} all-time`} />
+        <KpiCard label="Loss rate"         value={`${Math.round((missed.length / Math.max(state.leads.length, 1)) * 100)}%`} icon={AlertTriangle} tintBg="bg-rose-50" tintFg="text-rose-500" caption="of all leads" />
       </div>
 
       <Card title="Daily Miss Trend" action={<span className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">₹ missed per day</span>} className="mt-4" pad="p-6">
@@ -1018,7 +1044,7 @@ export function RepTrackingView() {
   const recovered = REPS.reduce((s, r) => s + r.won, 0)
   return (
     <>
-      <PageHead title="Sales Rep Tracking" sub="Per-rep ₹ recovered, Grade A response time, follow-up completion." />
+      <PageHead icon={User} title="Sales Rep Tracking" sub="Per-rep ₹ recovered, Grade A response time, follow-up completion." />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @3xl:grid-cols-4">
         <KpiCard label="₹ Recovered"             value={formatRupee(recovered)} icon={IndianRupee}  tintBg="bg-emerald-50" tintFg="text-emerald-600" delta={110} />
@@ -1095,7 +1121,7 @@ export function MissedView() {
 
   return (
     <>
-      <PageHead title="Missed Opportunities" sub="Stale leads, valued by ₹ at risk, recover them before they're gone." />
+      <PageHead icon={AlertCircle} tint="bg-amber-50 text-amber-600" title="Missed Opportunities" sub="Stale leads, valued by ₹ at risk, recover them before they're gone." />
 
       <div className="mt-4 grid grid-cols-2 gap-3 @3xl:grid-cols-4">
         <KpiCard label="At risk today"  value={formatRupee(atRisk)} icon={IndianRupee} tintBg="bg-rose-50" tintFg="text-rose-500" caption={`${missed.length} stale leads in the pool`} />
@@ -1195,7 +1221,7 @@ export function NotificationsView() {
 
   return (
     <>
-      <PageHead
+      <PageHead icon={Bell}
         title="Notifications"
         sub={`${unread.length} unread · ${state.notifications.length} total · last 7 days`}
         action={<Btn onClick={() => dispatch({ type: "MARK_ALL_READ" })}><Check className="h-4 w-4" /> Mark all read</Btn>}
@@ -1289,7 +1315,7 @@ export function ImportView({ onDone }: { onDone: () => void }) {
   if (done) {
     return (
       <>
-        <PageHead title="Lead Ingestion" sub="Ingestion summary" />
+        <PageHead icon={Download} title="Lead Ingestion" sub="Ingestion summary" />
         <Card className="mt-4">
           <h2 className="mb-4 text-[15px] font-semibold text-slate-900">Ingestion summary</h2>
           <div className="grid grid-cols-2 gap-3 @2xl:grid-cols-3 @5xl:grid-cols-5">
@@ -1310,7 +1336,7 @@ export function ImportView({ onDone }: { onDone: () => void }) {
 
   return (
     <>
-      <PageHead title="Lead Ingestion" sub="Set the batch details, then bring the rows in." />
+      <PageHead icon={Download} title="Lead Ingestion" sub="Set the batch details, then bring the rows in." />
       <Card className="mt-4 max-w-3xl" pad="p-5 sm:p-6">
         <h2 className="mb-4 text-[15px] font-semibold text-slate-900">Set the batch details</h2>
         <div className="grid gap-4 @2xl:grid-cols-3">
@@ -1419,7 +1445,7 @@ export function ActivityView() {
   const { state } = useDemo()
   return (
     <>
-      <PageHead title="Activity" sub="How the team is doing, what they did, whether they hit SLAs, what they recovered." />
+      <PageHead icon={ActivityIcon} title="Activity" sub="How the team is doing, what they did, whether they hit SLAs, what they recovered." />
       <Card className="mt-4">
         <ol className="relative space-y-0 border-l border-slate-200 pl-5">
           {state.activity.map((a) => (
@@ -1443,7 +1469,7 @@ export function ActivityView() {
 export function LearningView() {
   return (
     <>
-      <PageHead title="Learning Engine" sub="Patterns the account has enough data to state." />
+      <PageHead icon={Brain} title="Learning Engine" sub="Patterns the account has enough data to state." />
       <Card title="Patterns unlocked" className="mt-4">
         <div className="divide-y divide-slate-100">
           {LEARNING_PATTERNS.map((p) => (

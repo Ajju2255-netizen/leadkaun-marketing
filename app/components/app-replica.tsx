@@ -18,8 +18,9 @@ import {
   Avatar, Btn, Card, DemoCtx, GradeBadge, ScoreCell, useDemo,
 } from "@/app/components/demo/primitives"
 import {
-  ActivityView, AnalyticsView, DashboardView, FollowUpsView, ImportView, LeadsView,
-  LearningView, MissedView, NotificationsView, PipelineView, QueueView, RepTrackingView,
+  ActivityView, AnalyticsView, DashboardView, FollowUpsView, ImportView, LeadDetailView,
+  LeadsView, LearningView, MissedView, NotificationsView, PipelineView, QueueView,
+  RepTrackingView, SettingsView,
 } from "@/app/components/demo/views"
 
 /**
@@ -36,6 +37,7 @@ import {
 type View =
   | "queue" | "follow-ups" | "pipeline" | "leads" | "import"
   | "dashboard" | "activity" | "analytics" | "rep" | "learning" | "missed" | "notifications"
+  | "settings" | "lead"
 
 const NAV_GROUPS: { label: string | null; items: { view: View; label: string; icon: LucideIcon }[] }[] = [
   {
@@ -72,11 +74,12 @@ const VIEW_TITLE: Record<View, string> = {
   leads: "All Leads", import: "Import Leads", dashboard: "Dashboard",
   activity: "Activity", analytics: "Analytics", rep: "Rep Tracking",
   learning: "Learning", missed: "Missed Opps", notifications: "Notifications",
+  settings: "Settings", lead: "Lead",
 }
 
 // ── Lead detail, the product's slide-over ─────────────────────────────────────
 
-function LeadPanel({ leadId, onClose }: { leadId: string; onClose: () => void }) {
+function LeadPanel({ leadId, onClose, onOpenRecord }: { leadId: string; onClose: () => void; onOpenRecord: () => void }) {
   const { state, dispatch } = useDemo()
   const [channel, setChannel] = useState<"call" | "wa" | null>(null)
 
@@ -229,6 +232,10 @@ function LeadPanel({ leadId, onClose }: { leadId: string; onClose: () => void })
           </div>
 
           <div className="border-t border-slate-50 px-5 py-4">
+            <Btn className="w-full" onClick={onOpenRecord}>Open full record</Btn>
+          </div>
+
+          <div className="border-t border-slate-50 px-5 py-4">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.08em] text-slate-400">Timeline</p>
             <ol className="relative space-y-0 border-l border-slate-200 pl-4">
               {lead.timeline.map((t) => (
@@ -259,6 +266,7 @@ export function AppReplica() {
   const [state, dispatch] = useReducer(demoReducer, INITIAL_STATE)
   const [view, setView] = useState<View>("queue")
   const [openId, setOpenId] = useState<string | null>(null)
+  const [detailId, setDetailId] = useState<string | null>(null)
 
   // ── Scale to fit ──────────────────────────────────────────────────────────
   // The app is rendered at a real desktop width so its own layout rules apply
@@ -418,14 +426,14 @@ export function AppReplica() {
             </div>
 
             <div className="border-t border-slate-100 px-3 py-3">
-              <div className="flex items-center gap-2.5">
+              <button type="button" onClick={() => go("settings")} className="flex w-full items-center gap-2.5 rounded-lg text-left transition-colors hover:text-sky-700">
                 <Avatar name="Ajsal Work" size={32} />
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[12px] font-semibold leading-tight text-slate-900">Ajsal Work</p>
                   <p className="mt-0.5 truncate font-mono text-[10px] uppercase leading-tight tracking-[0.10em] text-slate-400">Admin</p>
                 </div>
                 <LogOut className="h-3.5 w-3.5 shrink-0 text-slate-400" strokeWidth={2} />
-              </div>
+              </button>
             </div>
           </aside>
 
@@ -480,6 +488,8 @@ export function AppReplica() {
               {view === "learning" && <LearningView />}
               {view === "missed" && <MissedView />}
               {view === "notifications" && <NotificationsView />}
+              {view === "settings" && <SettingsView />}
+              {view === "lead" && detailId && <LeadDetailView leadId={detailId} onBack={() => go("queue")} />}
             </div>
           </div>
 
@@ -487,7 +497,13 @@ export function AppReplica() {
 
           {/* The panel and the toasts sit outside the scaled layer, so they stay
               legible however far the app behind them has been shrunk. */}
-          {openId && <LeadPanel leadId={openId} onClose={() => setOpenId(null)} />}
+          {openId && (
+            <LeadPanel
+              leadId={openId}
+              onClose={() => setOpenId(null)}
+              onOpenRecord={() => { setDetailId(openId); setOpenId(null); setView("lead") }}
+            />
+          )}
 
           <div className="pointer-events-none absolute bottom-4 right-4 z-40 flex flex-col gap-2">
             {state.toasts.map((t) => (

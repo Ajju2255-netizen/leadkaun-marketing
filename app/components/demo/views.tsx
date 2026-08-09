@@ -5,13 +5,13 @@ import {
   Upload, Search, ChevronRight, Inbox, Flame, PhoneCall, IndianRupee, Trophy, Zap,
   AlertTriangle, Activity as ActivityIcon, Check, Clock, Users, CalendarClock,
   CheckCircle2, Gauge, Snowflake, TrendingDown, Brain, Bell, RotateCcw, X, Target,
-  ArrowUpRight, Columns2,
+  ArrowUpRight, Columns2, ChevronLeft, MessageCircle,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import {
   activeAgo, contribution, formatRupee, gradeOf, nextAction, rankScore, totalScore,
-  STAGES, WEIGHTS, LEARNING_PATTERNS, REPS, type Stage,
+  STAGES, WEIGHTS, LEARNING_PATTERNS, REPS, CALL_OUTCOMES, WA_OUTCOMES, type Stage,
 } from "@/lib/demo-app"
 import {
   Avatar, Btn, Card, FunnelBar, GradeBadge, KpiCard, PageHead, ScoreCell, StatCard,
@@ -944,6 +944,446 @@ export function LearningView() {
           ))}
         </div>
       </Card>
+    </>
+  )
+}
+
+// ── Lead detail ───────────────────────────────────────────────────────────────
+
+/**
+ * The full record at /leads/[id]. The queue opens a slide-over; this is the page
+ * behind its "open full record" link, with the score, details, the inquiry and
+ * the activity/WhatsApp tabs.
+ */
+export function LeadDetailView({ leadId, onBack }: { leadId: string; onBack: () => void }) {
+  const { state, dispatch } = useDemo()
+  const [tab, setTab] = useState<"activity" | "whatsapp">("activity")
+  const [channel, setChannel] = useState<"call" | "wa" | null>(null)
+  const lead = state.leads.find((l) => l.id === leadId)
+  if (!lead) return null
+  const g = gradeOf(lead)
+
+  return (
+    <>
+      <button type="button" onClick={onBack} className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-500 hover:text-sky-600">
+        <ChevronLeft className="h-4 w-4" /> Back
+      </button>
+
+      <div className="rounded-2xl border border-slate-200/70 bg-white p-5">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex min-w-0 items-start gap-3">
+            <Avatar name={lead.name} size={44} />
+            <div className="min-w-0">
+              <h1 className="text-[28px] font-bold leading-tight tracking-[-0.02em] text-slate-900">{lead.name}</h1>
+              <p className="mt-1 flex flex-wrap items-center gap-2 text-[12.5px] text-slate-500">
+                <span>{lead.company}</span>
+                <span className="inline-flex h-6 items-center rounded-full bg-slate-100 px-2 text-[11.5px]">{lead.source}</span>
+                <span className="inline-flex h-6 items-center rounded-full bg-sky-50 px-2 text-[11.5px] font-medium text-sky-700">{lead.stage}</span>
+              </p>
+            </div>
+          </div>
+          <div className="text-right">
+            <p className="text-[22px] font-bold leading-none tabular-nums text-slate-900">{formatRupee(lead.value)}</p>
+            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400">Expected</p>
+          </div>
+        </div>
+
+        <div className="mt-4 border-t border-slate-100 pt-4">
+          {channel === null ? (
+            <div className="flex flex-wrap gap-2">
+              <Btn tone="primary" onClick={() => setChannel("call")}><PhoneCall className="h-4 w-4" /> Call Now</Btn>
+              <Btn onClick={() => setChannel("wa")}><MessageCircle className="h-4 w-4" /> WhatsApp</Btn>
+              <Btn onClick={() => dispatch({ type: "SET_STAGE", leadId: lead.id, stage: "Won" })}>Mark as Won</Btn>
+              <Btn tone="danger" onClick={() => dispatch({ type: "SET_STAGE", leadId: lead.id, stage: "Lost" })}>Mark as Lost</Btn>
+              <Btn>Reassign rep</Btn>
+            </div>
+          ) : (
+            <div>
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-400">
+                How did the {channel === "call" ? "call" : "chat"} go?
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {(channel === "call" ? CALL_OUTCOMES : WA_OUTCOMES).map((o) => (
+                  <button
+                    key={o.value}
+                    type="button"
+                    onClick={() => { dispatch({ type: "LOG_OUTCOME", leadId: lead.id, channel, outcome: o.value, label: o.label }); setChannel(null) }}
+                    className={cn(
+                      "h-8 rounded-lg px-3 text-[12px] font-semibold transition-colors",
+                      o.tone === "good" ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                        : o.tone === "warm" ? "bg-sky-50 text-sky-700 hover:bg-sky-100"
+                        : o.tone === "cold" ? "bg-rose-50 text-rose-700 hover:bg-rose-100"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    )}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+                <button type="button" onClick={() => setChannel(null)} className="h-8 rounded-lg px-2 text-[12px] text-slate-400 hover:text-slate-700">Cancel</button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-4 @4xl:grid-cols-[1.4fr_1fr]">
+        <div className="space-y-4">
+          <Card title="Lead Score">
+            <div className="grid grid-cols-3 gap-4">
+              <div>
+                <p className="mb-1.5 text-[12px] text-slate-500">Fit</p>
+                <ScoreCell value={contribution(lead.fit, WEIGHTS.fit)} of={WEIGHTS.fit} tone="fit" />
+              </div>
+              <div>
+                <p className="mb-1.5 text-[12px] text-slate-500">Intent</p>
+                <ScoreCell value={contribution(lead.intent, WEIGHTS.intent)} of={WEIGHTS.intent} tone="intent" />
+              </div>
+              <div>
+                <p className="mb-1.5 text-[12px] text-slate-500">Quality</p>
+                <ScoreCell value={contribution(lead.quality, WEIGHTS.quality)} of={WEIGHTS.quality} tone="quality" />
+              </div>
+            </div>
+            <div className="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
+              <GradeBadge grade={g} />
+              <p className="text-[13px] text-slate-600">
+                Total <span className="font-bold tabular-nums text-slate-900">{totalScore(lead)}</span>/100 ·{" "}
+                <span className="text-slate-400">Grade A needs Fit 65, Intent 60, Quality 60</span>
+              </p>
+            </div>
+          </Card>
+
+          <Card title="Inquiry / Notes" action={<Btn size="sm">Add note</Btn>}>
+            <p className="text-[13px] leading-relaxed text-slate-700">{lead.signal}</p>
+          </Card>
+
+          <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white">
+            <div className="flex gap-4 border-b border-slate-100 px-5">
+              {(["activity", "whatsapp"] as const).map((t) => (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setTab(t)}
+                  className={cn(
+                    "-mb-px border-b-2 py-3 text-[13px] font-semibold capitalize transition-colors",
+                    tab === t ? "border-sky-500 text-sky-700" : "border-transparent text-slate-400 hover:text-slate-600"
+                  )}
+                >
+                  {t === "whatsapp" ? "WhatsApp log" : "Activity"}
+                </button>
+              ))}
+            </div>
+            <div className="p-5">
+              {tab === "activity" ? (
+                <ol className="relative space-y-0 border-l border-slate-200 pl-5">
+                  {lead.timeline.map((t) => (
+                    <li key={t.id} className="relative py-2">
+                      <span className="absolute -left-[23px] top-3.5 h-2 w-2 rounded-full bg-sky-400 ring-4 ring-white" />
+                      <p className="text-[12.5px] text-slate-700">
+                        {t.label}
+                        {typeof t.delta === "number" && t.delta !== 0 && (
+                          <span className={cn("ml-1.5 font-semibold tabular-nums", t.delta > 0 ? "text-emerald-600" : "text-rose-600")}>
+                            {t.delta > 0 ? "+" : ""}{t.delta} intent
+                          </span>
+                        )}
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-slate-400">{t.at}</p>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="text-[13px] text-slate-500">
+                  Open the chat from here, have it in your own WhatsApp, then record the outcome. The log drives
+                  stage advancement and rescoring.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <Card title="Details">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-3.5">
+              {[
+                { label: "Phone", value: lead.phone },
+                { label: "Email", value: lead.email },
+                { label: "Source", value: lead.source },
+                { label: "Assigned to", value: lead.rep },
+                { label: "Added", value: "14 Apr" },
+                { label: "First contact", value: lead.contactedToday ? "today" : "not yet" },
+              ].map((d) => (
+                <div key={d.label} className="min-w-0">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.06em] text-slate-400">{d.label}</p>
+                  <p className="mt-0.5 break-words text-[12.5px] font-medium text-slate-700">{d.value}</p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          <Card title="Score Evolution">
+            <div className="space-y-2.5">
+              {[
+                { at: "on arrival", grade: "C" as const, why: "Imported and graded" },
+                { at: "day 2", grade: "B" as const, why: "Replied on WhatsApp" },
+                { at: "now", grade: g, why: "Latest signal" },
+              ].map((r) => (
+                <div key={r.at} className="flex items-center gap-3">
+                  <GradeBadge grade={r.grade} size="sm" />
+                  <span className="flex-1 text-[12.5px] text-slate-600">{r.why}</span>
+                  <span className="text-[11.5px] text-slate-400">{r.at}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+    </>
+  )
+}
+
+// ── Settings ──────────────────────────────────────────────────────────────────
+
+const SETTINGS_NAV = [
+  "Profile", "Security", "Organisation", "Billing", "Team",
+  "Workspaces", "ICP Settings", "Lead Sources", "Templates",
+] as const
+
+type SettingsTab = (typeof SETTINGS_NAV)[number]
+
+function Field({ label, value, hint }: { label: string; value: string; hint?: string }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-[12px] font-medium text-slate-600">{label}</span>
+      <input
+        defaultValue={value}
+        aria-label={label}
+        className="h-9 w-full rounded-lg border border-slate-200 px-3 text-[13px] text-slate-900 outline-none focus:border-sky-400"
+      />
+      {hint && <span className="mt-1 block text-[11.5px] text-slate-400">{hint}</span>}
+    </label>
+  )
+}
+
+/** The nine settings pages, reached from the user chip as in the product. */
+export function SettingsView() {
+  const [tab, setTab] = useState<SettingsTab>("Profile")
+
+  return (
+    <>
+      <PageHead title="Settings" sub="Your account, your team, and how leads are scored." />
+
+      <div className="mt-4 grid gap-4 @3xl:grid-cols-[176px_1fr]">
+        <nav className="flex flex-wrap gap-1 @3xl:flex-col">
+          {SETTINGS_NAV.map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTab(t)}
+              className={cn(
+                "rounded-lg px-3 py-2 text-left text-[13px] transition-colors",
+                tab === t ? "bg-sky-50 font-semibold text-sky-700" : "font-medium text-slate-500 hover:bg-slate-50"
+              )}
+            >
+              {t}
+            </button>
+          ))}
+        </nav>
+
+        <div className="min-w-0">
+          {tab === "Profile" && (
+            <div className="space-y-4">
+              <Card title="Personal info">
+                <div className="grid gap-4 @2xl:grid-cols-2">
+                  <Field label="First name" value="Ajsal" />
+                  <Field label="Last name" value="Work" />
+                  <Field label="Email address" value="ajsal@sunrisegroup.in" />
+                  <Field label="Role" value="Admin" />
+                </div>
+              </Card>
+              <Card title="Account info">
+                <div className="grid gap-4 @2xl:grid-cols-2">
+                  <Field label="Organisation ID" value="org_sunrise_9f21" />
+                  <Field label="User ID" value="usr_4c0e18" />
+                  <Field label="Workspace" value="Sunrise Group" />
+                </div>
+              </Card>
+            </div>
+          )}
+
+          {tab === "Security" && (
+            <Card title="Security">
+              <div className="grid gap-4 @2xl:grid-cols-2">
+                <Field label="Current password" value="••••••••••" />
+                <Field label="New password" value="" />
+              </div>
+              <p className="mt-4 text-[12.5px] text-slate-500">
+                Sessions sign out after 30 days of inactivity.
+              </p>
+            </Card>
+          )}
+
+          {tab === "Organisation" && (
+            <Card title="Organisation">
+              <div className="grid gap-4 @2xl:grid-cols-2">
+                <Field label="Organisation name" value="Sunrise Group" />
+                <Field label="Industry" value="Real Estate" />
+                <Field label="Country" value="India" />
+                <Field label="Currency" value="INR (₹)" />
+              </div>
+            </Card>
+          )}
+
+          {tab === "Billing" && (
+            <div className="space-y-4">
+              <Card title="Current plan">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[18px] font-bold text-slate-900">Growth</p>
+                    <p className="text-[12.5px] text-slate-500">₹7,999 per month, flat for the account</p>
+                  </div>
+                  <Btn tone="primary">Change plan</Btn>
+                </div>
+                <div className="mt-4 grid gap-3 @2xl:grid-cols-2">
+                  <div className="rounded-xl border border-slate-200/70 p-3.5">
+                    <p className="text-[12px] text-slate-500">Active leads</p>
+                    <p className="mt-1 text-[20px] font-bold tabular-nums text-slate-900">12 / 500</p>
+                  </div>
+                  <div className="rounded-xl border border-slate-200/70 p-3.5">
+                    <p className="text-[12px] text-slate-500">Team seats</p>
+                    <p className="mt-1 text-[20px] font-bold tabular-nums text-slate-900">4 / 10</p>
+                  </div>
+                </div>
+              </Card>
+              <Card title="Invoices">
+                <table className="w-full border-collapse">
+                  <thead className="border-b border-slate-100">
+                    <tr><Th>Invoice</Th><Th>Amount</Th><Th>Status</Th><Th className="text-right">Download</Th></tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {[["INV-2026-07", "₹7,999", "Paid"], ["INV-2026-06", "₹7,999", "Paid"]].map(([id, amt, st]) => (
+                      <tr key={id}>
+                        <td className="py-3 text-[13px] text-slate-700">{id}</td>
+                        <td className="px-3 text-[13px] tabular-nums text-slate-700">{amt}</td>
+                        <td className="px-3"><span className="inline-flex h-6 items-center rounded-full bg-emerald-50 px-2 text-[11.5px] font-semibold text-emerald-700">{st}</span></td>
+                        <td className="px-3 text-right text-[13px] font-medium text-sky-600">PDF</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </Card>
+            </div>
+          )}
+
+          {tab === "Team" && (
+            <Card title="Team" action={<Btn tone="primary" size="sm">Invite a Team Member</Btn>}>
+              <table className="w-full border-collapse">
+                <thead className="border-b border-slate-100">
+                  <tr><Th>Member</Th><Th>Role</Th><Th>Workspace access</Th><Th className="text-right">Action</Th></tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {REPS.map((r, i) => (
+                    <tr key={r.name}>
+                      <td className="py-3">
+                        <div className="flex items-center gap-2.5">
+                          <Avatar name={r.name} size={28} />
+                          <span className="text-[13px] font-semibold text-slate-900">{r.name}</span>
+                          {i === 0 && <span className="text-[11px] text-slate-400">You</span>}
+                        </div>
+                      </td>
+                      <td className="px-3 text-[13px] text-slate-600">{i === 0 ? "Admin" : i === 1 ? "Manager" : "Sales Rep"}</td>
+                      <td className="px-3 text-[13px] text-slate-600">Sunrise Group</td>
+                      <td className="px-3 text-right text-[13px] font-medium text-sky-600">Change Role</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Card>
+          )}
+
+          {tab === "Workspaces" && (
+            <Card title="Workspaces" action={<Btn tone="primary" size="sm">New workspace</Btn>}>
+              <div className="divide-y divide-slate-100">
+                {[["Sunrise Group", "4 members", "Default"], ["Sunrise Commercial", "2 members", ""]].map(([n, m, tag]) => (
+                  <div key={n} className="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
+                    <span className="grid h-9 w-9 place-items-center rounded-lg bg-sky-50 text-sky-600"><Columns2 className="h-4 w-4" /></span>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[13px] font-semibold text-slate-900">{n}</p>
+                      <p className="text-[11.5px] text-slate-400">Who works in this workspace · {m}</p>
+                    </div>
+                    {tag && <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-500">{tag}</span>}
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+
+          {tab === "ICP Settings" && (
+            <div className="space-y-4">
+              <Card title="SQL Thresholds">
+                <div className="grid gap-4 @2xl:grid-cols-2">
+                  <Field label="Fit Score Threshold" value="55" hint="How well the lead matches your ICP" />
+                  <Field label="Intent Score Threshold" value="45" hint="What the lead has actually done" />
+                </div>
+              </Card>
+              <Card title="Your winning segments">
+                <div className="space-y-3">
+                  {[
+                    ["Industries in your leads", "Real Estate · BFSI · EdTech"],
+                    ["States in your leads", "Maharashtra · Karnataka · Kerala"],
+                    ["Decision makers in your leads", "Founder · Sales Head · Branch Manager"],
+                    ["Typical sales cycle", "30 to 90 days"],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-100 pb-2.5 last:border-0 last:pb-0">
+                      <span className="text-[12.5px] text-slate-500">{k}</span>
+                      <span className="text-[13px] font-medium text-slate-900">{v}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          )}
+
+          {tab === "Lead Sources" && (
+            <div className="space-y-4">
+              <Card title="Default sources">
+                <table className="w-full border-collapse">
+                  <thead className="border-b border-slate-100"><tr><Th>Source name</Th><Th className="text-right">Intent baseline</Th></tr></thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {[["Website form", 20], ["Google Ads", 15], ["Facebook Ads", 10], ["Referral", 25], ["Bulk import", 0]].map(([n, b]) => (
+                      <tr key={String(n)}>
+                        <td className="py-3 text-[13px] text-slate-700">{n}</td>
+                        <td className="px-3 text-right text-[13px] tabular-nums text-slate-700">{b}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </Card>
+              <Card title="Custom sources" action={<Btn size="sm">New custom source</Btn>}>
+                <p className="py-6 text-center text-[13px] text-slate-400">No custom sources yet.</p>
+              </Card>
+            </div>
+          )}
+
+          {tab === "Templates" && (
+            <Card title="Smart Templates" action={<Btn tone="primary" size="sm">New template</Btn>}>
+              <div className="divide-y divide-slate-100">
+                {[
+                  ["First touch", "New Inquiry", "Hi {{first_name}}, thanks for your enquiry about {{project}}."],
+                  ["Site visit follow-up", "Qualified", "Hi {{first_name}}, confirming your visit on {{date}}."],
+                ].map(([n, stage, body]) => (
+                  <div key={n} className="py-3 first:pt-0 last:pb-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="text-[13px] font-semibold text-slate-900">{n}</p>
+                      <span className="inline-flex h-6 items-center rounded-full bg-sky-50 px-2 text-[11.5px] font-medium text-sky-700">{stage}</span>
+                    </div>
+                    <p className="mt-1 text-[12.5px] text-slate-500">{body}</p>
+                    <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.08em] text-slate-400">Merge Fields · Preview with sample data</p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          )}
+        </div>
+      </div>
     </>
   )
 }

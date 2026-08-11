@@ -156,10 +156,10 @@ export function Voices() {
             </span>
             <div className="min-w-0">
               <p className="text-[14.5px] font-semibold leading-tight text-ink">{v.name}</p>
-              <p className="mt-0.5 text-[13px] leading-tight text-ink-faint">
+              <p className="mt-0.5 text-[13px] leading-tight text-ink-soft">
                 {v.role}, {v.company}
               </p>
-              <p className="ledger-num mt-1 text-[10px] uppercase tracking-[0.16em] text-ink-faint/80">
+              <p className="ledger-num mt-1 text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                 {v.city} · {v.sector}
               </p>
             </div>
@@ -168,7 +168,7 @@ export function Voices() {
 
         {/* The lead being described, drawn the way their queue draws it. */}
         <aside className="self-start rounded-2xl border p-5 rule-paper" style={{ background: "var(--bg-pure, #fff)" }}>
-          <p className="ledger-num text-[10px] uppercase tracking-[0.18em] text-ink-faint">The lead they mean</p>
+          <p className="ledger-num text-[10px] uppercase tracking-[0.18em] text-ink-soft">The lead they mean</p>
           <div key={i} className="rise mt-4">
             <div className="flex items-start gap-3">
               <span
@@ -179,7 +179,7 @@ export function Voices() {
               </span>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-[14px] font-semibold leading-tight text-ink">{v.lead.name}</p>
-                <p className="mt-0.5 truncate text-[12.5px] text-ink-faint">{v.lead.org}</p>
+                <p className="mt-0.5 truncate text-[12.5px] text-ink-soft">{v.lead.org}</p>
               </div>
               <span
                 className={cn(
@@ -224,7 +224,7 @@ export function Voices() {
                   className={cn("voice-dwell absolute inset-x-0 -top-px h-0.5 origin-left bg-sky-500/40", held && "paused")}
                 />
               )}
-              <span className={cn("ledger-num text-[10px] tabular-nums", on ? "text-sky-600" : "text-ink-faint/70")}>
+              <span className={cn("ledger-num text-[10px] tabular-nums", on ? "text-sky-600" : "text-ink-muted")}>
                 {String(n + 1).padStart(2, "0")}
               </span>
               <span
@@ -235,7 +235,7 @@ export function Voices() {
               >
                 {entry.name}
               </span>
-              <span className="mt-0.5 block truncate text-[12px] leading-tight text-ink-faint">{entry.sector}</span>
+              <span className="mt-0.5 block truncate text-[12px] leading-tight text-ink-soft">{entry.sector}</span>
             </button>
           )
         })}

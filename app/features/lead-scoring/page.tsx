@@ -324,20 +324,20 @@ export default function LeadScoringPage() {
         {/* 04 — INTENT DECAY */}
         <SectionGround variant="cream" size="lg">
           <Container>
-            <div className="mx-auto max-w-4xl">
-              <NumberedTag number="05" tone="warm" label="The intent decay rule" />
-              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-                Silent leads drop automatically.
-              </h2>
-              <Reveal delay={0.08} className="mt-10 grid gap-8 md:grid-cols-2">
-                <div>
-                  <p className="text-[17px] leading-[1.6] text-ink-soft">
-                    Without decay, a Grade A lead from two weeks ago stays Grade A forever, while newly-hot leads wait below it. That is how real teams lose deals.
-                  </p>
-                  <p className="mt-4 text-[17px] leading-[1.6] text-ink-soft">
-                    With decay, silence has consequences. Intent drops <span className="font-mono font-semibold text-ink">−3 pts / day</span> after the engagement threshold, so last week&apos;s Grade A becomes a B by Wednesday. A re-engagement signal spikes it back up.
-                  </p>
-                </div>
+            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+              <div>
+                <NumberedTag number="05" tone="warm" label="The intent decay rule" />
+                <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                  Silent leads drop automatically.
+                </h2>
+                <p className="mt-6 text-[17px] leading-[1.6] text-ink-soft">
+                  Without decay, a Grade A lead from two weeks ago stays Grade A forever, while newly-hot leads wait below it. That is how real teams lose deals.
+                </p>
+                <p className="mt-4 text-[17px] leading-[1.6] text-ink-soft">
+                  With decay, silence has consequences. Intent drops <span className="font-mono font-semibold text-ink">−3 pts / day</span> after the engagement threshold, so last week&apos;s Grade A becomes a B by Wednesday. A re-engagement signal spikes it back up.
+                </p>
+              </div>
+              <Reveal delay={0.08}>
                 <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-7">
                   <div className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-500">
                     <Zap className="h-3.5 w-3.5" /> Worked example
@@ -403,7 +403,7 @@ export default function LeadScoringPage() {
         </SectionGround>
 
         {/* 07 — CONFIDENCE & FRESHNESS */}
-        <SectionGround variant="pure" size="lg">
+        <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-10 max-w-3xl">
               <NumberedTag number="07" label="Confidence & freshness" />
@@ -487,7 +487,7 @@ export default function LeadScoringPage() {
 
         {/* 10 — IN THEIR WORDS (reuses the homepage <Voices/>; illustrative placeholders,
             NOT real customer statements, and deliberately not wired to Review schema) */}
-        <SectionGround variant="cream" size="lg">
+        <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mb-12 max-w-2xl">
               <NumberedTag number="10" tone="warm" label="In their words" />

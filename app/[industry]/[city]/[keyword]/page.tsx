@@ -29,7 +29,7 @@ import { getIndustry, getCity, getKeyword, getRoles, resolveCitySlug } from "@/l
 import { tier0CitiesForKeyword, tier0Industries, tier0Keywords } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCityKeyword } from "@/lib/pseo/related"
-import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, offerSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, offerSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -48,10 +48,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   ])
   if (!ind || !cityRec || !kw) return {}
   const canonicalCity = canonicalCityResolved ?? city
+  const title = `${kw.label} for ${ind.name} Teams in ${cityRec.name}`
+  const description = `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun's ${kw.label.toLowerCase()} to grade every lead A–F. Setup the same day. Priority Queue, ₹ at risk, Morning Brief.`
+  const path = `/${industry}/${canonicalCity}/${keyword}`
   return {
-    title: `${kw.label} for ${ind.name} Teams in ${cityRec.name} | Leadkaun`,
-    description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun's ${kw.label.toLowerCase()} to grade every lead A–F. Setup the same day. Priority Queue, ₹ at risk, Morning Brief.`,
-    alternates: { canonical: `/${industry}/${canonicalCity}/${keyword}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...ogMeta({ title, description, path }),
     // Quality-first: keyword leaves are noindexed for smaller cities until they
     // clear the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
     robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },

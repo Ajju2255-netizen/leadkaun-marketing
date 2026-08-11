@@ -29,7 +29,7 @@ import { getCities, getCity, getRole, getIndustries, getRoles, resolveCitySlug }
 import { tier0Cities, tier0Roles } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForRoleCity } from "@/lib/pseo/related"
-import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -46,10 +46,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const [r, cityRec, canonicalCityResolved] = await Promise.all([getRole(role), getCity(city), resolveCitySlug(city)])
   if (!r || !cityRec) return {}
   const canonicalCity = canonicalCityResolved ?? city
+  const title = `Sales Software for ${r.title}s in ${cityRec.name}`
+  const description = `${r.title}s in ${cityRec.name} use Leadkaun to grade leads A–F, build rep queues, and surface missed ₹. Setup the same day.`
+  const path = `/for/${role}/${canonicalCity}`
   return {
-    title: `Sales Software for ${r.title}s in ${cityRec.name} | Leadkaun`,
-    description: `${r.title}s in ${cityRec.name} use Leadkaun to grade leads A–F, build rep queues, and surface missed ₹. Setup the same day.`,
-    alternates: { canonical: `/for/${role}/${canonicalCity}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...ogMeta({ title, description, path }),
     // Quality-first: role pages for smaller cities are noindexed until they clear
     // the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
     robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },

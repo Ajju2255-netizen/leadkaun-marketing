@@ -28,7 +28,7 @@ import { getCity, getRoles, industriesServedInCity, resolveCitySlug } from "@/li
 import { tier0Cities } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForCity } from "@/lib/pseo/related"
-import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
+import { breadcrumbListSchema, placeSchema, faqPageSchema, jsonLdScript, canonical, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -54,10 +54,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const [cityRec, canonicalCityResolved] = await Promise.all([getCity(city), resolveCitySlug(city)])
   if (!cityRec) return {}
   const canonicalCity = canonicalCityResolved ?? city
+  const title = `Sales CRM & Lead Management in ${cityRec.name}`
+  const description = `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup the same day.`
+  const path = `/city/${canonicalCity}`
   return {
-    title: `Sales CRM & Lead Management in ${cityRec.name} | Leadkaun`,
-    description: `Leadkaun is the Sales Behaviour OS for ${cityRec.name} B2B teams. Grade leads A–F, build Priority Queues, surface missed ₹. Setup the same day.`,
-    alternates: { canonical: `/city/${canonicalCity}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...ogMeta({ title, description, path }),
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
     // A note must clear the content-gate quality bar (>=20 chars) to promote a hub.
     robots: { index: hubIndexable(cityRec.tier, cityRec.population, (cityRec.notes?.trim().length ?? 0) >= 20), follow: true },

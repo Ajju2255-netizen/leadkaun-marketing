@@ -18,7 +18,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { getBest, getBestGuide } from "@/lib/pseo/lookup"
-import { breadcrumbListSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
+import { breadcrumbListSchema, faqPageSchema, jsonLdScript, canonical, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -46,10 +46,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const g = await getBestGuide<BestGuide>(slug)
   if (!g) return {}
+  const path = `/best/${g.slug}`
   return {
     title: g.metaTitle,
     description: g.metaDescription,
-    alternates: { canonical: `/best/${g.slug}` },
+    alternates: { canonical: path },
+    ...ogMeta({ title: g.metaTitle, description: g.metaDescription, path }),
     robots: { index: g.indexable !== false, follow: true },
   }
 }

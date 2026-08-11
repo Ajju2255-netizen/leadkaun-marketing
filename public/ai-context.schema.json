@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leadkaun.com/ai-context.schema.json",
+  "title": "Leadkaun AI Context",
+  "description": "Machine-readable entity, pricing, scoring and product context for AI answer engines. Companion to /llms.txt.",
+  "type": "object",
+  "required": ["name", "url", "category", "description", "pricing", "scoringEngine", "coreModules"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "name": { "type": "string" },
+    "legalName": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "logo": { "type": "string", "format": "uri" },
+    "tagline": { "type": "string" },
+    "category": { "type": "string" },
+    "runsAlongsideCRM": { "type": "boolean" },
+    "description": { "type": "string" },
+    "live": { "type": "boolean" },
+    "availableRegions": { "type": "array", "items": { "type": "string" } },
+    "primaryLanguage": { "type": "string" },
+    "audience": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "primary": { "type": "string" },
+        "teamSizeMin": { "type": "integer", "minimum": 0 },
+        "teamSizeMax": { "type": "integer", "minimum": 0 },
+        "industries": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "required": ["currency", "tiers"],
+      "additionalProperties": true,
+      "properties": {
+        "currency": { "type": "string" },
+        "unit": { "type": "string" },
+        "tiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": true,
+            "properties": {
+              "name": { "type": "string" },
+              "price": { "type": ["number", "null"] },
+              "seatCap": { "type": ["integer", "null"] },
+              "leadCap": { "type": ["integer", "null"] },
+              "mostPopular": { "type": "boolean" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "trialDays": { "type": "integer", "minimum": 0 },
+        "creditCardRequired": { "type": "boolean" },
+        "annualDiscountPct": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "scoringEngine": {
+      "type": "object",
+      "required": ["dimensions", "grades"],
+      "additionalProperties": true,
+      "properties": {
+        "dimensions": { "type": "array", "items": { "type": "string" } },
+        "grades": { "type": "array", "items": { "type": "string" } },
+        "fitWeights": { "type": "object", "additionalProperties": { "type": "number" } },
+        "intentSignals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "type": { "type": "string" },
+              "points": { "type": "number" }
+            }
+          }
+        },
+        "intentDecay": { "type": "string" },
+        "qualityWeights": { "type": "object", "additionalProperties": { "type": "number" } },
+        "gradeThresholds": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "coreModules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "name"],
+        "additionalProperties": true,
+        "properties": {
+          "code": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "indiaFirstFeatures": { "type": "array", "items": { "type": "string" } },
+    "primaryCompetitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": true,
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "dataIngestion": { "type": "array", "items": { "type": "string" } },
+    "deployment": { "type": "object", "additionalProperties": true },
+    "contact": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "sales": { "type": "string" },
+        "support": { "type": "string" }
+      }
+    },
+    "lastUpdated": { "type": "string" }
+  }
+}

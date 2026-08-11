@@ -15,7 +15,7 @@ export type Faq = { q: string; a: string }
 /** Sources / further-reading — internal links + named public benchmarks (E-E-A-T). */
 export type Reference =
   | { kind: "internal"; label: string; href: string; note: string }
-  | { kind: "external"; label: string; note: string }
+  | { kind: "external"; label: string; href: string; note: string }
 
 /** Generic, product-level questions true on every pSEO page. Hash-sampled. */
 export const SHARED_FAQS: readonly Faq[] = [
@@ -85,8 +85,8 @@ export const GRADE_A_THRESHOLD = "A lead is Grade A when Fit ≥ 65, Intent ≥ 
 export const REFERENCES: readonly Reference[] = [
   { kind: "internal", label: "Indian B2B sales lead benchmarks (2026)", href: "/research/indian-b2b-sales-lead-benchmarks-2026", note: "Our own benchmark on how fast Indian B2B teams respond and where revenue leaks." },
   { kind: "internal", label: "How lead scoring works", href: "/learn/lead-scoring", note: "The full A–F methodology, Fit, Intent and Quality explained." },
-  { kind: "external", label: "Harvard Business Review, The Short Life of Online Sales Leads", note: "Firms are far more likely to qualify a lead when they respond within the hour; average response times run much longer." },
-  { kind: "external", label: "Salesforce, State of Sales", note: "Reps spend only a minority of the week actually selling; the rest goes to admin and triage." },
+  { kind: "external", label: "Harvard Business Review, The Short Life of Online Sales Leads", href: "https://hbr.org/2011/03/the-short-life-of-online-sales-leads", note: "Firms are far more likely to qualify a lead when they respond within the hour; average response times run much longer." },
+  { kind: "external", label: "Salesforce, State of Sales", href: "https://www.salesforce.com/resources/research-reports/state-of-sales/", note: "Reps spend only a minority of the week actually selling; the rest goes to admin and triage." },
 ]
 
 

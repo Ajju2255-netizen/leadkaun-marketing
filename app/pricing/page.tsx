@@ -15,14 +15,18 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { APP_URLS } from "@/lib/urls"
-import { faqPageSchema, offerSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
+import { faqPageSchema, offerSchema, breadcrumbListSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { PricingPlans } from "./pricing-plans"
 
+const pricingTitle = "Lead Management Software Pricing in ₹, Start Free"
+const pricingDescription =
+  "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999, flat per account, priced by team size and active-lead volume. Save 17% on annual billing."
+
 export const metadata: Metadata = {
-  title: "Lead Management Software Pricing in ₹, Start Free",
-  description:
-    "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999, flat per account, priced by team size and active-lead volume. Save 17% on annual billing.",
+  title: pricingTitle,
+  description: pricingDescription,
   alternates: { canonical: "/pricing" },
+  ...ogMeta({ title: pricingTitle, description: pricingDescription, path: "/pricing" }),
 }
 
 // Feature comparison — Free / Starter / Growth / Scale.

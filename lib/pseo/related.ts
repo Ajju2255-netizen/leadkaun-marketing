@@ -48,6 +48,19 @@ const GUIDE_BY_INDUSTRY: Record<string, { slug: string; label: string }> = {
 
 const DEFAULT_GUIDE = { slug: "lead-management-software-india", label: "Best lead management software in India" }
 
+/**
+ * Guides not tied to any single industry, so they never surface through
+ * GUIDE_BY_INDUSTRY/DEFAULT_GUIDE and were orphaned from the geo mesh (inbound
+ * only from the /best index). One is emitted per page, hash-rotated, so the
+ * ~17k geo pages distribute inbound links across them instead of leaving them
+ * stranded. Add `lead-tracking-software` here once that guide ships.
+ */
+const SECONDARY_GUIDES: ReadonlyArray<{ slug: string; label: string }> = [
+  { slug: "lead-prioritization-software", label: "Best lead prioritization software" },
+  { slug: "lead-routing-software",        label: "Best lead routing software" }, // lk-gate-ignore:lead-assignment — anchor to the category buyer guide, not a Leadkaun capability claim
+  { slug: "lead-qualification-software",  label: "Best lead qualification software" },
+]
+
 const PILLARS: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/learn/lead-management",  label: "Lead management: the complete guide" },
   { href: "/learn/lead-scoring",     label: "How lead scoring works, the A–F method" },
@@ -78,13 +91,16 @@ export function commercialLinks(seedKey: string, industrySlug?: string): Related
   const guide = (industrySlug && GUIDE_BY_INDUSTRY[industrySlug]) || DEFAULT_GUIDE
   const pillar = pick(PILLARS, seed)
   const feature = pick(FEATURES, seed >>> 3)
+  const secondaryGuide = pick(SECONDARY_GUIDES, seed >>> 6)
   // Ordered as a descending funnel — learn the concept, see the product surface,
   // compare the market, check the price, talk to someone. A flat pile of links
-  // reads as navigation; this reads as a path.
+  // reads as navigation; this reads as a path. The secondary guide feeds the
+  // industry-agnostic /best pages the primary map can't reach.
   return [
     { href: pillar.href, label: pillar.label, kind: "commercial-pillar" },
     { href: feature.href, label: feature.label, kind: "commercial-feature" },
     { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
+    { href: `/best/${secondaryGuide.slug}`, label: secondaryGuide.label, kind: "commercial-guide-secondary" },
     { href: "/pricing", label: "Leadkaun pricing in ₹, flat per account", kind: "commercial-pricing" },
     { href: "/demo", label: "Book a walkthrough", kind: "commercial-demo" },
   ]

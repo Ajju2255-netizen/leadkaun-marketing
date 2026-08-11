@@ -30,7 +30,7 @@ import { getIndustry, getCity, getRoles, resolveCitySlug } from "@/lib/pseo/look
 import { tier0Cities, tier0Industries } from "@/lib/pseo/tier0"
 import { selectModules } from "@/lib/pseo/spine"
 import { commercialLinks, relatedForIndustryCity } from "@/lib/pseo/related"
-import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, faqPageSchema, localBusinessSchema, placeSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
 export const revalidate = 86400
@@ -49,10 +49,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   ])
   if (!ind || !cityRec) return {}
   const canonicalCity = canonicalCityResolved ?? city
+  const title = `${ind.name} CRM & Lead Management in ${cityRec.name}`
+  const description = `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup the same day.`
+  const path = `/${industry}/${canonicalCity}`
   return {
-    title: `${ind.name} CRM & Lead Management in ${cityRec.name}, Leadkaun`,
-    description: `${cityRec.name} ${ind.name.toLowerCase()} teams use Leadkaun to grade every lead A–F, build a Priority Queue, and surface missed ₹ at risk. Setup the same day.`,
-    alternates: { canonical: `/${industry}/${canonicalCity}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...ogMeta({ title, description, path }),
     // Quality gate: Tier-4 markets stay noindex until the city record is enriched.
     // A note must clear the content-gate quality bar (>=20 chars) to promote a hub.
     robots: { index: hubIndexable(cityRec.tier, cityRec.population, (cityRec.notes?.trim().length ?? 0) >= 20), follow: true },
@@ -215,11 +219,16 @@ export default async function IndustryCityPage({ params }: Params) {
           </Container>
         </SectionGround>
 
-        {/* TESTIMONIAL */}
+        {/* ILLUSTRATIVE SCENARIO — anonymous and self-labelled "Illustrative scenario";
+            never presented as a real customer testimonial. Real, consented case
+            studies will replace this in Phase 4. */}
         {ind.proofQuote && (
           <SectionGround variant="cream" size="md">
             <Container>
               <Reveal className="mx-auto max-w-3xl">
+                <p className="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
+                  What this looks like in practice
+                </p>
                 <TestimonialCard quote={ind.proofQuote.text} />
               </Reveal>
             </Container>

@@ -44,13 +44,22 @@ export function ReferencesBlock({
                   </span>
                 </Link>
               ) : (
-                <div key={i} className="flex items-start gap-4 px-6 py-5">
+                <a
+                  key={i}
+                  href={r.href}
+                  target="_blank"
+                  rel="nofollow noopener"
+                  className="group flex items-start gap-4 px-6 py-5 transition-colors hover:bg-sky-50/40"
+                >
                   <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center font-mono text-[11px] text-ink-muted" aria-hidden>↗</span>
                   <span className="min-w-0">
-                    <span className="block text-[15px] font-semibold text-ink">{r.label}</span>
+                    <span className="flex items-center gap-1 text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">
+                      {r.label}
+                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-muted transition-colors group-hover:text-sky-500" />
+                    </span>
                     <span className="mt-1 block text-[13.5px] leading-[1.55] text-ink-soft">{r.note}</span>
                   </span>
-                </div>
+                </a>
               ),
             )}
           </FloatingCard>

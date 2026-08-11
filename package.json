@@ -10,7 +10,7 @@
     "gate": "node scripts/content-gate.mjs",
     "gate:warn": "node scripts/content-gate.mjs --warn",
     "measure:overlap": "node --experimental-strip-types scripts/measure-overlap.ts",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-sitemap": "node scripts/generate-xml-sitemap.js",
     "generate-xml-sitemap": "node scripts/generate-xml-sitemap.js",
     "postbuild": "node scripts/generate-xml-sitemap.js && node scripts/generate-llms-blueprints.mjs && node scripts/generate-search-index.js",
     "submit-urls": "node scripts/submit-urls.js",

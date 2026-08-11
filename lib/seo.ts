@@ -17,6 +17,36 @@ export function canonical(path: string): string {
   return SITE_URL + (path === "/" ? "" : path)
 }
 
+/** Default social/OG card image (1200×630). Also used as JSON-LD image fallback. */
+export const OG_IMAGE = `${SITE_URL}/og-default.png`
+
+/**
+ * Page-specific Open Graph + Twitter block for `generateMetadata`.
+ *
+ * Next.js applies the `title.template` ("%s | Leadkaun") only to the document
+ * <title>, never to `openGraph.title` — so without this, every page inherits
+ * the layout's single generic og:title. Spread the result into the metadata
+ * return (pages keep their own `title`, `alternates.canonical` and `robots`).
+ */
+export function ogMeta(params: { title: string; description: string; path: string; image?: string }) {
+  const image = params.image ?? OG_IMAGE
+  return {
+    openGraph: {
+      type: "website" as const,
+      url: canonical(params.path),
+      title: params.title,
+      description: params.description,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: params.title,
+      description: params.description,
+      images: [image],
+    },
+  }
+}
+
 type JsonLd = Record<string, unknown>
 
 export function organizationSchema(): JsonLd {
@@ -27,7 +57,7 @@ export function organizationSchema(): JsonLd {
     name: "Leadkaun",
     legalName: "Leadkaun",
     url: SITE_URL,
-    logo: `${SITE_URL}/og-default.png`,
+    logo: `${SITE_URL}/brand/leadkaun-logo.png`,
     description:
       "Sales Behaviour Operating System for Indian sales teams. Grades every lead A–F, builds Priority Queues, and surfaces missed revenue in rupees.",
     sameAs: [

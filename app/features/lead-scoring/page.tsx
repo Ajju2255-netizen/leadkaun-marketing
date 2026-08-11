@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight, Sparkles } from "lucide-react"
+import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight, Sparkles, Clock, IndianRupee, SlidersHorizontal, type LucideIcon } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -337,19 +337,40 @@ export default function LeadScoringPage() {
                     With decay, silence has consequences. Intent drops <span className="font-mono font-semibold text-ink">−3 pts / day</span> after the engagement threshold, so last week&apos;s Grade A becomes a B by Wednesday. A re-engagement signal spikes it back up.
                   </p>
                 </div>
-                <FloatingCard tier="3" depth="3" gloss className="p-7">
+                <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-7">
                   <div className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-500">
                     <Zap className="h-3.5 w-3.5" /> Worked example
                   </div>
-                  <div className="mt-4 space-y-3 font-mono text-[13px] tabular">
+                  {/* intent over time — decays, then a re-engagement signal spikes it */}
+                  <div className="mt-4">
+                    <svg viewBox="0 0 280 96" className="h-24 w-full" preserveAspectRatio="none" aria-hidden>
+                      <defs>
+                        <linearGradient id="decayFill" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#10B981" stopOpacity="0.26" />
+                          <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <line x1="0" y1="38.4" x2="280" y2="38.4" stroke="var(--hairline)" strokeDasharray="4 4" />
+                      <polygon points="20,24.96 100,39.36 180,48 260,38.4 260,96 20,96" fill="url(#decayFill)" />
+                      <polyline points="20,24.96 100,39.36 180,48 260,38.4" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                      {[["20", "24.96"], ["100", "39.36"], ["180", "48"], ["260", "38.4"]].map(([cx, cy], i) => (
+                        <circle key={i} cx={cx} cy={cy} r="3.5" fill="#fff" stroke="#10B981" strokeWidth="2" />
+                      ))}
+                    </svg>
+                    <div className="mt-1 flex justify-between font-mono text-[10px] text-ink-muted"><span>Day 0</span><span className="text-orange-500">−3 / day</span><span>Day 9</span></div>
+                  </div>
+                  <div className="mt-4 space-y-2.5">
                     {[
-                      ["Day 0 · initial contact", "Grade A · Intent 74", "text-mint-500 font-bold"],
-                      ["Day 5 · silence", "Grade A · Intent 59", "text-ink"],
-                      ["Day 8 · still silent", "Grade B · Intent 50", "text-orange-500"],
-                      ["Day 9 · WhatsApp reply +10", "Grade A · Intent 60", "text-mint-500 font-bold"],
-                    ].map(([d, v, cls], i, a) => (
-                      <div key={d} className="flex items-baseline justify-between pb-2.5" style={i < a.length - 1 ? { borderBottom: "1px solid var(--hairline)" } : undefined}>
-                        <span className="text-ink-soft">{d}</span><span className={cls}>{v}</span>
+                      { day: "Day 0 · initial contact", grade: "A" as Grade, intent: 74 },
+                      { day: "Day 5 · silence", grade: "A" as Grade, intent: 59 },
+                      { day: "Day 8 · still silent", grade: "B" as Grade, intent: 50 },
+                      { day: "Day 9 · WhatsApp reply +10", grade: "A" as Grade, intent: 60 },
+                    ].map((r) => (
+                      <div key={r.day} className="flex items-center gap-3">
+                        <GradeBadge grade={r.grade} size="sm" />
+                        <span className="min-w-0 flex-1 truncate font-mono text-[12px] text-ink-soft">{r.day}</span>
+                        <div className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-emerald-400" style={{ width: `${r.intent}%` }} /></div>
+                        <span className="w-6 text-right font-mono text-[12px] font-semibold tabular text-ink">{r.intent}</span>
                       </div>
                     ))}
                   </div>
@@ -473,15 +494,16 @@ export default function LeadScoringPage() {
               </p>
             </Reveal>
             <Reveal delay={0.06} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["A–F", "Every lead graded, in real time"],
-                ["3 scores", "Fit, Intent and Quality, published weights"],
-                ["Same day", "To your first graded lead"],
-                ["Flat ₹", "Priced per account, not per seat"],
-              ].map(([stat, label]) => (
-                <FloatingCard key={stat} tier="1" depth="1" gloss className="p-6 text-center">
-                  <p className="text-[30px] font-semibold tracking-[-0.02em] text-ink md:text-[34px]">{stat}</p>
-                  <p className="mt-2 text-[13px] leading-snug text-ink-soft">{label}</p>
+              {([
+                { Icon: Gauge, stat: "A–F", label: "Every lead graded, in real time" },
+                { Icon: SlidersHorizontal, stat: "3 scores", label: "Fit, Intent and Quality, published weights" },
+                { Icon: Clock, stat: "Same day", label: "To your first graded lead" },
+                { Icon: IndianRupee, stat: "Flat ₹", label: "Priced per account, not per seat" },
+              ] as { Icon: LucideIcon; stat: string; label: string }[]).map(({ Icon, stat, label }) => (
+                <FloatingCard key={stat} tier="2" depth="2" gloss aura="sky" className="p-6 text-center">
+                  <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-600 ring-1 ring-sky-100"><Icon className="h-5 w-5" strokeWidth={2} /></span>
+                  <p className="mt-4 text-[28px] font-semibold tracking-[-0.02em] text-ink md:text-[32px]">{stat}</p>
+                  <p className="mt-1.5 text-[13px] leading-snug text-ink-soft">{label}</p>
                 </FloatingCard>
               ))}
             </Reveal>

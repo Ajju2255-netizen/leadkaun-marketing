@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, Clock, CalendarClock, type LucideIcon } from "lucide-react"
+import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, CalendarClock, School, BookOpen, Building2, Plane, Rocket, type LucideIcon } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -13,11 +13,13 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { GradeBadge } from "@/app/components/demo/primitives"
+import { GradeDistribution } from "@/app/components/viz/grade-distribution"
 import { AppReplica } from "@/app/components/app-replica"
 import { Voices } from "@/app/components/voices"
 import type { Grade } from "@/lib/demo-app"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
+import { EdtechRoiCalc } from "./roi-calc"
 
 const title = "EdTech Lead Management India, score & prioritise student enquiries"
 const description =
@@ -72,6 +74,23 @@ const FEATURES: { Icon: LucideIcon; title: string; body: string; href: string }[
   { Icon: Users, title: "Counsellor Tracking", body: "Per-counsellor ₹ enrolled, Grade A response time, follow-ups kept, outcomes, not call-counts, so you coach the process, not the person.", href: "/features/sales-rep-tracking" },
 ]
 
+const COURSES: { Icon: LucideIcon; name: string; signal: string }[] = [
+  { Icon: School, name: "K-12 / School", signal: "Parent is the buyer. Proximity, board and sibling history weigh heaviest." },
+  { Icon: BookOpen, name: "Test Prep", signal: "Student intent plus the target exam date drive urgency. Short, sharp cycles." },
+  { Icon: Building2, name: "College Admissions", signal: "A dual parent-and-student decision. Fee sensitivity and cohort deadlines dominate." },
+  { Icon: Plane, name: "Study Abroad", signal: "Long cycle, high fee. Intake windows and visa timelines gate the score." },
+  { Icon: Rocket, name: "Upskilling", signal: "Self-funded, fast decisions. Job-outcome intent signals matter most." },
+]
+
+// Illustrative admissions funnel (share of the enquiry cohort reaching each stage).
+const FUNNEL = [
+  { stage: "Enquiries", count: 1000, color: "#38BDF8" },
+  { stage: "Graded A–F", count: 1000, color: "#0EA5E9" },
+  { stage: "Contacted from queue", count: 620, color: "#10B981" },
+  { stage: "Applied", count: 180, color: "#FB923C" },
+  { stage: "Enrolled", count: 74, color: "#F97316" },
+]
+
 const INSIGHT =
   "India is one of the world’s largest e-learning markets, with the edtech sector valued in the billions of dollars and projected to keep growing through the decade (IBEF). Course enquiries arrive in bulk from paid ads and referrals but vary wildly in intent, and most of the serious conversation now happens in long WhatsApp threads with fee-paying parents. Counselling teams that grade every enquiry, call the serious ones first, and follow up before the cohort fills simply enrol more of them."
 
@@ -91,6 +110,53 @@ const CITIES = [
   { city: "Hyderabad", href: "/edtech/hyderabad" },
   { city: "Chennai", href: "/edtech/chennai" },
 ]
+
+const GUIDES = [
+  { label: "Lead scoring, explained", href: "/features/lead-scoring" },
+  { label: "WhatsApp CRM for India", href: "/features/whatsapp-tracking" },
+  { label: "Pricing", href: "/pricing" },
+]
+
+/** Bespoke admissions-calendar intent-decay chart (server-safe SVG). */
+function SeasonChart() {
+  // grade y-positions (higher grade = higher on chart)
+  const pts = [
+    { m: "Apr", y: 18, g: "A" },
+    { m: "May", y: 26, g: "A" },
+    { m: "Jun", y: 48, g: "B" },
+    { m: "Jul", y: 72, g: "B" },
+    { m: "Aug", y: 96, g: "C" },
+    { m: "Sep", y: 120, g: "C" },
+  ]
+  const xs = (i: number) => 24 + i * 52
+  const line = pts.map((p, i) => `${xs(i)},${p.y}`).join(" ")
+  const area = `24,140 ${line} ${xs(pts.length - 1)},140`
+  return (
+    <svg viewBox="0 0 316 168" className="w-full" role="img" aria-label="A Grade A April enquiry decaying toward Grade C by September as the cohort fills">
+      <defs>
+        <linearGradient id="seasonFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.28" />
+          <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {/* grade bands */}
+      {[["A", 8, "#ECFDF5"], ["B", 44, "#F0F9FF"], ["C", 90, "#FFF7ED"]].map(([g, y, fill]) => (
+        <g key={String(g)}>
+          <rect x="24" y={Number(y)} width="268" height="36" fill={String(fill)} rx="2" />
+          <text x="30" y={Number(y) + 14} fontSize="9" fontFamily="monospace" fill="#94A3B8">{g}</text>
+        </g>
+      ))}
+      <polygon points={area} fill="url(#seasonFill)" />
+      <polyline points={line} fill="none" stroke="#0EA5E9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      {pts.map((p, i) => (
+        <g key={p.m}>
+          <circle cx={xs(i)} cy={p.y} r="3.5" fill="#fff" stroke="#0EA5E9" strokeWidth="2" />
+          <text x={xs(i)} y="160" fontSize="9" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{p.m}</text>
+        </g>
+      ))}
+    </svg>
+  )
+}
 
 export default function EdTechPage() {
   return (
@@ -232,11 +298,53 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
-        {/* 03 — EVERY FEATURE, FOR ADMISSIONS */}
+        {/* 03 — PARENT + STUDENT DUAL THREAD (text left, visual right) */}
         <SectionGround variant="pure" size="lg">
           <Container>
+            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+              <div>
+                <NumberedTag number="03" label="One enquiry, two decision-makers" />
+                <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
+                  The student is keen. The parent signs the cheque.
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft">
+                  A single admission is really two conversations, often in two WhatsApp threads. Each lead holds a primary and secondary contact, and 3-tap logging records who replied and when. The Intent Score reads both, so a sold student with a hesitant parent grades differently from one where the parent is already convinced.
+                </p>
+              </div>
+              <Reveal delay={0.06}>
+                <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-7">
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Nair enquiry · B.Tech CSE</p>
+                    <span className="inline-flex items-center gap-1.5"><GradeBadge grade="A" size="sm" /><span className="font-mono text-[11px] font-semibold text-emerald-600">Grade A</span></span>
+                  </div>
+                  <div className="mt-4 space-y-2.5">
+                    {[
+                      { who: "Kavya Nair", role: "Parent · primary", msg: "“What’s the fee and is a scholarship possible?”", intent: "High · +10" },
+                      { who: "Aarav Nair", role: "Student · secondary", msg: "“Booked the demo class for Saturday.”", intent: "High · +10" },
+                    ].map((c) => (
+                      <div key={c.who} className="rounded-xl bg-white/60 p-3.5 ring-1 ring-black/5">
+                        <div className="flex items-center gap-2">
+                          <MessageCircle className="h-3.5 w-3.5 text-emerald-500" />
+                          <span className="text-[13.5px] font-semibold text-ink">{c.who}</span>
+                          <span className="text-[11px] text-ink-muted">{c.role}</span>
+                          <span className="ml-auto rounded-md bg-emerald-50 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-100">{c.intent}</span>
+                        </div>
+                        <p className="mt-1.5 text-[12.5px] leading-snug text-ink-soft">{c.msg}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 border-t pt-3.5 text-[12px] leading-snug text-ink-muted rule-paper">Both threads point the same way, parent intent and student intent aligned. That&apos;s a Grade A worth calling today.</p>
+                </FloatingCard>
+              </Reveal>
+            </div>
+          </Container>
+        </SectionGround>
+
+        {/* 04 — EVERY FEATURE, FOR ADMISSIONS */}
+        <SectionGround variant="sky" size="lg">
+          <Container>
             <Reveal className="mb-12 max-w-3xl md:mb-16">
-              <NumberedTag number="03" label="The whole platform, for admissions" />
+              <NumberedTag number="04" label="The whole platform, for admissions" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Eight modules. Every one tuned to the enquiry-to-enrolment funnel.
               </h2>
@@ -259,8 +367,110 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
-        {/* 04 — INDUSTRY BENCHMARK */}
-        <SectionGround variant="sky" size="md">
+        {/* 05 — SEASONALITY (text left, decay chart right) */}
+        <SectionGround variant="pure" size="lg">
+          <Container>
+            <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
+              <div>
+                <NumberedTag number="05" label="Urgency on the admissions calendar" />
+                <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
+                  A Grade A in April is a Grade C by September.
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft">
+                  Intent decay is tied to your cohort-close date, not a flat clock. The same serious parent loses urgency as the batch fills and the window shuts, so the queue keeps reflecting who is still worth a call today. You tell Leadkaun your cycle; the default Indian admissions calendar is supported out of the box.
+                </p>
+              </div>
+              <Reveal delay={0.06}>
+                <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-7">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">One enquiry · intent vs cohort-close</p>
+                  <div className="mt-4"><SeasonChart /></div>
+                  <p className="mt-2 text-[12px] leading-snug text-ink-muted">Same parent, untouched. Grade slides as the seats fill, so a stalled April lead resurfaces before it&apos;s worthless.</p>
+                </FloatingCard>
+              </Reveal>
+            </div>
+          </Container>
+        </SectionGround>
+
+        {/* 06 — PER-COURSE ICP */}
+        <SectionGround variant="cream" size="lg">
+          <Container>
+            <Reveal className="mb-12 max-w-3xl md:mb-16">
+              <NumberedTag number="06" tone="warm" label="One score, tuned per course" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                A K-12 enquiry and a study-abroad one aren&apos;t the same buyer.
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+                Define a distinct ideal-customer profile per course. The scoring maths stays fixed and transparent, so grades stay comparable between counsellors; what changes is which signals matter for which programme.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {COURSES.map(({ Icon, name, signal }) => (
+                <FloatingCard key={name} tier="2" depth="2" gloss aura="sky" className="p-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-600 ring-1 ring-sky-100"><Icon className="h-[18px] w-[18px]" strokeWidth={2} /></span>
+                  <p className="mt-3.5 text-[14.5px] font-semibold text-ink">{name}</p>
+                  <p className="mt-1.5 text-[12.5px] leading-[1.55] text-ink-soft">{signal}</p>
+                </FloatingCard>
+              ))}
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* 07 — ENQUIRY TO ENROLMENT (funnel + grade distribution) */}
+        <SectionGround variant="pure" size="lg">
+          <Container>
+            <Reveal className="mb-12 max-w-3xl">
+              <NumberedTag number="07" label="From enquiry to enrolment" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                See the whole cohort narrow, and where it leaks.
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+                Every enquiry is graded, so you can watch the batch move from raw list to enrolled, and see which grade band is quietly falling out between contacted and applied.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="grid gap-5 md:grid-cols-2 md:gap-6">
+              <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-7">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Admissions funnel · illustrative</p>
+                <div className="mt-5 space-y-3">
+                  {FUNNEL.map((s) => (
+                    <div key={s.stage}>
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-[13px] text-ink-soft">{s.stage}</span>
+                        <span className="font-mono text-[12.5px] font-semibold tabular text-ink">{s.count.toLocaleString("en-IN")}<span className="ml-1.5 text-[11px] text-ink-muted">{Math.round((s.count / FUNNEL[0].count) * 100)}%</span></span>
+                      </div>
+                      <div className="mt-1.5 h-2.5 w-full overflow-hidden rounded-full bg-black/[0.04]">
+                        <div className="h-full rounded-full" style={{ width: `${(s.count / FUNNEL[0].count) * 100}%`, background: `linear-gradient(90deg, ${s.color}, ${s.color}cc)` }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </FloatingCard>
+              <FloatingCard tier="3" depth="3" gloss className="flex flex-col justify-center p-6 md:p-7">
+                <GradeDistribution />
+                <p className="mt-5 border-t pt-4 text-[12.5px] leading-snug text-ink-muted rule-paper">Grade A and B are your seats to protect this week. The Missed Opportunity Engine flags any that slip before they&apos;re contacted.</p>
+              </FloatingCard>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* 08 — ₹ AT RISK CALCULATOR */}
+        <SectionGround variant="sky" size="lg">
+          <Container>
+            <Reveal className="mb-10 max-w-3xl">
+              <NumberedTag number="08" label="What a cold enquiry costs" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                Put a rupee figure on the follow-ups you&apos;re missing.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <FloatingCard tier="3" depth="3" gloss className="p-6 md:p-9">
+                <EdtechRoiCalc />
+              </FloatingCard>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* INDUSTRY BENCHMARK */}
+        <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
               <FloatingCard tier="2" depth="2" gloss aura="sky" className="p-8 md:p-10">
@@ -272,11 +482,11 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
-        {/* 05 — IN THEIR WORDS (illustrative placeholders, not real customer statements) */}
-        <SectionGround variant="cream" size="lg">
+        {/* 09 — IN THEIR WORDS (illustrative placeholders, not real customer statements) */}
+        <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mb-12 max-w-2xl">
-              <NumberedTag number="05" tone="warm" label="In their words" />
+              <NumberedTag number="09" label="In their words" />
               <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
                 The seat wasn&apos;t lost on price. It was lost on a follow-up nobody sent.
               </h2>
@@ -285,22 +495,22 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
-        {/* 06 — FAQ */}
-        <SectionGround variant="pure" size="md">
+        {/* 10 — FAQ */}
+        <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="06" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="10" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">Admissions questions.</h2>
             </Reveal>
             <Reveal delay={0.08}><Faq items={FAQ} /></Reveal>
           </Container>
         </SectionGround>
 
-        {/* 07 — BY CITY */}
+        {/* 11 — BY CITY + GUIDES */}
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mb-8">
-              <NumberedTag number="07" tone="warm" label="EdTech by city" />
+              <NumberedTag number="11" tone="warm" label="EdTech by city" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[32px]">
                 Localised pages for top admissions markets.
               </h2>
@@ -312,10 +522,12 @@ export default function EdTechPage() {
                 </Link>
               ))}
             </div>
-            <div className="mt-8">
-              <Link href="/features/whatsapp-tracking" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
-                See how WhatsApp tracking works <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              {GUIDES.map((g) => (
+                <Link key={g.href} href={g.href} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+                  {g.label} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ))}
             </div>
           </Container>
         </SectionGround>

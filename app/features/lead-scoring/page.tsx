@@ -1,6 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
-import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight } from "lucide-react"
+import type { ReactNode } from "react"
+import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight, Sparkles } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -14,7 +15,6 @@ import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
-import { QuickAnswer } from "@/app/components/quick-answer"
 import { GradeBadge, ScoreCell } from "@/app/components/demo/primitives"
 import { AppReplica } from "@/app/components/app-replica"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
@@ -31,6 +31,18 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/features/lead-scoring" },
   ...ogMeta({ title, description, path: "/features/lead-scoring" }),
+}
+
+/** Inline highlighted term chip for the Quick Answer. */
+function Chip({ children, tone = "sky" }: { children: ReactNode; tone?: "sky" | "fit" | "intent" | "quality" | "warn" }) {
+  const styles: Record<string, string> = {
+    sky: "bg-sky-50 text-sky-700 ring-sky-200",
+    fit: "bg-rose-50 text-rose-700 ring-rose-200",
+    intent: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+    quality: "bg-sky-50 text-sky-700 ring-sky-200",
+    warn: "bg-orange-50 text-orange-700 ring-orange-200",
+  }
+  return <span className={`whitespace-nowrap rounded-md px-1.5 py-[1px] text-[13.5px] font-semibold ring-1 ${styles[tone]}`}>{children}</span>
 }
 
 /* ── Sample leads (illustrative demo data — same shape the product uses).
@@ -177,13 +189,22 @@ export default function LeadScoringPage() {
           </Reveal>
         </SectionGround>
 
-        {/* AI QUICK ANSWER (GEO / voice) */}
+        {/* AI QUICK ANSWER (GEO / voice) — accent card, key terms chipped.
+            Keeps .quick-answer-q / .quick-answer-a + Speakable schema for extraction. */}
         <SectionGround variant="pure" size="sm">
           <Container>
-            <QuickAnswer
-              question="How does Leadkaun's lead scoring work?"
-              answer="Leadkaun grades every lead A–F in real time from three independent 0–100 scores, Fit (ICP match), Intent (live engagement, which decays when a lead goes silent) and Quality (data reliability). A published threshold matrix turns the three into one grade, Quality below 20 forces F, and each grade maps to a fixed next action."
-            />
+            <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl border bg-white p-6 pl-7 md:p-8 md:pl-10" style={{ borderColor: "var(--paper-line)" }} data-quick-answer>
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", speakable: { "@type": "SpeakableSpecification", cssSelector: [".quick-answer-q", ".quick-answer-a"] } }) }} />
+              <span aria-hidden className="absolute inset-y-0 left-0 w-1.5" style={{ background: "linear-gradient(180deg,#38BDF8,#0EA5E9)" }} />
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-sky-500" aria-hidden />
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">Quick answer</p>
+              </div>
+              <p className="quick-answer-q mt-3 text-[16px] font-semibold text-ink md:text-[17px]">How does Leadkaun&apos;s lead scoring work?</p>
+              <p className="quick-answer-a mt-3 text-[16px] leading-[1.75] text-ink-soft">
+                Leadkaun grades every lead <Chip>A–F</Chip> in real time from three independent 0–100 scores — <Chip tone="fit">Fit</Chip> (ICP match), <Chip tone="intent">Intent</Chip> (live engagement, which decays when a lead goes silent) and <Chip tone="quality">Quality</Chip> (data reliability). A published threshold matrix turns the three into one grade, <Chip tone="warn">Quality below 20 forces F</Chip>, and each grade maps to a fixed next action.
+              </p>
+            </div>
           </Container>
         </SectionGround>
 

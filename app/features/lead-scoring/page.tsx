@@ -17,6 +17,7 @@ import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import { GradeBadge, ScoreCell } from "@/app/components/demo/primitives"
+import { AppReplica } from "@/app/components/app-replica"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
 import type { Grade } from "@/lib/demo-app"
 import { faqPageSchema, breadcrumbListSchema, jsonLdScript, ogMeta } from "@/lib/seo"
@@ -158,11 +159,29 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* 02 — THE THREE SCORES */}
+        {/* 02 — THE REAL INTERACTIVE DEMO (same app as the homepage, opened onto a lead's page) */}
+        <SectionGround variant="sky" size="lg">
+          <Container>
+            <Reveal className="mb-8 max-w-3xl">
+              <NumberedTag number="02" label="The live product" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                Open a lead and see the score for real.
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+                This is the actual product, not a video. It opens on a lead&apos;s page with its live Fit, Intent and Quality breakdown. Log a call or a WhatsApp reply and watch the grade and the Priority Queue re-rank.
+              </p>
+            </Reveal>
+          </Container>
+          <Reveal delay={0.06} className="mx-auto w-full max-w-[1360px] px-4 md:px-8">
+            <AppReplica initialView="lead" />
+          </Reveal>
+        </SectionGround>
+
+        {/* 03 — THE THREE SCORES */}
         <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16">
-              <NumberedTag number="02" label="Three independent scores" />
+              <NumberedTag number="03" label="Three independent scores" />
               <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Fit. Intent. Quality.
               </h2>
@@ -199,7 +218,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16">
-              <NumberedTag number="03" label="The Grade Matrix" />
+              <NumberedTag number="04" label="The Grade Matrix" />
               <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Every grade maps to a fixed action.
               </h2>
@@ -233,7 +252,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="cream" size="lg">
           <Container>
             <div className="mx-auto max-w-4xl">
-              <NumberedTag number="04" tone="warm" label="The intent decay rule" />
+              <NumberedTag number="05" tone="warm" label="The intent decay rule" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Silent leads drop automatically.
               </h2>
@@ -273,7 +292,7 @@ export default function LeadScoringPage() {
           <Container>
             <Reveal className="mb-10 grid items-center gap-10 md:grid-cols-2">
               <div>
-                <NumberedTag number="05" label="Import to graded" />
+                <NumberedTag number="06" label="Import to graded" />
                 <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
                   A list comes back as a distribution, not a pile.
                 </h2>
@@ -293,7 +312,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-8 max-w-3xl">
-              <NumberedTag number="06" tone="warm" label="In the product" />
+              <NumberedTag number="07" tone="warm" label="In the product" />
               <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
                 The real thing your reps open.
               </h2>
@@ -313,7 +332,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="07" label="Confidence & freshness" />
+              <NumberedTag number="08" label="Confidence & freshness" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
                 A thin lead is not a bad lead.
               </h2>
@@ -336,7 +355,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="08" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Questions about scoring.
               </h2>
@@ -349,7 +368,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mb-10">
-              <NumberedTag number="09" tone="warm" label="Works with" />
+              <NumberedTag number="10" tone="warm" label="Works with" />
               <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Scoring is step one. Here&apos;s what it connects to.
               </h2>
@@ -363,7 +382,7 @@ export default function LeadScoringPage() {
         <ProofBand />
 
         <CTABanner
-          tag={{ number: "10", label: "Ready when you are" }}
+          tag={{ number: "11", label: "Ready when you are" }}
           headline="See your leads graded the same day."
           sub="Import a CSV. Leadkaun grades every lead A–F within the hour. Free for 14 days."
         />

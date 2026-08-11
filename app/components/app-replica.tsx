@@ -262,11 +262,16 @@ function LeadPanel({ leadId, onClose, onOpenRecord }: { leadId: string; onClose:
 
 // ── Shell ─────────────────────────────────────────────────────────────────────
 
-export function AppReplica() {
+export function AppReplica({ initialView = "queue", initialLeadId }: { initialView?: View; initialLeadId?: string } = {}) {
   const [state, dispatch] = useReducer(demoReducer, INITIAL_STATE)
-  const [view, setView] = useState<View>("queue")
+  const [view, setView] = useState<View>(initialView)
   const [openId, setOpenId] = useState<string | null>(null)
-  const [detailId, setDetailId] = useState<string | null>(null)
+  // When opened straight onto a lead's page, select a lead so LeadDetailView has
+  // something to render (defaults to the first lead). Homepage passes nothing →
+  // initialView "queue" and no detail selected, so its behaviour is unchanged.
+  const [detailId, setDetailId] = useState<string | null>(
+    initialView === "lead" ? (initialLeadId ?? INITIAL_STATE.leads[0]?.id ?? null) : null
+  )
 
   // ── Scale to fit ──────────────────────────────────────────────────────────
   // The app is rendered at a real desktop width so its own layout rules apply

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, CalendarClock, School, BookOpen, Building2, Plane, Rocket, MapPin, TrendingUp, type LucideIcon } from "lucide-react"
+import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, CalendarClock, School, BookOpen, Building2, Plane, Rocket, MapPin, TrendingUp, Check, type LucideIcon } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -114,51 +114,66 @@ const GUIDES = [
   { label: "Pricing", href: "/pricing" },
 ]
 
+// Pricing — flat per account, mirrors /pricing (source of truth: plans table).
+const PLANS: { name: string; price: string; unit: string; meta: string; note: string; popular?: boolean }[] = [
+  { name: "Free", price: "₹0", unit: "for 14 days", meta: "1 user · 100 active leads", note: "Watch it grade your own enquiries. No card." },
+  { name: "Starter", price: "₹2,999", unit: "/month", meta: "Up to 10 users · 5,000 leads", note: "The full working system, uncapped." },
+  { name: "Growth", price: "₹7,999", unit: "/month", meta: "Up to 30 users · 25,000 leads", note: "Adds Missed Opportunity Engine, counsellor tracking and AI Learning.", popular: true },
+  { name: "Scale", price: "₹19,999", unit: "/month", meta: "Up to 75 users · unlimited leads", note: "Everything, at full admissions-floor size." },
+]
+
 /** Bespoke admissions-calendar intent-decay chart (server-safe SVG).
- *  Grade labels live in a left gutter so they never overlap the plotted line. */
+ *  Grade labels sit in a left gutter, and the plotted points are inset from the
+ *  band edges on every side so no marker or line-cap spills past the colour. */
 function SeasonChart() {
-  const bandH = 40
+  const bandX = 40
+  const bandW = 296 // band rects span x: 40 → 336
+  const bandH = 48
   const bands = [
-    { g: "A", y: 20, fill: "#ECFDF5" },
-    { g: "B", y: 62, fill: "#F0F9FF" },
-    { g: "C", y: 104, fill: "#FFF7ED" },
+    { g: "A", y: 16, fill: "#ECFDF5" },
+    { g: "B", y: 64, fill: "#F0F9FF" },
+    { g: "C", y: 112, fill: "#FFF7ED" },
   ]
-  const plotL = 44
-  const plotR = 324
-  const baseline = 144
+  // plot area inset ~28px from the band edges so end-dots stay inside the colour
+  const plotL = 68
+  const plotR = 308
+  const baseline = 160
   const pts = [
-    { m: "Apr", y: 34 },
-    { m: "May", y: 44 },
-    { m: "Jun", y: 74 },
-    { m: "Jul", y: 96 },
-    { m: "Aug", y: 118 },
-    { m: "Sep", y: 134 },
+    { m: "Apr", y: 30 },
+    { m: "May", y: 46 },
+    { m: "Jun", y: 80 },
+    { m: "Jul", y: 104 },
+    { m: "Aug", y: 130 },
+    { m: "Sep", y: 148 },
   ]
   const n = pts.length
   const xs = (i: number) => plotL + (i * (plotR - plotL)) / (n - 1)
   const line = pts.map((p, i) => `${xs(i)},${p.y}`).join(" ")
   const area = `${plotL},${baseline} ${line} ${plotR},${baseline}`
   return (
-    <svg viewBox="0 0 344 190" className="w-full" role="img" aria-label="A Grade A April enquiry decaying toward Grade C by September as the cohort fills">
+    <svg viewBox="0 0 348 200" className="w-full" role="img" aria-label="A Grade A April enquiry decaying toward Grade C by September as the cohort fills">
       <defs>
         <linearGradient id="seasonFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.26" />
+          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.24" />
           <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
         </linearGradient>
+        <clipPath id="seasonClip"><rect x={plotL - 6} y="10" width={plotR - plotL + 12} height="156" /></clipPath>
       </defs>
       {/* grade bands + left-gutter labels */}
       {bands.map((b) => (
         <g key={b.g}>
-          <rect x={plotL} y={b.y} width={plotR - plotL} height={bandH} fill={b.fill} rx="3" />
-          <text x="20" y={b.y + bandH / 2 + 3.5} fontSize="10" fontWeight="600" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{b.g}</text>
+          <rect x={bandX} y={b.y} width={bandW} height={bandH} fill={b.fill} rx="4" />
+          <text x="20" y={b.y + bandH / 2 + 3.5} fontSize="10.5" fontWeight="600" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{b.g}</text>
         </g>
       ))}
-      <polygon points={area} fill="url(#seasonFill)" />
+      <g clipPath="url(#seasonClip)">
+        <polygon points={area} fill="url(#seasonFill)" />
+      </g>
       <polyline points={line} fill="none" stroke="#0EA5E9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       {pts.map((p, i) => (
         <g key={p.m}>
           <circle cx={xs(i)} cy={p.y} r="4" fill="#fff" stroke="#0EA5E9" strokeWidth="2" />
-          <text x={xs(i)} y="166" fontSize="9.5" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{p.m}</text>
+          <text x={xs(i)} y="182" fontSize="9.5" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{p.m}</text>
         </g>
       ))}
     </svg>
@@ -585,6 +600,63 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
+        {/* 12 — PRICING */}
+        <SectionGround variant="sky" size="lg">
+          <Container>
+            <Reveal className="mb-10 max-w-3xl">
+              <NumberedTag number="12" label="Pricing" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                Flat per account, not per counsellor.
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+                Add the whole admissions floor without the bill climbing seat by seat. Priced by team size and active-lead volume, 14-day free trial, no card, ~17% off on annual.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {PLANS.map((p) => (
+                <FloatingCard key={p.name} tier={p.popular ? "3" : "2"} depth={p.popular ? "3" : "2"} gloss aura={p.popular ? "sky" : "none"} className={`relative flex flex-col p-6 ${p.popular ? "ring-2 ring-sky-300" : ""}`}>
+                  {p.popular && <span className="absolute -top-2.5 left-6 rounded-full bg-sky-600 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-white">★ Most popular</span>}
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{p.name}</p>
+                  <p className="mt-3 flex items-baseline gap-1.5">
+                    <span className="font-mono text-[30px] font-semibold tracking-[-0.02em] tabular text-ink">{p.price}</span>
+                    <span className="text-[12.5px] text-ink-muted">{p.unit}</span>
+                  </p>
+                  <p className="mt-2 text-[12.5px] font-medium text-ink">{p.meta}</p>
+                  <p className="mt-2.5 flex-1 text-[12.5px] leading-[1.55] text-ink-soft">{p.note}</p>
+                  <a href={APP_URLS.register} className={`mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-[13.5px] font-semibold transition-all ${p.popular ? "text-white hover:-translate-y-0.5" : "border bg-white text-ink hover:border-sky-300"}`} style={p.popular ? { background: "#0877B8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" } : { borderColor: "var(--paper-line-2)" }}>
+                    {p.name === "Free" ? "Start free" : `Start ${p.name}`} <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </FloatingCard>
+              ))}
+            </Reveal>
+            <Reveal delay={0.12} className="mt-5">
+              <FloatingCard tier="2" depth="2" gloss className="flex flex-col items-start justify-between gap-4 p-6 sm:flex-row sm:items-center">
+                <div className="flex items-start gap-3.5">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-ink/[0.05] text-ink-soft"><Users className="h-5 w-5" strokeWidth={2} /></span>
+                  <div>
+                    <p className="text-[15px] font-semibold text-ink">Enterprise, more than 75 counsellors</p>
+                    <p className="mt-1 text-[13px] leading-[1.55] text-ink-soft">Unlimited users, workspaces and leads on dedicated infrastructure, with SSO, private cloud and a success manager.</p>
+                  </div>
+                </div>
+                <Link href="/pricing" className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl border bg-white px-5 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+                  Talk to sales <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </FloatingCard>
+            </Reveal>
+            <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2.5">
+              {["14-day free trial", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
+                <span key={t} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink-soft">
+                  <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full" style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)" }}><Check className="h-3 w-3 text-white" strokeWidth={3} /></span>
+                  {t}
+                </span>
+              ))}
+              <Link href="/pricing" className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-sky-600 hover:text-sky-500">
+                See full pricing &amp; comparison <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
         {/* CLOSING CTA */}
         <SectionGround variant="pure" size="lg">
           <Container>
@@ -606,8 +678,8 @@ export default function EdTechPage() {
                   <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
                     Start free trial <ArrowRight className="h-4 w-4" />
                   </a>
-                  <Link href="/pricing" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
-                    See pricing
+                  <Link href="/how-it-works" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+                    How it works
                   </Link>
                 </div>
                 <p className="ledger-num relative mt-8 text-[11.5px] uppercase tracking-[0.16em] text-ink-muted">Free ₹0 · no card · same-day setup · runs alongside your SIS</p>

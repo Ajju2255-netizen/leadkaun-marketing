@@ -30,7 +30,7 @@ import { execSync } from "node:child_process"
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..")
 const require = createRequire(import.meta.url)
-const { leafIndexable, hubIndexable, INDEX_MAX_TIER, HUB_INDEX_MAX_TIER, HUB_MIN_POPULATION } =
+const { leafIndexable, hubIndexable, roleCityIndexable, INDEX_MAX_TIER, HUB_INDEX_MAX_TIER, HUB_MIN_POPULATION } =
   require("../lib/pseo/gate.js")
 
 const SKIP_OVERLAP = process.argv.includes("--no-overlap")
@@ -65,6 +65,7 @@ const isLeafCity = (c) => leafIndexable(c.tier, !!c.districts)
 const isHubCity = (c) => hubIndexable(c.tier, c.population, (c.notes?.trim().length ?? 0) >= 20)
 const leafCities = cities.filter(isLeafCity)
 const hubCities = cities.filter(isHubCity)
+const roleCities = cities.filter((c) => roleCityIndexable(c.tier, !!c.districts))
 
 const tierCount = (t) => cities.filter((c) => c.tier === t).length
 const withNotes = cities.filter((c) => (c.notes?.trim().length ?? 0) >= 20).length
@@ -86,7 +87,7 @@ const families = [
   { label: "City hub", route: "/city/[city]", kind: "geo", total: cities.length, index: hubCities.length, gate: "hub", gsc: true },
   { label: "Industry × city", route: "/[industry]/[city]", kind: "geo", total: cities.length * nInd, index: hubCities.length * nInd, gate: "hub", gsc: true, overlapRisk: true },
   { label: "Industry × city × keyword", route: "/[industry]/[city]/[keyword]", kind: "geo", total: cities.length * nInd * nKw, index: leafCities.length * nInd * nKw, gate: "leaf", gsc: true, overlapRisk: true },
-  { label: "Role × city", route: "/for/[role]/[city]", kind: "geo", total: nRole * cities.length, index: nRole * leafCities.length, gate: "leaf", gsc: true, overlapRisk: true },
+  { label: "Role × city", route: "/for/[role]/[city]", kind: "geo", total: nRole * cities.length, index: nRole * roleCities.length, gate: "role", gsc: true, overlapRisk: true },
   // — data-driven commercial/knowledge —
   dataFamily("Best guides", "/best/[slug]", "best.json", (g) => g.indexable !== false),
   dataFamily("Alternatives", "/alternatives/[slug]", "alternatives.json"),

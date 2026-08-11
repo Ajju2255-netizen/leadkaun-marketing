@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { leafIndexable } from "@/lib/pseo/indexable"
+import { roleCityIndexable } from "@/lib/pseo/indexable"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -54,9 +54,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description,
     alternates: { canonical: path },
     ...ogMeta({ title, description, path }),
-    // Quality-first: role pages for smaller cities are noindexed until they clear
-    // the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
-    robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },
+    // Phase 1 (2026-08): role × city pages are consolidated into the /city hub —
+    // held noindex,follow (they earned ~0 in GSC). Still render + pass link equity.
+    robots: { index: roleCityIndexable(cityRec.tier, !!cityRec.districts), follow: true },
   }
 }
 

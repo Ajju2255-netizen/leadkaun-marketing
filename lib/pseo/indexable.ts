@@ -28,3 +28,8 @@ export function leafIndexable(tier: number, hasRichData = false): boolean {
 export function hubIndexable(tier: number, population: number, hasData: boolean): boolean {
   return gate.hubIndexable(tier, population, hasData);
 }
+
+/** Role × city indexable — consolidated to `noindex,follow` in Phase 1; see `./gate.js`. */
+export function roleCityIndexable(tier: number, hasRichData = false): boolean {
+  return gate.roleCityIndexable(tier, hasRichData);
+}

@@ -148,16 +148,18 @@ const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6"
 // URL. Leaves (keyword/role) index for Tier ≤ 2 or rich-district cities; hubs
 // (city + industry×city) index for Tier ≤ 2, Tier 3 with local notes, or a
 // substantial city (≥ 1.5 lakh) with local notes.
-const { leafIndexable, hubIndexable } = require("../lib/pseo/gate")
+const { leafIndexable, hubIndexable, roleCityIndexable } = require("../lib/pseo/gate")
 const leafIndexableCity = (c) => leafIndexable(c.tier, !!c.districts)
 const hubIndexableCity = (c) => hubIndexable(c.tier, c.population, (c.notes && c.notes.trim().length >= 20))
+const roleCityIndexableCity = (c) => roleCityIndexable(c.tier, !!c.districts)
 const indexableCities = citiesData.filter(leafIndexableCity)
 const hubCities = citiesData.filter(hubIndexableCity)
 
 const pseoCity = [
   ...hubCities.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
+  // Role × city consolidated (Phase 1): noindex → excluded from the sitemap.
   ...rolesData.flatMap((r) =>
-    indexableCities.map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
+    citiesData.filter(roleCityIndexableCity).map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
   ),
 ]
 
@@ -287,7 +289,8 @@ const nKw = keywordsData.length
 const nRole = rolesData.length
 const hubTotal = nCity * nInd, hubLive = hubCities.length * nInd
 const leafTotal = nCity * nInd * nKw, leafLive = indexableCities.length * nInd * nKw
-const cityLive = hubCities.length, roleTotal = nCity * nRole, roleLive = indexableCities.length * nRole
+const cityLive = hubCities.length, roleTotal = nCity * nRole
+const roleLive = citiesData.filter(roleCityIndexableCity).length * nRole
 const pct = (a, b) => (b ? ((a / b) * 100).toFixed(1) : "0.0")
 console.log(`\n  Gate (Live : total permutations — the anti-junk split):`)
 console.log(`   industry×city hubs   ${String(hubLive).padStart(6)} / ${hubTotal}  (${pct(hubLive, hubTotal)}%  — ${hubCities.length}/${nCity} cities)`)

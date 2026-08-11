@@ -14,6 +14,7 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { GradeBadge, ScoreCell } from "@/app/components/demo/primitives"
+import { Voices } from "@/app/components/voices"
 import { AppReplica } from "@/app/components/app-replica"
 import { GradeDistribution } from "@/app/components/viz/grade-distribution"
 import type { Grade } from "@/lib/demo-app"
@@ -484,6 +485,20 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
+        {/* 10 — IN THEIR WORDS (reuses the homepage <Voices/>; illustrative placeholders,
+            NOT real customer statements, and deliberately not wired to Review schema) */}
+        <SectionGround variant="cream" size="lg">
+          <Container>
+            <Reveal className="mb-12 max-w-2xl">
+              <NumberedTag number="10" tone="warm" label="In their words" />
+              <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
+                Nobody switches over a score. They switch over one lead they lost.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}><Voices /></Reveal>
+          </Container>
+        </SectionGround>
+
         {/* PROOF — product-mechanics stat tiles (bespoke) */}
         <SectionGround variant="cream" size="md">
           <Container>
@@ -516,7 +531,7 @@ export default function LeadScoringPage() {
             <Reveal className="mx-auto max-w-4xl">
               <div className="relative overflow-hidden rounded-3xl border p-10 text-center md:p-14" style={{ borderColor: "var(--paper-line)", background: "linear-gradient(180deg,#FFFFFF, var(--paper))" }}>
               <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-96 rounded-full opacity-30 blur-[110px]" style={{ background: "radial-gradient(circle,#BAE6FD 0%,transparent 70%)" }} />
-              <p className="ledger-num relative text-[11px] uppercase tracking-[0.22em] text-sky-600">Ready when you are</p>
+              <p className="ledger-num relative text-[11px] uppercase tracking-[0.22em] text-sky-600">11 · Ready when you are</p>
               <h2 className="display-lg relative mx-auto mt-5 max-w-2xl text-[30px] text-ink md:text-[44px]">
                 See your leads graded{" "}
                 <span className="relative inline-block text-sky-600">

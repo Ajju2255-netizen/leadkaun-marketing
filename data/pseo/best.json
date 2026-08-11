@@ -9,13 +9,38 @@
       "question": "What is the best lead management software in India?",
       "answer": "For Indian B2B SMBs that want leads graded and prioritised automatically, Leadkaun is the strongest fit. It grades every lead A–F in real time, builds a Priority Queue per rep, and treats WhatsApp as a first-class signal, at flat INR pricing. Zoho CRM suits teams wanting deep customisation, LeadSquared suits high-volume lead-gen, and Zoho Bigin suits micro-teams."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
+    "keyTakeaways": [
+      "There is no single \"best\" tool — the right one depends on team size, sales motion, and whether you sell WhatsApp-first.",
+      "For automatic A–F grading and a per-rep Priority Queue at flat INR pricing, Leadkaun is the strongest fit for Indian B2B SMBs.",
+      "Zoho CRM wins on customisation, LeadSquared on high-volume lead-gen, Kylas on flat unlimited-user pricing, TeleCRM on telecalling.",
+      "Flat per-account pricing usually beats per-seat once you have several reps.",
+      "Pipedrive and HubSpot are capable but USD-priced and not WhatsApp-native — a weaker fit for most Indian desks."
+    ],
+    "whatItIs": {
+      "heading": "What lead management software actually does",
+      "body": [
+        "Lead management software captures every enquiry from your sources, keeps them in one place, and helps your team decide who to contact first and when. Modern tools also qualify and score leads by how likely they are to convert, send them to the right rep, and track follow-up so hot leads don't go cold.",
+        "For Indian B2B SMBs the deciding factors are narrower than the global feature lists suggest: does it handle WhatsApp as a real channel, is it priced in rupees without per-seat creep, and will a busy rep actually open it every morning? This guide ranks nine tools against exactly those questions.",
+        "If you want the concept in depth — the stages, the metrics, and where scoring fits — read the complete guide. This page is the commercial shortlist."
+      ]
+    },
     "criteria": [
       "Lead scoring quality, real-time and behaviour-based, or just points?",
       "WhatsApp handling, first-class signal, native, or bolt-on?",
       "Pricing model, flat per account vs per user, INR vs USD",
       "Rep adoption, how likely a busy Indian sales rep actually uses it daily",
       "Setup time and India-specific fit (phone normalisation, lakh/crore, response-time focus)"
+    ],
+    "matrixTools": ["Leadkaun", "Zoho CRM", "LeadSquared", "Kylas", "TeleCRM", "Pipedrive"],
+    "featureMatrix": [
+      { "capability": "Real-time A–F lead grading", "note": "not just static points", "cells": ["yes", "Points", "Rules", "Rules", "no", "no"] },
+      { "capability": "Auto-ranked Priority Queue", "note": "tells each rep who to call next", "cells": ["yes", "Manual", "Manual", "Manual", "Manual", "Manual"] },
+      { "capability": "WhatsApp", "cells": ["Signal (log)", "Integration", "Yes", "Yes", "API", "no"] },
+      { "capability": "Pricing model", "cells": ["Flat / account", "Per user", "Per user", "Flat / unlimited", "Per user", "Per user"] },
+      { "capability": "INR pricing", "cells": ["yes", "yes", "yes", "yes", "yes", "no"] },
+      { "capability": "Free plan", "cells": ["yes", "3 users", "no", "no", "Trial", "no"] },
+      { "capability": "Pre-import data check", "note": "profiles the file before it lands", "cells": ["yes", "no", "no", "no", "no", "no"] }
     ],
     "picks": [
       {
@@ -34,9 +59,9 @@
         "name": "Zoho CRM",
         "tagline": "The default customisable Indian SMB CRM.",
         "bestFor": "Teams that want deep customisation and the wider Zoho ecosystem.",
-        "pricingNote": "Per user, INR. Professional ~₹2,400/user/mo (verify 2026).",
+        "pricingNote": "Per user, INR — Standard ₹800 to Enterprise ₹2,400/user/mo (+GST); Free for 3 users. Verified 2026-08.",
         "whyPick": "Huge feature surface, 60+ native integrations, scales from tiny to 500+ reps, deep workflow customisation via Deluge.",
-        "watchOut": "Logging a call takes several clicks, rep adoption in Indian SMBs is often 30–40%. Scoring is points-based with no decay.",
+        "watchOut": "Logging a call takes several clicks, so daily rep adoption often lags on busy sales desks. Scoring is points-based with no decay.",
         "url": "/compare/leadkaun-vs-zoho-crm"
       },
       {
@@ -44,7 +69,7 @@
         "name": "LeadSquared",
         "tagline": "India-built, high-volume lead-gen and marketing automation.",
         "bestFor": "High-volume lead-gen teams in edtech, BFSI, and real estate.",
-        "pricingNote": "Per user, INR (custom/mid-market).",
+        "pricingNote": "Per user, INR — roughly ₹1,250–₹4,500/user/mo (min 2 users); largely sales-led quotes. Verified 2026-08.",
         "whyPick": "Strong at capturing and routing large lead volumes with marketing automation and activity tracking.",
         "watchOut": "Tracks activity, not behaviour; can be heavy and pricey for a small B2B team.",
         "url": "/compare/leadkaun-vs-leadsquared"
@@ -54,7 +79,7 @@
         "name": "Kylas",
         "tagline": "India-first CRM with unlimited users at a flat rate.",
         "bestFor": "Larger/growing teams that want no per-seat cost.",
-        "pricingNote": "Flat ~₹12,999/mo, unlimited users (verify 2026).",
+        "pricingNote": "Flat ₹12,999/mo, unlimited users (onboarding included). Verified 2026-08.",
         "whyPick": "Unlimited users on paid plans, guided onboarding, native WhatsApp, solid lead capture and routing.",
         "watchOut": "Flat rate is expensive for small teams; scoring is rule-based, not real-time intent grading.",
         "url": "/compare/leadkaun-vs-kylas"
@@ -64,7 +89,7 @@
         "name": "Freshsales",
         "tagline": "Clean UI with built-in phone and email.",
         "bestFor": "Teams that want a simple CRM with telephony baked in.",
-        "pricingNote": "Per user; free tier available.",
+        "pricingNote": "Per user, INR — Growth ₹1,099 to Enterprise ₹6,099/user/mo (+GST); Free for 3 users. Verified 2026-08.",
         "whyPick": "Low learning curve, built-in phone/email, decent automation.",
         "watchOut": "Its \"AI\" (Freddy) scoring is fairly opaque; less India-specific behaviour tooling.",
         "url": "/compare/leadkaun-vs-freshsales"
@@ -74,7 +99,7 @@
         "name": "Zoho Bigin",
         "tagline": "Lightweight CRM for micro-teams.",
         "bestFor": "Solopreneurs and teams under ~10 who need a simple pipeline.",
-        "pricingNote": "Per user, from ~₹400/user/mo (verify 2026); free single-user tier.",
+        "pricingNote": "Per user — Express ₹400/user/mo (annual); free single-user tier. Verified 2026-08.",
         "whyPick": "Very cheap and easy; native WhatsApp Business from the entry tier.",
         "watchOut": "No real lead-scoring engine; automation hits a ceiling as you grow.",
         "url": "/compare/leadkaun-vs-zoho-bigin"
@@ -84,10 +109,30 @@
         "name": "HubSpot",
         "tagline": "Marketing-first, global, generous free tier.",
         "bestFor": "Content-led teams that want marketing + CRM in one, and don't mind USD.",
-        "pricingNote": "USD, per seat; free tier, paid tiers escalate fast.",
+        "pricingNote": "USD, per seat — free CRM; Sales Hub Starter $20, Professional $100/seat (min 5 seats). Verified 2026-08.",
         "whyPick": "Best-in-class marketing tooling and a strong free CRM to start.",
         "watchOut": "USD pricing gets expensive at scale; overbuilt for most Indian SMB sales desks.",
         "url": "/compare/leadkaun-vs-hubspot"
+      },
+      {
+        "rank": 8,
+        "name": "TeleCRM",
+        "tagline": "Telecalling-first Indian CRM with autodialer and WhatsApp.",
+        "bestFor": "High-volume telecalling teams that live on the phone and WhatsApp.",
+        "pricingNote": "Per user, ~₹799/user/mo (~₹7,188/user/year). Verified 2026-08.",
+        "whyPick": "Purpose-built for telecalling: click-to-call autodialer, multi-channel lead capture (IndiaMART, Justdial, Sulekha, Facebook), automatic assignment to callers, and a WhatsApp API.",
+        "watchOut": "Optimised for outbound calling volume; lighter on real-time lead grading and pipeline analytics than a scoring-led tool.",
+        "url": "/compare/leadkaun-vs-telecrm"
+      },
+      {
+        "rank": 9,
+        "name": "Pipedrive",
+        "tagline": "Global pipeline-first sales CRM.",
+        "bestFor": "Deal-pipeline-driven teams comfortable with USD pricing and paid add-ons.",
+        "pricingNote": "USD, per seat — $14–$79/user/mo; no free plan, 14-day trial. Verified 2026-08.",
+        "whyPick": "Clean visual pipeline, strong deal-stage workflow, and a large integration marketplace; LeadBooster add-on for lead capture.",
+        "watchOut": "USD-only (no INR list), no native WhatsApp, and lead-gen features are paid add-ons — a poor fit for WhatsApp-first Indian desks.",
+        "url": "/compare/leadkaun-vs-pipedrive"
       }
     ],
     "faqs": [
@@ -96,17 +141,74 @@
         "a": "Lead management software captures incoming leads, organises them, and helps reps decide who to contact first and when. The best tools also score leads by likelihood to convert and track follow-up so hot leads don't go cold."
       },
       {
+        "q": "What is the difference between lead management software and a CRM?",
+        "a": "A CRM is the system of record for contacts, deals and history. Lead management is the layer that decides what happens next with a new enquiry — qualifying, scoring and prioritising it. Many CRMs include lead-management features; some tools (like Leadkaun) run as a focused behaviour layer alongside an existing CRM."
+      },
+      {
+        "q": "Are there free lead management tools?",
+        "a": "Yes. Leadkaun has a Free ₹0 tier, Zoho CRM is free for up to 3 users, Freshsales has a free tier, and HubSpot's CRM is free for unlimited users. Free plans cap volume or features, but they are a genuine way to start before paying."
+      },
+      {
         "q": "Which lead management software is best for a small Indian B2B team?",
         "a": "For a small team, flat-priced tools avoid per-seat cost creep. Leadkaun (flat INR, with a Free tier) and Zoho Bigin (cheap per-user) are common starting points; Leadkaun adds automatic A–F grading and a Priority Queue that Bigin doesn't have."
       },
       {
+        "q": "Can I import my existing leads, or connect Google Sheets?",
+        "a": "Yes. Most tools import a CSV; Leadkaun also lets you connect a Google Sheet to pull in new rows, and profiles the file before import to flag bad numbers, duplicates and missing fields. Every lead is graded A–F the moment it lands."
+      },
+      {
         "q": "Do these tools support WhatsApp?",
-        "a": "Several do. Zoho Bigin, Kylas, and TeleCRM offer native WhatsApp; Leadkaun treats a logged WhatsApp reply as a ranked Intent signal that can change a lead's grade. HubSpot and Pipedrive need third-party WhatsApp integrations."
+        "a": "Several do. Kylas and LeadSquared offer WhatsApp, TeleCRM has a WhatsApp API, and Zoho Bigin has WhatsApp Business; Leadkaun treats a logged WhatsApp reply as a ranked Intent signal that can change a lead's grade. HubSpot and Pipedrive need third-party WhatsApp integrations."
+      },
+      {
+        "q": "Can lead management software prioritise leads for me?",
+        "a": "Some can. Most tools give you filters and views you sort yourself; a scoring-led tool like Leadkaun grades each lead A–F and builds a ranked Priority Queue per rep automatically, so the list re-sorts as new signals arrive instead of relying on the rep to remember."
       },
       {
         "q": "Is per-user or flat pricing better?",
         "a": "Flat per-account pricing (Leadkaun, Kylas) is usually better once you have several reps, because cost doesn't grow with headcount. Per-user pricing (Zoho, Freshsales, Bigin) can be cheaper for very small teams."
       }
+    ],
+    "howItWorks": [
+      { "step": "Import and check the data", "body": "Upload a CSV or connect a Google Sheet. Intake Intelligence profiles the file before import — flagging currency and phone-number shape, likely B2B vs B2C, missing fields and duplicates — so you see the data quality before it lands.", "shot": "/screenshots/leads.png", "shotAlt": "Leadkaun lead list with every lead graded A–F" },
+      { "step": "Grade every lead A–F", "body": "Each lead gets three independent 0–100 scores — Fit, Intent and Quality — that combine into a single A–F grade. Intent decays as a lead goes quiet, and low data Quality caps the grade, so bad data can't masquerade as a hot lead.", "shot": "/screenshots/queue.png", "shotAlt": "The Priority Queue ranking leads for a rep" },
+      { "step": "Work the Priority Queue", "body": "Each rep opens one ranked list of who to contact next, not a wall of filters. It re-sorts as new signals arrive — a WhatsApp reply logged, a pricing-page visit — so the top of the queue is always the lead most worth the next call.", "shot": "/screenshots/follow-ups.png", "shotAlt": "Follow-up workflow in Leadkaun" },
+      { "step": "See the ₹ at risk", "body": "The Missed Opportunity view surfaces graded leads going cold and the rupee value at risk, per rep and per week, so revenue slipping through follow-up gaps becomes visible before it's gone.", "shot": "/screenshots/missed.png", "shotAlt": "Missed opportunity view showing revenue at risk" },
+      { "step": "Measure what the team actually did", "body": "Analytics show whether reps worked the queue and followed recommendations — behaviour, not just activity counts — so a Monday review is about what happened next, not who logged the most calls.", "shot": "/screenshots/analytics.png", "shotAlt": "Leadkaun analytics dashboard" }
+    ],
+    "indiaSection": {
+      "heading": "Why \"in India\" changes the answer",
+      "intro": "The global \"best CRM\" lists rarely account for how Indian B2B teams actually sell. These are the realities this ranking weights.",
+      "points": [
+        { "title": "WhatsApp is a real channel, not a bolt-on", "body": "Most Indian B2B conversations happen on WhatsApp. Leadkaun logs each exchange in three taps and treats it as a ranked Intent signal; tools that only add WhatsApp through a third party lose that context." },
+        { "title": "Rupees, lakhs and crores", "body": "Pricing, deal values and missed-revenue figures show in ₹ with lakh and crore formatting — no USD conversion tax and no mental maths." },
+        { "title": "Indian phone numbers, handled", "body": "+91 and E.164 normalisation with duplicate detection on import, so numbers from IndiaMART, Justdial and web forms line up instead of fragmenting." },
+        { "title": "Priced for the whole team", "body": "Flat per-account pricing means you can put every rep on it without per-seat maths — the reason per-seat tools quietly get rationed to a few power users." }
+      ]
+    },
+    "useCaseHandoffs": [
+      { "label": "Real estate", "href": "/best/crm-for-real-estate-india", "blurb": "Portal enquiries, site visits and booking follow-up." },
+      { "label": "EdTech & admissions", "href": "/best/crm-for-edtech-india", "blurb": "Counselling, application and enrolment pipelines." },
+      { "label": "BFSI & telecalling", "href": "/best/telecalling-crm-india", "blurb": "High-volume calling with attribution and compliance." },
+      { "label": "Manufacturing", "href": "/best/crm-for-manufacturing-india", "blurb": "RFQ-to-purchase-order, quotation-driven sales." },
+      { "label": "Small business", "href": "/best/sales-crm-for-small-business-india", "blurb": "Simple, affordable CRM for lean teams." },
+      { "label": "WhatsApp-first sales", "href": "/best/whatsapp-crm-india", "blurb": "Teams that run their pipeline on WhatsApp." }
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (100 active leads, 14 days) with no card required.",
+      "onSignup": "Run the onboarding wizard (your ICP: industries, states, roles, budget bands), import a CSV, and every lead is graded A–F immediately.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    },
+    "relatedLearn": [
+      { "href": "/learn/lead-management", "label": "Lead management: the complete guide" },
+      { "href": "/learn/lead-scoring", "label": "How lead scoring works (the A–F method)" },
+      { "href": "/learn/lead-prioritization", "label": "Lead prioritization, explained" }
+    ],
+    "relatedFeatures": [
+      { "href": "/features/lead-scoring", "label": "Lead scoring — grade A–F in real time" },
+      { "href": "/features/priority-queue", "label": "The Priority Queue" },
+      { "href": "/features/intake-intelligence", "label": "Check a lead list before you import" }
     ],
     "relatedCompares": [
       "leadkaun-vs-zoho-crm",

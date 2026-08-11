@@ -49,6 +49,19 @@ const GUIDE_BY_INDUSTRY: Record<string, { slug: string; label: string }> = {
 const DEFAULT_GUIDE = { slug: "lead-management-software-india", label: "Best lead management software in India" }
 
 /**
+ * Anchor pool for the india guide — the single most-linked /best page (DEFAULT +
+ * healthcare, and DEFAULT fires on every city page). Rotated per-URL so ~2k geo
+ * pages don't all ship the identical exact-match anchor (over-optimisation).
+ */
+const LMS_ANCHORS: readonly string[] = [
+  "Best lead management software in India",
+  "Lead management software for Indian teams",
+  "How Leadkaun grades and prioritises leads",
+  "Our lead management buyer's guide",
+  "Compare lead management tools in India",
+]
+
+/**
  * Guides not tied to any single industry, so they never surface through
  * GUIDE_BY_INDUSTRY/DEFAULT_GUIDE and were orphaned from the geo mesh (inbound
  * only from the /best index). One is emitted per page, hash-rotated, so the
@@ -89,6 +102,9 @@ const FEATURES: ReadonlyArray<{ href: string; label: string }> = [
 export function commercialLinks(seedKey: string, industrySlug?: string): RelatedLink[] {
   const seed = stableHash(seedKey)
   const guide = (industrySlug && GUIDE_BY_INDUSTRY[industrySlug]) || DEFAULT_GUIDE
+  // Rotate the anchor for the india guide only (it's the most-linked target); other
+  // guides keep their single descriptive label.
+  const guideLabel = guide.slug === "lead-management-software-india" ? pick(LMS_ANCHORS, seed >>> 9) : guide.label
   const pillar = pick(PILLARS, seed)
   const feature = pick(FEATURES, seed >>> 3)
   const secondaryGuide = pick(SECONDARY_GUIDES, seed >>> 6)
@@ -99,7 +115,7 @@ export function commercialLinks(seedKey: string, industrySlug?: string): Related
   return [
     { href: pillar.href, label: pillar.label, kind: "commercial-pillar" },
     { href: feature.href, label: feature.label, kind: "commercial-feature" },
-    { href: `/best/${guide.slug}`, label: guide.label, kind: "commercial-guide" },
+    { href: `/best/${guide.slug}`, label: guideLabel, kind: "commercial-guide" },
     { href: `/best/${secondaryGuide.slug}`, label: secondaryGuide.label, kind: "commercial-guide-secondary" },
     { href: "/pricing", label: "Leadkaun pricing in ₹, flat per account", kind: "commercial-pricing" },
     { href: "/demo", label: "Book a walkthrough", kind: "commercial-demo" },

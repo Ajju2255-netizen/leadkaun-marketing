@@ -297,6 +297,24 @@ ${table(rows.filter((r) => r.kind !== "geo"))}
 
 writeFileSync(join(ROOT, "INDEX-TRACKER.md"), md)
 
+/* ── append a dated snapshot for the 2/4/8-week experiment reads ─────────────── */
+// One JSON line per run in data/index-snapshots.jsonl (gitignored). Re-export GSC
+// into data/gsc/ and re-run to log a comparable row; diff against the baseline.
+const snapshot = {
+  date: TODAY,
+  indexable: totalIndex,
+  noindex: totalSpace - totalIndex,
+  gscClicks, gscImpr, gscPages: gscTotalPages,
+  coveragePct: totalIndex ? +((gscPagesMatched / totalIndex) * 100).toFixed(2) : 0,
+  overlapMean: overlap?.mean ?? null,
+  byFamily: Object.fromEntries(rows.filter((r) => r.gscData).map((r) => [r.label, { impr: r.gscData.impressions, clicks: r.gscData.clicks, pages: r.gscData.urls }])),
+}
+try {
+  const snapPath = join(ROOT, "data", "index-snapshots.jsonl")
+  const prev = existsSync(snapPath) ? readFileSync(snapPath, "utf8") : ""
+  writeFileSync(snapPath, prev + JSON.stringify(snapshot) + "\n")
+} catch { /* non-fatal */ }
+
 /* ── console summary (─-ruled, like measure-overlap / truth) ────────────────── */
 const rule = "─".repeat(74)
 console.log(rule)

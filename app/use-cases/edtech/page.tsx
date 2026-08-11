@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, CalendarClock, School, BookOpen, Building2, Plane, Rocket, type LucideIcon } from "lucide-react"
+import { GraduationCap, Gauge, ListOrdered, MessageCircle, AlertTriangle, Mail, Upload, History, Users, ArrowRight, Sparkles, IndianRupee, CalendarClock, School, BookOpen, Building2, Plane, Rocket, MapPin, TrendingUp, type LucideIcon } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -91,9 +91,6 @@ const FUNNEL = [
   { stage: "Enrolled", count: 74, color: "#F97316" },
 ]
 
-const INSIGHT =
-  "India is one of the world’s largest e-learning markets, with the edtech sector valued in the billions of dollars and projected to keep growing through the decade (IBEF). Course enquiries arrive in bulk from paid ads and referrals but vary wildly in intent, and most of the serious conversation now happens in long WhatsApp threads with fee-paying parents. Counselling teams that grade every enquiry, call the serious ones first, and follow up before the cohort fills simply enrol more of them."
-
 const FAQ = [
   { q: "Does it handle the parent + student dual thread?", a: "Yes. Each lead record holds a primary and secondary contact, student and parent, and 3-tap WhatsApp logging records who replied and when. The Intent Score aggregates signals across both, so a keen student with a hesitant fee-paying parent reads differently from one where the parent is already sold." },
   { q: "Can we set a different ICP per course?", a: "Yes. You can define a distinct ideal-customer profile per course, because what makes a strong engineering enquiry differs from an arts or PG enquiry. The scoring weights themselves are fixed and transparent across the board; what you configure is your ICP, not the underlying maths, so grades stay comparable and auditable between counsellors." },
@@ -113,45 +110,55 @@ const CITIES = [
 
 const GUIDES = [
   { label: "Lead scoring, explained", href: "/features/lead-scoring" },
-  { label: "WhatsApp CRM for India", href: "/features/whatsapp-tracking" },
+  { label: "How Leadkaun works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
 ]
 
-/** Bespoke admissions-calendar intent-decay chart (server-safe SVG). */
+/** Bespoke admissions-calendar intent-decay chart (server-safe SVG).
+ *  Grade labels live in a left gutter so they never overlap the plotted line. */
 function SeasonChart() {
-  // grade y-positions (higher grade = higher on chart)
-  const pts = [
-    { m: "Apr", y: 18, g: "A" },
-    { m: "May", y: 26, g: "A" },
-    { m: "Jun", y: 48, g: "B" },
-    { m: "Jul", y: 72, g: "B" },
-    { m: "Aug", y: 96, g: "C" },
-    { m: "Sep", y: 120, g: "C" },
+  const bandH = 40
+  const bands = [
+    { g: "A", y: 20, fill: "#ECFDF5" },
+    { g: "B", y: 62, fill: "#F0F9FF" },
+    { g: "C", y: 104, fill: "#FFF7ED" },
   ]
-  const xs = (i: number) => 24 + i * 52
+  const plotL = 44
+  const plotR = 324
+  const baseline = 144
+  const pts = [
+    { m: "Apr", y: 34 },
+    { m: "May", y: 44 },
+    { m: "Jun", y: 74 },
+    { m: "Jul", y: 96 },
+    { m: "Aug", y: 118 },
+    { m: "Sep", y: 134 },
+  ]
+  const n = pts.length
+  const xs = (i: number) => plotL + (i * (plotR - plotL)) / (n - 1)
   const line = pts.map((p, i) => `${xs(i)},${p.y}`).join(" ")
-  const area = `24,140 ${line} ${xs(pts.length - 1)},140`
+  const area = `${plotL},${baseline} ${line} ${plotR},${baseline}`
   return (
-    <svg viewBox="0 0 316 168" className="w-full" role="img" aria-label="A Grade A April enquiry decaying toward Grade C by September as the cohort fills">
+    <svg viewBox="0 0 344 190" className="w-full" role="img" aria-label="A Grade A April enquiry decaying toward Grade C by September as the cohort fills">
       <defs>
         <linearGradient id="seasonFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.28" />
+          <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.26" />
           <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {/* grade bands */}
-      {[["A", 8, "#ECFDF5"], ["B", 44, "#F0F9FF"], ["C", 90, "#FFF7ED"]].map(([g, y, fill]) => (
-        <g key={String(g)}>
-          <rect x="24" y={Number(y)} width="268" height="36" fill={String(fill)} rx="2" />
-          <text x="30" y={Number(y) + 14} fontSize="9" fontFamily="monospace" fill="#94A3B8">{g}</text>
+      {/* grade bands + left-gutter labels */}
+      {bands.map((b) => (
+        <g key={b.g}>
+          <rect x={plotL} y={b.y} width={plotR - plotL} height={bandH} fill={b.fill} rx="3" />
+          <text x="20" y={b.y + bandH / 2 + 3.5} fontSize="10" fontWeight="600" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{b.g}</text>
         </g>
       ))}
       <polygon points={area} fill="url(#seasonFill)" />
       <polyline points={line} fill="none" stroke="#0EA5E9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       {pts.map((p, i) => (
         <g key={p.m}>
-          <circle cx={xs(i)} cy={p.y} r="3.5" fill="#fff" stroke="#0EA5E9" strokeWidth="2" />
-          <text x={xs(i)} y="160" fontSize="9" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{p.m}</text>
+          <circle cx={xs(i)} cy={p.y} r="4" fill="#fff" stroke="#0EA5E9" strokeWidth="2" />
+          <text x={xs(i)} y="166" fontSize="9.5" fontFamily="monospace" textAnchor="middle" fill="#94A3B8">{p.m}</text>
         </g>
       ))}
     </svg>
@@ -469,14 +476,47 @@ export default function EdTechPage() {
           </Container>
         </SectionGround>
 
-        {/* INDUSTRY BENCHMARK */}
-        <SectionGround variant="cream" size="md">
+        {/* INDUSTRY BENCHMARK — split highlight card */}
+        <SectionGround variant="cream" size="lg">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <FloatingCard tier="2" depth="2" gloss aura="sky" className="p-8 md:p-10">
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Industry benchmark</p>
-                <p className="mt-3 text-[20px] font-medium leading-[1.45] text-ink md:text-[23px]">{INSIGHT}</p>
-                <p className="mt-4 text-[13px] text-ink-muted">Leadkaun doesn&apos;t replace your CRM or SIS, it&apos;s the layer that turns a chaotic enquiry list into a ranked queue with a ₹ figure attached to the admissions you&apos;re about to lose.</p>
+            <Reveal className="mx-auto max-w-4xl">
+              <FloatingCard tier="3" depth="3" gloss className="overflow-hidden">
+                <div className="grid md:grid-cols-[0.82fr_1.18fr]">
+                  {/* highlight rail */}
+                  <div className="relative flex flex-col justify-center p-8 md:p-9" style={{ background: "linear-gradient(158deg,#EFF6FF 0%,#F0FDFA 100%)" }}>
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Industry benchmark</p>
+                    <p className="mt-4 text-[34px] font-semibold leading-[1.04] tracking-[-0.03em] text-ink md:text-[40px]">
+                      Billions of&nbsp;$,
+                      <br />
+                      <span className="text-sky-600">still growing.</span>
+                    </p>
+                    <p className="mt-3 text-[14px] leading-[1.55] text-ink-soft">India runs one of the world&apos;s largest e-learning markets, and the edtech sector is projected to keep expanding through the decade.</p>
+                    <span className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-muted ring-1 ring-black/5">
+                      <TrendingUp className="h-3 w-3 text-sky-500" strokeWidth={2.5} /> Source · IBEF
+                    </span>
+                  </div>
+                  {/* narrative + derived signals */}
+                  <div className="p-8 md:p-9">
+                    <p className="text-[16px] leading-[1.7] text-ink-soft">
+                      Course enquiries arrive in bulk from paid ads and referrals but vary wildly in intent, and most of the serious conversation now happens in long threads with fee-paying parents.
+                    </p>
+                    <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                      {[
+                        { k: "In bulk", v: "Ads + referrals flood the top of funnel" },
+                        { k: "Wildly varied", v: "Intent differs enquiry to enquiry" },
+                        { k: "In the thread", v: "Serious parent talk lives in chat" },
+                      ].map((s) => (
+                        <div key={s.k} className="rounded-xl bg-sky-50/60 p-3.5 ring-1 ring-sky-100">
+                          <p className="text-[13px] font-semibold text-ink">{s.k}</p>
+                          <p className="mt-1 text-[11.5px] leading-[1.5] text-ink-soft">{s.v}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-6 border-t pt-5 text-[13.5px] leading-[1.65] text-ink-soft rule-paper">
+                      The teams that grade every enquiry, call the serious ones first, and follow up before the cohort fills simply enrol more of them. Leadkaun is the layer that turns a chaotic enquiry list into a ranked queue with a ₹ figure attached, alongside your SIS, not instead of it.
+                    </p>
+                  </div>
+                </div>
               </FloatingCard>
             </Reveal>
           </Container>
@@ -507,28 +547,41 @@ export default function EdTechPage() {
         </SectionGround>
 
         {/* 11 — BY CITY + GUIDES */}
-        <SectionGround variant="cream" size="md">
+        <SectionGround variant="cream" size="lg">
           <Container>
-            <Reveal className="mb-8">
+            <Reveal className="mb-10 max-w-3xl">
               <NumberedTag number="11" tone="warm" label="EdTech by city" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[32px]">
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Localised pages for top admissions markets.
               </h2>
+              <p className="mt-4 text-[16px] leading-[1.55] text-ink-soft">
+                City-level guides with local admissions context, fee bands, and the enquiry channels that actually convert in each market.
+              </p>
             </Reveal>
-            <div className="flex flex-wrap gap-2.5">
+            <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {CITIES.map((c) => (
-                <Link key={c.href} href={c.href} className="inline-flex items-center rounded-full glass-1 gloss-edge px-4 py-2 text-[13px] font-medium text-ink-soft transition-all hover:text-sky-600 lift">
-                  {c.city}
+                <Link key={c.href} href={c.href} className="group block">
+                  <FloatingCard tier="2" depth="2" gloss aura="sky" className="flex items-center gap-3.5 p-5 transition-transform group-hover:-translate-y-0.5">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky-50 text-sky-600 ring-1 ring-sky-100"><MapPin className="h-5 w-5" strokeWidth={2} /></span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[15.5px] font-semibold text-ink">{c.city}</span>
+                      <span className="block text-[12px] text-ink-muted">Admissions leads in {c.city}</span>
+                    </span>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-sky-500 transition-transform group-hover:translate-x-0.5" />
+                  </FloatingCard>
                 </Link>
               ))}
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-              {GUIDES.map((g) => (
-                <Link key={g.href} href={g.href} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
-                  {g.label} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              ))}
-            </div>
+            </Reveal>
+            <Reveal delay={0.12} className="mt-10 border-t pt-6 rule-paper">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Keep reading</p>
+              <div className="mt-3.5 flex flex-wrap items-center gap-x-6 gap-y-3">
+                {GUIDES.map((g) => (
+                  <Link key={g.href} href={g.href} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+                    {g.label} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                ))}
+              </div>
+            </Reveal>
           </Container>
         </SectionGround>
 

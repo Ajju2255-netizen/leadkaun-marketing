@@ -623,7 +623,7 @@ export default function EdTechPage() {
                   </p>
                   <p className="mt-2 text-[12.5px] font-medium text-ink">{p.meta}</p>
                   <p className="mt-2.5 flex-1 text-[12.5px] leading-[1.55] text-ink-soft">{p.note}</p>
-                  <a href={APP_URLS.register} className={`mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-[13.5px] font-semibold transition-all ${p.popular ? "text-white hover:-translate-y-0.5" : "border bg-white text-ink hover:border-sky-300"}`} style={p.popular ? { background: "#0877B8", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" } : { borderColor: "var(--paper-line-2)" }}>
+                  <a href={APP_URLS.register} className={`mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-[13.5px] font-semibold transition-all ${p.popular ? "hover:-translate-y-0.5" : "border bg-white hover:border-sky-300"}`} style={p.popular ? { background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" } : { borderColor: "var(--paper-line-2)", color: "var(--ink)" }}>
                     {p.name === "Free" ? "Start free" : `Start ${p.name}`} <ArrowRight className="h-3.5 w-3.5" />
                   </a>
                 </FloatingCard>
@@ -638,19 +638,21 @@ export default function EdTechPage() {
                     <p className="mt-1 text-[13px] leading-[1.55] text-ink-soft">Unlimited users, workspaces and leads on dedicated infrastructure, with SSO, private cloud and a success manager.</p>
                   </div>
                 </div>
-                <Link href="/pricing" className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl border bg-white px-5 py-2.5 text-[13.5px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+                <Link href="/pricing" className="group inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl border bg-white px-5 py-2.5 text-[13.5px] font-semibold transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)", color: "var(--ink)" }}>
                   Talk to sales <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </FloatingCard>
             </Reveal>
-            <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2.5">
-              {["14-day free trial", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
-                <span key={t} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink-soft">
-                  <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full" style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)" }}><Check className="h-3 w-3 text-white" strokeWidth={3} /></span>
-                  {t}
-                </span>
-              ))}
-              <Link href="/pricing" className="group inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-sky-600 hover:text-sky-500">
+            <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
+                {["14-day free trial", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink-soft">
+                    <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full" style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)" }}><Check className="h-3 w-3 text-white" strokeWidth={3} /></span>
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <Link href="/pricing" className="group inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[13.5px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
                 See full pricing &amp; comparison <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Reveal>

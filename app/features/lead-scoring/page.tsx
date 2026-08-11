@@ -382,31 +382,11 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* 06 — REAL SCREENSHOT */}
-        <SectionGround variant="cream" size="lg">
-          <Container>
-            <Reveal className="mb-8 max-w-3xl">
-              <NumberedTag number="07" tone="warm" label="In the product" />
-              <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
-                The real thing your reps open.
-              </h2>
-              <p className="mt-4 text-[16px] leading-[1.6] text-ink-soft">
-                Every lead in the account, graded A–F, with the Fit, Intent and Quality columns visible on the row. No exports, no spreadsheet.
-              </p>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <FloatingCard tier="3" depth="3" gloss className="overflow-hidden p-2 md:p-3">
-                <img src="/screenshots/leads.png" alt="Leadkaun's All Leads screen, every lead graded A–F with Fit, Intent and Quality columns" loading="lazy" className="w-full rounded-xl" />
-              </FloatingCard>
-            </Reveal>
-          </Container>
-        </SectionGround>
-
         {/* 07 — CONFIDENCE & FRESHNESS */}
         <SectionGround variant="pure" size="lg">
           <Container>
             <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="08" label="Confidence & freshness" />
+              <NumberedTag number="07" label="Confidence & freshness" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
                 A thin lead is not a bad lead.
               </h2>
@@ -429,7 +409,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="09" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="08" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Questions about scoring.
               </h2>
@@ -442,7 +422,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mb-10">
-              <NumberedTag number="10" tone="warm" label="Works with" />
+              <NumberedTag number="09" tone="warm" label="Works with" />
               <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Scoring is step one. Here&apos;s what it connects to.
               </h2>
@@ -456,7 +436,7 @@ export default function LeadScoringPage() {
         <ProofBand />
 
         <CTABanner
-          tag={{ number: "11", label: "Ready when you are" }}
+          tag={{ number: "10", label: "Ready when you are" }}
           headline="See your leads graded the same day."
           sub="Import a CSV. Leadkaun grades every lead A–F within the hour. Free for 14 days."
         />

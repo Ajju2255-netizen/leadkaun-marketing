@@ -1,6 +1,6 @@
 import Link from "next/link"
 import type { Metadata } from "next"
-import { Gauge, Zap, Filter, ListOrdered, AlertTriangle } from "lucide-react"
+import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
@@ -9,7 +9,6 @@ import CTABanner from "@/app/components/cta-banner"
 import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { FeatureCard } from "@/app/components/feature-card"
 import { FloatingCard } from "@/app/components/floating-card"
@@ -98,13 +97,67 @@ export default function LeadScoringPage() {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <PageHero
-          eyebrow={<><Gauge className="h-3 w-3" strokeWidth={2} /> Lead Scoring Engine</>}
-          h1={<>How Leadkaun grades every lead.<br /><span className="hero-accent">A–F, in real time.</span></>}
-          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions, Fit, Intent and Quality, and turns them into one grade with one action. Below is the real thing, not a diagram."
-          primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
-          secondary={{ kind: "text", label: "See the buyer's guide", href: "/best/lead-scoring-software" }}
-        />
+        {/* HERO — split, Leadkaun light theme (copy left, live grade card right) */}
+        <section className="relative overflow-hidden border-b rule-paper" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%)" }}>
+          <div aria-hidden className="pointer-events-none absolute -right-32 -top-24 h-[460px] w-[620px] rounded-full opacity-[0.30] blur-[130px]" style={{ background: "radial-gradient(circle, #BAE6FD 0%, transparent 70%)" }} />
+          <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+              {/* LEFT — copy */}
+              <div className="rise" style={{ animationDelay: "40ms" }}>
+                <p className="ledger-num inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-sky-600">
+                  <Gauge className="h-3.5 w-3.5" strokeWidth={2} /> Lead Scoring Engine
+                </p>
+                <h1 className="display-xl mt-6 text-[40px] text-ink sm:text-[52px] lg:text-[58px]">
+                  How Leadkaun grades
+                  <br />
+                  every lead.{" "}
+                  <span className="relative inline-block text-sky-600">
+                    A–F, in real time.
+                    <span aria-hidden className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-sky-200" />
+                  </span>
+                </h1>
+                <p className="mt-7 max-w-xl text-[17px] leading-[1.7] text-ink-soft md:text-[18px]">
+                  Not all leads are equal. Leadkaun scores every lead on three independent dimensions, Fit, Intent and Quality, and turns them into one grade with one action. Below is the real thing, not a diagram.
+                </p>
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
+                    Start free trial <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <Link href="/best/lead-scoring-software" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+                    See the buyer&apos;s guide <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* RIGHT — live grade card (real GradeBadge + ScoreCell atoms) */}
+              <div className="rise" style={{ animationDelay: "160ms" }}>
+                <FloatingCard tier="2" depth="3" gloss aura="sky" className="mx-auto max-w-md p-6 md:p-7">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Sample lead</p>
+                      <h3 className="mt-1 text-[16px] font-semibold leading-tight text-ink">Textile exporter enquiry</h3>
+                      <p className="text-[12.5px] text-ink-muted">Surat · replied on WhatsApp</p>
+                    </div>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <GradeBadge grade="A" />
+                      <span className="whitespace-nowrap rounded-full bg-white/70 px-2 py-0.5 font-mono text-[10px] font-semibold text-ink-soft ring-1 ring-black/5">Call now</span>
+                    </div>
+                  </div>
+                  <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl bg-white/60 p-4 ring-1 ring-black/5">
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Fit</p><ScoreCell value={78} of={100} tone="fit" /></div>
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Intent</p><ScoreCell value={71} of={100} tone="intent" /></div>
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Quality</p><ScoreCell value={82} of={100} tone="quality" /></div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t pt-3.5" style={{ borderColor: "var(--hairline)" }}>
+                    <span className="text-[12.5px] text-ink-soft">Total score</span>
+                    <span className="font-mono text-[13px] font-semibold tabular text-ink">81 / 100</span>
+                  </div>
+                  <p className="mt-3 text-[12px] leading-snug text-ink-muted">All three scores clear the Grade A threshold, so this one goes to the top of the queue.</p>
+                </FloatingCard>
+              </div>
+            </div>
+          </Container>
+        </section>
 
         {/* 01 — THE REAL INTERACTIVE DEMO (same app as the homepage, opened onto a lead's page) */}
         <SectionGround variant="sky" size="lg">

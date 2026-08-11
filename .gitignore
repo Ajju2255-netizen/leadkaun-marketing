@@ -48,3 +48,8 @@ worker-configuration.d.ts
 
 # cache-warming runtime artifacts
 scripts/.warm-state/
+
+# confidential strategy/audit docs — this repo is PUBLIC; these live in the vault only
+SEARCH-GROWTH-MASTER-PLAN.md
+SEO-AIO-GEO-ANALYSIS-*.md
+SEO-AIO-GEO-ANALYSIS-*.pdf

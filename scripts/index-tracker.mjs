@@ -228,12 +228,20 @@ const rows = families.map((f) => {
 })
 
 function table(list) {
-  const head = "| Family | Route | Total URLs | Indexable | Noindex | Noindex % | Decision | GSC (clicks/impr) | Notes |\n|---|---|--:|--:|--:|--:|---|---|---|"
-  const body = list.map((r) =>
-    `| ${r.label} | \`${r.route}\` | ${fmt(r.total)} | ${fmt(r.index)} | ${fmt(r.noindex)} | ${pct(r.noindex, r.total)} | ${r.decision} | ${r.gsc} | ${r.note} |`
-  ).join("\n")
+  const head = "| Family | Route | Total | Indexable | Noindex % | GSC pages | GSC clk/impr | Decision | Notes |\n|---|---|--:|--:|--:|--:|--:|---|---|"
+  const body = list.map((r) => {
+    const gp = r.gscData ? fmt(r.gscData.urls) : r.gsc === "n/a" ? "n/a" : "0"
+    const gi = r.gscData ? `${fmt(r.gscData.clicks)}/${fmt(r.gscData.impressions)}` : r.gsc === "n/a" ? "n/a" : "0/0"
+    return `| ${r.label} | \`${r.route}\` | ${fmt(r.total)} | ${fmt(r.index)} | ${pct(r.noindex, r.total)} | ${gp} | ${gi} | ${r.decision} | ${r.note} |`
+  }).join("\n")
   return head + "\n" + body
 }
+
+// GSC coverage headline: how much of the indexable corpus earns any impression
+const gscPagesMatched = Object.values(gscByFamily).reduce((a, g) => a + g.urls, 0)
+const gscTotalPages = gscRows ? new Set(gscRows.map((r) => r.path)).size : 0
+const gscClicks = gscRows ? gscRows.reduce((a, r) => a + r.clicks, 0) : 0
+const gscImpr = gscRows ? gscRows.reduce((a, r) => a + r.impressions, 0) : 0
 
 /* ── write INDEX-TRACKER.md ─────────────────────────────────────────────────── */
 const md = `# Index Tracker — Phase 1 URL inventory & classification
@@ -253,7 +261,8 @@ _Generated ${TODAY} by \`npm run index-tracker\`. Do not hand-edit this block �
 | Sitemap \`<loc>\` count (cross-check vs indexable) | ${advertised == null ? "n/a" : fmt(advertised)} |
 | Near-dup overlap — city-siblings, live leaves (mean · ≥0.70) | ${overlap ? `${overlap.mean}% · ${overlap.dupPct}%` : "run `npm run measure:overlap`"} |
 | Orphan money pages (/best not in the geo mesh) | ${orphanBest.length === 0 ? "0 ✅" : orphanBest.join(", ")} |
-| GSC export loaded | ${gscRows ? `yes (${fmt(gscRows.length)} rows)` : "no — drop a CSV in `data/gsc/`"} |
+| GSC export loaded | ${gscRows ? `yes — ${fmt(gscClicks)} clicks / ${fmt(gscImpr)} impressions across ${fmt(gscTotalPages)} pages (last 3mo)` : "no — drop a CSV in `data/gsc/`"} |
+${gscRows ? `| **Indexable URLs with ≥1 impression** | **${fmt(gscPagesMatched)} of ${fmt(totalIndex)} (${pct(gscPagesMatched, totalIndex)})** → ${fmt(totalIndex - gscPagesMatched)} earn nothing yet |` : ""}
 
 Gate constants (\`lib/pseo/gate.js\`): \`INDEX_MAX_TIER=${INDEX_MAX_TIER}\`, \`HUB_INDEX_MAX_TIER=${HUB_INDEX_MAX_TIER}\`, \`HUB_MIN_POPULATION=${fmt(HUB_MIN_POPULATION)}\`.
 Cities: ${fmt(cities.length)} total — tier1 ${tierCount(1)}, tier2 ${tierCount(2)}, tier3 ${tierCount(3)}, tier4 ${tierCount(4)}. Leaf-indexable ${fmt(leafCities.length)} (has districts: ${fmt(withDistricts)}), hub-indexable ${fmt(hubCities.length)} (notes ≥ 20: ${fmt(withNotes)}).

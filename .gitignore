@@ -59,3 +59,6 @@ INDEX-TRACKER.md
 /data/index-decisions.json
 /data/gsc/
 /data/index-snapshots.jsonl
+
+# Phase 2 keyword->URL ownership map (architecture/strategy — vault only)
+KEYWORD-URL-OWNERSHIP.md

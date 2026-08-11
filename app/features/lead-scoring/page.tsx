@@ -106,6 +106,24 @@ export default function LeadScoringPage() {
           secondary={{ kind: "text", label: "See the buyer's guide", href: "/best/lead-scoring-software" }}
         />
 
+        {/* 01 — THE REAL INTERACTIVE DEMO (same app as the homepage, opened onto a lead's page) */}
+        <SectionGround variant="sky" size="lg">
+          <Container>
+            <Reveal className="mb-8 max-w-3xl">
+              <NumberedTag number="01" label="The live product" />
+              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                Open a lead and see the score for real.
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
+                This is the actual product, not a video. It opens on a lead&apos;s page with its live Fit, Intent and Quality breakdown. Log a call or a WhatsApp reply and watch the grade and the Priority Queue re-rank.
+              </p>
+            </Reveal>
+          </Container>
+          <Reveal delay={0.06} className="mx-auto w-full max-w-[1360px] px-4 md:px-8">
+            <AppReplica initialView="lead" />
+          </Reveal>
+        </SectionGround>
+
         {/* AI QUICK ANSWER (GEO / voice) */}
         <SectionGround variant="pure" size="sm">
           <Container>
@@ -120,7 +138,7 @@ export default function LeadScoringPage() {
         <SectionGround variant="cream" size="lg">
           <Container>
             <Reveal className="mb-10 md:mb-14">
-              <NumberedTag number="01" tone="warm" label="Anatomy of a grade" />
+              <NumberedTag number="02" tone="warm" label="Anatomy of a grade" />
               <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Three scores in. One grade, one action out.
               </h2>
@@ -157,24 +175,6 @@ export default function LeadScoringPage() {
               </p>
             </Reveal>
           </Container>
-        </SectionGround>
-
-        {/* 02 — THE REAL INTERACTIVE DEMO (same app as the homepage, opened onto a lead's page) */}
-        <SectionGround variant="sky" size="lg">
-          <Container>
-            <Reveal className="mb-8 max-w-3xl">
-              <NumberedTag number="02" label="The live product" />
-              <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-                Open a lead and see the score for real.
-              </h2>
-              <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                This is the actual product, not a video. It opens on a lead&apos;s page with its live Fit, Intent and Quality breakdown. Log a call or a WhatsApp reply and watch the grade and the Priority Queue re-rank.
-              </p>
-            </Reveal>
-          </Container>
-          <Reveal delay={0.06} className="mx-auto w-full max-w-[1360px] px-4 md:px-8">
-            <AppReplica initialView="lead" />
-          </Reveal>
         </SectionGround>
 
         {/* 03 — THE THREE SCORES */}

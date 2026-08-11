@@ -16,54 +16,77 @@ import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { QuickAnswer } from "@/app/components/quick-answer"
-import { faqPageSchema, breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
+import { GradeBadge, ScoreCell } from "@/app/components/demo/primitives"
+import { GradeDistribution } from "@/app/components/viz/grade-distribution"
+import type { Grade } from "@/lib/demo-app"
+import { faqPageSchema, breadcrumbListSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
+const title = "Lead scoring, how every lead is graded A–F"
+const description =
+  "See Leadkaun's real lead-scoring engine: every lead graded A–F from three transparent 0–100 scores, Fit, Intent and Quality, with intent decay and a fixed next action per grade."
+
 export const metadata: Metadata = {
-  title: "Lead Scoring Software India, Grade A–F in real time",
-  description:
-    "Leadkaun's scoring engine grades every lead A–F across Fit, Intent, and Quality in real time. Transparent weights, intent decay, calibrated for Indian B2B.",
+  title,
+  description,
   alternates: { canonical: "/features/lead-scoring" },
+  ...ogMeta({ title, description, path: "/features/lead-scoring" }),
 }
 
+/* ── Sample leads (illustrative demo data — same shape the product uses).
+      Grades computed by the real matrix: Quality < 20 → F; A = Fit≥65 & Intent≥60
+      & Quality≥60; B/C/D step down; else E. Actions are the fixed grade→action map. ── */
+type SampleLead = { source: string; place: string; fit: number; intent: number; quality: number; grade: Grade; action: string; reason: string }
+const SAMPLE_LEADS: SampleLead[] = [
+  { source: "Textile exporter enquiry", place: "Surat", fit: 78, intent: 71, quality: 82, grade: "A", action: "Call now",
+    reason: "Strong ICP match, replied on WhatsApp this morning, and the phone and email are clean. All three scores clear the Grade A bar." },
+  { source: "D2C brand enquiry", place: "Jaipur", fit: 62, intent: 34, quality: 70, grade: "C", action: "Nurture",
+    reason: "Good fit and usable data, but silent for a week so Intent has decayed. A nurture cadence, not a drop-everything call." },
+  { source: "Web form, no company", place: "unknown", fit: 55, intent: 40, quality: 12, grade: "F", action: "Archive",
+    reason: "Looks average on Fit and Intent, but the phone number is invalid. Quality under 20 caps it to F, whatever the other two say." },
+]
+
 const SCORES = [
-  { name: "Fit Score",     description: "How well the lead matches your ICP. Static changes only when new firmographic info arrives.", weights: [
-    { label: "Industry match",        pts: "30 pts" }, { label: "Geography",            pts: "20 pts" },
-    { label: "Business type",         pts: "20 pts" }, { label: "Role / decision-maker", pts: "15 pts" },
-    { label: "Budget signal",         pts: "15 pts" },
+  { name: "Fit Score", tone: "fit" as const, description: "How well the lead matches the ICP you set. It only moves when new firmographic information arrives.", weights: [
+    { label: "Industry match", pts: "30 pts" }, { label: "Geography", pts: "20 pts" },
+    { label: "Business type", pts: "20 pts" }, { label: "Role / decision-maker", pts: "15 pts" },
+    { label: "Budget signal", pts: "15 pts" },
   ]},
-  { name: "Intent Score",  description: "How engaged the lead is right now. Spikes on signals, decays with silence.", weights: [
-    { label: "Source baseline",       pts: "base" },   { label: "Call signal",          pts: "+15 pts" },
-    { label: "WhatsApp reply",        pts: "+10 pts" },{ label: "Meeting booked",       pts: "+25 pts" },
-    { label: "Silent ≥ 1 day",        pts: "−3 / day" },
+  { name: "Intent Score", tone: "intent" as const, description: "How engaged the lead is right now. It spikes on signals and decays with silence.", weights: [
+    { label: "Source baseline", pts: "base" }, { label: "Call answered, interested", pts: "+20 pts" },
+    { label: "WhatsApp reply", pts: "+10 pts" }, { label: "Meeting booked", pts: "+25 pts" },
+    { label: "Silent ≥ 1 day", pts: "−3 / day" },
   ]},
-  { name: "Quality Score", description: "Is the data usable? Below 20 = auto-Grade F, excluded from the queue.", weights: [
-    { label: "Valid phone",           pts: "30 pts" }, { label: "Valid email",          pts: "15 pts" },
-    { label: "Company name",          pts: "15 pts" }, { label: "Inquiry clarity",      pts: "20 pts" },
-    { label: "Source reliability",    pts: "10 pts" },
+  { name: "Quality Score", tone: "quality" as const, description: "Is the data usable? Below 20 forces Grade F and drops the lead out of the queue.", weights: [
+    { label: "Valid phone", pts: "30 pts" }, { label: "Valid email", pts: "15 pts" },
+    { label: "Company name", pts: "15 pts" }, { label: "Inquiry clarity", pts: "20 pts" },
+    { label: "Source reliability", pts: "10 pts" },
   ]},
 ]
 
-const GRADES = [
-  { grade: "A", color: "#10B981", cond: "Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60", action: "Call within 24 hours" },
-  { grade: "B", color: "#0EA5E9", cond: "Fit ≥ 55 · Intent ≥ 40 · Quality ≥ 50", action: "Follow up within 48 hours" },
-  { grade: "C", color: "#FB923C", cond: "Fit ≥ 40 · Intent ≥ 25 · Quality ≥ 35", action: "Weekly nurture cadence" },
-  { grade: "D", color: "#F97316", cond: "Fit ≥ 20 · Intent ≥ 10 · Quality ≥ 20", action: "Low priority" },
-  { grade: "F", color: "#94A3B8", cond: "Quality < 20 (junk / incomplete data)", action: "Auto-discarded" },
+// The real grade matrix (lib/demo-app.ts → assignGrade + nextAction).
+const GRADES: { grade: Grade; color: string; cond: string; action: string }[] = [
+  { grade: "A", color: "#10B981", cond: "Fit ≥ 65 · Intent ≥ 60 · Quality ≥ 60", action: "Call now" },
+  { grade: "B", color: "#0EA5E9", cond: "Fit ≥ 55 · Intent ≥ 40 · Quality ≥ 50", action: "Follow up today" },
+  { grade: "C", color: "#FB923C", cond: "Fit ≥ 40 · Intent ≥ 30 · Quality ≥ 40", action: "Nurture" },
+  { grade: "D", color: "#F97316", cond: "Fit ≥ 30 · Intent ≥ 15 · Quality ≥ 25", action: "Light touch" },
+  { grade: "E", color: "#EF4444", cond: "Below D, with Quality ≥ 20", action: "Light touch" },
+  { grade: "F", color: "#94A3B8", cond: "Quality < 20 (junk / incomplete data)", action: "Archive" },
 ]
 
 const FAQ = [
-  { q: "What is lead scoring, in simple terms?", a: "Lead scoring ranks every lead by how likely they are to convert. Leadkaun scores across three independent dimensions, Fit (ICP match), Intent (engagement), Quality (data reliability), and combines them into a Grade A–F. Your rep works Grade A first, always." },
-  { q: "How is this different from my CRM's lead scoring?", a: "Most CRM scoring is a single points-based number, a black box. Leadkaun uses three transparent scores with weights you can audit. Intent decays automatically when leads go silent, so stale Grade A leads drop to B or C on their own, no manager intervention." },
-  { q: "How fast is it?", a: "In real time, per lead. When a new lead arrives or a signal is logged, the scoring engine runs immediately and propagates the grade change to every rep's Priority Queue in real time." },
-  { q: "Can I configure the scoring for my business?", a: "You configure your ICP, the industries, geographies, roles, budget bands and business types that define your best customers, set once per account. That drives the Fit score. The scoring weights themselves are fixed and transparent (identical for every account), so a rep can always see exactly why a lead is Grade A, no black box, no per-account drift." },
-  { q: "What about junk leads?", a: "Quality Score catches them. Phone normalisation (Indian carrier ranges), email MX validation, company name checks, and inquiry text patterns combine into a Quality score. Anything under 20 is marked Grade F and excluded from the queue automatically." },
+  { q: "What is lead scoring, in simple terms?", a: "Lead scoring ranks every lead by how likely they are to convert. Leadkaun scores across three independent dimensions, Fit (ICP match), Intent (engagement) and Quality (data reliability), and combines them into a Grade A–F. Your rep works Grade A first, always." },
+  { q: "How is this different from my CRM's lead scoring?", a: "Most CRM scoring is a single points-based number, effectively a black box. Leadkaun uses three transparent scores on a published threshold matrix. Intent decays automatically when leads go silent, so a stale Grade A drops to B or C on its own, no manager intervention." },
+  { q: "Can I configure the scoring for my business?", a: "You configure your ICP, the industries, geographies, roles, budget bands and business types that define your best customers, once per account. That drives the Fit score. The weights themselves are fixed and published, identical for every account, so a rep can always see exactly why a lead is Grade A, with no per-account drift." },
+  { q: "What is the action next to each grade?", a: "A fixed map, not an AI suggestion: A is Call now, B is Follow up today, C is Nurture, D and E are Light touch, and F is Archive. Because it is fixed, it is predictable, every rep sees the same action for the same grade." },
+  { q: "What about junk leads?", a: "The Quality Score catches them. Indian phone normalisation, email validity, company-name and inquiry checks combine into a Quality score. Anything under 20 is marked Grade F and excluded from the queue automatically, so bad data can't masquerade as a good lead." },
+  { q: "How fast is it?", a: "Per lead, as it happens. When a new lead arrives or a signal is logged, the grade is recomputed and reflected in the rep's Priority Queue." },
 ]
 
 const RELATED = [
-  { icon: ListOrdered,   title: "Priority Queue",            description: "Works hand-in-hand with scoring, rank the graded leads and serve them top-down.", href: "/features/priority-queue" },
-  { icon: AlertTriangle, title: "Missed Opportunity Engine", description: "Stale Grade A leads get a rupee value. ₹ at risk rolled up per rep and per source.", href: "/features/missed-opportunity-engine" },
-  { icon: Filter,        title: "Lead Quality Analysis",     description: "The Quality Score, deeper, per-source reliability, junk detection, deduplication.", href: "/features/whatsapp-tracking" },
+  { icon: ListOrdered, title: "Priority Queue", description: "Scoring's other half, the graded leads ranked into one list of who to call next.", href: "/features/priority-queue" },
+  { icon: AlertTriangle, title: "Missed Opportunity Engine", description: "Stale Grade A leads get a rupee value, the ₹ at risk rolled up per rep and per source.", href: "/features/missed-opportunity-engine" },
+  { icon: Filter, title: "Intake Intelligence", description: "The Quality Score upstream, check a lead list for junk, duplicates and bad numbers before you import it.", href: "/features/intake-intelligence" },
 ]
 
 export default function LeadScoringPage() {
@@ -76,50 +99,93 @@ export default function LeadScoringPage() {
 
         <PageHero
           eyebrow={<><Gauge className="h-3 w-3" strokeWidth={2} /> Lead Scoring Engine</>}
-          h1={<>Grade A–F. In real time.<br /><span className="hero-accent">Three scores. One answer.</span></>}
-          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions, Fit, Intent, Quality, in real time. Your rep always knows who to call first."
+          h1={<>How Leadkaun grades every lead.<br /><span className="hero-accent">A–F, in real time.</span></>}
+          sub="Not all leads are equal. Leadkaun scores every lead on three independent dimensions, Fit, Intent and Quality, and turns them into one grade with one action. Below is the real thing, not a diagram."
           primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
-          secondary={{ kind: "text", label: "See Priority Queue", href: "/features/priority-queue" }}
+          secondary={{ kind: "text", label: "See the buyer's guide", href: "/best/lead-scoring-software" }}
         />
 
         {/* AI QUICK ANSWER (GEO / voice) */}
         <SectionGround variant="pure" size="sm">
           <Container>
             <QuickAnswer
-              question="What is lead scoring and how does Leadkaun's engine work?"
-              answer="Lead scoring ranks each lead by likelihood to convert. Leadkaun grades every lead A–F in real time across three independent scores, Fit (ICP match), Intent (live engagement, which decays when a lead goes silent), and Quality (data reliability). Reps work Grade A first; weights are transparent and auditable."
+              question="How does Leadkaun's lead scoring work?"
+              answer="Leadkaun grades every lead A–F in real time from three independent 0–100 scores, Fit (ICP match), Intent (live engagement, which decays when a lead goes silent) and Quality (data reliability). A published threshold matrix turns the three into one grade, Quality below 20 forces F, and each grade maps to a fixed next action."
             />
           </Container>
         </SectionGround>
 
-        {/* THREE SCORES */}
+        {/* 01 — ANATOMY OF A GRADE (real ScoreCell + GradeBadge atoms) */}
         <SectionGround variant="cream" size="lg">
           <Container>
+            <Reveal className="mb-10 md:mb-14">
+              <NumberedTag number="01" tone="warm" label="Anatomy of a grade" />
+              <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
+                Three scores in. One grade, one action out.
+              </h2>
+              <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
+                The exact score bars a rep sees on a lead. Illustrative leads, real scoring logic.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
+              {SAMPLE_LEADS.map((l) => (
+                <FloatingCard key={l.source} tier="2" depth="2" gloss className="flex flex-col p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Sample lead</p>
+                      <h3 className="mt-1 text-[15px] font-semibold leading-tight text-ink">{l.source}</h3>
+                      <p className="text-[12.5px] text-ink-muted">{l.place}</p>
+                    </div>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <GradeBadge grade={l.grade} />
+                      <span className="whitespace-nowrap rounded-full bg-white/70 px-2 py-0.5 font-mono text-[10px] font-semibold text-ink-soft ring-1 ring-black/5">{l.action}</span>
+                    </div>
+                  </div>
+                  <div className="mt-5 grid grid-cols-3 gap-3 rounded-2xl bg-white/60 p-4 ring-1 ring-black/5">
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Fit</p><ScoreCell value={l.fit} of={100} tone="fit" /></div>
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Intent</p><ScoreCell value={l.intent} of={100} tone="intent" /></div>
+                    <div><p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Quality</p><ScoreCell value={l.quality} of={100} tone="quality" /></div>
+                  </div>
+                  <p className="mt-4 text-[13.5px] leading-[1.55] text-ink-soft">{l.reason}</p>
+                </FloatingCard>
+              ))}
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="mt-6 text-[13.5px] leading-snug text-ink-muted">
+                The bar on each score fills toward 100. Quality below 20 forces Grade F, whatever Fit and Intent say.
+              </p>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* 02 — THE THREE SCORES */}
+        <SectionGround variant="pure" size="lg">
+          <Container>
             <Reveal className="mb-12 md:mb-16">
-              <NumberedTag number="01" tone="warm" label="Three independent scores" />
+              <NumberedTag number="02" label="Three independent scores" />
               <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Fit. Intent. Quality.
               </h2>
               <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-                Each score is 0–100. Independent. Auditable. Together they determine the grade.
+                Each score is 0–100, independent and auditable. Together they determine the grade.
               </p>
             </Reveal>
-
             <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
               {SCORES.map((s, i) => (
                 <FloatingCard key={s.name} tier="2" depth="2" gloss aura={i === 1 ? "peach" : "sky"} className="p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Score</span>
-                      <h3 className="mt-1 text-[20px] font-semibold text-ink tracking-[-0.01em]">{s.name}</h3>
+                      <h3 className="mt-1 text-[20px] font-semibold tracking-[-0.01em] text-ink">{s.name}</h3>
                     </div>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] rounded-full px-2.5 py-1 glass-sky">0 – 100</span>
+                    <span className="rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] glass-sky">0 – 100</span>
                   </div>
-                  <ul className="mt-6 divide-y" style={{ borderColor: "var(--hairline)", borderTop: "1px solid var(--hairline)" }}>
+                  <p className="mt-3 text-[13.5px] leading-[1.55] text-ink-soft">{s.description}</p>
+                  <ul className="mt-5 divide-y" style={{ borderColor: "var(--hairline)", borderTop: "1px solid var(--hairline)" }}>
                     {s.weights.map((w) => (
                       <li key={w.label} className="flex items-center justify-between py-2.5">
                         <span className="text-[13px] text-ink-soft">{w.label}</span>
-                        <span className="font-mono text-[12px] font-semibold text-ink tabular">{w.pts}</span>
+                        <span className="font-mono text-[12px] font-semibold tabular text-ink">{w.pts}</span>
                       </li>
                     ))}
                   </ul>
@@ -129,39 +195,33 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* GRADE MATRIX */}
+        {/* 03 — THE GRADE MATRIX (real thresholds + fixed action map) */}
         <SectionGround variant="sky" size="lg">
           <Container>
             <Reveal className="mb-12 md:mb-16">
-              <NumberedTag number="02" label="The Grade Matrix" />
+              <NumberedTag number="03" label="The Grade Matrix" />
               <h2 className="mt-5 max-w-3xl text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
-                Every grade maps to a specific action.
+                Every grade maps to a fixed action.
               </h2>
               <p className="mt-4 max-w-2xl text-[17px] leading-[1.55] text-ink-soft">
-                The matrix below is the same one every rep sees. No hidden AI. No surprises.
+                The same matrix every rep sees. The action is a fixed map, not an AI suggestion, so it is predictable.
               </p>
             </Reveal>
-
             <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="overflow-hidden">
               <div className="grid grid-cols-[80px_1fr_1fr]" style={{ borderBottom: "1px solid var(--hairline-strong)" }}>
                 <div className="px-6 py-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Grade</div>
                 <div className="px-6 py-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Condition</div>
-                <div className="px-6 py-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Rep action</div>
+                <div className="px-6 py-4 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Fixed action</div>
               </div>
               {GRADES.map((r, i) => (
                 <div key={r.grade} className="grid grid-cols-[80px_1fr_1fr] items-center" style={i < GRADES.length - 1 ? { borderBottom: "1px solid var(--hairline)" } : undefined}>
                   <div className="px-6 py-5">
                     <span
                       className="inline-flex h-9 w-9 items-center justify-center rounded-full font-mono text-[14px] font-bold text-white"
-                      style={{
-                        background: `linear-gradient(180deg, color-mix(in srgb, ${r.color} 70%, white) 0%, ${r.color} 100%)`,
-                        boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 10px ${r.color}55`,
-                      }}
-                    >
-                      {r.grade}
-                    </span>
+                      style={{ background: `linear-gradient(180deg, color-mix(in srgb, ${r.color} 70%, white) 0%, ${r.color} 100%)`, boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 10px ${r.color}55` }}
+                    >{r.grade}</span>
                   </div>
-                  <div className="px-6 py-5 font-mono text-[13px] text-ink-soft tabular">{r.cond}</div>
+                  <div className="px-6 py-5 font-mono text-[13px] tabular text-ink-soft">{r.cond}</div>
                   <div className="px-6 py-5 text-[14px] font-semibold text-ink">{r.action}</div>
                 </div>
               ))}
@@ -169,44 +229,38 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* INTENT DECAY CALLOUT */}
+        {/* 04 — INTENT DECAY */}
         <SectionGround variant="cream" size="lg">
           <Container>
             <div className="mx-auto max-w-4xl">
-              <NumberedTag number="03" tone="warm" label="The intent decay rule" />
+              <NumberedTag number="04" tone="warm" label="The intent decay rule" />
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[44px]">
                 Silent leads drop automatically.
               </h2>
               <Reveal delay={0.08} className="mt-10 grid gap-8 md:grid-cols-2">
                 <div>
                   <p className="text-[17px] leading-[1.6] text-ink-soft">
-                    Without decay, a Grade A lead from two weeks ago stays Grade A forever, while newly-hot leads wait below. That&apos;s how real teams lose deals.
+                    Without decay, a Grade A lead from two weeks ago stays Grade A forever, while newly-hot leads wait below it. That is how real teams lose deals.
                   </p>
                   <p className="mt-4 text-[17px] leading-[1.6] text-ink-soft">
-                    With decay, silence has consequences. Intent drops <span className="font-mono text-ink font-semibold">−3 pts / day</span> after the engagement threshold. The Grade A from last week becomes a B by Wednesday. Re-engagement spikes it back up.
+                    With decay, silence has consequences. Intent drops <span className="font-mono font-semibold text-ink">−3 pts / day</span> after the engagement threshold, so last week&apos;s Grade A becomes a B by Wednesday. A re-engagement signal spikes it back up.
                   </p>
                 </div>
                 <FloatingCard tier="3" depth="3" gloss className="p-7">
                   <div className="flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-500">
-                    <Zap className="h-3.5 w-3.5" /> Example
+                    <Zap className="h-3.5 w-3.5" /> Worked example
                   </div>
                   <div className="mt-4 space-y-3 font-mono text-[13px] tabular">
-                    <div className="flex items-baseline justify-between pb-2.5" style={{ borderBottom: "1px solid var(--hairline)" }}>
-                      <span className="text-ink-soft">Day 0 · initial contact</span>
-                      <span className="font-bold text-mint-500">Grade A · Intent 74</span>
-                    </div>
-                    <div className="flex items-baseline justify-between pb-2.5" style={{ borderBottom: "1px solid var(--hairline)" }}>
-                      <span className="text-ink-soft">Day 5 · silence</span>
-                      <span className="text-ink">Grade A · Intent 59</span>
-                    </div>
-                    <div className="flex items-baseline justify-between pb-2.5" style={{ borderBottom: "1px solid var(--hairline)" }}>
-                      <span className="text-ink-soft">Day 8 · still silent</span>
-                      <span className="text-orange-500">Grade B · Intent 50</span>
-                    </div>
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-ink-soft">Day 9 · WA reply +10</span>
-                      <span className="font-bold text-mint-500">Grade A · Intent 60</span>
-                    </div>
+                    {[
+                      ["Day 0 · initial contact", "Grade A · Intent 74", "text-mint-500 font-bold"],
+                      ["Day 5 · silence", "Grade A · Intent 59", "text-ink"],
+                      ["Day 8 · still silent", "Grade B · Intent 50", "text-orange-500"],
+                      ["Day 9 · WhatsApp reply +10", "Grade A · Intent 60", "text-mint-500 font-bold"],
+                    ].map(([d, v, cls], i, a) => (
+                      <div key={d} className="flex items-baseline justify-between pb-2.5" style={i < a.length - 1 ? { borderBottom: "1px solid var(--hairline)" } : undefined}>
+                        <span className="text-ink-soft">{d}</span><span className={cls}>{v}</span>
+                      </div>
+                    ))}
                   </div>
                 </FloatingCard>
               </Reveal>
@@ -214,81 +268,75 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* CONFIDENCE, the axis nobody else markets */}
-
+        {/* 05 — GRADE DISTRIBUTION (viz) */}
         <SectionGround variant="pure" size="lg">
-
           <Container>
-
-            <Reveal className="mx-auto max-w-3xl">
-
-              <NumberedTag number="04" label="Confidence" />
-
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
-
-                A thin lead is not a bad lead.
-
-              </h2>
-
-              <div className="mt-6 space-y-4 text-[16px] leading-[1.65] text-ink-soft">
-
-                <p>
-
-                  A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low,
-
-                  which says the lead is weak. That is a claim, and it is usually wrong. The honest position is that
-
-                  there is not enough here to judge yet.
-
+            <Reveal className="mb-10 grid items-center gap-10 md:grid-cols-2">
+              <div>
+                <NumberedTag number="05" label="Import to graded" />
+                <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
+                  A list comes back as a distribution, not a pile.
+                </h2>
+                <p className="mt-4 text-[16px] leading-[1.6] text-ink-soft">
+                  Import a CSV and the whole account comes back graded. Instead of scrolling a flat list, you see how many A, B and C leads you actually have, and where the effort should go first.
                 </p>
-
-                <p>
-
-                  So Leadkaun keeps two readings apart. The grade says how good a lead looks. Confidence says how much we
-
-                  actually know about it, a weighted read across eight fields, with a prioritised list of what to ask
-
-                  for next. A rep with a thin lead sees exactly which two questions would move it, which turns a shrug
-
-                  into a qualifying call.
-
-                </p>
-
-                <p>
-
-                  Freshness runs on the same principle. A list collected eight months ago and imported this morning looks
-
-                  identical to a fresh enquiry until something says otherwise, so every lead carries an ageing band that
-
-                  keeps moving. It is the difference between a rep calling warm and a rep calling a stranger who has
-
-                  forgotten they ever filled a form.
-
-                </p>
-
-                <p>
-
-                  Both are visible on the lead, and both are frozen into the score timeline whenever a grade changes.
-
-                  See <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">the
-
-                  full guide to lead data trust</Link>.
-
-                </p>
-
               </div>
-
+              <FloatingCard tier="2" depth="2" gloss className="p-7">
+                <GradeDistribution />
+                <p className="mt-4 font-mono text-[10.5px] leading-snug text-ink-muted">Illustrative distribution.</p>
+              </FloatingCard>
             </Reveal>
-
           </Container>
-
         </SectionGround>
 
-        {/* FAQ */}
+        {/* 06 — REAL SCREENSHOT */}
+        <SectionGround variant="cream" size="lg">
+          <Container>
+            <Reveal className="mb-8 max-w-3xl">
+              <NumberedTag number="06" tone="warm" label="In the product" />
+              <h2 className="mt-5 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px]">
+                The real thing your reps open.
+              </h2>
+              <p className="mt-4 text-[16px] leading-[1.6] text-ink-soft">
+                Every lead in the account, graded A–F, with the Fit, Intent and Quality columns visible on the row. No exports, no spreadsheet.
+              </p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <FloatingCard tier="3" depth="3" gloss className="overflow-hidden p-2 md:p-3">
+                <img src="/screenshots/leads.png" alt="Leadkaun's All Leads screen, every lead graded A–F with Fit, Intent and Quality columns" loading="lazy" className="w-full rounded-xl" />
+              </FloatingCard>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* 07 — CONFIDENCE & FRESHNESS */}
+        <SectionGround variant="pure" size="lg">
+          <Container>
+            <Reveal className="mx-auto max-w-3xl">
+              <NumberedTag number="07" label="Confidence & freshness" />
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
+                A thin lead is not a bad lead.
+              </h2>
+              <div className="mt-6 space-y-4 text-[16px] leading-[1.65] text-ink-soft">
+                <p>
+                  A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low, which says the lead is weak. That is usually the wrong claim, the honest position is that there is not enough here to judge yet.
+                </p>
+                <p>
+                  So Leadkaun keeps two readings apart. The grade says how good a lead looks. Confidence says how much we actually know about it, a weighted read across eight fields with a prioritised list of what to ask for next. A rep with a thin lead sees exactly which two questions would move it, which turns a shrug into a qualifying call.
+                </p>
+                <p>
+                  Freshness runs on the same principle. A list collected months ago and imported this morning looks identical to a fresh enquiry until something says otherwise, so every lead carries an ageing band that keeps moving. Both readings are visible on the lead, and both are frozen into the score timeline whenever a grade changes. See the full guide to <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">lead data trust</Link>.
+                </p>
+              </div>
+            </Reveal>
+          </Container>
+        </SectionGround>
+
+        {/* 08 — FAQ */}
         <SectionGround variant="sky" size="md">
           <Container>
             <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="05" label="FAQ" /></div>
+              <div className="flex justify-center"><NumberedTag number="08" label="FAQ" /></div>
               <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
                 Questions about scoring.
               </h2>
@@ -297,11 +345,11 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        {/* RELATED */}
+        {/* 09 — RELATED */}
         <SectionGround variant="cream" size="md">
           <Container>
             <Reveal className="mb-10">
-              <NumberedTag number="06" tone="warm" label="Works with" />
+              <NumberedTag number="09" tone="warm" label="Works with" />
               <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
                 Scoring is step one. Here&apos;s what it connects to.
               </h2>
@@ -314,12 +362,10 @@ export default function LeadScoringPage() {
 
         <ProofBand />
 
-        
-
         <CTABanner
-          tag={{ number: "07", label: "Ready when you are" }}
+          tag={{ number: "10", label: "Ready when you are" }}
           headline="See your leads graded the same day."
-          sub="Import a CSV. Leadkaun grades every lead A–F by the end of the hour. Free for 14 days."
+          sub="Import a CSV. Leadkaun grades every lead A–F within the hour. Free for 14 days."
         />
 
         <Footer />

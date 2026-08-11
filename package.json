@@ -22,6 +22,7 @@
     "cf:upload-data": "node scripts/upload-data-to-r2.js",
     "cf:typegen": "wrangler types",
     "truth": "node scripts/truth-report.mjs",
+    "index-tracker": "node scripts/index-tracker.mjs",
     "generate-llms": "node scripts/generate-llms-blueprints.mjs",
     "tracker": "node scripts/update-tracker.mjs"
   },

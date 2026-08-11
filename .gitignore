@@ -53,3 +53,8 @@ scripts/.warm-state/
 SEARCH-GROWTH-MASTER-PLAN.md
 SEO-AIO-GEO-ANALYSIS-*.md
 SEO-AIO-GEO-ANALYSIS-*.pdf
+
+# Phase 1 index tracker — generated inventory + deindex/consolidate strategy (vault only)
+INDEX-TRACKER.md
+/data/index-decisions.json
+/data/gsc/

@@ -44,7 +44,7 @@ function Chip({ children, tone = "sky" }: { children: ReactNode; tone?: "sky" | 
 
 const HERO_QUEUE: { grade: Grade; name: string; meta: string; tag: string; next?: boolean }[] = [
   { grade: "A", name: "D2C brand brief", meta: "Perf marketing · ₹6L/yr", tag: "Referral intro", next: true },
-  { grade: "A", name: "Fintech RFP", meta: "SEO retainer · ₹18L/yr", tag: "Inbound RFP" },
+  { grade: "A", name: "Fintech RFP", meta: "SEO retainer · ₹15L/yr", tag: "Inbound RFP" },
   { grade: "B", name: "SaaS founder", meta: "Retainer · ₹3L/yr", tag: "Event conversation" },
   { grade: "C", name: "Cold LinkedIn", meta: "Unclear budget", tag: "Spray-and-pray" },
 ]

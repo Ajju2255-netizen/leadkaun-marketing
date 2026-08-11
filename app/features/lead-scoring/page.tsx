@@ -5,9 +5,7 @@ import { Gauge, Zap, Filter, ListOrdered, AlertTriangle, ArrowRight, Sparkles } 
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
-import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { NumberedTag } from "@/app/components/numbered-tag"
@@ -385,22 +383,54 @@ export default function LeadScoringPage() {
         {/* 07 — CONFIDENCE & FRESHNESS */}
         <SectionGround variant="pure" size="lg">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
+            <Reveal className="mb-10 max-w-3xl">
               <NumberedTag number="07" label="Confidence & freshness" />
               <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[34px]">
                 A thin lead is not a bad lead.
               </h2>
-              <div className="mt-6 space-y-4 text-[16px] leading-[1.65] text-ink-soft">
-                <p>
-                  A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low, which says the lead is weak. That is usually the wrong claim, the honest position is that there is not enough here to judge yet.
-                </p>
-                <p>
-                  So Leadkaun keeps two readings apart. The grade says how good a lead looks. Confidence says how much we actually know about it, a weighted read across eight fields with a prioritised list of what to ask for next. A rep with a thin lead sees exactly which two questions would move it, which turns a shrug into a qualifying call.
-                </p>
-                <p>
-                  Freshness runs on the same principle. A list collected months ago and imported this morning looks identical to a fresh enquiry until something says otherwise, so every lead carries an ageing band that keeps moving. Both readings are visible on the lead, and both are frozen into the score timeline whenever a grade changes. See the full guide to <Link href="/learn/lead-data-trust" className="text-sky-600 underline-offset-2 hover:underline">lead data trust</Link>.
-                </p>
-              </div>
+              <p className="mt-5 text-[16px] leading-[1.65] text-ink-soft">
+                A rep opens a lead with a first name and a mobile number and nothing else. Most systems score it low, which says the lead is weak. That is usually the wrong claim, the honest position is that there is not enough here to judge yet. So Leadkaun keeps two readings apart from the grade.
+              </p>
+            </Reveal>
+            <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+              {/* Confidence */}
+              <Reveal delay={0.04}>
+                <FloatingCard tier="2" depth="2" gloss aura="sky" className="h-full p-7">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">Confidence</p>
+                  <h3 className="mt-2 text-[19px] font-semibold text-ink">How much we actually know</h3>
+                  <p className="mt-2.5 text-[14.5px] leading-[1.6] text-ink-soft">
+                    Separate from the grade. A weighted read across eight fields, with a prioritised list of what to ask for next, so a thin lead becomes a qualifying call instead of a shrug.
+                  </p>
+                  <div className="mt-5 rounded-2xl bg-white/60 p-4 ring-1 ring-black/5">
+                    <div className="flex items-center justify-between text-[12px] text-ink-soft"><span>Confidence</span><span className="font-mono font-semibold tabular text-ink">38 / 100</span></div>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-sky-400" style={{ width: "38%" }} /></div>
+                    <p className="mt-3.5 flex flex-wrap items-center gap-1.5 text-[12px] text-ink-muted">Next, ask for: <Chip>company</Chip> <Chip>budget band</Chip></p>
+                  </div>
+                </FloatingCard>
+              </Reveal>
+              {/* Freshness */}
+              <Reveal delay={0.08}>
+                <FloatingCard tier="2" depth="2" gloss aura="peach" className="h-full p-7">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-500">Freshness</p>
+                  <h3 className="mt-2 text-[19px] font-semibold text-ink">How current the signal is</h3>
+                  <p className="mt-2.5 text-[14.5px] leading-[1.6] text-ink-soft">
+                    A list collected months ago and imported this morning looks identical to a fresh enquiry until something says otherwise. Every lead carries an ageing band that keeps moving.
+                  </p>
+                  <div className="mt-5 rounded-2xl bg-white/60 p-4 ring-1 ring-black/5">
+                    <p className="mb-2.5 text-[12px] text-ink-soft">Ageing band</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[["Fresh", true], ["7 days", false], ["30 days", false], ["90 days", false], ["Stale", false]].map(([label, on]) => (
+                        <span key={String(label)} className={`rounded-md px-2 py-0.5 text-[11.5px] font-semibold ring-1 ${on ? "bg-emerald-50 text-emerald-700 ring-emerald-200" : "bg-slate-50 text-ink-muted ring-black/5"}`}>{label}</span>
+                      ))}
+                    </div>
+                  </div>
+                </FloatingCard>
+              </Reveal>
+            </div>
+            <Reveal delay={0.1}>
+              <p className="mt-6 max-w-3xl text-[14.5px] leading-[1.6] text-ink-soft">
+                Both readings are visible on the lead and frozen into the score timeline whenever a grade changes. See the full guide to <Link href="/learn/lead-data-trust" className="font-semibold text-sky-600 underline-offset-2 hover:underline">lead data trust</Link>.
+              </p>
             </Reveal>
           </Container>
         </SectionGround>
@@ -433,13 +463,61 @@ export default function LeadScoringPage() {
           </Container>
         </SectionGround>
 
-        <ProofBand />
+        {/* PROOF — product-mechanics stat tiles (bespoke) */}
+        <SectionGround variant="cream" size="md">
+          <Container>
+            <Reveal className="mb-7 text-center">
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                Product mechanics, published in full at{" "}
+                <Link href="/methodology" className="text-sky-600 hover:underline">/methodology</Link>
+              </p>
+            </Reveal>
+            <Reveal delay={0.06} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["A–F", "Every lead graded, in real time"],
+                ["3 scores", "Fit, Intent and Quality, published weights"],
+                ["Same day", "To your first graded lead"],
+                ["Flat ₹", "Priced per account, not per seat"],
+              ].map(([stat, label]) => (
+                <FloatingCard key={stat} tier="1" depth="1" gloss className="p-6 text-center">
+                  <p className="text-[30px] font-semibold tracking-[-0.02em] text-ink md:text-[34px]">{stat}</p>
+                  <p className="mt-2 text-[13px] leading-snug text-ink-soft">{label}</p>
+                </FloatingCard>
+              ))}
+            </Reveal>
+          </Container>
+        </SectionGround>
 
-        <CTABanner
-          tag={{ number: "10", label: "Ready when you are" }}
-          headline="See your leads graded the same day."
-          sub="Import a CSV. Leadkaun grades every lead A–F within the hour. Free for 14 days."
-        />
+        {/* CLOSING CTA (bespoke) */}
+        <SectionGround variant="pure" size="lg">
+          <Container>
+            <Reveal className="mx-auto max-w-4xl">
+              <div className="relative overflow-hidden rounded-3xl border p-10 text-center md:p-14" style={{ borderColor: "var(--paper-line)", background: "linear-gradient(180deg,#FFFFFF, var(--paper))" }}>
+              <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-96 rounded-full opacity-30 blur-[110px]" style={{ background: "radial-gradient(circle,#BAE6FD 0%,transparent 70%)" }} />
+              <p className="ledger-num relative text-[11px] uppercase tracking-[0.22em] text-sky-600">Ready when you are</p>
+              <h2 className="display-lg relative mx-auto mt-5 max-w-2xl text-[30px] text-ink md:text-[44px]">
+                See your leads graded{" "}
+                <span className="relative inline-block text-sky-600">
+                  the same day.
+                  <span aria-hidden className="absolute -bottom-1 left-0 h-[5px] w-full rounded-full bg-sky-200" />
+                </span>
+              </h2>
+              <p className="relative mx-auto mt-6 max-w-xl text-[16px] leading-[1.7] text-ink-soft">
+                Import a CSV and Leadkaun grades every lead A–F within the hour. Free tier, no card, live the same day.
+              </p>
+              <div className="relative mt-9 flex flex-wrap items-center justify-center gap-3">
+                <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
+                  Start free trial <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link href="/pricing" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
+                  See pricing
+                </Link>
+              </div>
+              <p className="ledger-num relative mt-8 text-[11.5px] uppercase tracking-[0.16em] text-ink-muted">Free ₹0 · no card · same-day setup</p>
+              </div>
+            </Reveal>
+          </Container>
+        </SectionGround>
 
         <Footer />
       </main>

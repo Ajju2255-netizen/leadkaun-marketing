@@ -70,6 +70,7 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Security",       href: "/security" },
       { label: "Methodology",    href: "/methodology" },
       { label: "Cities we serve", href: "/city" },
+      { label: "Sitemap",        href: "/sitemap" },
       { label: "Privacy",        href: "/privacy" },
       { label: "Terms",          href: "/terms" },
     ],

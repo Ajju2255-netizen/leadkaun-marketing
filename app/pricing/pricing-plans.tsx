@@ -2,16 +2,17 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Check } from "lucide-react"
-import { PricingTier } from "@/app/components/pricing-tier"
+import { Check, ArrowRight } from "lucide-react"
+import { FloatingCard } from "@/app/components/floating-card"
 import { APP_URLS } from "@/lib/urls"
 
 const inr = (n: number) => `₹${new Intl.NumberFormat("en-IN").format(n)}`
 
-type PaidTier = {
+type Tier = {
   name: string
-  monthly: number
-  annual: number
+  monthly: number | null // null = Free
+  annual: number | null
+  freeUnit?: string
   description: string
   idealFor: string
   features: string[]
@@ -20,9 +21,24 @@ type PaidTier = {
   highlightBadge?: string
 }
 
-// Paid tiers. `monthly` is the sticker price; `annual` is billed once/year at
-// ~17% off (two months free). Effective monthly on annual = round(annual/12).
-const PAID: PaidTier[] = [
+const TIERS: Tier[] = [
+  {
+    name: "Free",
+    monthly: null,
+    annual: null,
+    freeUnit: "for 14 days",
+    description: "The fastest way to see Leadkaun grade your own leads. No card.",
+    idealFor: "trying Leadkaun before you roll it out.",
+    features: [
+      "1 user · 100 active leads",
+      "AI lead scoring + Lead Queue",
+      "Pipeline · CSV import",
+      "WhatsApp logging",
+      "Mobile responsive",
+      "Email support",
+    ],
+    ctaLabel: "Start Free",
+  },
   {
     name: "Starter",
     monthly: 2999,
@@ -44,7 +60,7 @@ const PAID: PaidTier[] = [
     name: "Growth",
     monthly: 7999,
     annual: 79990,
-    description: "Built for growing sales teams that can't afford to let a hot lead go cold.",
+    description: "Built for growing teams that can't afford to let a hot lead go cold.",
     idealFor: "5–50 reps in D2C, education, real estate, healthcare, SaaS.",
     features: [
       "Up to 30 users · 25,000 active leads",
@@ -65,7 +81,7 @@ const PAID: PaidTier[] = [
     name: "Scale",
     monthly: 19999,
     annual: 199990,
-    description: "Built for high-growth companies that need workspaces, API access and a CSM.",
+    description: "For high-growth companies that need workspaces, API access and a CSM.",
     idealFor: "larger orgs standardising sales execution across teams.",
     features: [
       "Up to 75 users · unlimited leads",
@@ -93,25 +109,12 @@ function Toggle({ billing, set }: { billing: Billing; set: (b: Billing) => void 
             key={b}
             type="button"
             onClick={() => set(b)}
-            className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2 text-[13px] font-medium transition-colors ${
-              active ? "text-white" : "text-ink-soft hover:text-ink"
-            }`}
-            style={
-              active
-                ? {
-                    background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 12px rgba(14,165,233,0.30)",
-                  }
-                : undefined
-            }
+            className="relative inline-flex items-center gap-2 rounded-full px-5 py-2 text-[13px] font-medium transition-colors"
+            style={active ? { background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)", color: "#FFFFFF", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 12px rgba(14,165,233,0.30)" } : { color: "var(--ink-soft)" }}
           >
             {b === "monthly" ? "Monthly" : "Annual"}
             {b === "annual" && (
-              <span
-                className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.08em] ${
-                  active ? "bg-white/25 text-white" : "bg-mint-300/25 text-mint-500"
-                }`}
-              >
+              <span className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.08em] ${active ? "bg-white/25 text-white" : "bg-emerald-100 text-emerald-600"}`}>
                 Save 17%
               </span>
             )}
@@ -124,70 +127,68 @@ function Toggle({ billing, set }: { billing: Billing; set: (b: Billing) => void 
 
 function MiniCheck() {
   return (
-    <span
-      className="mt-0.5 inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-      style={{
-        background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)",
-        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)",
-      }}
-    >
+    <span className="mt-0.5 inline-flex h-[17px] w-[17px] shrink-0 items-center justify-center rounded-full" style={{ background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)" }}>
       <Check className="h-3 w-3 text-white" strokeWidth={3} />
     </span>
   )
 }
 
+function TierCard({ t, billing }: { t: Tier; billing: Billing }) {
+  const isFree = t.monthly === null
+  const price = isFree ? "₹0" : billing === "annual" ? inr(Math.round((t.annual as number) / 12)) : inr(t.monthly as number)
+  const unit = isFree ? t.freeUnit : "/month"
+  const annualNote = isFree
+    ? "No credit card"
+    : billing === "annual"
+      ? `${inr(t.annual as number)} billed yearly · save 17%`
+      : `or ${inr(t.annual as number)}/yr, save 17%`
+  return (
+    <FloatingCard
+      tier={t.highlighted ? "3" : "2"}
+      depth={t.highlighted ? "3" : "2"}
+      gloss
+      aura={t.highlighted ? "sky" : "none"}
+      className={`relative flex flex-col p-6 ${t.highlighted ? "ring-2 ring-sky-300" : ""}`}
+    >
+      {t.highlighted && (
+        <span className="absolute -top-2.5 left-6 rounded-full bg-sky-600 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-white">
+          {t.highlightBadge}
+        </span>
+      )}
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">{t.name}</p>
+      <p className="mt-3 flex items-baseline gap-1.5">
+        <span className="font-mono text-[34px] font-semibold tracking-[-0.02em] tabular text-ink">{price}</span>
+        <span className="text-[13px] text-ink-muted">{unit}</span>
+      </p>
+      <p className="mt-1 font-mono text-[11px] text-ink-muted">{annualNote}</p>
+      <p className="mt-3.5 text-[13px] leading-[1.55] text-ink-soft">{t.description}</p>
+      <a
+        href={APP_URLS.register}
+        className={`mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-[14px] font-semibold transition-all ${t.highlighted ? "hover:-translate-y-0.5" : "border bg-white hover:border-sky-300"}`}
+        style={t.highlighted ? { background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" } : { borderColor: "var(--paper-line-2)", color: "var(--ink)" }}
+      >
+        {t.ctaLabel} <ArrowRight className="h-4 w-4" />
+      </a>
+      <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Ideal for {t.idealFor}</p>
+      <ul className="mt-4 space-y-2.5 border-t pt-4 rule-paper">
+        {t.features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-soft">
+            <MiniCheck />
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+    </FloatingCard>
+  )
+}
+
 export function PricingPlans() {
   const [billing, setBilling] = useState<Billing>("monthly")
-
   return (
     <div>
       <Toggle billing={billing} set={setBilling} />
-
-      {/* Free + 3 paid tiers */}
-      <div className="grid gap-6 lg:grid-cols-4">
-        {/* FREE */}
-        <PricingTier
-          name="Free"
-          price="₹0"
-          priceUnit="for 14 days"
-          description="The fastest way to see Leadkaun grade your own leads. No card."
-          idealFor="trying Leadkaun before you roll it out."
-          features={[
-            "1 user · 100 active leads",
-            "AI lead scoring + Lead Queue",
-            "Pipeline · CSV import",
-            "WhatsApp logging",
-            "Mobile responsive",
-            "Email support",
-          ]}
-          ctaLabel="Start Free"
-          ctaHref={APP_URLS.register}
-        />
-
-        {PAID.map((p) => {
-          const effMonthly = Math.round(p.annual / 12)
-          const price = billing === "annual" ? inr(effMonthly) : inr(p.monthly)
-          const annualNote =
-            billing === "annual"
-              ? `${inr(p.annual)} billed yearly · save 17%`
-              : `or ${inr(p.annual)}/yr, save 17%`
-          return (
-            <PricingTier
-              key={p.name}
-              name={p.name}
-              price={price}
-              priceUnit="/month"
-              annualNote={annualNote}
-              description={p.description}
-              idealFor={p.idealFor}
-              features={p.features}
-              ctaLabel={p.ctaLabel}
-              ctaHref={APP_URLS.register}
-              highlighted={p.highlighted ?? false}
-              highlightBadge={p.highlightBadge ?? "Most popular"}
-            />
-          )
-        })}
+      <div className="grid items-start gap-5 lg:grid-cols-4">
+        {TIERS.map((t) => <TierCard key={t.name} t={t} billing={billing} />)}
       </div>
 
       {/* ENTERPRISE strip */}
@@ -195,44 +196,23 @@ export function PricingPlans() {
         <div className="max-w-2xl">
           <div className="flex items-center gap-3">
             <h3 className="text-[18px] font-semibold text-ink">Enterprise</h3>
-            <span
-              className="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted"
-              style={{ border: "1px solid var(--hairline-strong)" }}
-            >
-              Custom pricing
-            </span>
+            <span className="rounded-full px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted" style={{ border: "1px solid var(--hairline-strong)" }}>Custom pricing</span>
           </div>
           <p className="mt-1.5 text-[14px] leading-snug text-ink-soft">
-            Unlimited everything users, workspaces and leads, on dedicated infrastructure, with
-            custom AI models, private cloud, SSO, a custom SLA and a dedicated CSM.
+            Unlimited everything, users, workspaces and leads, on dedicated infrastructure, with custom AI models, private cloud, SSO, a custom SLA and a dedicated CSM.
           </p>
           <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-            {[
-              "Unlimited users & workspaces",
-              "Dedicated infrastructure",
-              "Custom AI models · private cloud",
-              "SSO · custom SLA",
-              "Priority engineering support",
-            ].map((f) => (
-              <li key={f} className="flex items-start gap-2 text-[13px] text-ink-soft">
-                <MiniCheck />
-                <span>{f}</span>
-              </li>
+            {["Unlimited users & workspaces", "Dedicated infrastructure", "Custom AI models · private cloud", "SSO · custom SLA", "Priority engineering support"].map((f) => (
+              <li key={f} className="flex items-start gap-2 text-[13px] text-ink-soft"><MiniCheck /><span>{f}</span></li>
             ))}
           </ul>
         </div>
-        <Link
-          href="/contact"
-          className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl px-6 text-[14px] font-medium btn-gloss-glass shimmer-on-hover relative"
-        >
-          <span className="relative z-[2]">Talk to Sales</span>
+        <Link href="/contact" className="inline-flex h-11 shrink-0 items-center justify-center gap-1.5 rounded-xl border bg-white px-6 text-[14px] font-semibold transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)", color: "var(--ink)" }}>
+          Talk to sales <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
 
-      <p className="mt-6 text-center text-[13px] text-ink-muted">
-        Prices in ₹, GST-compliant invoices. Upgrade, downgrade or cancel anytime, billing adjusts
-        pro-rata.
-      </p>
+      <p className="mt-6 text-center text-[13px] text-ink-muted">Prices in ₹, GST-compliant invoices. Upgrade, downgrade or cancel anytime, billing adjusts pro-rata.</p>
     </div>
   )
 }

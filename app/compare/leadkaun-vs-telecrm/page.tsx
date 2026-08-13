@@ -29,16 +29,45 @@ export default function VsTeleCRM() {
         "No ₹-denominated Missed Opportunity Engine",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "WhatsApp handling",                                   leadkaun: "3-tap signal", competitor: "Native (core)" },
-        { label: "Built-in dialer / telecalling",                       leadkaun: false,          competitor: true  },
-        { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per user + add-ons" },
-        { label: "India-specific behaviour layer",                      leadkaun: true,           competitor: "neutral" },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Self-serve" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp handling",                                  leadkaun: "3-tap signal", competitor: "Native (core)" },
+          { label: "Built-in dialer / telecalling",                      leadkaun: false, competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per user + add-ons" },
+          { label: "India-specific behaviour layer",                     leadkaun: true, competitor: "neutral" },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "Self-serve" },
+        ] },
+      ]}
+      verdictLine="TeleCRM is the cheapest way to run a dialling floor. Leadkaun costs more per seat at small scale and tells you which of those calls was worth making."
+      glance={{
+        category:     "Telecalling CRM for high-volume outbound",
+        pricingModel: "INR per user, annual, plus add-ons",
+        bestFor:      "Call-centre-style teams dialling hundreds of leads a day",
+        indiaFit:     "Indian company, INR billing, WhatsApp available as an add-on",
+        setup:        "Same week",
+      }}
+      chooseCompetitor={[
+        "Raw dialling volume is the metric that matters",
+        "You need an autodialer and call recording as the core product",
+        "Cost per seat is the binding constraint",
+      ]}
+      chooseLeadkaun={[
+        "You want fewer, better calls rather than more of them",
+        "Add-on pricing for WhatsApp and chat sync erodes the headline rate",
+        "Nobody can currently say which leads went cold and what that cost",
+      ]}
+      cost={{ perSeat: 799, currency: "INR", plus: "Chat Sync at ₹200/user/mo and WhatsApp API setup at ₹1,999 plus Meta charges" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "TeleCRM pricing", url: "https://telecrm.in/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

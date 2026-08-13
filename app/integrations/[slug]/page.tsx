@@ -1,31 +1,60 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowRight, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Check, ExternalLink } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { DetailHero } from "@/app/components/detail-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
-import { Reveal } from "@/app/components/reveal"
+import { LedgerCTA } from "@/app/components/ledger"
+import { MEASURE } from "@/app/components/reading"
 
 import { getIntegrations } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, productSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 86400
 
+/* A wiring page: the connection itself is the headline (Leadkaun ⇄ X), the
+   status sits next to it, and if it is not built yet the page says so above
+   the fold and tells you what to do today instead. */
+
+type Status = "live" | "roadmap" | "partner-driven"
 type IntegrationEntry = {
   slug: string; name: string; partnerUrl: string | null; category: string
   tagline: string; description: string
   setupSteps: { heading: string; body: string }[]; useCases: string[]
   faqs: { q: string; a: string }[]; relatedIntegrations?: string[]; relatedFeatures?: string[]
-  status: "live" | "roadmap" | "partner-driven"
+  status: Status
+}
+
+const STATUS: Record<Status, { label: string; fg: string; bg: string; note: string }> = {
+  "live": {
+    label: "Live", fg: "#047857", bg: "rgba(16,185,129,0.12)",
+    note: "Shipping today. Set it up in the steps below.",
+  },
+  "partner-driven": {
+    label: "Partner", fg: "#0369A1", bg: "rgba(8,119,184,0.10)",
+    note: "Works through your own account with the partner, not a Leadkaun-built connector.",
+  },
+  "roadmap": {
+    label: "On roadmap", fg: "#B45309", bg: "rgba(234,88,12,0.10)",
+    note: "Not built yet. CSV import covers the same job today, and this page shows you how.",
+  },
+}
+
+function StatusChip({ s, large = false }: { s: Status; large?: boolean }) {
+  const t = STATUS[s]
+  return (
+    <span
+      className={`ledger-num shrink-0 rounded-md font-bold uppercase tracking-[0.14em] ${large ? "px-2.5 py-1 text-[10px]" : "px-2 py-0.5 text-[9px]"}`}
+      style={{ color: t.fg, background: t.bg }}
+    >
+      {t.label}
+    </span>
+  )
 }
 
 export async function generateStaticParams() {
@@ -51,17 +80,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-function statusBadge(s: IntegrationEntry["status"]) {
-  if (s === "live") return (
-    <span className="inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white" style={{ background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(16,185,129,0.30)" }}>Live</span>
-  )
-  if (s === "partner-driven") return (
-    <span className="inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white" style={{ background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)" }}>Partner-driven</span>
-  )
-  return <span className="inline-flex items-center rounded-full glass-1 gloss-edge px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">On roadmap</span>
-}
-
-function prettyFeature(slug: string) {
+function pretty(slug: string) {
   return slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
 }
 
@@ -73,12 +92,16 @@ export default async function IntegrationPage({ params }: Params) {
 
   const related = (entry.relatedIntegrations ?? [])
     .map((s) => list.find((i) => i.slug === s))
-    .filter((e): e is IntegrationEntry => e !== undefined)
-    .slice(0, 4)
+    .filter((i): i is IntegrationEntry => i !== undefined)
+  const status = STATUS[entry.status]
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Integrations", url: "/integrations" }, { name: entry.name }]),
-    productSchema({ name: `Leadkaun × ${entry.name}`, description: entry.tagline, url: `/integrations/${entry.slug}` }),
+    productSchema({
+      name: `Leadkaun + ${entry.name}`,
+      description: entry.tagline,
+      url: `/integrations/${entry.slug}`,
+    }),
     faqPageSchema(entry.faqs),
   ]
 
@@ -89,168 +112,173 @@ export default async function IntegrationPage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <DetailHero
-          breadcrumb={[{ label: "Integrations", href: "/integrations" }, { label: entry.category.replace(/-/g, " ") }]}
-          eyebrow="Integration"
-          badges={statusBadge(entry.status)}
-          h1={<>Leadkaun <span className="text-ink-muted">×</span> {entry.name}</>}
-          sub={entry.tagline}
-          cta={entry.partnerUrl ? (
-            <a href={entry.partnerUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:underline underline-offset-4">
-              Visit {entry.name} <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          ) : undefined}
-        />
-
-        {/* DESCRIPTION */}
-        <SectionGround variant="cream" size="lg">
+        {/* THE CONNECTION */}
+        <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="01" tone="warm" label="How it works" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                What the integration does.
-              </h2>
-              <div className="prose prose-leadkaun mt-8 max-w-none">
-                {entry.description.split("\n\n").map((para, i) => <p key={i}>{para}</p>)}
-              </div>
-            </Reveal>
+            <nav aria-label="Breadcrumb" className="ledger-num text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <Link href="/integrations" className="hover:text-sky-700">Integrations</Link>
+              <span aria-hidden className="mx-2 text-ink-faint">/</span>
+              <span>{pretty(entry.category)}</span>
+            </nav>
+
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <h1 className="flex flex-wrap items-baseline gap-x-4 text-[34px] leading-[1.05] tracking-[-0.03em] text-ink md:text-[52px]">
+                <span>Leadkaun</span>
+                <span aria-hidden className="ledger-num text-[20px] text-ink-faint md:text-[26px]">+</span>
+                <span className="hero-accent">{entry.name}</span>
+              </h1>
+              <StatusChip s={entry.status} large />
+            </div>
+
+            <p className={`mt-6 text-[18px] leading-[1.6] text-ink-soft md:text-[20px] ${MEASURE}`}>{entry.tagline}</p>
+
+            {/* Honest status banner */}
+            <div
+              className={`mt-8 rounded-xl px-5 py-4 ${MEASURE}`}
+              style={{ background: "var(--paper)", border: "1px solid var(--paper-line)" }}
+            >
+              <p className="text-[14px] leading-[1.6] text-ink-soft">
+                <span className="ledger-num mr-2 text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: status.fg }}>
+                  {status.label}
+                </span>
+                {status.note}
+              </p>
+            </div>
+
+            {entry.partnerUrl && (
+              <a
+                href={entry.partnerUrl}
+                target="_blank"
+                rel="noopener nofollow"
+                className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600"
+              >
+                Visit {entry.name} <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
           </Container>
         </SectionGround>
 
-        {/* SETUP */}
-        <SectionGround variant="sky" size="md">
+        {/* WHAT IT DOES + WHAT YOU CAN DO */}
+        <SectionGround variant="pure" size="md">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="02" label="Setup" />
-              <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                {entry.setupSteps.length} steps.
-              </h2>
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] lg:gap-16">
+              <div>
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">What it does</p>
+                <p className="mt-4 text-[17px] leading-[1.75] text-ink-soft md:text-[18px]">{entry.description}</p>
+              </div>
 
-              <ol className="mt-8 space-y-5">
-                {entry.setupSteps.map((step, i) => (
-                  <FloatingCard key={i} as="li" tier="2" depth="2" gloss aura={i % 3 === 1 ? "peach" : "sky"} className="p-6">
-                    <div className="flex items-start gap-5">
-                      <span
-                        className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-2xl font-mono text-[14px] font-bold text-white"
-                        style={{
-                          background: i % 3 === 1 ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)" : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 10px rgba(14,165,233,0.30)",
-                        }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h3 className="text-[17px] font-semibold leading-[1.3] tracking-[-0.015em] text-ink">{step.heading}</h3>
-                        <p className="mt-2 text-[14px] leading-[1.65] text-ink-soft">{step.body}</p>
-                      </div>
-                    </div>
-                  </FloatingCard>
+              {entry.useCases.length > 0 && (
+                <aside
+                  className="h-fit rounded-2xl bg-[color:var(--paper)] p-6 md:p-7"
+                  style={{ border: "1px solid var(--paper-line)" }}
+                >
+                  <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">Typical uses</p>
+                  <ul className="mt-4 space-y-3">
+                    {entry.useCases.map((u, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[14px] leading-[1.55] text-ink-soft">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2.5} aria-hidden />
+                        <span>{u}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
+            </div>
+          </Container>
+        </SectionGround>
+
+        {/* WIRING IT UP */}
+        {entry.setupSteps.length > 0 && (
+          <SectionGround variant="cream" size="lg">
+            <Container>
+              <div className="mb-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">Wiring it up</p>
+                <h2 className="mt-4 text-[26px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[34px]">
+                  {entry.setupSteps.length} steps, start to finish.
+                </h2>
+              </div>
+              <ol className="border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {entry.setupSteps.map((s, i) => (
+                  <li
+                    key={i}
+                    className="grid gap-x-8 gap-y-2 py-6 md:grid-cols-[minmax(0,56px)_minmax(0,300px)_minmax(0,1fr)]"
+                    style={{ borderBottom: "1px solid var(--paper-line)" }}
+                  >
+                    <span className="ledger-num text-[13px] font-semibold text-sky-700 tabular md:pt-0.5 md:text-[15px]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-[17px] font-semibold leading-snug tracking-[-0.01em] text-ink md:text-[18px]">{s.heading}</h3>
+                    <p className="col-start-1 text-[14px] leading-[1.6] text-ink-soft md:col-start-3 md:text-[15px]">{s.body}</p>
+                  </li>
                 ))}
               </ol>
-            </Reveal>
-          </Container>
-        </SectionGround>
-
-        {/* USE CASES */}
-        <SectionGround variant="cream" size="md">
-          <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="03" tone="warm" label="Use cases" />
-              <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                What teams actually do with it.
-              </h2>
-              <FloatingCard tier="3" depth="3" gloss className="mt-8 overflow-hidden">
-                <ul className="divide-y" style={{ borderColor: "var(--hairline)" }}>
-                  {entry.useCases.map((uc, i) => (
-                    <li key={i} className="flex items-start gap-5 px-7 py-5 md:px-8">
-                      <span
-                        className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl font-mono text-[13px] font-bold text-white"
-                        style={{
-                          background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)",
-                        }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <p className="text-[15px] leading-[1.65] text-ink">{uc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </FloatingCard>
-            </Reveal>
-          </Container>
-        </SectionGround>
-
-        {/* RELATED FEATURES */}
-        {entry.relatedFeatures && entry.relatedFeatures.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="04" label="In the product" />
-                <h2 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
-                  Which Leadkaun features it powers.
-                </h2>
-                <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  {entry.relatedFeatures.map((f) => (
-                    <Link key={f} href={`/features/${f}`} className="group flex items-center justify-between gap-4 rounded-2xl px-5 py-4 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all">
-                      <div className="min-w-0">
-                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Feature</p>
-                        <p className="mt-2 text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{prettyFeature(f)}</p>
-                      </div>
-                      <ArrowRight className="h-4 w-4 shrink-0 text-ink-muted transition-all group-hover:text-sky-500 group-hover:translate-x-0.5" strokeWidth={1.75} />
-                    </Link>
-                  ))}
-                </div>
-              </Reveal>
             </Container>
           </SectionGround>
         )}
 
         {/* FAQ */}
         {entry.faqs.length > 0 && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">Questions</p>
+                <Faq items={entry.faqs} className="!mx-0 !max-w-[68ch]" />
+              </div>
+            </Container>
+          </SectionGround>
+        )}
+
+        {/* NEARBY CONNECTIONS */}
+        {(related.length > 0 || entry.relatedFeatures?.length) && (
           <SectionGround variant="cream" size="md">
             <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="05" tone="warm" label="FAQ" />
-                <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                  Common questions.
-                </h2>
-                <div className="mt-8"><Faq items={entry.faqs} /></div>
-              </Reveal>
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">Nearby</p>
+                <div className="space-y-10">
+                  {related.length > 0 && (
+                    <ul className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+                      {related.map((r) => (
+                        <li key={r.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                          <Link href={`/integrations/${r.slug}`} className="group grid gap-x-8 gap-y-1 py-3.5 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)]">
+                            <span className="flex items-center gap-3">
+                              <span className="text-[15px] font-semibold text-ink group-hover:text-sky-700">{r.name}</span>
+                              <StatusChip s={r.status} />
+                            </span>
+                            <span className="line-clamp-1 text-[14px] text-ink-soft">{r.tagline}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {entry.relatedFeatures && entry.relatedFeatures.length > 0 && (
+                    <ul className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+                      {entry.relatedFeatures.map((f) => (
+                        <li key={f} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                          <Link href={`/features/${f}`} className="group flex items-baseline justify-between gap-4 py-3">
+                            <span className="text-[15px] text-ink group-hover:text-sky-700">
+                              <span className="ledger-num mr-3 text-[9px] uppercase tracking-[0.16em] text-ink-muted">Feature</span>
+                              {pretty(f)}
+                            </span>
+                            <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-faint group-hover:text-sky-700" />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        {/* RELATED */}
-        {related.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number="06" label="Other integrations" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
-                  Related to {entry.name}.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2">
-                {related.map((r) => (
-                  <Link key={r.slug} href={`/integrations/${r.slug}`} className="group rounded-2xl p-5 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all">
-                    <div className="flex items-start justify-between gap-4">
-                      <p className="text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{r.name}</p>
-                      {statusBadge(r.status)}
-                    </div>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-[1.55] text-ink-soft">{r.tagline}</p>
-                  </Link>
-                ))}
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        <CTABanner
-          tag={{ number: "→", label: "Plug it in" }}
-          headline={`Ship Leadkaun with ${entry.name}.`}
-          sub="Setup happens the same day. 14-day trial. No credit card. Connect your stack and watch behaviour show up by Friday."
+        <LedgerCTA
+          headline={entry.status === "live" ? `Connect ${entry.name} today.` : "CSV works today, regardless."}
+          sub={entry.status === "live"
+            ? "Start a free trial and wire it up in minutes. Every lead that arrives comes back graded A–F with a ranked queue per rep."
+            : `Until the ${entry.name} connector ships, a CSV export does the same job. Import it and every lead comes back graded A–F.`}
+          secondary={{ label: "All integrations", href: "/integrations" }}
         />
+
         <Footer />
       </main>
     </>

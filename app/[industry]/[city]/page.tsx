@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
@@ -155,8 +155,7 @@ export default async function IndustryCityPage({ params }: Params) {
                   <span
                     className="inline-flex h-11 w-11 items-center justify-center rounded-2xl font-mono text-[15px] font-bold text-white"
                     style={{
-                      background: i === 1 ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)" : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 12px rgba(14,165,233,0.30)",
+                      background: i === 1 ? "#EA580C" : "#0877B8",
                     }}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -186,8 +185,7 @@ export default async function IndustryCityPage({ params }: Params) {
                     <span
                       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-mono text-[14px] font-bold text-white"
                       style={{
-                        background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)",
+                        background: "#0877B8",
                       }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -300,7 +298,7 @@ export default async function IndustryCityPage({ params }: Params) {
 
         
 
-        <CTABanner />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
         <Footer />
       </main>
     </>

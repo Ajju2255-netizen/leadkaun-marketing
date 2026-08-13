@@ -1,25 +1,25 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { Check } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { DetailHero } from "@/app/components/detail-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FloatingCard } from "@/app/components/floating-card"
-import { GlossLink } from "@/app/components/gloss-button"
 import { GatedDownload } from "@/app/components/gated-download"
-import { Reveal } from "@/app/components/reveal"
+import { LedgerCTA } from "@/app/components/ledger"
+import { MEASURE } from "@/app/components/reading"
 
 import { getResources } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
 export const revalidate = 86400
+
+/* An asset page: the thing itself is the product, so the layout is a spec
+   sheet plus a get-it panel — format, audience, contents manifest, and the
+   download rail pinned alongside rather than buried at the bottom. */
 
 type ResourceEntry = {
   slug: string; name: string
@@ -61,16 +61,14 @@ export default async function ResourcePage({ params }: Params) {
 
   const related = (r.relatedResources ?? [])
     .map((s) => list.find((x) => x.slug === s))
-    .filter((e): e is ResourceEntry => e !== undefined)
+    .filter((x): x is ResourceEntry => x !== undefined)
     .slice(0, 3)
 
-  const insideList = (r.inside ?? []).length
+  const insideList = r.inside.length > 0
     ? [{
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: `What's inside ${r.name}`,
-        numberOfItems: r.inside.length,
-        itemListElement: r.inside.map((it: string, i: number) => ({ "@type": "ListItem", position: i + 1, name: it })),
+        "@context": "https://schema.org", "@type": "ItemList",
+        name: `What's inside ${r.name}`, numberOfItems: r.inside.length,
+        itemListElement: r.inside.map((i, n) => ({ "@type": "ListItem", position: n + 1, name: i })),
       }]
     : []
   const schemas = [
@@ -93,160 +91,168 @@ export default async function ResourcePage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <DetailHero
-          breadcrumb={[{ label: "Resources", href: "/resources" }, { label: typeLabel }]}
-          eyebrow={typeLabel}
-          badges={
-            <>
-              <span className="inline-flex items-center rounded-full glass-1 gloss-edge px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-                For {prettyPersona(r.audiencePersona)}
-              </span>
-              {!r.gated && (
-                <span
-                  className="inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white"
-                  style={{
-                    background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(16,185,129,0.30)",
-                  }}
-                >Free · No gate</span>
-              )}
-            </>
-          }
-          h1={r.name}
-          sub={r.tagline}
-          cta={r.downloadUrl ? (
-            r.gated ? (
-              <GatedDownload downloadUrl={r.downloadUrl} type={r.type} source={r.slug} />
-            ) : (
-              <GlossLink variant="primary" size="md" href={r.downloadUrl} target={r.downloadUrl.startsWith("/downloads") ? "_blank" : undefined} rel="noreferrer">
-                Open the {r.type}
-                <span className="font-mono opacity-80">→</span>
-              </GlossLink>
-            )
-          ) : undefined}
-        />
-
-        {/* OVERVIEW */}
-        <SectionGround variant="cream" size="lg">
+        <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="01" tone="warm" label="Overview" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                What this {r.type} is.
-              </h2>
-              <div className="prose prose-leadkaun mt-8 max-w-none">
-                {r.description.split("\n\n").map((p, i) => <p key={i}>{p}</p>)}
+            <nav aria-label="Breadcrumb" className="ledger-num text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <Link href="/resources" className="hover:text-sky-700">Resources</Link>
+              <span aria-hidden className="mx-2 text-ink-faint">/</span>
+              <span>{typeLabel}</span>
+            </nav>
+
+            <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] lg:gap-16">
+              <div>
+                <h1 className="display-lg text-[34px] text-ink md:text-[50px]">{r.name}</h1>
+                <p className="mt-6 max-w-[60ch] text-[18px] leading-[1.6] text-ink-soft md:text-[20px]">{r.tagline}</p>
+
+                {/* Asset spec */}
+                <dl className="mt-9 grid grid-cols-2 gap-px overflow-hidden rounded-2xl sm:grid-cols-3" style={{ background: "var(--paper-line)" }}>
+                  <div className="bg-white px-5 py-4">
+                    <dt className="ledger-num text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Format</dt>
+                    <dd className="mt-1.5 text-[15px] font-semibold text-ink">{typeLabel}</dd>
+                  </div>
+                  <div className="bg-white px-5 py-4">
+                    <dt className="ledger-num text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Built for</dt>
+                    <dd className="mt-1.5 text-[15px] font-semibold text-ink">{prettyPersona(r.audiencePersona)}</dd>
+                  </div>
+                  <div className="bg-white px-5 py-4">
+                    <dt className="ledger-num text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">Cost</dt>
+                    <dd className="mt-1.5 text-[15px] font-semibold" style={{ color: r.gated ? "var(--ink)" : "#047857" }}>
+                      {r.gated ? "Your email" : "Free, no gate"}
+                    </dd>
+                  </div>
+                </dl>
               </div>
-            </Reveal>
+
+              {/* GET IT */}
+              {r.downloadUrl && (
+                <aside
+                  className="h-fit rounded-2xl bg-[color:var(--paper)] p-6 md:p-7 lg:sticky lg:top-24"
+                  style={{ border: "1px solid var(--paper-line)" }}
+                >
+                  <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">
+                    Get the {r.type}
+                  </p>
+                  <div className="mt-4">
+                    {r.gated ? (
+                      <GatedDownload downloadUrl={r.downloadUrl} type={r.type} source={r.slug} />
+                    ) : (
+                      <a
+                        href={r.downloadUrl}
+                        target={r.downloadUrl.startsWith("/downloads") ? "_blank" : undefined}
+                        rel="noreferrer"
+                        className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-semibold"
+                        style={{ color: "#FFFFFF" }}
+                      >
+                        Open the {r.type} <ArrowRight className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                  {r.inside.length > 0 && (
+                    <p className="mt-4 text-[12px] leading-[1.5] text-ink-muted">
+                      {r.inside.length} things inside. No account needed{r.gated ? ", just an email" : ""}.
+                    </p>
+                  )}
+                </aside>
+              )}
+            </div>
           </Container>
         </SectionGround>
 
-        {/* INSIDE */}
-        {r.inside.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="02" label="What's inside" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Everything you&apos;ll get.
-                </h2>
-                <FloatingCard tier="3" depth="3" gloss className="mt-8 overflow-hidden">
-                  <ul className="divide-y" style={{ borderColor: "var(--hairline)" }}>
+        {/* WHAT IT IS + CONTENTS MANIFEST */}
+        <SectionGround variant="pure" size="md">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] lg:gap-16">
+              <div>
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                  What this {r.type} is
+                </p>
+                <div className="mt-4 space-y-5 text-[17px] leading-[1.75] text-ink-soft md:text-[18px]">
+                  {r.description.split("\n\n").map((para, i) => <p key={i}>{para}</p>)}
+                </div>
+
+                <p className="mt-10 ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                  Why it matters
+                </p>
+                <p className="mt-4 text-[16px] leading-[1.7] text-ink-soft">{r.whyItMatters}</p>
+              </div>
+
+              {r.inside.length > 0 && (
+                <div>
+                  <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">Inside</p>
+                  <ul className="mt-4 border-t" style={{ borderColor: "var(--paper-line)" }}>
                     {r.inside.map((item, i) => (
-                      <li key={i} className="flex items-start gap-4 px-7 py-4 md:px-8">
-                        <span
-                          className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                          style={{
-                            background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)",
-                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)",
-                          }}
-                        >
-                          <Check className="h-3 w-3 text-white" strokeWidth={3} />
-                        </span>
-                        <span className="text-[15px] leading-[1.6] text-ink">{item}</span>
+                      <li key={i} className="flex items-start gap-3 py-3" style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={2.5} aria-hidden />
+                        <span className="text-[14px] leading-[1.55] text-ink">{item}</span>
                       </li>
                     ))}
                   </ul>
-                </FloatingCard>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        {/* HOW TO USE */}
-        {r.howToUse.length > 0 && (
-          <SectionGround variant="cream" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="03" tone="warm" label="How to use it" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Run it like this.
-                </h2>
-                <FloatingCard tier="3" depth="3" gloss className="mt-8 overflow-hidden">
-                  <ol className="divide-y" style={{ borderColor: "var(--hairline)" }}>
-                    {r.howToUse.map((step, i) => (
-                      <li key={i} className="flex items-start gap-5 px-7 py-5 md:px-8">
-                        <span
-                          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl font-mono text-[13px] font-bold text-white"
-                          style={{
-                            background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)",
-                          }}
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <p className="text-[15px] leading-[1.65] text-ink">{step}</p>
-                      </li>
-                    ))}
-                  </ol>
-                </FloatingCard>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        {/* WHY IT MATTERS */}
-        <SectionGround variant="sky" size="md">
-          <Container>
-            <Reveal>
-              <FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-8 md:p-10">
-                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">Why it matters</p>
-                <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft md:text-[16px]">{r.whyItMatters}</p>
-              </FloatingCard>
-            </Reveal>
+                </div>
+              )}
+            </div>
           </Container>
         </SectionGround>
 
-        {/* RELATED */}
-        {related.length > 0 && (
-          <SectionGround variant="cream" size="md">
+        {/* HOW TO RUN IT */}
+        {r.howToUse.length > 0 && (
+          <SectionGround variant="cream" size="lg">
             <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number="04" tone="warm" label="Related resources" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
-                  Pair with these.
+              <div className="mb-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">How to run it</p>
+                <h2 className="mt-4 text-[26px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[34px]">
+                  {r.howToUse.length} steps, then it&apos;s yours.
                 </h2>
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-3">
-                {related.map((r2) => (
-                  <Link key={r2.slug} href={`/resources/${r2.slug}`} className="group rounded-2xl p-5 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all">
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">{r2.type}</p>
-                    <p className="mt-2 text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{r2.name}</p>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-[1.55] text-ink-soft">{r2.tagline}</p>
-                  </Link>
+              </div>
+              <ol className={`border-t ${MEASURE}`} style={{ borderColor: "var(--paper-line-2)" }}>
+                {r.howToUse.map((step, i) => (
+                  <li
+                    key={i}
+                    className="grid grid-cols-[40px_minmax(0,1fr)] gap-x-5 py-5"
+                    style={{ borderBottom: "1px solid var(--paper-line)" }}
+                  >
+                    <span className="ledger-num pt-0.5 text-[13px] font-semibold text-sky-700 tabular">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-[15px] leading-[1.7] text-ink md:text-[16px]">{step}</p>
+                  </li>
                 ))}
-              </Reveal>
+              </ol>
             </Container>
           </SectionGround>
         )}
 
-        
+        {/* PAIR WITH */}
+        {related.length > 0 && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                  Pair with
+                </p>
+                <ul className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+                  {related.map((r2) => (
+                    <li key={r2.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                      <Link href={`/resources/${r2.slug}`} className="group grid gap-x-8 gap-y-1 py-4 md:grid-cols-[minmax(0,260px)_minmax(0,1fr)]">
+                        <span>
+                          <span className="ledger-num mr-3 text-[9px] uppercase tracking-[0.16em] text-ink-muted">{r2.type}</span>
+                          <span className="text-[15px] font-semibold text-ink group-hover:text-sky-700">{r2.name}</span>
+                        </span>
+                        <span className="line-clamp-2 text-[14px] leading-[1.55] text-ink-soft">{r2.tagline}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Container>
+          </SectionGround>
+        )}
 
-        <CTABanner
-          tag={{ number: "→", label: "Or let Leadkaun run it" }}
+        <LedgerCTA
           headline="Skip the manual version."
-          sub="Everything this resource teaches, Leadkaun automates the same day, scoring, Priority Queue, Morning Brief, ₹ at risk. No spreadsheet to maintain."
+          sub={`Everything this ${r.type} teaches, Leadkaun does automatically the same day: scoring, Priority Queue, Morning Brief, ₹ at risk. No spreadsheet to maintain.`}
+          secondary={{ label: "More resources", href: "/resources" }}
         />
+
         <Footer />
       </main>
     </>

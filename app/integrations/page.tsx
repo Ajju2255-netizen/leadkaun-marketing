@@ -3,23 +3,26 @@ import Link from "next/link"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { Reveal } from "@/app/components/reveal"
+import { ArticleHeader } from "@/app/components/reading"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { getIntegrations } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, jsonLdScript, canonical } from "@/lib/seo"
 
+/* A connection catalogue. Status is the first thing you see on every row —
+   two thirds of this list is not shipped yet, and a directory that hides that
+   is a directory that lies. */
+
+type Status = "live" | "roadmap" | "partner-driven"
 type IntegrationEntry = {
   slug: string
   name: string
   category: string
   tagline: string
-  status: "live" | "roadmap" | "partner-driven"
+  status: Status
 }
 
 export const metadata: Metadata = {
@@ -31,32 +34,20 @@ export const metadata: Metadata = {
 
 const CATEGORY_ORDER = ["data-source", "messaging", "email", "calendar", "payments", "other"]
 
-function statusBadge(s: IntegrationEntry["status"]) {
-  if (s === "live") {
-    return (
-      <span
-        className="shrink-0 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white"
-        style={{
-          background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(16,185,129,0.30)",
-        }}
-      >Live</span>
-    )
-  }
-  if (s === "partner-driven") {
-    return (
-      <span
-        className="shrink-0 rounded-full px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white"
-        style={{
-          background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)",
-        }}
-      >Partner</span>
-    )
-  }
+const STATUS: Record<Status, { label: string; fg: string; bg: string }> = {
+  "live":           { label: "Live",     fg: "#047857", bg: "rgba(16,185,129,0.12)" },
+  "partner-driven": { label: "Partner",  fg: "#0369A1", bg: "rgba(8,119,184,0.10)" },
+  "roadmap":        { label: "Roadmap",  fg: "#B45309", bg: "rgba(234,88,12,0.10)" },
+}
+
+export function StatusChip({ s }: { s: Status }) {
+  const t = STATUS[s]
   return (
-    <span className="shrink-0 rounded-full glass-1 gloss-edge px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-      Roadmap
+    <span
+      className="ledger-num shrink-0 rounded-md px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em]"
+      style={{ color: t.fg, background: t.bg }}
+    >
+      {t.label}
     </span>
   )
 }
@@ -66,86 +57,91 @@ function prettyCategory(slug: string) {
 }
 
 export default async function IntegrationsIndexPage() {
-  const INTEGRATIONS = (await getIntegrations()) as IntegrationEntry[]
-  const byCategory = INTEGRATIONS.reduce<Record<string, IntegrationEntry[]>>((acc, i) => {
+  const ALL = (await getIntegrations()) as IntegrationEntry[]
+  const byCategory = ALL.reduce<Record<string, IntegrationEntry[]>>((acc, i) => {
     if (!acc[i.category]) acc[i.category] = []
     acc[i.category].push(i)
     return acc
   }, {})
+  const categories = [
+    ...CATEGORY_ORDER.filter((c) => byCategory[c]),
+    ...Object.keys(byCategory).filter((c) => !CATEGORY_ORDER.includes(c)).sort(),
+  ]
+  const counts = {
+    live: ALL.filter((i) => i.status === "live").length,
+    partner: ALL.filter((i) => i.status === "partner-driven").length,
+    roadmap: ALL.filter((i) => i.status === "roadmap").length,
+  }
 
-  const sortedCats = Object.keys(byCategory).sort((a, b) => {
-    const ai = CATEGORY_ORDER.indexOf(a)
-    const bi = CATEGORY_ORDER.indexOf(b)
-    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi)
-  })
-
-  const liveCount = INTEGRATIONS.filter((i) => i.status === "live").length
+  const schemas = [
+    breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Integrations" }]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Leadkaun integrations",
+      numberOfItems: ALL.length,
+      itemListElement: ALL.map((i, n) => ({
+        "@type": "ListItem", position: n + 1, name: i.name, url: canonical(`/integrations/${i.slug}`),
+      })),
+    },
+  ]
 
   return (
-    <main className="min-h-screen bg-bg-pure">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([
-        breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Integrations" }]),
-        { "@context": "https://schema.org", "@type": "ItemList", name: "Leadkaun integrations",
-          itemListElement: INTEGRATIONS.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: canonical(`/integrations/${it.slug}`) })) },
-      ]) }} />
-      <Navbar />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(schemas) }} />
 
-      <PageHero
-        eyebrow={`${INTEGRATIONS.length} integrations · ${liveCount} live`}
-        h1={<>Plug into the stack you <span className="hero-accent">already run.</span></>}
-        sub="Leadkaun connects with the tools Indian B2B sales teams already use, Google Sheets, WhatsApp (manual + BSP), Gmail, Calendly, IndiaMART, Razorpay, Zapier. No rip-and-replace, no broken pipelines."
-        center={false}
-        primary={undefined}
-        meta={
-          <span className="inline-flex flex-wrap justify-start gap-1.5 normal-case tracking-normal">
-            {sortedCats.map((c) => (
-              <a
-                key={c}
-                href={`#cat-${c}`}
-                className="inline-flex h-8 items-center rounded-full glass-1 gloss-edge px-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-soft transition-all hover:text-sky-600 lift"
-              >
-                {prettyCategory(c)}
-              </a>
+      <main className="min-h-screen bg-bg-pure">
+        <Navbar />
+
+        <ArticleHeader
+          kicker="Integrations"
+          title="What Leadkaun connects to."
+          dek="Every connection, with its real status attached. Live means it ships today. Roadmap means it doesn't yet, and the page tells you what to do instead."
+          meta={[`${counts.live} live`, `${counts.partner} partner-driven`, `${counts.roadmap} on roadmap`]}
+        />
+
+        <SectionGround variant="cream" size="lg">
+          <Container>
+            {/* Legend */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b pb-5" style={{ borderColor: "var(--paper-line-2)" }}>
+              <span className="inline-flex items-center gap-2"><StatusChip s="live" /><span className="text-[12px] text-ink-muted">Ships today</span></span>
+              <span className="inline-flex items-center gap-2"><StatusChip s="partner-driven" /><span className="text-[12px] text-ink-muted">Via a partner account</span></span>
+              <span className="inline-flex items-center gap-2"><StatusChip s="roadmap" /><span className="text-[12px] text-ink-muted">Not built yet</span></span>
+            </div>
+
+            {categories.map((c, ci) => (
+              <section key={c} className={ci > 0 ? "mt-14" : "mt-12"}>
+                <h2 className="text-[20px] font-semibold leading-tight tracking-[-0.02em] text-ink md:text-[24px]">
+                  {prettyCategory(c)}
+                </h2>
+                <ul className="mt-5 border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                  {byCategory[c].map((i) => (
+                    <li key={i.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                      <Link href={`/integrations/${i.slug}`} className="group grid gap-x-8 gap-y-1.5 py-5 md:grid-cols-[minmax(0,240px)_minmax(0,1fr)]">
+                        <div className="flex items-center gap-3">
+                          <span className="text-[16px] font-semibold leading-snug text-ink transition-colors group-hover:text-sky-700">
+                            {i.name}
+                          </span>
+                          <StatusChip s={i.status} />
+                        </div>
+                        <p className="text-[14px] leading-[1.6] text-ink-soft md:text-[15px]">{i.tagline}</p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             ))}
-          </span>
-        }
-      />
+          </Container>
+        </SectionGround>
 
-      <SectionGround variant="cream" size="lg">
-        <Container>
-          {sortedCats.map((cat, idx) => (
-            <section key={cat} id={`cat-${cat}`} className={idx === 0 ? "" : "mt-14"}>
-              <Reveal className="mb-6">
-                <NumberedTag
-                  number={String(idx + 1).padStart(2, "0")}
-                  tone={idx % 2 === 1 ? "warm" : "default"}
-                  label={`${prettyCategory(cat)} · ${byCategory[cat].length} ${byCategory[cat].length === 1 ? "integration" : "integrations"}`}
-                />
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2 md:gap-5">
-                {byCategory[cat].map((i) => (
-                  <Link
-                    key={i.slug}
-                    href={`/integrations/${i.slug}`}
-                    className="group rounded-2xl p-5 md:p-6 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <p className="text-[16px] font-semibold text-ink group-hover:text-sky-600 transition-colors">
-                        {i.name}
-                      </p>
-                      {statusBadge(i.status)}
-                    </div>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-[1.6] text-ink-soft">{i.tagline}</p>
-                  </Link>
-                ))}
-              </Reveal>
-            </section>
-          ))}
-        </Container>
-      </SectionGround>
+        <LedgerCTA
+          headline="CSV works with everything, today."
+          sub="Whatever you use, you can export a CSV and have every lead graded A–F within the hour. The connectors just save you the export."
+          secondary={{ label: "See the product", href: "/product" }}
+        />
 
-      <CTABanner />
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </>
   )
 }

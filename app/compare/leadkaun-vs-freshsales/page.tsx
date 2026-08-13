@@ -28,16 +28,47 @@ export default function VsFreshsales() {
         "No Morning Brief equivalent",
       ]}
       features={[
-        { label: "Transparent 3-dim scoring (weights visible)", leadkaun: true,            competitor: "Freddy (opaque)" },
-        { label: "Intent decay over time",                      leadkaun: true,            competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",     leadkaun: true,            competitor: "Filter views" },
-        { label: "Missed Opportunity Engine (₹ at risk)",       leadkaun: true,            competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                leadkaun: true,            competitor: false },
-        { label: "WhatsApp native (3-tap)",                     leadkaun: true,            competitor: "Via Freshchat" },
-        { label: "Clean UI / modern design",                    leadkaun: "neutral",       competitor: true },
-        { label: "Freshworks suite (Desk, Chat) integrations",  leadkaun: false,           competitor: true },
-        { label: "INR pricing with GST",                        leadkaun: true,            competitor: true },
-        { label: "India-first scoring defaults",                leadkaun: true,            competitor: false },
+        { group: "Lead intelligence", rows: [
+          { label: "Transparent 3-dim scoring (weights visible)",leadkaun: true, competitor: "Freddy (opaque)" },
+          { label: "Intent decay over time",                     leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",    leadkaun: true, competitor: "Filter views" },
+          { label: "Missed Opportunity Engine (₹ at risk)",      leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",               leadkaun: true, competitor: false },
+          { label: "India-first scoring defaults",               leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp native (3-tap)",                    leadkaun: true, competitor: "Via Freshchat" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Clean UI / modern design",                   leadkaun: "neutral", competitor: true },
+          { label: "Freshworks suite (Desk, Chat) integrations", leadkaun: false, competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "INR pricing with GST",                       leadkaun: true, competitor: true },
+        ] },
+      ]}
+      verdictLine="Freshsales is a clean, fairly priced Indian CRM. Leadkaun is the behaviour layer on top of one: published scoring weights, a real queue, and ₹ at risk."
+      glance={{
+        category:     "Sales CRM inside the Freshworks suite",
+        pricingModel: "INR per rep, per month",
+        bestFor:      "Teams already standardised on Freshworks Desk and Chat",
+        indiaFit:     "Indian company billing in INR, but scoring weights stay opaque",
+        setup:        "Days to weeks",
+      }}
+      chooseCompetitor={[
+        "You already run Freshdesk or Freshchat and want one vendor",
+        "You want a broad, conventional CRM with a modern UI",
+        "Suite-wide reporting matters more than lead behaviour",
+      ]}
+      chooseLeadkaun={[
+        "You want to see why a lead is graded A, not just that it is",
+        "WhatsApp is a first-class channel, not an add-on subscription",
+        "Flat per-account pricing beats per-rep as the team grows",
+      ]}
+      cost={{ perSeat: 3500, currency: "INR", plus: "Freddy AI Pro and WhatsApp via Freshchat, both billed separately" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Freshsales pricing", url: "https://www.freshworks.com/crm/sales/pricing/" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "All 12 modules. 14-day trial. No credit card." },

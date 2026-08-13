@@ -29,20 +29,50 @@ export default function VsApollo() {
         "No ₹ Missed Opportunity Engine, Priority Queue, or Morning Brief",
       ]}
       features={[
-        { label: "Net-new lead sourcing database",                     leadkaun: false,          competitor: true  },
-        { label: "Outbound email sequencing / dialer",                 leadkaun: false,          competitor: true  },
-        { label: "Inbound A–F lead grading (Fit × Intent × Quality)",  leadkaun: true,           competitor: false },
-        { label: "Intent decay over time",                             leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true,           competitor: false },
-        { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true,           competitor: false },
-        { label: "India-specific UX",                                  leadkaun: true,           competitor: false },
-        { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per seat (USD) + credits" },
+        { group: "Lead intelligence", rows: [
+          { label: "Inbound A–F lead grading (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                           leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",          leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",        leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "Net-new lead sourcing database",                   leadkaun: false, competitor: true },
+          { label: "Outbound email sequencing / dialer",               leadkaun: false, competitor: true },
+          { label: "WhatsApp as first-class signal (3-tap)",           leadkaun: true, competitor: false },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "India-specific UX",                                leadkaun: true, competitor: false },
+          { label: "Pricing model",                                    leadkaun: "Flat/account", competitor: "Per seat (USD) + credits" },
+        ] },
+      ]}
+      verdictLine="Not really a versus. Apollo sources leads you do not have yet; Leadkaun grades and works the ones you already do. Indian teams running outbound usually end up paying for both."
+      glance={{
+        category:     "Prospecting database plus outbound sequencing",
+        pricingModel: "USD per seat, annual, plus credit consumption",
+        bestFor:      "Outbound teams building pipeline from a cold list",
+        indiaFit:     "Thin India contact coverage, USD billing, no WhatsApp",
+        setup:        "Days, list building is the real work",
+      }}
+      chooseCompetitor={[
+        "You have little inbound flow and need to source net-new contacts",
+        "Your motion is cold email sequencing at volume",
+        "You sell into US or EU markets, where Apollo's data is strongest",
+      ]}
+      chooseLeadkaun={[
+        "Leads already arrive and nobody can say which to call first",
+        "Your reps work WhatsApp and phone, not cold email",
+        "You want ₹ at risk surfaced daily rather than more contacts to chase",
+      ]}
+      cost={{ perSeat: 79, currency: "USD", plus: "credit top-ups once the included exports run out" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Apollo.io pricing", url: "https://www.apollo.io/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "Flat per account manages the leads you have" },
         competitor: { tier: "Professional", price: "~$79 / user / mo", note: "USD, per user (annual) + credit consumption sources net-new leads. As of 2026, verify." },
       }}
+      complementary
       switchingLabel="Better together"
       switchingHeading="How Apollo and Leadkaun work together."
       faqHeading="Apollo + Leadkaun, explained."

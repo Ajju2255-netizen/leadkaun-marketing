@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { CommercialLinks } from "@/app/components/pseo/commercial-links"
 import { Container } from "@/app/components/container"
@@ -261,7 +261,7 @@ export default async function CityPage({ params }: Params) {
 
         
 
-        <CTABanner />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
         <Footer />
       </main>
     </>

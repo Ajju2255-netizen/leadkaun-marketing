@@ -3,7 +3,7 @@ import { BarChart3, ListOrdered, AlertTriangle, Mail, MessageSquare, Users, File
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -67,7 +67,7 @@ export default function FeaturesHub() {
         </Container>
       </SectionGround>
 
-      <CTABanner />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
       <Footer />
     </main>
   )

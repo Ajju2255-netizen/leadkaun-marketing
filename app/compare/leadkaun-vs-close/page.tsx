@@ -29,16 +29,45 @@ export default function VsClose() {
         "No ₹-denominated Missed Opportunity Engine or Morning Brief",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Built-in dialer / SMS",                               leadkaun: false,          competitor: true  },
-        { label: "WhatsApp as first-class signal (3-tap)",              leadkaun: true,           competitor: "Integration" },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per seat (USD) + usage" },
-        { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Self-serve" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "Built-in dialer / SMS",                              leadkaun: false, competitor: true },
+          { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true, competitor: "Integration" },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per seat (USD) + usage" },
+          { label: "India-specific UX",                                  leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "Self-serve" },
+        ] },
+      ]}
+      verdictLine="Close is an excellent calling CRM for US inside-sales teams. In India the conversation happens on WhatsApp, and the bill still arrives in dollars."
+      glance={{
+        category:     "Inside-sales CRM with a built-in dialer",
+        pricingModel: "USD per user, annual, plus call and SMS usage",
+        bestFor:      "US inside-sales teams living on the phone",
+        indiaFit:     "USD billing, US telephony, no WhatsApp-first workflow",
+        setup:        "Days",
+      }}
+      chooseCompetitor={[
+        "Calling volume is your whole motion and you want the dialer native",
+        "Your team and buyers are US-based",
+        "You want power dialling and call coaching in one tool",
+      ]}
+      chooseLeadkaun={[
+        "Your reps close on WhatsApp as much as on calls",
+        "Per-user USD pricing stops making sense past a handful of reps",
+        "You need leads ranked before the dialling starts",
+      ]}
+      cost={{ perSeat: 99, currency: "USD", plus: "call and SMS usage, roughly $0.02/min plus number fees" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Close pricing", url: "https://www.close.com/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

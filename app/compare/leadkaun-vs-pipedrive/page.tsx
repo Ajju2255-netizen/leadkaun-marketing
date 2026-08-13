@@ -29,16 +29,45 @@ export default function VsPipedrive() {
         "Heavier automation gated behind higher-priced tiers",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,          competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,          competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,          competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,          competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,          competitor: false },
-        { label: "WhatsApp as first-class signal (3-tap)",              leadkaun: true,          competitor: "Add-on" },
-        { label: "Visual pipeline (Kanban)",                            leadkaun: "neutral",     competitor: true  },
-        { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per user (USD)" },
-        { label: "India-specific UX",                                   leadkaun: true,          competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",      competitor: "Days" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true, competitor: "Add-on" },
+          { label: "Visual pipeline (Kanban)",                           leadkaun: "neutral", competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per user (USD)" },
+          { label: "India-specific UX",                                  leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "Days" },
+        ] },
+      ]}
+      verdictLine="Pipedrive is the best-liked pipeline UI in the category. It tracks deals you have already qualified; Leadkaun decides which leads deserve to become deals."
+      glance={{
+        category:     "Pipeline-first sales CRM",
+        pricingModel: "USD per user, annual",
+        bestFor:      "Teams wanting a clean visual pipeline and little else",
+        indiaFit:     "USD billing plus FX, no WhatsApp-native workflow",
+        setup:        "Same week",
+      }}
+      chooseCompetitor={[
+        "A clean deal pipeline is the whole requirement",
+        "Your reps are disciplined and already know what to work",
+        "You want a light CRM with a big integration marketplace",
+      ]}
+      chooseLeadkaun={[
+        "The problem is upstream: which of 500 leads to call first",
+        "WhatsApp is where your deals actually move",
+        "Per-user USD pricing grows faster than your team should",
+      ]}
+      cost={{ perSeat: 29, currency: "USD" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Pipedrive pricing", url: "https://www.pipedrive.com/en/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

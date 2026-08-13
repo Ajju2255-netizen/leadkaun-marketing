@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 import { ProductBlock } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -103,9 +103,8 @@ export default function HowItWorksPage() {
                     className="shrink-0 inline-flex h-14 w-14 items-center justify-center rounded-2xl font-mono text-[18px] font-bold text-white"
                     style={{
                       background: i % 3 === 1
-                        ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
-                        : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 16px rgba(14,165,233,0.32)",
+                        ? "#EA580C"
+                        : "#0877B8",
                     }}
                   >
                     {s.step}
@@ -177,7 +176,7 @@ export default function HowItWorksPage() {
         sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees, the working screen your team opens every morning."
       />
 
-      <CTABanner />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
       <Footer />
     </main>
   )

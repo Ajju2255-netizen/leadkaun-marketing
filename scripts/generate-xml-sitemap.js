@@ -129,8 +129,14 @@ const core = [
   { path: "/research", priority: "0.8", changefreq: "monthly" },
   { path: "/research/indian-b2b-sales-lead-benchmarks-2026", priority: "0.8", changefreq: "monthly" },
   { path: "/security", priority: "0.5", changefreq: "yearly" },
+  { path: "/compliance", priority: "0.4", changefreq: "yearly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/terms", priority: "0.3", changefreq: "yearly" },
+  { path: "/cookie-policy", priority: "0.3", changefreq: "yearly" },
+  { path: "/gdpr", priority: "0.3", changefreq: "yearly" },
+  { path: "/anti-spam", priority: "0.3", changefreq: "yearly" },
+  { path: "/abuse", priority: "0.3", changefreq: "yearly" },
+  { path: "/ipr", priority: "0.3", changefreq: "yearly" },
 ]
 
 const blog = [

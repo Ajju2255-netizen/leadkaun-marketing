@@ -148,7 +148,7 @@ function TierCard({ t, billing }: { t: Tier; billing: Billing }) {
       depth={t.highlighted ? "3" : "2"}
       gloss
       aura={t.highlighted ? "sky" : "none"}
-      className={`relative flex flex-col p-6 ${t.highlighted ? "ring-2 ring-sky-300" : ""}`}
+      className={`relative flex h-full flex-col p-6 ${t.highlighted ? "ring-2 ring-sky-300" : ""}`}
     >
       {t.highlighted && (
         <span className="absolute -top-2.5 left-6 rounded-full bg-sky-600 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-white">
@@ -161,7 +161,7 @@ function TierCard({ t, billing }: { t: Tier; billing: Billing }) {
         <span className="text-[13px] text-ink-muted">{unit}</span>
       </p>
       <p className="mt-1 font-mono text-[11px] text-ink-muted">{annualNote}</p>
-      <p className="mt-3.5 text-[13px] leading-[1.55] text-ink-soft">{t.description}</p>
+      <p className="mt-3.5 text-[13px] leading-[1.55] text-ink-soft lg:min-h-[61px]">{t.description}</p>
       <a
         href={APP_URLS.register}
         className={`mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl px-4 py-2.5 text-[14px] font-semibold transition-all ${t.highlighted ? "hover:-translate-y-0.5" : "border bg-white hover:border-sky-300"}`}
@@ -169,8 +169,8 @@ function TierCard({ t, billing }: { t: Tier; billing: Billing }) {
       >
         {t.ctaLabel} <ArrowRight className="h-4 w-4" />
       </a>
-      <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-muted">Ideal for {t.idealFor}</p>
-      <ul className="mt-4 space-y-2.5 border-t pt-4 rule-paper">
+      <p className="mt-5 font-mono text-[10px] font-semibold uppercase leading-[1.7] tracking-[0.14em] text-ink-muted lg:min-h-[51px]">Ideal for {t.idealFor}</p>
+      <ul className="mt-4 flex-1 space-y-2.5 border-t pt-4 rule-paper">
         {t.features.map((f) => (
           <li key={f} className="flex items-start gap-2.5 text-[13px] leading-snug text-ink-soft">
             <MiniCheck />
@@ -187,7 +187,7 @@ export function PricingPlans() {
   return (
     <div>
       <Toggle billing={billing} set={setBilling} />
-      <div className="grid items-start gap-5 lg:grid-cols-4">
+      <div className="grid items-stretch gap-5 lg:grid-cols-4">
         {TIERS.map((t) => <TierCard key={t.name} t={t} billing={billing} />)}
       </div>
 
@@ -211,8 +211,6 @@ export function PricingPlans() {
           Talk to sales <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-
-      <p className="mt-6 text-center text-[13px] text-ink-muted">Prices in ₹, GST-compliant invoices. Upgrade, downgrade or cancel anytime, billing adjusts pro-rata.</p>
     </div>
   )
 }

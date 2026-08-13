@@ -1,19 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Mail, MessageCircle, Briefcase } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
-import { ProofBand } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FloatingCard } from "@/app/components/floating-card"
-import { GlossButton } from "@/app/components/gloss-button"
-import { Reveal } from "@/app/components/reveal"
-import { APP_URLS } from "@/lib/urls"
+import { ArticleHeader, MEASURE } from "@/app/components/reading"
+import { LEGAL_PAGES } from "@/app/components/legal-page"
 import { ContactForm } from "@/app/components/contact-form"
 
 export const metadata: Metadata = {
@@ -23,101 +16,116 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 }
 
-const CONTACT_OPTIONS = [
-  { icon: Briefcase,    label: "Sales",        desc: "Pricing, onboarding, team demos",         handle: "sales@leadkaun.com" },
-  { icon: MessageCircle, label: "Support",      desc: "Help with your account or integrations", handle: "support@leadkaun.com" },
-  { icon: Mail,          label: "Partnerships", desc: "Reseller, referral, API integrations",   handle: "partnerships@leadkaun.com" },
+/** One row per inbox, so the reader can skip the form if they know who they want. */
+const CHANNELS = [
+  { label: "Sales",        desc: "Pricing, onboarding, team demos",         handle: "sales@leadkaun.com" },
+  { label: "Support",      desc: "Help with your account or integrations",  handle: "support@leadkaun.com" },
+  { label: "Partnerships", desc: "Reseller, referral, API integrations",    handle: "partnerships@leadkaun.com" },
+  { label: "Legal & privacy", desc: "Policies, DPAs, data requests, abuse", handle: "team@leadkaun.com" },
 ]
 
-const inputCls =
-  "h-11 w-full rounded-xl glass-1 gloss-edge px-4 text-[14px] text-ink placeholder:text-ink-faint " +
-  "transition-all focus:outline-none focus:[background:rgba(255,255,255,0.85)] focus:border-sky-400 " +
-  "border border-white/70"
-
-const labelCls =
-  "mb-1.5 block font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted"
-
 export default function ContactPage() {
+  const otherPolicies = LEGAL_PAGES.filter((p) => p.href !== "/contact")
+
   return (
     <main className="min-h-screen bg-bg-pure">
       <Navbar />
 
-      <PageHero
-        eyebrow="Contact"
-        h1="Get in touch."
-        sub="We're a small team. Every message is read and replied to within 4 business hours (Mon–Sat, 9 AM–7 PM IST). No ticketing black hole, no round-robin bot."
-        center={false}
-        primary={undefined}
+      <ArticleHeader
+        kicker="Contact"
+        title="Get in touch."
+        dek="We're a small team, and every message is read by a person. Expect a reply within 4 business hours, Monday to Saturday, 9 AM to 7 PM IST. No ticketing black hole, no round-robin bot."
+        meta={["Replies within 4 business hours", "Mon–Sat · 9 AM–7 PM IST"]}
       />
 
-      <SectionGround variant="cream" size="lg">
+      <SectionGround variant="pure" size="lg">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+          <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)] lg:gap-20">
             {/* FORM */}
             <div>
-              <Reveal>
-                <NumberedTag number="01" label="Send a message" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Tell us what you need.
-                </h2>
-              </Reveal>
-
-              <Reveal delay={0.08}><ContactForm /></Reveal>
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                Send a message
+              </p>
+              <h2 className="mt-4 text-[24px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[28px]">
+                Tell us what you need.
+              </h2>
+              <div className="mt-8">
+                <ContactForm />
+              </div>
             </div>
 
             {/* DIRECT CHANNELS */}
-            <div>
-              <Reveal>
-                <NumberedTag number="02" tone="warm" label="Or reach us directly" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Straight to inbox.
-                </h2>
-              </Reveal>
-
-              <Reveal delay={0.08} className="mt-8 space-y-3">
-                {CONTACT_OPTIONS.map((opt) => (
-                  <a
-                    key={opt.label}
-                    href={`mailto:${opt.handle}`}
-                    className="group flex items-start gap-4 rounded-2xl p-5 glass-1 gloss-edge lift aura-sky-hover"
-                  >
-                    <div
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                      style={{
-                        background: "linear-gradient(180deg, #BAE6FD 0%, #7DD3FC 100%)",
-                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.85), 0 4px 10px rgba(14,165,233,0.22)",
-                      }}
-                    >
-                      <opt.icon className="h-[18px] w-[18px] text-sky-600" strokeWidth={1.75} />
-                    </div>
-                    <div>
-                      <p className="text-[14px] font-semibold text-ink">{opt.label}</p>
-                      <p className="mt-0.5 text-[12px] text-ink-muted">{opt.desc}</p>
-                      <p className="mt-2 text-[13px] font-semibold text-sky-600 transition-colors group-hover:underline underline-offset-4">
-                        {opt.handle}
-                      </p>
-                    </div>
-                  </a>
+            <aside>
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                Or go straight to an inbox
+              </p>
+              <ul className="mt-5 border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {CHANNELS.map((c) => (
+                  <li key={c.handle + c.label} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                    <a href={`mailto:${c.handle}`} className="group block py-4">
+                      <p className="text-[15px] font-semibold text-ink group-hover:text-sky-700">{c.label}</p>
+                      <p className="mt-1 text-[13px] leading-[1.5] text-ink-muted">{c.desc}</p>
+                      <p className="ledger-num mt-2 text-[12px] text-sky-700 group-hover:text-sky-600">{c.handle}</p>
+                    </a>
+                  </li>
                 ))}
+              </ul>
 
-                <FloatingCard tier="peach" depth="2" gloss className="p-5 mt-3">
-                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">
-                    Fastest reply
-                  </p>
-                  <p className="mt-2 text-[14px] font-semibold text-ink">WhatsApp to sales</p>
-                  <p className="mt-1 text-[13px] leading-[1.55] text-ink-soft">
-                    We typically respond within 2 hours during IST business hours (Mon–Sat, 9 AM – 7 PM).
-                  </p>
-                </FloatingCard>
-              </Reveal>
+              <div
+                className="mt-8 rounded-2xl bg-[color:var(--paper)] p-6"
+                style={{ border: "1px solid var(--paper-line)", boxShadow: "inset 3px 0 0 #EA580C" }}
+              >
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-orange-500">
+                  Fastest reply
+                </p>
+                <p className="mt-3 text-[15px] font-semibold text-ink">WhatsApp to sales</p>
+                <p className="mt-1.5 text-[13px] leading-[1.6] text-ink-soft">
+                  We typically respond within 2 hours during IST business hours, Monday to Saturday, 9 AM to 7 PM.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </Container>
+      </SectionGround>
+
+      {/* WHAT NOT TO SEND HERE — routes the awkward stuff before it arrives */}
+      <SectionGround variant="cream" size="md">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+              Before you write
+            </p>
+            <div>
+              <div className={`space-y-4 text-[15px] leading-[1.7] text-ink-soft md:text-[16px] ${MEASURE}`}>
+                <p>
+                  If you&apos;re evaluating Leadkaun against something else, the{" "}
+                  <Link href="/compare" className="text-sky-700 underline underline-offset-2 hover:text-sky-600">comparison pages</Link>{" "}
+                  answer most of it, including where the other tool wins. Pricing is published in full on the{" "}
+                  <Link href="/pricing" className="text-sky-700 underline underline-offset-2 hover:text-sky-600">pricing page</Link> —
+                  there is no quote to request.
+                </p>
+                <p>
+                  For a data request, a DPA, an abuse report or an IPR notice, use{" "}
+                  <a href="mailto:team@leadkaun.com" className="text-sky-700 underline underline-offset-2 hover:text-sky-600">team@leadkaun.com</a>{" "}
+                  with the reason in the subject line. The relevant policy pages set out what to include.
+                </p>
+              </div>
+
+              <ul className="mt-8 grid gap-x-12 sm:grid-cols-2">
+                {otherPolicies.map((p) => (
+                  <li key={p.href} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                    <Link href={p.href} className="group flex items-baseline justify-between gap-4 py-3">
+                      <span className="text-[14px] text-ink group-hover:text-sky-700">{p.label}</span>
+                      <span aria-hidden className="ledger-num text-[12px] text-ink-faint group-hover:text-sky-700">→</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Container>
       </SectionGround>
 
-      <ProofBand />
-
-      <CTABanner />
       <Footer />
     </main>
   )

@@ -3,8 +3,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { Eyebrow } from "@/app/components/eyebrow"
-import { GlossLink, GlossNavLink } from "@/app/components/gloss-button"
+import { GlossLink } from "@/app/components/gloss-button"
 import { APP_URLS } from "@/lib/urls"
 
 type Action =
@@ -16,9 +15,9 @@ type Action =
 type Props = {
   /** Eyebrow text shown above headline */
   eyebrow?: ReactNode
-  /** Eyebrow style: dot (default) | none */
+  /** Kept for API compatibility — the eyebrow no longer renders a dot. */
   eyebrowDot?: boolean
-  /** The H1 — string or ReactNode for partial gradients */
+  /** The H1 — string or ReactNode for partial accents */
   h1: ReactNode
   /** Sub-headline paragraph */
   sub?: ReactNode
@@ -28,61 +27,52 @@ type Props = {
   secondary?: Action
   /** Optional 4th-line meta text under CTAs */
   meta?: ReactNode
-  /** Center align (default true). Set false for left-aligned editorial heroes */
+  /**
+   * No-op. Heroes are left-aligned sitewide now; ~50 route files still pass
+   * this, so it stays in the signature rather than forcing an edit to each.
+   */
   center?: boolean
-  /** Skip default decorative blobs */
+  /** Kept for API compatibility — the decorative blob was removed. */
   bare?: boolean
 }
 
 /**
- * Shared hero for all non-homepage pages.
- * Coastal mesh ground + decorative blobs + glass eyebrow + gradient-friendly h1 + dual CTA.
+ * Shared hero for non-homepage pages.
+ *
+ * Was a centred column on a gradient wash with a blurred blob behind it. Now
+ * it matches the rest of the site: left-aligned on plain paper, a monospace
+ * kicker, the display serif at scale, and one honest row of actions. Same
+ * props, so no route file changed.
  */
 export function PageHero({
   eyebrow,
-  eyebrowDot = true,
   h1,
   sub,
   primary = { kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true },
   secondary,
   meta,
-  center = true,
-  bare = false,
 }: Props) {
   return (
-    <SectionGround variant="pure" size="lg" ambient={false} className="relative overflow-hidden pt-32 md:pt-40" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, var(--paper) 100%)" }}>
-      <div aria-hidden className="pointer-events-none absolute -right-32 -top-20 h-[420px] w-[560px] rounded-full opacity-[0.28] blur-[130px]" style={{ background: "radial-gradient(circle, #BAE6FD 0%, transparent 70%)" }} />
-      {!bare && (
-        <>
-
-        </>
-      )}
-
-      <Container className="relative">
-        <div className={`mx-auto max-w-3xl ${center ? "text-center" : ""}`}>
+    <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
+      <Container>
+        <div className="max-w-[52rem]">
           {eyebrow && (
-            <div className={center ? "flex justify-center" : ""}>
-              <Eyebrow dot={eyebrowDot}>{eyebrow}</Eyebrow>
-            </div>
-          )}
-          <h1 className="display-lg mt-7 text-[38px] text-ink md:text-[58px]">
-            {h1}
-          </h1>
-          {sub && (
-            <p className={`mt-6 text-[17px] leading-[1.55] text-ink-soft md:text-[19px] ${center ? "max-w-2xl mx-auto" : "max-w-2xl"}`}>
-              {sub}
+            <p className="ledger-num flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-700">
+              {eyebrow}
             </p>
           )}
+          <h1 className="display-lg mt-6 text-[38px] text-ink md:text-[56px]">{h1}</h1>
+          {sub && (
+            <p className="mt-6 max-w-[68ch] text-[17px] leading-[1.6] text-ink-soft md:text-[19px]">{sub}</p>
+          )}
           {(primary || secondary) && (
-            <div className={`mt-9 flex flex-wrap items-center gap-3 ${center ? "justify-center" : ""}`}>
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
               {primary && <ActionButton {...primary} />}
               {secondary && <ActionButton {...secondary} />}
             </div>
           )}
           {meta && (
-            <p className="mt-7 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
-              {meta}
-            </p>
+            <div className="ledger-num mt-7 text-[11px] uppercase tracking-[0.14em] text-ink-muted">{meta}</div>
           )}
         </div>
       </Container>
@@ -91,11 +81,11 @@ export function PageHero({
 }
 
 function ActionButton(a: Action) {
-  if (a.kind === "text") {
+  if (a.kind === "text" || a.kind === "glass") {
     return (
-      <Link href={a.href} className="group inline-flex items-center gap-1.5 text-[15px] font-semibold text-sky-600 hover:text-sky-500">
+      <Link href={a.href} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600">
         {a.label}
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
       </Link>
     )
   }
@@ -108,9 +98,9 @@ function ActionButton(a: Action) {
     )
   }
   return (
-    <GlossNavLink variant={a.kind} size="lg" href={a.href}>
+    <GlossLink variant={a.kind} size="lg" href={a.href}>
       {a.label}
       {a.kind === "primary" && <span className="font-mono opacity-80">→</span>}
-    </GlossNavLink>
+    </GlossLink>
   )
 }

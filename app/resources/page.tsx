@@ -3,15 +3,16 @@ import Link from "next/link"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { Reveal } from "@/app/components/reveal"
+import { ArticleHeader } from "@/app/components/reading"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { getResources } from "@/lib/pseo/lookup"
+
+/* A toolkit shelf: grouped by what the thing physically is, with the format
+   and whether it costs you an email address stated on every row. */
 
 type ResourceEntry = {
   slug: string
@@ -19,6 +20,7 @@ type ResourceEntry = {
   type: "calculator" | "template" | "guide" | "checklist" | "framework" | "report"
   tagline: string
   audiencePersona: string
+  gated?: boolean
 }
 
 export const metadata: Metadata = {
@@ -28,7 +30,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resources" },
 }
 
-const TYPE_ORDER = ["calculator", "template", "guide", "checklist", "framework", "report"]
+const TYPE_ORDER = ["calculator", "template", "checklist", "framework", "guide", "report"]
+
+const TYPE_BLURB: Record<string, string> = {
+  calculator: "Put your own numbers in and get a figure out.",
+  template:   "Copy it into your Drive and start filling it in.",
+  checklist:  "Run it once, then run it every week.",
+  framework:  "A way of thinking about the problem, on one page.",
+  guide:      "Longer reads that go deeper than a blog post.",
+  report:     "Our own data on how Indian B2B teams actually sell.",
+}
 
 function typeLabel(t: string) {
   return t.charAt(0).toUpperCase() + t.slice(1) + "s"
@@ -44,77 +55,77 @@ export default async function ResourcesHubPage() {
     acc[r.type].push(r)
     return acc
   }, {})
-  const sortedTypes = Object.keys(byType).sort((a, b) => {
-    const ai = TYPE_ORDER.indexOf(a)
-    const bi = TYPE_ORDER.indexOf(b)
-    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi)
-  })
+  const types = [
+    ...TYPE_ORDER.filter((t) => byType[t]),
+    ...Object.keys(byType).filter((t) => !TYPE_ORDER.includes(t)).sort(),
+  ]
+  const free = RESOURCES.filter((r) => !r.gated).length
 
   return (
     <main className="min-h-screen bg-bg-pure">
       <Navbar />
 
-      <PageHero
-        eyebrow={`${RESOURCES.length} free resources`}
-        h1={<>Sales resources you can <span className="hero-accent">use today.</span></>}
-        sub="Calculators, Google Sheet templates, checklists, and frameworks to help Indian founders and sales managers build better lead systems, with or without Leadkaun. All free. No gating."
-        center={false}
-        primary={undefined}
-        meta={
-          <span className="inline-flex flex-wrap justify-start gap-1.5 normal-case tracking-normal">
-            {sortedTypes.map((t) => (
-              <a
-                key={t}
-                href={`#type-${t}`}
-                className="inline-flex h-8 items-center rounded-full glass-1 gloss-edge px-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-soft transition-all hover:text-sky-600 lift"
-              >
-                {typeLabel(t)}
-              </a>
-            ))}
-          </span>
-        }
+      <ArticleHeader
+        kicker="Resources"
+        title="Things you can use this week."
+        dek="Calculators, sheet templates, checklists and frameworks for Indian B2B sales teams. Most work without Leadkaun at all — that's the point. Prove the behaviour first, buy the tool later if it's worth it."
+        meta={[`${RESOURCES.length} assets`, `${free} with no email gate`, `${types.length} formats`]}
       />
 
       <SectionGround variant="cream" size="lg">
         <Container>
-          {sortedTypes.map((t, idx) => (
-            <section key={t} id={`type-${t}`} className={idx === 0 ? "" : "mt-14"}>
-              <Reveal className="mb-6">
-                <NumberedTag
-                  number={String(idx + 1).padStart(2, "0")}
-                  tone={idx % 2 === 1 ? "warm" : "default"}
-                  label={`${typeLabel(t)} · ${byType[t].length}`}
-                />
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2 md:gap-5">
+          {types.map((t, ti) => (
+            <section key={t} className={ti > 0 ? "mt-16" : ""}>
+              <div className="border-b pb-5" style={{ borderColor: "var(--paper-line-2)" }}>
+                <div className="flex items-baseline justify-between gap-6">
+                  <h2 className="text-[22px] font-semibold leading-tight tracking-[-0.02em] text-ink md:text-[26px]">
+                    {typeLabel(t)}
+                  </h2>
+                  <span className="ledger-num text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                    {byType[t].length}
+                  </span>
+                </div>
+                {TYPE_BLURB[t] && <p className="mt-2 text-[14px] text-ink-muted">{TYPE_BLURB[t]}</p>}
+              </div>
+
+              <ul className="mt-2">
                 {byType[t].map((r) => (
-                  <Link
-                    key={r.slug}
-                    href={`/resources/${r.slug}`}
-                    className="group rounded-2xl p-5 md:p-6 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <p className="text-[16px] font-semibold text-ink group-hover:text-sky-600 transition-colors">
-                        {r.name}
-                      </p>
-                      <span className="shrink-0 rounded-full glass-1 gloss-edge px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-                        {prettyPersona(r.audiencePersona)}
-                      </span>
-                    </div>
-                    <p className="mt-2 line-clamp-2 text-[13px] leading-[1.6] text-ink-soft">{r.tagline}</p>
-                  </Link>
+                  <li key={r.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                    <Link href={`/resources/${r.slug}`} className="group grid gap-x-8 gap-y-2 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,180px)]">
+                      <div>
+                        <h3 className="text-[18px] font-semibold leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-sky-700 md:text-[19px]">
+                          {r.name}
+                        </h3>
+                        <p className="mt-1.5 max-w-[70ch] text-[14px] leading-[1.6] text-ink-soft md:text-[15px]">{r.tagline}</p>
+                      </div>
+                      <div className="flex flex-wrap items-start gap-x-3 gap-y-1.5 md:justify-end">
+                        <span className="ledger-num text-[10px] uppercase tracking-[0.14em] text-ink-muted">
+                          For {prettyPersona(r.audiencePersona)}
+                        </span>
+                        {!r.gated && (
+                          <span
+                            className="ledger-num rounded-md px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.14em]"
+                            style={{ color: "#047857", background: "rgba(16,185,129,0.12)" }}
+                          >
+                            No gate
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  </li>
                 ))}
-              </Reveal>
+              </ul>
             </section>
           ))}
         </Container>
       </SectionGround>
 
-      <CTABanner
-        tag={{ number: "→", label: "Skip the manual version" }}
-        headline="Or just let Leadkaun run it."
-        sub="Everything these resources teach you to build by hand, Leadkaun automates the same day. Scoring, Priority Queue, Morning Brief, ₹ at risk, no spreadsheet maintenance."
+      <LedgerCTA
+        headline="Or let the software do it."
+        sub="Every one of these is a manual version of something Leadkaun does automatically. Import a CSV and see the automated version on your own leads."
+        secondary={{ label: "See pricing", href: "/pricing" }}
       />
+
       <Footer />
     </main>
   )

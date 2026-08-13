@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowRight, MapPin } from "lucide-react"
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { PageHero } from "@/app/components/page-hero"
@@ -148,7 +148,7 @@ export default async function CityDirectory() {
         </Container>
       </SectionGround>
 
-      <CTABanner />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
       <Footer />
     </main>
   )

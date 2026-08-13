@@ -29,16 +29,47 @@ export default function VsLeadSquared() {
         "Deploys through consultants (2–8 weeks)",
       ]}
       features={[
-        { label: "3-dimensional scoring (Fit × Intent × Quality)", leadkaun: true,          competitor: "Points-based" },
-        { label: "Intent decay over time",                          leadkaun: true,          competitor: false },
-        { label: "Priority Queue (auto-ranked)",                    leadkaun: true,          competitor: "Filter views" },
-        { label: "Missed Opportunity Engine (₹ at risk)",           leadkaun: true,          competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                    leadkaun: true,          competitor: "Custom reports" },
-        { label: "WhatsApp 3-tap logging (any account)",            leadkaun: true,          competitor: "BSP only" },
-        { label: "Mobile field-rep UI",                             leadkaun: true,          competitor: true },
-        { label: "Workflow automation builder",                     leadkaun: "neutral",     competitor: true },
-        { label: "Setup time",                                      leadkaun: "same day",      competitor: "2–8 wks" },
-        { label: "Transparent pricing",                             leadkaun: true,          competitor: false },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional scoring (Fit × Intent × Quality)",leadkaun: true, competitor: "Points-based" },
+          { label: "Intent decay over time",                        leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked)",                  leadkaun: true, competitor: "Filter views" },
+          { label: "Missed Opportunity Engine (₹ at risk)",         leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                  leadkaun: true, competitor: "Custom reports" },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp 3-tap logging (any account)",          leadkaun: true, competitor: "BSP only" },
+          { label: "Mobile field-rep UI",                           leadkaun: true, competitor: true },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Workflow automation builder",                   leadkaun: "neutral", competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Setup time",                                    leadkaun: "same day", competitor: "2–8 wks" },
+          { label: "Transparent pricing",                           leadkaun: true, competitor: false },
+        ] },
+      ]}
+      verdictLine="LeadSquared is built for enterprises with an ops team to run it. Leadkaun is built for the SMB that needs the queue working this week."
+      glance={{
+        category:     "Enterprise marketing automation and sales execution platform",
+        pricingModel: "Quote-based, after consulting and implementation",
+        bestFor:      "Large education, BFSI and healthcare teams with an ops function",
+        indiaFit:     "Indian company with strong field-sales tooling",
+        setup:        "Weeks to months, implementation-led",
+      }}
+      chooseCompetitor={[
+        "You run hundreds of field reps across regions",
+        "You have an ops team to own workflows and reporting",
+        "Deep journey automation is a hard requirement",
+      ]}
+      chooseLeadkaun={[
+        "You want published pricing you can budget against today",
+        "You have 5 to 50 reps and no implementation budget",
+        "You need value in week one, not after a rollout project",
+      ]}
+      cost={{ perSeat: 2500, currency: "INR", plus: "consulting and implementation, quoted separately" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "LeadSquared pricing", url: "https://www.leadsquared.com/pricing/" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "Published. 14-day trial. No credit card." },

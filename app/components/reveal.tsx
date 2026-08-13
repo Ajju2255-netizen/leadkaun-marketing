@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, type ReactNode } from "react"
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react"
 
 /**
  * Reveal — SEO-safe scroll-entrance motion (Coastal Sunrise polish).
@@ -22,11 +22,17 @@ type Props = {
   /** Rise distance in px (default 18). */
   y?: number
   className?: string
+  /**
+   * Static styles for the wrapper (e.g. a hairline `borderColor`). The reveal
+   * only ever writes opacity/transform/transition/will-change, so anything set
+   * here survives the animation.
+   */
+  style?: CSSProperties
 }
 
 const EASE = "cubic-bezier(.2,.8,.2,1)"
 
-export function Reveal({ children, delay = 0, y = 18, className }: Props) {
+export function Reveal({ children, delay = 0, y = 18, className, style }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -68,7 +74,7 @@ export function Reveal({ children, delay = 0, y = 18, className }: Props) {
   }, [delay, y])
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} style={style}>
       {children}
     </div>
   )

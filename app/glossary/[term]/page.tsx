@@ -5,21 +5,20 @@ import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { DetailHero } from "@/app/components/detail-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { createSectionNumbering } from "@/app/components/section-numbering"
 import { SelfCheckBlock, type SelfCheck } from "@/app/components/pseo/self-check"
-import { FloatingCard } from "@/app/components/floating-card"
-import { Reveal } from "@/app/components/reveal"
+import { LedgerCTA } from "@/app/components/ledger"
+import { MEASURE } from "@/app/components/reading"
 
-import { getGlossary, pillarForHref } from "@/lib/pseo/lookup"
+import { getGlossary } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, definedTermSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 604800
+
+/* A dictionary entry, not a landing page: headword, part-of-speech style
+   category, the definition in display type, then numbered senses. */
 
 type GlossaryEntry = {
   slug: string; term: string; definitionShort: string; definitionLong: string
@@ -53,6 +52,10 @@ function prettyFeature(slug: string) {
   return slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
 }
 
+function prettyCategory(c?: string) {
+  return c ? c.replace(/-/g, " ") : null
+}
+
 export default async function GlossaryTermPage({ params }: Params) {
   const { term } = await params
   const list = (await getGlossary()) as GlossaryEntry[]
@@ -63,8 +66,7 @@ export default async function GlossaryTermPage({ params }: Params) {
     .map((t) => list.find((g) => g.slug === t))
     .filter((e): e is GlossaryEntry => e !== undefined)
     .slice(0, 6)
-  const pillar = await pillarForHref(`/glossary/${entry.slug}`)
-  const n = createSectionNumbering()
+  const category = prettyCategory(entry.category)
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Glossary", url: "/glossary" }, { name: entry.term }]),
@@ -78,146 +80,137 @@ export default async function GlossaryTermPage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <DetailHero
-          pillar={pillar}
-          breadcrumb={[{ label: "Glossary", href: "/glossary" }, { label: entry.term }]}
-          eyebrow="Definition"
-          h1={entry.term}
-          tldr={{ label: "Short definition", body: entry.definitionShort, tone: "sky" }}
-        />
-
-        {/* LONG DEFINITION */}
-        <SectionGround variant="cream" size="lg">
+        {/* HEADWORD */}
+        <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number={n.next()} tone="warm" label="In practice" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                How teams actually use it.
-              </h2>
-              <div className="prose prose-leadkaun mt-8 max-w-none">
-                <p>{entry.definitionLong}</p>
+            <nav aria-label="Breadcrumb" className="ledger-num text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <Link href="/glossary" className="hover:text-sky-700">Glossary</Link>
+              <span aria-hidden className="mx-2 text-ink-faint">/</span>
+              <span>{entry.term}</span>
+            </nav>
+
+            <div className="mt-8 border-b pb-10" style={{ borderColor: "var(--paper-line-2)" }}>
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                <h1 className="display-lg text-[40px] text-ink md:text-[60px]">{entry.term}</h1>
+                {category && (
+                  <span className="text-[15px] italic text-ink-muted md:text-[17px]">{category}</span>
+                )}
               </div>
-            </Reveal>
+              <p className={`mt-6 text-[19px] leading-[1.6] text-ink md:text-[22px] ${MEASURE}`}>
+                {entry.definitionShort}
+              </p>
+            </div>
           </Container>
         </SectionGround>
 
-        {/* EXAMPLES */}
-        {entry.examples && entry.examples.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number={n.next()} label="Worked examples" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Three ways it shows up.
-                </h2>
-                <FloatingCard tier="3" depth="3" gloss className="mt-8 overflow-hidden">
-                  <ul className="divide-y" style={{ borderColor: "var(--hairline)" }}>
+        {/* IN PRACTICE + SENSES */}
+        <SectionGround variant="pure" size="md">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                In practice
+              </p>
+              <div>
+                <p className={`text-[17px] leading-[1.75] text-ink-soft md:text-[18px] ${MEASURE}`}>
+                  {entry.definitionLong}
+                </p>
+
+                {/* Numbered senses, the way a dictionary lists usages */}
+                {entry.examples && entry.examples.length > 0 && (
+                  <ol className={`mt-10 border-t ${MEASURE}`} style={{ borderColor: "var(--paper-line)" }}>
                     {entry.examples.map((ex, i) => (
-                      <li key={i} className="flex items-start gap-5 px-7 py-5 md:px-8">
-                        <span
-                          className="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl font-mono text-[13px] font-bold text-white"
-                          style={{
-                            background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 6px rgba(14,165,233,0.30)",
-                          }}
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <p className="text-[15px] leading-[1.65] text-ink">{ex}</p>
+                      <li
+                        key={i}
+                        className="grid grid-cols-[28px_minmax(0,1fr)] gap-x-4 py-5"
+                        style={{ borderBottom: "1px solid var(--paper-line)" }}
+                      >
+                        <span className="ledger-num pt-0.5 text-[13px] font-semibold text-sky-700 tabular">{i + 1}.</span>
+                        <p className="text-[15px] leading-[1.7] text-ink md:text-[16px]">{ex}</p>
                       </li>
                     ))}
-                  </ul>
-                </FloatingCard>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
+                  </ol>
+                )}
+              </div>
+            </div>
+          </Container>
+        </SectionGround>
 
-        {/* FEATURE BRIDGE */}
-        {entry.relatedFeature && (
-          <SectionGround variant="cream" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <Link href={`/features/${entry.relatedFeature}`} className="block">
-                  <FloatingCard tier="3" depth="3" gloss interactive aura="sky" className="flex items-start justify-between gap-6 p-8 md:p-10">
-                    <div className="min-w-0">
-                      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">
-                        How Leadkaun uses this
-                      </p>
-                      <p className="mt-3 text-[20px] font-semibold tracking-[-0.015em] text-ink transition-colors md:text-[24px]">
-                        {prettyFeature(entry.relatedFeature)}
-                      </p>
-                      <p className="mt-2 text-[14px] leading-[1.6] text-ink-soft">
-                        See the product surface built around this concept.
-                      </p>
-                    </div>
-                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-sky-500 transition-all group-hover:translate-x-0.5" strokeWidth={1.75} />
-                  </FloatingCard>
-                </Link>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
+        {entry.selfCheck && <SelfCheckBlock number="→" selfCheck={entry.selfCheck} ground="cream" />}
 
-        {/* GUIDE BRIDGE, pillar + buyer guide, so the term feeds the commercial
-            cluster it belongs to instead of only linking sideways to other terms. */}
-        {entry.relatedGuides && entry.relatedGuides.length > 0 && (
+        {/* SEE ALSO — feature, guides and neighbouring terms, one register */}
+        {(entry.relatedFeature || entry.relatedGuides?.length || related.length > 0) && (
           <SectionGround variant="pure" size="md">
             <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
-                  Go deeper on {entry.term.toLowerCase()}
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                  See also
                 </p>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {entry.relatedGuides.map((g) => (
-                    <Link
-                      key={g.href}
-                      href={g.href}
-                      className="group flex items-center justify-between gap-5 rounded-2xl glass-2 gloss-edge p-5 transition-all lift aura-sky-hover"
-                    >
-                      <span className="text-[15px] font-medium leading-snug text-ink">{g.label}</span>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-ink-muted transition-colors group-hover:text-sky-600" strokeWidth={1.75} />
-                    </Link>
-                  ))}
+                <div className="space-y-10">
+                  {entry.relatedFeature && (
+                    <div>
+                      <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">
+                        How Leadkaun uses this
+                      </p>
+                      <Link
+                        href={`/features/${entry.relatedFeature}`}
+                        className="group mt-3 flex items-baseline justify-between gap-4 border-b pb-3"
+                        style={{ borderColor: "var(--paper-line)" }}
+                      >
+                        <span className="text-[18px] font-semibold tracking-[-0.01em] text-ink group-hover:text-sky-700 md:text-[20px]">
+                          {prettyFeature(entry.relatedFeature)}
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 shrink-0 text-ink-faint group-hover:text-sky-700" />
+                      </Link>
+                    </div>
+                  )}
+
+                  {entry.relatedGuides && entry.relatedGuides.length > 0 && (
+                    <div>
+                      <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                        Go deeper
+                      </p>
+                      <ul className="mt-3 border-t" style={{ borderColor: "var(--paper-line)" }}>
+                        {entry.relatedGuides.map((g) => (
+                          <li key={g.href} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                            <Link href={g.href} className="group flex items-baseline justify-between gap-4 py-3">
+                              <span className="text-[15px] leading-snug text-ink group-hover:text-sky-700">{g.label}</span>
+                              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-faint group-hover:text-sky-700" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {related.length > 0 && (
+                    <div>
+                      <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                        Neighbouring terms
+                      </p>
+                      <dl className="mt-3 border-t" style={{ borderColor: "var(--paper-line)" }}>
+                        {related.map((r) => (
+                          <div key={r.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                            <Link href={`/glossary/${r.slug}`} className="group grid gap-x-8 gap-y-1 py-3.5 md:grid-cols-[minmax(0,200px)_minmax(0,1fr)]">
+                              <dt className="text-[15px] font-semibold text-ink group-hover:text-sky-700">{r.term}</dt>
+                              <dd className="line-clamp-2 text-[14px] leading-[1.55] text-ink-soft">{r.definitionShort}</dd>
+                            </Link>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  )}
                 </div>
-              </Reveal>
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        {/* RELATED TERMS */}
-        {entry.selfCheck && (
-          <SelfCheckBlock number={n.next()} selfCheck={entry.selfCheck} ground="cream" />
-        )}
-
-        {related.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number={n.next()} label="Related terms" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
-                  Neighbours in the glossary.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2">
-                {related.map((r) => (
-                  <Link key={r.slug} href={`/glossary/${r.slug}`} className="group rounded-2xl p-5 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all">
-                    <p className="text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{r.term}</p>
-                    <p className="mt-1.5 line-clamp-2 text-[13px] leading-[1.55] text-ink-soft">{r.definitionShort}</p>
-                  </Link>
-                ))}
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        
-
-        <CTABanner
-          tag={{ number: "→", label: "From definitions to doing" }}
+        <LedgerCTA
           headline="Stop defining. Start scoring."
-          sub="Leadkaun puts these concepts into practice, A–F grading, Priority Queue, Missed ₹. Setup the same day."
+          sub={`Leadkaun turns ${entry.term.toLowerCase()} from a definition into something your reps see every morning. Setup the same day, no card.`}
+          secondary={{ label: "Back to the glossary", href: "/glossary" }}
         />
+
         <Footer />
       </main>
     </>

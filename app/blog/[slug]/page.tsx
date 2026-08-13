@@ -1,22 +1,18 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { DetailHero } from "@/app/components/detail-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FloatingCard } from "@/app/components/floating-card"
 import { Faq } from "@/app/components/faq"
-import { Reveal } from "@/app/components/reveal"
+import { LedgerCTA } from "@/app/components/ledger"
+import { MEASURE } from "@/app/components/reading"
+import { JournalEntry, categoryColor, formatDate } from "@/app/components/journal"
 
 import { getAllPosts, getPostBySlug, getRelatedPosts, getCategory, estimateReadingTime } from "@/lib/blog"
-import { pillarForHref } from "@/lib/pseo/lookup"
 import { articleSchema, breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 import { resolveAuthor } from "@/lib/authors"
 import { AuthorCard } from "@/app/components/author-card"
@@ -44,15 +40,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-function formatDate(d: string) {
-  return new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })
-}
-
 export default async function BlogPostPage({ params }: Params) {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
-  const pillar = await pillarForHref(`/blog/${post.slug}`)
 
   const category = getCategory(post.category)
   const related = getRelatedPosts(post, 3)
@@ -82,99 +73,106 @@ export default async function BlogPostPage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <DetailHero
-          pillar={pillar}
-          breadcrumb={[
-            { label: "Blog", href: "/blog" },
-            ...(category ? [{ label: category.title, href: `/blog/categories/${category.slug}` }] : []),
-          ]}
-          eyebrow={category?.title ?? "Article"}
-          h1={post.title}
-          sub={post.description}
-          cta={
-            <p className="font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-ink-muted">
-              {formatDate(post.date)} · {readingTime} · {author.name}{post.updated ? ` · Updated ${formatDate(post.updated)}` : ""}
-            </p>
-          }
-        />
-
-        {/* BODY */}
-        <SectionGround variant="cream" size="lg">
+        {/* MASTHEAD — a dateline, not a hero */}
+        <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
           <Container>
-            <Reveal>
-              <article
-                className="prose prose-leadkaun mx-auto max-w-3xl"
-                dangerouslySetInnerHTML={{ __html: post.html }}
-              />
-            </Reveal>
+            <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <Link href="/blog" className="ledger-num text-[11px] uppercase tracking-[0.16em] text-ink-muted hover:text-sky-700">
+                Journal
+              </Link>
+              {category && (
+                <>
+                  <span aria-hidden className="ledger-num text-[10px] text-ink-faint">/</span>
+                  <Link
+                    href={`/blog/categories/${category.slug}`}
+                    className="inline-flex items-center gap-2 text-ink-muted hover:text-sky-700"
+                  >
+                    <span aria-hidden className="inline-block h-2 w-2 rounded-full" style={{ background: categoryColor(category.slug) }} />
+                    <span className="ledger-num text-[11px] uppercase tracking-[0.16em]">{category.title}</span>
+                  </Link>
+                </>
+              )}
+            </nav>
+
+            <h1 className={`display-lg mt-8 text-[34px] text-ink md:text-[52px] ${MEASURE}`}>{post.title}</h1>
+            <p className={`mt-6 text-[18px] leading-[1.6] text-ink-soft md:text-[20px] ${MEASURE}`}>{post.description}</p>
+
+            {/* Dateline */}
+            <p className="ledger-num mt-8 border-t pt-5 text-[11px] uppercase tracking-[0.14em] text-ink-muted" style={{ borderColor: "var(--paper-line)" }}>
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              <span aria-hidden className="mx-2 text-ink-faint">·</span>
+              {readingTime}
+              <span aria-hidden className="mx-2 text-ink-faint">·</span>
+              {author.name}
+              {post.updated && (
+                <>
+                  <span aria-hidden className="mx-2 text-ink-faint">·</span>
+                  Updated {formatDate(post.updated)}
+                </>
+              )}
+            </p>
           </Container>
         </SectionGround>
 
-        {/* AUTHOR, E-E-A-T byline */}
-        <SectionGround variant="cream" size="sm">
+        {/* BODY */}
+        <SectionGround variant="pure" size="md">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
+            <article
+              className="prose prose-leadkaun max-w-[68ch]"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </Container>
+        </SectionGround>
+
+        {/* BYLINE */}
+        <SectionGround variant="pure" size="sm">
+          <Container>
+            <div className={MEASURE}>
               <AuthorCard author={author} updated={post.updated ? formatDate(post.updated) : undefined} />
-            </Reveal>
+            </div>
           </Container>
         </SectionGround>
 
         {/* FAQ */}
         {post.faqs && post.faqs.length > 0 && (
-          <SectionGround variant="sky" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="FAQ" label={`On ${category?.title ?? "this topic"}`} />
-                <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                  Questions readers ask.
-                </h2>
-                <div className="mt-8"><Faq items={post.faqs} /></div>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        {/* RELATED */}
-        {related.length > 0 && (
           <SectionGround variant="cream" size="md">
             <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number="•" tone="warm" label="Keep reading" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[30px]">
-                  Related essays.
-                </h2>
-              </Reveal>
-
-              <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3 md:gap-6">
-                {related.map((r, i) => {
-                  const cat = getCategory(r.category)
-                  return (
-                    <Link key={r.slug} href={`/blog/${r.slug}`} className="block group">
-                      <FloatingCard tier="2" depth="2" gloss interactive aura={i % 2 === 1 ? "peach" : "sky"} className="flex h-full flex-col justify-between gap-6 p-6">
-                        <div>
-                          {cat && (
-                            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">{cat.title}</p>
-                          )}
-                          <h3 className="mt-3 text-[16px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink transition-colors">{r.title}</h3>
-                          <p className="mt-2 line-clamp-3 text-[13px] leading-[1.55] text-ink-soft">{r.description}</p>
-                        </div>
-                        <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-sky-600">
-                          Read <ArrowUpRight className="h-3.5 w-3.5" />
-                        </span>
-                      </FloatingCard>
-                    </Link>
-                  )
-                })}
-              </Reveal>
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                  Readers ask
+                </p>
+                <Faq items={post.faqs} className="!mx-0 !max-w-[68ch]" />
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        <CTABanner
-          tag={{ number: "→", label: "From reading to shipping" }}
+        {/* KEEP READING */}
+        {related.length > 0 && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">Keep reading</p>
+              <ul className="mt-6 border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {related.map((r) => (
+                  <JournalEntry
+                    key={r.slug}
+                    post={{
+                      slug: r.slug, title: r.title, description: r.description, date: r.date,
+                      category: r.category, readingTime: r.readingTime ?? estimateReadingTime(r.body),
+                    }}
+                  />
+                ))}
+              </ul>
+            </Container>
+          </SectionGround>
+        )}
+
+        <LedgerCTA
           headline="See how Leadkaun solves this."
           sub="A–F lead scoring in real time, a Priority Queue your reps actually use, and ₹ at risk surfaced before deals rot. Setup the same day."
+          secondary={{ label: "More from the journal", href: "/blog" }}
         />
+
         <Footer />
       </main>
     </>

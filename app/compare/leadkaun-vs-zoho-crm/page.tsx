@@ -29,15 +29,46 @@ export default function VsZoho() {
         "No ₹-at-risk Missed Opportunity Engine",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,            competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,            competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,            competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,            competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,            competitor: false },
-        { label: "WhatsApp as first-class signal (3-tap)",              leadkaun: true,            competitor: "Integration" },
-        { label: "Workflow customisation (Deluge-style)",               leadkaun: "neutral",       competitor: true  },
-        { label: "Zoho Suite integrations (Books, Desk, Projects)",     leadkaun: false,           competitor: true  },
-        { label: "Setup time",                                          leadkaun: "same day",        competitor: "1–4 wks" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true, competitor: "Integration" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Workflow customisation (Deluge-style)",              leadkaun: "neutral", competitor: true },
+          { label: "Zoho Suite integrations (Books, Desk, Projects)",    leadkaun: false, competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "1–4 wks" },
+        ] },
+      ]}
+      verdictLine="Zoho CRM can do almost anything once someone configures it. Leadkaun does one thing on day one, without an admin in the middle."
+      glance={{
+        category:     "Full-featured CRM with deep customisation",
+        pricingModel: "INR per rep, per month",
+        bestFor:      "Teams already in the Zoho suite with someone to configure it",
+        indiaFit:     "Indian company, INR billing, GST invoices",
+        setup:        "Weeks, plus ongoing admin",
+      }}
+      chooseCompetitor={[
+        "You already run Zoho Books, Desk or Projects",
+        "You need deep custom modules and Deluge automation",
+        "You have an admin, internal or agency, to own it",
+      ]}
+      chooseLeadkaun={[
+        "Nobody wants to own CRM configuration",
+        "You want scoring, queue and follow-up working out of the box",
+        "The real cost of Zoho is the admin, not the licence",
+      ]}
+      cost={{ perSeat: 2400, currency: "INR", plus: "implementation and admin overhead of roughly ₹50 k–1.5 L/mo" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Zoho CRM India pricing", url: "https://www.zoho.com/en-in/crm/zohocrm-pricing.html" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All 12 modules, 14-day free trial, no credit card" },

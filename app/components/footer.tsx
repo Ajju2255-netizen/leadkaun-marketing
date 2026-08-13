@@ -77,6 +77,20 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
   },
 ]
 
+/** The legal register shown across the foot of every page. */
+const LEGAL_LINKS: { label: string; href: string }[] = [
+  { label: "Contact Us",       href: "/contact" },
+  { label: "Security",         href: "/security" },
+  { label: "Compliance",       href: "/compliance" },
+  { label: "IPR Complaints",   href: "/ipr" },
+  { label: "Anti-spam Policy", href: "/anti-spam" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Privacy Policy",   href: "/privacy" },
+  { label: "Cookie Policy",    href: "/cookie-policy" },
+  { label: "GDPR Compliance",  href: "/gdpr" },
+  { label: "Abuse Policy",     href: "/abuse" },
+]
+
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)", borderColor: "var(--paper-line)" }}>
@@ -124,10 +138,28 @@ export default function Footer() {
           <EmailCapture source="footer-newsletter" layout="split" />
         </div>
 
-        <div
-          className="mt-12 flex flex-wrap items-center justify-between gap-4 pt-6"
+        {/* Legal row — every policy reachable from every page, separated by
+            hairline dividers rather than commas so it reads as a register. */}
+        <nav
+          aria-label="Legal"
+          className="mt-12 pt-6"
           style={{ borderTop: "1px solid var(--paper-line)" }}
         >
+          <ul className="flex flex-wrap items-center gap-y-2">
+            {LEGAL_LINKS.map((l, i) => (
+              <li key={l.href} className="flex items-center">
+                {i > 0 && (
+                  <span aria-hidden className="mx-3 h-3 w-px shrink-0" style={{ background: "var(--paper-line-2)" }} />
+                )}
+                <Link href={l.href} className="text-[13px] text-ink-soft transition-colors hover:text-sky-700">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
           <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
             © {new Date().getFullYear()} Leadkaun · Built for Indian sales teams
           </p>

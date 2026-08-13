@@ -1,17 +1,19 @@
 import type { Metadata } from "next"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
-import { ModulesGrid, PricingCTA } from "@/app/components/sell/blocks"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { MetricStrip } from "@/app/components/metric-strip"
-import { FloatingCard } from "@/app/components/floating-card"
-import { Reveal } from "@/app/components/reveal"
+import { ArticleHeader, MEASURE } from "@/app/components/reading"
+import { LedgerCTA } from "@/app/components/ledger"
 import { breadcrumbListSchema, jsonLdScript } from "@/lib/seo"
+
+/* A position statement, not a product page. The layout is a manifesto: a
+   narrative in one measured column, the argument pulled out at display size,
+   then what we believe and — the part most about-pages skip — what we won't
+   do. Product detail belongs on /product; this page is why we exist. */
 
 export const metadata: Metadata = {
   title: "About Leadkaun, Built for Indian Sales Teams, Not Silicon Valley",
@@ -20,10 +22,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 }
 
+/** Facts about how the product works — each one checkable on /methodology. */
+const FACTS = [
+  { value: "A–F",      label: "Every lead graded, in real time" },
+  { value: "3 scores", label: "Fit, Intent and Quality, weights published" },
+  { value: "Same day", label: "Setup to first scored lead" },
+  { value: "Flat ₹",   label: "Priced per account, never per seat" },
+]
+
 const PRINCIPLES = [
   {
     title: "India-first, always.",
-    desc: "INR pricing, IST cadence, Indian phone handling, Indian B2B cycles. Not a US product localised for India, built here, for how sales actually runs.",
+    desc: "INR pricing, IST cadence, Indian phone handling, Indian B2B cycles. Not a US product localised for India — built here, for how sales actually runs here.",
   },
   {
     title: "Reps use it. Managers trust it.",
@@ -31,8 +41,31 @@ const PRINCIPLES = [
   },
   {
     title: "Rupees over activity.",
-    desc: "We don't count calls. We surface recovery. Every number in Leadkaun rolls up to ₹. The one metric that decides whether your Friday review feels like progress or cope.",
+    desc: "We don't count calls, we surface recovery. Every number in Leadkaun rolls up to ₹ — the one metric that decides whether your Friday review feels like progress or cope.",
   },
+]
+
+/** The honest counterpart. An about page that only lists virtues isn't one. */
+const WONT = [
+  {
+    title: "We won't replace your CRM.",
+    desc: "Leadkaun runs alongside whatever you already use. If you want one system of record for everything, buy a CRM — we are the behaviour layer on top of it, and we say so on every comparison page.",
+  },
+  {
+    title: "We won't score leads in a black box.",
+    desc: "The Fit, Intent and Quality weights are published and identical for every account. No per-customer model tuning, because a grade a rep can't explain is a grade a rep won't trust.",
+  },
+  {
+    title: "We won't rank ourselves where we don't belong.",
+    desc: "Our buyer's guide to routing software ranks five competitors and excludes us entirely, because we don't do rules-based routing. If we're the wrong tool for your job, the page you're reading should tell you.",
+  },
+]
+
+const BUILT = [
+  { href: "/features/lead-scoring",        label: "Lead scoring",        note: "A–F grading on Fit × Intent × Quality, with decay" },
+  { href: "/features/priority-queue",      label: "Priority Queue",      note: "Each rep's day, ranked automatically" },
+  { href: "/features/missed-opportunity-engine", label: "Missed Opportunity Engine", note: "The ₹ sitting in leads nobody has called" },
+  { href: "/features/morning-brief",       label: "Morning Brief",       note: "What matters today, at 8:30 AM IST" },
 ]
 
 export default function AboutPage() {
@@ -41,136 +74,202 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript([breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "About" }])]) }} />
       <Navbar />
 
-      <PageHero
-        eyebrow="About Leadkaun"
-        h1={
-          <>
-            Built for the Indian sales rep.{" "}
-            <span
-              className="hero-accent"
-            >
-              Not the Silicon Valley playbook.
-            </span>
-          </>
-        }
-        sub="Most CRM software is designed in the US for US sales teams. Leadkaun is different. Every decision is grounded in how Indian B2B actually runs, WhatsApp as a first-class signal, paid leads from IndiaMART and housing portals, high volume, manual follow-ups, and managers who need ₹ accountability instead of another dashboard."
-        center={false}
-        primary={undefined}
+      <ArticleHeader
+        kicker="About Leadkaun"
+        title="Built for the Indian sales rep."
+        dek="Most CRM software is designed in the US, for US sales teams. Every decision here is grounded in how Indian B2B actually runs: WhatsApp as a first-class signal, paid leads from IndiaMART and housing portals, high volume, manual follow-ups, and managers who need ₹ accountability rather than another dashboard."
+        // Only claims the site already makes elsewhere. Don't put a founding
+        // date or a city here until someone confirms them — an about page is
+        // exactly where an invented fact gets quoted back at you.
+        meta={["Sales Behaviour OS", "Runs alongside your CRM", "Built for Indian B2B"]}
       />
 
-      {/* NUMBERS */}
+      {/* WHAT THE PRODUCT DOES — four facts, each checkable */}
       <SectionGround variant="cream" size="md">
         <Container>
-          <Reveal><MetricStrip
-            items={[
-              { value: "A–F",      label: "Every lead graded, in real time" },
-              { value: "3 scores", label: "Fit, Intent, Quality weights published" },
-              { value: "same day", label: "Setup to first scored lead" },
-              { value: "A–F",      label: "Every lead graded, in real time" },
-            ]}
-          /></Reveal>
-          <p className="mt-4 text-center font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-muted">Illustrative model, not customer results</p>
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl md:grid-cols-4" style={{ background: "var(--paper-line)" }}>
+            {FACTS.map((f) => (
+              <div key={f.label} className="bg-white px-5 py-6">
+                <dt className="ledger-num text-[22px] font-semibold leading-none tracking-[-0.02em] text-ink md:text-[26px]">
+                  {f.value}
+                </dt>
+                <dd className="mt-3 text-[13px] leading-[1.5] text-ink-soft">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="ledger-num mt-4 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
+            How the product works — not customer results.{" "}
+            <Link href="/methodology" className="text-sky-700 hover:text-sky-600">See the method</Link>
+          </p>
         </Container>
       </SectionGround>
 
-      {/* ORIGIN */}
-      <SectionGround variant="sky" size="lg">
+      {/* THE ARGUMENT */}
+      <SectionGround variant="pure" size="lg">
         <Container>
-          <div className="mx-auto max-w-3xl">
-            <Reveal>
-              <NumberedTag number="01" label="Why we built this" />
-              <h2 className="mt-5 text-[30px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[40px]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-2">
+              Why we built this
+            </p>
+            <div>
+              <h2 className={`text-[28px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[38px] ${MEASURE}`}>
                 Indian sales teams were paying for leads, then losing them to silence.
               </h2>
-            </Reveal>
-            <Reveal delay={0.08}><FloatingCard tier="3" depth="3" gloss className="mt-8 p-8 md:p-10">
-              <div className="space-y-6 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">
+
+              <div className={`mt-8 space-y-6 text-[17px] leading-[1.75] text-ink-soft md:text-[18px] ${MEASURE}`}>
                 <p>
-                  We kept watching the same scene. A manager pays thousands a month for leads, Facebook, IndiaMART,
-                  housing portals, 99acres, Google, and half of them die between the form submission and the
-                  third follow-up. Not because the reps were lazy. Because nothing in their stack told them{" "}
-                  <em className="text-ink not-italic font-semibold">who to call first</em>.
+                  We kept watching the same scene. A manager pays thousands a month for leads — Facebook, IndiaMART,
+                  housing portals, 99acres, Google — and half of them die between the form submission and the third
+                  follow-up. Not because the reps were lazy. Because nothing in their stack told them{" "}
+                  <strong className="font-semibold text-ink">who to call first</strong>.
                 </p>
                 <p>
-                  Generic CRMs told managers &quot;X calls made&quot; and &quot;Y leads added.&quot; Nobody was telling them{" "}
-                  <em className="text-ink not-italic font-semibold">&quot;There is money sitting in leads that haven&apos;t been
-                  called in 3 days.&quot;</em> That number changes behaviour. That's what Leadkaun was built to surface.
-                </p>
-                <p>
-                  We call the category <strong className="text-ink font-semibold">Sales Behaviour OS</strong>, a layer that
-                  runs alongside your CRM and tells your team what to do next. The CRM
-                  remembers. Leadkaun acts.
+                  Generic CRMs reported &ldquo;X calls made&rdquo; and &ldquo;Y leads added&rdquo;. Useful for an audit,
+                  useless on a Tuesday morning. Nobody was telling the manager the one sentence that actually changes
+                  what a team does next:
                 </p>
               </div>
-            </FloatingCard></Reveal>
+
+              {/* The pull-quote is the whole thesis */}
+              <blockquote
+                className={`mt-10 pl-6 ${MEASURE}`}
+                style={{ boxShadow: "inset 3px 0 0 #0877B8" }}
+              >
+                <p className="display-md text-[24px] leading-[1.3] text-ink md:text-[32px]">
+                  There is money sitting in leads that haven&apos;t been called in three days.
+                </p>
+              </blockquote>
+
+              <div className={`mt-10 space-y-6 text-[17px] leading-[1.75] text-ink-soft md:text-[18px] ${MEASURE}`}>
+                <p>
+                  That number changes behaviour. It is also, notably, not a number any CRM was designed to produce —
+                  a system of record remembers what happened, it doesn&apos;t have an opinion about what should happen
+                  next. So we built the layer that does.
+                </p>
+                <p>
+                  We call the category a <strong className="font-semibold text-ink">Sales Behaviour OS</strong>: it runs
+                  alongside your CRM and tells your team what to do next. The CRM remembers. Leadkaun acts.
+                </p>
+              </div>
+            </div>
           </div>
         </Container>
       </SectionGround>
 
-      {/* PRINCIPLES */}
+      {/* WHAT WE BELIEVE */}
       <SectionGround variant="cream" size="lg">
         <Container>
-          <Reveal className="mb-10">
-            <NumberedTag number="02" tone="warm" label="What we believe" />
-            <h2 className="mt-5 max-w-3xl text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
-              Three non-negotiables.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.08} className="grid gap-5 md:grid-cols-3">
-            {PRINCIPLES.map((p, i) => (
-              <FloatingCard
-                key={p.title}
-                tier="2"
-                depth="2"
-                gloss
-                aura={i === 1 ? "peach" : "sky"}
-                className="p-7"
-              >
-                <span
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-2xl font-mono text-[16px] font-bold text-white"
-                  style={{
-                    background: i === 1
-                      ? "linear-gradient(180deg, #FDBA74 0%, #FB923C 100%)"
-                      : "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 4px 12px rgba(14,165,233,0.30)",
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-5 text-[20px] font-semibold tracking-[-0.015em] text-ink">{p.title}</h3>
-                <p className="mt-3 text-[15px] leading-[1.65] text-ink-soft">{p.desc}</p>
-              </FloatingCard>
-            ))}
-          </Reveal>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-2">
+              What we believe
+            </p>
+            <div>
+              <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[34px]">
+                Three non-negotiables.
+              </h2>
+              <ol className="mt-8 border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {PRINCIPLES.map((p, i) => (
+                  <li
+                    key={p.title}
+                    className="grid grid-cols-[44px_minmax(0,1fr)] gap-x-5 py-7 md:grid-cols-[64px_minmax(0,1fr)] md:gap-x-8"
+                    style={{ borderBottom: "1px solid var(--paper-line)" }}
+                  >
+                    <span className="ledger-num text-[15px] font-semibold text-sky-700 tabular md:pt-1 md:text-[18px]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="text-[19px] font-semibold leading-snug tracking-[-0.015em] text-ink md:text-[21px]">{p.title}</h3>
+                      <p className="mt-2.5 max-w-[62ch] text-[15px] leading-[1.7] text-ink-soft md:text-[16px]">{p.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
         </Container>
       </SectionGround>
 
-      {/* TEAM */}
-      <SectionGround variant="sky" size="md">
+      {/* AND WHAT WE WON'T DO */}
+      <SectionGround variant="pure" size="lg">
         <Container>
-          <Reveal><FloatingCard tier="3" depth="3" gloss className="mx-auto max-w-3xl p-10 md:p-12 text-center">
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">The team</p>
-            <h2 className="mt-4 text-[24px] font-semibold leading-[1.2] tracking-[-0.02em] text-ink md:text-[28px]">
-              A small team, on one big problem.
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.65] text-ink-soft">
-              We're not trying to build the world's most feature-complete CRM. We're trying to build the one tool
-              that changes what happens to a lead in the first six hours after it comes in, because that's where
-              Indian B2B revenue actually leaks.
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-orange-500 lg:pt-2">
+              And what we won&apos;t
             </p>
-            <p className="mt-6">
-              <a href="mailto:team@leadkaun.com" className="text-[14px] font-semibold text-sky-600 underline-offset-4 hover:underline">
-                Say hello at team@leadkaun.com →
-              </a>
-            </p>
-          </FloatingCard></Reveal>
+            <div>
+              <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[34px]">
+                Three things we turn down.
+              </h2>
+              <ol className="mt-8 border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {WONT.map((w) => (
+                  <li key={w.title} className="py-7" style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                    <h3 className="text-[19px] font-semibold leading-snug tracking-[-0.015em] text-ink md:text-[21px]">{w.title}</h3>
+                    <p className="mt-2.5 max-w-[62ch] text-[15px] leading-[1.7] text-ink-soft md:text-[16px]">{w.desc}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
         </Container>
       </SectionGround>
 
-      <ModulesGrid number="03" ground="cream" eyebrow="What we built" />
-      <PricingCTA number="04" ground="sky" />
+      {/* THE TEAM */}
+      <SectionGround variant="cream" size="lg">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-2">
+              The team
+            </p>
+            <div>
+              <h2 className={`text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-ink md:text-[34px] ${MEASURE}`}>
+                A small team, on one big problem.
+              </h2>
+              <p className={`mt-6 text-[17px] leading-[1.75] text-ink-soft md:text-[18px] ${MEASURE}`}>
+                We&apos;re not trying to build the world&apos;s most feature-complete CRM. We&apos;re trying to build the
+                one tool that changes what happens to a lead in the first six hours after it arrives, because that is
+                where Indian B2B revenue actually leaks.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                <a href="mailto:team@leadkaun.com" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-sky-700 hover:text-sky-600">
+                  team@leadkaun.com <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+                <Link href="/contact" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-sky-700 hover:text-sky-600">
+                  Talk to us <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </SectionGround>
 
-      <CTABanner />
+      {/* WHAT WE BUILT — links, not a card grid; the product pages own the detail */}
+      <SectionGround variant="pure" size="md">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+            <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+              What we built
+            </p>
+            <ul className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+              {BUILT.map((b) => (
+                <li key={b.href} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                  <Link href={b.href} className="group grid gap-x-8 gap-y-1 py-4 md:grid-cols-[minmax(0,240px)_minmax(0,1fr)_auto]">
+                    <span className="text-[16px] font-semibold text-ink group-hover:text-sky-700">{b.label}</span>
+                    <span className="text-[14px] leading-[1.55] text-ink-soft md:text-[15px]">{b.note}</span>
+                    <ArrowUpRight className="hidden h-4 w-4 shrink-0 self-center text-ink-faint group-hover:text-sky-700 md:block" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      </SectionGround>
+
+      <LedgerCTA
+        headline="The argument is easy to test."
+        sub="Import a CSV and see how much of your own pipeline is sitting uncalled. If the number is small, you don't need us — and that's a fine outcome."
+        secondary={{ label: "See pricing", href: "/pricing" }}
+      />
+
       <Footer />
     </main>
   )

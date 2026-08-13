@@ -1,25 +1,22 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { Check, AlertTriangle, Trophy } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
-import { MidCta } from "@/app/components/page-blocks"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { FloatingCard } from "@/app/components/floating-card"
-import { GlossLink } from "@/app/components/gloss-button"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
-import { QuickAnswer, KeyTakeaways } from "@/app/components/quick-answer"
-import { ReferencesBlock } from "@/app/components/pseo/references-block"
-import { CommercialLinks } from "@/app/components/pseo/commercial-links"
+import { QuickAnswer } from "@/app/components/quick-answer"
+import {
+  JumpNav, Label, LedgerBlock, LedgerCTA, LedgerMasthead, MethodBlock,
+  Minus2, No, RankedEntry, SectionHead, SPINE, Yes,
+} from "@/app/components/ledger"
 import { getBest, getBestGuide } from "@/lib/pseo/lookup"
+import { REFERENCES } from "@/lib/pseo/shared-content"
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript, canonical, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
 
@@ -35,36 +32,25 @@ type BestGuide = {
   picks: Pick[]; faqs: { q: string; a: string }[]; relatedCompares: string[]
   /** Opt-out: park a record at noindex while it is corrected. */
   indexable?: boolean
-  // ── Phase 2.2 flagship buyer-journey fields (all optional; blocks render only
-  //    when present, so other /best guides are unaffected until they adopt them). ──
-  /** 4–6 scannable "decision in 10 seconds" bullets. */
   keyTakeaways?: string[]
-  /** Category definition + who needs it; hands depth off to /learn. */
   whatItIs?: { heading: string; body: string[] }
-  /** At-a-glance capability matrix. `cells` align to `matrixTools` order;
-   *  each cell is "yes" | "no" | "partial" | free text. */
   matrixTools?: string[]
   featureMatrix?: { capability: string; note?: string; cells: string[] }[]
-  /** On-page product walkthrough with real screenshots from /public/screenshots. */
   howItWorks?: { step: string; body: string; shot?: string; shotAlt?: string }[]
-  /** India-specific commercial fit. */
   indiaSection?: { heading: string; intro: string; points: { title: string; body: string }[] }
-  /** Brief handoffs to the vertical/commercial owners (don't try to rank for these). */
   useCaseHandoffs?: { label: string; href: string; blurb: string }[]
-  /** On-page pricing/cost answer; /pricing stays source of truth. */
   pricingBlock?: { startingPrice: string; freePlan: string; onSignup: string; setup: string }
-  /** Contextual cluster links out to /learn and /features (fixes the outbound gap). */
   relatedLearn?: { href: string; label: string }[]
   relatedFeatures?: { href: string; label: string }[]
 }
 
-/** Renders one capability-matrix cell: "yes" → check, "no" → dash, "partial", else free text. */
+/** "yes" → check, "no" → cross, "partial" → dash, anything else → the text itself. */
 function MatrixCell({ v }: { v: string }) {
   const t = v.trim().toLowerCase()
-  if (t === "yes") return <Check className="mx-auto h-4 w-4 text-sky-500" aria-label="Yes" />
-  if (t === "no") return <span className="text-ink-muted" aria-label="No">—</span>
-  if (t === "partial") return <span className="text-[12px] font-semibold text-orange-500">Partial</span>
-  return <span className="text-[13px] leading-snug text-ink-soft">{v}</span>
+  if (t === "yes") return <Yes />
+  if (t === "no") return <No />
+  if (t === "partial") return <Minus2 />
+  return <span className="ledger-num text-[11px] font-semibold leading-tight text-ink-soft">{v}</span>
 }
 
 export async function generateStaticParams() {
@@ -114,6 +100,44 @@ export default async function BestGuidePage({ params }: Params) {
     faqPageSchema(g.faqs),
   ]
 
+  /* Most guides carry only the base blocks, so section numbers and the jump nav
+     are both derived from what this record actually has. */
+  const hasMatrix = !!(g.featureMatrix?.length && g.matrixTools?.length)
+  const hasHowItWorks = !!g.howItWorks?.length
+  const hasIndia = !!g.indiaSection
+  const hasHandoffs = !!g.useCaseHandoffs?.length
+  const hasPricing = !!g.pricingBlock
+  const links = [
+    ...(g.relatedLearn ?? []).map((l) => ({ ...l, group: "Learn" })),
+    ...(g.relatedFeatures ?? []).map((l) => ({ ...l, group: "Features" })),
+    ...g.relatedCompares.map((c) => ({
+      href: `/compare/${c}`,
+      label: `Leadkaun vs ${c.replace("leadkaun-vs-", "").replace(/-/g, " ")}`,
+      group: "Compare",
+    })),
+  ]
+
+  let n = 0
+  const num = () => String(++n).padStart(2, "0")
+  const readNo = num()
+  const matrixNo = hasMatrix ? num() : null
+  const rankingNo = num()
+  const howNo = hasHowItWorks ? num() : null
+  const indiaNo = hasIndia ? num() : null
+  const handoffNo = hasHandoffs ? num() : null
+  const pricingNo = hasPricing ? num() : null
+  const faqNo = num()
+
+  const nav = [
+    { id: "read", label: "The read" },
+    ...(hasMatrix ? [{ id: "matrix", label: "At a glance" }] : []),
+    { id: "ranking", label: "The ranking" },
+    ...(hasHowItWorks ? [{ id: "how", label: "How it works" }] : []),
+    ...(hasIndia ? [{ id: "india", label: "Built for India" }] : []),
+    ...(hasPricing ? [{ id: "pricing", label: "Pricing" }] : []),
+    { id: "faq", label: "FAQ" },
+  ]
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(schemas) }} />
@@ -121,354 +145,351 @@ export default async function BestGuidePage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <PageHero
-          eyebrow={<><Trophy className="h-3 w-3" strokeWidth={2} /> Best Software · updated {g.updated}</>}
+        <LedgerMasthead
+          meta={["Buyer's guide", `Updated ${g.updated}`, "We build one of these"]}
           h1={g.h1}
-          sub={g.intro}
-          primary={{ kind: "primary", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
-          secondary={{ kind: "glass", label: "See pricing", href: "/pricing" }}
+          lead={g.intro}
+          secondary={{ label: "See pricing", href: "/pricing" }}
         />
 
-        {/* AI QUICK ANSWER */}
-        <SectionGround variant="pure" size="sm">
+        <JumpNav items={nav} />
+
+        {/* THE READ — overview, takeaways, the category, and the criteria */}
+        <SectionGround id="read" variant="pure" size="lg" className="scroll-mt-[128px]">
           <Container>
-            <QuickAnswer question={g.quickAnswer.question} answer={g.quickAnswer.answer} />
-          </Container>
-        </SectionGround>
+            <SectionHead
+              number={readNo}
+              label="The read"
+              title={g.whatItIs?.heading ?? "What you actually need to decide."}
+            />
 
-        {/* KEY TAKEAWAYS */}
-        {g.keyTakeaways && g.keyTakeaways.length > 0 && (
-          <SectionGround variant="pure" size="sm">
-            <Container>
-              <Reveal><KeyTakeaways items={g.keyTakeaways} /></Reveal>
-            </Container>
-          </SectionGround>
-        )}
+            <LedgerBlock label="Overview" first>
+              <div className="[&>[data-quick-answer]]:!mx-0 [&>[data-quick-answer]]:!max-w-none">
+                <QuickAnswer question={g.quickAnswer.question} answer={g.quickAnswer.answer} />
+              </div>
+            </LedgerBlock>
 
-        {/* WHAT LEAD MANAGEMENT SOFTWARE IS + WHO NEEDS IT */}
-        {g.whatItIs && (
-          <SectionGround variant="pure" size="md">
-            <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="01" label="The category" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">{g.whatItIs.heading}</h2>
-                <div className="mt-5 space-y-4 text-[15px] leading-[1.65] text-ink-soft">
-                  {g.whatItIs.body.map((p, i) => <p key={i}>{p}</p>)}
+            {g.keyTakeaways && g.keyTakeaways.length > 0 && (
+              <LedgerBlock label="In ten seconds" delay={0.05}>
+                <ul className="grid gap-3 sm:grid-cols-2 sm:gap-x-12">
+                  {g.keyTakeaways.map((t, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[14px] leading-[1.55] text-ink-soft md:text-[15px]">
+                      <span className="ledger-num mt-0.5 shrink-0 text-[11px] text-sky-700">{String(i + 1).padStart(2, "0")}</span>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </LedgerBlock>
+            )}
+
+            {g.whatItIs && (
+              <LedgerBlock label="The category" delay={0.06}>
+                <div className="max-w-[62ch] space-y-4 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">
+                  {g.whatItIs.body.map((para, i) => <p key={i}>{para}</p>)}
                 </div>
-                <Link href="/learn/lead-management" className="mt-6 inline-flex text-[14px] font-semibold text-sky-600 hover:text-sky-500">
+                <Link href="/learn/lead-management" className="mt-6 inline-flex text-[14px] font-semibold text-sky-700 hover:text-sky-600">
                   Read the complete lead management guide →
                 </Link>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
+              </LedgerBlock>
+            )}
 
-        {/* HOW WE EVALUATED */}
-        <SectionGround variant="cream" size="md">
-          <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="02" tone="warm" label="How we evaluated" />
-              <ul className="mt-6 space-y-2.5">
+            <LedgerBlock label="How we judged" delay={0.08}>
+              <ul className="grid gap-3 sm:grid-cols-2 sm:gap-x-12">
                 {g.criteria.map((c, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[15px] leading-[1.55] text-ink-soft">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-sky-500" aria-hidden />
+                  <li key={i} className="flex items-start gap-2.5 text-[14px] leading-[1.55] text-ink-soft md:text-[15px]">
+                    <span className="mt-0.5"><Yes /></span>
                     <span>{c}</span>
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </LedgerBlock>
           </Container>
         </SectionGround>
 
-        {/* AT-A-GLANCE COMPARISON MATRIX */}
-        {g.featureMatrix && g.matrixTools && g.featureMatrix.length > 0 && (
-          <SectionGround variant="pure" size="md">
+        {/* AT A GLANCE — capability matrix */}
+        {hasMatrix && (
+          <SectionGround id="matrix" variant="cream" size="lg" className="scroll-mt-[128px] !overflow-visible">
             <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number="03" label="At a glance" />
-                <h2 className="mt-5 max-w-3xl text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                  The capabilities that decide it.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.06} className="-mx-4 overflow-x-auto px-4">
-                <table className="w-full min-w-[720px] border-collapse text-left">
+              <SectionHead
+                number={matrixNo!}
+                label="At a glance"
+                title="The capabilities that decide it."
+                sub="Read from vendor documentation at the review date. Where a capability is tier-gated, the cell says so instead of crediting the product as a whole."
+              />
+              <Reveal delay={0.06} className="-mx-6 overflow-x-auto px-6 md:mx-0 md:px-0">
+                <table className="w-full min-w-[760px] border-collapse rounded-2xl bg-white text-left" style={{ border: "1px solid var(--paper-line)" }}>
                   <thead>
-                    <tr className="border-b border-[var(--hairline)]">
-                      <th className="py-3 pr-4 text-[13px] font-semibold text-ink">Capability</th>
-                      {g.matrixTools.map((t) => (
-                        <th key={t} className={`px-3 py-3 text-center text-[13px] font-semibold ${t.toLowerCase().includes("leadkaun") ? "text-sky-600" : "text-ink"}`}>{t}</th>
-                      ))}
+                    <tr style={{ borderBottom: "1px solid var(--paper-line-2)" }}>
+                      <th className="px-6 py-3.5 align-bottom"><Label>Capability</Label></th>
+                      {g.matrixTools!.map((t) => {
+                        const ours = t.toLowerCase().includes("leadkaun")
+                        return (
+                          <th
+                            key={t}
+                            className="px-4 py-3.5 text-center align-bottom"
+                            style={ours ? { background: "rgba(8,119,184,0.04)" } : undefined}
+                          >
+                            <Label tone={ours ? "sky" : "muted"}>{t}</Label>
+                          </th>
+                        )
+                      })}
                     </tr>
                   </thead>
                   <tbody>
-                    {g.featureMatrix.map((row, i) => (
-                      <tr key={i} className="border-b border-[var(--hairline)] align-top">
-                        <td className="py-3 pr-4">
-                          <span className="block text-[14px] font-medium text-ink">{row.capability}</span>
+                    {g.featureMatrix!.map((row, i) => (
+                      <tr key={i} className="align-middle" style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                        <td className="px-6 py-3.5">
+                          <span className="block text-[14px] leading-[1.45] text-ink">{row.capability}</span>
                           {row.note && <span className="mt-0.5 block text-[12px] leading-snug text-ink-muted">{row.note}</span>}
                         </td>
-                        {row.cells.map((c, j) => (
-                          <td key={j} className="px-3 py-3 text-center"><MatrixCell v={c} /></td>
-                        ))}
+                        {row.cells.map((c, j) => {
+                          const ours = g.matrixTools![j]?.toLowerCase().includes("leadkaun")
+                          return (
+                            <td
+                              key={j}
+                              className="px-4 py-3.5 text-center"
+                              style={ours ? { background: "rgba(8,119,184,0.04)" } : undefined}
+                            >
+                              <span className="inline-flex justify-center"><MatrixCell v={c} /></span>
+                            </td>
+                          )
+                        })}
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </Reveal>
-              <p className="mt-4 text-[12.5px] leading-snug text-ink-muted">
-                Pricing read from each vendor&apos;s public page at the review date; capabilities from vendor docs. See the method below.
-              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                <span className="inline-flex items-center gap-2"><Yes /><span className="text-[12px] text-ink-muted">Built in</span></span>
+                <span className="inline-flex items-center gap-2"><No /><span className="text-[12px] text-ink-muted">Not available</span></span>
+                <span className="inline-flex items-center gap-2"><Minus2 /><span className="text-[12px] text-ink-muted">Partial / tier-gated</span></span>
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        {/* RANKED PICKS */}
-        <SectionGround variant="sky" size="lg">
+        {/* THE RANKING */}
+        <SectionGround id="ranking" variant="pure" size="lg" className="scroll-mt-[128px]">
           <Container>
-            <Reveal className="mb-10 md:mb-14">
-              <NumberedTag number="04" label="The ranking" />
-              <h2 className="mt-5 max-w-3xl text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">
-                {g.picks.length} tools, ranked and reasoned.
-              </h2>
-            </Reveal>
-
-            <div className="space-y-5">
+            <SectionHead
+              number={rankingNo}
+              label="The ranking"
+              title={`${g.picks.length} tools, ranked and reasoned.`}
+              sub="Every entry carries a watch-out, including ours. Where we do not belong in a category, we are not ranked in it."
+            />
+            <ol className="border-b" style={{ borderColor: "var(--paper-line)" }}>
               {g.picks.map((p) => (
-                <Reveal key={p.rank} delay={0.04}>
-                  <FloatingCard tier={p.isLeadkaun ? "2" : "3"} depth="3" gloss className={`p-7 md:p-8 ${p.isLeadkaun ? "aura-sky-hover" : ""}`}>
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl font-mono text-[14px] font-bold text-white" style={{ background: p.isLeadkaun ? "linear-gradient(180deg,#38BDF8,#0EA5E9)" : "linear-gradient(180deg,#CBD5E1,#94A3B8)" }}>
-                        {p.rank}
-                      </span>
-                      <h3 className="text-[21px] font-semibold tracking-[-0.01em] text-ink">
-                        {p.url.startsWith("/") ? <Link href={p.url} className="hover:text-sky-600">{p.name}</Link> : p.name}
-                      </h3>
-                      {p.isLeadkaun && <span className="rounded-full bg-sky-100 px-2.5 py-0.5 text-[11px] font-semibold text-sky-700">Our pick</span>}
-                      <span className="text-[14px] text-ink-soft">{p.tagline}</span>
-                    </div>
-                    <p className="mt-4 text-[15px] leading-[1.6] text-ink-soft"><span className="font-semibold text-ink">Best for:</span> {p.bestFor}</p>
-                    <p className="mt-1.5 text-[15px] leading-[1.6] text-ink-soft"><span className="font-semibold text-ink">Pricing:</span> {p.pricingNote}</p>
-                    <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">{p.whyPick}</p>
-                    <p className="mt-3 flex items-start gap-2 text-[14px] leading-[1.55] text-ink-muted">
-                      <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" aria-hidden />
-                      <span><span className="font-semibold">Watch-out:</span> {p.watchOut}</span>
-                    </p>
-                    {p.url.startsWith("/") && (
-                      <Link href={p.url} className="mt-4 inline-flex text-[14px] font-semibold text-sky-600 hover:text-sky-500">
-                        {p.isLeadkaun ? "See the product →" : `Compare with Leadkaun →`}
-                      </Link>
-                    )}
-                  </FloatingCard>
-                </Reveal>
+                <RankedEntry
+                  key={p.rank}
+                  rank={p.rank}
+                  name={p.name}
+                  tagline={p.tagline}
+                  ours={p.isLeadkaun}
+                  rows={[
+                    { label: "Best for", value: p.bestFor },
+                    { label: "Pricing", value: p.pricingNote },
+                    { label: "Why", value: p.whyPick },
+                    { label: "Watch-out", value: p.watchOut },
+                  ]}
+                  href={p.url.startsWith("/") ? p.url : undefined}
+                  hrefLabel={p.isLeadkaun ? "See the product" : "Compare with Leadkaun"}
+                />
               ))}
-            </div>
+            </ol>
           </Container>
         </SectionGround>
 
-        <MidCta lead="Want to see how Leadkaun grades your own leads?" />
-
-        {/* HOW LEADKAUN WORKS — real product evidence (public/screenshots/*) */}
-        {g.howItWorks && g.howItWorks.length > 0 && (
-          <SectionGround variant="pure" size="lg">
+        {/* HOW LEADKAUN WORKS — real product evidence */}
+        {hasHowItWorks && (
+          <SectionGround id="how" variant="cream" size="lg" className="scroll-mt-[128px]">
             <Container>
-              <Reveal className="mb-10">
-                <NumberedTag number="05" label="How Leadkaun works" />
-                <h2 className="mt-5 max-w-3xl text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">
-                  From a messy lead list to the next call, in one flow.
-                </h2>
-              </Reveal>
-              <div className="space-y-6">
-                {g.howItWorks.map((s, i) => (
-                  <Reveal key={i} delay={0.04}>
-                    <FloatingCard tier="2" depth="2" gloss className="overflow-hidden p-0">
-                      <div className="grid gap-0 md:grid-cols-2">
-                        <div className="p-7 md:p-8">
-                          <span className="font-mono text-[12px] font-semibold text-sky-600">{String(i + 1).padStart(2, "0")}</span>
-                          <h3 className="mt-2 text-[19px] font-semibold text-ink">{s.step}</h3>
-                          <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">{s.body}</p>
-                        </div>
-                        {s.shot && (
-                          <figure className="border-t border-[var(--hairline)] bg-black/[0.02] md:border-l md:border-t-0">
-                            <img src={s.shot} alt={s.shotAlt ?? s.step} loading="lazy" className="h-full w-full object-cover object-left-top" />
-                          </figure>
-                        )}
-                      </div>
-                    </FloatingCard>
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal delay={0.05} className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[14px]">
-                <Link href="/product" className="font-semibold text-sky-600 hover:text-sky-500">See the full product →</Link>
-                <Link href="/features/lead-scoring" className="text-ink-soft hover:text-sky-600">Lead scoring →</Link>
-                <Link href="/features/priority-queue" className="text-ink-soft hover:text-sky-600">Priority Queue →</Link>
-                <Link href="/features/intake-intelligence" className="text-ink-soft hover:text-sky-600">Intake Intelligence →</Link>
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
-
-        {/* INDIA-SPECIFIC */}
-        {g.indiaSection && (
-          <SectionGround variant="cream" size="md">
-            <Container>
-              <Reveal className="mb-8 max-w-3xl">
-                <NumberedTag number="06" tone="warm" label="Built for India" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">{g.indiaSection.heading}</h2>
-                <p className="mt-4 text-[15px] leading-[1.65] text-ink-soft">{g.indiaSection.intro}</p>
-              </Reveal>
-              <div className="grid gap-4 md:grid-cols-2">
-                {g.indiaSection.points.map((pt, i) => (
-                  <Reveal key={i} delay={0.03}>
-                    <FloatingCard tier="1" depth="1" gloss className="h-full p-6">
-                      <h3 className="text-[15px] font-semibold text-ink">{pt.title}</h3>
-                      <p className="mt-2 text-[14px] leading-[1.6] text-ink-soft">{pt.body}</p>
-                    </FloatingCard>
-                  </Reveal>
-                ))}
-              </div>
-            </Container>
-          </SectionGround>
-        )}
-
-        {/* USE-CASE HANDOFFS — link out to the vertical owners, don't try to rank here */}
-        {g.useCaseHandoffs && g.useCaseHandoffs.length > 0 && (
-          <SectionGround variant="pure" size="md">
-            <Container>
-              <Reveal className="mb-8 max-w-3xl">
-                <NumberedTag number="07" label="By industry" />
-                <h2 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.03em] text-ink md:text-[28px]">Selling into a specific vertical?</h2>
-                <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">Each industry has its own lead sources, sales cycle and buying committee. These guides go deeper than this page can.</p>
-              </Reveal>
-              <Reveal delay={0.06} className="grid gap-3 sm:grid-cols-2">
-                {g.useCaseHandoffs.map((u) => (
-                  <Link key={u.href} href={u.href} className="group flex items-start justify-between gap-4 rounded-2xl glass-1 gloss-edge p-5 transition-all lift">
-                    <span>
-                      <span className="block text-[15px] font-semibold text-ink group-hover:text-sky-600">{u.label}</span>
-                      <span className="mt-1 block text-[13px] leading-snug text-ink-muted">{u.blurb}</span>
+              <SectionHead
+                number={howNo!}
+                label="How Leadkaun works"
+                title="From a messy lead list to the next call."
+              />
+              <ol className="border-t" style={{ borderColor: "var(--paper-line-2)" }}>
+                {g.howItWorks!.map((s, i) => (
+                  <li key={i} className={`grid gap-y-5 py-8 md:py-10 ${SPINE}`} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                    <span className="ledger-num text-[13px] font-semibold text-sky-700 tabular md:pt-1 md:text-[15px]">
+                      Step {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-0.5 font-mono text-[13px] text-ink-muted group-hover:text-sky-600">→</span>
-                  </Link>
+                    <div className="grid gap-6 lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:gap-10">
+                      <div>
+                        <h3 className="text-[18px] font-semibold leading-snug tracking-[-0.01em] text-ink md:text-[19px]">{s.step}</h3>
+                        <p className="mt-3 max-w-[52ch] text-[14px] leading-[1.6] text-ink-soft md:text-[15px]">{s.body}</p>
+                      </div>
+                      {s.shot && (
+                        <figure className="overflow-hidden rounded-xl bg-white" style={{ border: "1px solid var(--paper-line)" }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={s.shot} alt={s.shotAlt ?? s.step} loading="lazy" className="w-full object-cover object-left-top" />
+                        </figure>
+                      )}
+                    </div>
+                  </li>
                 ))}
-              </Reveal>
+              </ol>
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[14px]">
+                <Link href="/product" className="font-semibold text-sky-700 hover:text-sky-600">See the full product →</Link>
+                <Link href="/features/lead-scoring" className="text-ink-soft hover:text-sky-700">Lead scoring →</Link>
+                <Link href="/features/priority-queue" className="text-ink-soft hover:text-sky-700">Priority Queue →</Link>
+                <Link href="/features/intake-intelligence" className="text-ink-soft hover:text-sky-700">Intake Intelligence →</Link>
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        {/* RANKING METHODOLOGY, Brain 09 §3.7 requires a published method on a
-            buyer guide. Without it a ranking is just an opinion with numbers. */}
-        <SectionGround variant="pure" size="md">
-          <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number="08" label="How this ranking is made" />
-              <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                Our method, and our conflict of interest.
-              </h2>
-              <div className="mt-6 space-y-4 text-[15px] leading-[1.65] text-ink-soft">
-                <p>
-                  We build one of the tools in this category, so treat this page accordingly. What we can offer instead
-                  of neutrality is a published method and a willingness to exclude ourselves.
-                </p>
-                <p>
-                  Rankings are built from the criteria listed above, applied in the same order to every tool. Pricing is
-                  read from each vendor&apos;s public pricing page at the review date on this page, in the currency they
-                  actually charge, not converted to make a comparison flatter. Capability claims come from vendor
-                  documentation, and where a capability is tier-gated we say so rather than crediting the product as a
-                  whole.
-                </p>
-                <p>
-                  Where Leadkaun does not belong in a category, it is not ranked. Our{" "}
-                  <Link href="/best/lead-routing-software" className="text-sky-600 underline-offset-2 hover:underline"> {/* lk-gate-ignore:lead-assignment */}
-                    lead routing guide {/* lk-gate-ignore:lead-assignment */}
-                  </Link>{" "}
-                  ranks five competitors and excludes us entirely, because we do not do rules-based routing. Claims we
-                  make about our own product are checked against the shipping code, see{" "}
-                  <Link href="/methodology" className="text-sky-600 underline-offset-2 hover:underline">our methodology</Link>.
-                </p>
-                <p>
-                  No vendor pays for placement here, and none of these links is affiliate-compensated.
-                </p>
-              </div>
-            </Reveal>
-          </Container>
-        </SectionGround>
-
-        {/* PRICING / COMMERCIAL DECISION */}
-        {g.pricingBlock && (
-          <SectionGround variant="sky" size="md">
+        {/* BUILT FOR INDIA */}
+        {hasIndia && (
+          <SectionGround id="india" variant="pure" size="lg" className="scroll-mt-[128px]">
             <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number="09" label="Pricing" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">What Leadkaun costs, plainly.</h2>
-                <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {[
-                    ["Starting price", g.pricingBlock.startingPrice],
-                    ["Free to start", g.pricingBlock.freePlan],
-                    ["When you sign up", g.pricingBlock.onSignup],
-                    ["Setup", g.pricingBlock.setup],
-                  ].map(([k, v]) => (
-                    <div key={k} className="rounded-2xl glass-1 gloss-edge p-5">
-                      <dt className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted">{k}</dt>
-                      <dd className="mt-1.5 text-[15px] leading-[1.55] text-ink-soft">{v}</dd>
+              <SectionHead number={indiaNo!} label="Built for India" title={g.indiaSection!.heading} sub={g.indiaSection!.intro} />
+              <LedgerBlock label="What that means" first delay={0.06}>
+                <dl className="grid gap-x-12 gap-y-6 sm:grid-cols-2">
+                  {g.indiaSection!.points.map((pt) => (
+                    <div key={pt.title}>
+                      <dt className="text-[15px] font-semibold text-ink">{pt.title}</dt>
+                      <dd className="mt-1.5 text-[14px] leading-[1.6] text-ink-soft">{pt.body}</dd>
                     </div>
                   ))}
                 </dl>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a href={APP_URLS.register} className="inline-flex items-center rounded-full bg-sky-500 px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-sky-600">Start free</a>
-                  <Link href="/pricing" className="inline-flex items-center rounded-full glass-1 gloss-edge px-5 py-2.5 text-[14px] font-semibold text-ink-soft transition-all hover:text-sky-600 lift">Full pricing →</Link>
+              </LedgerBlock>
+            </Container>
+          </SectionGround>
+        )}
+
+        {/* BY INDUSTRY — hand off to the vertical owners */}
+        {hasHandoffs && (
+          <SectionGround variant="cream" size="md" className="scroll-mt-[128px]">
+            <Container>
+              <SectionHead
+                number={handoffNo!}
+                label="By industry"
+                title="Selling into a specific vertical?"
+                sub="Each industry has its own lead sources, sales cycle and buying committee. These guides go deeper than this page can."
+              />
+              <LedgerBlock label="Deeper guides" first delay={0.06}>
+                <ul className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+                  {g.useCaseHandoffs!.map((u) => (
+                    <li key={u.href} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                      <Link href={u.href} className="group flex items-start justify-between gap-6 py-4 transition-colors">
+                        <span>
+                          <span className="block text-[15px] font-semibold text-ink group-hover:text-sky-700">{u.label}</span>
+                          <span className="mt-1 block text-[13px] leading-snug text-ink-muted">{u.blurb}</span>
+                        </span>
+                        <span className="ledger-num mt-1 shrink-0 text-[13px] text-ink-muted group-hover:text-sky-700">→</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </LedgerBlock>
+            </Container>
+          </SectionGround>
+        )}
+
+        {/* PRICING */}
+        {hasPricing && (
+          <SectionGround id="pricing" variant="pure" size="lg" className="scroll-mt-[128px]">
+            <Container>
+              <SectionHead number={pricingNo!} label="Pricing" tone="warm" title="What Leadkaun costs, plainly." />
+              <LedgerBlock label="The numbers" first delay={0.06}>
+                <dl className="border-t" style={{ borderColor: "var(--paper-line)" }}>
+                  {[
+                    ["Starting price", g.pricingBlock!.startingPrice],
+                    ["Free to start", g.pricingBlock!.freePlan],
+                    ["When you sign up", g.pricingBlock!.onSignup],
+                    ["Setup", g.pricingBlock!.setup],
+                  ].map(([k, v]) => (
+                    <div key={k} className="grid gap-x-10 gap-y-1 py-4 sm:grid-cols-[minmax(0,160px)_minmax(0,1fr)]" style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                      <dt><Label className="sm:pt-1">{k}</Label></dt>
+                      <dd className="max-w-[62ch] text-[15px] leading-[1.55] text-ink">{v}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <a
+                    href={APP_URLS.register}
+                    className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-semibold"
+                    style={{ color: "#FFFFFF" }}
+                  >
+                    Start free →
+                  </a>
+                  <Link href="/pricing" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600">
+                    Full pricing →
+                  </Link>
                 </div>
-              </Reveal>
+              </LedgerBlock>
             </Container>
           </SectionGround>
         )}
 
         {/* FAQ */}
-        <SectionGround variant="cream" size="md">
+        <SectionGround id="faq" variant="cream" size="lg" className="scroll-mt-[128px]">
           <Container>
-            <Reveal className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="flex justify-center"><NumberedTag number="10" tone="warm" label="FAQ" /></div>
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[36px]">Common questions.</h2>
-            </Reveal>
-            <Reveal delay={0.08}><Faq items={g.faqs} /></Reveal>
+            <SectionHead number={faqNo} label="FAQ" tone="warm" title="Common questions." />
+            <LedgerBlock label="Questions" first delay={0.06}>
+              <Faq items={g.faqs} className="!mx-0 !max-w-[68ch]" />
+            </LedgerBlock>
           </Container>
         </SectionGround>
 
-        {/* SOURCES & REFERENCES */}
-        {(g.relatedLearn || g.relatedFeatures) && <ReferencesBlock number="11" ground="pure" />}
+        {/* METHOD — a ranking without a published method is an opinion with numbers */}
+        <MethodBlock
+          label="How this ranking is made"
+          reviewedOn={g.updated}
+          sources={REFERENCES.filter((r) => r.kind === "external").map((r) => ({ label: r.label, url: r.href }))}
+        >
+          <p>
+            We build one of the tools in this category, so treat this page accordingly. What we can offer instead of
+            neutrality is a published method and a willingness to exclude ourselves.
+          </p>
+          <p>
+            Rankings are built from the criteria listed above, applied in the same order to every tool. Pricing is read
+            from each vendor&apos;s public pricing page at the review date, in the currency they actually charge, not
+            converted to make a comparison flatter. Capability claims come from vendor documentation, and where a
+            capability is tier-gated we say so rather than crediting the product as a whole.
+          </p>
+          <p>
+            Where Leadkaun does not belong in a category, it is not ranked. Our{" "}
+            <Link href="/best/lead-routing-software" className="text-sky-700 underline underline-offset-2 hover:text-sky-600"> {/* lk-gate-ignore:lead-assignment */}
+              lead routing guide {/* lk-gate-ignore:lead-assignment */}
+            </Link>{" "}
+            ranks five competitors and excludes us entirely, because we do not do rules-based routing. Claims we make
+            about our own product are checked against the shipping code, see{" "}
+            <Link href="/methodology" className="text-sky-700 underline underline-offset-2 hover:text-sky-600">our methodology</Link>.
+          </p>
+          <p>No vendor pays for placement here, and none of these links is affiliate-compensated.</p>
+        </MethodBlock>
 
-        {/* CLUSTER LINKS into /learn + /features (fixes the outbound gap) */}
-        {!!(g.relatedLearn?.length || g.relatedFeatures?.length) && (
-          <CommercialLinks
-            number="12"
-            heading="Keep going."
-            links={[
-              ...(g.relatedLearn ?? []).map((l) => ({ ...l, kind: "learn" })),
-              ...(g.relatedFeatures ?? []).map((l) => ({ ...l, kind: "feature" })),
-            ]}
-          />
-        )}
-
-        {/* RELATED COMPARES */}
-        {g.relatedCompares.length > 0 && (
+        {/* KEEP GOING — one links register instead of three separate blocks */}
+        {links.length > 0 && (
           <SectionGround variant="cream" size="md">
             <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number="13" tone="warm" label="Go deeper" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[28px]">Head-to-head comparisons.</h2>
-              </Reveal>
-              <Reveal delay={0.08} className="flex flex-wrap gap-2.5">
-                {g.relatedCompares.map((c) => (
-                  <Link key={c} href={`/compare/${c}`} className="inline-flex items-center rounded-full glass-1 gloss-edge px-4 py-2 text-[13px] font-medium text-ink-soft transition-all hover:text-sky-600 lift">
-                    Leadkaun vs {c.replace("leadkaun-vs-", "").replace(/-/g, " ")}
-                  </Link>
-                ))}
-              </Reveal>
+              <LedgerBlock label="Keep going" first>
+                <ul className="grid gap-x-12 gap-y-px sm:grid-cols-2">
+                  {links.map((l) => (
+                    <li key={l.href} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                      <Link href={l.href} className="group flex items-baseline justify-between gap-4 py-3">
+                        <span className="text-[14px] text-ink group-hover:text-sky-700">
+                          <span className="ledger-num mr-3 text-[9px] uppercase tracking-[0.16em] text-ink-muted">{l.group}</span>
+                          {l.label}
+                        </span>
+                        <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-faint group-hover:text-sky-700" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </LedgerBlock>
             </Container>
           </SectionGround>
         )}
 
-        
+        <LedgerCTA
+          headline="See it grade your own leads."
+          sub="Import a CSV and every lead comes back graded A–F with a ranked queue for each rep. Same-day setup, no card, no sales call."
+          secondary={{ label: "See pricing", href: "/pricing" }}
+        />
 
-        <CTABanner />
         <Footer />
       </main>
     </>

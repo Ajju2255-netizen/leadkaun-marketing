@@ -6,7 +6,7 @@ import {
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
@@ -124,8 +124,7 @@ export default function ProductPage() {
                 <span
                   className="inline-flex h-12 w-12 items-center justify-center rounded-2xl font-mono text-[18px] font-bold text-white"
                   style={{
-                    background: "linear-gradient(180deg, #38BDF8 0%, #0EA5E9 100%)",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 16px rgba(14,165,233,0.32)",
+                    background: "#0877B8",
                   }}
                 >
                   {s.n}
@@ -249,7 +248,7 @@ export default function ProductPage() {
 
       
 
-      <CTABanner />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
       <Footer />
     </main>
   )

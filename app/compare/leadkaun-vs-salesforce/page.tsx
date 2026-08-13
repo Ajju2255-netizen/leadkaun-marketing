@@ -29,16 +29,47 @@ export default function VsSalesforce() {
         "Notoriously low mid-market rep adoption",
       ]}
       features={[
-        { label: "Lead scoring (transparent, 3-dim)",          leadkaun: true,         competitor: "Einstein AI (black-box)" },
-        { label: "Priority Queue (auto-ranked, real-time)",    leadkaun: true,         competitor: "Flow-built workaround" },
-        { label: "Missed Opportunity Engine (₹ at risk)",      leadkaun: true,         competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",               leadkaun: true,         competitor: "Custom reports" },
-        { label: "WhatsApp 3-tap native",                      leadkaun: true,         competitor: "Via AppExchange" },
-        { label: "INR pricing, GST-compliant",                 leadkaun: true,         competitor: "USD + India GST" },
-        { label: "Customisation ceiling",                      leadkaun: "Growth tier", competitor: "Unlimited" },
-        { label: "AppExchange equivalent",                     leadkaun: false,        competitor: true },
-        { label: "Requires dedicated admin",                   leadkaun: false,        competitor: true },
-        { label: "Setup time (typical SMB)",                   leadkaun: "same day",     competitor: "3–12 mo" },
+        { group: "Lead intelligence", rows: [
+          { label: "Lead scoring (transparent, 3-dim)",      leadkaun: true, competitor: "Einstein AI (black-box)" },
+          { label: "Priority Queue (auto-ranked, real-time)",leadkaun: true, competitor: "Flow-built workaround" },
+          { label: "Missed Opportunity Engine (₹ at risk)",  leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",           leadkaun: true, competitor: "Custom reports" },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp 3-tap native",                  leadkaun: true, competitor: "Via AppExchange" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Customisation ceiling",                  leadkaun: "Growth tier", competitor: "Unlimited" },
+          { label: "AppExchange equivalent",                 leadkaun: false, competitor: true },
+          { label: "Runs without a dedicated admin",         leadkaun: true, competitor: false },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "INR pricing, GST-compliant",             leadkaun: true, competitor: "USD + India GST" },
+          { label: "Setup time (typical SMB)",               leadkaun: "same day", competitor: "3–12 mo" },
+        ] },
+      ]}
+      verdictLine="Salesforce has no ceiling, and no floor either: it costs an admin and a quarter before it does anything. Leadkaun is live the same day."
+      glance={{
+        category:     "Enterprise CRM platform",
+        pricingModel: "Per rep, plus admin and implementation",
+        bestFor:      "Enterprises with a dedicated admin and a customisation roadmap",
+        indiaFit:     "USD-anchored pricing, usually needs a local implementation partner",
+        setup:        "Months, partner-led",
+      }}
+      chooseCompetitor={[
+        "You have genuinely complex, multi-team sales processes",
+        "A dedicated admin and an implementation budget already exist",
+        "You need an ecosystem of enterprise integrations",
+      ]}
+      chooseLeadkaun={[
+        "You have 5 to 75 reps and no admin to spare",
+        "You need graded leads working this week, not next quarter",
+        "Total cost, not list price, is what your CFO is asking about",
+      ]}
+      cost={{ perSeat: 7500, currency: "INR", plus: "a dedicated admin at ₹1–2 L/mo and implementation at ₹5–50 L one-time" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Salesforce India pricing", url: "https://www.salesforce.com/in/sales/pricing/" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "All modules included. No admin overhead." },

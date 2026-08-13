@@ -29,16 +29,47 @@ export default function VsMonday() {
         "Flexibility means setup burden, a blank canvas, not a ready priority queue",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "WhatsApp as first-class signal (3-tap)",              leadkaun: true,           competitor: "Integration" },
-        { label: "No-code custom workflows / work management",          leadkaun: "neutral",      competitor: true  },
-        { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per seat (USD), 3-seat min" },
-        { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "DIY / days" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true, competitor: "Integration" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "No-code custom workflows / work management",         leadkaun: "neutral", competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per seat (USD), 3-seat min" },
+          { label: "India-specific UX",                                  leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "DIY / days" },
+        ] },
+      ]}
+      verdictLine="monday hands you a canvas. Leadkaun hands you an opinion: graded leads, a ranked queue and ₹ at risk, with no build project in front of it."
+      glance={{
+        category:     "No-code work platform with a CRM board on top",
+        pricingModel: "USD per seat, annual, three-seat minimum, sold in seat buckets",
+        bestFor:      "Teams that want to shape their own workflows visually",
+        indiaFit:     "USD billing and seat buckets, no India-specific lead behaviour",
+        setup:        "Days to build, longer to standardise",
+      }}
+      chooseCompetitor={[
+        "You want to design your own process rather than adopt one",
+        "The same tool has to run marketing, ops and delivery boards",
+        "Visual workflow building is a genuine team strength",
+      ]}
+      chooseLeadkaun={[
+        "You want the sales opinion built in, not assembled",
+        "Seat buckets and USD make budgeting awkward",
+        "Reps need a queue on day one, not a board to configure",
+      ]}
+      cost={{ perSeat: 17, currency: "USD" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "monday CRM pricing", url: "https://monday.com/pricing/crm" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

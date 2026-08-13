@@ -29,16 +29,45 @@ export default function VsKylas() {
         "No auto-ranked Priority Queue or ₹-at-risk Missed Opportunity Engine",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: "Rule-based" },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "WhatsApp handling",                                   leadkaun: "3-tap signal", competitor: "Native (paid)" },
-        { label: "Unlimited users at flat price",                       leadkaun: "neutral",      competitor: true  },
-        { label: "Cost for a small team (5–15 reps)",                   leadkaun: "Lower",        competitor: "Higher" },
-        { label: "India-specific behaviour layer",                      leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Guided" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: "Rule-based" },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp handling",                                  leadkaun: "3-tap signal", competitor: "Native (paid)" },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Unlimited users at flat price",                      leadkaun: "neutral", competitor: true },
+          { label: "Cost for a small team (5–15 reps)",                  leadkaun: "Lower", competitor: "Higher" },
+          { label: "India-specific behaviour layer",                     leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "Guided" },
+        ] },
+      ]}
+      verdictLine="Kylas wins the headcount maths at scale. Leadkaun wins on what a rep sees when they open the app, and costs less until you are past roughly forty seats."
+      glance={{
+        category:     "Indian CRM sold with unlimited users at a flat price",
+        pricingModel: "INR flat per organisation, unlimited users",
+        bestFor:      "Large Indian teams where per-seat pricing hurts most",
+        indiaFit:     "Indian company, INR billing, India-based support",
+        setup:        "Days to weeks",
+      }}
+      chooseCompetitor={[
+        "You have 40+ users and unlimited seats is the deciding factor",
+        "You want a conventional full CRM rather than a working layer",
+        "Your team needs a single India-based vendor for everything",
+      ]}
+      chooseLeadkaun={[
+        "You have 5 to 30 reps, where Growth costs less than Elevate",
+        "Ranked leads and ₹ at risk matter more than seat count",
+        "You want the daily discipline layer, not another record store",
+      ]}
+      cost={{ flat: 12999, currency: "INR" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Kylas pricing", url: "https://kylas.io/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

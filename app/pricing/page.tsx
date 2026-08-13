@@ -104,7 +104,6 @@ const FAQ = [
   { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 active leads for 14 days, full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
   { q: "How is Leadkaun priced?", a: "Flat per account, not per seat, priced by team size and active-lead volume. Starter ₹2,999 (10 users, 5,000 active leads), Growth ₹7,999 (30 users, 25,000 active leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
   { q: "What counts as an 'active lead', and what happens at the limit?", a: "An active lead is an open one you're still working. When you win, lose, or archive a deal it stops counting, so the limit tracks your live pipeline, not everything you've ever added. If you hit the cap, nothing locks: every existing lead stays fully usable, view, edit, call, close, export. Only adding new leads pauses until you close a few or upgrade. It rewards good CRM hygiene instead of punishing growth." },
-  { q: "Do you charge in USD?", a: "No. All pricing is in Indian Rupees (INR). Invoices are GST-compliant." },
   { q: "Is there an annual discount?", a: "Yes, annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },
   { q: "Can I change plans later?", a: "Yes. Upgrade or downgrade anytime; billing adjusts pro-rata. Most teams start on Starter and move to Growth once they feel leads going cold and want the Missed Opportunity Engine + AI Learning." },
   { q: "What if I need more than 75 users?", a: "That's Enterprise, unlimited users, workspaces and leads on dedicated infrastructure, with custom AI models, private cloud, SSO and a dedicated success manager. Talk to sales for a quote." },
@@ -113,7 +112,7 @@ const FAQ = [
 
 function MintCheck() {
   return (
-    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full" style={{ background: "linear-gradient(180deg, #6EE7B7 0%, #34D399 100%)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)" }}>
+    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full" style={{ background: "#10B981" }}>
       <Check className="h-3 w-3 text-white" strokeWidth={3} />
     </span>
   )
@@ -205,14 +204,14 @@ export default function PricingPage() {
           <Container>
             <div className="relative mx-auto max-w-3xl overflow-hidden rounded-2xl border bg-white p-6 pl-7 md:p-8 md:pl-10" style={{ borderColor: "var(--paper-line)" }} data-quick-answer>
               <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", speakable: { "@type": "SpeakableSpecification", cssSelector: [".quick-answer-q", ".quick-answer-a"] } }) }} />
-              <span aria-hidden className="absolute inset-y-0 left-0 w-1.5" style={{ background: "linear-gradient(180deg,#38BDF8,#0EA5E9)" }} />
+              <span aria-hidden className="absolute inset-y-0 left-0 w-1.5" style={{ background: "#0877B8" }} />
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-sky-500" aria-hidden />
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-sky-600">Quick answer</p>
               </div>
               <p className="quick-answer-q mt-3 text-[16px] font-semibold text-ink md:text-[17px]">How much does Leadkaun cost?</p>
               <p className="quick-answer-a mt-3 text-[16px] leading-[1.75] text-ink-soft">
-                Leadkaun is priced <Chip>flat per account</Chip>, not per seat: <Chip tone="mint">Free ₹0</Chip>, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Annual billing saves about <Chip tone="warn">17%</Chip>, and adding reps doesn&apos;t raise the bill within a tier&apos;s seat cap. All prices in INR, with GST-compliant invoices.
+                Leadkaun is priced <Chip>flat per account</Chip>, not per seat: <Chip tone="mint">Free ₹0</Chip>, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Annual billing saves about <Chip tone="warn">17%</Chip>, and adding reps doesn&apos;t raise the bill within a tier&apos;s seat cap.
               </p>
             </div>
           </Container>

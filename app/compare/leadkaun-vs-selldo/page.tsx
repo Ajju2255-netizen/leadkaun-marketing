@@ -29,16 +29,47 @@ export default function VsSellDo() {
         "Assumes property-sales workflows you may not have",
       ]}
       features={[
-        { label: "Works across B2B industries (horizontal)",            leadkaun: true,           competitor: "Real estate" },
-        { label: "Transparent public pricing",                          leadkaun: true,           competitor: false },
-        { label: "3-dimensional A–F grading (any lead source)",         leadkaun: true,           competitor: "RE-specific" },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: "neutral" },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "WhatsApp handling",                                   leadkaun: "3-tap signal", competitor: "Native" },
-        { label: "Real-estate-specific workflows (site visits, bookings)", leadkaun: false,       competitor: true  },
-        { label: "AI call sentiment analysis",                          leadkaun: false,          competitor: true  },
-        { label: "India-specific UX",                                   leadkaun: true,           competitor: true  },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Guided / heavier" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional A–F grading (any lead source)",           leadkaun: true, competitor: "RE-specific" },
+          { label: "Priority Queue (auto-ranked, real-time)",               leadkaun: true, competitor: "neutral" },
+          { label: "Missed Opportunity Engine (₹-denominated)",             leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp handling",                                     leadkaun: "3-tap signal", competitor: "Native" },
+          { label: "Real-estate-specific workflows (site visits, bookings)",leadkaun: false, competitor: true },
+          { label: "AI call sentiment analysis",                            leadkaun: false, competitor: true },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Works across B2B industries (horizontal)",              leadkaun: true, competitor: "Real estate" },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Transparent public pricing",                            leadkaun: true, competitor: false },
+          { label: "India-specific UX",                                     leadkaun: true, competitor: true },
+          { label: "Setup time",                                            leadkaun: "same day", competitor: "Guided / heavier" },
+        ] },
+      ]}
+      verdictLine="If you sell flats, Sell.Do's site-visit and booking workflows are purpose-built. If you sell anything else, they are overhead you configure around."
+      glance={{
+        category:     "Real-estate-specific CRM",
+        pricingModel: "Quote-based, no public pricing",
+        bestFor:      "Developers and brokerages running site visits and bookings",
+        indiaFit:     "Indian company with real-estate workflows built in",
+        setup:        "Weeks, sales-led onboarding",
+      }}
+      chooseCompetitor={[
+        "You are a developer or brokerage and real estate is all you sell",
+        "Site visits, bookings and channel partners are core objects",
+        "You want industry-specific reporting out of the box",
+      ]}
+      chooseLeadkaun={[
+        "You sell across industries, or expect to",
+        "You want to see the price before you take a sales call",
+        "Grading and prioritising any lead source matters more than vertical workflows",
+      ]}
+      cost={{ quoteOnly: true }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Sell.Do pricing", url: "https://www.sell.do/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth", price: "₹7,999 / mo", note: "Flat per account, transparent, 14-day free trial" },

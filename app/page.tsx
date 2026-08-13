@@ -41,8 +41,8 @@ export const metadata: Metadata = {
 
 const GRADE_BG: Record<string, string> = {
   A: "linear-gradient(180deg,#6EE7B7,#10B981)",
-  B: "linear-gradient(180deg,#38BDF8,#0EA5E9)",
-  C: "linear-gradient(180deg,#FDBA74,#FB923C)",
+  B: "#0877B8",
+  C: "#EA580C",
   D: "linear-gradient(180deg,#FDBA74,#F97316)",
 }
 

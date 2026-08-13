@@ -29,20 +29,50 @@ export default function VsClay() {
         "India data coverage depends on the underlying providers (variable)",
       ]}
       features={[
-        { label: "Data enrichment / list-building",                    leadkaun: false,          competitor: true  },
-        { label: "AI research / scraping tables",                      leadkaun: false,          competitor: true  },
-        { label: "Inbound A–F lead grading (Fit × Intent × Quality)",  leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true,           competitor: false },
-        { label: "Pipeline / rep workflow",                            leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true,           competitor: false },
-        { label: "WhatsApp as first-class signal (3-tap)",             leadkaun: true,           competitor: false },
-        { label: "India-specific UX",                                  leadkaun: true,           competitor: false },
-        { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Plan + credits (USD)" },
+        { group: "Lead intelligence", rows: [
+          { label: "Inbound A–F lead grading (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",          leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",        leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "Data enrichment / list-building",                  leadkaun: false, competitor: true },
+          { label: "AI research / scraping tables",                    leadkaun: false, competitor: true },
+          { label: "Pipeline / rep workflow",                          leadkaun: true, competitor: false },
+          { label: "WhatsApp as first-class signal (3-tap)",           leadkaun: true, competitor: false },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "India-specific UX",                                leadkaun: true, competitor: false },
+          { label: "Pricing model",                                    leadkaun: "Flat/account", competitor: "Plan + credits (USD)" },
+        ] },
+      ]}
+      verdictLine="Clay builds and enriches the list. Leadkaun decides which of those leads gets called at 10am. They sit on either side of the same funnel."
+      glance={{
+        category:     "Data enrichment and AI research tables",
+        pricingModel: "USD plan plus data credits and action runs",
+        bestFor:      "GTM engineers building enriched target lists",
+        indiaFit:     "USD billing, credit overages, no India lead workflow",
+        setup:        "Days to weeks, it is a build surface",
+      }}
+      chooseCompetitor={[
+        "You need enrichment, waterfalls and AI research over a list",
+        "Someone on the team enjoys building tables and prompts",
+        "Your bottleneck is data quality, not follow-up discipline",
+      ]}
+      chooseLeadkaun={[
+        "Your bottleneck is which lead the rep opens next",
+        "You need a working layer for reps, not a build surface for ops",
+        "You want ₹ at risk in the daily brief, not rows in a table",
+      ]}
+      cost={{ flat: 149, currency: "USD", plus: "data credits, which most teams exhaust before month end" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Clay pricing", url: "https://www.clay.com/pricing" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account manages and prioritises leads" },
         competitor: { tier: "Launch",  price: "~$149 / mo", note: "USD, plan + Data Credits/Actions enriches lead lists. Prices vary by source post-2026 overhaul; verify on clay.com." },
       }}
+      complementary
       switchingLabel="Better together"
       switchingHeading="How Clay and Leadkaun work together."
       faqHeading="Clay + Leadkaun, explained."

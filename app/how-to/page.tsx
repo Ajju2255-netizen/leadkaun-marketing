@@ -3,15 +3,16 @@ import Link from "next/link"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { PageHero } from "@/app/components/page-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { Reveal } from "@/app/components/reveal"
+import { ArticleHeader } from "@/app/components/reading"
+import { LedgerCTA } from "@/app/components/ledger"
 
 import { getHowTo } from "@/lib/pseo/lookup"
+
+/* A workshop index: every guide shows what it costs you up front — how long it
+   takes and how many steps — so you can pick one that fits this afternoon. */
 
 type HowToEntry = {
   slug: string
@@ -19,6 +20,7 @@ type HowToEntry = {
   tldr: string
   category: string
   timeRequired?: string
+  steps?: unknown[]
 }
 
 export const metadata: Metadata = {
@@ -30,6 +32,18 @@ export const metadata: Metadata = {
 
 function prettyCategory(slug: string) {
   return slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
+}
+
+/** "PT90M" → "90 min", "PT2H" → "2 hr", "PT1H30M" → "1 hr 30 min". */
+export function humanDuration(iso?: string): string | null {
+  if (!iso) return null
+  const m = /^PT(?:(\d+)H)?(?:(\d+)M)?$/.exec(iso.trim())
+  if (!m) return iso
+  const [, h, min] = m
+  const parts: string[] = []
+  if (h) parts.push(`${h} hr`)
+  if (min) parts.push(`${min} min`)
+  return parts.length ? parts.join(" ") : null
 }
 
 export default async function HowToIndexPage() {
@@ -45,65 +59,71 @@ export default async function HowToIndexPage() {
     <main className="min-h-screen bg-bg-pure">
       <Navbar />
 
-      <PageHero
-        eyebrow={`${HOW_TOS.length} guides · ${categories.length} categories`}
-        h1={<>Step-by-step <span className="hero-accent">playbooks.</span></>}
-        sub="Field-tested workflows for Indian B2B sales, lead scoring rollouts, Priority Queue rituals, Morning Brief cadences, WhatsApp logging, CRM migration. Every guide ends with a live checklist your team can run on Monday."
-        center={false}
-        primary={undefined}
-        meta={
-          <span className="inline-flex flex-wrap justify-start gap-1.5 normal-case tracking-normal">
-            {categories.map((c) => (
-              <a
-                key={c}
-                href={`#cat-${c}`}
-                className="inline-flex h-8 items-center rounded-full glass-1 gloss-edge px-3 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-soft transition-all hover:text-sky-600 lift"
-              >
-                {prettyCategory(c)}
-              </a>
-            ))}
-          </span>
-        }
+      <ArticleHeader
+        kicker="How-to"
+        title="Step-by-step playbooks."
+        dek="Field-tested workflows for Indian B2B sales: lead-scoring rollouts, Priority Queue rituals, Morning Brief cadences, WhatsApp logging, CRM migration. Every guide tells you what it costs in time before you start."
+        meta={[`${HOW_TOS.length} guides`, `${categories.length} categories`, "Free, no signup"]}
       />
 
       <SectionGround variant="cream" size="lg">
         <Container>
-          {categories.map((cat, idx) => (
-            <section key={cat} id={`cat-${cat}`} className={idx === 0 ? "" : "mt-14"}>
-              <Reveal className="mb-6">
-                <NumberedTag
-                  number={String(idx + 1).padStart(2, "0")}
-                  tone={idx % 2 === 1 ? "warm" : "default"}
-                  label={`${prettyCategory(cat)} · ${byCategory[cat].length} ${byCategory[cat].length === 1 ? "guide" : "guides"}`}
-                />
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2 md:gap-5">
-                {byCategory[cat].map((h) => (
-                  <Link
-                    key={h.slug}
-                    href={`/how-to/${h.slug}`}
-                    className="group flex flex-col justify-between gap-4 rounded-2xl p-5 md:p-6 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all"
-                  >
-                    <div>
-                      <p className="text-[15px] font-semibold leading-[1.35] tracking-[-0.01em] text-ink group-hover:text-sky-600 transition-colors md:text-[16px]">
+          {categories.map((c, ci) => (
+            <section key={c} className={ci > 0 ? "mt-16" : ""}>
+              <div className="flex items-baseline justify-between gap-6 border-b pb-4" style={{ borderColor: "var(--paper-line-2)" }}>
+                <h2 className="text-[22px] font-semibold leading-tight tracking-[-0.02em] text-ink md:text-[26px]">
+                  {prettyCategory(c)}
+                </h2>
+                <span className="ledger-num text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                  {byCategory[c].length} {byCategory[c].length === 1 ? "guide" : "guides"}
+                </span>
+              </div>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-5">
+                {byCategory[c].map((h) => {
+                  const time = humanDuration(h.timeRequired)
+                  const steps = Array.isArray(h.steps) ? h.steps.length : null
+                  return (
+                    <Link
+                      key={h.slug}
+                      href={`/how-to/${h.slug}`}
+                      className="group flex flex-col rounded-2xl bg-white p-6 transition-colors hover:border-sky-300 md:p-7"
+                      style={{ border: "1px solid var(--paper-line)" }}
+                    >
+                      {(time || steps) && (
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                          {time && (
+                            <span className="ledger-num text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-500">
+                              {time}
+                            </span>
+                          )}
+                          {time && steps && <span aria-hidden className="ledger-num text-[10px] text-ink-faint">·</span>}
+                          {steps && (
+                            <span className="ledger-num text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-muted">
+                              {steps} steps
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <h3 className="mt-3 text-[18px] font-semibold leading-snug tracking-[-0.01em] text-ink transition-colors group-hover:text-sky-700 md:text-[19px]">
                         {h.title}
-                      </p>
-                      <p className="mt-2 line-clamp-2 text-[13px] leading-[1.6] text-ink-soft">{h.tldr}</p>
-                    </div>
-                    {h.timeRequired && (
-                      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.10em] text-orange-500">
-                        {h.timeRequired}
-                      </p>
-                    )}
-                  </Link>
-                ))}
-              </Reveal>
+                      </h3>
+                      <p className="mt-2 text-[14px] leading-[1.6] text-ink-soft">{h.tldr}</p>
+                    </Link>
+                  )
+                })}
+              </div>
             </section>
           ))}
         </Container>
       </SectionGround>
 
-      <CTABanner />
+      <LedgerCTA
+        headline="Or skip the setup entirely."
+        sub="Most of these playbooks are what Leadkaun does out of the box: grading, the queue, the morning brief. Import a CSV and it runs the same afternoon."
+        secondary={{ label: "See the product", href: "/product" }}
+      />
+
       <Footer />
     </main>
   )

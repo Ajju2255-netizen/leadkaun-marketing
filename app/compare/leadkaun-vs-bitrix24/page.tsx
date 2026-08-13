@@ -29,16 +29,47 @@ export default function VsBitrix24() {
         "Lead scoring is emerging, not a real-time A–F intent-graded engine",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: "Emerging AI" },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "WhatsApp handling",                                   leadkaun: "3-tap signal", competitor: "Open Channels" },
-        { label: "All-in-one breadth (projects, intranet, telephony)",  leadkaun: false,          competitor: true  },
-        { label: "Rep adoption / simplicity",                           leadkaun: true,           competitor: "neutral" },
-        { label: "India-specific UX",                                   leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "Weeks" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: "Emerging AI" },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp handling",                                  leadkaun: "3-tap signal", competitor: "Open Channels" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "All-in-one breadth (projects, intranet, telephony)", leadkaun: false, competitor: true },
+          { label: "Rep adoption / simplicity",                          leadkaun: true, competitor: "neutral" },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "India-specific UX",                                  leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "Weeks" },
+        ] },
+      ]}
+      verdictLine="Bitrix24 sells ten tools for one price. Leadkaun does a single job, grading and working leads, deeply enough that reps actually keep using it."
+      glance={{
+        category:     "All-in-one work suite with a CRM inside",
+        pricingModel: "USD flat per organisation by tier, annual",
+        bestFor:      "Teams wanting CRM, projects, intranet and telephony on one bill",
+        indiaFit:     "USD billing and FX exposure, no India-specific lead behaviour",
+        setup:        "Weeks, the breadth has to be configured",
+      }}
+      chooseCompetitor={[
+        "You want to replace four SaaS bills with one platform",
+        "Projects, intranet and telephony matter as much as the CRM",
+        "You have someone who enjoys configuring a system properly",
+      ]}
+      chooseLeadkaun={[
+        "You want one thing working tomorrow, not ten things configured",
+        "Rep adoption is the constraint, not feature count",
+        "You would rather pay in rupees than watch the FX rate",
+      ]}
+      cost={{ flat: 99, currency: "USD" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Bitrix24 pricing", url: "https://www.bitrix24.com/prices/" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

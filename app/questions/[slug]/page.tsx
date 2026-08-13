@@ -5,21 +5,20 @@ import { ArrowUpRight } from "lucide-react"
 
 import Navbar from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
-import CTABanner from "@/app/components/cta-banner"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
-import { DetailHero } from "@/app/components/detail-hero"
-import { NumberedTag } from "@/app/components/numbered-tag"
-import { createSectionNumbering } from "@/app/components/section-numbering"
 import { SelfCheckBlock, type SelfCheck } from "@/app/components/pseo/self-check"
-import { FloatingCard } from "@/app/components/floating-card"
-import { Reveal } from "@/app/components/reveal"
+import { LedgerCTA } from "@/app/components/ledger"
+import { MEASURE } from "@/app/components/reading"
 
-import { getQuestions, pillarForHref } from "@/lib/pseo/lookup"
+import { getQuestions } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, qaPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const revalidate = 604800
+
+/* Answer-first: the short answer is the loudest thing on the page, sitting
+   directly under the question, before any explanation or product pitch. */
 
 type QuestionEntry = {
   slug: string; question: string; answerShort: string; answerLong: string
@@ -47,7 +46,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-function prettyFeature(slug: string) {
+function pretty(slug: string) {
   return slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")
 }
 
@@ -56,13 +55,11 @@ export default async function QuestionPage({ params }: Params) {
   const list = (await getQuestions()) as QuestionEntry[]
   const q = list.find((x) => x.slug === slug)
   if (!q) notFound()
-  const pillar = await pillarForHref(`/questions/${q.slug}`)
 
-  const n = createSectionNumbering()
   const related = (q.relatedSlugs ?? [])
     .map((s) => list.find((x) => x.slug === s))
-    .filter((e): e is QuestionEntry => e !== undefined)
-    .slice(0, 3)
+    .filter((x): x is QuestionEntry => x !== undefined)
+    .slice(0, 5)
 
   const schemas = [
     breadcrumbListSchema([{ name: "Home", url: "/" }, { name: "Questions", url: "/questions" }, { name: q.question }]),
@@ -76,85 +73,97 @@ export default async function QuestionPage({ params }: Params) {
       <main className="min-h-screen bg-bg-pure">
         <Navbar />
 
-        <DetailHero
-          pillar={pillar}
-          breadcrumb={[{ label: "Questions", href: "/questions" }, { label: q.category.replace(/-/g, " ") }]}
-          eyebrow="Q&A"
-          h1={q.question}
-          tldr={{ label: "TL;DR", body: q.answerShort, tone: "sky" }}
-        />
-
-        {/* LONG ANSWER */}
-        <SectionGround variant="cream" size="lg">
+        {/* THE QUESTION, THEN THE ANSWER — in that order, nothing between */}
+        <SectionGround variant="pure" size="sm" ambient={false} className="pt-28 md:pt-32">
           <Container>
-            <Reveal className="mx-auto max-w-3xl">
-              <NumberedTag number={n.next()} tone="warm" label="The full answer" />
-              <h2 className="mt-5 text-[28px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[32px]">
-                Here&apos;s the detail.
-              </h2>
-              <div className="prose prose-leadkaun mt-8 max-w-none">
-                <p>{q.answerLong}</p>
-              </div>
-            </Reveal>
+            <nav aria-label="Breadcrumb" className="ledger-num text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <Link href="/questions" className="hover:text-sky-700">Questions</Link>
+              <span aria-hidden className="mx-2 text-ink-faint">/</span>
+              <span>{pretty(q.category)}</span>
+            </nav>
+
+            <h1 className={`display-lg mt-8 text-[34px] text-ink md:text-[50px] ${MEASURE}`}>{q.question}</h1>
+
+            <div
+              className={`mt-10 rounded-2xl bg-[color:var(--paper)] p-7 md:p-9 ${MEASURE}`}
+              style={{ border: "1px solid var(--paper-line)", boxShadow: "inset 3px 0 0 #0877B8" }}
+            >
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">Short answer</p>
+              <p className="mt-4 text-[19px] leading-[1.55] text-ink md:text-[22px]">{q.answerShort}</p>
+            </div>
           </Container>
         </SectionGround>
 
-        {/* PRODUCT BRIDGE */}
-        {q.selfCheck && (
-          <SelfCheckBlock number={n.next()} selfCheck={q.selfCheck} ground="cream" />
-        )}
+        {/* THE LONG ANSWER */}
+        <SectionGround variant="pure" size="md">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+              <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                The long answer
+              </p>
+              <p className={`text-[17px] leading-[1.75] text-ink-soft md:text-[18px] ${MEASURE}`}>{q.answerLong}</p>
+            </div>
+          </Container>
+        </SectionGround>
 
-        {q.relatedFeatures && q.relatedFeatures.length > 0 && (
-          <SectionGround variant="sky" size="md">
+        {q.selfCheck && <SelfCheckBlock number="→" selfCheck={q.selfCheck} ground="cream" />}
+
+        {/* NEXT QUESTIONS + FEATURES */}
+        {(related.length > 0 || q.relatedFeatures?.length) && (
+          <SectionGround variant="pure" size="md">
             <Container>
-              <Reveal className="mx-auto max-w-3xl">
-                <NumberedTag number={n.next()} label="See it in the product" />
-                <h2 className="mt-5 text-[26px] font-semibold leading-[1.15] tracking-[-0.025em] text-ink md:text-[30px]">
-                  Where this lives in Leadkaun.
-                </h2>
-                <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  {q.relatedFeatures.map((f) => (
-                    <Link key={f} href={`/features/${f}`} className="group flex items-center justify-between gap-4 rounded-2xl px-5 py-4 glass-2 gloss-edge elevate-1 lift aura-sky-hover transition-all">
-                      <div className="min-w-0">
-                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-sky-600">Feature</p>
-                        <p className="mt-2 text-[15px] font-semibold text-ink group-hover:text-sky-600 transition-colors">{prettyFeature(f)}</p>
-                      </div>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-ink-muted transition-all group-hover:text-sky-500 group-hover:translate-x-0.5" strokeWidth={1.75} />
-                    </Link>
-                  ))}
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                  Next
+                </p>
+                <div className="space-y-10">
+                  {related.length > 0 && (
+                    <div>
+                      <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                        People also ask
+                      </p>
+                      <ul className="mt-3 border-t" style={{ borderColor: "var(--paper-line)" }}>
+                        {related.map((r) => (
+                          <li key={r.slug} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                            <Link href={`/questions/${r.slug}`} className="group grid grid-cols-[24px_minmax(0,1fr)] gap-x-4 py-3.5">
+                              <span aria-hidden className="ledger-num pt-0.5 text-[12px] font-semibold text-ink-faint group-hover:text-sky-700">Q.</span>
+                              <span className="text-[15px] leading-snug text-ink group-hover:text-sky-700">{r.question}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {q.relatedFeatures && q.relatedFeatures.length > 0 && (
+                    <div>
+                      <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">
+                        In the product
+                      </p>
+                      <ul className="mt-3 border-t" style={{ borderColor: "var(--paper-line)" }}>
+                        {q.relatedFeatures.map((f) => (
+                          <li key={f} style={{ borderBottom: "1px solid var(--paper-line)" }}>
+                            <Link href={`/features/${f}`} className="group flex items-baseline justify-between gap-4 py-3">
+                              <span className="text-[15px] text-ink group-hover:text-sky-700">{pretty(f)}</span>
+                              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-ink-faint group-hover:text-sky-700" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-              </Reveal>
+              </div>
             </Container>
           </SectionGround>
         )}
 
-        {/* RELATED QUESTIONS */}
-        {related.length > 0 && (
-          <SectionGround variant="cream" size="md">
-            <Container>
-              <Reveal className="mb-8">
-                <NumberedTag number={n.next()} tone="warm" label="Related questions" />
-                <h2 className="mt-5 max-w-3xl text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-ink md:text-[28px]">
-                  Teams also ask.
-                </h2>
-              </Reveal>
-              <Reveal delay={0.08} className="grid gap-4 md:grid-cols-3">
-                {related.map((r, i) => (
-                  <Link key={r.slug} href={`/questions/${r.slug}`} className="group block">
-                    <FloatingCard tier="2" depth="2" gloss interactive aura={i % 2 === 1 ? "peach" : "sky"} className="p-5 h-full">
-                      <p className="text-[15px] font-semibold leading-[1.35] tracking-[-0.01em] text-ink transition-colors">{r.question}</p>
-                      <p className="mt-2 line-clamp-2 text-[13px] leading-[1.55] text-ink-soft">{r.answerShort}</p>
-                    </FloatingCard>
-                  </Link>
-                ))}
-              </Reveal>
-            </Container>
-          </SectionGround>
-        )}
+        <LedgerCTA
+          headline="The fastest answer is your own data."
+          sub="Import a CSV and every lead comes back graded A–F with a ranked queue per rep. Same-day setup, no card, no sales call."
+          secondary={{ label: "More questions", href: "/questions" }}
+        />
 
-        
-
-        <CTABanner />
         <Footer />
       </main>
     </>

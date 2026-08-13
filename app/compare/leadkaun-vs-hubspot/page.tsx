@@ -29,16 +29,47 @@ export default function VsHubSpot() {
         "Complex at Professional/Enterprise tiers",
       ]}
       features={[
-        { label: "3-dimensional scoring (Fit × Intent × Quality)", leadkaun: true,         competitor: "Properties + workflows" },
-        { label: "Intent decay over time",                          leadkaun: true,         competitor: false },
-        { label: "Priority Queue (auto-ranked)",                    leadkaun: true,         competitor: false },
-        { label: "Missed Opportunity Engine",                       leadkaun: true,         competitor: false },
-        { label: "Morning Brief email",                             leadkaun: true,         competitor: false },
-        { label: "WhatsApp 3-tap logging",                          leadkaun: true,         competitor: "Integration" },
-        { label: "Marketing automation depth",                      leadkaun: false,        competitor: true },
-        { label: "Content / landing-page builder",                  leadkaun: false,        competitor: true },
-        { label: "INR pricing with GST",                            leadkaun: true,         competitor: false },
-        { label: "Flat pricing (no per-seat or contact limits)",     leadkaun: true,         competitor: false },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional scoring (Fit × Intent × Quality)",leadkaun: true, competitor: "Properties + workflows" },
+          { label: "Intent decay over time",                        leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked)",                  leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine",                     leadkaun: true, competitor: false },
+          { label: "Morning Brief email",                           leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp 3-tap logging",                        leadkaun: true, competitor: "Integration" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Marketing automation depth",                    leadkaun: false, competitor: true },
+          { label: "Content / landing-page builder",                leadkaun: false, competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "INR pricing with GST",                          leadkaun: true, competitor: false },
+          { label: "Flat pricing (no per-seat or contact limits)",  leadkaun: true, competitor: false },
+        ] },
+      ]}
+      verdictLine="Complementary far more often than competing: keep HubSpot, usually the free tier, for marketing, and add Leadkaun as the sales-behaviour layer underneath it."
+      glance={{
+        category:     "Marketing automation platform with a sales hub attached",
+        pricingModel: "Per seat, plus per-contact bands",
+        bestFor:      "Teams whose centre of gravity is marketing automation",
+        indiaFit:     "USD-anchored pricing; per-contact bands punish large Indian lead lists",
+        setup:        "Two to six weeks at Professional",
+      }}
+      chooseCompetitor={[
+        "Marketing automation is the centre of your stack",
+        "You need landing pages, content and email in one system",
+        "Your contact database is small enough that bands do not bite",
+      ]}
+      chooseLeadkaun={[
+        "You need the sales layer, and HubSpot Free already covers marketing",
+        "Your database runs to tens of thousands of cold leads",
+        "You want reps in a ranked queue, not in a form-heavy workflow",
+      ]}
+      cost={{ perSeat: 7500, currency: "INR", plus: "the per-contact band above your tier's limit" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "HubSpot Sales Hub pricing", url: "https://www.hubspot.com/pricing/sales" },
       ]}
       pricing={{
         leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All modules, 14-day trial, no credit card" },

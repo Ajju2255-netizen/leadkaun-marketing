@@ -29,16 +29,47 @@ export default function VsBigin() {
         "No auto-ranked Priority Queue or ₹-at-risk framing",
       ]}
       features={[
-        { label: "3-dimensional lead scoring (Fit × Intent × Quality)", leadkaun: true,           competitor: false },
-        { label: "Intent decay over time",                              leadkaun: true,           competitor: false },
-        { label: "Priority Queue (auto-ranked, real-time)",             leadkaun: true,           competitor: false },
-        { label: "Missed Opportunity Engine (₹-denominated)",           leadkaun: true,           competitor: false },
-        { label: "Morning Brief at 8:30 AM IST",                        leadkaun: true,           competitor: false },
-        { label: "WhatsApp handling",                                   leadkaun: "3-tap signal", competitor: "Native" },
-        { label: "Simplicity for a tiny team",                          leadkaun: "neutral",      competitor: true  },
-        { label: "Pricing model",                                       leadkaun: "Flat/account", competitor: "Per user" },
-        { label: "India-specific behaviour layer",                      leadkaun: true,           competitor: false },
-        { label: "Setup time",                                          leadkaun: "same day",       competitor: "~1 day" },
+        { group: "Lead intelligence", rows: [
+          { label: "3-dimensional lead scoring (Fit × Intent × Quality)",leadkaun: true, competitor: false },
+          { label: "Intent decay over time",                             leadkaun: true, competitor: false },
+          { label: "Priority Queue (auto-ranked, real-time)",            leadkaun: true, competitor: false },
+          { label: "Missed Opportunity Engine (₹-denominated)",          leadkaun: true, competitor: false },
+          { label: "Morning Brief at 8:30 AM IST",                       leadkaun: true, competitor: false },
+        ] },
+        { group: "Rep workflow", rows: [
+          { label: "WhatsApp handling",                                  leadkaun: "3-tap signal", competitor: "Native" },
+        ] },
+        { group: "Platform & breadth", rows: [
+          { label: "Simplicity for a tiny team",                         leadkaun: "neutral", competitor: true },
+        ] },
+        { group: "Cost, setup & India fit", rows: [
+          { label: "Pricing model",                                      leadkaun: "Flat/account", competitor: "Per user" },
+          { label: "India-specific behaviour layer",                     leadkaun: true, competitor: false },
+          { label: "Setup time",                                         leadkaun: "same day", competitor: "~1 day" },
+        ] },
+      ]}
+      verdictLine="Bigin is deliberately, admirably small. Leadkaun starts where Bigin stops: when nobody can tell which of four hundred leads to call first."
+      glance={{
+        category:     "Entry-level CRM for very small teams",
+        pricingModel: "INR per user, annual",
+        bestFor:      "One to five person teams wanting a simple pipeline, cheaply",
+        indiaFit:     "Indian company, INR billing, India support",
+        setup:        "Hours",
+      }}
+      chooseCompetitor={[
+        "You are one to five people and want the simplest possible pipeline",
+        "Budget is the single deciding factor",
+        "You are already in the Zoho ecosystem",
+      ]}
+      chooseLeadkaun={[
+        "Lead volume has outgrown a manual pipeline",
+        "You need grading, decay and a ranked queue, not just stages",
+        "You want the ₹ cost of slow follow-up made visible",
+      ]}
+      cost={{ perSeat: 400, currency: "INR" }}
+      reviewedOn="13 Aug 2026"
+      sources={[
+        { label: "Zoho Bigin pricing", url: "https://www.bigin.com/pricing.html" },
       ]}
       pricing={{
         leadkaun:   { tier: "Starter/Growth", price: "₹2,999–₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },

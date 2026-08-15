@@ -11,13 +11,24 @@ const nextConfig: NextConfig = {
     unoptimized: true, // Cloudflare handles image optimization at the CDN layer
   },
   // Canonicalise www → apex (avoids duplicate-content; both are Worker custom domains).
-  // Two rules: explicit root + ":path+" (one-or-more) — avoids the empty-catch-all
-  // bug where "/:path*" leaves a literal ":path*" in the root redirect target.
+  // ":path+" is one-or-more — avoids the empty-catch-all bug where "/:path*" leaves a
+  // literal ":path*" in the root redirect target.
+  //
+  // The www ROOT is deliberately NOT redirected. It used to 308 → apex, which meant
+  // https://www.leadkaun.com returned a 0-byte body; any tool that inspects a URL
+  // without following redirects saw no HTML at all. Meta's Event Setup Tool rejected
+  // it outright ("URL is either invalid or missing the 'https' protocol") and its
+  // pixel check reported no pixel, even though the apex has always carried one.
+  //
+  // Serving the homepage on www instead is safe here because every page emits an
+  // absolute canonical to the apex (<link rel="canonical" href="https://leadkaun.com">),
+  // so Google still consolidates onto leadkaun.com. Every other www path keeps its
+  // redirect, now a 301 rather than a 308: 301 is the universally-followed permanent
+  // redirect, while 308 is newer and some HTTP clients still do not follow it.
   async redirects() {
     const hasWww = [{ type: "host" as const, value: "www.leadkaun.com" }]
     return [
-      { source: "/", has: hasWww, destination: "https://leadkaun.com/", permanent: true },
-      { source: "/:path+", has: hasWww, destination: "https://leadkaun.com/:path+", permanent: true },
+      { source: "/:path+", has: hasWww, destination: "https://leadkaun.com/:path+", statusCode: 301 },
       // Dedup: `education` overlapped `edtech`. Consolidated onto `edtech`; 301 any
       // legacy /education/* + /use-cases/education so equity + indexed URLs move over.
       { source: "/education/:path*", destination: "/edtech/:path*", permanent: true },

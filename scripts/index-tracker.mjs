@@ -61,10 +61,19 @@ const nKw = keywords.length
 const nRole = roles.length
 
 /* ── gate: bind city fields exactly as the routes/sitemap do ─────────────────── */
-const isLeafCity = (c) => leafIndexable(c.tier, !!c.districts)
-const isHubCity = (c) => hubIndexable(c.tier, c.population, (c.notes?.trim().length ?? 0) >= 20)
-const leafCities = cities.filter(isLeafCity)
-const hubCities = cities.filter(isHubCity)
+// Phase C: the gate is per-CELL (a city can be indexable for one industry and
+// not another), so family counts must enumerate cells rather than multiply a
+// city count by nInd. Counting cities here would over-report by ~4x.
+const isLeafCell = (c, path) => leafIndexable(c.tier, !!c.districts, path)
+const isHubCell = (c, path) => hubIndexable(c.tier, c.population, (c.notes?.trim().length ?? 0) >= 20, path)
+let LEAF_LIVE = 0, HUB_LIVE = 0
+for (const c of cities) for (const i of industries) {
+  if (isHubCell(c, `/${i.slug}/${c.slug}`)) HUB_LIVE++
+  for (const k of keywords) if (isLeafCell(c, `/${i.slug}/${c.slug}/${k.slug}`)) LEAF_LIVE++
+}
+const cityHubCities = cities.filter((c) => isHubCell(c, `/city/${c.slug}`))
+const leafCities = cities.filter((c) => leafIndexable(c.tier, !!c.districts))
+const hubCities = cities.filter((c) => hubIndexable(c.tier, c.population, (c.notes?.trim().length ?? 0) >= 20))
 const roleCities = cities.filter((c) => roleCityIndexable(c.tier, !!c.districts))
 
 const tierCount = (t) => cities.filter((c) => c.tier === t).length
@@ -84,9 +93,9 @@ const dataFamily = (label, route, file, indexPred) => {
 
 const families = [
   // — programmatic geo (gated) —
-  { label: "City hub", route: "/city/[city]", kind: "geo", total: cities.length, index: hubCities.length, gate: "hub", gsc: true },
-  { label: "Industry × city", route: "/[industry]/[city]", kind: "geo", total: cities.length * nInd, index: hubCities.length * nInd, gate: "hub", gsc: true, overlapRisk: true },
-  { label: "Industry × city × keyword", route: "/[industry]/[city]/[keyword]", kind: "geo", total: cities.length * nInd * nKw, index: leafCities.length * nInd * nKw, gate: "leaf", gsc: true, overlapRisk: true },
+  { label: "City hub", route: "/city/[city]", kind: "geo", total: cities.length, index: cityHubCities.length, gate: "hub", gsc: true },
+  { label: "Industry × city", route: "/[industry]/[city]", kind: "geo", total: cities.length * nInd, index: HUB_LIVE, gate: "hub", gsc: true, overlapRisk: true },
+  { label: "Industry × city × keyword", route: "/[industry]/[city]/[keyword]", kind: "geo", total: cities.length * nInd * nKw, index: LEAF_LIVE, gate: "leaf", gsc: true, overlapRisk: true },
   { label: "Role × city", route: "/for/[role]/[city]", kind: "geo", total: nRole * cities.length, index: nRole * roleCities.length, gate: "role", gsc: true, overlapRisk: true },
   // — data-driven commercial/knowledge —
   dataFamily("Best guides", "/best/[slug]", "best.json", (g) => g.indexable !== false),

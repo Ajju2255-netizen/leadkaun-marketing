@@ -160,8 +160,14 @@ function pairwise(docs: Set<string>[], sink: number[]) {
 }
 
 // ── Sibling-group definitions ────────────────────────────────────────────────
-const liveCities = cities.filter((c) => gate.leafIndexable(c.tier, !!c.districts));
-const noindexCities = cities.filter((c) => !gate.leafIndexable(c.tier, !!c.districts));
+// Phase C made the gate per-CELL, so "live cities" is no longer well-defined
+// at city level — a city can be indexable for one industry and not another.
+// Liveness is therefore resolved inside cityAxis against the actual path.
+// (Kept for the kw/industry axes, which only need a plausible sample pool.)
+const leafLive = (c: City, indSlug: string, kwSlug: string) =>
+  gate.leafIndexable(c.tier, !!c.districts, `/${indSlug}/${c.slug}/${kwSlug}`);
+const liveCities = cities.filter((c) => industries.some((i) => keywords.some((k) => leafLive(c, i.slug, k.slug))));
+const noindexCities = cities.filter((c) => !industries.some((i) => keywords.some((k) => leafLive(c, i.slug, k.slug))));
 
 const CITY_SAMPLE = 40;      // cities per city-sibling group
 const IND_SAMPLE = 4;        // industries to sample for city-sibling groups
@@ -173,19 +179,25 @@ const sampledCitiesLive = sample(liveCities, CITY_SAMPLE);
 const sampledCitiesNo = sample(noindexCities, CITY_SAMPLE);
 
 // Axis 1–3: city-siblings (fix ind+kw, vary city) — split by gate.
-function cityAxis(pool: City[], spine = true) {
+function cityAxis(pool: City[], spine = true, filter: "live" | "noindex" | "all" = "all") {
   const vals: number[] = [];
   for (const ind of sampledInds)
     for (const kw of keywords) {
-      const docs = pool.map((c) => shingles(leafDoc(ind, c, kw, spine)));
+      // Resolve the gate for THIS exact cell, so "Live" means what the sitemap
+      // actually advertises rather than a stale city-level approximation.
+      const group =
+        filter === "all" ? pool
+        : pool.filter((c) => leafLive(c, ind.slug, kw.slug) === (filter === "live"));
+      if (group.length < 2) continue;
+      const docs = group.map((c) => shingles(leafDoc(ind, c, kw, spine)));
       pairwise(docs, vals);
     }
   return stats(vals);
 }
-const cityLiveStats = cityAxis(sampledCitiesLive);
-const cityLiveNoSpine = cityAxis(sampledCitiesLive, false);
+const cityLiveStats = cityAxis(sampledCitiesAll, true, "live");
+const cityLiveNoSpine = cityAxis(sampledCitiesAll, false, "live");
 const cityAllStats = cityAxis(sampledCitiesAll);
-const cityNoStats = cityAxis(sampledCitiesNo);
+const cityNoStats = cityAxis(sampledCitiesAll, true, "noindex");
 
 // Axis 4: keyword-siblings (fix ind+city, vary kw across all 4).
 const kwVals: number[] = [];

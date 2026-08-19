@@ -48,6 +48,21 @@ const COLS: { title: string; links: { label: string; href: string }[] }[] = [
     ],
   },
   {
+    // The /best guides earn 29% of all site impressions at position ~74 — an
+    // authority problem, and they had no internal link from the homepage,
+    // navbar or footer except via the /best index. Linking them directly from
+    // the site's most-linked surfaces is the cheapest authority we control.
+    title: "Buyer guides",
+    links: [
+      { label: "Lead management software", href: "/best/lead-management-software-india" },
+      { label: "Crm for real estate", href: "/best/crm-for-real-estate-india" },
+      { label: "Whatsapp crm", href: "/best/whatsapp-crm-india" },
+      { label: "Lead qualification tools", href: "/best/lead-qualification-software" },
+      { label: "Crm for startups", href: "/best/crm-for-startups-india" },
+      { label: "All buyer guides", href: "/best" },
+    ],
+  },
+  {
     title: "Resources",
     links: [
       { label: "Learn (guides)", href: "/learn" },
@@ -96,7 +111,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)", borderColor: "var(--paper-line)" }}>
 
       <Container as="div" className="relative pt-20 pb-12">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_repeat(5,1fr)]">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.5fr_repeat(6,1fr)]">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" aria-label="Leadkaun home" className="group inline-flex items-center">

@@ -109,7 +109,7 @@ export function HeroSignupCard() {
         </form>
 
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-          {["Free tier", "No credit card", "Setup the same day"].map((t) => (
+          {["Free forever", "No credit card", "Setup the same day"].map((t) => (
             <span key={t} className="inline-flex items-center gap-1.5 text-[12px] text-ink-muted">
               <span className="grid h-4 w-4 place-items-center rounded-full bg-emerald-100">
                 <Check className="h-2.5 w-2.5 text-emerald-600" strokeWidth={3} />

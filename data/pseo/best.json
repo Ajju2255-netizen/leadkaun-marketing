@@ -1,7 +1,7 @@
 [
   {
     "slug": "lead-management-software-india",
-    "metaTitle": "9 Best Lead Management Software in India (2026), Honest Comparison",
+    "metaTitle": "9 Best Lead Management Software India (2026)",
     "metaDescription": "An honest, criteria-based ranking of the best lead management software for Indian B2B teams in 2026, pricing, WhatsApp, lead scoring, and who each one is really for.",
     "h1": "Best Lead Management Software in India (2026)",
     "intro": "There is no single \"best\" lead management tool. The right one depends on your team size, your sales motion, and whether you sell the way Indian B2B teams actually sell (WhatsApp-first, rupee-denominated, response-time-driven). Below is an honest, criteria-based ranking. We build Leadkaun, so we've put it first and told you exactly where each alternative is the better call.",
@@ -32,15 +32,95 @@
       "Rep adoption, how likely a busy Indian sales rep actually uses it daily",
       "Setup time and India-specific fit (phone normalisation, lakh/crore, response-time focus)"
     ],
-    "matrixTools": ["Leadkaun", "Zoho CRM", "LeadSquared", "Kylas", "TeleCRM", "Pipedrive"],
+    "matrixTools": [
+      "Leadkaun",
+      "Zoho CRM",
+      "LeadSquared",
+      "Kylas",
+      "TeleCRM",
+      "Pipedrive"
+    ],
     "featureMatrix": [
-      { "capability": "Real-time A–F lead grading", "note": "not just static points", "cells": ["yes", "Points", "Rules", "Rules", "no", "no"] },
-      { "capability": "Auto-ranked Priority Queue", "note": "tells each rep who to call next", "cells": ["yes", "Manual", "Manual", "Manual", "Manual", "Manual"] },
-      { "capability": "WhatsApp", "cells": ["Signal (log)", "Integration", "Yes", "Yes", "API", "no"] },
-      { "capability": "Pricing model", "cells": ["Flat / account", "Per user", "Per user", "Flat / unlimited", "Per user", "Per user"] },
-      { "capability": "INR pricing", "cells": ["yes", "yes", "yes", "yes", "yes", "no"] },
-      { "capability": "Free plan", "cells": ["yes", "3 users", "no", "no", "Trial", "no"] },
-      { "capability": "Pre-import data check", "note": "profiles the file before it lands", "cells": ["yes", "no", "no", "no", "no", "no"] }
+      {
+        "capability": "Real-time A–F lead grading",
+        "note": "not just static points",
+        "cells": [
+          "yes",
+          "Points",
+          "Rules",
+          "Rules",
+          "no",
+          "no"
+        ]
+      },
+      {
+        "capability": "Auto-ranked Priority Queue",
+        "note": "tells each rep who to call next",
+        "cells": [
+          "yes",
+          "Manual",
+          "Manual",
+          "Manual",
+          "Manual",
+          "Manual"
+        ]
+      },
+      {
+        "capability": "WhatsApp",
+        "cells": [
+          "Signal (log)",
+          "Integration",
+          "Yes",
+          "Yes",
+          "API",
+          "no"
+        ]
+      },
+      {
+        "capability": "Pricing model",
+        "cells": [
+          "Flat / account",
+          "Per user",
+          "Per user",
+          "Flat / unlimited",
+          "Per user",
+          "Per user"
+        ]
+      },
+      {
+        "capability": "INR pricing",
+        "cells": [
+          "yes",
+          "yes",
+          "yes",
+          "yes",
+          "yes",
+          "no"
+        ]
+      },
+      {
+        "capability": "Free plan",
+        "cells": [
+          "yes",
+          "3 users",
+          "no",
+          "no",
+          "Trial",
+          "no"
+        ]
+      },
+      {
+        "capability": "Pre-import data check",
+        "note": "profiles the file before it lands",
+        "cells": [
+          "yes",
+          "no",
+          "no",
+          "no",
+          "no",
+          "no"
+        ]
+      }
     ],
     "picks": [
       {
@@ -170,45 +250,124 @@
       }
     ],
     "howItWorks": [
-      { "step": "Import and check the data", "body": "Upload a CSV or connect a Google Sheet. Intake Intelligence profiles the file before import — flagging currency and phone-number shape, likely B2B vs B2C, missing fields and duplicates — so you see the data quality before it lands.", "shot": "/screenshots/leads.png", "shotAlt": "Leadkaun lead list with every lead graded A–F" },
-      { "step": "Grade every lead A–F", "body": "Each lead gets three independent 0–100 scores — Fit, Intent and Quality — that combine into a single A–F grade. Intent decays as a lead goes quiet, and low data Quality caps the grade, so bad data can't masquerade as a hot lead.", "shot": "/screenshots/queue.png", "shotAlt": "The Priority Queue ranking leads for a rep" },
-      { "step": "Work the Priority Queue", "body": "Each rep opens one ranked list of who to contact next, not a wall of filters. It re-sorts as new signals arrive — a WhatsApp reply logged, a pricing-page visit — so the top of the queue is always the lead most worth the next call.", "shot": "/screenshots/follow-ups.png", "shotAlt": "Follow-up workflow in Leadkaun" },
-      { "step": "See the ₹ at risk", "body": "The Missed Opportunity view surfaces graded leads going cold and the rupee value at risk, per rep and per week, so revenue slipping through follow-up gaps becomes visible before it's gone.", "shot": "/screenshots/missed.png", "shotAlt": "Missed opportunity view showing revenue at risk" },
-      { "step": "Measure what the team actually did", "body": "Analytics show whether reps worked the queue and followed recommendations — behaviour, not just activity counts — so a Monday review is about what happened next, not who logged the most calls.", "shot": "/screenshots/analytics.png", "shotAlt": "Leadkaun analytics dashboard" }
+      {
+        "step": "Import and check the data",
+        "body": "Upload a CSV or connect a Google Sheet. Intake Intelligence profiles the file before import — flagging currency and phone-number shape, likely B2B vs B2C, missing fields and duplicates — so you see the data quality before it lands.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Grade every lead A–F",
+        "body": "Each lead gets three independent 0–100 scores — Fit, Intent and Quality — that combine into a single A–F grade. Intent decays as a lead goes quiet, and low data Quality caps the grade, so bad data can't masquerade as a hot lead.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "The Priority Queue ranking leads for a rep"
+      },
+      {
+        "step": "Work the Priority Queue",
+        "body": "Each rep opens one ranked list of who to contact next, not a wall of filters. It re-sorts as new signals arrive — a WhatsApp reply logged, a pricing-page visit — so the top of the queue is always the lead most worth the next call.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up workflow in Leadkaun"
+      },
+      {
+        "step": "See the ₹ at risk",
+        "body": "The Missed Opportunity view surfaces graded leads going cold and the rupee value at risk, per rep and per week, so revenue slipping through follow-up gaps becomes visible before it's gone.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed opportunity view showing revenue at risk"
+      },
+      {
+        "step": "Measure what the team actually did",
+        "body": "Analytics show whether reps worked the queue and followed recommendations — behaviour, not just activity counts — so a Monday review is about what happened next, not who logged the most calls.",
+        "shot": "/screenshots/analytics.png",
+        "shotAlt": "Leadkaun analytics dashboard"
+      }
     ],
     "indiaSection": {
       "heading": "Why \"in India\" changes the answer",
       "intro": "The global \"best CRM\" lists rarely account for how Indian B2B teams actually sell. These are the realities this ranking weights.",
       "points": [
-        { "title": "WhatsApp is a real channel, not a bolt-on", "body": "Most Indian B2B conversations happen on WhatsApp. Leadkaun logs each exchange in three taps and treats it as a ranked Intent signal; tools that only add WhatsApp through a third party lose that context." },
-        { "title": "Rupees, lakhs and crores", "body": "Pricing, deal values and missed-revenue figures show in ₹ with lakh and crore formatting — no USD conversion tax and no mental maths." },
-        { "title": "Indian phone numbers, handled", "body": "+91 and E.164 normalisation with duplicate detection on import, so numbers from IndiaMART, Justdial and web forms line up instead of fragmenting." },
-        { "title": "Priced for the whole team", "body": "Flat per-account pricing means you can put every rep on it without per-seat maths — the reason per-seat tools quietly get rationed to a few power users." }
+        {
+          "title": "WhatsApp is a real channel, not a bolt-on",
+          "body": "Most Indian B2B conversations happen on WhatsApp. Leadkaun logs each exchange in three taps and treats it as a ranked Intent signal; tools that only add WhatsApp through a third party lose that context."
+        },
+        {
+          "title": "Rupees, lakhs and crores",
+          "body": "Pricing, deal values and missed-revenue figures show in ₹ with lakh and crore formatting — no USD conversion tax and no mental maths."
+        },
+        {
+          "title": "Indian phone numbers, handled",
+          "body": "+91 and E.164 normalisation with duplicate detection on import, so numbers from IndiaMART, Justdial and web forms line up instead of fragmenting."
+        },
+        {
+          "title": "Priced for the whole team",
+          "body": "Flat per-account pricing means you can put every rep on it without per-seat maths — the reason per-seat tools quietly get rationed to a few power users."
+        }
       ]
     },
     "useCaseHandoffs": [
-      { "label": "Real estate", "href": "/best/crm-for-real-estate-india", "blurb": "Portal enquiries, site visits and booking follow-up." },
-      { "label": "EdTech & admissions", "href": "/best/crm-for-edtech-india", "blurb": "Counselling, application and enrolment pipelines." },
-      { "label": "BFSI & telecalling", "href": "/best/telecalling-crm-india", "blurb": "High-volume calling with attribution and compliance." },
-      { "label": "Manufacturing", "href": "/best/crm-for-manufacturing-india", "blurb": "RFQ-to-purchase-order, quotation-driven sales." },
-      { "label": "Small business", "href": "/best/sales-crm-for-small-business-india", "blurb": "Simple, affordable CRM for lean teams." },
-      { "label": "WhatsApp-first sales", "href": "/best/whatsapp-crm-india", "blurb": "Teams that run their pipeline on WhatsApp." }
+      {
+        "label": "Real estate",
+        "href": "/best/crm-for-real-estate-india",
+        "blurb": "Portal enquiries, site visits and booking follow-up."
+      },
+      {
+        "label": "EdTech & admissions",
+        "href": "/best/crm-for-edtech-india",
+        "blurb": "Counselling, application and enrolment pipelines."
+      },
+      {
+        "label": "BFSI & telecalling",
+        "href": "/best/telecalling-crm-india",
+        "blurb": "High-volume calling with attribution and compliance."
+      },
+      {
+        "label": "Manufacturing",
+        "href": "/best/crm-for-manufacturing-india",
+        "blurb": "RFQ-to-purchase-order, quotation-driven sales."
+      },
+      {
+        "label": "Small business",
+        "href": "/best/sales-crm-for-small-business-india",
+        "blurb": "Simple, affordable CRM for lean teams."
+      },
+      {
+        "label": "WhatsApp-first sales",
+        "href": "/best/whatsapp-crm-india",
+        "blurb": "Teams that run their pipeline on WhatsApp."
+      }
     ],
     "pricingBlock": {
       "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
-      "freePlan": "Yes — a Free ₹0 tier (100 active leads, 14 days) with no card required.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Run the onboarding wizard (your ICP: industries, states, roles, budget bands), import a CSV, and every lead is graded A–F immediately.",
       "setup": "Same day — no implementation project and no dedicated admin."
     },
     "relatedLearn": [
-      { "href": "/learn/lead-management", "label": "Lead management: the complete guide" },
-      { "href": "/learn/lead-scoring", "label": "How lead scoring works (the A–F method)" },
-      { "href": "/learn/lead-prioritization", "label": "Lead prioritization, explained" }
+      {
+        "href": "/learn/lead-management",
+        "label": "Lead management: the complete guide"
+      },
+      {
+        "href": "/learn/lead-scoring",
+        "label": "How lead scoring works (the A–F method)"
+      },
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      }
     ],
     "relatedFeatures": [
-      { "href": "/features/lead-scoring", "label": "Lead scoring — grade A–F in real time" },
-      { "href": "/features/priority-queue", "label": "The Priority Queue" },
-      { "href": "/features/intake-intelligence", "label": "Check a lead list before you import" }
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/intake-intelligence",
+        "label": "Check a lead list before you import"
+      }
     ],
     "relatedCompares": [
       "leadkaun-vs-zoho-crm",
@@ -218,7 +377,7 @@
   },
   {
     "slug": "whatsapp-crm-india",
-    "metaTitle": "7 Best WhatsApp CRM Software in India (2026), Honest Guide",
+    "metaTitle": "7 Best WhatsApp CRM Software India (2026)",
     "metaDescription": "The best WhatsApp CRM tools for Indian sales teams in 2026, which are true sales CRMs vs broadcast platforms, pricing, and who each is really for.",
     "h1": "Best WhatsApp CRM Software in India (2026)",
     "intro": "\"WhatsApp CRM\" means two very different things: sales CRMs that log and act on WhatsApp conversations, and broadcast/marketing platforms built on the WhatsApp Business API. Both are useful, for different jobs. Here's an honest breakdown so you pick the right category first. We build Leadkaun; it sits firmly in the first camp.",
@@ -226,7 +385,7 @@
       "question": "What is the best WhatsApp CRM in India?",
       "answer": "It depends on the job. For turning WhatsApp replies into ranked sales signals, Leadkaun logs each exchange in 3 taps and feeds it into real-time lead grading. For high-volume broadcasts and WhatsApp Business API campaigns, dedicated platforms like AiSensy or Interakt fit better. TeleCRM and Kylas offer WhatsApp inside a fuller CRM."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Is it a sales CRM or a broadcast/marketing platform? (Different categories.)",
       "How WhatsApp is used, ranked sales signal, chat log, or bulk messaging",
@@ -305,11 +464,109 @@
       "leadkaun-vs-telecrm",
       "leadkaun-vs-kylas",
       "leadkaun-vs-zoho-bigin"
+    ],
+    "whatItIs": {
+      "heading": "\"WhatsApp CRM\" means two different products",
+      "body": [
+        "Search results for WhatsApp CRM mix two categories that solve opposite problems, and picking from the wrong one is the most common mistake in this evaluation.",
+        "The first is a broadcast and automation platform built on the WhatsApp Business API — Wati, AiSensy, Interakt and similar. These send templated messages at volume, run chatbots and charge per conversation. They are marketing infrastructure, and they are the right answer if your problem is reaching many people at once.",
+        "The second is a sales CRM that treats WhatsApp as a channel where evidence arrives. It does not blast messages; it records what was said, who replied, and how fast, then uses that to decide who a rep should contact next. That is the category this guide ranks, and it is the right answer if your problem is that replies come in and nobody knows which ones matter.",
+        "Leadkaun is in the second category, and deliberately at the manual end of it: you open the chat from Leadkaun, talk in your own WhatsApp, and log the outcome. There is no API integration and nothing is sent on your behalf."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Open the chat from the lead",
+        "body": "Each lead carries a wa.me link, so the conversation starts in your own WhatsApp with the number already resolved and normalised to Indian dialling format.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Log the outcome in three taps",
+        "body": "Come back and record what happened — replied, asked for pricing, went quiet. This is deliberately manual: it means no WhatsApp Business API, no per-message fees, and nothing sent from Leadkaun on your behalf.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "The log becomes an Intent signal",
+        "body": "That record feeds the Intent dimension of the lead's score. Someone who replies within the hour and asks about price moves up; someone who has been messaged four times without replying moves down, and the grade shows it.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Reps work a ranked queue, not an inbox",
+        "body": "The Priority Queue orders leads by what the evidence says, so a rep is not scrolling a chat list trying to remember who was promising on Monday.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Quiet conversations resurface",
+        "body": "Threads that were warm and have gone silent are surfaced by the Missed Opportunity Engine with the rupee value attached, so the follow-up competes properly for attention.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Decide first whether you need broadcast infrastructure or a sales CRM — Wati, AiSensy and Interakt solve a different problem from the tools ranked here.",
+      "If you need bulk templated messaging and chatbots, you need the WhatsApp Business API and its per-conversation pricing, and this is the wrong list.",
+      "If you need to know which of yesterday's 60 replies deserve a call today, you need scoring and ranking, not messaging volume.",
+      "Leadkaun logs WhatsApp manually in three taps and turns it into a ranked signal — no API, no per-message fee, and it runs alongside your existing CRM.",
+      "Check whether a tool charges per WhatsApp conversation before you compare monthly prices; that line often exceeds the licence."
+    ],
+    "indiaSection": {
+      "heading": "Why WhatsApp is the deciding factor in India",
+      "intro": "Indian B2B buyers answer WhatsApp and ignore email, which changes what a CRM has to be good at.",
+      "points": [
+        {
+          "title": "The evidence lives outside the CRM",
+          "body": "If the real conversation happens on WhatsApp and the CRM only holds call notes, then the record the team scores and reports on is missing most of what actually happened."
+        },
+        {
+          "title": "The API is not always the answer",
+          "body": "The WhatsApp Business API brings template approval, per-conversation billing and a BSP relationship. That is worth it for broadcast; for a sales team that just needs the exchange recorded, it is cost and process for no gain."
+        },
+        {
+          "title": "Response time is the signal that travels",
+          "body": "Speed of reply is the most portable predictor across Indian B2B — it works the same in real estate, EdTech and manufacturing — which is why it is scored rather than merely logged."
+        },
+        {
+          "title": "Numbers arrive in six shapes",
+          "body": "+91, 0-prefixed, ten-digit, spaced, with country code duplicated. Normalising them is unglamorous and it is the difference between one lead record and four."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/whatsapp-sales",
+        "label": "WhatsApp sales for Indian B2B"
+      },
+      {
+        "href": "/learn/lead-scoring",
+        "label": "How lead scoring works (the A–F method)"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/whatsapp-tracking",
+        "label": "WhatsApp tracking — log an exchange in taps"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      }
     ]
   },
   {
     "slug": "lead-scoring-software",
-    "metaTitle": "6 Best Lead Scoring Software (2026), Transparent vs Black-Box",
+    "metaTitle": "Best Lead Scoring Software in India (2026)",
     "metaDescription": "The best lead scoring software in 2026, which use transparent, real-time scoring vs opaque AI, and who each is for. Honest comparison from the Leadkaun team.",
     "h1": "Best Lead Scoring Software (2026)",
     "intro": "Most lead scoring is one of two things: a static points system you configure by hand, or an opaque \"AI\" score you can't explain to your reps. The best scoring is transparent, real-time, and decays as leads go cold. Here's an honest ranking on those terms. We build Leadkaun, whose three-score model is designed to be auditable.",
@@ -400,7 +657,7 @@
   },
   {
     "slug": "crm-for-real-estate-india",
-    "metaTitle": "6 Best Real Estate CRM Software in India (2026), Honest Ranking",
+    "metaTitle": "6 Best Real Estate CRM Software India (2026)",
     "metaDescription": "The best real estate CRM and lead management software for Indian developers and brokers in 2026, response time, portal leads, WhatsApp, pricing.",
     "h1": "Best Real Estate CRM Software in India (2026)",
     "intro": "In real estate, the first team to reach a fresh enquiry usually wins it, so the best CRM is the one that gets your reps to the hottest 99acres/MagicBricks/Housing lead first, not the one with the most fields. Here's an honest ranking for Indian property teams. We build Leadkaun, built around exactly that response-time problem.",
@@ -408,7 +665,7 @@
       "question": "What is the best CRM for real estate in India?",
       "answer": "For developers and brokers whose problem is slow follow-up on portal enquiries, Leadkaun grades every enquiry and surfaces the hottest buyers first, with WhatsApp logging and ₹-at-risk alerts. Sell.Do suits large developers wanting deep real-estate workflows, and LeadSquared suits very high portal-lead volumes."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Speed to lead does it get reps to fresh enquiries fast?",
       "Portal lead handling (99acres, MagicBricks, Housing) and WhatsApp",
@@ -487,11 +744,108 @@
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-kylas"
+    ],
+    "whatItIs": {
+      "heading": "What a real estate CRM actually has to do",
+      "body": [
+        "A real estate CRM stores enquiries from portals, site boards, referrals and ad campaigns, keeps the conversation history against each buyer, and tracks them from first enquiry through site visit to booking. That much every CRM on this list does.",
+        "The part that decides whether it earns its licence fee is narrower. Portal enquiries arrive in bursts and decay fast, the same buyer often enquires on three portals under two phone numbers, and most of the conversation happens on WhatsApp rather than email. A tool that stores all of this faithfully but leaves a broker to decide who to call next has solved the filing problem, not the selling one.",
+        "So the useful question is not \"which CRM has the most fields\" but \"when 40 enquiries land on a Tuesday, does this thing tell a specific rep which six to call before lunch?\""
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Bring the enquiries in",
+        "body": "Upload a CSV of portal enquiries or connect a Google Sheet. Intake Intelligence profiles the file before anything lands — flagging phone-number shape, duplicates and missing fields — so you see the data quality before it becomes your pipeline.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Every enquiry gets a grade",
+        "body": "Each enquiry is scored on three independent 0–10 dimensions — Fit, Intent and Quality — and carries an A–F grade. A buyer who asked about a 3BHK twice this week and answered your call reads differently from a form-fill that has never replied, and the grade says so.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Each rep opens one ranked list",
+        "body": "The Priority Queue gives every rep a single ordered list rather than a filterable table. The decision about who to call next is already made when they open it, which is the difference between a CRM a broker updates and one they use.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Log the WhatsApp exchange in three taps",
+        "body": "Open the chat from Leadkaun via a wa.me link, have the conversation in your own WhatsApp, then record the outcome. That log drives stage advancement, schedules the follow-up and rescores the enquiry.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "Cooling enquiries come back before they die",
+        "body": "The Missed Opportunity Engine watches for enquiries that were warm and have gone quiet, and puts the rupee value at risk next to each one so the follow-up gets prioritised against everything else competing for the morning.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "There is no single best real estate CRM — the right one depends on whether your bottleneck is storing enquiries or acting on them fast enough.",
+      "If enquiries arrive from portals in bursts and go cold before anyone calls, the deciding feature is prioritisation, not field customisation.",
+      "Sell.Do is built specifically around Indian developer workflows; Zoho CRM wins on breadth and customisation; Kylas prices flat with unlimited users.",
+      "Leadkaun runs alongside whichever of those you keep — it grades every enquiry A–F and ranks each rep's queue rather than replacing your system of record.",
+      "Whatever you pick, test it on a real week of portal enquiries rather than a demo dataset."
+    ],
+    "indiaSection": {
+      "heading": "Why \"in India\" changes the answer",
+      "intro": "Global real estate CRM lists are written around agent-led markets with email-first buyers and MLS feeds. Indian residential sales work differently, and these are the differences this ranking weights.",
+      "points": [
+        {
+          "title": "Portals are the pipeline",
+          "body": "99acres, MagicBricks and Housing supply the bulk of residential enquiries, and they deliver them in bursts. The handling that matters is deduplication across portals and getting a ranked list in front of a rep the same day, not a richer contact record."
+        },
+        {
+          "title": "The conversation is on WhatsApp",
+          "body": "Buyers reply on WhatsApp and rarely on email. A CRM that treats WhatsApp as an afterthought loses most of the actual evidence about who is serious. Leadkaun logs each exchange in three taps and treats it as a ranked Intent signal — the conversation stays in your own WhatsApp, and there is no BSP or API integration."
+        },
+        {
+          "title": "The conversion event is a site visit",
+          "body": "Nothing predicts a booking like a site visit, so the pipeline stage that deserves the most instrumentation is the one before it. Scoring that ignores site-visit behaviour is scoring the wrong thing."
+        },
+        {
+          "title": "Pricing has to survive a seasonal team",
+          "body": "Site teams expand for a launch and contract after it. Per-seat pricing punishes exactly that pattern, which is why flat per-account pricing in rupees tends to cost less over a year than the per-user sticker suggests."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/whatsapp-sales",
+        "label": "WhatsApp sales for Indian B2B"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      }
     ]
   },
   {
     "slug": "sales-crm-for-small-business-india",
-    "metaTitle": "7 Best Sales CRM for Small Business in India (2026), Honest Picks",
+    "metaTitle": "Best Sales CRM for Small Business (2026)",
     "metaDescription": "The best sales CRM for small Indian businesses in 2026, flat vs per-user pricing, free tiers, WhatsApp, and who each tool is really for.",
     "h1": "Best Sales CRM for Small Business in India (2026)",
     "intro": "Small teams don't need enterprise CRM. They need something reps actually use, that captures WhatsApp, and doesn't get expensive as they add people. Here's an honest ranking for Indian small businesses. We build Leadkaun and tell you where a lighter or cheaper tool is the better call.",
@@ -582,7 +936,7 @@
   },
   {
     "slug": "telecalling-crm-india",
-    "metaTitle": "6 Best Telecalling CRM Software in India (2026), Honest Guide",
+    "metaTitle": "Best Telecalling CRM in India (2026)",
     "metaDescription": "The best telecalling CRM software for Indian inside-sales teams in 2026 dialers, WhatsApp, lead prioritisation, and pricing. Honest comparison.",
     "h1": "Best Telecalling CRM Software in India (2026)",
     "intro": "Telecalling teams live and die by call volume and follow-up discipline. The best telecalling CRM makes dialing fast and follow-ups automatic, and ideally tells reps which lead to call first. Here's an honest ranking. We build Leadkaun, which is the prioritisation layer rather than the dialer.",
@@ -673,7 +1027,7 @@
   },
   {
     "slug": "crm-for-edtech-india",
-    "metaTitle": "6 Best CRM for EdTech & Admissions in India (2026), Honest Guide",
+    "metaTitle": "Best CRM for EdTech in India (2026)",
     "metaDescription": "The best CRM and lead management software for Indian EdTech and admissions teams in 2026, WhatsApp counsellor workflows, seasonal cycles, pricing.",
     "h1": "Best CRM for EdTech & Admissions in India (2026)",
     "intro": "EdTech admissions don't fail for lack of leads. They fail on follow-up. Enquiries arrive in seasonal spikes across ads, webinars and referral forms, then move to long WhatsApp threads where a parent asks about fees, goes quiet for three days, and comes back at 10pm. Counsellors juggling hundreds of these can't tell which parent is close to enrolling and which has gone cold. So the best CRM for an Indian admissions team isn't the one with the most fields it's the one that tells a counsellor which parents to call first this morning, keeps WhatsApp threads inside the system, and respects the rhythm of an admissions cycle. Here's an honest ranking, and where each alternative genuinely fits better.",
@@ -772,7 +1126,7 @@
   },
   {
     "slug": "crm-for-startups-india",
-    "metaTitle": "6 Best CRM for Startups in India (2026), Free-Friendly Picks",
+    "metaTitle": "6 Best CRM for Startups in India (2026)",
     "metaDescription": "The best sales CRM for Indian startups in 2026, free tiers, flat pricing, fast setup, and who each tool is really for. Honest, no fluff.",
     "h1": "Best CRM for Startups in India (2026)",
     "intro": "An early-stage startup doesn't need an enterprise CRM. It needs one the founding team will actually open every day, that doesn't get expensive the moment you hire your third rep, and that earns its keep in the first hour instead of after a six-week rollout. At seed stage your sales motion is still changing weekly, so a heavy, deeply-customised system you have to re-architect later is a liability, not an asset. For Indian startups specifically, that also means handling WhatsApp-first buyers and pricing in rupees rather than dollars that sting as you grow. Here's an honest ranking for early Indian startups, with free tiers and flat pricing weighed heavily, and clear notes on where a lighter or cheaper option is the smarter call.",
@@ -871,7 +1225,7 @@
   },
   {
     "slug": "sales-automation-software",
-    "metaTitle": "6 Best Sales Automation Software (2026), Honest Comparison",
+    "metaTitle": "Best Sales Automation Software (2026)",
     "metaDescription": "The best sales automation software in 2026, what to automate (grading, queueing, follow-up, alerts) vs marketing automation, and who each tool is for.",
     "h1": "Best Sales Automation Software (2026)",
     "intro": "\"Sales automation\" is a slippery phrase, vendors use it for everything from auto-grading and queueing leads to firing marketing email sequences across a huge database. Those are different jobs with different tools, and buying the wrong category is the most common mistake here. If your bottleneck is nurturing large lists, you want marketing automation. If it's that reps waste the day deciding who to work next and let good leads go silent, you want automation inside the sales motion itself, grading the moment a lead lands, building the queue, and flagging what's slipping. The best tool depends entirely on which of these you mean. Here's an honest ranking that separates the two, so you automate the part that's actually costing you deals.",
@@ -970,7 +1324,7 @@
   },
   {
     "slug": "crm-for-manufacturing-india",
-    "metaTitle": "6 Best CRM for Manufacturing in India (2026), Honest Ranking",
+    "metaTitle": "Best CRM for Manufacturing India (2026)",
     "metaDescription": "The best CRM and lead management software for Indian manufacturers and industrial B2B in 2026, long quote cycles, IndiaMART/TradeIndia leads, distributor networks.",
     "h1": "Best CRM for Manufacturing in India (2026)",
     "intro": "Industrial B2B sells nothing like SaaS. A single order can take a 90-day quote cycle, pass through procurement, engineering and finance, and hinge on a sample that got promised and forgotten. Leads arrive from IndiaMART and TradeIndia enquiries, trade-show cards and a distributor network that lives on WhatsApp and phone calls. The failure mode isn't losing leads it's a quote going out, then silence, while nobody on the sales side sees the full multi-stakeholder thread or gets nudged to follow up. So the best CRM for an Indian manufacturer is the one that stops quotes going cold, keeps distributor and buyer conversations inside the system, and puts a rupee value on what's slipping. Here's an honest ranking, with a fair note on where each alternative fits.",
@@ -1069,7 +1423,7 @@
   },
   {
     "slug": "lead-prioritization-software",
-    "metaTitle": "5 Best Lead Prioritization Software (2026), Ranked Queues vs Filters",
+    "metaTitle": "Best Lead Prioritization Software (2026)",
     "metaDescription": "The best lead prioritization software in 2026, which tools produce one ranked queue per rep, and which just give you another filtered list to triage. Compared on ranking logic, decay and rupee value.",
     "h1": "Best Lead Prioritization Software (2026)",
     "intro": "Most tools that claim to prioritise leads actually filter them. A filter narrows forty leads to eleven and hands the rep the same decision it started with, which of these eleven do I call first? Prioritization software is different: it returns a position, not a subset. This guide compares the tools on whether they produce one ranked working order per rep, whether that order changes as leads cool, and whether the ranking can be explained to the rep working it.",
@@ -1167,7 +1521,7 @@
     "_gateAllow": [
       "lead-assignment"
     ],
-    "metaTitle": "5 Best Lead Routing & Assignment Software (2026), An Honest Guide | Leadkaun",
+    "metaTitle": "5 Best Lead Routing Software (2026)",
     "metaDescription": "The best lead routing software in 2026, compared on fallback handling, speed of assignment and reassignment. Leadkaun is not one of them, and this guide explains why.",
     "h1": "Best Lead Routing & Assignment Software (2026)",
     "intro": "A note before the list: Leadkaun does not do rules-based lead routing, so we are not ranked here. We build the layer that runs after a lead has an owner, grading, ranking and decay, and routing belongs to your CRM. We publish this guide because the question comes up in nearly every evaluation, and sending you away with a straight answer is more useful than pretending we compete. Routing software is easy to evaluate badly, because every tool demos the clean case: this sector goes to that rep. What separates them is the messy case, a lead with a missing field, an unrecognised sector, or a city nobody mapped. This compares the tools on fallback handling, how fast assignment actually happens, and whether reassignment carries a lead's history with it.",
@@ -1265,7 +1619,7 @@
   },
   {
     "slug": "lead-qualification-software",
-    "metaTitle": "5 Best Lead Qualification Software (2026) Continuous vs One-Time | Leadkaun",
+    "metaTitle": "5 Best Lead Qualification Software (2026)",
     "metaDescription": "The best lead qualification software in 2026, which tools qualify continuously and which stamp a lead once. Compared on Fit, Intent and data quality handling.",
     "h1": "Best Lead Qualification Software (2026)",
     "intro": "The question worth asking of any qualification tool is what happens on day thirty. A lead qualified at intake and untouched since is a stale record with a good label, and most tools will keep showing you the label. This guide compares tools on whether qualification is a one-time stamp or a live measurement, whether fit and engagement are separable, and whether data quality is treated as part of qualification or as somebody else's cleanup job.",
@@ -1352,6 +1706,103 @@
       "leadkaun-vs-hubspot",
       "leadkaun-vs-salesforce",
       "leadkaun-vs-leadsquared"
+    ],
+    "whatItIs": {
+      "heading": "What lead qualification software does, and where most of it stops",
+      "body": [
+        "Lead qualification software decides which enquiries are worth a rep's time. Traditionally that means a form, a set of rules and a label applied once at intake: MQL, SQL, disqualified.",
+        "The weakness is that the label is a snapshot. A lead qualifies on Monday, goes quiet for three weeks, and is still labelled SQL. Another is disqualified at intake because the form was incomplete, then replies twice asking about pricing and stays disqualified. The qualification was accurate when it was made and wrong within a fortnight, and nothing in the system notices.",
+        "The distinction worth evaluating on is whether qualification is an event or a running assessment — and whether fit and engagement are scored separately. A strong-fit company that has gone quiet and an eager buyer who will never have budget are both \"medium\" on a single score, and they need opposite actions."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Check the data before you qualify on it",
+        "body": "Intake Intelligence profiles a lead file before import — duplicates, malformed numbers, missing fields, likely B2B vs B2C — because qualification built on a dirty list produces confident nonsense.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Score three dimensions separately",
+        "body": "Fit, Intent and Quality are scored 0–10 independently rather than collapsed into one number, so a good-fit lead gone quiet stays visibly distinct from an enthusiastic bad fit.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "The grade updates as evidence arrives",
+        "body": "Every reply, call outcome and logged WhatsApp exchange rescores the lead. Qualification is a current reading rather than an intake decision, and Score Evolution shows what changed and why.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Reps get the consequence, not the score",
+        "body": "The Priority Queue turns the scores into one ranked list per rep. Nobody has to interpret a number or agree on a threshold to know who to call first.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Silence is treated as evidence",
+        "body": "Leads that qualified and then stopped responding are surfaced with the rupee value at risk, instead of sitting in the pipeline holding a stale SQL label.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Ask whether qualification updates as evidence arrives or is stamped once at intake — that single difference outweighs most feature comparisons.",
+      "Fit and engagement should be scored separately; collapsed into one number, opposite situations become indistinguishable.",
+      "Qualification is only as good as the data underneath it, so check what a tool does about duplicates and malformed numbers before import.",
+      "HubSpot and Salesforce offer the most configurable scoring; LeadSquared is built for high-volume lead-gen; Zoho CRM is the value option if you already run Zoho.",
+      "Leadkaun scores continuously on three dimensions and hands reps a ranked queue — it works alongside your CRM rather than replacing it."
+    ],
+    "indiaSection": {
+      "heading": "What qualification has to account for in Indian B2B",
+      "intro": "Most qualification frameworks were designed around inbound email, form-fills and long written discovery. Indian B2B SMB pipelines behave differently.",
+      "points": [
+        {
+          "title": "Marketplace leads arrive pre-diluted",
+          "body": "IndiaMART, JustDial and TradeIndia deliver volume with a high share of enquiries that were never going to buy. Qualification here is not a formality before routing — it is the main job."
+        },
+        {
+          "title": "The discovery happens on a call",
+          "body": "Written qualification fields stay empty because the conversation was a phone call. Scoring that depends on form completeness will under-qualify most of a healthy Indian pipeline."
+        },
+        {
+          "title": "One buyer, several numbers",
+          "body": "The same person enquires from a personal number, a company number and a colleague's phone. Without normalisation and deduplication, one qualified buyer looks like three ambiguous ones."
+        },
+        {
+          "title": "Budget is stated late",
+          "body": "Frameworks that gate on explicit budget early tend to disqualify serious buyers who simply do not discuss price in a first call. Behaviour is the more reliable early signal."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-qualification",
+        "label": "Lead qualification, explained"
+      },
+      {
+        "href": "/learn/lead-scoring",
+        "label": "How lead scoring works (the A–F method)"
+      },
+      {
+        "href": "/learn/lead-data-trust",
+        "label": "Can you trust your lead data?"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/intake-intelligence",
+        "label": "Check a lead list before you import"
+      },
+      {
+        "href": "/features/score-evolution",
+        "label": "Score Evolution — why a grade changed"
+      }
     ]
   }
 ]

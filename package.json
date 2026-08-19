@@ -12,7 +12,7 @@
     "measure:overlap": "node --experimental-strip-types scripts/measure-overlap.ts",
     "generate-sitemap": "node scripts/generate-xml-sitemap.js",
     "generate-xml-sitemap": "node scripts/generate-xml-sitemap.js",
-    "postbuild": "node scripts/generate-xml-sitemap.js && node scripts/generate-llms-blueprints.mjs && node scripts/generate-search-index.js",
+    "postbuild": "node scripts/build-demand-allowlist.mjs && node scripts/generate-xml-sitemap.js && node scripts/generate-llms-blueprints.mjs && node scripts/generate-search-index.js",
     "submit-urls": "node scripts/submit-urls.js",
     "submit-all": "node scripts/submit-urls.js --all",
     "submit-google": "node scripts/submit-urls.js --protocol=google",
@@ -23,8 +23,10 @@
     "cf:typegen": "wrangler types",
     "truth": "node scripts/truth-report.mjs",
     "index-tracker": "node scripts/index-tracker.mjs",
+    "gsc:report": "node scripts/gsc-report.mjs",
     "generate-llms": "node scripts/generate-llms-blueprints.mjs",
-    "tracker": "node scripts/update-tracker.mjs"
+    "tracker": "node scripts/update-tracker.mjs",
+    "demand:build": "node scripts/build-demand-allowlist.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

@@ -176,7 +176,7 @@ export default function HowItWorksPage() {
         sub="Every lead graded A–F, a live Priority Queue per rep, and the ₹ at risk surfaced in real rupees, the working screen your team opens every morning."
       />
 
-      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
       <Footer />
     </main>
   )

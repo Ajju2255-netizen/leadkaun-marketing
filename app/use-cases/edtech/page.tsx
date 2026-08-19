@@ -116,7 +116,7 @@ const GUIDES = [
 
 // Pricing — flat per account, mirrors /pricing (source of truth: plans table).
 const PLANS: { name: string; price: string; unit: string; meta: string; note: string; popular?: boolean }[] = [
-  { name: "Free", price: "₹0", unit: "for 14 days", meta: "1 user · 100 active leads", note: "Watch it grade your own enquiries. No card." },
+  { name: "Free", price: "₹0", unit: "forever", meta: "1 user · 100 active leads", note: "Watch it grade your own enquiries. No card." },
   { name: "Starter", price: "₹2,999", unit: "/month", meta: "Up to 10 users · 5,000 leads", note: "The full working system, uncapped." },
   { name: "Growth", price: "₹7,999", unit: "/month", meta: "Up to 30 users · 25,000 leads", note: "Adds Missed Opportunity Engine, counsellor tracking and AI Learning.", popular: true },
   { name: "Scale", price: "₹19,999", unit: "/month", meta: "Up to 75 users · unlimited leads", note: "Everything, at full admissions-floor size." },
@@ -210,7 +210,7 @@ export default function EdTechPage() {
                 </p>
                 <div className="mt-9 flex flex-wrap items-center gap-3">
                   <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
-                    Start free trial <ArrowRight className="h-4 w-4" />
+                    Start free <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="#platform" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
                     See the platform <ArrowRight className="h-4 w-4" />
@@ -609,7 +609,7 @@ export default function EdTechPage() {
                 Flat per account, not per counsellor.
               </h2>
               <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-                Add the whole admissions floor without the bill climbing seat by seat. Priced by team size and active-lead volume, 14-day free trial, no card, ~17% off on annual.
+                Add the whole admissions floor without the bill climbing seat by seat. Priced by team size and active-lead volume, free forever tier, no card, ~17% off on annual.
               </p>
             </Reveal>
             <Reveal delay={0.08} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -645,7 +645,7 @@ export default function EdTechPage() {
             </Reveal>
             <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
-                {["14-day free trial", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
+                {["Free forever tier", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
                   <span key={t} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink-soft">
                     <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full" style={{ background: "#10B981" }}><Check className="h-3 w-3 text-white" strokeWidth={3} /></span>
                     {t}
@@ -678,7 +678,7 @@ export default function EdTechPage() {
                 </p>
                 <div className="relative mt-9 flex flex-wrap items-center justify-center gap-3">
                   <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
-                    Start free trial <ArrowRight className="h-4 w-4" />
+                    Start free <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/how-it-works" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
                     How it works

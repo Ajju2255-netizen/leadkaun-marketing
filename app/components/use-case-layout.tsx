@@ -73,7 +73,7 @@ export function UseCaseLayout({
           }
           h1={h1}
           sub={subhead}
-          primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
+          primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
           secondary={{ kind: "text", label: "Start free", href: APP_URLS.register }}
         />
 

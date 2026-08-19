@@ -106,7 +106,7 @@ export default function MissedOpportunityPage() {
                 </p>
                 <div className="mt-9 flex flex-wrap items-center gap-3">
                   <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
-                    Start free trial <ArrowRight className="h-4 w-4" />
+                    Start free <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/tools/missed-revenue-calculator" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
                     Try the ₹ calculator <ArrowRight className="h-4 w-4" />
@@ -342,7 +342,7 @@ export default function MissedOpportunityPage() {
                 </p>
                 <div className="relative mt-9 flex flex-wrap items-center justify-center gap-3">
                   <a href={APP_URLS.register} className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold transition-all hover:-translate-y-0.5" style={{ background: "#0877B8", color: "#FFFFFF", boxShadow: "0 8px 20px -10px rgba(15,23,42,0.35)" }}>
-                    Start free trial <ArrowRight className="h-4 w-4" />
+                    Start free <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link href="/tools/missed-revenue-calculator" className="inline-flex items-center gap-2 rounded-xl border bg-white px-6 py-3.5 text-[15px] font-semibold text-ink transition-colors hover:border-sky-300" style={{ borderColor: "var(--paper-line-2)" }}>
                     Try the ₹ calculator

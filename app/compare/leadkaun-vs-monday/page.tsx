@@ -72,7 +72,7 @@ export default function VsMonday() {
         { label: "monday CRM pricing", url: "https://monday.com/pricing/crm" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Standard", price: "~$17 / seat / mo", note: "USD, per seat (annual), 3-seat minimum + bucket pricing. As of 2026, verify current rate." },
       }}
       switching={[

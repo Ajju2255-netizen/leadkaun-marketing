@@ -19,6 +19,7 @@ import { getBest, getBestGuide } from "@/lib/pseo/lookup"
 import { REFERENCES } from "@/lib/pseo/shared-content"
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript, canonical, ogMeta } from "@/lib/seo"
 import { APP_URLS } from "@/lib/urls"
+import { HeroSignupCard } from "@/app/components/hero-signup"
 
 export const revalidate = 86400
 
@@ -150,6 +151,7 @@ export default async function BestGuidePage({ params }: Params) {
           h1={g.h1}
           lead={g.intro}
           secondary={{ label: "See pricing", href: "/pricing" }}
+          aside={<HeroSignupCard />}
         />
 
         <JumpNav items={nav} />

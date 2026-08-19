@@ -70,7 +70,7 @@ export default function VsPipedrive() {
         { label: "Pipedrive pricing", url: "https://www.pipedrive.com/en/pricing" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Advanced", price: "~$29 / user / mo", note: "USD, per user (annual), roughly ₹2,400+/user/mo plus FX; scales with team size. Pricing as of 2026, verify current rate." },
       }}
       switching={[

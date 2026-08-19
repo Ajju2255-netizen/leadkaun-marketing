@@ -95,7 +95,7 @@ export default function CompareHub() {
 
       <LedgerCTA
         headline="Or just try Leadkaun alongside your current CRM."
-        sub="14-day trial. Run both in parallel. Let ₹ recovered decide which one stays."
+        sub="Free forever tier. Run both in parallel. Let ₹ recovered decide which one stays."
       />
       <Footer />
     </main>

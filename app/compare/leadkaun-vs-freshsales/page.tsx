@@ -71,7 +71,7 @@ export default function VsFreshsales() {
         { label: "Freshsales pricing", url: "https://www.freshworks.com/crm/sales/pricing/" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "All 12 modules. 14-day trial. No credit card." },
+        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "All 12 modules. Free forever tier. No card." },
         competitor: { tier: "Pro",     price: "₹3,500 / rep / mo", note: "Freddy AI Pro + WhatsApp (Freshchat) extra" },
       }}
       switching={[

@@ -18,7 +18,7 @@ import { PricingPlans } from "./pricing-plans"
 
 const pricingTitle = "Lead Management Software Pricing in ₹, Start Free"
 const pricingDescription =
-  "Leadkaun pricing in Indian Rupees. Start free (100 active leads, 14 days), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999, flat per account, priced by team size and active-lead volume. Save 17% on annual billing."
+  "Leadkaun pricing in Indian Rupees. Start free (1 user, 100 active leads, free forever), then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999, flat per account, priced by team size and active-lead volume. Save 17% on annual billing."
 
 export const metadata: Metadata = {
   title: pricingTitle,
@@ -101,7 +101,7 @@ const ADDONS: { name: string; price: string; note?: string }[] = [
 ]
 
 const FAQ = [
-  { q: "Is there really a free plan?", a: "Yes. Free gives you 1 user and 100 active leads for 14 days, full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging, no credit card. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
+  { q: "Is there really a free plan?", a: "Yes, and it does not expire. Free gives you 1 user and 100 active leads with full AI scoring, the Priority Queue, pipeline, CSV import and WhatsApp logging. No credit card, no time limit. It's the fastest way to watch Leadkaun grade your own leads before you roll it out." },
   { q: "How is Leadkaun priced?", a: "Flat per account, not per seat, priced by team size and active-lead volume. Starter ₹2,999 (10 users, 5,000 active leads), Growth ₹7,999 (30 users, 25,000 active leads), Scale ₹19,999 (75 users, unlimited leads). The AI Learning Engine, Missed Opportunity Engine and rep tracking start on Growth." },
   { q: "What counts as an 'active lead', and what happens at the limit?", a: "An active lead is an open one you're still working. When you win, lose, or archive a deal it stops counting, so the limit tracks your live pipeline, not everything you've ever added. If you hit the cap, nothing locks: every existing lead stays fully usable, view, edit, call, close, export. Only adding new leads pauses until you close a few or upgrade. It rewards good CRM hygiene instead of punishing growth." },
   { q: "Is there an annual discount?", a: "Yes, annual billing is ~17% off (two months free): Starter ₹29,990/yr, Growth ₹79,990/yr, Scale ₹1,99,990/yr. Toggle 'Annual' above to see the effective monthly price." },

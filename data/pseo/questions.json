@@ -122,8 +122,8 @@
     "category": "scoring",
     "relatedSlugs": [
       "what-is-lead-scoring",
-      "what-is-grade-f",
-      "what-is-junk-lead"
+      "what-is-grade-a",
+      "why-does-my-lead-have-a-low-grade"
     ],
     "relatedFeatures": [
       "lead-scoring",
@@ -339,7 +339,6 @@
     "answerLong": "Most Indian B2B leads first-contact on WhatsApp, so Leadkaun treats WhatsApp as a primary channel, not an integration afterthought. The 3-tap logging is deliberate: Indian reps stay in flow. A high-intent WhatsApp reply can push a Grade C lead to Grade A in real time. For teams using the WhatsApp Business API with a BSP (Gupshup, AiSensy, Interakt), Leadkaun integrates for auto-logging on roadmap. For most SMBs on regular WhatsApp, 3-tap manual logging is sufficient.",
     "category": "product-features",
     "relatedSlugs": [
-      "what-is-whatsapp-intent",
       "how-to-track-whatsapp-sales"
     ],
     "relatedFeatures": [
@@ -361,8 +360,7 @@
     "answerLong": "WhatsApp tracking works at two levels. Level 1 (every SMB): 3-tap manual log per meaningful exchange captures the signal without slowing reps down. Level 2 (teams on WhatsApp Business API): integration with your BSP (Gupshup, AiSensy) auto-logs messages. Start with Level 1; Leadkaun's Intent Score responds to both. The logged stages feed reporting: 'Priya had 12 WhatsApp threads this week, 40% progressed to meeting booked'.",
     "category": "workflow",
     "relatedSlugs": [
-      "does-leadkaun-support-whatsapp",
-      "what-is-whatsapp-intent"
+      "does-leadkaun-support-whatsapp"
     ],
     "relatedFeatures": [
       "whatsapp-tracking"
@@ -447,7 +445,7 @@
   {
     "slug": "what-does-leadkaun-cost",
     "question": "How much does Leadkaun cost?",
-    "answerShort": "Flat per account, not per rep: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Adding reps doesn't raise the bill within a tier. No per-contact fees. 14-day free trial, no credit card.",
+    "answerShort": "Flat per account, not per rep: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Adding reps doesn't raise the bill within a tier. No per-contact fees. Free forever tier (1 user, 100 active leads), no credit card.",
     "answerLong": "Leadkaun pricing is flat per account in INR, no USD bills, no per-contact band shocks, and adding reps doesn't raise the bill within a tier. Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Higher tiers unlock more seats (10/30/75), higher active-lead caps, and premium features (the AI Learning Engine, Missed Opportunity Engine, rep tracking and advanced analytics start on Growth). Annual billing saves about 17%.",
     "category": "pricing",
     "relatedSlugs": [
@@ -592,6 +590,57 @@
         "Check the record first: is there a reachable number, a source and a stated requirement?",
         "If the record is complete, ask whether the lead matches who you sell to at all.",
         "If it does, check when they last did something, silence is the third and most common cause."
+      ]
+    }
+  },
+  {
+    "slug": "are-indiamart-leads-genuine",
+    "question": "Are IndiaMART leads genuine?",
+    "answerShort": "Most are real people making a real enquiry, but a large share are price-shoppers, competitors, traders and wrong-fit buyers rather than fraud. The practical question is not whether they are genuine but which ones are worth a call today, which you answer by grading behaviour rather than inspecting the enquiry.",
+    "answerLong": "The framing of \"genuine versus fake\" is what makes this expensive to answer. Very few IndiaMART enquiries are fabricated. What sellers actually encounter is a mix: genuine procurement enquiries, price-shoppers collecting quotes with no intention to switch supplier, traders reselling your quote, students and researchers, and buyers whose requirement is real but far outside what you supply. All of those are genuine in the literal sense and only the first is worth a follow-up sequence.\n\nThat is why inspecting the enquiry record rarely settles it. The form is short, and a procurement manager and a price-shopper fill it identically. What separates them is what happens next — whether they reply, how fast, whether they ask about specification and delivery or only about price, and whether they come back. Behaviour qualifies; the form does not.\n\nThe operational answer is to stop trying to sort the list by reading it. Grade every enquiry on Fit (does this match what we sell, at the size we sell it), Intent (are they responding, and how quickly) and Quality (is the record even usable — a real number, a real company). Work the resulting ranked list. The price-shoppers do not need to be identified in advance; they identify themselves by not engaging, and their score falls without anyone deciding anything.\n\nThe second-order benefit is commercial. Once enquiries carry grades, the grade distribution per source becomes a purchasing input. If a category consistently returns D and F grades, that is a decision about what you buy from IndiaMART, not a complaint about lead quality.",
+    "category": "lead-quality",
+    "relatedSlugs": [
+      "what-is-fit-score",
+      "what-is-quality-score",
+      "why-does-my-lead-have-a-low-grade"
+    ],
+    "relatedFeatures": [
+      "lead-scoring",
+      "intake-intelligence"
+    ],
+    "selfCheck": {
+      "lead": "Before blaming the source, find out what your own follow-up looks like.",
+      "checks": [
+        "Take last month's IndiaMART enquiries and count how many were contacted within one working day.",
+        "Of those contacted, count how many replied at all — that is your real engagement rate, separate from lead quality.",
+        "Of the enquiries you called 'junk', check how many were contacted more than once.",
+        "Compare the reply rate of enquiries contacted same-day against those contacted after two days."
+      ]
+    }
+  },
+  {
+    "slug": "why-justdial-leads-dont-convert",
+    "question": "Why don't JustDial leads convert?",
+    "answerShort": "Usually because the enquiry is shared with competing providers and decays within hours, so the provider who calls first wins it. Slow, unranked follow-up turns a workable source into a sunk cost, and the fix is response speed on the leads worth responding to.",
+    "answerLong": "JustDial enquiries fail for structural reasons more often than quality ones. The enquiry commonly reaches several providers in the same category, so you are competing on response time before you compete on anything else. A buyer who submitted an enquiry at 11am and spoke to two providers by noon has largely decided by the time a third calls the next morning.\n\nThe second reason is that the enquiry is thin. A category, a location, a phone number. There is nothing in it that distinguishes a buyer ready to transact from someone comparing options for later, so teams either treat every lead as urgent — which does not survive contact with a busy week — or treat none as urgent, which is what usually happens.\n\nThe third reason is invisible and the most costly: attempts go unlogged. A rep calls, gets no answer, moves on, and nothing records that it happened. The lead stays in the pipeline looking untouched, gets called again by someone else three days later, and the actual state of the relationship is unknown to everyone.\n\nWhat changes the outcome is ordering plus speed. Grade the enquiries on fit and behaviour, work the ranked list the same day, and log every attempt including the unanswered ones so a lead that has genuinely gone cold stops occupying attention. Then judge the channel on grade distribution and closed business rather than on enquiry volume, which is the number the source is optimised to produce.",
+    "category": "lead-quality",
+    "relatedSlugs": [
+      "are-indiamart-leads-genuine",
+      "what-is-priority-queue",
+      "what-is-lead-response-time-india"
+    ],
+    "relatedFeatures": [
+      "priority-queue",
+      "lead-scoring",
+      "missed-opportunity-engine"
+    ],
+    "selfCheck": {
+      "lead": "Measure the gap between enquiry and first contact before changing anything else.",
+      "checks": [
+        "For last month's JustDial enquiries, calculate the median time from enquiry to first call attempt.",
+        "Count how many were attempted more than twice before being abandoned.",
+        "Check how many unanswered attempts were recorded anywhere at all.",
+        "Compare conversion for enquiries contacted within two hours against the rest."
       ]
     }
   }

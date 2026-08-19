@@ -274,7 +274,7 @@ export default async function IntegrationPage({ params }: Params) {
         <LedgerCTA
           headline={entry.status === "live" ? `Connect ${entry.name} today.` : "CSV works today, regardless."}
           sub={entry.status === "live"
-            ? "Start a free trial and wire it up in minutes. Every lead that arrives comes back graded A–F with a ranked queue per rep."
+            ? "Start free and wire it up in minutes. Every lead that arrives comes back graded A–F with a ranked queue per rep."
             : `Until the ${entry.name} connector ships, a CSV export does the same job. Import it and every lead comes back graded A–F.`}
           secondary={{ label: "All integrations", href: "/integrations" }}
         />

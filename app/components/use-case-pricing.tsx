@@ -13,7 +13,7 @@ import { APP_URLS } from "@/lib/urls"
    unlayered `a { color: inherit }` in globals.css overrides text-white. */
 
 const PLANS: { name: string; price: string; unit: string; meta: string; note: string; popular?: boolean }[] = [
-  { name: "Free", price: "₹0", unit: "for 14 days", meta: "1 user · 100 active leads", note: "Watch it grade your own leads. No card." },
+  { name: "Free", price: "₹0", unit: "forever", meta: "1 user · 100 active leads", note: "Watch it grade your own leads. No card." },
   { name: "Starter", price: "₹2,999", unit: "/month", meta: "Up to 10 users · 5,000 leads", note: "The full working system, uncapped." },
   { name: "Growth", price: "₹7,999", unit: "/month", meta: "Up to 30 users · 25,000 leads", note: "Adds Missed Opportunity Engine, rep tracking and AI Learning.", popular: true },
   { name: "Scale", price: "₹19,999", unit: "/month", meta: "Up to 75 users · unlimited leads", note: "Everything, at full team size." },
@@ -71,7 +71,7 @@ export function UseCasePricing({
         </Reveal>
         <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
-            {["14-day free trial", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
+            {["Free forever tier", "No credit card", "Flat per account", "~17% off annual"].map((t) => (
               <span key={t} className="inline-flex items-center gap-2 text-[13px] font-medium text-ink-soft">
                 <span className="grid h-[18px] w-[18px] shrink-0 place-items-center rounded-full" style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)" }}><Check className="h-3 w-3 text-white" strokeWidth={3} /></span>
                 {t}

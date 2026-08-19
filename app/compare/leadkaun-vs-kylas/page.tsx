@@ -70,7 +70,7 @@ export default function VsKylas() {
         { label: "Kylas pricing", url: "https://kylas.io/pricing" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Elevate", price: "~₹12,999 / mo", note: "Flat, unlimited users. Figure from aggregators, verify on kylas.io. Cheaper per-seat at large headcount, but more than Leadkaun Growth for small teams. As of 2026." },
       }}
       switching={[

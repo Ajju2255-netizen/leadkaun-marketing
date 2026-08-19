@@ -9,7 +9,9 @@ import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { Faq } from "@/app/components/faq"
-import { LedgerCTA } from "@/app/components/ledger"
+import {
+  InlineCta, LedgerCTA,
+} from "@/app/components/ledger"
 import { MEASURE } from "@/app/components/reading"
 
 import { getHowTo } from "@/lib/pseo/lookup"
@@ -137,6 +139,7 @@ export default async function HowToPage({ params }: Params) {
                 </div>
               ))}
             </dl>
+            <InlineCta />
           </Container>
         </SectionGround>
 

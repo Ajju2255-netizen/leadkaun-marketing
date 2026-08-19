@@ -72,7 +72,7 @@ export default function VsBitrix24() {
         { label: "Bitrix24 pricing", url: "https://www.bitrix24.com/prices/" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",   price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Standard", price: "~$99 / mo", note: "USD, flat per org (up to ~50 users, annual), FX exposure; higher tiers for more users/automation. As of 2026, verify current rate." },
       }}
       switching={[

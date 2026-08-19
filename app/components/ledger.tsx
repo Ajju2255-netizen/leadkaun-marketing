@@ -123,18 +123,28 @@ export function SectionHead({ number, label, title, tone, sub }: {
  * the headline, the verdict in one sentence, actions, then whatever spec sheet
  * or register the page wants to open with.
  */
-export function LedgerMasthead({ meta, h1, lead, primaryLabel, secondary, children }: {
+export function LedgerMasthead({ meta, h1, lead, primaryLabel, secondary, aside, children }: {
   /** Short mono facts, rendered slash-separated. */
   meta: string[]
   h1: ReactNode
   lead: ReactNode
   primaryLabel?: string
   secondary?: { label: string; href: string }
+  /**
+   * Optional right-hand column, rendered beside the masthead on lg+ and
+   * stacked beneath it below that. Exists so a signup card can sit above the
+   * fold without interrupting the editorial column — these pages read as a
+   * published review, and pushing the guide itself below the fold to make
+   * room for a form would cost more than the form gains.
+   */
+  aside?: ReactNode
   children?: ReactNode
 }) {
   return (
     <SectionGround variant="cream" size="sm" ambient={false} className="pt-28 md:pt-32">
       <Container>
+        <div className={aside ? "grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)] lg:items-start lg:gap-16" : undefined}>
+        <div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           {meta.map((m, i) => (
             <span key={m} className="flex items-center gap-3">
@@ -154,7 +164,7 @@ export function LedgerMasthead({ meta, h1, lead, primaryLabel, secondary, childr
             className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-semibold"
             style={{ color: "#FFFFFF" }}
           >
-            {primaryLabel ?? "Start free trial"} <ArrowRight className="h-4 w-4" />
+            {primaryLabel ?? "Start free"} <ArrowRight className="h-4 w-4" />
           </a>
           {secondary && (
             <Link href={secondary.href} className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600">
@@ -162,10 +172,42 @@ export function LedgerMasthead({ meta, h1, lead, primaryLabel, secondary, childr
             </Link>
           )}
         </div>
+        </div>
+        {aside && <div className="lg:pt-2">{aside}</div>}
+        </div>
 
         {children}
       </Container>
     </SectionGround>
+  )
+}
+
+/* --- Inline CTA ------------------------------------------------------------
+   A compact above-the-fold call to action for the reading-register templates
+   (glossary, questions, how-to, alternatives, research, resources,
+   integrations). Those pages carried NO register link of their own — the only
+   route to signup was the LedgerCTA at the very bottom, past 1,000+ words, plus
+   the navbar. /glossary/junk-lead holds position ~6 and converted nothing, and a
+   reader who got their answer in the first paragraph never saw an offer.
+
+   Deliberately not the full HeroSignupCard: these are short definitional and
+   answer pages, and a three-field form at the top would overwhelm the content
+   and break the editorial register the design system establishes. One button
+   and the offer line. */
+export function InlineCta({ label, note }: { label?: string; note?: string }) {
+  return (
+    <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2.5">
+      <a
+        href={APP_URLS.register}
+        className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[14px] font-semibold"
+        style={{ color: "#FFFFFF" }}
+      >
+        {label ?? "Start free"} <ArrowRight className="h-4 w-4" />
+      </a>
+      <span className="ledger-num text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+        {note ?? "Free forever · 1 user · 100 leads · No card"}
+      </span>
+    </div>
   )
 }
 
@@ -311,7 +353,7 @@ export function LedgerCTA({ headline, sub, note, primaryLabel, secondary }: {
                 className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold"
                 style={{ color: "#FFFFFF" }}
               >
-                {primaryLabel ?? "Start free trial"} <ArrowRight className="h-4 w-4" />
+                {primaryLabel ?? "Start free"} <ArrowRight className="h-4 w-4" />
               </a>
               <Link
                 href={secondary?.href ?? "/pricing"}
@@ -323,7 +365,7 @@ export function LedgerCTA({ headline, sub, note, primaryLabel, secondary }: {
           </div>
         </Reveal>
         <p className={`ledger-num mt-6 text-[10px] uppercase tracking-[0.16em] text-ink-muted ${SPINE_INDENT}`}>
-          {note ?? "14-day trial · No credit card · Same-day setup"}
+          {note ?? "Free forever · 1 user · 100 leads · No card"}
         </p>
       </Container>
     </SectionGround>

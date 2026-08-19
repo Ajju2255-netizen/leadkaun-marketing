@@ -15,6 +15,8 @@ import { rootSchemas, jsonLdScript } from "@/lib/seo"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import ScrollToTop from "@/app/components/scroll-to-top"
 import { MetaPixelRouteChange } from "@/app/components/meta-pixel"
+import { CtaTracker } from "@/app/components/cta-tracker"
+import { Attribution } from "@/app/components/attribution"
 
 /** Meta Pixel, Leadkaun ad account. Referenced by the inline snippet and the
  *  noscript fallback below, so the id is written once. */
@@ -88,7 +90,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-YB7279SHGQ');`,
+gtag('config', 'G-YB7279SHGQ', {
+  linker: { domains: ['leadkaun.com', 'app.leadkaun.com'], accept_incoming: true }
+});`,
           }}
         />
         {/* End Google tag (gtag.js) */}
@@ -143,6 +147,10 @@ fbq('track', 'PageView');`,
             snippet above only ever counts the first view. This refires on route
             change so a visitor moving between pages is counted for each. */}
         <MetaPixelRouteChange />
+        {/* One delegated listener instruments every CTA on the site, rather
+            than an onClick on each of ~72 links across 40 files. */}
+        <CtaTracker />
+        <Attribution />
         <TooltipProvider>
           {children}
         </TooltipProvider>

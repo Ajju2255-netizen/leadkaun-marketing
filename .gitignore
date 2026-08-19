@@ -68,3 +68,9 @@ FLAGSHIP-2.2-BUILD-SPEC.md
 
 # Phase 2.2 evidence ledger (competitor sourcing — vault only)
 FLAGSHIP-EVIDENCE-LEDGER.md
+
+# Generated from the GSC export: 377 geo URLs with their impression counts.
+# Same class as /data/gsc/ and index-decisions.json — it is traffic data and
+# deindex strategy, and this repo is public. Regenerate locally with
+# `npm run demand:build`; lib/pseo/gate.js fails OPEN when it is absent.
+/data/pseo/demand-allowlist.json

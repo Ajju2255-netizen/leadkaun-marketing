@@ -9,7 +9,9 @@ import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { SelfCheckBlock, type SelfCheck } from "@/app/components/pseo/self-check"
-import { LedgerCTA } from "@/app/components/ledger"
+import {
+  InlineCta, LedgerCTA,
+} from "@/app/components/ledger"
 import { MEASURE } from "@/app/components/reading"
 
 import { getQuestions } from "@/lib/pseo/lookup"
@@ -91,6 +93,7 @@ export default async function QuestionPage({ params }: Params) {
               <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-sky-700">Short answer</p>
               <p className="mt-4 text-[19px] leading-[1.55] text-ink md:text-[22px]">{q.answerShort}</p>
             </div>
+            <InlineCta />
           </Container>
         </SectionGround>
 

@@ -10,6 +10,7 @@ import { Faq } from "@/app/components/faq"
 import { AppReplica } from "@/app/components/app-replica"
 import { Voices } from "@/app/components/voices"
 import { APP_URLS } from "@/lib/urls"
+import { HeroSignupCard } from "@/app/components/hero-signup"
 import { faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
@@ -156,6 +157,7 @@ export default function HomePage() {
       <Modules />
       <Alongside />
       <Industries />
+      <BuyerGuides />
       <InTheirWords />
       <Pricing />
       <FaqBlock />
@@ -194,7 +196,8 @@ function Hero() {
       </div>
 
       <Container className="relative pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="relative z-10 max-w-2xl lg:max-w-[500px] xl:max-w-[560px]">
+        <div className="relative z-10 grid items-center gap-y-4 lg:grid-cols-[minmax(0,540px)_minmax(0,400px)] lg:gap-x-14 xl:gap-x-20">
+        <div className="max-w-2xl lg:max-w-none">
 
           <div className="rise" style={{ animationDelay: "40ms" }}>
             <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">
@@ -232,7 +235,7 @@ function Hero() {
             </div>
 
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2.5">
-              {["Live the same day", "Free tier, no card", "Runs alongside your CRM"].map((t) => (
+              {["Live the same day", "Free forever, no card", "Runs alongside your CRM"].map((t) => (
                 <li key={t} className="flex items-center gap-2 text-[14px] text-ink-soft">
                   <Check className="h-3.5 w-3.5 text-sky-500" strokeWidth={3} />
                   {t}
@@ -248,6 +251,15 @@ function Hero() {
             <div aria-hidden className="absolute inset-x-0 bottom-0 h-20" style={{ background: "linear-gradient(to top, var(--paper) 0%, rgba(252,250,246,0) 100%)" }} />
             <div aria-hidden className="absolute inset-0 opacity-[0.12] mix-blend-soft-light" style={{ background: "linear-gradient(115deg, #0EA5E9 0%, transparent 55%, #FB923C 100%)" }} />
           </div>
+        </div>
+
+        {/* Inline signup. The card is glass-3, built to sit over the hero
+            portrait behind it. Captures the email as a lead, then hands off to
+            the app's register page pre-filled — the marketing site never
+            handles passwords. */}
+        <div className="rise mt-10 lg:mt-0" style={{ animationDelay: "220ms" }}>
+          <HeroSignupCard />
+        </div>
         </div>
       </Container>
     </section>
@@ -517,6 +529,60 @@ function Industries() {
               {s.n}
             </Link>
           ))}
+        </Reveal>
+      </Container>
+    </section>
+  )
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BUYER GUIDES. The /best/* family earns 29% of all site impressions and sits
+   at position ~74 — an authority problem, not an existence one. It had no link
+   from the homepage at all, and only a link to the /best index from the navbar
+   and footer, leaving every individual guide two clicks from the site's most
+   authoritative page. This is the cheapest internal authority available.
+   ───────────────────────────────────────────────────────────────────────── */
+const BUYER_GUIDES = [
+  { n: "Best lead management software in India", h: "/best/lead-management-software-india" },
+  { n: "Best CRM for real estate",               h: "/best/crm-for-real-estate-india" },
+  { n: "Best WhatsApp CRM",                      h: "/best/whatsapp-crm-india" },
+  { n: "Best lead qualification software",       h: "/best/lead-qualification-software" },
+  { n: "Best CRM for startups",                  h: "/best/crm-for-startups-india" },
+  { n: "Best telecalling CRM",                   h: "/best/telecalling-crm-india" },
+]
+
+function BuyerGuides() {
+  return (
+    <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
+      <Container className="relative py-20 md:py-24">
+        <Reveal className="mb-9 max-w-2xl">
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">07 · Before you decide</p>
+          <h2 className="display-md mt-5 text-[28px] text-ink md:text-[36px]">
+            We ranked the alternatives, including ourselves.
+          </h2>
+          <p className="mt-5 text-[16px] leading-[1.7] text-ink-soft md:text-[17px]">
+            Criteria-based buyer guides with published method and an explicit conflict-of-interest
+            note. We build Leadkaun, so we put it first and say exactly where each alternative is
+            the better call.
+          </p>
+        </Reveal>
+        <Reveal delay={0.08} className="grid gap-x-10 gap-y-0 sm:grid-cols-2">
+          {BUYER_GUIDES.map((g) => (
+            <Link
+              key={g.h}
+              href={g.h}
+              className="group flex items-baseline justify-between gap-4 border-b py-4 text-[15px] text-ink transition-colors hover:text-sky-600 md:text-[16px]"
+              style={{ borderColor: "var(--paper-line)" }}
+            >
+              <span>{g.n}</span>
+              <ArrowRight className="h-4 w-4 shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-sky-600" />
+            </Link>
+          ))}
+        </Reveal>
+        <Reveal delay={0.12} className="mt-8">
+          <Link href="/best" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-sky-700 hover:text-sky-600">
+            All buyer guides <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </Reveal>
       </Container>
     </section>

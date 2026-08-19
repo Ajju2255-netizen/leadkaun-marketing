@@ -72,7 +72,7 @@ export default function VsBigin() {
         { label: "Zoho Bigin pricing", url: "https://www.bigin.com/pricing.html" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Starter/Growth", price: "₹2,999–₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Starter/Growth", price: "₹2,999–₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Express",        price: "from ~₹400 / user / mo", note: "Per user (annual, India). Sources conflict on the India rate, verify current pricing. Grows with headcount." },
       }}
       switching={[

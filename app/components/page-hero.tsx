@@ -21,7 +21,7 @@ type Props = {
   h1: ReactNode
   /** Sub-headline paragraph */
   sub?: ReactNode
-  /** Primary action — defaults to "Start free trial" → APP_URLS.register */
+  /** Primary action — defaults to "Start free" → APP_URLS.register */
   primary?: Action
   /** Secondary action */
   secondary?: Action
@@ -48,7 +48,7 @@ export function PageHero({
   eyebrow,
   h1,
   sub,
-  primary = { kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true },
+  primary = { kind: "primary", label: "Start free", href: APP_URLS.register, external: true },
   secondary,
   meta,
 }: Props) {

@@ -70,7 +70,7 @@ export default function VsTeleCRM() {
         { label: "TeleCRM pricing", url: "https://telecrm.in/pricing" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Annual",  price: "₹799 / user / mo", note: "Per user (annual) + add-ons: Chat Sync ₹200/user/mo, WhatsApp API ₹1,999 setup + Meta charges. Scales with headcount. As of 2026." },
       }}
       switching={[

@@ -9,6 +9,7 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { MissedRevenueCalculator } from "@/app/components/calculator/missed-revenue-calculator"
+import { CalcCapture } from "@/app/components/calculator/calc-capture"
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function MissedRevenueCalculatorPage() {
           <Container>
             <Reveal>
               <MissedRevenueCalculator />
+              <CalcCapture source="calc-missed-revenue" />
             </Reveal>
           </Container>
         </SectionGround>
@@ -82,7 +84,7 @@ export default function MissedRevenueCalculatorPage() {
           </Container>
         </SectionGround>
 
-        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
         <Footer />
       </main>
     </>

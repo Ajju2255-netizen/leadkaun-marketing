@@ -10,8 +10,7 @@ import { SectionGround } from "@/app/components/section-ground"
 import { Faq } from "@/app/components/faq"
 import { QuickAnswer } from "@/app/components/quick-answer"
 import {
-  JumpNav, LedgerBlock, LedgerCTA, LedgerMasthead, MethodBlock,
-  No, RankedEntry, SectionHead,
+  InlineCta, JumpNav, LedgerBlock, LedgerCTA, LedgerMasthead, MethodBlock, No, RankedEntry, SectionHead,
 } from "@/app/components/ledger"
 import { getAlternatives, getAlternative } from "@/lib/pseo/lookup"
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript, canonical } from "@/lib/seo"
@@ -122,6 +121,7 @@ export default async function AlternativesPage({ params }: Params) {
                 .
               </p>
             </LedgerBlock>
+            <InlineCta />
           </Container>
         </SectionGround>
 

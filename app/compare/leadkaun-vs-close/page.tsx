@@ -70,7 +70,7 @@ export default function VsClose() {
         { label: "Close pricing", url: "https://www.close.com/pricing" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, 14-day free trial" },
+        leadkaun:   { tier: "Growth",  price: "₹7,999 / mo", note: "Flat per account, all 12 modules, free forever tier" },
         competitor: { tier: "Growth",  price: "~$99 / user / mo", note: "USD, per user (annual) + usage-based call/SMS (~$0.02/min + number fees). As of 2026, verify." },
       }}
       switching={[

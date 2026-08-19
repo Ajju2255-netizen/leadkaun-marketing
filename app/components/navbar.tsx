@@ -64,7 +64,10 @@ const NAV: NavEntry[] = [
       { label: "vs Salesforce", href: "/compare/leadkaun-vs-salesforce" },
       { label: "vs Freshsales", href: "/compare/leadkaun-vs-freshsales" },
       { label: "Alternatives", href: "/alternatives" },
-      { label: "Best software", href: "/best" },
+      { label: "All buyer guides", href: "/best" },
+      { label: "Best lead management software", href: "/best/lead-management-software-india", hint: "Buyer's guide" },
+      { label: "Best CRM for real estate", href: "/best/crm-for-real-estate-india", hint: "Buyer's guide" },
+      { label: "Best WhatsApp CRM", href: "/best/whatsapp-crm-india", hint: "Buyer's guide" },
     ],
   },
   {
@@ -291,7 +294,7 @@ export default function Navbar() {
             Log in
           </Link>
           <GlossLink variant="primary" size="sm" href={APP_URLS.register}>
-            Start free trial
+            Start free
           </GlossLink>
         </div>
 
@@ -387,7 +390,7 @@ export default function Navbar() {
                 onClick={() => { setMobileOpen(false); setMobileSection(null) }}
                 className="w-full"
               >
-                Start free trial
+                Start free
               </GlossLink>
             </div>
           </div>

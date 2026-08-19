@@ -9,11 +9,13 @@ import Footer from "@/app/components/footer"
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
 import { SelfCheckBlock, type SelfCheck } from "@/app/components/pseo/self-check"
-import { LedgerCTA } from "@/app/components/ledger"
+import {
+  InlineCta, LedgerCTA,
+} from "@/app/components/ledger"
 import { MEASURE } from "@/app/components/reading"
 
 import { getGlossary } from "@/lib/pseo/lookup"
-import { breadcrumbListSchema, definedTermSchema, jsonLdScript } from "@/lib/seo"
+import { breadcrumbListSchema, definedTermSchema, jsonLdScript, ogMeta } from "@/lib/seo"
 
 export const revalidate = 604800
 
@@ -21,6 +23,7 @@ export const revalidate = 604800
    category, the definition in display type, then numbered senses. */
 
 type GlossaryEntry = {
+  indexable?: boolean
   slug: string; term: string; definitionShort: string; definitionLong: string
   examples?: string[]; relatedTerms?: string[]; relatedFeature?: string | null; category?: string
   /** Pillar + buyer-guide bridge, so a term is never a dead end in the graph. */
@@ -41,10 +44,23 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const list = (await getGlossary()) as GlossaryEntry[]
   const entry = list.find((g) => g.slug === term)
   if (!entry) return {}
+  // No "| Leadkaun" here: app/layout.tsx sets `title.template: "%s | Leadkaun"`,
+  // so spelling it out produced "… | Leadkaun | Leadkaun" on all 37 glossary
+  // pages and pushed the title past Google's ~60-char truncation. Phase 0 fixed
+  // this for the pSEO titles; glossary was missed.
+  const path = `/glossary/${entry.slug}`
+  const title = `${entry.term}, Meaning in Indian B2B Sales`
+  const description = entry.definitionShort.slice(0, 155)
   return {
-    title: `${entry.term}, Definition & Use in Indian B2B Sales | Leadkaun`,
-    description: entry.definitionShort.slice(0, 155),
-    alternates: { canonical: `/glossary/${entry.slug}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    ...ogMeta({ title, description, path }),
+    // Without this the route inherited the layout's `index: true` no matter what
+    // the data said, so an `indexable: false` entry would drop out of the sitemap
+    // while the page kept advertising itself as indexable — precisely the drift
+    // lib/pseo/gate.js exists to prevent.
+    robots: { index: entry.indexable !== false, follow: true },
   }
 }
 
@@ -99,6 +115,7 @@ export default async function GlossaryTermPage({ params }: Params) {
               <p className={`mt-6 text-[19px] leading-[1.6] text-ink md:text-[22px] ${MEASURE}`}>
                 {entry.definitionShort}
               </p>
+              <InlineCta />
             </div>
           </Container>
         </SectionGround>

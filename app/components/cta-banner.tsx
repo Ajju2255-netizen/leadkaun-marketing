@@ -18,8 +18,8 @@ type Props = {
 export default function CTABanner({
   tag,
   headline = "Your reps open their queue tomorrow.",
-  sub = "Setup the same day. 14-day free trial. No credit card required.",
-  primaryLabel = "Start free trial",
+  sub = "Setup the same day. Free forever on 1 user and 100 active leads. No card.",
+  primaryLabel = "Start free",
   secondaryLabel = "Create free account",
   secondaryHref = APP_URLS.register,
 }: Props) {

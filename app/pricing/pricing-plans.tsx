@@ -26,7 +26,7 @@ const TIERS: Tier[] = [
     name: "Free",
     monthly: null,
     annual: null,
-    freeUnit: "for 14 days",
+    freeUnit: "forever",
     description: "The fastest way to see Leadkaun grade your own leads. No card.",
     idealFor: "trying Leadkaun before you roll it out.",
     features: [

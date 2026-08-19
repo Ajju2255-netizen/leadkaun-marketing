@@ -1515,5 +1515,249 @@
     "relatedBlog": [
       "how-to-import-leads-from-csv"
     ]
+  },
+  {
+    "slug": "how-to-manage-tradeindia-leads",
+    "title": "How to Manage TradeIndia Leads Without Losing the Real Buyers",
+    "tldr": "TradeIndia enquiries arrive with thin qualification and a high share of price-shoppers. Export them to CSV, import into Leadkaun, and every enquiry is graded A–F on Fit, Intent and Quality so reps call the serious buyers first instead of working the list top-down.",
+    "why": "TradeIndia is a primary enquiry source for Indian exporters, industrial suppliers and machinery dealers. The enquiry form is short by design — it exists to generate volume — so what lands is a name, a number, a product interest and little else. Two enquiries that look identical on the dashboard can be a genuine procurement manager and a competitor checking prices, and there is nothing in the raw record to tell them apart. Working them in arrival order means the serious buyer waits behind five who were never going to buy.",
+    "prerequisites": [
+      "A TradeIndia seller account with enquiry export",
+      "Your ICP configured (industry, geography, order size) so Fit scoring means something",
+      "A Leadkaun account — the Free tier is enough to test this on 100 leads"
+    ],
+    "steps": [
+      {
+        "heading": "Export your enquiries",
+        "body": "From the TradeIndia seller dashboard, export enquiries to CSV — weekly, or straight after a burst following a catalogue update."
+      },
+      {
+        "heading": "Check the file before it becomes your pipeline",
+        "body": "Run the import through Intake Intelligence first. It profiles the file — duplicate numbers, malformed phone shapes, missing product fields, likely B2B versus B2C — so you find out the list is 30% duplicates before your reps do."
+      },
+      {
+        "heading": "Import and let every enquiry get graded",
+        "body": "Each enquiry is scored 0–10 on Fit, Intent and Quality independently and carries an A–F grade. Product match and order size drive Fit; replies and response speed drive Intent."
+      },
+      {
+        "heading": "Work the Priority Queue, not the export",
+        "body": "Each rep opens one ranked list. The ordering decision is already made, which matters most on exactly the days when 60 enquiries arrive at once."
+      },
+      {
+        "heading": "Log the WhatsApp reply in three taps",
+        "body": "Most TradeIndia follow-up moves to WhatsApp immediately. Open the chat from the lead, have the conversation in your own WhatsApp, then record the outcome — that log rescores the enquiry and schedules the next action."
+      }
+    ],
+    "commonMistakes": [
+      "Calling in arrival order — grade first, then chase the fits",
+      "Importing before your ICP is configured, which makes Fit scoring meaningless",
+      "Treating a repeat enquiry from the same number as a new lead instead of a stronger signal",
+      "Expecting a live TradeIndia sync — today this is a CSV export and import"
+    ],
+    "faqs": [
+      {
+        "q": "Does Leadkaun connect to TradeIndia automatically?",
+        "a": "No. Today you export TradeIndia enquiries to CSV and import them, or keep them in a Google Sheet that Leadkaun reads. A direct API is not shipped."
+      },
+      {
+        "q": "How do I tell a price-shopper from a real buyer?",
+        "a": "You mostly cannot from the enquiry record alone — which is the point of scoring behaviour rather than the form. Intent rises when someone replies, replies quickly, and asks about specification or delivery; it decays when they go quiet after the first quote."
+      },
+      {
+        "q": "Can I keep using my existing CRM?",
+        "a": "Yes. Leadkaun runs alongside it. Your CRM stays the system of record; Leadkaun decides what each rep does next."
+      }
+    ],
+    "category": "data-import",
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "intake-intelligence"
+    ],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-sulekha-leads",
+    "title": "How to Manage Sulekha Leads When You Are Paying Per Lead",
+    "tldr": "Sulekha sells the same enquiry to several providers, so speed decides who wins it. Import your Sulekha leads into Leadkaun, let them grade A–F automatically, and work the ranked queue — the goal is to be first to the ones worth being first to.",
+    "why": "Sulekha operates on a shared-lead model: an enquiry is typically distributed to multiple providers in the category. That changes the economics entirely. You are not competing on proposal quality first, you are competing on response time, and you are paying for leads whether or not you reach them. A provider who calls a Sulekha enquiry the next morning is usually calling someone who has already spoken to two competitors. Prioritisation is not an efficiency nicety here; it is the difference between the lead cost being an investment and a write-off.",
+    "prerequisites": [
+      "A Sulekha business account with lead export or a Google Sheet of your enquiries",
+      "Your ICP configured so Fit scoring reflects the jobs you actually want",
+      "A Leadkaun account — Free covers 100 active leads"
+    ],
+    "steps": [
+      {
+        "heading": "Get the enquiries out daily, not weekly",
+        "body": "Because the leads are shared, a weekly export is already too late. Export daily to CSV, or keep a Google Sheet that Leadkaun reads."
+      },
+      {
+        "heading": "Import and grade",
+        "body": "Every enquiry is scored on Fit, Intent and Quality and graded A–F. Service type, location and stated urgency drive Fit."
+      },
+      {
+        "heading": "Call the A and B grades first, the same day",
+        "body": "The Priority Queue puts them at the top. On a shared-lead source, the ranking is worth more than on any other channel, because being second to a good lead usually means losing it."
+      },
+      {
+        "heading": "Log every attempt",
+        "body": "Record the call or WhatsApp outcome in three taps. Unanswered attempts matter here — three no-answers on a shared lead usually means a competitor got there, and the score should reflect that rather than keeping the lead warm on paper."
+      },
+      {
+        "heading": "Review what the source is actually returning",
+        "body": "Because you are paying per lead, the grade distribution by source is a real commercial number. If Sulekha enquiries in one category grade consistently D and F, that is a purchasing decision, not a sales one."
+      }
+    ],
+    "commonMistakes": [
+      "Exporting weekly on a source where the lead is shared the moment it arrives",
+      "Treating every paid lead as equally worth a call, which is how the cost per acquisition quietly doubles",
+      "Not tracking grade distribution by source, so a poorly performing category keeps getting bought",
+      "Leaving unanswered attempts unlogged, which keeps dead leads looking alive"
+    ],
+    "faqs": [
+      {
+        "q": "Does Leadkaun integrate with Sulekha?",
+        "a": "No. You export enquiries to CSV or keep them in a Google Sheet that Leadkaun reads. There is no direct Sulekha API integration."
+      },
+      {
+        "q": "Why does response time matter more on Sulekha than other sources?",
+        "a": "Because the enquiry is typically sold to several providers at once. On an exclusive source you are competing against the buyer's attention; on a shared one you are competing against other vendors who received the identical lead."
+      },
+      {
+        "q": "Can I see which lead sources are worth the money?",
+        "a": "Yes. Leads carry their source, so you can compare grade distribution and outcomes by source rather than judging a channel on volume alone."
+      }
+    ],
+    "category": "data-import",
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
+    "relatedBlog": null,
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-99acres-leads",
+    "title": "How to Manage 99acres Leads So Site Visits Actually Get Booked",
+    "tldr": "99acres enquiries arrive in bursts and decay within hours. Import them into Leadkaun, let every enquiry grade A–F, and give each broker one ranked list so the buyers most likely to visit get called while they are still shortlisting.",
+    "why": "A residential buyer on 99acres is usually enquiring on several listings in the same session, often across MagicBricks and Housing too. Your enquiry is one of five that person sent this evening. The window in which a call converts into a site visit is short, and it closes while the enquiry sits in a spreadsheet waiting for someone to work down the list. The other structural problem is identity: the same buyer arrives more than once — a personal number here, a spouse's number there — and without deduplication one serious buyer looks like three lukewarm ones and gets the attention of none.",
+    "prerequisites": [
+      "99acres enquiry export, or a Google Sheet your team already maintains",
+      "Your ICP configured for the projects and budget bands you actually sell",
+      "A Leadkaun account — Free covers 100 active leads"
+    ],
+    "steps": [
+      {
+        "heading": "Pull enquiries the same day",
+        "body": "Export to CSV from your 99acres dashboard, or keep a shared Google Sheet that Leadkaun reads. On a decaying source, yesterday's export is a different product from today's."
+      },
+      {
+        "heading": "Deduplicate before you distribute",
+        "body": "Intake Intelligence flags duplicate and malformed numbers on import. Merging the same buyer's repeat enquiries turns three weak records into one strong signal — a buyer who enquired three times is your best lead of the day, not your most confusing."
+      },
+      {
+        "heading": "Let the enquiries grade themselves",
+        "body": "Each gets Fit, Intent and Quality scores and an A–F grade. Budget band and configuration match drive Fit; reply speed and repeat enquiry drive Intent."
+      },
+      {
+        "heading": "Give each broker one ranked list",
+        "body": "The Priority Queue replaces the shared sheet everyone filters differently. The next call is decided before the broker opens the screen."
+      },
+      {
+        "heading": "Surface the ones going cold before the weekend",
+        "body": "The Missed Opportunity Engine flags enquiries that were warm and have gone quiet and puts the rupee value next to them, which is what gets a follow-up prioritised against a fresh burst of new enquiries."
+      }
+    ],
+    "commonMistakes": [
+      "Distributing the raw export to brokers and letting each decide who to call",
+      "Counting a repeat enquiry from the same buyer as a separate lead",
+      "Chasing new enquiries all week and never returning to last week's warm ones",
+      "Judging the channel on enquiry volume rather than site visits booked"
+    ],
+    "faqs": [
+      {
+        "q": "Does Leadkaun sync with 99acres, MagicBricks or Housing?",
+        "a": "No direct integration ships today. You export enquiries to CSV or keep them in a Google Sheet that Leadkaun reads."
+      },
+      {
+        "q": "What actually predicts a site visit?",
+        "a": "Behaviour more than form data: how quickly the buyer replies, whether they enquired more than once, and whether they engage on WhatsApp. That is what the Intent dimension scores."
+      },
+      {
+        "q": "We already use a real estate CRM. Does this replace it?",
+        "a": "No. Leadkaun runs alongside it — your CRM keeps the inventory and the record, Leadkaun decides which enquiry each broker calls next."
+      }
+    ],
+    "category": "data-import",
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
+    "relatedBlog": "why-real-estate-teams-lose-portal-enquiries",
+    "timeRequired": "PT15M"
+  },
+  {
+    "slug": "how-to-manage-google-lead-form-leads",
+    "title": "How to Manage Google Lead Form Extension Leads",
+    "tldr": "Google's lead form extensions produce high volume and thin qualification, and the leads expire from Google's servers. Get them out on a schedule, import into Leadkaun, and let A–F grading separate the buyers from the form-fills before a rep spends a call on each.",
+    "why": "A lead form extension removes every point of friction between an ad impression and a submitted form, which is exactly why it produces volume and exactly why that volume qualifies poorly. Someone who taps a form under a search result has spent two seconds on the decision. There is also a hard operational constraint most teams discover late: Google does not retain these leads indefinitely, so a team without a scheduled export loses records outright. Once they are out, the problem is the familiar one — a long list with no ordering and no way to tell a serious enquiry from a reflex tap.",
+    "prerequisites": [
+      "A Google Ads account with lead form extensions running",
+      "A webhook or scheduled CSV download so leads leave Google before they expire",
+      "A Leadkaun account — Free covers 100 active leads"
+    ],
+    "steps": [
+      {
+        "heading": "Get the leads off Google on a schedule",
+        "body": "Download the CSV from Google Ads or send the leads to a Google Sheet via webhook. Do this on a schedule rather than ad hoc — leads are not retained indefinitely, and an unexported lead is simply gone."
+      },
+      {
+        "heading": "Profile the file before import",
+        "body": "Lead form extensions are a favourite of bot and accidental submissions. Intake Intelligence flags malformed numbers, duplicates and missing fields so the junk is visible before it reaches a rep."
+      },
+      {
+        "heading": "Import and grade",
+        "body": "Every lead is scored on Fit, Intent and Quality. With thin form data, Quality carries real weight — a submission with a malformed number and no company scores accordingly."
+      },
+      {
+        "heading": "Call fast, because the intent is shallow",
+        "body": "The Priority Queue ranks them so the plausible buyers get called while they still remember submitting the form. Intent from an ad form decays faster than from a considered enquiry."
+      },
+      {
+        "heading": "Feed the grades back into targeting",
+        "body": "Grade distribution by campaign is the number that should drive spend. A campaign producing volume that grades D and F is not a cheap campaign."
+      }
+    ],
+    "commonMistakes": [
+      "Relying on manual downloads and losing leads to expiry",
+      "Judging campaigns on cost per lead rather than cost per lead that grades A or B",
+      "Sending raw form-fills straight to reps with no ordering or quality check",
+      "Assuming a completed form indicates intent — the friction it removed was the qualification"
+    ],
+    "faqs": [
+      {
+        "q": "Does Leadkaun connect to Google Ads directly?",
+        "a": "No. You export leads to CSV or route them into a Google Sheet that Leadkaun reads. There is no Google Ads API integration today."
+      },
+      {
+        "q": "Why do lead form extension leads convert worse than site enquiries?",
+        "a": "Because the form removed the friction that used to do the qualifying. Someone who navigated your site and filled a contact form has demonstrated more than someone who tapped a prefilled form under an ad."
+      },
+      {
+        "q": "How do I stop wasting rep time on them?",
+        "a": "Grade before you distribute. The volume is not the problem; the volume arriving unranked is."
+      }
+    ],
+    "category": "data-import",
+    "relatedFeatures": [
+      "intake-intelligence",
+      "lead-scoring",
+      "priority-queue"
+    ],
+    "relatedBlog": null,
+    "timeRequired": "PT20M"
   }
 ]

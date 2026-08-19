@@ -101,7 +101,7 @@ export default async function RoleCityPage({ params }: Params) {
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
-                Start free trial
+                Start free
                 <span className="font-mono opacity-80">→</span>
               </GlossLink>
               <Link href={APP_URLS.register} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
@@ -224,7 +224,7 @@ export default async function RoleCityPage({ params }: Params) {
 
         
 
-        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
         <Footer />
       </main>
     </>

@@ -72,7 +72,7 @@ export default function VsSellDo() {
         { label: "Sell.Do pricing", url: "https://www.sell.do/pricing" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth", price: "₹7,999 / mo", note: "Flat per account, transparent, 14-day free trial" },
+        leadkaun:   { tier: "Growth", price: "₹7,999 / mo", note: "Flat per account, transparent, free forever tier" },
         competitor: { tier: "Custom", price: "Quote-based", note: "No public pricing, request a demo/quote. As of 2026, verify." },
       }}
       switching={[

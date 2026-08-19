@@ -106,7 +106,7 @@ export default async function PillarPage({ params }: Params) {
                 className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-semibold"
                 style={{ color: "#FFFFFF" }}
               >
-                Start free trial <ArrowRight className="h-4 w-4" />
+                Start free <ArrowRight className="h-4 w-4" />
               </a>
               <Link href="/product" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600">
                 See the product <ArrowRight className="h-3.5 w-3.5" />

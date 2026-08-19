@@ -117,6 +117,7 @@ const core = [
   { path: "/questions", priority: "0.6", changefreq: "weekly" },
   { path: "/how-to", priority: "0.6", changefreq: "weekly" },
   { path: "/tools/missed-revenue-calculator", priority: "0.7", changefreq: "monthly" },
+  { path: "/tools/junk-lead-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/tools/crm-cost-calculator", priority: "0.7", changefreq: "monthly" },
   { path: "/best", priority: "0.8", changefreq: "monthly" },
   // Derived from best.json — a hardcoded list here silently drops new guides.
@@ -155,14 +156,17 @@ const howto = howToData.map((h) => ({ path: `/how-to/${h.slug}`, priority: "0.6"
 // (city + industry×city) index for Tier ≤ 2, Tier 3 with local notes, or a
 // substantial city (≥ 1.5 lakh) with local notes.
 const { leafIndexable, hubIndexable, roleCityIndexable } = require("../lib/pseo/gate")
-const leafIndexableCity = (c) => leafIndexable(c.tier, !!c.districts)
-const hubIndexableCity = (c) => hubIndexable(c.tier, c.population, (c.notes && c.notes.trim().length >= 20))
+// Phase C: the gate is now per-CELL, not per-city — a Tier-4 city can be
+// indexable for the one industry that earned an impression and noindex for the
+// other ten. Every predicate therefore takes the full path.
+const hasNotes = (c) => !!(c.notes && c.notes.trim().length >= 20)
+const leafIndexableAt = (c, path) => leafIndexable(c.tier, !!c.districts, path)
+const hubIndexableAt = (c, path) => hubIndexable(c.tier, c.population, hasNotes(c), path)
 const roleCityIndexableCity = (c) => roleCityIndexable(c.tier, !!c.districts)
-const indexableCities = citiesData.filter(leafIndexableCity)
-const hubCities = citiesData.filter(hubIndexableCity)
+const cityHubCities = citiesData.filter((c) => hubIndexableAt(c, `/city/${c.slug}`))
 
 const pseoCity = [
-  ...hubCities.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
+  ...cityHubCities.map((c) => ({ path: `/city/${c.slug}`, priority: "0.6", changefreq: "monthly" })),
   // Role × city consolidated (Phase 1): noindex → excluded from the sitemap.
   ...rolesData.flatMap((r) =>
     citiesData.filter(roleCityIndexableCity).map((c) => ({ path: `/for/${r.slug}/${c.slug}`, priority: "0.5", changefreq: "monthly" }))
@@ -180,17 +184,17 @@ function bucketByFirstLetter(cityObj) {
 const pseoDeepByBucket = { 1: [], 2: [], 3: [] }
 for (const city of citiesData) {
   const bucket = bucketByFirstLetter(city)
-  const cityIndexable = leafIndexableCity(city)
-  const cityHubIndexable = hubIndexableCity(city)
   for (const ind of industriesData) {
     // Industry×city hubs index for Tier ≤ 2, or Tier 3+ with real local data;
     // keyword leaves for Tier ≤ 2, or cities with rich verified district data.
-    if (cityHubIndexable) {
-      pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}`, priority: "0.6", changefreq: "monthly" })
+    const hubPath = `/${ind.slug}/${city.slug}`
+    if (hubIndexableAt(city, hubPath)) {
+      pseoDeepByBucket[bucket].push({ path: hubPath, priority: "0.6", changefreq: "monthly" })
     }
-    if (cityIndexable) {
-      for (const kw of keywordsData) {
-        pseoDeepByBucket[bucket].push({ path: `/${ind.slug}/${city.slug}/${kw.slug}`, priority: "0.5", changefreq: "monthly" })
+    for (const kw of keywordsData) {
+      const leafPath = `/${ind.slug}/${city.slug}/${kw.slug}`
+      if (leafIndexableAt(city, leafPath)) {
+        pseoDeepByBucket[bucket].push({ path: leafPath, priority: "0.5", changefreq: "monthly" })
       }
     }
   }
@@ -293,14 +297,19 @@ const nCity = citiesData.length
 const nInd = industriesData.length
 const nKw = keywordsData.length
 const nRole = rolesData.length
-const hubTotal = nCity * nInd, hubLive = hubCities.length * nInd
-const leafTotal = nCity * nInd * nKw, leafLive = indexableCities.length * nInd * nKw
-const cityLive = hubCities.length, roleTotal = nCity * nRole
+let hubLive = 0, leafLive = 0
+for (const city of citiesData) for (const ind of industriesData) {
+  if (hubIndexableAt(city, `/${ind.slug}/${city.slug}`)) hubLive++
+  for (const kw of keywordsData) if (leafIndexableAt(city, `/${ind.slug}/${city.slug}/${kw.slug}`)) leafLive++
+}
+const hubTotal = nCity * nInd
+const leafTotal = nCity * nInd * nKw
+const cityLive = cityHubCities.length, roleTotal = nCity * nRole
 const roleLive = citiesData.filter(roleCityIndexableCity).length * nRole
 const pct = (a, b) => (b ? ((a / b) * 100).toFixed(1) : "0.0")
 console.log(`\n  Gate (Live : total permutations — the anti-junk split):`)
-console.log(`   industry×city hubs   ${String(hubLive).padStart(6)} / ${hubTotal}  (${pct(hubLive, hubTotal)}%  — ${hubCities.length}/${nCity} cities)`)
-console.log(`   industry×city×kw     ${String(leafLive).padStart(6)} / ${leafTotal}  (${pct(leafLive, leafTotal)}%  — ${indexableCities.length}/${nCity} cities)`)
+console.log(`   industry×city hubs   ${String(hubLive).padStart(6)} / ${hubTotal}  (${pct(hubLive, hubTotal)}%  — ${cityHubCities.length}/${nCity} city hubs)`)
+console.log(`   industry×city×kw     ${String(leafLive).padStart(6)} / ${leafTotal}  (${pct(leafLive, leafTotal)}%)`)
 console.log(`   /city/[city]         ${String(cityLive).padStart(6)} / ${nCity}  (${pct(cityLive, nCity)}%)`)
 console.log(`   /for/[role]/[city]   ${String(roleLive).padStart(6)} / ${roleTotal}  (${pct(roleLive, roleTotal)}%)`)
 const grandTotal = hubTotal + leafTotal + nCity + roleTotal

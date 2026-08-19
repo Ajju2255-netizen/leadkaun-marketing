@@ -71,7 +71,7 @@ export default function VsZoho() {
         { label: "Zoho CRM India pricing", url: "https://www.zoho.com/en-in/crm/zohocrm-pricing.html" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All 12 modules, 14-day free trial, no credit card" },
+        leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All 12 modules, free forever tier, no card" },
         competitor: { tier: "Professional",  price: "₹2,400 / rep / mo", note: "Plus implementation + admin overhead (₹50k–₹1.5L/month)" },
       }}
       switching={[

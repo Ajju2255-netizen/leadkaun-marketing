@@ -72,7 +72,7 @@ export default function VsLeadSquared() {
         { label: "LeadSquared pricing", url: "https://www.leadsquared.com/pricing/" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "Published. 14-day trial. No credit card." },
+        leadkaun:   { tier: "Growth",       price: "₹7,999 / mo", note: "Published. Free forever tier. No card." },
         competitor: { tier: "Quote-based",  price: "₹2,500–5,000",       note: "Typical SMB after consulting + implementation" },
       }}
       switching={[

@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     ...ogMeta({ title, description, path }),
     // Quality-first: keyword leaves are noindexed for smaller cities until they
     // clear the content quality gate (Phase 3). Only Tier ≤ 2 are indexable today.
-    robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts), follow: true },
+    robots: { index: leafIndexable(cityRec.tier, !!cityRec.districts, path), follow: true },
   }
 }
 
@@ -113,7 +113,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
           cta={
             <>
               <GlossLink variant="primary" size="md" href={APP_URLS.register}>
-                Start free trial
+                Start free
                 <span className="font-mono opacity-80">→</span>
               </GlossLink>
               <Link href="/pricing" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
@@ -274,7 +274,7 @@ export default async function IndustryCityKeywordPage({ params }: Params) {
 
         
 
-        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
         <Footer />
       </main>
     </>

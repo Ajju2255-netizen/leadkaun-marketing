@@ -81,7 +81,7 @@ export default function ProductPage() {
           </>
         }
         sub="CRMs record what happened. Leadkaun reshapes what happens next, twelve modules that grade, prioritise, alert, and recover revenue your team was losing silently."
-        primary={{ kind: "primary", label: "Start free trial", href: APP_URLS.register, external: true }}
+        primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
         secondary={{ kind: "glass", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
       />
 
@@ -248,7 +248,7 @@ export default function ProductPage() {
 
       
 
-      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+      <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
       <Footer />
     </main>
   )

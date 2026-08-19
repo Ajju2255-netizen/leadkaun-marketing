@@ -20,13 +20,13 @@ export const HUB_INDEX_MAX_TIER: number = gate.HUB_INDEX_MAX_TIER;
 export const HUB_MIN_POPULATION: number = gate.HUB_MIN_POPULATION;
 
 /** Keyword-leaf / role page indexable iff Tier ≤ INDEX_MAX_TIER or rich local data. */
-export function leafIndexable(tier: number, hasRichData = false): boolean {
-  return gate.leafIndexable(tier, hasRichData);
+export function leafIndexable(tier: number, hasRichData = false, path?: string): boolean {
+  return gate.leafIndexable(tier, hasRichData, path);
 }
 
 /** Industry×city hub / /city page indexable — see `./gate.js` for the full rule. */
-export function hubIndexable(tier: number, population: number, hasData: boolean): boolean {
-  return gate.hubIndexable(tier, population, hasData);
+export function hubIndexable(tier: number, population: number, hasData: boolean, path?: string): boolean {
+  return gate.hubIndexable(tier, population, hasData, path);
 }
 
 /** Role × city indexable — consolidated to `noindex,follow` in Phase 1; see `./gate.js`. */

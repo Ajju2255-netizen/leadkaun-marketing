@@ -93,7 +93,7 @@ export function ProductShowcase({
         {cta && (
           <Reveal delay={0.12} className="mt-9 flex flex-wrap items-center gap-3">
             <GlossLink variant="primary" size="md" href={APP_URLS.register}>
-              Start free trial
+              Start free
               <span className="font-mono opacity-80">→</span>
             </GlossLink>
             <Link href={APP_URLS.register} className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">
@@ -249,10 +249,10 @@ export function PricingCTA({
           <NumberedTag number={number} label="Pricing" tone="warm" />
           <h2 className="mt-5 text-[30px] font-semibold leading-[1.1] tracking-[-0.03em] text-ink md:text-[40px]">{lead}</h2>
           <p className="mt-4 text-[17px] leading-[1.55] text-ink-soft">
-            Flat pricing per team, premium features unlock by tier. 14-day free trial, no credit card. Setup the same day.
+            Flat pricing per team, premium features unlock by tier. Free forever tier, no card. Setup the same day.
           </p>
           <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5">
-            {["14-day free trial", "No credit card", "Cancel anytime"].map((t) => (
+            {["Free forever tier", "No credit card", "Cancel anytime"].map((t) => (
               <li key={t} className="inline-flex items-center gap-2 text-[13.5px] font-medium text-ink-soft">
                 <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full" style={{ background: "linear-gradient(180deg,#6EE7B7,#34D399)", boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 3px rgba(16,185,129,0.30)" }}>
                   <Check className="h-3 w-3 text-white" strokeWidth={3} />
@@ -263,7 +263,7 @@ export function PricingCTA({
           </ul>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <GlossLink variant="primary" size="lg" href={APP_URLS.register}>
-              Start free trial
+              Start free
               <span className="font-mono opacity-80">→</span>
             </GlossLink>
             <Link href="/pricing" className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-600 hover:text-sky-500">

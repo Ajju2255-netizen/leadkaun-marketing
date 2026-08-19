@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { CalcCapture } from "@/app/components/calculator/calc-capture"
 import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 
@@ -80,7 +81,8 @@ export function UseCaseRoiCalc({ cfg }: { cfg: RoiConfig }) {
   const atRiskYear = atRiskMonth * 12
 
   return (
-    <div className="grid gap-8 md:grid-cols-[1fr_0.9fr] md:gap-10">
+    <>
+      <div className="grid gap-8 md:grid-cols-[1fr_0.9fr] md:gap-10">
       {/* Inputs */}
       <div className="space-y-6">
         <Field label={cfg.volumeLabel} value={volume} min={cfg.volumeMin} max={cfg.volumeMax} step={cfg.volumeStep} mode="num" onChange={setVolume} />
@@ -103,6 +105,8 @@ export function UseCaseRoiCalc({ cfg }: { cfg: RoiConfig }) {
           Run the full calculator <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </div>
-    </div>
+      </div>
+      <CalcCapture source="calc-usecase-roi" />
+    </>
   )
 }

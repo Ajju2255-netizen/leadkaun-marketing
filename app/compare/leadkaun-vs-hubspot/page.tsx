@@ -72,7 +72,7 @@ export default function VsHubSpot() {
         { label: "HubSpot Sales Hub pricing", url: "https://www.hubspot.com/pricing/sales" },
       ]}
       pricing={{
-        leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All modules, 14-day trial, no credit card" },
+        leadkaun:   { tier: "Growth",        price: "₹7,999 / mo", note: "All modules, free forever tier, no card" },
         competitor: { tier: "Sales Pro",     price: "₹7,500+ / rep / mo", note: "Plus per-contact band; scales badly at 50k+ leads" },
       }}
       switching={[

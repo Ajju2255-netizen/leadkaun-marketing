@@ -299,6 +299,18 @@ const QUARANTINE = [
   { re: /50\+\s*(indian\s*b2b|b2b)\s*teams/i, name: 'unverified customer count "50+ teams"' },
   { re: /₹\s?4\.2\s?cr/i,             name: 'quarantined aggregate outcome "₹4.2 Cr"' },
   { re: /per rep\.\s*in rupees/i,     name: 'banned pricing model "Per rep. In rupees." (flat per account)' },
+  // The site advertised a "14-day trial" for months while the product shipped a
+  // perpetual Free tier: `trial_ends_at` exists in prisma/schema.prisma but is
+  // read only for display (lib/admin/subscriptions.ts, lib/admin/billing.ts) —
+  // no job, middleware or gate ever expires it. So the expiry was the UNVERIFIED
+  // claim, and it understated the real offer on every CTA. Correct copy is
+  // "Free forever · 1 user · 100 leads · No card".
+  // The lookahead exempts COMPETITOR trial facts, which legitimately appear on
+  // /compare and in best.json pricingNotes ("no free plan, 14-day trial").
+  // If Leadkaun ever does enforce an expiry, delete this rule — do not work
+  // around it.
+  { re: /^(?!.*no free plan).*\b14[-\s]?days?\s+(free\s+)?trial\b/is,
+    name: 'unverified "14-day trial" — Free does not expire in code; say "Free forever · 1 user · 100 leads · No card"' },
   { re: /(starter|growth|scale)\s*[·:—-]?\s*₹\s?999\b/i, name: 'stale plan price "₹999" (Starter is ₹2,999)' },
   { re: /\b\d{2,3}\s?%\s+of\s+(indian|b2b|sales|leads|companies|teams|smbs?|businesses|reps)\b/i, name: 'uncited "N% of <population>" stat — cite a primary source or soften to "most"' },
   // NOTE: we intentionally do NOT blanket-ban "per rep/seat/user" — /compare

@@ -9,6 +9,7 @@ import { DetailHero } from "@/app/components/detail-hero"
 import { Faq } from "@/app/components/faq"
 import { Reveal } from "@/app/components/reveal"
 import { CrmCostCalculator } from "@/app/components/calculator/crm-cost-calculator"
+import { CalcCapture } from "@/app/components/calculator/calc-capture"
 import { breadcrumbListSchema, faqPageSchema, jsonLdScript } from "@/lib/seo"
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function CrmCostCalculatorPage() {
           <Container>
             <Reveal>
               <CrmCostCalculator />
+              <CalcCapture source="calc-crm-cost" headline="Stop paying per seat" sub="Leadkaun is flat per account, so adding reps does not raise the bill. Free forever on 1 user and 100 active leads." />
             </Reveal>
           </Container>
         </SectionGround>
@@ -82,7 +84,7 @@ export default function CrmCostCalculatorPage() {
           </Container>
         </SectionGround>
 
-        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. 14-day free trial. No credit card required." />
+        <LedgerCTA headline="Your reps open their queue tomorrow." sub="Setup the same day. Free forever on 1 user and 100 active leads. No card." />
         <Footer />
       </main>
     </>

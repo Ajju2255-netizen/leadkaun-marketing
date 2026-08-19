@@ -6,6 +6,7 @@ import Footer from "@/app/components/footer"
 
 import { Container } from "@/app/components/container"
 import { SectionGround } from "@/app/components/section-ground"
+import { HeroSignupCard } from "@/app/components/hero-signup"
 import { NumberedTag } from "@/app/components/numbered-tag"
 import { Reveal } from "@/app/components/reveal"
 import { Faq } from "@/app/components/faq"
@@ -218,6 +219,8 @@ function Masthead({ short, verdictLine, reviewedOn, glance }: {
   return (
     <SectionGround variant="cream" size="sm" ambient={false} className="pt-28 md:pt-32">
       <Container>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)] lg:items-start lg:gap-16">
+        <div>
         {/* Review slug line */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
           <Label tone="sky">Comparison</Label>
@@ -242,11 +245,14 @@ function Masthead({ short, verdictLine, reviewedOn, glance }: {
             className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-5 py-3 text-[14px] font-semibold"
             style={{ color: "#FFFFFF" }}
           >
-            Start free trial <ArrowRight className="h-4 w-4" />
+            Start free <ArrowRight className="h-4 w-4" />
           </a>
           <Link href="/compare" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-sky-700 hover:text-sky-600">
             All {" "}comparisons <ArrowRight className="h-3.5 w-3.5" />
           </Link>
+        </div>
+        </div>
+        <div className="lg:pt-2"><HeroSignupCard /></div>
         </div>
 
         {/* Head-to-head spec sheet — the review's opening move */}
@@ -469,7 +475,7 @@ function CompareCTA({ short }: { short: string }) {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-x-16">
             <div>
               <h2 className="max-w-[20ch] text-[30px] font-semibold leading-[1.08] tracking-[-0.03em] text-ink md:text-[40px]">
-                Run it alongside {short} for 14 days.
+                Run it alongside {short} for two weeks.
               </h2>
               <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.6] text-ink-soft md:text-[16px]">
                 Import a CSV, run both in parallel, and measure ₹ recovered. Decide at day 60 with numbers instead of a pitch.
@@ -481,7 +487,7 @@ function CompareCTA({ short }: { short: string }) {
                 className="btn-gloss-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold"
                 style={{ color: "#FFFFFF" }}
               >
-                Start free trial <ArrowRight className="h-4 w-4" />
+                Start free <ArrowRight className="h-4 w-4" />
               </a>
               <Link href="/pricing" className="inline-flex items-center gap-1.5 text-[15px] font-semibold text-sky-700 hover:text-sky-600">
                 See pricing <ArrowRight className="h-3.5 w-3.5" />
@@ -490,7 +496,7 @@ function CompareCTA({ short }: { short: string }) {
           </div>
         </Reveal>
         <p className="ledger-num mt-6 text-[10px] uppercase tracking-[0.16em] text-ink-muted md:ml-[208px]">
-          14-day trial · No credit card · Same-day setup
+          Free forever · 1 user · 100 leads · No card
         </p>
       </Container>
     </SectionGround>

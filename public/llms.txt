@@ -8,7 +8,7 @@ Leadkaun is live, production-grade software for Indian B2B sales teams across re
 
 - **Category:** Sales Behaviour Operating System (works alongside your CRM)
 - **Audience:** Indian B2B SMB sales teams with 3–50 reps
-- **Pricing:** flat per account (not per rep) — Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. No per-contact fees. 14-day free trial, no credit card.
+- **Pricing:** flat per account (not per rep) — Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. No per-contact fees. The Free tier does not expire: 1 user, 100 active leads, no credit card.
 - **Core modules (all live):** Priority Queue, Lead Scoring engine (A–F on Fit × Intent × Quality), Missed Opportunity Engine (₹ at risk), Morning Brief (8:30 AM IST email), Pipeline, Lead management with Score Evolution, Follow-up engine, Smart Templates with 3-tap WhatsApp/call logging, Analytics (dashboard, rep tracking, Learning Engine), Activity feed & compliance, ICP configuration, CSV lead ingestion
 - **India-first features:** Indian phone-number normalisation, WhatsApp as a first-class signal channel (manual 3-tap logging — no BSP/API integration), lakh/crore UI, rupee-denominated missed-revenue alerts, Morning Brief email at 8:30 AM IST
 

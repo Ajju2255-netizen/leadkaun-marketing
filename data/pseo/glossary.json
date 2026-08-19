@@ -192,12 +192,12 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
-        "href": "/learn/lead-qualification"
+        "label": "How lead scoring works",
+        "href": "/learn/lead-scoring"
       },
       {
-        "label": "Compare the software",
-        "href": "/best/lead-qualification-software"
+        "label": "Best lead scoring software",
+        "href": "/best/lead-scoring-software"
       }
     ],
     "category": "scoring",
@@ -262,11 +262,11 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
-        "href": "/learn/lead-qualification"
+        "label": "How lead scoring works",
+        "href": "/learn/lead-scoring"
       },
       {
-        "label": "Compare the software",
+        "label": "Best lead qualification software",
         "href": "/best/lead-qualification-software"
       }
     ],
@@ -472,11 +472,11 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
+        "label": "Lead qualification, explained",
         "href": "/learn/lead-qualification"
       },
       {
-        "label": "Compare the software",
+        "label": "Best lead qualification software",
         "href": "/best/lead-qualification-software"
       }
     ],
@@ -506,11 +506,11 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
+        "label": "Lead qualification, explained",
         "href": "/learn/lead-qualification"
       },
       {
-        "label": "Compare the software",
+        "label": "Best lead qualification software",
         "href": "/best/lead-qualification-software"
       }
     ],
@@ -919,12 +919,16 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
+        "label": "How to qualify leads properly",
         "href": "/learn/lead-qualification"
       },
       {
-        "label": "Compare the software",
+        "label": "Best lead qualification software",
         "href": "/best/lead-qualification-software"
+      },
+      {
+        "label": "Price your lead-quality problem",
+        "href": "/tools/junk-lead-calculator"
       }
     ],
     "category": "scoring",
@@ -955,12 +959,16 @@
     "relatedFeature": "lead-scoring",
     "relatedGuides": [
       {
-        "label": "The complete guide",
+        "label": "Why leads turn out to be junk",
         "href": "/learn/lead-qualification"
       },
       {
-        "label": "Compare the software",
+        "label": "Compare lead qualification software",
         "href": "/best/lead-qualification-software"
+      },
+      {
+        "label": "What junk leads cost you",
+        "href": "/tools/junk-lead-calculator"
       }
     ],
     "category": "lifecycle",
@@ -1191,7 +1199,8 @@
         "Look at the oldest quarter.",
         "Decide honestly whether you would still call those numbers today; if not, they are inflating every count you report."
       ]
-    }
+    },
+    "indexable": false
   },
   {
     "slug": "data-readiness",
@@ -1226,7 +1235,8 @@
         "Count how many rows fail any of the three.",
         "That is the share of your import that will produce noise instead of leads."
       ]
-    }
+    },
+    "indexable": false
   },
   {
     "slug": "score-evolution",

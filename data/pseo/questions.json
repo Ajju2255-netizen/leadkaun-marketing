@@ -10,7 +10,10 @@
       "how-is-leadkaun-different-from-crm",
       "what-is-priority-queue"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue"
+    ],
     "selfCheck": {
       "lead": "The category matters less than what your tools decide for you today.",
       "checks": [
@@ -238,7 +241,11 @@
       "what-is-a-sales-behaviour-os",
       "can-i-replace-my-crm-with-leadkaun"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
     "selfCheck": {
       "lead": "Test your CRM on the one question a rep asks every morning.",
       "checks": [
@@ -258,7 +265,11 @@
       "how-is-leadkaun-different-from-crm",
       "how-to-migrate-from-zoho"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
     "selfCheck": {
       "lead": "Decide what your CRM is genuinely load-bearing for before changing anything.",
       "checks": [
@@ -278,7 +289,11 @@
       "can-i-replace-my-crm-with-leadkaun",
       "how-long-does-leadkaun-onboarding-take"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
     "selfCheck": {
       "lead": "Most migration pain is data pain, and it is visible before you start.",
       "checks": [
@@ -452,7 +467,11 @@
       "can-i-replace-my-crm-with-leadkaun",
       "how-long-does-leadkaun-onboarding-take"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
     "selfCheck": {
       "lead": "Compare against the cost of the current arrangement, not against zero.",
       "checks": [
@@ -472,7 +491,11 @@
       "how-is-leadkaun-different-from-crm",
       "can-i-replace-my-crm-with-leadkaun"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "lead-scoring",
+      "priority-queue",
+      "missed-opportunity-engine"
+    ],
     "selfCheck": {
       "lead": "Better depends entirely on which problem you are solving.",
       "checks": [
@@ -559,7 +582,11 @@
       "how-long-does-leadkaun-onboarding-take",
       "what-does-leadkaun-cost"
     ],
-    "relatedFeatures": [],
+    "relatedFeatures": [
+      "intake-intelligence",
+      "lead-scoring",
+      "priority-queue"
+    ],
     "selfCheck": {
       "lead": "Volume questions are usually really questions about attention.",
       "checks": [

@@ -82,7 +82,21 @@
       }
     ],
     "runAlongside": "You may not need to rip Zoho out at all. Keep it as your system of record and add Leadkaun as the behaviour layer on top: Leadkaun grades every lead A–F, builds each rep a Priority Queue, and puts a ₹ figure on the revenue going stale, the prioritisation Zoho's static scoring leaves to guesswork. Import your leads by CSV, run the two side by side, and let adoption decide how much of Zoho you still lean on.",
-    "comparePage": "leadkaun-vs-zoho-crm"
+    "comparePage": "leadkaun-vs-zoho-crm",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "leadsquared",
@@ -167,7 +181,21 @@
       }
     ],
     "runAlongside": "You may not need to replace LeadSquared. Let it keep doing capture, nurture and marketing automation, and add Leadkaun as the sales-behaviour layer on top: it grades every lead A–F, builds each rep a Priority Queue, and puts a ₹ figure on leads going stale, the prioritisation that activity tracking alone doesn't give you. Sync leads by CSV, run both together, and use Leadkaun where LeadSquared's weight gets in the rep's way.",
-    "comparePage": "leadkaun-vs-leadsquared"
+    "comparePage": "leadkaun-vs-leadsquared",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "hubspot",
@@ -252,7 +280,21 @@
       }
     ],
     "runAlongside": "You may not need to leave HubSpot to fix rep prioritisation. Keep HubSpot for marketing automation and as your record system, and add Leadkaun as the behaviour layer: it grades every lead A–F, builds each rep a Priority Queue, and puts a ₹ figure on stale leads, in flat INR, with no USD contact-tier surprises. Import by CSV, run both together, and let Leadkaun own the 'who do I call next' question HubSpot leaves open.",
-    "comparePage": "leadkaun-vs-hubspot"
+    "comparePage": "leadkaun-vs-hubspot",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "salesforce",
@@ -337,7 +379,21 @@
       }
     ],
     "runAlongside": "You may not need to displace Salesforce to get reps prioritising properly. Keep it as your enterprise system of record and add Leadkaun as the behaviour layer: it grades every lead A–F, builds each rep a Priority Queue, and puts a ₹ figure on stale leads, same-day, no admin or partner required, in flat INR. Import by CSV, run it alongside Salesforce, and let the front line get the focus the platform's complexity tends to bury.",
-    "comparePage": "leadkaun-vs-salesforce"
+    "comparePage": "leadkaun-vs-salesforce",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "freshsales",
@@ -422,7 +478,21 @@
       }
     ],
     "runAlongside": "You may not need to drop Freshsales. Keep it as your CRM and dialer, and add Leadkaun as the sales-behaviour layer on top: it grades every lead A–F on three visible scores, builds each rep a Priority Queue, and puts a ₹ figure on stale leads, the transparency and prioritisation Freddy's opaque number doesn't give you. Import by CSV, run both together, and let reps keep Freshsales' phone while Leadkaun decides who to call first.",
-    "comparePage": "leadkaun-vs-freshsales"
+    "comparePage": "leadkaun-vs-freshsales",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "pipedrive",
@@ -507,7 +577,21 @@
       }
     ],
     "runAlongside": "Not ready to leave Pipedrive? You don't have to. Keep Pipedrive as your visual pipeline and deal record, and add Leadkaun alongside it as the behaviour layer, real-time A–F grading on every lead, an auto-ranked Priority Queue that tells each rep who to call next, and ₹-at-risk alerts when hot deals go stale. Your CRM stays the system of record; Leadkaun makes sure the right leads actually get worked.",
-    "comparePage": "leadkaun-vs-pipedrive"
+    "comparePage": "leadkaun-vs-pipedrive",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "zoho-bigin",
@@ -592,7 +676,21 @@
       }
     ],
     "runAlongside": "Outgrown Bigin but like its simplicity? Keep it. Run Zoho Bigin as your lightweight CRM and layer Leadkaun on top for the parts Bigin deliberately skips, A–F grading on every lead, a Priority Queue that ranks each rep's day, and ₹-at-risk alerts when warm leads go cold. You get the prioritisation of a heavier system without giving up Bigin's clean, low-cost core.",
-    "comparePage": "leadkaun-vs-zoho-bigin"
+    "comparePage": "leadkaun-vs-zoho-bigin",
+    "relatedGuides": [
+      {
+        "label": "Best CRM for startups in India",
+        "href": "/best/crm-for-startups-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "kylas",
@@ -677,7 +775,21 @@
       }
     ],
     "runAlongside": "Happy with Kylas but want sharper prioritisation? Keep Kylas as your unlimited-user CRM and add Leadkaun alongside it. Leadkaun layers on real-time A–F grading, an auto-ranked Priority Queue that tells each rep who to call first, and ₹-at-risk alerts on stale leads, the behaviour intelligence that rule-based scoring can't give you. Kylas stays your system of record; Leadkaun makes sure the best leads get worked first.",
-    "comparePage": "leadkaun-vs-kylas"
+    "comparePage": "leadkaun-vs-kylas",
+    "relatedGuides": [
+      {
+        "label": "Best sales CRM for small business",
+        "href": "/best/sales-crm-for-small-business-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "telecrm",
@@ -762,7 +874,21 @@
       }
     ],
     "runAlongside": "Love TeleCRM's dialer? Keep it. Let TeleCRM handle the calling and WhatsApp, and run Leadkaun alongside as the behaviour layer, A–F grading on every lead, an auto-ranked Priority Queue that decides who to dial first, and ₹-at-risk alerts on leads going cold. Your reps still dial from TeleCRM; Leadkaun just makes sure they're always calling the lead most likely to convert.",
-    "comparePage": "leadkaun-vs-telecrm"
+    "comparePage": "leadkaun-vs-telecrm",
+    "relatedGuides": [
+      {
+        "label": "Best telecalling CRM in India",
+        "href": "/best/telecalling-crm-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "bitrix24",
@@ -847,7 +973,21 @@
       }
     ],
     "runAlongside": "Bitrix24 is an all-in-one work platform, and if you already run it for projects, tasks, and intranet, there's no need to rip it out. Leadkaun is the sales-behaviour layer that sits alongside it: it grades every lead A–F, builds each rep a Priority Queue, and surfaces the ₹ at risk from stale leads, the sales focus that tends to get lost inside Bitrix24's breadth, without touching your existing setup.",
-    "comparePage": "leadkaun-vs-bitrix24"
+    "comparePage": "leadkaun-vs-bitrix24",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "monday",
@@ -932,7 +1072,21 @@
       }
     ],
     "runAlongside": "monday is a flexible Work OS, and plenty of teams rightly keep it for project and work management. Leadkaun runs alongside it as the dedicated sales-behaviour layer: it grades every lead A–F, auto-ranks each rep's Priority Queue, and shows the ₹ at risk from stale leads, the sales depth you'd otherwise build by hand with formula columns and automations, delivered out of the box at flat INR pricing.",
-    "comparePage": "leadkaun-vs-monday"
+    "comparePage": "leadkaun-vs-monday",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "close",
@@ -1017,7 +1171,21 @@
       }
     ],
     "runAlongside": "Close is a strong dialer-first CRM, and if its calling and cadences are working for you, keep them. Leadkaun runs alongside as the prioritisation layer: it grades every lead A–F, builds each rep a Priority Queue so they know who to call next, and surfaces the ₹ at risk from stale leads, the intent-based ranking Close doesn't do, at flat INR pricing with no per-minute costs.",
-    "comparePage": "leadkaun-vs-close"
+    "comparePage": "leadkaun-vs-close",
+    "relatedGuides": [
+      {
+        "label": "Best lead management software in India",
+        "href": "/best/lead-management-software-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   },
   {
     "slug": "selldo",
@@ -1102,6 +1270,20 @@
       }
     ],
     "runAlongside": "Sell.Do carries the real-estate-specific weight, inventory, bookings, channel partners, and larger developers rightly keep that. Leadkaun runs alongside as the enquiry layer: it grades every site-visit and portal enquiry A–F, builds each broker a Priority Queue, and surfaces the ₹ at risk when a hot enquiry goes cold. It fixes the response-time problem that loses deals, without asking a real-estate team to re-platform their booking system.",
-    "comparePage": "leadkaun-vs-selldo"
+    "comparePage": "leadkaun-vs-selldo",
+    "relatedGuides": [
+      {
+        "label": "Best real estate CRM software in India",
+        "href": "/best/crm-for-real-estate-india"
+      },
+      {
+        "label": "How lead scoring works (the A–F method)",
+        "href": "/learn/lead-scoring"
+      },
+      {
+        "label": "Leadkaun pricing, flat per account in ₹",
+        "href": "/pricing"
+      }
+    ]
   }
 ]

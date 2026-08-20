@@ -25,6 +25,7 @@ type AltGuide = {
   slug: string; name: string; metaTitle: string; metaDescription: string; h1: string; intro: string
   quickAnswer: { question: string; answer: string }; whyLookElsewhere: string[]
   alternatives: Alt[]; faqs: { q: string; a: string }[]; comparePage: string
+  relatedGuides?: { label: string; href: string }[]
   /** "You may not need to rip {name} out — run Leadkaun alongside it." */
   runAlongside?: string
 }
@@ -199,6 +200,31 @@ export default async function AlternativesPage({ params }: Params) {
             the better answer, the entry for it says so.
           </p>
         </MethodBlock>
+
+        {g.relatedGuides && g.relatedGuides.length > 0 && (
+          <SectionGround variant="pure" size="md">
+            <Container>
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,168px)_minmax(0,1fr)] lg:gap-x-10">
+                <p className="ledger-num text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted lg:pt-1.5">
+                  Keep going
+                </p>
+                <div>
+                  {g.relatedGuides.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      className="group flex items-baseline justify-between gap-4 border-b py-3.5 text-[15px] text-ink transition-colors hover:text-sky-600 md:text-[16px]"
+                      style={{ borderColor: "var(--paper-line)" }}
+                    >
+                      <span>{l.label}</span>
+                      <span aria-hidden className="font-mono text-[13px] text-ink-faint transition-colors group-hover:text-sky-600">→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Container>
+          </SectionGround>
+        )}
 
         <LedgerCTA
           headline={`See how Leadkaun grades your ${g.name} leads.`}

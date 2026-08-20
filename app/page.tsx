@@ -598,7 +598,7 @@ function InTheirWords() {
     <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
       <Container className="relative py-20 md:py-28">
         <Reveal className="mb-12 max-w-2xl md:mb-14">
-          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">07 · In their words</p>
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">08 · In their words</p>
           <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">
             Nobody switches over a feature. They switch over one lead they lost.
           </h2>
@@ -617,7 +617,7 @@ function Pricing() {
     <section className="relative bg-bg-pure">
       <Container className="py-20 md:py-28">
         <Reveal className="mb-10 max-w-2xl md:mb-14">
-          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">08 · Pricing</p>
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-sky-600">09 · Pricing</p>
           <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">Flat per account. Never per seat.</h2>
           <p className="mt-5 text-[16px] leading-[1.7] text-ink-soft">
             Per-seat pricing makes teams ration logins, and rationed logins corrupt the very
@@ -662,7 +662,7 @@ function FaqBlock() {
     <section className="relative overflow-hidden grain" style={{ background: "var(--paper)" }}>
       <Container className="relative py-20 md:py-28">
         <Reveal className="mb-10 max-w-2xl md:mb-12">
-          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">09 · Questions</p>
+          <p className="ledger-num text-[11px] uppercase tracking-[0.24em] text-orange-500">10 · Questions</p>
           <h2 className="display-md mt-5 text-[30px] text-ink md:text-[40px]">The ones we actually get asked.</h2>
         </Reveal>
         <Reveal delay={0.08}><Faq items={HOME_FAQ} /></Reveal>
@@ -679,7 +679,7 @@ function CloseBand() {
     <section className="relative overflow-hidden border-t rule-paper" style={{ background: "linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%)" }}>
       <Container className="relative py-24 text-center md:py-32">
         <Reveal className="mx-auto max-w-3xl">
-          <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">10 · Ready when you are</p>
+          <p className="ledger-num text-[11px] uppercase tracking-[0.22em] text-sky-600">11 · Ready when you are</p>
           <h2 className="display-lg mt-6 text-[32px] text-ink md:text-[48px]">
             Find out what your pipeline
             <br />

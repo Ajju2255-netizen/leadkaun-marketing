@@ -39,8 +39,8 @@ const CORE_MODULES = [
 ]
 
 const SUPPORTING_MODULES = [
-  { icon: Settings, title: "Onboarding & ICP",        description: "6-step wizard. First graded lead in the queue the same day you sign up." },
-  { icon: Database, title: "Lead Ingestion",          description: "CSV import and manual entry (Google Sheets sync on the roadmap). Indian phone normalisation + dedup built in." },
+  { icon: Settings, title: "Onboarding & ICP",        description: "Two steps, both skippable. First graded lead in the queue the same day you sign up." },
+  { icon: Database, title: "Lead Ingestion",          description: "CSV import, Google Sheets (with optional keep-in-sync) and manual entry. Indian phone normalisation + dedup built in." },
   { icon: Inbox,    title: "Pipeline & Lead Records", description: "Kanban pipeline, contact records, call log, the workspace your reps act in, alongside your CRM." },
   { icon: FileText, title: "Lead Quality Analysis",   description: "Junk detection, source reliability scoring, phone + email validity." },
   { icon: Workflow, title: "Follow-up Engine",        description: "Grade-aware cadence. Per-rep Follow-up Score shows consistency at a glance." },
@@ -48,7 +48,7 @@ const SUPPORTING_MODULES = [
 ]
 
 const HOW_IT_WORKS = [
-  { n: "01", title: "Import your leads.",            body: "CSV upload (10k rows / 60s) or manual entry, Indian phones normalised, duplicates deduped. A Google Sheets connector is on the roadmap." },
+  { n: "01", title: "Import your leads.",            body: "CSV upload, a Google Sheet you can keep in sync, or manual entry. Indian phones normalised, duplicates deduped, and the file profiled before anything lands." },
   { n: "02", title: "Leads grade in real time.",      body: "Every new lead scored A–F across Fit, Intent, Quality. Weights are yours to audit. No black box." },
   { n: "03", title: "Reps work the Queue top-down.", body: "Re-ranks in real time as WhatsApp replies arrive and intent decays. Decision made. No triage." },
   { n: "04", title: "Managers see ₹ accountability.", body: "Morning Brief at 8:30 AM IST. Monday review opens with ₹ at risk per rep. Coaching becomes specific." },
@@ -58,7 +58,7 @@ const FAQ = [
   { q: "Is Leadkaun a CRM?", a: "No it's a Sales Behaviour OS that runs alongside your CRM. Your CRM records what happened; Leadkaun grades every lead A–F, ranks each rep's queue, and surfaces the ₹ at risk so reps know what to do next." },
   { q: "How does the lead scoring work?", a: "Every lead gets three transparent 0–100 scores, Fit (ICP match), Intent (engagement, which decays as leads go silent) and Quality (data reliability), combined into an A–F grade. Weights are auditable, not a black-box AI score." },
   { q: "Does it work with WhatsApp?", a: "Yes. WhatsApp is a first-class signal. Reps log each exchange in 3 taps (stage, intent, outcome) from any regular WhatsApp account, no Business API needed, and it feeds the Intent Score." },
-  { q: "How do leads get into Leadkaun?", a: "CSV import or manual entry today, plus a generic webhook. IndiaMART/Facebook connectors and native Google Sheets sync are on the roadmap. Every lead is graded A–F the moment it lands." },
+  { q: "How do leads get into Leadkaun?", a: "CSV import, Google Sheets and manual entry today, plus a generic webhook. IndiaMART and Facebook connectors are on the roadmap. Every lead is graded A–F the moment it lands." },
   { q: "How much does Leadkaun cost?", a: "Flat per account, not per seat: Free ₹0, Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month, plus custom Enterprise. Adding reps doesn't raise the bill within a tier." },
 ]
 
@@ -82,7 +82,7 @@ export default function ProductPage() {
         }
         sub="CRMs record what happened. Leadkaun reshapes what happens next, twelve modules that grade, prioritise, alert, and recover revenue your team was losing silently."
         primary={{ kind: "primary", label: "Start free", href: APP_URLS.register, external: true }}
-        secondary={{ kind: "glass", label: "Try Leadkaun free", href: APP_URLS.register, external: true }}
+        secondary={{ kind: "glass", label: "Explore 24 example leads", href: "/demo" }}
       />
 
       <SectionGround variant="pure" size="sm">

@@ -562,7 +562,13 @@
         "href": "/features/priority-queue",
         "label": "The Priority Queue"
       }
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your leads, then open any chat from the lead via a wa.me link and log the outcome in three taps. That log becomes a ranked Intent signal — no WhatsApp API, no per-message fee.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "lead-scoring-software",
@@ -653,7 +659,13 @@
       "leadkaun-vs-hubspot",
       "leadkaun-vs-salesforce",
       "leadkaun-vs-zoho-crm"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Set your ICP (industries, states, budget bands), import a CSV, and every lead carries an A–F grade built from three independent 0–10 scores you can inspect.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "crm-for-real-estate-india",
@@ -841,7 +853,13 @@
         "href": "/features/missed-opportunity-engine",
         "label": "Missed Opportunity Engine"
       }
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your portal enquiries as a CSV, or connect the Google Sheet your team already keeps. Every enquiry is graded A–F on arrival and each broker gets one ranked list.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "sales-crm-for-small-business-india",
@@ -932,7 +950,13 @@
       "leadkaun-vs-zoho-bigin",
       "leadkaun-vs-freshsales",
       "leadkaun-vs-telecrm"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import a CSV or connect a Google Sheet. Every lead is graded the same day, and the flat per-account price means adding your next rep does not change the bill.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "telecalling-crm-india",
@@ -1023,7 +1047,13 @@
       "leadkaun-vs-telecrm",
       "leadkaun-vs-kylas",
       "leadkaun-vs-freshsales"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your calling list and every number is normalised to Indian dialling format and deduplicated first. Reps then work a ranked queue instead of a spreadsheet.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "crm-for-edtech-india",
@@ -1122,7 +1152,13 @@
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-kylas"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your enquiry list and every applicant is graded A–F, so counsellors call the students most likely to enrol rather than working down the list.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "crm-for-startups-india",
@@ -1221,7 +1257,13 @@
       "leadkaun-vs-zoho-bigin",
       "leadkaun-vs-hubspot",
       "leadkaun-vs-freshsales"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import a CSV or connect a Google Sheet and every lead is graded A–F immediately. Founder-led teams usually start on Free and stay there until the 100-active-lead cap bites.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "sales-automation-software",
@@ -1320,7 +1362,13 @@
       "leadkaun-vs-hubspot",
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-freshsales"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import a CSV or connect a Google Sheet, and grading, ranking, follow-up scheduling and the ₹-at-risk alert all run without anyone configuring a workflow.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "crm-for-manufacturing-india",
@@ -1419,7 +1467,13 @@
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-kylas"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your IndiaMART and TradeIndia enquiries as a CSV. The file is profiled for duplicates and junk numbers before it lands, then every enquiry is graded A–F.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "lead-prioritization-software",
@@ -1514,7 +1568,13 @@
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-salesforce",
       "leadkaun-vs-zoho-crm"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import your leads and each rep opens one ranked queue rather than a filterable table — the decision about who to call next is already made.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "lead-routing-software",
@@ -1615,7 +1675,13 @@
       "leadkaun-vs-zoho-crm",
       "leadkaun-vs-leadsquared",
       "leadkaun-vs-salesforce"
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Leadkaun does not do rules-based routing; your CRM keeps that. Import your leads and Leadkaun grades and ranks them once they have an owner.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   },
   {
     "slug": "lead-qualification-software",
@@ -1803,6 +1869,12 @@
         "href": "/features/score-evolution",
         "label": "Score Evolution — why a grade changed"
       }
-    ]
+    ],
+    "pricingBlock": {
+      "startingPrice": "Free ₹0, then Starter ₹2,999, Growth ₹7,999, Scale ₹19,999 per month — flat per account, not per rep.",
+      "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
+      "onSignup": "Import a lead file and Intake Intelligence profiles it before anything lands — duplicates, malformed numbers, missing fields. Then every lead is scored on Fit, Intent and Quality separately.",
+      "setup": "Same day — no implementation project and no dedicated admin."
+    }
   }
 ]

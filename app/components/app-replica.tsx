@@ -260,6 +260,13 @@ function LeadPanel({ leadId, onClose, onOpenRecord }: { leadId: string; onClose:
   )
 }
 
+// The replica always lays out at a real desktop width and is scaled to fit. The
+// shell's own breakpoints below are container queries against this width, not
+// the viewport, so a phone gets the full product — sidebar, six stat cards, every
+// table column — just smaller.
+const BASE_W = 1440
+const DESIGN_H = 980
+
 // ── Shell ─────────────────────────────────────────────────────────────────────
 
 export function AppReplica({ initialView = "queue", initialLeadId }: { initialView?: View; initialLeadId?: string } = {}) {
@@ -281,16 +288,6 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
   const boxRef = useRef<HTMLDivElement>(null)
   const appRef = useRef<HTMLDivElement>(null)
   const [fit, setFit] = useState({ scale: 1, height: 640, offset: 0 })
-  // Whether the app lays itself out at phone width. This has to be state, not a
-  // render-time `window.innerWidth` read. The server has no window, so SSR emits
-  // the desktop width — and React does not patch a style mismatch during
-  // hydration. Every later client render then agreed with itself, so nothing
-  // ever rewrote the attribute: the DOM kept width:1440px on phones while
-  // `fit.scale` was computed against the 430px base. 1440 x 0.79 put ~1140px of
-  // app inside a ~340px frame and clipped the remaining ~800px, which is why the
-  // table lost its Signal, grade and score columns on a phone. Starting `false`
-  // keeps the first client render byte-identical to the server's.
-  const [narrow, setNarrow] = useState(false)
 
   useEffect(() => {
     const box = boxRef.current
@@ -300,17 +297,15 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
     const measure = () => {
       const availW = box.clientWidth
       if (!availW) return
-      // Below md the app lays itself out narrow rather than being shrunk.
-      const isNarrow = window.innerWidth < 768
-      const baseW = isNarrow ? 430 : 1440
+      // One layer, always the real desktop width, shrunk to whatever room the
+      // frame has. Phones used to get a 430px layer instead, which meant the
+      // demo showed the product's *phone* chrome — a hamburger and a pill row —
+      // rather than the product people are being sold. Small and complete beats
+      // legible and unrepresentative here.
+      const scale = Math.min(availW / BASE_W, 1)
       // Width-derived only. A height-derived scale changed between screens,
       // which read as the app zooming when you moved off the queue.
-      const scale = Math.min(availW / baseW, 1)
-      const designH = isNarrow ? 900 : 980
-      // Both of these must move together — the scale is meaningless unless the
-      // layer it is applied to is actually `baseW` wide.
-      setNarrow(isNarrow)
-      setFit({ scale, height: Math.round(designH * scale), offset: 0 })
+      setFit({ scale, height: Math.round(DESIGN_H * scale), offset: 0 })
     }
 
     const ro = new ResizeObserver(measure)
@@ -324,7 +319,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
     }
   }, [])
 
-  const baseWidth = narrow ? 430 : 1440
+
 
   const openLead = useCallback((id: string) => setOpenId(id), [])
   const ctxValue = useMemo(() => ({ state, dispatch, openLead }), [state, openLead])
@@ -359,15 +354,15 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
         >
           <div
             ref={appRef}
-            className="absolute left-0 top-0 flex items-stretch gap-3 overflow-hidden p-3"
+            className="@container absolute left-0 top-0 flex items-stretch gap-3 overflow-hidden p-3"
             style={{
-              width: baseWidth,
-              height: narrow ? 900 : 980,
+              width: BASE_W,
+              height: DESIGN_H,
               transform: `scale(${fit.scale})`,
               transformOrigin: "top left",
             }}
           >
-          <aside className="hidden w-[224px] shrink-0 flex-col self-stretch overflow-hidden rounded-2xl border border-slate-200/70 bg-white md:flex">
+          <aside className="hidden w-[224px] shrink-0 flex-col self-stretch overflow-hidden rounded-2xl border border-slate-200/70 bg-white @3xl:flex">
             <div className="flex h-14 shrink-0 items-center gap-2.5 border-b border-slate-100 px-4">
               <LeadkaunMark size={26} gloss />
               <span className="text-[16px] font-semibold leading-none tracking-[-0.025em] text-slate-900">Leadkaun</span>
@@ -461,7 +456,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
 
           <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
             {/* Mobile top bar, as in the product */}
-            <div className="mb-3 flex h-12 items-center justify-between rounded-xl border border-slate-200/70 bg-white px-3 md:hidden">
+            <div className="mb-3 flex h-12 items-center justify-between rounded-xl border border-slate-200/70 bg-white px-3 @3xl:hidden">
               <Menu className="h-5 w-5 text-slate-700" strokeWidth={2.25} />
               <span className="flex items-center gap-2">
                 <LeadkaunMark size={20} gloss />
@@ -478,7 +473,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
             </div>
 
             {/* The sidebar is hidden on small screens, so views need another way across */}
-            <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1 md:hidden">
+            <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1 @3xl:hidden">
               {NAV_GROUPS.flatMap((g) => g.items).map((item) => (
                 <button
                   key={item.view}
@@ -497,7 +492,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
             {/* @container: the demo pane is much narrower than a real browser
                 window, so table columns must hide on the pane's width rather
                 than the viewport's, or the last column is cut off. */}
-            <div className="@container min-h-0 flex-1 overflow-y-auto rounded-2xl bg-white p-5 md:p-6">
+            <div className="@container min-h-0 flex-1 overflow-y-auto rounded-2xl bg-white p-5 @3xl:p-6">
               {view === "queue" && <QueueView onImport={() => go("import")} />}
               {view === "leads" && <LeadsView onImport={() => go("import")} />}
               {view === "follow-ups" && <FollowUpsView />}

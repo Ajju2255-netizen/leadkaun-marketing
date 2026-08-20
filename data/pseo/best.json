@@ -962,7 +962,7 @@
       "question": "What is the best sales CRM for a small business in India?",
       "answer": "For a small Indian B2B team, flat-priced tools avoid per-seat cost creep. Leadkaun offers a Free tier plus flat INR pricing with automatic A–F lead grading and a Priority Queue; Zoho Bigin is the cheapest simple pipeline; Freshsales adds built-in phone; TeleCRM suits calling-heavy teams."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Free tier or low flat cost does it grow expensive as you add reps?",
       "Rep adoption, simple enough that a busy small-team rep uses it daily",
@@ -1047,7 +1047,104 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import a CSV or connect a Google Sheet. Every lead is graded the same day, and the flat per-account price means adding your next rep does not change the bill.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What a small business actually needs from a sales CRM",
+      "body": [
+        "Most CRM feature lists are written for companies with someone whose job is the CRM. A ten-person business has no such person. Whoever configures it also sells, does collections, and answers the phone — so every hour of setup comes directly out of selling time, and any feature that needs maintaining will stop being maintained.",
+        "This inverts the usual evaluation. The question is not what the system can be configured to do, but what it does correctly on day one with nothing set up. A workflow builder nobody has time to use is not a feature; it is a reason the tool gets abandoned in month three.",
+        "The other thing small teams get wrong is buying for the company they plan to become. Per-seat pricing looks cheap at three users and becomes a real line item at twelve, which arrives sooner than expected and penalises exactly the growth you were buying the tool to support."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Start free, on your own leads",
+        "body": "Free is one user and a hundred active leads with no expiry and no card, which is enough to run a real pipeline rather than a demo — and enough to find out whether the grading matches your own judgement.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Everything is graded without configuration",
+        "body": "Fit, Intent and Quality are scored on arrival and produce an A–F grade. Setting your ICP sharpens Fit; leaving it blank does not stop anything working.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "One list, not a dashboard to interpret",
+        "body": "The Priority Queue answers who to call next. For a team without an analyst, that is the difference between a tool that gets opened daily and one that becomes a filing cabinet.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "The follow-up gets scheduled for you",
+        "body": "Every logged call or WhatsApp exchange sets the next action, which is what small teams lose most deals to — not rejection, but a follow-up nobody remembered.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "See the pipeline without building a report",
+        "body": "The board shows each stage and the value in it, so a weekly review takes minutes and does not need somebody to assemble it first.",
+        "shot": "/screenshots/pipeline.png",
+        "shotAlt": "Pipeline board showing each stage and the value sitting in it"
+      }
+    ],
+    "keyTakeaways": [
+      "Judge it on what works with nothing configured — nobody at a ten-person company owns the CRM.",
+      "The failure mode is abandonment, not inaccuracy: a tool that stops being updated has already failed.",
+      "Per-seat pricing charges you for growing, which is the thing you bought the tool to help with.",
+      "Zoho CRM and Kylas are the strongest value options in India; Zoho Bigin is the lighter starting point.",
+      "Leadkaun's free tier is a real working pipeline, and it runs alongside whatever you adopt next."
+    ],
+    "indiaSection": {
+      "heading": "What changes for an Indian small business",
+      "intro": "The constraints that decide this choice in India are not the ones global comparison tables weight.",
+      "points": [
+        {
+          "title": "The pipeline arrives from marketplaces",
+          "body": "IndiaMART, JustDial and referrals come before organic demand does, and carry a wide quality spread. Grading before calling matters more here than in a self-selected inbound motion."
+        },
+        {
+          "title": "WhatsApp is the channel that matters",
+          "body": "Email sequences and open rates are close to irrelevant. What counts is being able to record what was said on WhatsApp and have it move the lead's score."
+        },
+        {
+          "title": "Rupee pricing removes a currency bet",
+          "body": "A per-seat USD subscription is an FX exposure as well as a cost. Flat pricing per account in rupees keeps the bill predictable."
+        },
+        {
+          "title": "The owner is the first user and the last",
+          "body": "Adoption is not a rollout question. It is whether one busy person keeps opening it on a bad week."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-management",
+        "label": "Lead management: the complete guide"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      },
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/morning-brief",
+        "label": "The Morning Brief"
+      }
+    ]
   },
   {
     "slug": "telecalling-crm-india",
@@ -1651,7 +1748,7 @@
       "question": "What is the best sales automation software?",
       "answer": "For automating the sales-behaviour layer, grading each lead the moment it lands, building the queue, and firing ₹-at-risk alerts, Leadkaun is purpose-built, at flat INR pricing. HubSpot and Zoho are stronger for marketing-automation sequences across large databases, and Freshsales bundles automation into a simple CRM."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "What it automates sales decisions (grade, queue, alerts) vs marketing email",
       "Transparency can reps see why the system did what it did?",
@@ -1744,7 +1841,105 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import a CSV or connect a Google Sheet, and grading, ranking, follow-up scheduling and the ₹-at-risk alert all run without anyone configuring a workflow.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "Two things get sold as sales automation",
+      "body": [
+        "The first is outreach automation: sequences, bulk email, cadences, chatbots. It automates contacting people. It is measured in volume sent, and it is genuinely useful when the problem is reach.",
+        "The second is decision automation: the system works out who deserves attention, in what order, and what should happen next, then puts that in front of a rep. It automates judgement rather than sending, and it is measured in whether the right lead got called.",
+        "Teams usually buy the first when they need the second. If your reps already have more leads than they can work, adding outreach volume makes the real problem worse — more enquiries arriving into the same unordered list. The useful question before comparing anything is which of those two you actually have.",
+        "One honest caveat for this category: automation that acts on your behalf, sending messages without a person, is where most trust is lost. The most valuable automation in an Indian B2B pipeline is usually the kind that decides and schedules, while a human still does the talking."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Grading runs on arrival, with nothing to configure",
+        "body": "Every lead is scored on Fit, Intent and Quality and carries an A–F grade the moment it lands. No workflow to build, no rules engine to maintain.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Ranking replaces the daily triage meeting",
+        "body": "The Priority Queue produces one ordered list per rep. That is the decision most teams make manually every morning, automated.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Follow-up scheduling happens off the logged outcome",
+        "body": "Recording a call or WhatsApp exchange sets the next action automatically, so the follow-up exists without anyone remembering to create a task.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "Decay and recovery run in the background",
+        "body": "Leads that were warm and went quiet are surfaced with the rupee value attached, rather than depending on someone noticing.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      },
+      {
+        "step": "The morning summary assembles itself",
+        "body": "The 8:30 brief arrives already written — what needs a response, what is at risk — instead of a manager building it.",
+        "shot": "/screenshots/dashboard.png",
+        "shotAlt": "Dashboard with pipeline value and what needs a response today"
+      }
+    ],
+    "keyTakeaways": [
+      "Decide first whether you need outreach automation or decision automation; most teams buy the former and needed the latter.",
+      "If reps already have more leads than they can work, adding send volume makes the problem worse.",
+      "Automation that acts on your behalf is where trust is lost — the durable kind decides and schedules while a person still talks.",
+      "Rules engines and workflow builders are only an advantage if somebody has time to maintain them.",
+      "Leadkaun automates grading, ranking, scheduling and recovery, and runs alongside your CRM."
+    ],
+    "indiaSection": {
+      "heading": "Why automation lands differently in Indian B2B",
+      "intro": "The channel mix changes which kinds of automation are worth buying.",
+      "points": [
+        {
+          "title": "Automated messaging carries real risk",
+          "body": "WhatsApp is the main channel and it is unforgiving of anything that reads as bulk. Leadkaun deliberately does not send on your behalf — you open the chat and talk; it records and scores the outcome."
+        },
+        {
+          "title": "The bottleneck is attention, not reach",
+          "body": "Marketplace sources already supply more enquiries than most teams can work. Automating the decision beats automating the send."
+        },
+        {
+          "title": "Data quality breaks naive automation",
+          "body": "Rules acting on duplicated or malformed records produce confident nonsense. Profiling the file before import is what makes anything downstream trustworthy."
+        },
+        {
+          "title": "Nobody is maintaining the workflow",
+          "body": "At Indian SMB scale there is no ops person tending automations. What survives is what works without being tended."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/sales-execution-measurement",
+        "label": "Measuring sales execution"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      },
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      },
+      {
+        "href": "/features/morning-brief",
+        "label": "The Morning Brief"
+      }
+    ]
   },
   {
     "slug": "crm-for-manufacturing-india",
@@ -2245,7 +2440,98 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Leadkaun does not do rules-based routing; your CRM keeps that. Import your leads and Leadkaun grades and ranks them once they have an owner.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What lead routing is, and why we are not on this list",
+      "body": [
+        "Lead routing assigns an incoming lead to the right owner automatically — by territory, round-robin, product line, language, deal size or availability. It is a real category with real tools, and every product ranked above does it.",
+        "Leadkaun does not. We do not do rules-based routing, there is no assignment engine, and we have deliberately not ranked ourselves in a guide about a capability we lack. Routing belongs in your CRM, and if that is the problem you are solving, one of the products above is the answer.",
+        "We publish this guide because the question comes up in nearly every evaluation, usually attached to a second one: once a lead has an owner, how does that person know which of their forty leads to work first? Routing answers who owns it. It does not answer what happens next, and those are commonly confused because both are described as 'lead distribution'."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Your CRM routes the lead",
+        "body": "Whatever rules you already run — territory, round-robin, product line — keep running. Leadkaun does not touch assignment and does not try to.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Leadkaun grades what arrives in each rep's name",
+        "body": "Once a lead has an owner, it is scored on Fit, Intent and Quality and carries an A–F grade. Routing decided whose problem it is; grading decides how much of a problem it is.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Each owner gets one ranked list",
+        "body": "The Priority Queue orders that rep's own leads. A perfectly routed lead sitting fourteenth in an unordered list is not meaningfully different from a misrouted one.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Leads that go quiet come back",
+        "body": "The Missed Opportunity Engine returns cooling leads to the owner with the rupee value attached, which is the failure that routing rules cannot catch.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Routing answers who owns a lead. It does not answer what that person should do next — the two get conflated constantly.",
+      "If your problem is unassigned or misassigned leads, buy from the ranking above; Leadkaun does not do rules-based routing.",
+      "If your problem is that assigned leads sit unworked, routing rules will not fix it and a ranked queue will.",
+      "Most teams describing a 'routing problem' on inspection have a prioritisation problem downstream of routing that works fine.",
+      "Leadkaun runs after assignment, alongside whichever CRM does the routing."
+    ],
+    "indiaSection": {
+      "heading": "How this plays out in Indian sales teams",
+      "intro": "Routing is a smaller problem in most Indian SMB pipelines than the category's prominence suggests.",
+      "points": [
+        {
+          "title": "Teams are small enough that routing is manual and fine",
+          "body": "Below roughly fifteen reps, assignment is usually a person or a simple rule, and it is rarely where deals are lost."
+        },
+        {
+          "title": "The real leak is after assignment",
+          "body": "Leads are assigned promptly and then sit. That is a prioritisation and follow-up failure, and no routing rule reaches it."
+        },
+        {
+          "title": "Marketplace volume hides the symptom",
+          "body": "When a rep is handed sixty enquiries of uneven quality, they will work the recognisable ones. Routing has done its job; the ordering has not."
+        },
+        {
+          "title": "Speed beats precision of assignment",
+          "body": "On shared-lead sources, whether the right person calls matters less than whether anyone calls within the hour."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-routing",
+        "label": "Lead routing, explained"
+      },
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/sales-execution-measurement",
+        "label": "Measuring sales execution"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      }
+    ]
   },
   {
     "slug": "lead-qualification-software",

@@ -1426,16 +1426,22 @@ export function NotificationsView() {
                 )}>
                   <Icon className="h-3.5 w-3.5" strokeWidth={2.5} />
                 </span>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[13.5px] font-semibold text-slate-900">{n.title}</p>
-                  <p className="mt-0.5 text-[12.5px] text-slate-500">{n.body}</p>
+                {/* The two actions are ~290px of unshrinkable buttons. Beside the
+                    text in a ~406px pane they left it about 60px, so every title
+                    wrapped one word per line. Below @xl they stack under the text
+                    instead; the desktop pane is far wider and still gets a row. */}
+                <div className="flex min-w-0 flex-1 flex-col gap-2 @xl:flex-row @xl:items-start @xl:gap-3">
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[13.5px] font-semibold text-slate-900">{n.title}</p>
+                    <p className="mt-0.5 text-[12.5px] text-slate-500">{n.body}</p>
+                  </div>
+                  {!n.read && (
+                    <span className="flex shrink-0 gap-1.5">
+                      <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Already handled</Btn>
+                      <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Not relevant</Btn>
+                    </span>
+                  )}
                 </div>
-                {!n.read && (
-                  <span className="flex shrink-0 gap-1.5">
-                    <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Already handled</Btn>
-                    <Btn size="sm" onClick={() => dispatch({ type: "MARK_READ", id: n.id })}>Not relevant</Btn>
-                  </span>
-                )}
               </div>
             )
           })}
@@ -1630,8 +1636,11 @@ export function ActivityView() {
         }
       />
 
-      {/* The product splits this screen across four tabs. */}
-      <div className="mt-4 inline-flex items-center gap-1 rounded-xl bg-slate-100/70 p-1">
+      {/* The product splits this screen across four tabs. `max-w-full` +
+          `overflow-x-auto` keep the strip inside the demo pane: at phone width
+          the four tabs measure ~465px against a ~406px pane, and without this
+          the last one was cut off by the pane's rounded edge. */}
+      <div className="mt-4 inline-flex max-w-full items-center gap-1 overflow-x-auto rounded-xl bg-slate-100/70 p-1">
         {ACTIVITY_TABS.map((t) => {
           const Icon = TAB_ICON[t]
           return (
@@ -1640,7 +1649,7 @@ export function ActivityView() {
               type="button"
               onClick={() => setTab(t)}
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-[13px] font-medium transition-colors",
+                "inline-flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-1.5 text-[13px] font-medium transition-colors",
                 tab === t ? "bg-white text-sky-700 shadow-sm" : "text-slate-500 hover:text-slate-700"
               )}
             >

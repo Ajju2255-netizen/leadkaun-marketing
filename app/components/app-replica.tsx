@@ -281,6 +281,16 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
   const boxRef = useRef<HTMLDivElement>(null)
   const appRef = useRef<HTMLDivElement>(null)
   const [fit, setFit] = useState({ scale: 1, height: 640, offset: 0 })
+  // Whether the app lays itself out at phone width. This has to be state, not a
+  // render-time `window.innerWidth` read. The server has no window, so SSR emits
+  // the desktop width — and React does not patch a style mismatch during
+  // hydration. Every later client render then agreed with itself, so nothing
+  // ever rewrote the attribute: the DOM kept width:1440px on phones while
+  // `fit.scale` was computed against the 430px base. 1440 x 0.79 put ~1140px of
+  // app inside a ~340px frame and clipped the remaining ~800px, which is why the
+  // table lost its Signal, grade and score columns on a phone. Starting `false`
+  // keeps the first client render byte-identical to the server's.
+  const [narrow, setNarrow] = useState(false)
 
   useEffect(() => {
     const box = boxRef.current
@@ -291,11 +301,15 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
       const availW = box.clientWidth
       if (!availW) return
       // Below md the app lays itself out narrow rather than being shrunk.
-      const baseW = window.innerWidth < 768 ? 430 : 1440
+      const isNarrow = window.innerWidth < 768
+      const baseW = isNarrow ? 430 : 1440
       // Width-derived only. A height-derived scale changed between screens,
       // which read as the app zooming when you moved off the queue.
       const scale = Math.min(availW / baseW, 1)
-      const designH = window.innerWidth < 768 ? 900 : 980
+      const designH = isNarrow ? 900 : 980
+      // Both of these must move together — the scale is meaningless unless the
+      // layer it is applied to is actually `baseW` wide.
+      setNarrow(isNarrow)
       setFit({ scale, height: Math.round(designH * scale), offset: 0 })
     }
 
@@ -310,7 +324,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
     }
   }, [])
 
-  const baseWidth = typeof window !== "undefined" && window.innerWidth < 768 ? 430 : 1440
+  const baseWidth = narrow ? 430 : 1440
 
   const openLead = useCallback((id: string) => setOpenId(id), [])
   const ctxValue = useMemo(() => ({ state, dispatch, openLead }), [state, openLead])
@@ -348,7 +362,7 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
             className="absolute left-0 top-0 flex items-stretch gap-3 overflow-hidden p-3"
             style={{
               width: baseWidth,
-              height: typeof window !== "undefined" && window.innerWidth < 768 ? 900 : 980,
+              height: narrow ? 900 : 980,
               transform: `scale(${fit.scale})`,
               transformOrigin: "top left",
             }}

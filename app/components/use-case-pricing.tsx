@@ -14,8 +14,8 @@ import { APP_URLS } from "@/lib/urls"
 
 const PLANS: { name: string; price: string; unit: string; meta: string; note: string; popular?: boolean }[] = [
   { name: "Free", price: "₹0", unit: "forever", meta: "1 user · 100 active leads", note: "Watch it grade your own leads. No card." },
-  { name: "Starter", price: "₹2,999", unit: "/month", meta: "Up to 10 users · 5,000 leads", note: "The full working system, uncapped." },
-  { name: "Growth", price: "₹7,999", unit: "/month", meta: "Up to 30 users · 25,000 leads", note: "Adds Missed Opportunity Engine, rep tracking and AI Learning.", popular: true },
+  { name: "Starter", price: "₹2,999", unit: "/month", meta: "Up to 10 users · 5,000 leads", note: "Adds the Missed Opportunity Engine — the ₹ going cold, priced." },
+  { name: "Growth", price: "₹7,999", unit: "/month", meta: "Up to 30 users · 25,000 leads", note: "Adds rep tracking, AI Learning and advanced analytics.", popular: true },
   { name: "Scale", price: "₹19,999", unit: "/month", meta: "Up to 75 users · unlimited leads", note: "Everything, at full team size." },
 ]
 

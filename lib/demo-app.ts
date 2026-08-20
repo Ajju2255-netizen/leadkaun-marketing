@@ -153,6 +153,21 @@ export const SEED_LEADS: DemoLead[] = [
   lead("l10", "Kavita Menon",  "Trivandrum Homes",    1_700_000, 71, 62, 68, "Proposal Sent",  "Website form", "Site visit booked, no follow-up", 34560, "overdue", 24, "Aditya Rane"),
   lead("l11", "Sameer Joshi",  "Indore Plastics",     1_100_000, 62, 46, 58, "Qualified", "Google Ads",   "Asked for a revised quote",     27360, "overdue", 19, "Karan Bedi"),
   lead("l12", "Farah Sheikh",  "Hyderabad Tutors",      800_000, 59, 42, 54, "Contacted", "Facebook Ads", "Two replies, then silence",     23040, "overdue", 16, "Divya Pillai"),
+  // Raised 12 → 24 so the pre-signup demo matches the 24-lead Sample workspace
+  // a real account gets at signup, and the CTA "Explore 24 example leads" is
+  // true on both sides of the form. Same invented people, same conventions.
+  lead("l13", "Deepak Verma",  "Jaipur Granites",     1_900_000, 74, 70, 72, "Qualified",    "IndiaMART",    "Asked about bulk pricing",         6,     "today",   0, "Meera Shah"),
+  lead("l14", "Ritu Bansal",   "Ludhiana Knitwear",     540_000, 55, 61, 58, "Contacted",    "IndiaMART",    "Replied within the hour",          18,    "today",   0, "Karan Bedi"),
+  lead("l15", "Suresh Pillai", "Coimbatore Pumps",    3_100_000, 81, 58, 79, "Proposal Sent","Referral",     "Comparing two vendors",            96,    null,      3, "Aditya Rane"),
+  lead("l16", "Ananya Ghosh",  "Kolkata Diagnostics",   410_000, 49, 39, 51, "New Inquiry",  "JustDial",     "Enquiry, no reply yet",            720,   null,      4, "Divya Pillai"),
+  lead("l17", "Manish Gupta",  "Noida Fitouts",         960_000, 63, 24, 60, "Contacted",    "Website form", "Went cold after the quote",        18720, "overdue", 13, "Karan Bedi"),
+  lead("l18", "Lakshmi Rao",   "Vizag Seafoods",      1_350_000, 69, 65, 70, "Qualified",    "Trade fair",   "Wants a sample shipment",          52,    "today",   1, "Meera Shah"),
+  lead("l19", "Tarun Malhotra","Chandigarh Autos",      280_000, 41, 20, 44, "New Inquiry",  "Bulk import",  "Duplicate of an earlier enquiry",   9360,  null,      7, "Divya Pillai"),
+  lead("l20", "Fatima Ansari", "Bhopal Textiles",       720_000, 57, 48, 56, "Contacted",    "Facebook Ads", "Asked for a callback Monday",      140,   null,      2, "Aditya Rane"),
+  lead("l21", "Gaurav Sethi",  "Surat Diamonds",      5_600_000, 88, 79, 84, "Proposal Sent","Referral",     "Negotiating payment terms",        30,    "today",   0, "Meera Shah"),
+  lead("l22", "Pooja Reddy",   "Hyderabad Realty",    2_400_000, 77, 33, 73, "Qualified",    "Listings",     "Site visit missed, no reschedule", 25920, "overdue", 18, "Aditya Rane"),
+  lead("l23", "Nikhil Bose",   "Guwahati Traders",      190_000, 33, 15, 29, "New Inquiry",  "Bulk import",  "Landline only, never answered",     11520, null,      8, "Karan Bedi"),
+  lead("l24", "Shruti Deshmukh","Aurangabad Foods",     880_000, 60, 55, 62, "Contacted",    "IndiaMART",    "Comparing us with a local vendor",  200,   null,      3, "Divya Pillai"),
 ]
 
 export const SEED_ACTIVITY: ActivityEntry[] = [

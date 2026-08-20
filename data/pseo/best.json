@@ -580,7 +580,7 @@
       "question": "What is the best lead scoring software?",
       "answer": "For transparent, real-time scoring, Leadkaun grades every lead A–F across three auditable scores, Fit, Intent, and Quality, in real time, with intent that decays as leads go silent. HubSpot and Salesforce (Einstein) offer predictive AI scoring for larger, marketing-led teams, but their models are less transparent and priced in USD."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Transparency can you see and audit the weights, or is it a black box?",
       "Real-time does the score update the instant a signal arrives?",
@@ -665,7 +665,98 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Set your ICP (industries, states, budget bands), import a CSV, and every lead carries an A–F grade built from three independent 0–10 scores you can inspect.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What lead scoring software does, and what makes it trustworthy",
+      "body": [
+        "Lead scoring software assigns a number or grade to every lead so a team can work the best ones first. The mechanics are not the hard part — almost every tool on this list can produce a score.",
+        "The hard part is whether anyone believes it. A score becomes shelf furniture the moment a rep disagrees with it and cannot find out why. That happens for two reasons: the model is a black box, or the weights are so configurable that the number means whatever the last person to edit the settings decided it should mean.",
+        "So the criteria worth weighting are inspectability and stability. Can a rep open a lead and see which inputs produced the grade? Does the score update as evidence arrives, or is it stamped once at intake and left to rot? And is fit scored separately from engagement — because a strong-fit company that has gone quiet and an enthusiastic bad fit are opposite problems that a single number renders identical."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Three scores, not one number",
+        "body": "Fit, Intent and Quality are scored 0–10 independently. Fit is who they are, Intent is what they have done, Quality is whether the record is even usable — and keeping them apart is what makes the grade diagnosable.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Published weights, not a black box",
+        "body": "The weighting and the grade thresholds are published rather than proprietary. A rep who disagrees with a grade can see exactly which input produced it, which is the difference between a score people act on and one they route around.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "The grade moves as evidence arrives",
+        "body": "Every reply, call outcome and logged WhatsApp exchange rescores the lead. Score Evolution shows what changed and when, so a grade is a current reading rather than an intake decision.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "Reps get the consequence, not the score",
+        "body": "The Priority Queue turns grades into one ranked list. Nobody has to agree on a threshold or interpret a number to know who to call first.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      }
+    ],
+    "keyTakeaways": [
+      "A score nobody can interrogate gets ignored — inspectability matters more than sophistication.",
+      "Score fit and engagement separately; collapsed into one number, opposite situations look the same.",
+      "Ask whether the score updates continuously or is stamped once at intake and left stale.",
+      "A model anyone on the team can re-weight sounds like a feature, and usually means the number stops meaning the same thing twice.",
+      "Leadkaun publishes its weights and thresholds, scores three dimensions separately, and runs alongside your CRM."
+    ],
+    "indiaSection": {
+      "heading": "Scoring against how Indian B2B actually behaves",
+      "intro": "Most scoring models were built around email engagement and form completeness. Neither is a reliable signal in an Indian B2B pipeline.",
+      "points": [
+        {
+          "title": "Email opens are close to worthless",
+          "body": "The conversation is on WhatsApp and the phone. A model weighting email engagement scores the channel nobody is using, and under-rates the buyers who are actually engaged."
+        },
+        {
+          "title": "Forms are half-empty by default",
+          "body": "Discovery happens on a call, so written fields stay blank. Scoring that rewards form completeness systematically under-qualifies a healthy pipeline."
+        },
+        {
+          "title": "Response speed is the portable signal",
+          "body": "How fast someone replies predicts outcomes consistently across real estate, EdTech and manufacturing — which is why it carries real weight in the Intent dimension."
+        },
+        {
+          "title": "Data quality is a scoring input, not a prerequisite",
+          "body": "Marketplace leads arrive with duplicates and malformed numbers. Treating record quality as its own score is more honest than pretending the fit number means something on an unusable record."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-scoring",
+        "label": "How lead scoring works (the A–F method)"
+      },
+      {
+        "href": "/learn/lead-qualification",
+        "label": "Lead qualification, explained"
+      },
+      {
+        "href": "/learn/lead-data-trust",
+        "label": "Can you trust your lead data?"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/score-evolution",
+        "label": "Score Evolution — why a grade changed"
+      },
+      {
+        "href": "/features/intake-intelligence",
+        "label": "Check a lead list before you import"
+      }
+    ]
   },
   {
     "slug": "crm-for-real-estate-india",
@@ -1170,7 +1261,7 @@
       "question": "What is the best CRM for an early-stage Indian startup?",
       "answer": "For a startup that wants leads prioritised automatically without per-seat cost creep, Leadkaun has a Free tier plus flat INR pricing, A–F grading and a Priority Queue. Zoho Bigin is the cheapest simple pipeline, HubSpot has a strong free marketing CRM, and Freshsales adds built-in calling."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Free tier or low flat cost that doesn't scale per seat",
       "Speed to value, useful in the first hour",
@@ -1263,7 +1354,98 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import a CSV or connect a Google Sheet and every lead is graded A–F immediately. Founder-led teams usually start on Free and stay there until the 100-active-lead cap bites.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What a startup actually needs from a CRM",
+      "body": [
+        "Most CRM buying guides written for startups are really guides for the company the startup hopes to become. They weight customisation, workflow builders, reporting suites and admin controls — all of which assume somebody whose job is to own the tool.",
+        "At founder-led and first-rep scale, nobody owns the tool. The person configuring it is the person selling, and every hour spent in settings is an hour not spent on the phone. That inverts the criteria: the question is not what a system can be made to do, but what it does correctly on the first day with nothing configured.",
+        "The second thing that changes is the failure mode. A large team's CRM fails by being inaccurate. A startup's CRM fails by being abandoned — the founder stops updating it, it drifts a fortnight out of date, and it becomes a place where leads go to be forgotten. A tool that a busy person keeps opening beats a more capable one they quietly stop using."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Start on the free tier, with your own leads",
+        "body": "Free is 1 user and 100 active leads with no expiry and no card. That is enough to run a real pipeline, not just a trial — and enough to find out whether grading matches your own judgement before you pay anything.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Every lead is graded without configuration",
+        "body": "Fit, Intent and Quality are scored 0–10 each and produce an A–F grade on arrival. You can set your ICP to sharpen Fit, but leaving it blank does not stop anything working.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "One ranked list, not a dashboard to interpret",
+        "body": "The Priority Queue is the whole interface for a founder between calls. It answers who to contact next; it does not ask you to build a view first.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Silence is caught for you",
+        "body": "The Missed Opportunity Engine surfaces leads that were warm and went quiet, with the rupee value attached — which is the failure mode of founder-led sales, where the follow-up loses to whatever is on fire that week.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Judge a startup CRM on what it does correctly with nothing configured, not on what it could be made to do.",
+      "The real risk is abandonment, not inaccuracy — a tool the founder stops opening has already failed.",
+      "Watch per-seat pricing: it charges you for growing the team, which is the one thing you are trying to do.",
+      "Zoho Bigin and Kylas are the strongest value options in India; HubSpot's free tier is generous but priced for a different company later.",
+      "Leadkaun's free tier is 1 user and 100 active leads with no expiry, and it runs alongside whatever you adopt next."
+    ],
+    "indiaSection": {
+      "heading": "What changes for an Indian startup",
+      "intro": "Indian early-stage B2B sells differently from the US playbook most CRM advice is written against.",
+      "points": [
+        {
+          "title": "The first channel is WhatsApp, not email",
+          "body": "Sequences and open-rate tooling matter far less than being able to record what was said on WhatsApp and have it count as a signal. Leadkaun logs an exchange in three taps; the conversation stays in your own WhatsApp."
+        },
+        {
+          "title": "Pricing in dollars compounds badly",
+          "body": "A per-seat USD tool is a currency bet as well as a subscription. Flat rupee pricing per account keeps the bill predictable as you hire."
+        },
+        {
+          "title": "Lead sources are marketplaces early",
+          "body": "IndiaMART, JustDial and referrals arrive before organic demand does, and they carry a high share of enquiries that were never going to buy. Grading before calling matters more here than in a purely inbound motion."
+        },
+        {
+          "title": "The founder is the first rep, and the last",
+          "body": "Adoption is not a rollout problem, it is whether one busy person keeps using it. That is a design constraint, not a training one."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-management",
+        "label": "Lead management: the complete guide"
+      },
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      }
+    ]
   },
   {
     "slug": "sales-automation-software",

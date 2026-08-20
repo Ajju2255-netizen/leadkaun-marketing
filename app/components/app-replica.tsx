@@ -342,10 +342,15 @@ export function AppReplica({ initialView = "queue", initialLeadId }: { initialVi
 
   return (
     <DemoCtx.Provider value={ctxValue}>
-      <div
-        className="app-demo overflow-hidden rounded-2xl bg-white"
-        style={{ border: "1px solid var(--paper-line-2)", boxShadow: "0 30px 60px -40px rgba(15,23,42,0.45)" }}
-      >
+      {/* Full-bleed below sm. The replica is scaled to whatever width the frame
+          has, so on a phone every pixel of gutter comes straight off the app:
+          edge-to-edge buys ~15% more scale. The 18 embeds sit in wrappers with
+          different padding (px-6 here, px-4 on the feature and use-case pages),
+          so this uses the viewport-width bleed rather than a negative margin
+          that would have to match each one. Every wrapper is `mx-auto`, which is
+          what makes left-1/2 + -translate-x-1/2 land on the viewport centre.
+          Border and shadow moved off `style` so the sm: variants can win. */}
+      <div className="app-demo relative left-1/2 w-screen -translate-x-1/2 overflow-hidden border border-x-0 border-[color:var(--paper-line-2)] bg-white shadow-[0_30px_60px_-40px_rgba(15,23,42,0.45)] sm:left-auto sm:w-full sm:translate-x-0 sm:rounded-2xl sm:border-x">
         {/* The app, scaled to the frame's width. */}
         <div
           ref={boxRef}

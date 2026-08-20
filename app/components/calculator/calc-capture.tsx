@@ -1,8 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, Check } from "lucide-react"
-import { APP_URLS } from "@/lib/urls"
+import { Check } from "lucide-react"
+import { SignupForm } from "@/app/components/signup-form"
 
 /**
  * Post-result capture for the calculators.
@@ -19,44 +18,24 @@ import { APP_URLS } from "@/lib/urls"
  * result stays free; this sits underneath it and asks for the obvious next
  * step once the number has done the persuading.
  *
- * Same handoff contract as HeroSignupCard: capture the email as a lead, then
- * send them to the app's register page pre-filled. `/api/lead` failing must
- * never block that redirect — a lead we did not record is recoverable, a
- * signup we blocked is not.
+ * It used to take an email and send the visitor to the app's register page to
+ * fill a second, longer form. Someone who had just told us their team size,
+ * their lead volume and their deal value was then asked to start over. It
+ * renders the same SignupForm the hero does now, so the account is created
+ * here and the visitor lands inside the product signed in. Lead capture still
+ * happens on the way past, and `/api/lead` failing must never block the
+ * submit: a lead we did not record is recoverable, a signup we blocked is not.
  */
 export function CalcCapture({
   source,
   headline = "See this on your own leads",
-  sub = "Leadkaun grades your real leads A–F the same day and prices what is going cold. Free forever on 1 user and 100 active leads.",
+  sub = "Leadkaun grades your real leads A to F the same day and prices what is going cold. Free forever on 1 user and 100 active leads.",
 }: {
   /** Attribution tag, e.g. "calc-missed-revenue". Lands on the lead record. */
   source: string
   headline?: string
   sub?: string
 }) {
-  const [email, setEmail] = useState("")
-  const [busy, setBusy] = useState(false)
-
-  function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const clean = email.trim()
-    if (!clean) return
-    setBusy(true)
-
-    try {
-      fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: clean, source }),
-        keepalive: true,
-      }).catch(() => {})
-    } catch {
-      /* never block the redirect */
-    }
-
-    window.location.href = `${APP_URLS.register}?${new URLSearchParams({ email: clean })}`
-  }
-
   return (
     <div
       className="mt-10 rounded-2xl p-6 md:p-8"
@@ -80,28 +59,7 @@ export function CalcCapture({
           </div>
         </div>
 
-        <form onSubmit={submit} className="flex flex-col gap-2.5 sm:flex-row lg:flex-col">
-          <label className="sr-only" htmlFor={`calc-email-${source}`}>Work email</label>
-          <input
-            id={`calc-email-${source}`}
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Work email"
-            autoComplete="email"
-            className="h-11 w-full rounded-xl border border-white/70 bg-white/80 px-3.5 text-[14px] text-ink placeholder:text-ink-faint transition-all focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100"
-          />
-          <button
-            type="submit"
-            disabled={busy}
-            className="btn-gloss-primary inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl px-5 text-[14px] font-semibold disabled:opacity-60"
-            style={{ color: "#FFFFFF" }}
-          >
-            {busy ? "Creating…" : "Create free account"}
-            {!busy && <ArrowRight className="h-4 w-4" />}
-          </button>
-        </form>
+        <SignupForm source={source} />
       </div>
     </div>
   )

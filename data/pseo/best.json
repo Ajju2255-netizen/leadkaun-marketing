@@ -1253,7 +1253,7 @@
       "question": "What is the best CRM for EdTech admissions in India?",
       "answer": "For admissions teams whose bottleneck is calling the right parent before enquiries go cold, Leadkaun grades every enquiry, ranks a counsellor's queue, and treats WhatsApp as a first-class signal. LeadSquared suits very high-volume lead-gen, and Zoho or Kylas suit teams wanting a broader customisable CRM."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "WhatsApp handling for parent threads (native vs bolt-on)",
       "Does it rank which enquiry to call first, or just store them?",
@@ -1346,7 +1346,104 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import your enquiry list and every applicant is graded A–F, so counsellors call the students most likely to enrol rather than working down the list.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "Admissions is a deadline pipeline, not a sales pipeline",
+      "body": [
+        "An admissions team is doing something a generic CRM does not model: working a large number of enquiries against a fixed date. Everything compresses toward the intake, and a lead that was worth chasing in April is worth nothing in August — not because the student went cold, but because the cohort closed.",
+        "That changes what prioritisation means. In ordinary B2B, a lead that goes quiet decays gradually. In admissions, the whole board decays on the same calendar, and the cost of calling the wrong applicant is not a delayed deal — it is a seat that stays empty.",
+        "The second difference is who you are actually selling to. The enquiry comes from a student and the decision usually involves a parent, often on a different number, with different questions and a different objection. A system that records one contact per enquiry is modelling half the conversation."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Bring enquiries in from every source",
+        "body": "Import a CSV from your ad platforms, education portals and walk-in register, or connect a Google Sheet the counselling desk already keeps. The file is profiled for duplicates before anything lands.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Grade applicants on fit and engagement",
+        "body": "Course match, location and stated budget drive Fit; replies, callback attendance and response speed drive Intent. Two enquiries that look identical on the form rarely behave the same.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Give every counsellor one ranked list",
+        "body": "The Priority Queue decides who gets called before the counsellor opens the screen — which is what a hundred-enquiry morning during peak intake actually needs.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Keep the follow-up on a schedule",
+        "body": "Admissions is lost to drift more than to rejection. Each logged call or WhatsApp exchange schedules the next action, so a promising applicant is not remembered a week late.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "Surface the ones going quiet before the deadline",
+        "body": "The Missed Opportunity Engine flags applicants who were warm and stopped responding, with the fee value attached, while there is still time in the cycle to recover them.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Admissions decays on a calendar, not per lead — prioritisation is worth more here than in almost any other vertical.",
+      "The student enquires and the parent often decides; a system holding one contact per enquiry models half the conversation.",
+      "Most losses are drift, not rejection, so scheduled follow-up matters more than a longer feature list.",
+      "LeadSquared is built for high-volume admissions and priced accordingly; Zoho CRM is the value option if you already run Zoho.",
+      "Leadkaun grades and ranks enquiries and runs alongside whatever your institution already uses as the record."
+    ],
+    "indiaSection": {
+      "heading": "What Indian admissions looks like in practice",
+      "intro": "The counselling floor, not the marketing funnel, is where an Indian admissions cycle is won.",
+      "points": [
+        {
+          "title": "Enquiry volume is seasonal and brutal",
+          "body": "Peak intake produces bursts a counselling desk cannot work evenly. Whatever decides the order at nine in the morning decides the cycle."
+        },
+        {
+          "title": "WhatsApp is where the parent replies",
+          "body": "Brochures, fee structures and reassurance move over WhatsApp. Logging those exchanges is how you tell a genuinely interested family from a form-fill."
+        },
+        {
+          "title": "Speed is a real differentiator",
+          "body": "Students enquire with several institutions in a session. The one that calls the same day is frequently the one that gets the seat."
+        },
+        {
+          "title": "Per-seat pricing punishes peak staffing",
+          "body": "Counselling teams expand for the intake and contract after. Flat per-account pricing in rupees costs less across a year than the per-user sticker suggests."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      },
+      {
+        "href": "/learn/whatsapp-sales",
+        "label": "WhatsApp sales for Indian B2B"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      }
+    ]
   },
   {
     "slug": "crm-for-startups-india",
@@ -1659,7 +1756,7 @@
       "question": "What is the best CRM for manufacturing in India?",
       "answer": "For manufacturers whose problem is quotes going cold and follow-up slipping across a 90-day cycle, Leadkaun grades every enquiry, surfaces ₹ at risk on stale quotes, and logs WhatsApp and distributor conversations. Zoho and LeadSquared suit teams wanting broad customisation; Kylas suits unlimited-user pricing."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Handling of long, multi-stakeholder quote cycles",
       "Capture from IndiaMART / TradeIndia / distributor channels",
@@ -1752,7 +1849,104 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import your IndiaMART and TradeIndia enquiries as a CSV. The file is profiled for duplicates and junk numbers before it lands, then every enquiry is graded A–F.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What a manufacturing CRM has to handle that a generic one does not",
+      "body": [
+        "Manufacturing sales does not look like the SaaS pipeline most CRMs are designed around. The enquiry is technical, the buying group is several people who never all appear in one thread, the quote is a document rather than a plan tier, and the cycle runs in months with long silences that are not signals of anything.",
+        "That last part breaks most scoring. A model that decays intent after a fortnight will mark a genuine procurement enquiry cold while it sits in a tendering process exactly as it is supposed to. Meanwhile a price-shopper who replies quickly three times looks like the best lead on the board.",
+        "The other structural fact is where the enquiries come from. IndiaMART, TradeIndia and trade shows deliver volume with a wide quality spread, and the same buyer often enquires from a personal number, a company number and a colleague's phone. Before any of the CRM features matter, the list has to be deduplicated and the obvious non-buyers separated from the procurement managers."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Profile the enquiry file before it lands",
+        "body": "Intake Intelligence checks a marketplace export for duplicates, malformed numbers, missing product fields and likely B2B versus B2C — so the quality of the list is visible before your inside-sales desk works it.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Grade on fit, not just enthusiasm",
+        "body": "Product match, order size and geography drive Fit; replies and response speed drive Intent; record usability drives Quality. Keeping them separate is what stops a fast-replying price-shopper outranking a slow, serious buyer.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Work one ranked list per rep",
+        "body": "The Priority Queue orders the day for an inside-sales desk that would otherwise call in arrival order — which on a burst of forty enquiries is the same as calling at random.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "See where the value is actually sitting",
+        "body": "The pipeline board shows each stage and the value in it, which matters when a quote can sit legitimately for weeks and 'no activity' is not the same as 'dead'.",
+        "shot": "/screenshots/pipeline.png",
+        "shotAlt": "Pipeline board showing each stage and the value sitting in it"
+      },
+      {
+        "step": "Catch the ones that genuinely went quiet",
+        "body": "The Missed Opportunity Engine separates a lead that is waiting on a tender from one that stopped replying after the quote, and prices what is at risk.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      }
+    ],
+    "keyTakeaways": [
+      "Long cycles break naive intent decay — a serious enquiry sitting in a tender is not a cooling lead.",
+      "Marketplace enquiries arrive with duplicates and wrong-fit volume; deduplication is the first feature, not a nice-to-have.",
+      "Score fit separately from responsiveness, or price-shoppers who reply fast will outrank procurement managers who do not.",
+      "Zoho CRM wins on customisation depth if you have someone to own it; Kylas prices flat with unlimited users.",
+      "Leadkaun grades and ranks the enquiries and runs alongside your CRM or ERP rather than replacing the system of record."
+    ],
+    "indiaSection": {
+      "heading": "Indian manufacturing sells through channels the global lists ignore",
+      "intro": "The CRM comparisons written for manufacturing assume a Western industrial pipeline. The Indian one has different inputs.",
+      "points": [
+        {
+          "title": "IndiaMART and TradeIndia are the pipeline",
+          "body": "For most industrial suppliers these deliver the majority of enquiries, in bursts, with short forms and a high share of traders and price-shoppers. Working them in arrival order is the default failure."
+        },
+        {
+          "title": "The follow-up is a phone call and WhatsApp",
+          "body": "Specifications, drawings and revised quotes move over WhatsApp. A CRM that only holds email misses most of the evidence about who is serious."
+        },
+        {
+          "title": "One buyer, several numbers",
+          "body": "Enquiries arrive from a personal mobile, a company line and a colleague. Without normalisation and deduplication, one real buyer reads as three lukewarm ones and gets the attention of none."
+        },
+        {
+          "title": "Quotes are documents, not plan tiers",
+          "body": "The deal value is decided outside the CRM, so what the tool needs to get right is who to chase and when — not configuring a product catalogue."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-qualification",
+        "label": "Lead qualification, explained"
+      },
+      {
+        "href": "/learn/lead-data-trust",
+        "label": "Can you trust your lead data?"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/intake-intelligence",
+        "label": "Check a lead list before you import"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      },
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      }
+    ]
   },
   {
     "slug": "lead-prioritization-software",

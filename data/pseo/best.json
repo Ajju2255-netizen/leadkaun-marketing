@@ -1059,7 +1059,7 @@
       "question": "What is the best telecalling CRM in India?",
       "answer": "For high-volume dialing with WhatsApp follow-up, TeleCRM is purpose-built and affordable. For deciding which lead to call first, Leadkaun grades every lead A–F and auto-ranks each rep's queue, many calling teams run a dialer plus Leadkaun's behaviour layer together."
     },
-    "updated": "2026-07",
+    "updated": "2026-08",
     "criteria": [
       "Dialing speed, one-click/auto dialer, call recording, reminders",
       "Lead prioritisation does it rank who to call first?",
@@ -1144,7 +1144,104 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import your calling list and every number is normalised to Indian dialling format and deduplicated first. Reps then work a ranked queue instead of a spreadsheet.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "What a telecalling CRM has to get right",
+      "body": [
+        "A telecalling CRM exists to keep a calling floor busy and accountable. It holds the list, records dispositions, schedules callbacks and reports on who called whom. Every tool in this category does that much.",
+        "What separates them is what happens to the list before anyone dials. A calling team's throughput is fixed — a rep makes somewhere between sixty and a hundred and twenty dials a day, and no software changes that. The only variable you control is which numbers those dials are spent on. A CRM that hands a rep an unordered list has quietly decided that question at random.",
+        "The second thing that separates them is what the tool does with a number that was never going to work. Marketplace and bulk-purchased lists carry duplicates, landlines, wrong numbers and people who enquired about something else entirely. Spending a third of the day's dials proving that is the single largest cost on most Indian calling floors, and it is invisible in every dashboard that reports calls made rather than calls worth making."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Clean the list before it reaches the floor",
+        "body": "Intake Intelligence profiles the file on import — duplicate numbers, malformed and landline-shaped numbers, missing fields — so the junk is visible before a rep spends a dial discovering it.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Normalise every number to how India actually writes them",
+        "body": "+91, 0-prefixed, ten-digit, spaced, country code duplicated. Normalising is unglamorous and it is the difference between one contact and four half-worked ones.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Rank the list, do not just hold it",
+        "body": "Each rep opens one ordered queue rather than a filtered view. The decision about which sixty numbers get today's dials is made from fit and behaviour rather than by row order.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Log the outcome in three taps, including the silences",
+        "body": "Unanswered attempts matter as much as conversations on a calling floor. Three no-answers is evidence, and the score moves for it instead of leaving a dead lead looking live.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      },
+      {
+        "step": "Watch what the floor is actually producing",
+        "body": "The dashboard reports pipeline and what needs a response today rather than raw dial counts, so a busy day and a productive one stop looking identical.",
+        "shot": "/screenshots/dashboard.png",
+        "shotAlt": "Dashboard with pipeline value and what needs a response today"
+      }
+    ],
+    "keyTakeaways": [
+      "Dial capacity is fixed — the only lever is which numbers get the dials, so ranking matters more than any dialler feature.",
+      "Most of the waste on an Indian calling floor is spent proving a number was never going to work; clean the list before it reaches the team.",
+      "Insist on Indian phone normalisation and deduplication, or one buyer will look like three ambiguous ones.",
+      "Log unanswered attempts, otherwise dead leads keep occupying attention and the pipeline reads as healthier than it is.",
+      "Leadkaun grades and ranks the list and runs alongside your existing dialler or CRM rather than replacing it."
+    ],
+    "indiaSection": {
+      "heading": "Why Indian calling floors are a different problem",
+      "intro": "Telecalling is a far larger share of Indian B2B selling than the global CRM category assumes, and the constraints are specific.",
+      "points": [
+        {
+          "title": "The list is bought, not earned",
+          "body": "Marketplace and purchased lists arrive with a high share of enquiries that were never going to buy. Qualification is not a formality before dialling — it is most of the job."
+        },
+        {
+          "title": "The call moves to WhatsApp immediately",
+          "body": "A connected call usually continues on WhatsApp. If the CRM only records the call, it is missing the half of the conversation where the buyer said what they actually wanted."
+        },
+        {
+          "title": "Attrition is the operating condition",
+          "body": "Calling floors turn over. A tool that needs a week of training, or that only works when a rep maintains it carefully, degrades every time the bench changes."
+        },
+        {
+          "title": "Per-seat pricing fights the model",
+          "body": "The whole point of a calling floor is more seats. Flat per-account pricing in rupees means adding the next five callers does not change the licence conversation."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/sales-follow-up",
+        "label": "Follow-up that actually happens"
+      },
+      {
+        "href": "/learn/lead-data-trust",
+        "label": "Can you trust your lead data?"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/intake-intelligence",
+        "label": "Check a lead list before you import"
+      },
+      {
+        "href": "/features/sales-rep-tracking",
+        "label": "Sales rep tracking"
+      }
+    ]
   },
   {
     "slug": "crm-for-edtech-india",
@@ -1756,7 +1853,98 @@
       "freePlan": "Yes — a Free ₹0 tier (1 user, 100 active leads, no time limit) with no card required.",
       "onSignup": "Import your leads and each rep opens one ranked queue rather than a filterable table — the decision about who to call next is already made.",
       "setup": "Same day — no implementation project and no dedicated admin."
-    }
+    },
+    "whatItIs": {
+      "heading": "Prioritisation is a different job from scoring",
+      "body": [
+        "Scoring and prioritisation get sold as the same feature and they are not. Scoring produces a judgement about a lead. Prioritisation produces an instruction to a person — and the gap between those two is where most sales tooling quietly fails.",
+        "A team can have accurate scores on every lead and still work them in arrival order, because the scores live in a column that a rep has to sort, filter and interpret before they mean anything. Nobody does that at nine in the morning with forty new enquiries and yesterday's callbacks outstanding. They open the list and start at the top.",
+        "So the thing worth evaluating is not the sophistication of the model. It is whether the tool ends up producing one ordered list per person, whether that order accounts for leads that already exist and are going cold rather than only new arrivals, and whether it survives contact with a rep who disagrees with it."
+      ]
+    },
+    "howItWorks": [
+      {
+        "step": "Grade first, so there is something to rank on",
+        "body": "Fit, Intent and Quality are scored 0–10 independently on arrival, producing an A–F grade. Ranking without grading is just sorting by date.",
+        "shot": "/screenshots/leads.png",
+        "shotAlt": "Leadkaun lead list with every lead graded A–F"
+      },
+      {
+        "step": "Turn the grades into one list per rep",
+        "body": "The Priority Queue is a single ordered list, not a filterable table. The decision is already made when the rep opens it, which is the entire difference between a score and a priority.",
+        "shot": "/screenshots/queue.png",
+        "shotAlt": "A rep's Priority Queue, ranked highest-intent first"
+      },
+      {
+        "step": "Include the leads already going cold",
+        "body": "A queue built only from new arrivals sends the whole team chasing today's enquiries while last week's warm ones die. The Missed Opportunity Engine puts cooling leads back into contention with the rupee value attached.",
+        "shot": "/screenshots/missed.png",
+        "shotAlt": "Missed Opportunity Engine showing cooling leads and the ₹ attached"
+      },
+      {
+        "step": "Re-rank as evidence arrives",
+        "body": "Every reply, call outcome and logged WhatsApp exchange rescores the lead, so the order at 4pm reflects what happened at 11am rather than what was true on import.",
+        "shot": "/screenshots/follow-ups.png",
+        "shotAlt": "Follow-up list with the next action scheduled per lead"
+      }
+    ],
+    "keyTakeaways": [
+      "Scoring is a judgement; prioritisation is an instruction. A score in a sortable column is not a priority.",
+      "The test is whether a rep can open one list and start working without filtering, sorting or interpreting anything.",
+      "A queue built only from new leads guarantees the warm ones from last week go cold — cooling leads have to compete for the same attention.",
+      "Re-ranking has to be continuous, or the order is a snapshot of import day.",
+      "Leadkaun produces one ranked queue per rep from published weights and runs alongside your CRM."
+    ],
+    "indiaSection": {
+      "heading": "Why ordering matters more in an Indian pipeline",
+      "intro": "Prioritisation is worth more where lead volume is high, quality is uneven and speed decides outcomes — which describes most Indian B2B inbound.",
+      "points": [
+        {
+          "title": "Volume arrives in bursts",
+          "body": "Marketplace and portal enquiries land in clusters, not evenly. On a Tuesday with sixty new enquiries, the ordering decision is the whole day's productivity."
+        },
+        {
+          "title": "Shared leads make speed decisive",
+          "body": "On JustDial, Sulekha and property portals the same enquiry reaches several vendors. Being second to a good lead usually means losing it, so the ranking has to be right the first time."
+        },
+        {
+          "title": "The quality spread is wide",
+          "body": "A list where most enquiries were never going to buy rewards ranking far more than a clean, self-selected inbound list does."
+        },
+        {
+          "title": "Reps decide by memory otherwise",
+          "body": "Without an explicit order, the next call is whoever the rep remembers being promising — which systematically favours recent and talkative leads over good ones."
+        }
+      ]
+    },
+    "relatedLearn": [
+      {
+        "href": "/learn/lead-prioritization",
+        "label": "Lead prioritization, explained"
+      },
+      {
+        "href": "/learn/lead-scoring",
+        "label": "How lead scoring works (the A–F method)"
+      },
+      {
+        "href": "/learn/missed-revenue",
+        "label": "The revenue going cold"
+      }
+    ],
+    "relatedFeatures": [
+      {
+        "href": "/features/priority-queue",
+        "label": "The Priority Queue"
+      },
+      {
+        "href": "/features/missed-opportunity-engine",
+        "label": "Missed Opportunity Engine"
+      },
+      {
+        "href": "/features/lead-scoring",
+        "label": "Lead scoring — grade A–F in real time"
+      }
+    ]
   },
   {
     "slug": "lead-routing-software",
